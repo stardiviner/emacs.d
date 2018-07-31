@@ -75,16 +75,13 @@ column.  Place the point after the comment box."
                  (window-height . 0.3)
                  ))
   :config
-  (defun circadian:poporg-faces (theme)
-    "Reload customized faces on `circadian' `THEME' toggling."
-    (set-face-attribute 'poporg-edited-face nil
-                        :foreground "chocolate"
-                        :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                      ('light
-                                       (color-darken-name (face-background 'default) 10))
-                                      ('dark
-                                       (color-darken-name (face-background 'default) 5)))))
-  (add-hook 'circadian-after-load-theme-hook #'circadian:poporg-faces)
+  (set-face-attribute 'poporg-edited-face nil
+                      :foreground "chocolate"
+                      :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('light
+                                     (color-darken-name (face-background 'default) 10))
+                                    ('dark
+                                     (color-darken-name (face-background 'default) 5))))
   )
 
 

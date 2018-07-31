@@ -43,24 +43,20 @@
               ("M-b" . edebug-x-show-breakpoints)
               ("M-i" . edebug-x-show-instrumented))
   :config
-  (defun circadian:edebug-faces (theme)
-    "Set edebug-x faces based on `circadian' color `THEME' switching"
-    (set-face-attribute 'hi-edebug-x-stop nil
-                        :reverse-video nil :foreground nil :overline nil
-                        :background (cl-case (alist-get 'background-mode (frame-parameters))
-					                            ('light
-					                             (color-darken-name (face-background 'default) 10))
-					                            ('dark
-					                             (color-lighten-name (face-background 'default) 10))))
-    (set-face-attribute 'hi-edebug-x-debug-line nil
-                        :reverse-video nil :foreground nil :underline nil
-                        :background (cl-case (alist-get 'background-mode (frame-parameters))
-					                            ('light
-					                             (color-darken-name (face-background 'default) 10))
-					                            ('dark
-					                             (color-lighten-name (face-background 'default) 20)))))
-  (add-hook 'circadian-after-load-theme-hook #'circadian:edebug-faces)
-  (circadian:edebug-faces nil)
+  (set-face-attribute 'hi-edebug-x-stop nil
+                      :reverse-video nil :foreground nil :overline nil
+                      :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('light
+                                     (color-darken-name (face-background 'default) 10))
+                                    ('dark
+                                     (color-lighten-name (face-background 'default) 10))))
+  (set-face-attribute 'hi-edebug-x-debug-line nil
+                      :reverse-video nil :foreground nil :underline nil
+                      :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('light
+                                     (color-darken-name (face-background 'default) 10))
+                                    ('dark
+                                     (color-lighten-name (face-background 'default) 20))))
 
   (add-to-list 'display-buffer-alist
                '("^\\*Instrumented Functions\\*" (display-buffer-below-selected)))

@@ -101,19 +101,16 @@
 (use-package hl-sexp
   :ensure t
   :defer t
-  :init
   ;; don't enable `global-hl-sexp-mode' automatically.
-  (global-hl-sexp-mode -1)
-  (defun circadian:hl-sexp-faces (theme)
-    "Reload customized faces on `circadian' `THEME' toggling."
-    (set-face-attribute 'hl-sexp-face nil
-                        :reverse-video nil :foreground nil
-                        :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                      ('light
-                                       (color-darken-name (face-background 'default) 8))
-                                      ('dark
-                                       (color-darken-name (face-background 'default) 5)))))
-  (add-hook 'circadian-after-load-theme-hook #'circadian:hl-sexp-faces)
+  :init (global-hl-sexp-mode -1)
+  :config
+  (set-face-attribute 'hl-sexp-face nil
+                      :reverse-video nil :foreground nil
+                      :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('light
+                                     (color-darken-name (face-background 'default) 8))
+                                    ('dark
+                                     (color-darken-name (face-background 'default) 5))))
   )
 
 

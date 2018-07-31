@@ -662,33 +662,28 @@
   (add-hook 'mu4e-headers-found-hook 'mu4e-open-mail-sound 'append)
   (add-hook 'mu4e-index-updated-hook 'mu4e-open-mail-sound 'append)
 
-;;; Faces
-
+  ;; Faces
   ;; current select line
-  (defun circadian:mu4e-faces (theme)
-    "Reload customized faces on `circadian' `THEME' toggling."
-    (set-face-attribute 'mu4e-header-highlight-face nil
-                        :inherit nil
-                        :weight 'normal
-                        :foreground nil
-                        :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                      ('light
-                                       (color-darken-name (face-background 'default) 10))
-                                      ('dark
-                                       (color-darken-name (face-background 'default) 5)))
-                        ;; 1. Sci-Fi cyan
-                        ;; :background "#004A5D" :foreground "white"
-                        ;; :box '(:color "cyan" :line-width -1)
-                        ;; :weight 'normal :underline nil
-                        ;; 2.
-                        ;; :background "#004A5D" :foreground "white"
-                        ;; :box '(:color "#005D5E" :line-width -1)
-                        ;; :weight 'normal
-                        )
-    (set-face-attribute 'mu4e-flagged-face nil
-                        :foreground "red")
-    )
-  (add-hook 'circadian-after-load-theme-hook #'circadian:mu4e-faces)
+  (set-face-attribute 'mu4e-header-highlight-face nil
+                      :inherit nil
+                      :weight 'normal
+                      :foreground nil
+                      :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('light
+                                     (color-darken-name (face-background 'default) 10))
+                                    ('dark
+                                     (color-darken-name (face-background 'default) 5)))
+                      ;; 1. Sci-Fi cyan
+                      ;; :background "#004A5D" :foreground "white"
+                      ;; :box '(:color "cyan" :line-width -1)
+                      ;; :weight 'normal :underline nil
+                      ;; 2.
+                      ;; :background "#004A5D" :foreground "white"
+                      ;; :box '(:color "#005D5E" :line-width -1)
+                      ;; :weight 'normal
+                      )
+  (set-face-attribute 'mu4e-flagged-face nil
+                      :foreground "red")
 
 
 ;;; Marking
