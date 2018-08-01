@@ -144,6 +144,12 @@
     :defer t)
   )
 
+;;; [ sesman ] -- Session manager for Emacs based IDEs.
+
+(use-package sesman
+  :ensure t
+  :commands (sesman-start sesman-restart sesman-quit))
+
 
 (provide 'init-prog-eval)
 
