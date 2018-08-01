@@ -10,8 +10,18 @@
 ;;; Code:
 
 
-(setq make-backup-files t
-      backup-by-copying t
+;; .#foo.txt
+;; 不同进程修改同一个文件
+(setq create-lockfiles t)
+;; foo.txt~
+;; 备份最近一个版本
+(setq make-backup-files t)
+;; #foo.txt#
+;; 定期预存，否则停电、系统崩溃等会损失没保存数据
+(setq auto-save-default t)
+
+
+(setq backup-by-copying t
       backup-by-copying-when-mismatch t
       backup-by-copying-when-privileged-mismatch t
       backup-by-copying-when-linked t
@@ -31,12 +41,38 @@
 
 ;;; [ auto-save-mode ] -- toggle auto-saving in the current buffer.
 
+;;; From time to time, Emacs automatically saves each visited file in a separate file,
+;;; without altering the file you actually use. This is called “auto-saving”.
+
 (setq auto-save-default t               ; create #autosave# files
       auto-save-list-file-prefix "~/.emacs.d/.auto-save-list/saves-"
       auto-save-interval (* 60 10)
       ;; delete-auto-save-files nil ; don't delete auto-save file when a buffer is saved or killed.
       )
+;; (auto-save-mode 1)
+
+;;; [ auto-save-visited-mode ]
+
+;; Toggle automatic saving to file-visiting buffers on or off.
+;; With a prefix argument ARG, enable regular saving of all buffers visiting a file if ARG
+;; is positive, and disable it otherwise. Unlike `auto-save-mode', this mode will
+;; auto-save buffer contents to the visited files directly and will also run all
+;; save-related hooks. See Info node `Saving' for details of the save process.
+
 (auto-save-visited-mode t)
+
+;;; [ auto-save ]
+
+;;; https://www.emacswiki.org/emacs/auto-save.el
+;;; https://www.emacswiki.org/emacs/init-auto-save.el
+;;; ;; 禁用Emacs备份机制
+;;; (setq make-backup-files nil)
+;;; (setq auto-save-default nil)
+;;; ;; 启用 LazyCat 的自动备份插件
+;;; (require 'auto-save)
+;;; (auto-save-enable)
+;;; (setq auto-save-slient t)
+;;; (setq auto-save-delete-trailing-whitespace t)
 
 
 (provide 'init-emacs-backup)
