@@ -32,8 +32,12 @@
 ;; 'ascii, 'unicode, 'html
 (setq org-html-checkbox-type 'unicode)
 
+;;; [ ox-latex ]
 
-;;; ox-html
+(require 'org-latex-exp-conf)
+;; (define-key org-mode-map (kbd "C-c M-e") 'org-latex-exp-conf-mode)
+
+;;; [ ox-html ]
 (require 'ox-html)
 
 (setq org-html-doctype "html5"

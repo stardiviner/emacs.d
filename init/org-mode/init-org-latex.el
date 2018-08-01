@@ -54,10 +54,6 @@
 ;;   ;; (add-hook 'TeX-mode-hook #'webkit-katex-render-mode)
 ;;   )
 
-;;; [ Exporting ]
-(require 'org-latex-exp-conf)
-;; (define-key org-mode-map (kbd "C-c M-e") 'org-latex-exp-conf-mode)
-
 ;;; [ LaTeX -> HTML ]
 
 ;;; set LaTeX export to HTML style.
