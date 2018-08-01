@@ -203,14 +203,14 @@
   :ensure t
   :ensure all-the-icons
   :hook (company-mode . company-box-mode)
-  :init (require 'all-the-icons)
-  :config
+  :load (all-the-icons)
+  :init
   (setq company-idle-delay .3
         company-tooltip-idle-delay 0
         company-box-doc-delay 1.0)
   ;; disable auto `company-box-doc' timer.
   (setq company-box-doc-enable nil)
-
+  :config
   (add-to-list 'company-box-frame-parameters
                '(font . "-SRC-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
   (add-to-list 'company-box-frame-parameters
@@ -239,17 +239,6 @@
         (delete-frame (company-box-doc--get-frame)))
     (unless (frame-live-p (company-box-doc--get-frame))
       (set-frame-parameter nil 'company-box-doc-frame nil)))
-
-  ;; (set-face-attribute 'company-box-candidate nil
-  ;;                     :inherit nil
-  ;;                     :family (face-attribute 'default :family)
-  ;;                     :foreground (face-foreground 'default))
-  ;; (set-face-attribute 'company-box-selection nil
-  ;;                     :inherit 'company-tooltip-selection)
-  ;; (set-face-attribute 'company-box-background nil
-  ;;                     :background (cl-case (alist-get 'background-mode (frame-parameters))
-  ;;                                   ('light "#EBF4FE")
-  ;;                                   ('dark (color-lighten-name (face-background 'default) 4))))
 
   (setq company-box-backends-colors
         '((company-capf . (:icon "LightSeaGreen"))
