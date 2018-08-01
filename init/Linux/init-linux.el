@@ -24,22 +24,10 @@
 (use-package helm-systemd
   :ensure t
   :defer t
+  :commands (helm-systemd)
   :init
   (setq helm-systemd-list-not-loaded t
         helm-systemd-list-all nil))
-
-;;; [ daemons ] -- An Emacs UI for managing init system services.
-
-(use-package daemons
-  :ensure t
-  :defer t
-  :commands (daemons)
-  :config
-  ;; (add-to-list 'display-buffer-alist
-  ;;              '("\\*daemons\\*" . (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("\\*daemons-output\\*" . (display-buffer-below-selected)))
-  )
 
 ;;; [ nginx-mode ]
 
