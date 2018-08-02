@@ -121,8 +121,7 @@
   :config
   ;; TODO: check out the original Issue on GitHub.
   (magit-define-popup-switch 'magit-gitflow-release-finish-popup ?p
-    "Push after finish" "--push" t)
-  )
+    "Push after finish" "--push" t))
 
 ;;; [ magit-p4 ] -- Magit plugin integrating git-p4 add-on.
 
@@ -138,8 +137,7 @@
               ("m m" . git-messenger:popup-message)
               :map git-messenger-map
               ("m" . git-messenger:copy-message)
-              ("c" . git-messenger:copy-message)
-              )
+              ("c" . git-messenger:copy-message))
   :init
   (setq git-messenger:show-detail t ; always show detail message.
         ;; git-messenger:handled-backends '(git svn)
@@ -147,8 +145,7 @@
         )
   :config
   ;; enable `magit-commit-mode' after typing 's', 'S', 'd'
-  (add-hook 'git-messenger:popup-buffer-hook 'magit-commit-mode)
-  )
+  (add-hook 'git-messenger:popup-buffer-hook 'magit-commit-mode))
 
 ;;; [ git-timemachine ] -- time-machine of Git revisions.
 

@@ -83,13 +83,11 @@
   ;; [ sclang-extensions ] -- A collection of minor modes that improve your SuperCollider experience within Emacs.
   (use-package sclang-extensions
     :ensure t
-    :config
+    :init
     (setq sclang-bury-post-on-start? t
           sclang-run-supercollider-if-not-active? nil ; run SuperCollider process will mute System sound.
           )
-    
-    (add-hook 'sclang-mode-hook 'sclang-extensions-mode)
-    )
+    (add-hook 'sclang-mode-hook 'sclang-extensions-mode))
   )
 
 ;;; [ ob-sclang ] -- SuperCollider (sclang) with Org-mode Babel.
@@ -99,41 +97,41 @@
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 (add-to-list 'org-babel-tangle-lang-exts '("sclang" . "sc"))
 
-
+
 ;;; [ Overtone ] -- Combine SuperCollider + Clojure.
 
-(defun my/overtone-auto-start ()
-  "Auto start Overtone in Emacs."
-  (interactive)
-  ;; for external server
-  (my/cider-repl-eval "(use 'overtone.core)")
-  (my/cider-repl-eval "(overtone.core/boot-external-server)")
-  ;; for internal server
-  ;; (my/cider-repl-eval "(use 'overtone.live)")
-  ;; (my/cider-repl-eval "(overtone.live/boot-server)")
-  )
-
+;; (defun my/overtone-auto-start ()
+;;   "Auto start Overtone in Emacs."
+;;   (interactive)
+;;   ;; for external server
+;;   (my/cider-repl-eval "(use 'overtone.core)")
+;;   (my/cider-repl-eval "(overtone.core/boot-external-server)")
+;;   ;; for internal server
+;;   ;; (my/cider-repl-eval "(use 'overtone.live)")
+;;   ;; (my/cider-repl-eval "(overtone.live/boot-server)")
+;;   )
+;;
 ;; (add-hook 'cider-connected-hook #'my/overtone-auto-start)
 
-(use-package clomacs
-  :ensure t
-  :config
-  ;; auto load with `clomacs'.
-  (clomacs-defun overtone-load-and-boot-external-server
-                 overtone.core/boot-external-server
-                 :lib-name "overtone"
-                 :namespace overtone.core
-                 :doc "Load Overtone library and boot external server.")
-
-  (clomacs-defun overtone-load-and-boot-internal-server
-                 overtone.live/boot-server
-                 :lib-name "overtone"
-                 :namespace overtone.live
-                 :doc "Load Overtone library and boot internal server.")
-
-  ;; (overtone-load-and-boot-external-server)
-  ;; (overtone-load-and-boot-internal-server)
-  )
+;; (use-package clomacs
+;;   :ensure t
+;;   :config
+;;   ;; auto load with `clomacs'.
+;;   (clomacs-defun overtone-load-and-boot-external-server
+;;                  overtone.core/boot-external-server
+;;                  :lib-name "overtone"
+;;                  :namespace overtone.core
+;;                  :doc "Load Overtone library and boot external server.")
+;;
+;;   (clomacs-defun overtone-load-and-boot-internal-server
+;;                  overtone.live/boot-server
+;;                  :lib-name "overtone"
+;;                  :namespace overtone.live
+;;                  :doc "Load Overtone library and boot internal server.")
+;;
+;;   ;; (overtone-load-and-boot-external-server)
+;;   ;; (overtone-load-and-boot-internal-server)
+;;   )
 
 
 (provide 'init-SuperCollider)

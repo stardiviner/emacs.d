@@ -17,14 +17,12 @@
 (use-package re-builder
   :ensure t
   :defer t
-  :bind (:map regex-prefix
-              ("b" . re-builder))
+  :bind (:map regex-prefix ("b" . re-builder))
   :config
   ;; (setq reb-re-syntax 'read) ; 'read, 'string, 'rx
   (define-key reb-mode-map (kbd "C-c C-q") 'reb-quit)
   (if (fboundp 'helm-regexp)
-      (define-key regex-prefix (kbd "M-b") 'helm-regexp))
-  )
+      (define-key regex-prefix (kbd "M-b") 'helm-regexp)))
 
 ;;; [ regex-tool ] -- A regular expression evaluation tool for programmers.
 

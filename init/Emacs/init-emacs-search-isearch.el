@@ -88,8 +88,6 @@
   :bind (("M-%" . anzu-query-replace-regexp) ; anzu-query-replace
          ("C-M-%" . anzu-query-replace-regexp))
   :init
-  (global-anzu-mode 1)
-  :config
   (setq anzu-regexp-search-commands '(vr/isearch-forward
                                       vr/isearch-backward
                                       isearch-forward-regexp
@@ -99,9 +97,8 @@
         anzu-use-migemo (and (featurep 'migemo) t)
         anzu-replace-to-string-separator " ⇨ "
         )
-  )
-
-
+  :config
+  (global-anzu-mode 1))
 
 ;;; [ Swpier ] -- gives you an overview as you search for a regex.
 

@@ -20,7 +20,7 @@
               ("n" . docker-networks))
   :init
   (setq docker-containers-show-all t)
-  :config
+
   (defun docker-insert-container (container-name)
     "A helper function to insert container ID or name."
     (interactive (list (docker-read-container-name "Docker container name: ")))
@@ -53,6 +53,7 @@
   (add-to-list 'all-the-icons-mode-icon-alist
                '(docker-networks-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
 
+  :config
   ;; enable global docker minor mode
   (docker-global-mode 1))
 
@@ -86,7 +87,7 @@
   :init
   (setq docker-tramp-use-names t)
   ;; (setq docker-tramp-docker-options nil)
-  :config
+
   (defun docker-tramp-insert-running-container (container)
     "A helper function to insert the running `CONTAINER' name.
 For Org-babel header argument :dir /docker:<name>:."
@@ -100,7 +101,8 @@ For Org-babel header argument :dir /docker:<name>:."
                    ;; (mapcar 'cdr (docker-tramp--running-containers))
                    (list (completing-read "Docker container name: " containers-name))))
     (insert (format ":dir /docker:%s:" container)))
-  (define-key org-babel-map (kbd "M-d") 'docker-tramp-insert-running-container)
+  (with-eval-after-load "ob-keys"
+    (define-key org-babel-map (kbd "M-d") 'docker-tramp-insert-running-container))
   )
 
 ;;; [ docker-api ] -- Emacs interface to the Docker API.
@@ -114,9 +116,7 @@ For Org-babel header argument :dir /docker:<name>:."
 (use-package kubernetes
   :ensure t
   :defer t
-  :commands (kubernetes-display-pods
-             kubernetes-display-configmaps)
-  )
+  :commands (kubernetes-display-pods kubernetes-display-configmaps))
 
 ;;; [ kubernetes-tramp ] -- offers a TRAMP method for Docker containers deployed in a Kubernetes cluster.
 

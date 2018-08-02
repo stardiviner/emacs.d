@@ -157,10 +157,12 @@
 
 (use-package visual-fill-column
   :ensure t
-  :config
+  :commands (visual-fill-column-mode)
+  :init
   (setq visual-fill-column-width (default-value 'fill-column))
   ;; (setq visual-fill-column-center-text t) ; center the text area in the window.
-  (add-hook 'visual-line-mode-hook #'visual-fill-column-mode))
+  (with-eval-after-load "simple"
+    (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)))
 
 ;;; [ fill-column-indicator ]
 ;; (use-package fill-column-indicator

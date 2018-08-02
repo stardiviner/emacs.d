@@ -10,14 +10,11 @@
 
 (use-package ob-blockdiag
   :ensure t
+  :ensure blockdiag-mode
   :defer t
   :init
   (add-to-list 'org-babel-load-languages '(blockdiag . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  :config
-  (use-package blockdiag-mode
-    :ensure t)
-  )
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 
 
 

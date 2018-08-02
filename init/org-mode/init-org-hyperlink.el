@@ -250,7 +250,7 @@ and append it."
 
 (use-package orgit
   :ensure t
-  :config
+  :init
   (setq orgit-log-save-arguments t)
   ;; (add-to-list 'orgit-export-alist '())
   )

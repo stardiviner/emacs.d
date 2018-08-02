@@ -129,8 +129,8 @@ to the command loop."
 (use-package projectile
   :ensure t
   :preface (setq projectile-keymap-prefix (kbd "C-c p"))
-  :init (add-hook 'prog-mode-hook 'projectile-mode)
-  :config
+  :init
+  (add-hook 'prog-mode-hook 'projectile-mode)
   (defun *buffer-project ()
     "Displays `default-directory', for special buffers like the scratch buffer."
     (concat
@@ -155,7 +155,7 @@ to the command loop."
 (use-package eyebrowse
   :ensure t
   :custom (eyebrowse-keymap-prefix (kbd "C-x w"))
-  :config
+  :init
   (defvar-local my/eyebrowse-current-slot-tag nil)
   (defun *eyebrowse ()
     "Displays `default-directory', for special buffers like the scratch buffer."
@@ -173,7 +173,7 @@ to the command loop."
 
 ;; (use-package perspeen
 ;;   :ensure t
-;;   :config
+;;   :init
 ;;   (defun *perspeen ()
 ;;     "Show perspeen info from `perspeen-modestring'."
 ;;     (when (bound-and-true-p perspeen-modestring)
@@ -188,7 +188,7 @@ to the command loop."
 ;; Purpose
 ;; (use-package purpose
 ;;   :ensure t
-;;   :config
+;;   :init
 ;;   (defun *purpose ()
 ;;     "Show Purpose info in custom mode-line."
 ;;     (if purpose-mode
@@ -294,7 +294,7 @@ state (modified, read-only or non-existent)."
 ;;; window number
 ;; (use-package window-numbering
 ;;   :ensure t
-;;   :config
+;;   :init
 ;;   (defun *window-number ()
 ;;     (propertize (format " %c" (+ 9311 (window-numbering-get-number)))
 ;;                 'face `(:height ,(/ (* 0.90 powerline/default-height) 100.0))
@@ -304,7 +304,7 @@ state (modified, read-only or non-existent)."
 ;;; ace-window
 (use-package ace-window
   :ensure t
-  :config
+  :init
   (defun *ace-window ()
     "Showing the ace-window key in the mode-line."
     (window-parameter (selected-window) 'ace-window-path))
@@ -469,7 +469,7 @@ state (modified, read-only or non-existent)."
 ;;; flycheck
 (use-package flycheck
   :ensure t
-  :config
+  :init
   (defun *flycheck ()
     "Show flycheck info in mode-line."
     (when (bound-and-true-p flycheck-mode)
@@ -521,7 +521,7 @@ state (modified, read-only or non-existent)."
 ;;; build status
 ;; (use-package build-status
 ;;   :ensure t
-;;   :config
+;;   :init
 ;;   (defun *build-status ()
 ;;     "Show CI build status in mode-line."
 ;;     ;; `build-status-mode-line-string'
@@ -599,7 +599,7 @@ dimensions of a block selection."
   (defvar anzu--state nil)
   (defvar anzu--overflow-p nil)
   (make-local-variable 'anzu--state)
-  :config
+  :init
   (defun *anzu ()
     "Show the match index and total number thereof.  Requires `evil-anzu'."
     (unless (and (bound-and-true-p anzu--total-matched) (zerop anzu--total-matched))
@@ -613,7 +613,7 @@ dimensions of a block selection."
 ;;; Iedit
 (use-package iedit
   :ensure t
-  :config
+  :init
   (defun *iedit ()
     "Show the number of iedit regions match + what match you're on."
     (when (bound-and-true-p iedit-mode)
@@ -635,7 +635,7 @@ dimensions of a block selection."
 ;; multiple-cursors (mc/)
 (use-package multiple-cursors
   :ensure t
-  :config
+  :init
   (defun *multiple-cursors ()
     "Show multiple-cursors indicator in mode-line."
     (if (> (mc/num-cursors) 1) ; (mc/fake-cursor-p OVERLAY)
@@ -655,7 +655,7 @@ dimensions of a block selection."
 ;; org-tree-slide slide number
 (use-package org-tree-slide
   :ensure t
-  :config
+  :init
   (defun *org-tree-slide ()
     "Show `org-tree-slide' slide number."
     (when (bound-and-true-p org-tree-slide-mode)
@@ -669,7 +669,7 @@ dimensions of a block selection."
 ;; wc-mode (word count) `wc-format-modeline-string', `wc-mode-update'.
 (use-package wc-mode
   :ensure t
-  :config
+  :init
   (defun *wc-mode ()
     "Show wc-mode word count."
     (when (bound-and-true-p wc-mode)
@@ -679,7 +679,7 @@ dimensions of a block selection."
 ;;; org-noter
 (use-package org-noter
   :ensure t
-  :config
+  :init
   (defun *org-noter ()
     "Display org-noter notes count."
     (if (bound-and-true-p org-noter-doc-mode)
@@ -704,7 +704,7 @@ dimensions of a block selection."
 ;;; spinner
 (use-package spinner
   :ensure t
-  :config
+  :init
   (defun *spinner ()
     "Show current buffer local spinner with in custom mode-line."
     (if (bound-and-true-p spinner-current)
@@ -714,7 +714,7 @@ dimensions of a block selection."
 ;; IRC
 (use-package erc
   :ensure t
-  :config
+  :init
   (defun *erc ()
     "Show ERC info from `erc-track-mode'."
     (if (and (erc-server-process-alive)
@@ -729,7 +729,7 @@ dimensions of a block selection."
 
 (use-package company
   :ensure t
-  :config
+  :init
   (defun *company-lighter ()
     "Show company-mode lighter from `company-lighter'."
     (if (and (bound-and-true-p company-mode) (consp company-backend))
@@ -771,7 +771,7 @@ dimensions of a block selection."
 
 ;; (use-package org-clock-today
 ;;   :ensure t
-;;   :config
+;;   :init
 ;;   (org-clock-today-mode 1)
 ;;  
 ;;   (defun *org-clock-today ()
@@ -808,7 +808,7 @@ dimensions of a block selection."
 ;;; Pomodoro (org-pomodoro)
 (use-package org-pomodoro
   :ensure t
-  :config
+  :init
   (setq org-pomodoro-format
         (concat
          (all-the-icons-faicon "refresh"
@@ -850,21 +850,14 @@ dimensions of a block selection."
   :preface
   (setq keycast-window-predicate 'mode-line-window-active-p)
   (setq keycast-separator-width 0)
-  :config
-  (add-to-list 'keycast-substitute-alist '(self-insert-command . nil))
-  (add-to-list 'keycast-substitute-alist '(org-self-insert-command . nil))
-  (add-to-list 'keycast-substitute-alist '(next-line . nil))
-  (add-to-list 'keycast-substitute-alist '(previous-line . nil))
-  (add-to-list 'keycast-substitute-alist '(forward-char . nil))
-  (add-to-list 'keycast-substitute-alist '(backward-char . nil))
-  (add-to-list 'keycast-substitute-alist '(move-beginning-of-line . nil))
-  (add-to-list 'keycast-substitute-alist '(move-end-of-line . nil))
+  :init
   (defun *keycast ()
     "Show keycast in custom mode-line."
     (let ((screen-half-width (- (/ (/ (display-pixel-width) 2) 10) 3)))
       (when (and (> screen-half-width 80) (mode-line-window-active-p))
         (ignore-errors
           mode-line-keycast))))
+  :config
   (set-face-attribute 'keycast-key nil
                       :inherit 'mode-line
                       :height 1.0
@@ -874,6 +867,15 @@ dimensions of a block selection."
                       :box (face-attribute 'mode-line :box))
   (set-face-attribute 'keycast-command nil
                       :bold nil)
+
+  (add-to-list 'keycast-substitute-alist '(self-insert-command . nil))
+  (add-to-list 'keycast-substitute-alist '(org-self-insert-command . nil))
+  (add-to-list 'keycast-substitute-alist '(next-line . nil))
+  (add-to-list 'keycast-substitute-alist '(previous-line . nil))
+  (add-to-list 'keycast-substitute-alist '(forward-char . nil))
+  (add-to-list 'keycast-substitute-alist '(backward-char . nil))
+  (add-to-list 'keycast-substitute-alist '(move-beginning-of-line . nil))
+  (add-to-list 'keycast-substitute-alist '(move-end-of-line . nil))
   )
 
 (defun *space (n)
@@ -891,7 +893,7 @@ dimensions of a block selection."
 ;; (use-package rtags
 ;;   :ensure t
 ;;   :defines rtags-enabled
-;;   :config
+;;   :init
 ;;   ;; FIXME: `*rtags-mode-line' caused `beacon-mode' blink does not fade off.
 ;;   (defun *rtags-mode-line ()
 ;;     "Show `rtags-mode-line' info in my custom mode-line."
@@ -914,7 +916,7 @@ dimensions of a block selection."
   :load-path "/usr/local/share/emacs/site-lisp/mu4e/"
   :load (mu4e mu4e-contrib)
   :ensure mu4e-alert
-  :config
+  :init
   (require 'mu4e-alert)
   (defun *mu4e ()
     "Show `mu4e-alert' new messages count in custom mode-line."
@@ -940,7 +942,7 @@ dimensions of a block selection."
 ;;; Gnus
 (use-package gnus
   :ensure t
-  :config
+  :init
   (defun *gnus ()
     "Show `gnus' new messages count in custom mode-line."
     ;; (if (and (mode-line-window-active-p) )
@@ -994,7 +996,7 @@ dimensions of a block selection."
 
 (use-package proxy-mode
   :ensure t
-  :config
+  :init
   (defun *proxy-mode ()
     (if (bound-and-true-p proxy-mode-proxy-type)
         (propertize
@@ -1005,7 +1007,7 @@ dimensions of a block selection."
 ;;; Lunar Sunrise/Sunset
 ;; (use-package celestial-mode-line
 ;;   :ensure t
-;;   :config
+;;   :init
 ;;   (celestial-mode-line-start-timer)
 ;;   (defun *lunar-sun ()
 ;;     (if (mode-line-window-active-p)
@@ -1026,7 +1028,7 @@ dimensions of a block selection."
 ;;; `copy-file-on-save'
 (use-package copy-file-on-save
   :ensure t
-  :config
+  :init
   ;; show this segment in custom mode-line.
   (defun *copy-file-on-save ()
     "Use `copy-file-on-save-lighter' in custom mode-line."

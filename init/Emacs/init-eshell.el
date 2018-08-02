@@ -11,11 +11,11 @@
 (use-package eshell
   :ensure t
   :defer t
+  :load (em-term em-smart)
   :bind ("C-x !" . eshell)
   :init
   ;; change PAGER from `less' to `cat'.
   (setenv "PAGER" "cat")
-  :load (em-term em-smart)
   :config
   ;; Eshell sudo
   ;; load eshell's sudo which use Tramp's su/sudo methods.
@@ -64,7 +64,6 @@
                                          (call-process "uname" nil t nil "-r")
                                          (buffer-string))
                                        'face '((:foreground "orange")))))
-
 
   ;; EShell Prompt info:
   ;; Git

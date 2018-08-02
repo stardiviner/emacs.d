@@ -12,7 +12,6 @@
 (use-package engine-mode
   :ensure t
   :defer t
-  :init (engine-mode t)
   :preface
   (setq engine/keybinding-prefix "C-x /")
   ;; (setq engine/browser-function)
@@ -210,7 +209,8 @@
     "http://www.faxin.cn/"
     :docstring "法信"
     :keybinding "L")
-  )
+
+  (engine-mode t))
 
 
 (provide 'init-emacs-search-engine)

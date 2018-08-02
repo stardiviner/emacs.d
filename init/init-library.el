@@ -43,7 +43,7 @@
   :ensure t
   :defer t)
 
-;;; [ treepy ] --
+;;; [ treepy ] -- Generic tree traversal tools.
 
 (use-package treepy
   :ensure t

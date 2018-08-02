@@ -83,15 +83,14 @@
     (let ((output (funcall origin-func body params)))
       (call-interactively 'proxy-mode-disable)
       output))  
-  (advice-add 'org-babel-execute:translate :around #'ob-translate-toggle-proxy)
-  )
+  (advice-add 'org-babel-execute:translate :around #'ob-translate-toggle-proxy))
 
 ;;; [ youdao-dictionary ] -- Youdao Dictionary (有道词典) interface for Emacs
 
 (use-package youdao-dictionary
   :ensure t
   :bind (:map dictionary-prefix ("y" . youdao-dictionary-search-at-point))
-  :config
+  :init
   (add-to-list 'display-buffer-alist
                '("^\\*Youdao Dictionary\\*" . (display-buffer-reuse-window display-buffer-below-selected))))
 

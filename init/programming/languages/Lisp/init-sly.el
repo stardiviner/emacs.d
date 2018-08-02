@@ -24,7 +24,6 @@
    (lambda (hook) (add-hook hook #'sly-mode))
    '(lisp-mode-hook lisp-interaction-mode-hook sly-mrepl-mode-hook))
   
-  :config
   (defun my-sly-setup ()
     ;; Autodoc (like `eldoc')
     (sly-autodoc-mode 1)

@@ -223,10 +223,8 @@ character(s), in which case it deletes the space(s) first."
   :defer t
   :init
   (setq-default shell-escape-mode "-shell-escape") ; should pdflatex command use shell escaping?
-  (latex-preview-pane-enable)
-  :config
   (setq preview-orientation 'right)
-  )
+  (latex-preview-pane-enable))
 
 ;;; [ px ] -- Provides functions to preview LaTeX codes like $x^2$ in any buffer/mode.
 

@@ -16,12 +16,9 @@
 (use-package iedit
   :ensure t
   :defer t
-  :bind (:map editing-prefix
-              ("e" . iedit-mode)
-              ("C-e" . iedit-dwim))
-  :preface
-  (setq iedit-toggle-key-default (kbd "C-x e e"))
-  :config
+  :bind (:map editing-prefix ("e" . iedit-mode) ("C-e" . iedit-dwim))
+  :preface (setq iedit-toggle-key-default (kbd "C-x e e"))
+  :init
   (defun iedit-dwim (arg)
     "If ARG, start iedit but use \\[narrow-to-defun] to limit its scope."
     (interactive "P")
@@ -82,8 +79,8 @@
       (define-key mc/mark-prefix (kbd "v") 'vr/mc-mark))
   ;; `vr/select-mc-mark', `vr/select-replace', `vr/select-query-replace' etc.
 
-  :config
   (setq mc/list-file (expand-file-name ".mc-lists.el" user-emacs-directory))
+  :config
   ;; (add-to-list 'mc/unsupported-minor-modes 'flyspell-mode)
   
   ;; (setq mc/keymap "C-c c")

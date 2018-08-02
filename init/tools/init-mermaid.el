@@ -1,6 +1,6 @@
 ;;; init-mermaid.el --- init for mermaid
 
-;;; Time-stamp: <2018-06-04 09:38:18 stardiviner>
+;;; Time-stamp: <2018-08-02 08:36:30 stardiviner>
 
 ;;; Commentary:
 
@@ -12,7 +12,7 @@
 
 (use-package ob-mermaid
   :ensure t
-  :config
+  :init
   ;; for local installation: "npm install mermaid"
   ;; (setq ob-mermaid-cli-path "~/node_modules/.bin/mmdc")
   ;; for global installation: "npm install -g mermaid"
