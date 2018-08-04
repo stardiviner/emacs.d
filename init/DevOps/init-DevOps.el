@@ -19,7 +19,7 @@
 (define-key prog-tools-prefix (kbd "i") 'infrastructure-as-code-prefix)
 
 ;; (require 'init-puppet)
-;; (require 'init-ansible)
+(require 'init-ansible)
 (require 'init-terraform)
 
 ;;; [ Deployment ]
