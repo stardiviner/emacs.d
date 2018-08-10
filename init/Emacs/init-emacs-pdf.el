@@ -14,7 +14,7 @@
   :ensure-system-package (pdfinfo . "sudo pacman -S --noconfirm poppler poppler-data")
   :mode ("\\.pdf\\'" . pdf-view-mode)
   :defer t
-  ;; :init (pdf-tools-install)
+  :init (pdf-tools-install)
   :config
   ;; [ PDF View ]
   ;; - [SPC] :: scroll continuous

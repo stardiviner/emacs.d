@@ -21,7 +21,7 @@
 
 (use-package epa
   :ensure t
-  :load (epa-file)
+  :defer t
   :init
   ;; force Emacs to use its own internal password prompt instead of an external
   ;; pin entry program.

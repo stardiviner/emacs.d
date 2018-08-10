@@ -33,6 +33,7 @@
 
 (use-package nginx-mode
   :ensure t
+  :defer t
   :init
   (use-package company-nginx
     :ensure t

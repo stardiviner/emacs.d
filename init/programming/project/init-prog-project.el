@@ -16,7 +16,8 @@
 (use-package projectile
   :ensure t
   :preface (setq projectile-keymap-prefix (kbd "C-c p"))
-  :init (add-hook 'prog-mode-hook 'projectile-mode)
+  :init (projectile-global-mode 1)
+  ;; (add-hook 'prog-mode-hook 'projectile-mode)
   :config
   ;; nil: disable caching to fix TRAMP hang on sending password
   (setq projectile-enable-caching nil
@@ -24,8 +25,7 @@
         projectile-completion-system 'ivy
         projectile-use-git-grep t)
   ;; test
-  (setq projectile-create-missing-test-files t)
-  )
+  (setq projectile-create-missing-test-files t))
 
 ;;; [ projectile-variable ] -- store project local variables.
 

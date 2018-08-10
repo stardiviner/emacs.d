@@ -109,8 +109,8 @@
 
 (use-package quelpa
   :ensure t
+  :preface (setq quelpa-update-melpa-p nil) ; disable Emacs startup quelpa melpa update.
   :config
-  ;; (setq quelpa-upgrade-p t)
   (add-to-list 'quelpa-melpa-recipe-stores
                (concat user-emacs-directory "elpa/recipes")))
 

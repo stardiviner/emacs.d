@@ -14,12 +14,9 @@
   :ensure-system-package (redis-cli . "sudo pacman -S --noconfirm redis")
   :defer t
   :commands (redis-mode)
-  :init
   ;; for pseudo redis script file: *.redis.
-  (add-to-list 'auto-mode-alist '("\\.redis\\'" . redis-mode))
-  :config
-  (add-hook 'redis-mode-hook 'sqlup-mode)
-  )
+  :init (add-to-list 'auto-mode-alist '("\\.redis\\'" . redis-mode))
+  :config (add-hook 'redis-mode-hook 'sqlup-mode))
 
 
 ;;; [ eredis ] -- a Redis client in emacs lisp

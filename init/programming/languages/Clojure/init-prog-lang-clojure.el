@@ -408,7 +408,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 (use-package helm-clojuredocs
   :ensure t
-  :defer t
+  :after cider
   :bind (:map cider-doc-map ("M-d" . helm-clojuredocs)))
 
 ;;; [ elein ] -- running Leiningen commands from Emacs.
