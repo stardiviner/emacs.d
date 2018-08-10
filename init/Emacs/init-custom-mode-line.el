@@ -126,30 +126,30 @@ to the command loop."
             buffer-path)))
     "%b"))
 
-(use-package projectile
-  :ensure t
-  :preface (setq projectile-keymap-prefix (kbd "C-c p"))
-  :init
-  (add-hook 'prog-mode-hook 'projectile-mode)
-  (defun *buffer-project ()
-    "Displays `default-directory', for special buffers like the scratch buffer."
-    (concat
-     (all-the-icons-octicon "file-directory" :v-adjust -0.05)
-     (propertize
-      (concat " [" (abbreviate-file-name (projectile-project-root)) "] ")
-      'face '(:height 0.8))))
-
-  (defun *projectile ()
-    "Show projectile project info."
-    ;; `projectile-mode-line'
-    (if (projectile-project-name)
-        (propertize (concat
-                     " "
-                     (all-the-icons-faicon "folder-o" :v-adjust -0.05 :height 0.9)
-                     " "
-                     (projectile-project-name)
-                     " "))))
-  )
+;; (use-package projectile
+;;   :ensure t
+;;   :preface (setq projectile-keymap-prefix (kbd "C-c p"))
+;;   :init
+;;   (add-hook 'prog-mode-hook 'projectile-mode)
+;;   (defun *buffer-project ()
+;;     "Displays `default-directory', for special buffers like the scratch buffer."
+;;     (concat
+;;      (all-the-icons-octicon "file-directory" :v-adjust -0.05)
+;;      (propertize
+;;       (concat " [" (abbreviate-file-name (projectile-project-root)) "] ")
+;;       'face '(:height 0.8))))
+;;
+;;   (defun *projectile ()
+;;     "Show projectile project info."
+;;     ;; `projectile-mode-line'
+;;     (if (projectile-project-name)
+;;         (propertize (concat
+;;                      " "
+;;                      (all-the-icons-faicon "folder-o" :v-adjust -0.05 :height 0.9)
+;;                      " "
+;;                      (projectile-project-name)
+;;                      " "))))
+;;   )
 
 ;;; eyebrowse
 (use-package eyebrowse
@@ -955,38 +955,38 @@ dimensions of a block selection."
   )
 
 ;;; GitHub Notifications (Participating)
-(use-package ghub+
-  :ensure t
-  :config
-  (defvar github-notifications-number 0)
-
-  (defun github-fetch-notifications ()
-    (setq github-notifications-number
-          (length
-           ;; check out documentation of `ghubp-get-notifications'.
-           (ignore-errors
-             (ghubp-get-notifications :participating "true"))
-           ;; (ghub-get "/notifications" '((:participating . "true")))
-           )))
-  
-  (run-with-timer 10 (* 30 60) 'github-fetch-notifications)
-  
-  (defun *github-notifications ()
-    (if (> github-notifications-number 0)
-        (propertize
-         (concat
-          (all-the-icons-faicon "github" :v-adjust 0.05)
-          (format " %s " github-notifications-number))
-         'face 'mode-line-data-face)))
-  
-  (defun github-open-notifications-participating ()
-    "Open GitHub Notifications/Participating page."
-    (interactive)
-    (browse-url "https://github.com/notifications/participating"))
-  (unless (boundp 'prog-vcs-prefix)
-    (define-prefix-command 'prog-vcs-prefix))
-  (define-key prog-vcs-prefix (kbd "N") 'github-open-notifications-participating)
-  )
+;; (use-package ghub+
+;;   :ensure t
+;;   :init
+;;   (defvar github-notifications-number 0)
+;;
+;;   (defun github-fetch-notifications ()
+;;     (setq github-notifications-number
+;;           (length
+;;            ;; check out documentation of `ghubp-get-notifications'.
+;;            (ignore-errors
+;;              (ghubp-get-notifications :participating "true"))
+;;            ;; (ghub-get "/notifications" '((:participating . "true")))
+;;            )))
+;;  
+;;   (run-with-timer 10 (* 30 60) 'github-fetch-notifications)
+;;  
+;;   (defun *github-notifications ()
+;;     (if (> github-notifications-number 0)
+;;         (propertize
+;;          (concat
+;;           (all-the-icons-faicon "github" :v-adjust 0.05)
+;;           (format " %s " github-notifications-number))
+;;          'face 'mode-line-data-face)))
+;;  
+;;   (defun github-open-notifications-participating ()
+;;     "Open GitHub Notifications/Participating page."
+;;     (interactive)
+;;     (browse-url "https://github.com/notifications/participating"))
+;;   (unless (boundp 'prog-vcs-prefix)
+;;     (define-prefix-command 'prog-vcs-prefix))
+;;   (define-key prog-vcs-prefix (kbd "N") 'github-open-notifications-participating)
+;;   )
 
 ;;; [ SuperCollider (scel) ]
 (defun *supercollider ()
@@ -1025,15 +1025,14 @@ dimensions of a block selection."
                            :v-adjust -0.05)
      (propertize " "))))
 
-;;; `copy-file-on-save'
-(use-package copy-file-on-save
-  :ensure t
-  :init
-  ;; show this segment in custom mode-line.
-  (defun *copy-file-on-save ()
-    "Use `copy-file-on-save-lighter' in custom mode-line."
-    (if (bound-and-true-p copy-file-on-save-mode)
-        copy-file-on-save-lighter)))
+;; (use-package copy-file-on-save
+;;   :ensure t
+;;   :init
+;;   ;; show this segment in custom mode-line.
+;;   (defun *copy-file-on-save ()
+;;     "Use `copy-file-on-save-lighter' in custom mode-line."
+;;     (if (bound-and-true-p copy-file-on-save-mode)
+;;         copy-file-on-save-lighter)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1077,7 +1076,7 @@ dimensions of a block selection."
                  ;; (*keycast)
                  (*mode-line-process)
                  (*spinner)
-                 (*copy-file-on-save)
+                 ;; (*copy-file-on-save)
                  ;; (*rtags-mode-line)
                  ))
            (rhs (list
@@ -1093,14 +1092,14 @@ dimensions of a block selection."
                  (*supercollider)
                  (*mu4e)
                  ;; (*gnus)
-                 (*github-notifications)
+                 ;; (*github-notifications)
                  (*flycheck)
                  ;; (*build-status)
                  (*vc)
                  ;; (*perspeen)
                  ;; (*purpose)
                  ;; (*buffer-project)
-                 (*projectile)
+                 ;; (*projectile)
                  (*eyebrowse)
                  (*major-mode)
                  ;; (propertize (format-mode-line "%m" mode-name))
