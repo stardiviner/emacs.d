@@ -16,6 +16,7 @@
 (use-package rg
   :ensure t
   :ensure wgrep-ag
+  :after projectile
   :defer t
   :custom (rg-keymap-prefix nil)
   :preface (setq rg-keymap-prefix rg-prefix)
