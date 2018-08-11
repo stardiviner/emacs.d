@@ -1,4 +1,4 @@
-;;; init-prog-lang-database-sqlite.el --- init SQLite
+;;; init-SQLite.el --- init SQLite
 
 ;;; Commentary:
 
@@ -32,6 +32,6 @@
 ;;   :ensure t)
 
 
-(provide 'init-prog-lang-database-sqlite)
+(provide 'init-SQLite)
 
-;;; init-prog-lang-database-sqlite.el ends here
+;;; init-SQLite.el ends here

@@ -336,20 +336,21 @@
 
 ;;; [ Query Languages ]
 ;; SQL
-(require 'init-prog-lang-database-sql)
-(require 'init-prog-lang-database-sqlite)
-(require 'init-prog-lang-database-mysql)
-(require 'init-prog-lang-database-postgresql)
+(require 'init-SQL)
+(require 'init-SQLite)
+(require 'init-MySQL)
+(require 'init-PostgreSQL)
 ;; NewSQL
-(require 'init-prog-lang-database-newsql)
+(require 'init-NewSQL)
 ;; NoSQL
-(require 'init-prog-lang-database-nosql)
-(require 'init-prog-lang-database-mongodb)
-(require 'init-prog-lang-database-redis)
+(require 'init-NoSQL)
+(require 'init-MongoDB)
+(require 'init-Redis)
+(require 'init-CouchDB)
 ;;; CQL
-;; (require 'init-prog-lang-database-cql)
+(require 'init-CQL)
 ;;; GraphQL
-;; (require 'init-prog-lang-database-graphql)
+(require 'init-GraphQL)
 
 
 ;;; Programming Tools

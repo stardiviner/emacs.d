@@ -1,4 +1,4 @@
-;;; init-prog-lang-database-graphql.el --- init for GraphQL
+;;; init-GraphQL.el --- init for GraphQL
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -14,6 +14,6 @@
   :defer t)
 
 
-(provide 'init-prog-lang-database-graphql)
+(provide 'init-GraphQL)
 
-;;; init-prog-lang-database-graphql.el ends here
+;;; init-GraphQL.el ends here

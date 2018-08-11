@@ -1,4 +1,4 @@
-;;; init-prog-lang-database-sql.el --- init for SQL
+;;; init-SQL.el --- init for SQL
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -200,6 +200,6 @@
 ;;   )
 
 
-(provide 'init-prog-lang-database-sql)
+(provide 'init-SQL)
 
-;;; init-prog-lang-database-sql.el ends here
+;;; init-SQL.el ends here

@@ -1,4 +1,4 @@
-;;; init-prog-lang-database-postgresql.el --- init for PostgresQL
+;;; init-PostgreSQL.el --- init for PostgresQL
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -31,6 +31,6 @@
 ;;   )
 
 
-(provide 'init-prog-lang-database-postgresql)
+(provide 'init-PostgreSQL)
 
-;;; init-prog-lang-database-postgresql.el ends here
+;;; init-PostgreSQL.el ends here

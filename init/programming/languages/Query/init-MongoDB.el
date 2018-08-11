@@ -1,4 +1,4 @@
-;;; init-prog-lang-database-mongodb.el --- init MongoDB
+;;; init-MongoDB.el --- init MongoDB
 
 ;;; Commentary:
 
@@ -33,6 +33,6 @@
   )
 
 
-(provide 'init-prog-lang-database-mongodb)
+(provide 'init-MongoDB)
 
-;;; init-prog-lang-database-mongodb.el ends here
+;;; init-MongoDB.el ends here

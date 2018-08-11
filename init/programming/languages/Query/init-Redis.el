@@ -1,4 +1,4 @@
-;;; init-prog-lang-database-redis.el --- init for Redis
+;;; init-Redis.el --- init for Redis
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -33,6 +33,6 @@
 (add-to-list 'org-babel-tangle-lang-exts '("redis" . "redis"))
 
 
-(provide 'init-prog-lang-database-redis)
+(provide 'init-Redis)
 
-;;; init-prog-lang-database-redis.el ends here
+;;; init-Redis.el ends here

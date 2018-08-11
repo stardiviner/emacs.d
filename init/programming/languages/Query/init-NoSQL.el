@@ -1,4 +1,4 @@
-;;; init-prog-lang-database-nosql.el --- init for NoSQL
+;;; init-NoSQL.el --- init for NoSQL
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -13,7 +13,11 @@
 ;;   :ensure t
 ;;   :defer t)
 
-
-(provide 'init-prog-lang-database-nosql)
+(require 'init-Redis)
+(require 'init-MongoDB)
+(require 'init-CouchDB)
 
-;;; init-prog-lang-database-nosql.el ends here
+
+(provide 'init-NoSQL)
+
+;;; init-NoSQL.el ends here
