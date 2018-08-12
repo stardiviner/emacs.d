@@ -36,7 +36,8 @@
 
 (use-package counsel
   :ensure t
-  :bind (([remap menu-bar-open] . counsel-tmm) ; [F10] text menu access
+  :bind (([remap yank-pop] . counsel-yank-pop)
+         ([remap menu-bar-open] . counsel-tmm) ; [F10] text menu access
          ([remap apropos] . counsel-apropos)
          ("C-x c p" . counsel-list-processes) ; [C-x c p]
          ("C-x c t" . cancel-function-timers) ; [C-x c t]
