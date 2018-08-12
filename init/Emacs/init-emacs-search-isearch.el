@@ -18,15 +18,12 @@
   :defer t
   :bind (:map isearch-prefix
               ("i" . isearch-forward)
-              ("C-i" . isearch-forward-symbol-at-point)
-              ("I" . isearch-forward-regexp)
               ("f" . isearch-forward)
-              ("C-f" . isearch-forward-symbol-at-point)
-              ("F" . isearch-forward-regexp)
+              ("SPC" . isearch-forward-symbol-at-point)
+              ("r" . isearch-forward-regexp)
               ("b" . isearch-backward)
-              ("B" . isearch-backward-regexp)
-              ("o" . isearch-occur)
-              )
+              ("R" . isearch-backward-regexp)
+              ("o" . isearch-occur))
   :config
   (setq isearch-allow-scroll t)
   ;; case smart
@@ -64,8 +61,7 @@
          ("s" . vr/isearch-forward)
          ("M-s" . vr/isearch-backward)
          ("r" . vr/query-replace)
-         ("R" . vr/replace)
-         )
+         ("R" . vr/replace))
   :init
   ;; if you use `multiple-cursors' interface, this is for you:
   (with-eval-after-load 'multiple-cursors
