@@ -128,7 +128,6 @@ to the command loop."
 
 ;; (use-package projectile
 ;;   :ensure t
-;;   :preface (setq projectile-keymap-prefix (kbd "C-c p"))
 ;;   :init
 ;;   (add-hook 'prog-mode-hook 'projectile-mode)
 ;;   (defun *buffer-project ()
@@ -154,9 +153,12 @@ to the command loop."
 ;;; eyebrowse
 (use-package eyebrowse
   :ensure t
+  :defer t
   :custom (eyebrowse-keymap-prefix (kbd "C-x w"))
-  :init
+  :preface
   (defvar-local my/eyebrowse-current-slot-tag nil)
+  (defun *eyebrowse ())
+  :config
   (defun *eyebrowse ()
     "Displays `default-directory', for special buffers like the scratch buffer."
     ;; `eyebrowse-mode-line-indicator'
@@ -168,8 +170,7 @@ to the command loop."
           )
       (concat
        (all-the-icons-faicon "codepen" :v-adjust -0.1)
-       (propertize (format " %s " current-slot-tag)))))
-  )
+       (propertize (format " %s " current-slot-tag))))))
 
 ;; (use-package perspeen
 ;;   :ensure t
@@ -304,12 +305,13 @@ state (modified, read-only or non-existent)."
 ;;; ace-window
 (use-package ace-window
   :ensure t
-  :init
+  :defer t
+  :preface (defun *ace-window ())
+  :config
   (defun *ace-window ()
     "Showing the ace-window key in the mode-line."
     (window-parameter (selected-window) 'ace-window-path))
-  (add-hook 'window-configuration-change-hook 'aw-update)
-  )
+  (add-hook 'window-configuration-change-hook 'aw-update))
 
 ;;; line & column position info
 (defun *linum-info ()
@@ -319,7 +321,9 @@ state (modified, read-only or non-existent)."
 ;;; pdf-tools page position
 (use-package pdf-tools
   :ensure t
-  :init
+  :defer t
+  :preface (defun *pdf-tools-page-position ())
+  :config
   (defun *pdf-tools-page-position ()
     "Show current pdf-tools page current position."
     (if (eq 'pdf-view-mode major-mode)
@@ -469,7 +473,9 @@ state (modified, read-only or non-existent)."
 ;;; flycheck
 (use-package flycheck
   :ensure t
-  :init
+  :defer t
+  :preface (defun *flycheck ())
+  :config
   (defun *flycheck ()
     "Show flycheck info in mode-line."
     (when (bound-and-true-p flycheck-mode)
@@ -595,11 +601,13 @@ dimensions of a block selection."
 ;;; anzu
 (use-package anzu
   :ensure t
+  :defer t
   :preface
   (defvar anzu--state nil)
   (defvar anzu--overflow-p nil)
   (make-local-variable 'anzu--state)
-  :init
+  (defun *anzu ())
+  :config
   (defun *anzu ()
     "Show the match index and total number thereof.  Requires `evil-anzu'."
     (unless (and (bound-and-true-p anzu--total-matched) (zerop anzu--total-matched))
@@ -607,13 +615,14 @@ dimensions of a block selection."
        (format " %s/%d%s "
                anzu--current-position anzu--total-matched
                (if anzu--overflow-p "+" ""))
-       'face (if (mode-line-window-active-p) 'mode-line-meta-face))))
-  )
+       'face (if (mode-line-window-active-p) 'mode-line-meta-face)))))
 
 ;;; Iedit
 (use-package iedit
   :ensure t
-  :init
+  :defer t
+  :preface (defun *iedit ())
+  :config
   (defun *iedit ()
     "Show the number of iedit regions match + what match you're on."
     (when (bound-and-true-p iedit-mode)
@@ -629,13 +638,14 @@ dimensions of a block selection."
                        (- length (-elem-index this-oc iedit-occurrences-overlays))
                      "-"))
                  length))
-       'face 'mode-line-meta-face)))
-  )
+       'face 'mode-line-meta-face))))
 
 ;; multiple-cursors (mc/)
 (use-package multiple-cursors
   :ensure t
-  :init
+  :defer t
+  :preface (defun *multiple-cursors ())
+  :config
   (defun *multiple-cursors ()
     "Show multiple-cursors indicator in mode-line."
     (if (> (mc/num-cursors) 1) ; (mc/fake-cursor-p OVERLAY)
@@ -655,7 +665,9 @@ dimensions of a block selection."
 ;; org-tree-slide slide number
 (use-package org-tree-slide
   :ensure t
-  :init
+  :defer t
+  :preface (defun *org-tree-slide ())
+  :config
   (defun *org-tree-slide ()
     "Show `org-tree-slide' slide number."
     (when (bound-and-true-p org-tree-slide-mode)
@@ -663,13 +675,14 @@ dimensions of a block selection."
        (concat
         (all-the-icons-faicon "file-powerpoint-o" :v-adjust -0.05)
         (format "%s" org-tree-slide--slide-number))
-       'face (if (mode-line-window-active-p) 'mode-line-data-face))))
-  )
+       'face (if (mode-line-window-active-p) 'mode-line-data-face)))))
 
 ;; wc-mode (word count) `wc-format-modeline-string', `wc-mode-update'.
 (use-package wc-mode
   :ensure t
-  :init
+  :defer t
+  :preface (defun *wc-mode ())
+  :config
   (defun *wc-mode ()
     "Show wc-mode word count."
     (when (bound-and-true-p wc-mode)
@@ -679,7 +692,9 @@ dimensions of a block selection."
 ;;; org-noter
 (use-package org-noter
   :ensure t
-  :init
+  :defer t
+  :preface (defun *org-noter ())
+  :config
   (defun *org-noter ()
     "Display org-noter notes count."
     (if (bound-and-true-p org-noter-doc-mode)
@@ -704,7 +719,9 @@ dimensions of a block selection."
 ;;; spinner
 (use-package spinner
   :ensure t
-  :init
+  :defer t
+  :preface (defun *spinner ())
+  :config
   (defun *spinner ()
     "Show current buffer local spinner with in custom mode-line."
     (if (bound-and-true-p spinner-current)
@@ -712,24 +729,37 @@ dimensions of a block selection."
 
 ;; notifications
 ;; IRC
-(use-package erc
+;; (use-package erc
+;;   :ensure t
+;;   :defer t
+;;   :preface (defun *erc ())
+;;   :config
+;;   (defun *erc ()
+;;     "Show ERC info from `erc-track-mode'."
+;;     (if (and (erc-server-process-alive)
+;;              ;; (erc-server-buffer-live-p)
+;;              (string-empty-p erc-modified-channels-object))
+;;         (propertize
+;;          (concat
+;;           (all-the-icons-faicon "comments-o" :v-adjust 0.05)
+;;           (format "%s" erc-modified-channels-object))
+;;          'face (if (mode-line-window-active-p) 'mode-line-error-face))
+;;       )))
+
+(use-package rcirc
   :ensure t
-  :init
-  (defun *erc ()
-    "Show ERC info from `erc-track-mode'."
-    (if (and (erc-server-process-alive)
-             ;; (erc-server-buffer-live-p)
-             (string-empty-p erc-modified-channels-object))
-        (propertize
-         (concat
-          (all-the-icons-faicon "comments-o" :v-adjust 0.05)
-          (format "%s" erc-modified-channels-object))
-         'face (if (mode-line-window-active-p) 'mode-line-error-face))
-      )))
+  :defer t
+  :preface (defun *rcirc ())
+  :config
+  (defun *rcirc ()
+    )
+  )
 
 (use-package company
   :ensure t
-  :init
+  :defer t
+  :preface (defun *company-lighter ())
+  :config
   (defun *company-lighter ()
     "Show company-mode lighter from `company-lighter'."
     (if (and (bound-and-true-p company-mode) (consp company-backend))
@@ -808,7 +838,9 @@ dimensions of a block selection."
 ;;; Pomodoro (org-pomodoro)
 (use-package org-pomodoro
   :ensure t
-  :init
+  :defer t
+  :preface (defun *pomodoro ())
+  :config
   (setq org-pomodoro-format
         (concat
          (all-the-icons-faicon "refresh"
@@ -850,7 +882,8 @@ dimensions of a block selection."
   :preface
   (setq keycast-window-predicate 'mode-line-window-active-p)
   (setq keycast-separator-width 0)
-  :init
+  (defun *keycast ())
+  :config
   (defun *keycast ()
     "Show keycast in custom mode-line."
     (let ((screen-half-width (- (/ (/ (display-pixel-width) 2) 10) 3)))
@@ -916,7 +949,9 @@ dimensions of a block selection."
   :load-path "/usr/local/share/emacs/site-lisp/mu4e/"
   :load (mu4e mu4e-contrib)
   :ensure mu4e-alert
-  :init
+  :defer t
+  :preface (defun *mu4e ())
+  :config
   (require 'mu4e-alert)
   (defun *mu4e ()
     "Show `mu4e-alert' new messages count in custom mode-line."
@@ -940,19 +975,21 @@ dimensions of a block selection."
   )
 
 ;;; Gnus
-(use-package gnus
-  :ensure t
-  :init
-  (defun *gnus ()
-    "Show `gnus' new messages count in custom mode-line."
-    ;; (if (and (mode-line-window-active-p) )
-    ;;     (concat
-    ;;      (all-the-icons-faicon "mail" :v-adjust -0.05)
-    ;;      ;; (propertize gnus-summary-mode-line-format)
-    ;;      ;; (gnus-set-mode-line 'summary)
-    ;;      ))
-    )
-  )
+;; (use-package gnus
+;;   :ensure t
+;;   :defer t
+;;   :preface (defun *gnus ())
+;;   :config
+;;   (defun *gnus ()
+;;     "Show `gnus' new messages count in custom mode-line."
+;;     ;; (if (and (mode-line-window-active-p) )
+;;     ;;     (concat
+;;     ;;      (all-the-icons-faicon "mail" :v-adjust -0.05)
+;;     ;;      ;; (propertize gnus-summary-mode-line-format)
+;;     ;;      ;; (gnus-set-mode-line 'summary)
+;;     ;;      ))
+;;     )
+;;   )
 
 ;;; GitHub Notifications (Participating)
 ;; (use-package ghub+
@@ -996,7 +1033,9 @@ dimensions of a block selection."
 
 (use-package proxy-mode
   :ensure t
-  :init
+  :defer t
+  :preface (defun *proxy-mode ())
+  :config
   (defun *proxy-mode ()
     (if (bound-and-true-p proxy-mode-proxy-type)
         (propertize
@@ -1088,7 +1127,8 @@ dimensions of a block selection."
                  ;; (*company-lighter)
                  ;; (*time)
                  ;; (*lunar-sun)
-                 (*erc)
+                 ;; (*erc)
+                 (*rcirc)
                  (*supercollider)
                  (*mu4e)
                  ;; (*gnus)

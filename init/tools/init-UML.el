@@ -11,9 +11,7 @@
 (use-package plantuml-mode
   :ensure t
   :defer t
-  :init
-  (setq plantuml-jar-path (locate-user-emacs-file "init/extra/plantuml.jar"))
-  )
+  :init (setq plantuml-jar-path (locate-user-emacs-file "init/extra/plantuml.jar")))
 
 ;; [ ob-plantuml ]
 (require 'ob-plantuml)
