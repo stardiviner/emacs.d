@@ -13,6 +13,10 @@
 ;;; disable Emacs built-in bell when [C-g]
 (setq ring-bell-function 'ignore)
 
+;;; [ *Messages* log buffer ]
+
+(setq message-log-max 5000)
+
 
 (provide 'init-emacs-settings)
 
