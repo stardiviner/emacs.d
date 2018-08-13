@@ -25,16 +25,17 @@
 
 ;;; [ kiwix ] -- Kiwix client for Emacs.
 
-(use-package kiwix
-  :ensure t
-  :defer t
-  :bind (:map prog-doc-map
-              ("w" . kiwix-at-point)
-              ("W" . kiwix-at-point-interactive)
-              ("M-w" . kiwix-launch-server))
-  :init
-  (setq kiwix-your-language-library "zh")
-  )
+;; (use-package kiwix
+;;   :ensure t
+;;   :after org
+;;   :functions (org-add-link-type)
+;;   :defer t
+;;   :bind (:map prog-doc-map
+;;               ("w" . kiwix-at-point)
+;;               ("W" . kiwix-at-point-interactive)
+;;               ("M-w" . kiwix-launch-server))
+;;   :init
+;;   (setq kiwix-your-language-library "zh"))
 
 
 (provide 'init-prog-document-wikipedia)

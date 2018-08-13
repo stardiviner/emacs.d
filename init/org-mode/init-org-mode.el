@@ -48,7 +48,7 @@
 (require 'init-org-password)
 (require 'init-org-drill)
 ;; (require 'init-org-mobile)
-(require 'init-org-trello)
+;; (require 'init-org-trello)
 
 
 

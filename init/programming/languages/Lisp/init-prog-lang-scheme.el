@@ -12,7 +12,7 @@
 (use-package scheme
   :ensure t
   :ensure-system-package guile
-  :preface (setq scheme-program-name "guile")
+  :init (setq scheme-program-name "guile")
   :config
   (add-hook 'scheme-mode-hook #'my-lisp-common-settings)
 
@@ -35,13 +35,6 @@
   (add-to-list 'display-buffer-alist
                '("\\* Racket REPL \\*" . (display-buffer-below-selected)))
   )
-
-;;; [ cmuscheme ] -- Scheme process in a buffer. Adapted from tea.el
-
-;; (use-package cmuscheme
-;;   :ensure t
-;;   :defer t
-;;   :commands (run-scheme))
 
 ;;; [ geiser ] -- Scheme completion.
 

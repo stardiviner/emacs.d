@@ -210,10 +210,11 @@ otherwise, they are appended."
 
 ;;; [ ob-eshell ]
 
-(require 'ob-eshell)
-(add-to-list 'org-babel-load-languages '(eshell . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("eshell" . "sh"))
+;; FIXME: void variable `org-babel-load-languages'
+;; (require 'ob-eshell)
+;; (add-to-list 'org-babel-load-languages '(eshell . t))
+;; (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+;; (add-to-list 'org-babel-tangle-lang-exts '("eshell" . "sh"))
 
 
 (provide 'init-eshell)

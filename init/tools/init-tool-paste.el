@@ -13,7 +13,8 @@
 ;;; on sites like GitHub, and Stack Overflow.
 (use-package ox-gfm
   :ensure t
-  :config
+  :defer t
+  :init
   (defun my:org-convert-region-to-gfm ()
     "Convert selected region to GitHub Flawed Markdown and copy to clipboard.
 For pasting on sites like GitHub, and Stack Overflow."
@@ -27,8 +28,7 @@ For pasting on sites like GitHub, and Stack Overflow."
       'gfm t
       '(:with-toc nil)))
     (deactivate-mark))
-  (define-key paste-prefix (kbd "m") 'my:org-convert-region-to-gfm)
-  )
+  (define-key paste-prefix (kbd "m") 'my:org-convert-region-to-gfm))
 
 (defun my:org-convert-region-to-md ()
   "Convert selected region to Markdown and copy to clipboard.

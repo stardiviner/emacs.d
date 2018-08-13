@@ -73,6 +73,7 @@
 
 (use-package ob-translate
   :ensure t
+  :defer t
   :init
   (add-to-list 'org-babel-load-languages '(translate . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)

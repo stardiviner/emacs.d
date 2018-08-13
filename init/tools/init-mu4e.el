@@ -17,6 +17,7 @@
 
   :load (mu4e mu4e-contrib mu4e-main mu4e-vars mu4e-proc mu4e-speedbar)
   :defer t
+  :commands (mu4e)
   :config
   ;; (setq mu4e-mu-home nil ; nil for default
   ;;       mu4e-mu-binary "/usr/sbin/mu"

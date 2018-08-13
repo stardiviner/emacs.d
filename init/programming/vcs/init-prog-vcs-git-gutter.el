@@ -111,21 +111,20 @@
 
 ;;; [ diff-hl ] -- highlighting uncommitted changes with continuous fringe vertical block.
 
-(use-package diff-hl
-  :ensure t
-  :defer t
-  :commands (diff-hl-next-hunk diff-hl-previous-hunk diff-hl-diff-goto-hunk)
-  :init
-  (add-hook 'prog-mode-hook 'diff-hl-mode)
-  (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
-  :bind (:map git-gutter-prefix
-              ("M-n" . diff-hl-next-hunk)
-              ("M-p" . diff-hl-previous-hunk)
-              ("M-=" . diff-hl-diff-goto-hunk))
-  :config
-  (setq vc-git-diff-switches '("--histogram"))
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-  )
+;; (use-package diff-hl
+;;   :ensure t
+;;   :defer t
+;;   :commands (diff-hl-next-hunk diff-hl-previous-hunk diff-hl-diff-goto-hunk)
+;;   :init
+;;   (add-hook 'prog-mode-hook 'diff-hl-mode)
+;;   (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+;;   :bind (:map git-gutter-prefix
+;;               ("M-n" . diff-hl-next-hunk)
+;;               ("M-p" . diff-hl-previous-hunk)
+;;               ("M-=" . diff-hl-diff-goto-hunk))
+;;   :config
+;;   (setq vc-git-diff-switches '("--histogram"))
+;;   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 
 ;;; [ line-reminder ] -- Remind current line status by current buffer.
 

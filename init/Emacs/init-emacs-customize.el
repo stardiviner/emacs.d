@@ -10,8 +10,12 @@
 ;; Customize Saving
 
 (setq custom-file "~/.emacs.d/customize.el")
+
 (if (file-exists-p custom-file)
     (load custom-file)
+  ;; (use-package f
+  ;;   :ensure t
+  ;;   :init (f-touch custom-file))
   (shell-command (concat "touch " custom-file)))
 
 

@@ -11,30 +11,21 @@
 
 (use-package ansible
   :ensure t
-  :defer t
   :commands (ansible))
-
 
 ;;; [ ansible-doc ] -- Ansible documentation for GNU Emacs
 
-(use-package ansible-doc
+(use-package ansible-doc ; [C-c ?] `ansible-doc'.
   :ensure t
   :defer t
-  :init (add-hook 'yaml-mode-hook #'ansible-doc-mode) ; [C-c ?] `ansible-doc'.
-  )
-
+  :init (add-hook 'yaml-mode-hook #'ansible-doc-mode))
 
 ;;; [ company-ansible ]
 
 (use-package company-ansible
   :ensure t
   :defer t
-  :init
-  (add-hook 'yaml-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-ansible)
-              ))
-  )
+  :init (add-hook 'yaml-mode-hook (lambda () (my-company-add-backend-locally 'company-ansible))))
 
 
 (provide 'init-ansible)

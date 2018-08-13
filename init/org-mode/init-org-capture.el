@@ -65,10 +65,6 @@
         ))
 
 ;;; code snippets capture template
-(use-package which-func
-  :ensure t
-  :init (autoload 'which-function "which-func.el"))
-
 (defun my/org-capture-get-src-block-string (major-mode)
   "Given a major mode symbol, return the associated org-src block
 string that will enable syntax highlighting for that language
@@ -81,7 +77,7 @@ E.g. tuareg-mode will return 'ocaml', python-mode 'python', etc..."
 (defun my/org-capture-code-snippet (f)
   (with-current-buffer (find-buffer-visiting f)
     (let ((code-snippet (buffer-substring-no-properties (mark) (- (point) 1)))
-          (func-name (which-function))
+          (func-name (read-from-minibuffer "Function name: "))
           (file-name (buffer-file-name))
           (line-number (line-number-at-pos (region-beginning)))
           (org-src-mode (my/org-capture-get-src-block-string major-mode)))

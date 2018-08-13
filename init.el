@@ -232,7 +232,6 @@
 (with-eval-after-load 'lisp-mode
   (require 'init-prog-lang-common-lisp))
 (with-eval-after-load 'scheme-mode
-  (setq scheme-program-name "guile")
   (require 'init-prog-lang-scheme))
 (with-eval-after-load 'newlisp-mode
   (require 'init-prog-lang-newLisp))
