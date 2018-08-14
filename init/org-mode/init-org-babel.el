@@ -111,8 +111,8 @@
   (let ((src-block
 	       (completing-read "Enter src block name[or TAB or ENTER]: " (org-babel-src-block-names))))
     (unless (string-equal "" src-block)
-	    (insert (format src-block)))))
-(define-key org-babel-map (kbd "C-q") 'my/org-babel-insert-named-src-block)
+	    (insert (format "<<%s>>" src-block)))))
+(define-key org-babel-map (kbd "M-q") 'my/org-babel-insert-named-src-block)
 
 (defun my/org-babel-insert-src-block-call (&optional template)
   "Interactively insert a named src block call with `TEMPLATE'."
@@ -121,7 +121,7 @@
 	      (src-block (completing-read "Enter src block name[or TAB or ENTER]: " (org-babel-src-block-names))))
     (unless (string-equal "" src-block)
 	    (insert (format template src-block)))))
-(define-key org-babel-map (kbd "C-k") 'my/org-babel-insert-src-block-call)
+(define-key org-babel-map (kbd "M-c") 'my/org-babel-insert-src-block-call)
 
 ;;; [ Literate dotfiles management with Org-mode ]
 
@@ -161,15 +161,14 @@
 (add-hook 'org-babel-pre-tangle-hook #'sound-tick)
 
 ;;; Tangling with append to file instead of default overwrite.
-(defun org-babel-tangle-append ()
+(defun my/org-babel-tangle-append ()
   "Append source code block at point to its tangle file.
 The command works like `org-babel-tangle' with prefix arg
 but `delete-file' is ignored."
   (interactive)
   (cl-letf (((symbol-function 'delete-file) #'ignore))
     (org-babel-tangle '(4))))
-
-(org-defkey org-mode-map (kbd "C-c C-v M-t") 'org-babel-tangle-append)
+(define-key org-babel-map (kbd "M-t") 'my/org-babel-tangle-append)
 
 ;;; [ ob-async ] -- enables asynchronous execution of org-babel src blocks for *any* languages.
 
