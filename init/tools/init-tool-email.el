@@ -3,6 +3,7 @@
 
 ;;; Commentary:
 
+;;; - [C-x m] :: `compose-mail'
 
 ;;; Code:
 
@@ -11,7 +12,6 @@
   (define-prefix-command 'email-prefix))
 (define-key tools-prefix (kbd "m") 'email-prefix)
 
-
 ;;; [ mail-mode ] -- mail-mode is replaced with message-mode.
 
 
@@ -19,7 +19,7 @@
 
 ;; 'message-user-agent, 'mail-user-agent, 'gnus-user-agent, 'mu4e-user-agent,
 (setq mail-user-agent 'message-user-agent
-      compose-mail-user-agent-warnings nil
+      ;; compose-mail-user-agent-warnings nil
       ;; use `postfix' server instead of `smtpmail'.
       send-mail-function 'sendmail-send-it
       message-send-mail-function 'message-send-mail-with-sendmail
@@ -71,36 +71,15 @@
 ;;;      - `sign'
 ;;;      - `encrypt'
 
-
 
 ;; (require 'init-gnus)
 (require 'init-mu4e)
 
-
-
-(defvar my-email-client 'mu4e
-  "The value is 'gnus, 'mu4e, or t for default.")
-
-(case my-email-client
-  ;; Gnus
-  ('gnus
-   (define-key email-prefix (kbd "m") 'gnus))
-
-  ;; mu4e
-  ('mu4e
-   (define-key tools-prefix (kbd "m") 'mu4e)
-   (setq mail-user-agent 'mu4e-user-agent)
-   (if (eq 'mail-user-agent 'mu4e-user-agent)
-       (global-set-key (kbd "C-x m") 'mu4e-compose-new)))
-
-  ;; default
-  (t (define-key email-prefix (kbd "m") 'compose-mail)))
 
 ;; procmail
 (add-to-list 'auto-mode-alist '("\\.procmailrc\\'" . conf-mode))
 ;; getmail
 (add-to-list 'auto-mode-alist '("\\.getmailrc\\'" . conf-mode))
-
 ;;; [ Thunderbird ]
 ;; use org mode for eml files (useful for thunderbird plugin like "external editor").
 (add-to-list 'auto-mode-alist '("\\.eml\\'" . org-mode))

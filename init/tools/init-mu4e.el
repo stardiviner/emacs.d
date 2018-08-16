@@ -18,14 +18,16 @@
   :load (mu4e mu4e-contrib mu4e-main mu4e-vars mu4e-proc mu4e-speedbar)
   :defer t
   :commands (mu4e)
-  :config
+  :bind (:map tools-prefix ("m" . mu4e))
+  :init
+  (autoload 'mu4e-user-agent "mu4e-compose")
+  ;; use mu4e as default Email program for Emacs [C-x m].
+  (setq mail-user-agent 'mu4e-user-agent)
   ;; (setq mu4e-mu-home nil ; nil for default
   ;;       mu4e-mu-binary "/usr/sbin/mu"
   ;;       )
-
-  (setq mail-user-agent 'mu4e-user-agent) ; use mu4e as default Email program for Emacs [C-x m].
+  :config
   (setq mu4e-compose-in-new-frame t)
-
   
   ;; a list of user's e-mail addresses
   (setq mu4e-user-mail-address-list
@@ -95,6 +97,7 @@
   (setq sendmail-program (executable-find "sendmail"))
 
   ;; 1: msmtp
+  ;; NOTE: `msmtp' has socks proxy support for sending Gmail.
   ;; (setq sendmail-program "/usr/bin/msmtp")
   ;; $ msmtp -C $HOME/.mutt/msmtprc
 
@@ -411,7 +414,7 @@
   ;; in your org-mode files. mu4e supports this with the org-mu4e module; you can
   ;; set it up by adding it to your configuration:
 
-  (require 'org-mu4e)
+  (require 'org-mu4e) ; for [[mu4e:..]] links.
 
   ;; store link to message if in "header view", not to "header query"
   (setq org-mu4e-link-query-in-headers-mode nil)
