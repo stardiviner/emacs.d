@@ -216,6 +216,16 @@ otherwise, they are appended."
 ;; (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 ;; (add-to-list 'org-babel-tangle-lang-exts '("eshell" . "sh"))
 
+;;; [ Aweshell ] -- An enhanced Eshell layer like on-my-zsh with many features.
+
+(use-package aweshell
+  ;; :quelpa ((aweshell :fetcher github :repo "manateelazycat/aweshell") :upgrade t)
+  :quelpa (aweshell :fetcher github :repo "manateelazycat/aweshell")
+  :commands (aweshell-new
+             aweshell-next aweshell-prev
+             aweshell-sudo-toggle aweshell-search-history)
+  :bind ("C-x !" . aweshell-new))
+
 
 (provide 'init-eshell)
 
