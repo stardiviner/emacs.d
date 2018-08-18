@@ -38,17 +38,17 @@
                                    (color-lighten-name (face-background 'default) 3))))
 (set-face-attribute 'org-level-2 nil
                     :inherit 'org-level-1
-                    :family "Comic Neue"
+                    :family "DejaVu Sans Mono"
                     :height 130)
 (set-face-attribute 'org-level-3 nil
                     :inherit 'org-level-2
-                    :family "Linux Biolinum"
                     :height 130)
 (set-face-attribute 'org-level-4 nil
                     :inherit 'org-level-3
                     :family "Comic Neue")
 (set-face-attribute 'org-level-5 nil
-                    :inherit 'org-level-4)
+                    :inherit 'org-level-4
+                    :family "DejaVu Sans Mono")
 (set-face-attribute 'org-level-6 nil
                     :inherit 'org-level-5)
 (set-face-attribute 'org-level-7 nil
