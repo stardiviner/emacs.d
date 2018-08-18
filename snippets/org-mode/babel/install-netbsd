@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
-# name: babel-install-ubuntu
-# key: babel-install-ubuntu
+# name: babel-install-netbsd
+# key: babel-install-netbsd
 # group: babel.install
 # --
 #+begin_src sh :dir /sudo:: :results none
-sudo apt install -y $0
+sudo pkg_add $0
 #+end_src
