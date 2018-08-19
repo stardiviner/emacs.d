@@ -114,18 +114,21 @@
     "http://clojuredocs.org/search?q=%s"
     :docstring "ClojureDocs.org"
     :keybinding "C")
+  (defengine crossclj
+    "https://crossclj.info"
+    :docstring "CrossClj: cross-referencing the Clojure ecosystem."
+    :keybinding "j")
   (defengine clojars
     "https://clojars.org/search?q=%s"
-    :docstring "clojars"
+    :docstring "clojars")
+  (defengine java-docs
+    "https://docs.oracle.com/apps/search/search.jsp?category=java&q=%s"
+    :docstring "Java Docs"
     :keybinding "J")
   (defengine maven
     "https://search.maven.org/beta/search?q=%s"
     :docstring "Maven"
     :keybinding "M")
-  (defengine java-docs
-    "https://docs.oracle.com/apps/search/search.jsp?category=java&q=%s"
-    :docstring "Java Docs"
-    :keybinding "j")
   (defengine ruby-doc
     "http://ruby-doc.com/search.html?q=%s"
     :docstring "Ruby doc")
