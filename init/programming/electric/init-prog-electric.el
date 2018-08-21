@@ -63,6 +63,17 @@
   ;;                     :background "green yellow")
   )
 
+;;; [ rainbow-identifiers ] -- highlight identifiers according to their names.
+
+;; (use-package rainbow-identifiers
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   ;; (add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
+;;   (hook-modes c-dialects-mode
+;;     (when (memq major-mode '(c-mode c++-mode objc-mode))
+;;       (rainbow-identifiers-mode 1))))
+
 
 (provide 'init-prog-electric)
 
