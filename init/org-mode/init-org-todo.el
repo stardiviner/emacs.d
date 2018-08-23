@@ -47,7 +47,7 @@
       '(
         ;; Status: Getting Things Done
         (sequence "TODO(t@/!)" "NEXT(n!)"
-                  "URGENT(u!)" "INPROGRESS(g@/!)" "LATER(l!)" "SOMEDAY(s@/!)"
+                  "URGENT(u@/!)" "INPROGRESS(g@/!)" "LATER(l!)" "SOMEDAY(s@/!)"
                   "|" "DONE(d@/!)" "FAILED(x@/!)" "CANCELLED(k@/!)")
         ;; Clock
         (sequence "STARTED(!)" "|" "DONE(d@/!)")
@@ -56,7 +56,7 @@
         ;; Habit
         (sequence "HABIT(h)" "|" "DONE(d)")
         ;; Code
-        (sequence "CODE(c@/!)" "BUG(b!)" "ISSUE(i!)" "ERROR(e!)" "FEATURE(f!)" "Pull-Request(p!)" "|" "DONE(d@/!)")
+        (sequence "CODE(c@/!)" "BUG(b@/!)" "ISSUE(i@/!)" "ERROR(e@/!)" "FEATURE(f@/!)" "Pull-Request(p@/!)" "|" "DONE(d@/!)")
         ;; Work
         (type "WORK(w@/!)" "MEETING(m@/!)" "|" "DONE(d@/!)")
         ;; Learn
