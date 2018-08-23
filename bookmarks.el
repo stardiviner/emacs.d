@@ -2,7 +2,58 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/SuperCollider/Data/Books/Composition with SuperCollider.pdf"
+(("My PostgreSQL Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/PostgresQL/Data/Manuals/My PostgreSQL Language Syntax Reference/My PostgreSQL Language Syntax Reference.org")
+ (front-context-string . "#+TITLE: My Post")
+ (rear-context-string)
+ (position . 1))
+("My SQLite Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/SQLite/Data/Manuals/My SQLite Syntax Reference/My SQLite Syntax Reference.org")
+ (front-context-string . "#+TITLE: My SQLi")
+ (rear-context-string)
+ (position . 1))
+("My PHP Practical Examples.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/PHP/Data/Manuals/My PHP Practical Examples/My PHP Practical Examples.org")
+ (front-context-string . "#+TITLE: My PHP ")
+ (rear-context-string)
+ (position . 1))
+("My PHP Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/PHP/Data/Manuals/My PHP Language Syntax Reference/My PHP Language Syntax Reference.org")
+ (front-context-string . "#+TITLE: My PHP ")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Hack/Hacker/Data/Books/黑客: 计算机革命的英雄.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Hack/Hacker/Data/Books/黑客: 计算机革命的英雄.pdf")
+ (position . 1)
+ (page . 2)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Hack/Hacker/Data/Books/黑客 - 计算机革命的英雄.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Hack/Hacker/Data/Books/黑客 - 计算机革命的英雄.pdf")
+ (position . 1)
+ (page)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("Erlang.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Erlang/Erlang.org")
+ (front-context-string . "#+TITLE: Erlang ")
+ (rear-context-string)
+ (position . 1))
+("Org Mode.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/Org Mode/Org Mode.org")
+ (front-context-string . "# -*- org-startu")
+ (rear-context-string)
+ (position . 1))
+("Education.org"
+ (filename . "~/Org/Wiki/Education/Education.org")
+ (front-context-string . "#+TITLE: Educati")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/SuperCollider/Data/Books/Composition with SuperCollider.pdf"
  (filename . "~/Org/Wiki/Computer Technology/Softwares/SuperCollider/Data/Books/Composition with SuperCollider.pdf")
  (position . 1)
  (page . 1)
@@ -23,7 +74,7 @@
 ("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure Programming.pdf"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure Programming.pdf")
  (position . 1)
- (page . 29)
+ (page . 321)
  (slice)
  (size . fit-width)
  (origin)
@@ -519,7 +570,7 @@
 ("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/SQLite/Data/Books/SQLite权威指南.pdf"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/SQLite/Data/Books/SQLite权威指南.pdf")
  (position . 1)
- (page . 1)
+ (page . 23)
  (slice)
  (size . fit-width)
  (origin)
@@ -653,19 +704,19 @@
  (position . 1))
 ("org-capture-last-stored-marker"
  (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** 林鹏程\n   :PROPE")
- (rear-context-string . ":15]\n   :END:\n\n\n")
- (position . 101363))
+ (front-context-string . "** Dmitri Sotnik")
+ (rear-context-string . "2:06]\n   :END:\n\n")
+ (position . 102751))
 ("org-refile-last-stored"
  (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** 林鹏程\n   :PROPE")
- (rear-context-string . ":15]\n   :END:\n\n\n")
- (position . 101363))
+ (front-context-string . "** 袁浩刚\n   :PROPE")
+ (rear-context-string . "15:52]\n   :END:\n")
+ (position . 104372))
 ("org-capture-last-stored"
- (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 想起小时候看的电视剧《")
- (rear-context-string . "-07-31 Tuesday\n\n")
- (position . 45131))
+ (filename . "~/Org/Contacts/Contacts.org")
+ (front-context-string . "* Dmitri Sotniko")
+ (rear-context-string . "09:17]\n   :END:\n")
+ (position . 143184))
 ("PDF-LAST-VIEWED: /tmp/mu-1000/b53469b1/3/test.pdf"
  (filename .
            #("/tmp/mu-1000/b53469b1/3/test.pdf" 0 32
