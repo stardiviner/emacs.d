@@ -9,6 +9,7 @@
 
 ;; [ default view ]
 
+(setq org-startup-truncated t) ; `truncate-lines'
 (setq org-startup-folded t)
 
 (setq org-hide-emphasis-markers t

@@ -21,6 +21,8 @@
 (setq org-fontify-whole-heading-line t)
 (setq org-fontify-done-headline t)
 
+(setq org-ctrl-k-protect-subtree t)
+
 (add-hook 'org-mode-hook 'variable-pitch-mode)
 
 ;;; [ Org faces ]
