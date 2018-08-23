@@ -438,21 +438,20 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;;   :audible   Overwrite the value of `org-notify-audible' for this action.
 ;; ---------------------------------------------------------
 
-;; (org-notify-add 'default
-;;                 '(:time "1h" :period "2h" :duration 8
-;;                         :actions (-notify/window)
-;;                         :audible t)
-;;                 )
+(org-notify-add 'default
+                '(:time "1h" :period "1h" :duration 8
+                        :actions (-ding -notify/window)
+                        :audible t))
 
-;; (org-notify-start 300)
+(org-notify-start 1200)
+
 
 ;;; [ org-collector ] -- collect properties into tables.
 ;; (require 'org-collector)
 
 ;;; auto launch org-agenda after Emacs finished startup.
 (add-hook 'after-init-hook
-          (lambda ()
-            (org-agenda nil "a")))
+          (lambda () (org-agenda nil "a")))
 
 
 
