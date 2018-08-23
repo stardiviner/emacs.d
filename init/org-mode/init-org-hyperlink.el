@@ -7,6 +7,7 @@
 
 ;;; Code:
 
+;;; Check out variable `org-link-parameters'.
 
 (setq org-indirect-buffer-display 'current-window
       ;; org-display-internal-link-with-indirect-buffer t ; [C-u] to open in indirect buffer window.
@@ -110,10 +111,13 @@ Optional for Org-mode file: `LINK'."
         ("\\.mp4\\'" . "mplayer %s")
         ("\\.mov\\'" . "mplayer %s")
         ("\\.ogv\\'" . "mplayer %s")
+        ("\\.webm\\'" . "mplayer %s")
         ("\\.f4v\\'" . "mplayer %s")
+        ("\\.mkv\\'" . "mplayer %s")
         ;; Audio
         ("\\.mp3\\'" . "play %s")
         ("\\.ogg\\'" . "mplayer %s")
+        ("\\.wav\\'" . "mplayer %s")
         ("\\.midi\\'" . "timidity %s")
         (auto-mode . emacs)
         (t . emacs)))
