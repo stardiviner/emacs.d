@@ -51,9 +51,6 @@
               ("M-t" . google-translate-query-translate)
               ("C-r" . google-translate-at-point-reverse)
               ("M-r" . google-translate-query-translate-reverse))
-  :init
-  (add-to-list 'display-buffer-alist
-               '("^\\*Google Translate\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
   :config
   (setq google-translate-enable-ido-completion nil
         google-translate-show-phonetic t
@@ -67,7 +64,12 @@
                                                         ("zh-CN" . "en")
                                                         ("zh-CN" . "ja")
                                                         ("zh-CN" . "ko"))
-        ))
+        )
+  
+  (add-to-list 'display-buffer-alist
+               '("^\\*Google Translate\\*" .
+                 (display-buffer-reuse-window display-buffer-below-selected)))
+  )
 
 ;;; [ ob-translate ] -- allows you to translate blocks of text within org-mode.
 
@@ -93,7 +95,8 @@
   :bind (:map dictionary-prefix ("y" . youdao-dictionary-search-at-point))
   :init
   (add-to-list 'display-buffer-alist
-               '("^\\*Youdao Dictionary\\*" . (display-buffer-reuse-window display-buffer-below-selected))))
+               '("^\\*Youdao Dictionary\\*" .
+                 (display-buffer-reuse-window display-buffer-below-selected))))
 
 
 (provide 'init-tool-dictionary)

@@ -56,14 +56,12 @@
 
 (use-package sql-indent
   :ensure t
-  :defer t
-  :init
+  :config
   (defun sql-indent-setup-local ()
     (make-local-variable 'indent-line-function)
     (setq-local indent-line-function 'sql-indent-line))
   (dolist (hook '(sql-mode-hook edbi:sql-mode-hook))
-    (add-hook hook #'sql-indent-setup-local))
-  )
+    (add-hook hook #'sql-indent-setup-local)))
 
 
 ;;; [ sqlup-mode ] -- An Emacs minor mode to upcase SQL keyword and functions.

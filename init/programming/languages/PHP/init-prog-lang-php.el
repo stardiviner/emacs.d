@@ -13,24 +13,21 @@
   :ensure t
   :ensure-system-package php
   :defer t
-  :mode (("[.]php$" . php-mode)
-         ("\\(pages\\|snippets\\|templates\\)/.*[.]php?$" . web-mode))
+  :mode (("\\.php\\'" . php-mode)
+         ("\\(pages\\|snippets\\|templates\\)/.*\\.php?$" . web-mode))
   :load (php-ext)
   :config
   (setq indent-tabs-mode nil
         c-basic-offset 2
         php-template-compatibility nil
-        php-search-documentation-browser-function t
-        )
-  )
+        php-search-documentation-browser-function t))
 
 ;;; [ php-eldoc ]
 
 (use-package php-eldoc
   :ensure t
   :defer t
-  :init
-  (add-hook 'php-mode-hook 'php-eldoc-enable))
+  :init (add-hook 'php-mode-hook 'php-eldoc-enable))
 
 ;;; [ ob-php ] -- execute PHP within org-mode blocks.
 

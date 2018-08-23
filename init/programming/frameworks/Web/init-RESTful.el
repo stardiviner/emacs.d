@@ -63,8 +63,7 @@
 
   ;; [ restclient-test ] -- Run tests with restclient.el
   (use-package restclient-test
-    :ensure t)
-  )
+    :ensure t))
 
 
 ;; [ ob-restclient ]
@@ -74,19 +73,16 @@
   :config
   (add-to-list 'org-babel-load-languages '(restclient . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  (add-to-list 'org-babel-tangle-lang-exts '("restclient" . "http"))
-  )
+  (add-to-list 'org-babel-tangle-lang-exts '("restclient" . "http")))
 
 ;; [ ob-http ] -- http request in org-mode babel
 
 (use-package ob-http
   :ensure t
-  :defer t
   :config
   (add-to-list 'org-babel-load-languages '(http . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  (add-to-list 'org-babel-tangle-lang-exts '("http" . "http"))
-  )
+  (add-to-list 'org-babel-tangle-lang-exts '("http" . "http")))
 
 ;;; [ httprepl ]
 
@@ -96,8 +92,7 @@
   :commands (httprepl)
   :config
   (add-hook 'httprepl-mode-hook
-            (lambda () (my-company-add-backend-locally 'company-restclient)))
-  )
+            (lambda () (my-company-add-backend-locally 'company-restclient))))
 
 
 ;;; [ know-your-http-well ]
@@ -116,8 +111,7 @@
   :bind (:map restclient-mode-map
               ("C-c C-d" . hc)
               :map ob-http-mode-map
-              ("C-c C-d" . hc))
-  )
+              ("C-c C-d" . hc)))
 
 
 

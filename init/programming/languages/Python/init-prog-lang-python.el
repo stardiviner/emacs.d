@@ -74,6 +74,10 @@
 (use-package elpy
   :ensure t
   :init (add-hook 'python-mode-hook #'elpy-enable)
+  (defun my-elpy-company-setup ()
+    ;; don't use `elpy-company-backend', `company-capf' works correctly.
+    (my-company-add-backend-locally 'elpy-company-backend))
+  (add-hook 'elpy-mode-hook #'my-elpy-company-setup)
   :bind (:map python-mode-map
               ("C-h d d" . elpy-doc)
               ("M-," . pop-tag-mark))
@@ -90,11 +94,6 @@
                        )
         elpy-company-post-completion-function 'elpy-company-post-complete-parens
         )
-
-  (defun my-elpy-company-setup ()
-    ;; don't use `elpy-company-backend', `company-capf' works correctly.
-    (my-company-add-backend-locally 'elpy-company-backend))
-  (add-hook 'elpy-mode-hook #'my-elpy-company-setup)
   )
 
 ;;; [ lsp-python ] Python support for lsp-mode.

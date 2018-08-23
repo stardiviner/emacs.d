@@ -24,8 +24,7 @@
   :defer t
   :no-require t
   :init (require 'leuven-theme)
-  ;; :config (load-theme 'leuven t)
-  )
+  :config (load-theme 'leuven t))
 
 ;;; [ eziam-theme ] -- A mostly monochrome theme, inspired by Tao and Leuven, with dark and light versions.
 

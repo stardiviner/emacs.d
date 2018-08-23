@@ -77,7 +77,7 @@
     (add-hook 'clojure-mode-hook 'subword-mode))
   )
 
-;;; [ inf-clojure ] --
+;;; [ inf-clojure ] -- Run an external Clojure process in an Emacs buffer.
 
 (use-package inf-clojure
   :ensure t
@@ -197,7 +197,7 @@
 
   ;; [ cider-profile ] [C-c C-=]
   
-  ;; CIDER inspect command keybindings
+  ;; CIDER inspect command keybindings [C-c M-i] `cider-inspect'.
   (unless (boundp 'cider-inspect-prefix)
     (define-prefix-command 'cider-inspect-prefix))
   (defun my:cider-setup-inspect-keybindings ()
@@ -205,8 +205,7 @@
     (define-key cider-inspect-prefix (kbd "r") 'cider-inspect-last-result)
     (define-key cider-inspect-prefix (kbd "E") 'cider-inspect-expr)
     (define-key cider-inspect-prefix (kbd "d") 'cider-inspect-defun-at-point)
-    (define-key cider-inspect-prefix (kbd "e") 'cider-inspect-last-sexp)
-    (define-key cider-inspect-prefix (kbd "i") 'cider-inspect-read-and-inspect))
+    (define-key cider-inspect-prefix (kbd "e") 'cider-inspect-last-sexp))
   (add-hook 'clojure-mode-hook #'my:cider-setup-inspect-keybindings)
   
   (defconst cider-metadata-buffer "*cider-metadata*")
