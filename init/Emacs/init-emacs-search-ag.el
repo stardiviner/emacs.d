@@ -17,6 +17,7 @@
   :ensure t
   :ensure-system-package (ag . "sudo pacman -S --noconfirm the_silver_searcher")
   :defer t
+  :commands (ag ag-regexp ag-project ag-regexp-project-at-point ag-dired ag-files ag-kill-buffers)
   :init
   (define-key ag-prefix (kbd "a") 'ag)
   (define-key ag-prefix (kbd "r") 'ag-regexp)
@@ -26,9 +27,6 @@
   (define-key ag-prefix (kbd "f") 'ag-files)
   (define-key ag-prefix (kbd "k") 'ag-kill-buffers) ; `ag-kill-other-buffers'
 
-  (add-to-list 'display-buffer-alist
-               '("^\\*ag search\\*" (display-buffer-reuse-window display-buffer-below-selected)))
-  :config
   (setq ag-highlight-search t
         ag-group-matches t
         ag-context-lines nil
@@ -36,7 +34,15 @@
         ag-reuse-window nil ; nil, or 't. (I use value `nil' for popwin to capture)
         ;; ag-arguments
         )
+
+  ;; display result buffer bellow current window.
+  (add-to-list 'display-buffer-alist
+               '("^\\*ag search\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
+  ;; auto jump to result buffer window.
+  (add-hook 'ag-search-finished-hook
+            (lambda () (pop-to-buffer next-error-last-buffer)))
   
+  ;; :config
   ;; This will auto open search results in other window.
   ;; (add-hook 'ag-mode-hook #'next-error-follow-minor-mode) ; so you can navigate with 'n' & 'p'.
   )
