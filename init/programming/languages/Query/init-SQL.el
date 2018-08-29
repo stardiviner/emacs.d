@@ -149,6 +149,12 @@
   :defer t
   :commands (ejc-connect ejc-connect-existing-repl ejc-sql-mode)
   :config
+  (defun my-ejc-sql-ac-setup ()
+    (ejc-sql-mode 1)
+    (auto-complete-mode 1)
+    (ejc-ac-setup))
+  (add-hook 'sql-mode-hook #'my-ejc-sql-ac-setup)
+  
   (ejc-create-connection
    "PostgreSQL"
    :classpath "~/.m2/repository/postgresql/postgresql/9.3-1102.jdbc41/postgresql-9.3-1102.jdbc41.jar"
