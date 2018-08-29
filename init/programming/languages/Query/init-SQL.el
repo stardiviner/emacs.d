@@ -144,15 +144,30 @@
 ;;; [ ejc-sql ] -- Emacs SQL client uses Clojure JDBC.
 
 (use-package ejc-sql
-  :ensure t
+  ;; :ensure t
+  :load-path "~/Code/Emacs/ejc-sql/"
   :defer t
   :commands (ejc-connect ejc-connect-existing-repl ejc-sql-mode)
   :config
   (ejc-create-connection
-   "sqlite-temp"
-   :classpath "~/.m2/repository/sqlitejdbc/sqlitejdbc/0.5.6/sqlitejdbc-0.5.6.jar"
-   :subprotocol "sqlite"
-   :subname "/tmp/test.db")
+   "PostgreSQL"
+   :classpath "~/.m2/repository/postgresql/postgresql/9.3-1102.jdbc41/postgresql-9.3-1102.jdbc41.jar"
+   :classname "org.postgresql.Driver"
+   :dbtype "postgresql"
+   :host "localhost"
+   :port "5432"
+   :user "postgres"
+   :password "324324")
+  
+  (ejc-create-connection
+   "MySQL"
+   :classpath "~/.m2/repository/mysql/mysql-connector-java/5.1.32/mysql-connector-java-5.1.32.jar"
+   :classname "com.mysql.jdbc.Driver"
+   :dbtype "mysql"
+   :host "localhost"
+   :port "3306"
+   :user "root"
+   :password "324324")
   )
 
 
