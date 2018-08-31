@@ -56,6 +56,12 @@
   (add-to-list 'rcirc-omit-responses "AWAY")
   (add-hook 'rcirc-mode-hook #'rcirc-omit-mode)
 
+  ;; [ rcirc-alertify ] -- Cross platform notifications for rcirc with tight integration.
+  (use-package rcirc-alertify
+    :ensure t
+    :init (setq alert-default-style 'libnotify)
+    :config (rcirc-alertify-enable))
+
   ;; [ Edit ]
 
   (add-hook 'rcirc-mode-hook #'flyspell-mode)
