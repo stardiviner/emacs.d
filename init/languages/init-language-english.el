@@ -19,6 +19,24 @@
   :ensure t
   :defer t)
 
+;;; [ company-english-helper ] -- English helper base on Emacs company-mode.
+
+(use-package company-english-helper
+  :quelpa (company-english-helper :fetcher github
+                                  :repo "manateelazycat/company-english-helper")
+  ;; :load-path "~/Code/Emacs/company-english-helper/"
+  :commands (toggle-company-english-helper)
+  :config
+  (defun my/company-english-helper-setup ()
+    (if (local-variable-if-set-p 'company-backends)
+        (add-to-list 'company-backends 'company-english-helper-search)
+      (add-to-list (make-local-variable 'company-backends) 'company-english-helper-search)))
+  (dolist (hook '(org-mode-hook
+                  git-commit-mode-hook
+                  rcirc-mode-hook))
+    (add-hook hook #'my/company-english-helper-setup))
+  )
+
 
 (provide 'init-language-english)
 

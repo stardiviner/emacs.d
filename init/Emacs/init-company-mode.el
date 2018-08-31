@@ -13,7 +13,7 @@
   :ensure t
   :defer t
   ;; disable `company-mode' in `org-mode' for performance.
-  :preface (setq company-global-modes '(not org-mode))
+  ;; :preface (setq company-global-modes '(not org-mode))
   :commands (global-company-mode)
   :init (global-company-mode 1)
   :config
