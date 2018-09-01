@@ -378,9 +378,15 @@ state (modified, read-only or non-existent)."
               (concat
                ;; CIDER project type
                (pcase (cider-project-type)
-                 ("lein" (all-the-icons-fileicon "clj" :face 'mode-line-success-face)))
+                 ('lein (all-the-icons-fileicon "clj" :face 'mode-line-success-face))
+                 ('boot "Boot")
+                 ('clojure-cli (all-the-icons-icon-for-mode 'clojure-mode
+                                                            :v-adjust -0.1 :height 1.0))
+                 ('shadow-cljs (all-the-icons-fileicon "cljs" :face 'mode-line-success-face))
+                 )
+               " "
                ;; CIDER project name
-               (or (let ((project (cider-project-name (buffer-local-value 'nrepl-project-dir (current-buffer)))))
+               (or (let ((project (cider--project-name (buffer-local-value 'nrepl-project-dir (current-buffer)))))
                      (unless (equal project "-") project))
                    (with-current-buffer (ignore-errors (cider-current-connection))
                      (format "%s" (cider--project-name nrepl-project-dir)))
@@ -1161,12 +1167,12 @@ dimensions of a block selection."
 
 
 ;; (set-face-attribute 'mode-line nil
-;;                     ;; :box `(:line-width 2 :color ,(color-darken-name (face-background 'default) 3))
+;;                     :box `(:line-width 2 :color ,(color-darken-name (face-background 'default) 3))
 ;;                     :height 100
 ;;                     )
 ;; (set-face-attribute 'mode-line-inactive nil
-;;                     ;; :box `(:line-width 1 :color ,(color-darken-name (face-background 'default) 3))
-;;                     :height 100
+;;                     :box `(:line-width 1 :color ,(color-darken-name (face-background 'default) 3))
+;;                     :height 1.0
 ;;                     )
 
 
