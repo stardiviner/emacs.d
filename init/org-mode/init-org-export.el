@@ -65,8 +65,7 @@
   :bind (:map Org-prefix
               ("m" . org-mime-org-buffer-htmlize)
               :map message-mode-map
-              ("C-c M-o" . org-mime-htmlize)
-              )
+              ("C-c M-o" . org-mime-htmlize))
   :config
   (add-hook 'org-mime-html-hook
             (lambda ()
@@ -146,14 +145,13 @@
 ;;; [ ox-epub ] -- Org-mode EPUB export.
 
 (use-package ox-epub
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; [ ox-pandoc ] -- another org-mode exporter via pandoc.
 
-;; (use-package ox-pandoc
-;;   :ensure t
-;;   :defer t)
+(use-package ox-pandoc
+  :ensure t
+  :ensure-system-package (pandoc . "sudo pacman -S --noconfirm pandoc pandoc-citeproc pandoc-crossref"))
 
 ;;; [ htmlize ]
 
