@@ -9,7 +9,7 @@
 
 ;;; [ Gnus ]
 
-(define-key email-prefix (kbd "g") 'gnus)
+(define-key tools-prefix (kbd "m") 'gnus)
 
 ;; user info
 (setq user-full-name "stardiviner"
