@@ -16,13 +16,9 @@
 
 ;;; Code:
 
-(setq-default echo-keystrokes 0.01) ; faster echo key strokes
-
 ;;; [ Modifiers]
 
 ;; (setq x-hyper-keysym 'hyper)
-
-(setq suggest-key-bindings t) ; show the /equivalent/ key binding when [M-x] command has one.
 
 ;;; stop using the arrow keys
 (global-unset-key [left])
