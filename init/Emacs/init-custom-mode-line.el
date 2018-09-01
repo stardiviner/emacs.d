@@ -204,7 +204,9 @@ to the command loop."
 (defun *buffer-name ()
   "Display buffer name better."
   (propertize
-   (format " %s" (s-truncate 30 (buffer-name)))
+   (format " %s" (s-truncate 50 (if (not (buffer-file-name))
+                                    (buffer-name)
+                                  (file-relative-name (buffer-file-name) "../.."))))
    'face 'mode-line-buffer-id))
 
 ;;; buffer info
