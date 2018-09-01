@@ -12,14 +12,7 @@
 (use-package nim-mode
   :ensure t
   :ensure-system-package nim
-  :config
-  ;; company-mode support
-  (require 'company-nim)
-  (add-hook 'nim-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-nim)
-              ))
-  )
+  :config (add-hook 'nim-mode-hook 'nimsuggest-mode))
 
 
 ;;; [ nimrod-mode ]
