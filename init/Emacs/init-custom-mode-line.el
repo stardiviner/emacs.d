@@ -162,15 +162,16 @@ to the command loop."
   (defun *eyebrowse ()
     "Displays `default-directory', for special buffers like the scratch buffer."
     ;; `eyebrowse-mode-line-indicator'
-    (let ((current-slot-tag (cadr (alist-get
-                                   (eyebrowse--get 'current-slot)
-                                   (eyebrowse--get 'window-configs))))
-          ;; (current-slot-number (eyebrowse--get 'current-slot))
-          ;; (slot-numbers (length (eyebrowse--get 'window-configs)))
-          )
-      (concat
-       (all-the-icons-faicon "codepen" :v-adjust -0.1)
-       (propertize (format " %s " current-slot-tag))))))
+    (if-let* ((current-slot-tag (cadr (alist-get
+                                       (eyebrowse--get 'current-slot)
+                                       (eyebrowse--get 'window-configs))))
+              (slot-tag-empty? (not (string-empty-p current-slot-tag)))
+              ;; (current-slot-number (eyebrowse--get 'current-slot))
+              ;; (slot-numbers (length (eyebrowse--get 'window-configs)))
+              )
+        (concat
+         (all-the-icons-faicon "codepen" :v-adjust -0.1)
+         (propertize (format " %s " current-slot-tag))))))
 
 ;; (use-package perspeen
 ;;   :ensure t
