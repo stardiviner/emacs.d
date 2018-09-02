@@ -40,6 +40,14 @@
   :defer t
   :commands (picpocket))
 
+;;; [ blimp ] -- Bustling Image Manipulation Package; a complete wrapper around all imagemagick commands.
+
+(use-package blimp
+  :ensure t
+  :bind (:map image-mode-map ("C-c C-i" . blimp-interface))
+  :config
+  (add-hook 'image-mode-hook 'blimp-mode))
+
 
 (provide 'init-emacs-image)
 
