@@ -146,14 +146,6 @@
   (advice-add 'org-src-coderef-format :filter-return 'my-org-src-coderef-format))
 
 
-;;; beacon effect when open org-mode babel src block editing.
-(defun my-org-src-edit-animation ()
-  (interactive)
-  (let ((beacon-size 30)
-        (beacon-color "green yellow"))
-    (beacon-blink)))
-
-(add-hook 'org-src-mode-hook #'my-org-src-edit-animation)
 (add-hook 'org-src-mode-hook #'sound-tick)
 
 (add-hook 'org-babel-after-execute-hook #'sound-voice-complete)

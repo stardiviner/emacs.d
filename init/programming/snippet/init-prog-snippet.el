@@ -73,15 +73,6 @@ $0`(yas-escape-text yas-selected-text)`"
                  (concat (projectile-project-root) ".snippets"))
     )
   (add-hook 'projectile-find-file-hook #'yasnippet-project-local)
-  
-  (defun my-yas-exit-animation ()
-    ;; (popup-tip "snippet exited")
-    ;; (message "snippet exited")
-    (let ((beacon-size 20)
-          (beacon-color "deep pink"))
-      (beacon-blink))
-    )
-  (add-hook 'yas-after-exit-snippet-hook #'my-yas-exit-animation)
   )
 
 ;;; [ ivy-yasnippet ] -- preview yasnippet snippets with Ivy.

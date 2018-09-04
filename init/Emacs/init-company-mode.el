@@ -158,26 +158,6 @@
   ;; - `company-sort-by-occurrence'
   (setq company-transformers '(company-sort-prefer-same-case-prefix))
 
-  ;; animation effect on company completion
-  ;; - `beacon-blink', `beacon--shine'
-  (defun my-company-start-animation (backend)
-    ;; beacon
-    (let ((beacon-size 20)
-          (beacon-color "cyan"))
-      (beacon-blink)))
-  (defun my-company-success-animation (backend)
-    ;; beacon
-    (let ((beacon-size 20)
-          (beacon-color "green"))
-      (beacon-blink)))
-  (defun my-company-fail-animation (backend)
-    ;; beacon
-    (let ((beacon-size 20)
-          (beacon-color "dark red"))
-      (beacon-blink)))
-  ;; (add-hook 'company-completion-started-hook #'my-company-start-animation)
-  (add-hook 'company-completion-finished-hook #'my-company-success-animation)
-  (add-hook 'company-completion-cancelled-hook #'my-company-fail-animation)
   )
 
 

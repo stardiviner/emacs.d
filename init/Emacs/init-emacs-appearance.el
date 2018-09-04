@@ -209,20 +209,6 @@
 ;; (global-whitespace-mode +1)
 
 
-;;; [ beacon ] -- highlight the cursor whenever the window scrolls.
-
-(use-package beacon
-  :ensure t
-  :defer t
-  :init
-  (setq beacon-blink-when-point-moves-vertically 10
-        beacon-blink-when-point-moves-horizontally 20
-        beacon-blink-when-focused t
-        beacon-size 60
-        beacon-blink-duration (/ (- beacon-size 10) 100.0))
-  :config
-  (beacon-mode 1))
-
 ;;; [ all-the-icons ] -- A utility package to collect various Icon Fonts and propertize them within Emacs.
 
 (use-package all-the-icons
