@@ -24,8 +24,8 @@
                 (:cache . "yes")
                 (:results . "replace")
                 ;; for exporting
-                (:eval . "no-export")
-                (:exports . "both")
+                (:eval . "never-export")
+                ;; (:exports . "both") conflict with (:eval "never-export")
                 ))
 
 ;;; don't evaluate babel when exporting. For helper functions like `my:org-convert-region-to-html' etc.

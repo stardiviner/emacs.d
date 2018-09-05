@@ -22,8 +22,9 @@
 (setq TeX-auto-untabify t)
 ;; `org-export-use-babel'
 ;; export with results but don't re-evaluate src blocks.
+;; (setq org-export-babel-evaluate nil)
+;; (add-to-list 'org-babel-default-header-args '(:exports . "both"))
 (add-to-list 'org-babel-default-header-args '(:eval . "never-export"))
-(add-to-list 'org-babel-default-header-args '(:exports . "both"))
 
 ;;; exclude org headlines exporting with a specific tags.
 (setq org-export-exclude-tags '("noexport"))
