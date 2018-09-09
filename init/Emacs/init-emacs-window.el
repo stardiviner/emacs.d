@@ -46,7 +46,9 @@
   :bind ("C-x C-j" . ace-window)
   :config
   (setq aw-background nil)
-  (setq aw-dispatch-always t))
+  (setq aw-dispatch-always t)
+  (set-face-attribute 'aw-leading-char-face nil
+                      :height 200))
 
 ;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
 
