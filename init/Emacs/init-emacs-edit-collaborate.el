@@ -1,4 +1,4 @@
-;;; init-tool-collaborate.el --- init Emacs for collaboration
+;;; init-emacs-edit-collaborate.el --- init Emacs for collaboration editing.
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -19,6 +19,6 @@
 
 
 
-(provide 'init-tool-collaborate)
+(provide 'init-emacs-edit-collaborate)
 
-;;; init-tool-collaborate.el ends here
+;;; init-emacs-edit-collaborate.el ends here

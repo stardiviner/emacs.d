@@ -180,7 +180,6 @@
 ;; (require 'init-tool-password-manager)
 ;; (require 'init-tool-accounting)
 (require 'init-tool-paste)
-;; (require 'init-tool-collaborate)
 (require 'init-tool-irc)
 ;; (require 'init-slack)
 ;; (require 'init-elfeed)
