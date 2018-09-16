@@ -3,8 +3,8 @@
 # key: defn
 # group: defn.defn
 # --
-defn ${1:function-name}
-  ${2:doc-string?}${3:
-  metadata-map?}
-  ${4:[${5:arg-list*}]}
-  ${6:conditions-map?}$0
+defn${6:-} ${1:function-name}
+  ${2:doc-string?
+  }${3:metadata-map?
+  }[${4:arg-list*}]
+  ${5:conditions-map?}$0

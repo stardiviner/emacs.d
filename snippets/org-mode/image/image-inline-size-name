@@ -3,7 +3,7 @@
 # key: image-size-name
 # group: image
 # --
-#+NAME: fig:${1:figure name}
+#+NAME: ${1:figure name}
 #+CAPTION: $1
 #+ATTR_ORG: :width ${2:200/250/300/400/500/600}
 #+ATTR_LATEX: :width ${2:$(/ (string-to-number yas-text) 100.0)}in

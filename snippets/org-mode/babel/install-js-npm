@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-install-js-npm
+# key: babel-install-js-npm
+# group: babel.install
+# --
+#+begin_src sh
+npm install -g $0
+#+end_src

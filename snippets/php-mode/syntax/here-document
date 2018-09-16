@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: here document
+# key: here-document
+# group: syntax
+# --
+<<<_HTML_
+$0
+_HTML_

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: function
+# key: func
+# group: syntax
+# --
+func name(${1:arg1${2: type}}${3:, ${4:arg2}}) ${5:return type} {
+	$0
+}
