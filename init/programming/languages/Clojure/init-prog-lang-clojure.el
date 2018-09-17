@@ -419,11 +419,12 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   :init
   (defun elein-lein-try ()
     (interactive)
-    (if (equal "*scratch*" (buffer-name))
-        (progn
-          (setq-local inferior-lisp-program "lein try tentacles")
-          (command-execute 'inferior-lisp)
-          )))
+    (with-current-buffer "*scratch*"
+      (setq-local inferior-lisp-program
+                  (concat "lein try "
+                          (read-string "dependencies: " "org.clojure/clojure 1.9.0")))
+      (command-execute 'inferior-lisp))
+    (rename-buffer "*elein-lein-try*"))
   )
 
 ;;; [ clomacs ] -- Clomacs simplifies call Clojure code from Emacs lisp.
