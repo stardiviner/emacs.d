@@ -47,10 +47,10 @@
                     :height 130)
 (set-face-attribute 'org-level-4 nil
                     :inherit 'org-level-3
-                    :family "Comic Neue")
+                    :family "DejaVu Sans"
+                    :weight 'normal)
 (set-face-attribute 'org-level-5 nil
-                    :inherit 'org-level-4
-                    :family "DejaVu Sans Mono")
+                    :inherit 'org-level-4)
 (set-face-attribute 'org-level-6 nil
                     :inherit 'org-level-5)
 (set-face-attribute 'org-level-7 nil
