@@ -31,6 +31,11 @@
     (add-hook 'company-completion-finished-hook #'bmx--company-completion-finished-hook))
   (add-hook 'bmx-mode-hook #'my/bmx-mode-company-setup))
 
+;;; [ PowerShell ]
+
+(use-package powershell
+  :ensure t
+  :commands (powershell))
 ;;; ----------------------------------------------------------------------------
 
 (provide 'init-microsoft-windows)
