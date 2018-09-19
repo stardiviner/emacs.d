@@ -36,6 +36,19 @@
 (use-package powershell
   :ensure t
   :commands (powershell))
+
+;;; [ .NET ]
+
+(use-package dotnet
+  :ensure t
+  :commands (dotnet-add-package
+             dotnet-new
+             dotnet-run dotnet-run-with-args
+             dotnet-build
+             dotnet-publish
+             dotnet-test dotnet-test-rerun
+             dotnet-sln-new dotnet-sln-add dotnet-sln-remove dotnet-sln-list))
+
 ;;; ----------------------------------------------------------------------------
 
 (provide 'init-microsoft-windows)
