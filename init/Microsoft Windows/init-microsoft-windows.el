@@ -7,29 +7,29 @@
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
-;;; [ ini-mode ] -- major mode for Windows-style ini files.
+;;; [ ini-mode ] -- Major mode for Windows-style .ini files.
 
 (use-package ini-mode
   :ensure t
   :mode "\\.ini\\'")
 
-;;; [ dos ] -- major mode for editing DOS scripts.
+;;; [ bat-mode ] -- Emacs built-in major mode for editing DOS/Windows scripts.
 
-;; (use-package dos
-;;   :ensure t
-;;   :defer t)
+(require 'bat-mode)
 
-;;; [ bat-mode ] -- major mode for editing DOS/Windows scripts.
+;;; [ bmx-mode ] -- Batch Mode eXtras.
 
-;; (use-package bat-mode
-;;   :ensure t
-;;   :defer t)
-
-;;; [ batch-mode ] --
-
-;; (use-package batch-mode
-;;   :ensure t
-;;   :defer t)
+(use-package bmx-mode
+  :ensure t
+  :config
+  ;; (bmx-mode-setup-defaults)
+  (add-hook 'bat-mode-hook #'bmx-mode)
+  (defun my/bmx-mode-company-setup ()
+    (make-local-variable 'company-backends)
+    (add-to-list 'company-backends #'bmx--company-label-backend)
+    (add-to-list 'company-backends #'bmx--company-variable-backend)
+    (add-hook 'company-completion-finished-hook #'bmx--company-completion-finished-hook))
+  (add-hook 'bmx-mode-hook #'my/bmx-mode-company-setup))
 
 ;;; ----------------------------------------------------------------------------
 
