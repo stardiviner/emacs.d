@@ -10,21 +10,14 @@
 
 ;; (use-package tabbar
 ;;   :ensure t
+;;   :init (setq tabbar-use-images t
+;;               tabbar-background-color t)
 ;;   :config
-;;   (setq tabbar-use-images nil)
 ;;   ;; (tabbar-mode 1)
-;;   (use-package tabbar-ruler
-;;     :ensure t
-;;     :bind ("C-t" . tabbar-ruler-move)
-;;     :config
-;;     (setq tabbar-ruler-global-tabbar t)    ; get tabbar
-;;     (setq tabbar-ruler-global-ruler t)     ; get global ruler
-;;     (setq tabbar-ruler-popup-menu t)       ; get popup menu.
-;;     (setq tabbar-ruler-popup-toolbar t)    ; get popup toolbar
-;;     (setq tabbar-ruler-popup-scrollbar t)  ; show scroll-bar on mouse-move
 ;;
-;;     (tabbar-ruler-group-by-projectile-project) ; group by projectile project.
-;;     )
+;;   (use-package awesome-tab
+;;     :quelpa (awesome-tab :fetcher github :repo "manateelazycat/awesome-tab")
+;;     :config (require 'awesome-tab))
 ;;   )
 
 ;;; [ perspeen ] -- A emacs plugin for multi workspace.
