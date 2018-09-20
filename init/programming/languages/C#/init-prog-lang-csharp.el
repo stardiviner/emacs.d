@@ -44,6 +44,27 @@
   (add-hook 'omnisharp-mode-hook 'my-omnisharp-setup)
   )
 
+;;; [ ob-csharp ]
+
+(use-package ob-csharp
+  :quelpa (ob-csharp :fetcher github :repo "thomas-villagers/ob-csharp"
+                     :files ("src/ob-csharp.el"))
+  :init (setq org-babel-csharp-compiler "mcs")
+  :config
+  (add-to-list 'org-babel-load-languages '(csharp . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("csharp" . "cs"))
+
+  ;; (add-to-list 'org-babel-default-header-args:csharp
+  ;;              '(:eval . "yes"))
+  ;; (add-to-list 'org-babel-default-header-args:csharp
+  ;;              '(:noweb . "yes"))
+  ;; (add-to-list 'org-babel-default-header-args:csharp
+  ;;              '(:results . "output"))
+  ;; (add-to-list 'org-babel-default-header-args:csharp
+  ;;              '(:session . "*???*")) ; TODO:
+  )
+
 
 (provide 'init-prog-lang-csharp)
 
