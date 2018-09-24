@@ -18,7 +18,14 @@
 (use-package magithub
   :ensure t
   :after magit
-  :bind (:map prog-vcs-prefix ("n" . magithub-dashboard))
+  :init (unless (boundp 'git-gutter-prefix)
+          (define-prefix-command 'git-gutter-prefix))
+  :bind (:map prog-vcs-prefix ("n" . magithub-dashboard)
+              :map git-gutter-prefix
+              ("f" . magithub-browse-file)
+              ("F" . magithub-browse)
+              ("M-c" . magithub-commit-browse) ; [w] on any commit section.
+              ("M-b" . magithub-browse-file-blame))
   :config
   (magithub-feature-autoinject t)
   (add-to-list 'display-buffer-alist
@@ -26,21 +33,6 @@
   (add-to-list 'display-buffer-alist
                '("^\\*magithub:.*\\*" (display-buffer-same-window)))
   )
-
-;;; [ github-browse-file ] -- View the file you're editing in Emacs on GitHub.
-
-(use-package github-browse-file
-  :ensure t
-  :defer t
-  :init
-  (unless (boundp 'git-gutter-prefix)
-    (define-prefix-command 'git-gutter-prefix))
-  :bind (:map git-gutter-prefix
-              ("f" . github-browse-file)
-              ("F" . github-browse-file-blame)
-              ("M-c" . github-browse-commit))
-  :config
-  (setq github-browse-file-show-line-at-point t))
 
 
 
