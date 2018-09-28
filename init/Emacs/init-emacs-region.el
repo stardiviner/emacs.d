@@ -7,8 +7,17 @@
 
 ;;; Code:
 
+;;; [ Selection ]
+
+;;; transient-mark-mode
+;;
+;; NOTE: it is very heavy for large region operation like deletion.
+;; It has very frequent property-notify events.
+;; (transient-mark-mode t)
+
+
 ;; typed text replaces the active selection
-(delete-selection-mode t)
+;; (delete-selection-mode t)
 
 
 ;;; [ expand-region ]

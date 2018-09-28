@@ -132,10 +132,6 @@
 
 (blink-cursor-mode 1)
 
-;;; [ Selection ]
-
-(setq transient-mark-mode t)
-
 ;;; [ wrap line ]
 ;; truncate long lines.
 ;; (setq-default truncate-lines t)
