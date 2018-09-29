@@ -21,7 +21,6 @@
 
 (use-package leuven-theme
   :load-path "~/Code/Emacs/leuven-theme/"
-  :defer t
   :no-require t
   :init (require 'leuven-theme)
   :config (load-theme 'leuven t))
@@ -31,28 +30,28 @@
 ;; (use-package eziam-theme
 ;;   :ensure t
 ;;   :no-require t
-;;   :defer t
 ;;   :load (eziam-light-theme))
 
 ;;; [ spacemacs-theme ] -- Spacemacs default color-theme.
 
-(use-package spacemacs-theme
-  :ensure t
-  :no-require t
-  :defer t
-  ;; :config (load-theme 'spacemacs-dark t)
-  )
+;; (use-package spacemacs-theme
+;;   :ensure t
+;;   :no-require t
+;;   :config (load-theme 'spacemacs-dark t))
+
+;;; [ solarized-theme ]
+
+;; (use-package solarized-theme
+;;   :ensure t
+;;   :no-require t
+;;   :config (load-theme 'solarized-light t))
 
 ;;; [ one-themes ] -- One color scheme.
 
 ;; (use-package one-themes
 ;;   :ensure t
 ;;   :no-require t
-;;   :defer t
-;;   ;; :config
-;;   ;; (load-theme 'one-dark t)
-;;   ;; (load-theme 'one-light t)
-;;   )
+;;   :config (load-theme 'one-dark t))
 
 (set-face-attribute 'underline nil
                     :underline (cl-case (alist-get 'background-mode (frame-parameters))
