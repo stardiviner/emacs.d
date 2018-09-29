@@ -357,6 +357,9 @@
 ;; (require 'init-electronic)
 ;; (require 'init-electric-music)
 
+;;; Hack
+(require 'init-reverse-engineering)
+
 
 ;;; Authoring & Writing
 
