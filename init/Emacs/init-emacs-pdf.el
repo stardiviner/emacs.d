@@ -128,6 +128,13 @@
   (setq paperless-capture-directory "~/Downloads"
         paperless-root-directory "~/Org"))
 
+;;; [ pdfgrep ] -- Grep PDF for searching PDF.
+
+(use-package pdfgrep
+  :ensure-system-package pdfgrep
+  :ensure t
+  :commands (pdfgrep))
+
 
 (provide 'init-emacs-pdf)
 
