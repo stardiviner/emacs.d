@@ -63,6 +63,10 @@
                    `(,backend :with company-yasnippet))
       ))
 
+  ;; [ company-ispell ]
+  ;; (setq company-ispell-dictionary "/usr/share/dict/words")
+  ;; (add-to-list 'company-backend 'company-ispell)
+  
   ;; keybindings
 
   ;; manually start completion (don't globally set, conflict with auto-complete
@@ -156,8 +160,8 @@
   ;; - `company-sort-prefer-same-case-prefix'
   ;; - `company-sort-by-backend-importance'
   ;; - `company-sort-by-occurrence'
-  (setq company-transformers '(company-sort-prefer-same-case-prefix))
-
+  ;; disable customize `company-transformers' to fix python-mode company candidates sorting.
+  ;; (setq company-transformers '(company-sort-prefer-same-case-prefix))
   )
 
 
