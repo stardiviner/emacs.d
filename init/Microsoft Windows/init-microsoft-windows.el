@@ -66,6 +66,11 @@
              dotnet-test dotnet-test-rerun
              dotnet-sln-new dotnet-sln-add dotnet-sln-remove dotnet-sln-list))
 
+;;; [ AutoHotkey ]
+
+(use-package ahk-mode
+  :ensure t)
+
 ;;; ----------------------------------------------------------------------------
 
 (provide 'init-microsoft-windows)
