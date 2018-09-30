@@ -98,6 +98,11 @@ For pasting source code in Email."
   (advice-add 'yagist-anonymous-file-name :before #'yagist-anonymous-file-name-for-org-babel)
   )
 
+;;; [ carbon.now.sh ] -- a service that creates beautiful images of your code.
+
+(use-package carbon-now-sh
+  :ensure t
+  :commands (carbon-now-sh))
 
 
 (provide 'init-tool-paste)
