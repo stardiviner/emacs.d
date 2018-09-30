@@ -20,15 +20,15 @@
 
 ;;; [ alert ] -- A Growl-like alerts notifier for Emacs.
 
-;; (use-package alert
-;;   :ensure t
-;;   :config
-;;   (setq alert-default-style 'libnotify ; 'notifications
-;;         alert-reveal-idle-time 15
-;;         alert-persist-idle-time 900
-;;         alert-fade-time 5
-;;         )
-;;   )
+(use-package alert
+  :ensure t
+  :config
+  (setq alert-default-style 'libnotify ; 'notifications
+        alert-reveal-idle-time 15
+        alert-persist-idle-time 900
+        alert-fade-time 5
+        )
+  )
 
 
 (provide 'init-emacs-notify)
