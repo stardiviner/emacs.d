@@ -53,6 +53,12 @@
 ;;     (add-hook hook #'my-company-shell-setup))
 ;;   )
 
+;;; [ lsp-sh ] -- Bash support for lsp-mode using Mads Hartmann's bash-language-server.
+
+(use-package lsp-sh
+  :ensure t
+  :init (add-hook 'sh-mode-hook #'lsp-sh-enable))
+
 
 
 (provide 'init-prog-lang-shell)
