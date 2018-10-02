@@ -35,7 +35,11 @@
         lsp-ui-doc-include-signature t
         ;; lsp-ui-doc-position 'at-point
         )
-  (add-hook 'lsp-after-open-hook #'lsp-ui-mode))
+  (add-hook 'lsp-after-open-hook #'lsp-ui-mode)
+
+  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+  )
 
 ;; [ company-lsp ] -- company-mode completion backend for lsp-mode.
 
