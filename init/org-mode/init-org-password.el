@@ -60,18 +60,14 @@
 ;;; [ org-password-manager ]
 
 (use-package org-password-manager
-  :ensure t
-  :defer t
+  ;; :ensure t
+  :quelpa (org-password-manager :fetcher github :repo "stardiviner/org-password-manager")
   :bind (:map org-password-prefix
               ("u" . org-password-manager-get-username)
               ("p" . org-password-manager-get-password)
-              ("s" . org-password-manager-get-property)
-              ("g" . org-password-manager-generate-password)
-              )
-  :config
-  (setq org-password-manager-default-pwgen-command
-        "pwgen --secure --symbols --capitalize --numerals 25 1")
-  )
+              ("P" . org-password-manager-get-property-value)
+              ("g" . org-password-manager-generate-password))
+  :init (setq org-password-manager-scope 'file))
 
 
 (provide 'init-org-password)
