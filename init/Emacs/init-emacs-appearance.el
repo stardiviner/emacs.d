@@ -110,9 +110,7 @@
 
 (setq-default mouse-avoidance-mode 'animate ; auto move mouse away when cursor is at mouse position
               cursor-in-echo-area nil
-              mouse-yank-at-point t
-              blink-cursor-blinks 10
-              )
+              mouse-yank-at-point t)
 
 ;;; horizontal bar
 (setq-default cursor-type t ; '(hbar . 2)
@@ -130,7 +128,8 @@
 ;; i.e. full width of a TAB
 (setq x-stretch-cursor t)
 
-(blink-cursor-mode 1)
+;; (blink-cursor-mode 1)
+;; (setq blink-cursor-blinks 10)
 
 ;;; [ wrap line ]
 ;; truncate long lines.
