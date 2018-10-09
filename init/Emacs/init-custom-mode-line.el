@@ -1116,7 +1116,7 @@ dimensions of a block selection."
                  (*flycheck)
                  ;; (*build-status)
                  (*vc)
-                 (*linum-info)
+                 ;; (*linum-info)
                  ;; (*wc-mode)
                  (*pdf-tools-page-position)
                  (*org-tree-slide)
