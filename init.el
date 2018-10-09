@@ -250,7 +250,7 @@
 (require 'init-prog-lang-java)
 ;; (require 'init-prog-lang-jvm-groovy)
 ;; (require 'init-prog-lang-jvm-kotlin)
-;; (require 'init-prog-lang-php)
+(require 'init-prog-lang-php)
 (require 'init-prog-lang-html)
 (require 'init-prog-lang-css)
 (require 'init-prog-lang-javascript)
