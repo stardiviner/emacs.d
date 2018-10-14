@@ -190,10 +190,10 @@ but `delete-file' is ignored."
 ;;; [ org-radiobutton ] -- Get the checked item from a check list to be used for
 ;;; Org-mode Literate Programming variable.
 
-(use-package org-radiobutton
-  :ensure t
-  :defer t
-  :init (global-org-radiobutton-mode))
+;; (use-package org-radiobutton
+;;   :ensure t
+;;   :defer t
+;;   :init (global-org-radiobutton-mode))
 
 ;; load all languages at last.
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)

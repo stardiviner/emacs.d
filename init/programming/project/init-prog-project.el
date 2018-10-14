@@ -34,11 +34,11 @@
 
 ;;; [ project-shells ] -- manage the shell buffers for each project.
 
-(use-package project-shells
-  :ensure t
-  :defer t
-  :preface (setq project-shells-keymap-prefix "C-c p M-!")
-  :init (global-project-shells-mode 1))
+;; (use-package project-shells
+;;   :ensure t
+;;   :defer t
+;;   :preface (setq project-shells-keymap-prefix "C-c p M-!")
+;;   :init (global-project-shells-mode 1))
 
 
 (provide 'init-prog-project)
