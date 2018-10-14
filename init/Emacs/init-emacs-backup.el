@@ -2,6 +2,8 @@
 
 ;;; Commentary:
 
+;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Backup.html
+
 ;;; Usage:
 
 ;; - `recover-file' :: recover file from file~.
@@ -11,13 +13,13 @@
 
 
 ;; .#foo.txt
-;; 不同进程修改同一个文件
+;; modify same file by different processes
 (setq create-lockfiles t)
 ;; foo.txt~
-;; 备份最近一个版本
+;; backup the latest recent file
 (setq make-backup-files t)
 ;; #foo.txt#
-;; 定期预存，否则停电、系统崩溃等会损失没保存数据
+;; periodly save, otherwise lost data when accidently power-off.
 (setq auto-save-default t)
 
 
@@ -25,8 +27,8 @@
       backup-by-copying-when-mismatch t
       backup-by-copying-when-privileged-mismatch t
       backup-by-copying-when-linked t
-      version-control t ; use versioned backups.
-      vc-make-backup-files nil ; do not backup files in vc.
+      version-control t ; use versioned backups filename.ext.~1~
+      vc-make-backup-files t ; do not backup files in vc.
       ;; backup-inhibited t ; do not generate backup
       delete-old-versions t             ; auto delete old versions.
       kept-new-versions 3               ; number of new versions.
