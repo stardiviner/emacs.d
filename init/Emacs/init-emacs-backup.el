@@ -31,12 +31,13 @@
       vc-make-backup-files t ; do not backup files in vc.
       ;; backup-inhibited t ; do not generate backup
       delete-old-versions t             ; auto delete old versions.
-      kept-new-versions 3               ; number of new versions.
-      kept-old-versions 3               ; number of old versions.
+      kept-new-versions 2               ; number of new versions.
+      kept-old-versions 2               ; number of old versions.
       )
 
 (setq backup-directory-alist
-      `(("." . ,(expand-file-name "~/.emacs.d/.backups")))
+      '(("." . ".emacs_backups")) ; save backups in $(pwd)/.emacs_backups/filename.bak
+      ;; `(("." . ,(expand-file-name "~/.emacs.d/.backups")))
       ;; `((".*" . ,temporary-file-directory)) ; put all under directory /tmp.
       )
 
