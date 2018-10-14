@@ -229,7 +229,7 @@
 (require 'init-prog-lang-lisp)
 (require 'init-prog-lang-emacs-lisp)
 (require 'init-prog-lang-common-lisp)
-;; (require 'init-prog-lang-scheme)
+(require 'init-prog-lang-scheme)
 ;; (require 'init-prog-lang-newLisp)
 ;; (require 'init-prog-lang-shen)
 (require 'init-prog-lang-clojure)
