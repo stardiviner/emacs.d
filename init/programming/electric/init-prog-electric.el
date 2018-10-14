@@ -28,7 +28,8 @@
   :defer t
   :load (smartparens-config)
   :config
-  ;; (add-to-list 'sp-ignore-modes-list 'org-mode)
+  ;; `smartparens' is heavy in `org-self-insert-command'.
+  (add-to-list 'sp-ignore-modes-list 'org-mode)
   ;; (setq sp-navigate-consider-sgml-tags '(html-erb-mode
   ;;                                        web-mode
   ;;                                        nxml-mode sgml-mode
