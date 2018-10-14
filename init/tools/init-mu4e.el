@@ -15,8 +15,7 @@
   ;; compile from source code
   :load-path "~/Code/Emacs/mu/mu4e/"
 
-  :load (mu4e mu4e-contrib mu4e-main mu4e-vars mu4e-proc mu4e-speedbar)
-  :defer t
+  :load (mu4e mu4e-contrib mu4e-main mu4e-vars mu4e-proc mu4e-speedbar mu4e-compose)
   :commands (mu4e)
   :bind (:map tools-prefix ("m" . mu4e))
   :init
