@@ -173,34 +173,6 @@ to the command loop."
          (all-the-icons-faicon "codepen" :v-adjust -0.1)
          (propertize (format " %s " current-slot-tag))))))
 
-;; (use-package perspeen
-;;   :ensure t
-;;   :init
-;;   (defun *perspeen ()
-;;     "Show perspeen info from `perspeen-modestring'."
-;;     (when (bound-and-true-p perspeen-modestring)
-;;       ;; change face
-;;       (put-text-property 0 6
-;;                          'face (if (mode-line-window-active-p) 'mode-line 'mode-line-inactive)
-;;                          (nth 1 perspeen-modestring))
-;;       perspeen-modestring
-;;       ))
-;;   )
-
-;; Purpose
-;; (use-package purpose
-;;   :ensure t
-;;   :init
-;;   (defun *purpose ()
-;;     "Show Purpose info in custom mode-line."
-;;     (if purpose-mode
-;;         (concat
-;;          (propertize "⊞" 'face '(:height 120))
-;;          (propertize (purpose--modeline-string))
-;;          (propertize " ")
-;;          )))
-;;   )
-
 ;;; buffer name
 (defun *buffer-name ()
   "Display buffer name better."
@@ -886,41 +858,6 @@ dimensions of a block selection."
          (propertize (format-time-string " %H:%M ") 'face `(:height 0.9))
          ))))
 
-;;; [ keycast ]
-(use-package keycast
-  :ensure t
-  :preface
-  (setq keycast-window-predicate 'mode-line-window-active-p)
-  (setq keycast-separator-width 0)
-  (defun *keycast ())
-  :config
-  (defun *keycast ()
-    "Show keycast in custom mode-line."
-    (let ((screen-half-width (- (/ (/ (display-pixel-width) 2) 10) 3)))
-      (when (and (> screen-half-width 80) (mode-line-window-active-p))
-        (ignore-errors
-          mode-line-keycast))))
-  :config
-  (set-face-attribute 'keycast-key nil
-                      :inherit 'mode-line
-                      :height 1.0
-                      ;; :weight 'bold
-                      :background (face-background 'mode-line)
-                      :foreground (face-foreground 'mode-line)
-                      :box (face-attribute 'mode-line :box))
-  (set-face-attribute 'keycast-command nil
-                      :bold nil)
-
-  (add-to-list 'keycast-substitute-alist '(self-insert-command . nil))
-  (add-to-list 'keycast-substitute-alist '(org-self-insert-command . nil))
-  (add-to-list 'keycast-substitute-alist '(next-line . nil))
-  (add-to-list 'keycast-substitute-alist '(previous-line . nil))
-  (add-to-list 'keycast-substitute-alist '(forward-char . nil))
-  (add-to-list 'keycast-substitute-alist '(backward-char . nil))
-  (add-to-list 'keycast-substitute-alist '(move-beginning-of-line . nil))
-  (add-to-list 'keycast-substitute-alist '(move-end-of-line . nil))
-  )
-
 (defun *space (n)
   "Add `N' spaces for custom mode-line alignment."
   (propertize (make-string n (string-to-char " "))))
@@ -1125,7 +1062,6 @@ dimensions of a block selection."
                  ;; (*org-clock-today)
                  (*org-timer)
                  (*pomodoro)
-                 ;; (*keycast)
                  (*mode-line-process)
                  (*spinner)
                  ;; (*copy-file-on-save)
@@ -1150,7 +1086,7 @@ dimensions of a block selection."
                  ;; (*purpose)
                  ;; (*buffer-project)
                  ;; (*projectile)
-                 (*eyebrowse)
+                 ;; (*eyebrowse)
                  (*major-mode)
                  ;; (propertize (format-mode-line "%m" mode-name))
                  (*env)
