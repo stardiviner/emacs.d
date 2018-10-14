@@ -59,6 +59,14 @@ column.  Place the point after the comment box."
 ;;           ))
 ;;   :init (add-hook 'prog-mode-hook 'comment-tags-mode))
 
+;;; [ hl-todo ] -- highlight TODO and similar keywords.
+
+(use-package hl-todo
+  :ensure t
+  :init
+  (setq hl-todo-highlight-punctuation ":")
+  (global-hl-todo-mode))
+
 ;; [ poporg ] -- Editing program comments or strings in text mode.
 
 (use-package poporg
