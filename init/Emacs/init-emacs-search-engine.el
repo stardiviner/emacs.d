@@ -126,7 +126,7 @@
     :docstring "Java Docs"
     :keybinding "J")
   (defengine maven
-    "https://search.maven.org/beta/search?q=%s"
+    "https://search.maven.org/search?q=%s"
     :docstring "Maven"
     :keybinding "M")
   (defengine ruby-doc
