@@ -35,10 +35,16 @@
 
 (use-package powershell
   :ensure t
-  :commands (powershell))
+  :commands (powershell)
+  :init
+  ;; (setq powershell-location-of-exe
+  ;;       "c:\\windows\\system32\\WindowsPowerShell\\v1.0\\powershell.exe")
+  (setq powershell-location-of-exe "/usr/bin/pwsh"))
+
 (use-package ob-powershell
   :load-path "~/.emacs.d/init/extensions/ob-powershell.el"
   :init (require 'ob-powershell)
+  (setq org-babel-powershell-command "pwsh")
   :config
   (add-to-list 'org-babel-load-languages '(powershell . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
