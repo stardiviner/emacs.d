@@ -45,16 +45,10 @@
           ))))
 
 ;; include `diary-file' from `calendar'
-(setq org-agenda-include-diary nil ; speed up Org Agenda generation.
-      ;; diary-file
-      org-agenda-diary-file 'diary-file
-      ;; org-agenda-insert-diary-strategy 'date-tree
-      )
-
-;;; FIXME: anniversary appears at day agenda view which it should not appear.
-(setq org-agenda-include-diary t
+(setq org-agenda-include-diary nil
       diary-file (concat org-directory "/Calendars/Anniversary.org")
       org-agenda-diary-file (concat org-directory "/Calendars/Anniversary.org")
+      ;; org-agenda-insert-diary-strategy 'date-tree
       )
 
 
