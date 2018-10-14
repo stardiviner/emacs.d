@@ -71,7 +71,7 @@
   
   (setq magit-repository-directories
         `((,user-emacs-directory . 0)
-          ("~/Code/" . 2)
+          ("~/Code/" . 3)
           ("~/Org/Website" . 1)
           ))
   
