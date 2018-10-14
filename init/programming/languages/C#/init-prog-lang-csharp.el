@@ -17,7 +17,7 @@
 
 (use-package omnisharp
   :ensure t
-  :config
+  :init
   ;; (setq omnisharp-server-executable-path
   ;;       (expand-file-name "~/Code/CSharp/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe"))
   (setq omnisharp-company-begin-after-member-access t
@@ -32,7 +32,7 @@
         ;; imenu
         omnisharp-imenu-support nil
         )
-
+  :config
   (add-hook 'csharp-mode-hook 'omnisharp-mode)
   
   (defun my-omnisharp-setup ()

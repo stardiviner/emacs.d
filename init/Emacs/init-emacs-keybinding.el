@@ -96,9 +96,6 @@
   :ensure t
   :defer t
   :config
-  ;; display a hint with possible bindings in the echo area.
-  (setq hydra-is-helpful t)
-
   ;; ace-window + hydra
   (global-set-key
    (kbd "C-x C-z")

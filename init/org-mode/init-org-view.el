@@ -42,6 +42,7 @@
 
 ;; [ indent ]
 
+;;; NOTE: org-indent is heavy.
 ;; (require 'org-indent)
 ;; (setq org-startup-indented t
 ;;       org-hide-leading-stars t)

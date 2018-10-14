@@ -38,6 +38,7 @@
   ;;         ("jsx"  . "/some/react/path/.*\\.js[x]?\\'")))
 
   ;;_. Engine families
+  (setq web-mode-enable-engine-detection t)
 
   ;; Never forget to update the auto-mode-alist.
 
@@ -162,6 +163,7 @@
                             (if tern-mode (tern-mode -1)))))))
 
     ;; [C-c ']
+    ;; make advantage of `org-src-edit-buffer-p' detection
     ;; let Org-mode Babel src code block auto set `web-mode-engine' for rhtml.
     (defadvice org-edit-special (before org-edit-src-code activate)
       (let ((lang (nth 0 (org-babel-get-src-block-info))))

@@ -22,9 +22,6 @@
                 (expand-file-name "bookmarks.el" user-emacs-directory))
   (bookmark-maybe-load-default-file))
 
-(setq bookmark-save-flag 1
-      bookmark-automatically-show-annotations t)
-
 (global-unset-key (kbd "C-x r l"))
 (global-unset-key (kbd "C-x r m"))
 

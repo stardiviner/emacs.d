@@ -228,13 +228,14 @@
 (use-package indium
   :ensure t
   :defer t
-  :commands (indium-run-node indium-run-chrome)
-  :init (add-to-list 'display-buffer-alist
-                     '("\\*JS REPL\\*" . (display-buffer-below-selected)))
-  :config
+  :commands (indium-connect indium-launch)
+  :init
+  (add-to-list 'display-buffer-alist
+               '("\\*JS REPL\\*" . (display-buffer-below-selected)))
   (setq indium-chrome-executable "google-chrome-unstable")
   ;; live JavaScript source edit and update.
   (setq indium-update-script-on-save t)
+  :config
   ;; You can setup a hook to be run after each script update.
   (add-hook 'indium-update-script-source-hook
             (lambda (url)
