@@ -67,7 +67,8 @@
               ("p" . org-password-manager-get-password)
               ("P" . org-password-manager-get-property-value)
               ("g" . org-password-manager-generate-password))
-  :init (setq org-password-manager-scope 'file))
+  :init (setq org-password-manager-file "~/Org/Accounts/accounts.org.gpg"
+              org-password-manager-scope 'file))
 
 
 (provide 'init-org-password)
