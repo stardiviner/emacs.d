@@ -116,9 +116,9 @@
                '("^\\*nrepl-.*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
   :config
   ;; Clojure
-  ;; (setq cider-default-repl-command "lein") ; TODO: change to use "clojure-clj" in future.
+  ;; (setq cider-default-repl-command 'clojure-cli)
   ;; ClojureScript
-  ;; (setq cider-default-cljs-repl "Figwheel") ; "Nashorn"
+  (setq cider-default-cljs-repl 'figwheel)
 
   (setq
    ;; resources
