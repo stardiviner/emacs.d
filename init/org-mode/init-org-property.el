@@ -18,6 +18,7 @@
 (add-to-list 'org-default-properties "Source-Code")
 (add-to-list 'org-default-properties "ISSUE")
 (add-to-list 'org-default-properties "Pull-Request")
+(add-to-list 'org-default-properties "COMMIT")
 (add-to-list 'org-default-properties "CONFIG")
 (add-to-list 'org-default-properties "Translation-Chinese")
 
