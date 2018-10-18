@@ -52,11 +52,7 @@
               ("q" . symbol-overlay-query-replace)
               ("P" . symbol-overlay-switch-backward)
               ("N" . symbol-overlay-switch-forward))
-  :init
-  ;; auto highlighting minor mode
-  (add-hook 'prog-mode-hook #'symbol-overlay-mode)
   :config
-  (setq symbol-overlay-idle-time 1.0)
   (set-face-attribute 'symbol-overlay-default-face nil
                       :inherit t :foreground nil
                       :background (cl-case (alist-get 'background-mode (frame-parameters))
