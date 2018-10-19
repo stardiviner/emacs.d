@@ -11,9 +11,12 @@
 ;; use `lsp-{language}-enable' instead.
 (use-package lsp-mode
   :ensure t
-  :preface (setq lsp-enable-flycheck nil
-                 lsp-enable-indentation nil
-                 lsp-highlight-symbol-at-point nil)
+  :init (setq lsp-enable-flycheck nil
+              lsp-enable-indentation nil
+              lsp-highlight-symbol-at-point nil
+              lsp-eldoc-render-all nil
+              ;; inhibit lsp progress message in echo area.
+              lsp-inhibit-message t)
   ;; :init (add-hook 'prog-mode-hook #'lsp-mode) ; XXX: use in lang-specific mode hook.
   ;; :config
   ;; auto set lsp workspace to `projectile-project-root'.
@@ -34,6 +37,7 @@
         lsp-ui-doc-header t
         lsp-ui-doc-include-signature t
         ;; lsp-ui-doc-position 'at-point
+        lsp-ui-sideline-update-mode 'point
         )
   (add-hook 'lsp-after-open-hook #'lsp-ui-mode)
 
@@ -45,12 +49,12 @@
 
 (use-package company-lsp
   :ensure t
-  :defer t
-  :init (setq company-lsp-enable-recompletion t
-              company-lsp-enable-snippet t
-              company-lsp-cache-candidates t
-              company-lsp-async t)
-  :config
+  :init
+  (setq company-lsp-enable-recompletion t
+        company-lsp-enable-snippet t
+        company-lsp-cache-candidates t
+        company-lsp-async t)
+
   (defun my:company-lsp-enable ()
     (my-company-add-backend-locally 'company-lsp))
   (add-hook 'lsp-mode-hook #'my:company-lsp-enable))
