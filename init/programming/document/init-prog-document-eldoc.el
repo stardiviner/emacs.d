@@ -11,12 +11,13 @@
 
 (use-package eldoc
   :ensure t
-  :init (global-eldoc-mode 1)
+  :init
+  (setq eldoc-idle-delay 1)
+  (add-hook 'prog-mode-hook #'eldoc-mode)
   :config
   ;; ElDoc with most `paredit' command.
   ;; whenever the listed commands are used, ElDoc will automatically refresh the minibuffer.
-  (eldoc-add-command 'paredit-backward-delete 'paredit-close-round)
-  )
+  (eldoc-add-command 'paredit-backward-delete 'paredit-close-round))
 
 ;;; [ eldoc-overlay ]  -- display eldoc with contextual documentation overlay.
 
