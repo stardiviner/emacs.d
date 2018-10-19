@@ -78,6 +78,11 @@
   ;; (setq auto-mode-alist (append '(("/PKGBUILD\\'" . pkgbuild-mode)) auto-mode-alist))
   )
 
+;;; [ pacfiles-mode ] -- pacnew and pacsave merging tool.
+
+(use-package pacfiles-mode
+  :ensure t)
+
 ;;; [ arch-packer ] -- Arch Linux package management frontend for pacman and pacaur.
 
 ;; (use-package arch-packer
