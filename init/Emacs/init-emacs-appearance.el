@@ -128,8 +128,9 @@
 ;; i.e. full width of a TAB
 (setq x-stretch-cursor t)
 
-;; (blink-cursor-mode 1)
 ;; (setq blink-cursor-blinks 10)
+;; (blink-cursor-mode 1)
+(setq blink-cursor-mode nil) ; disable `blink-cursor-mode'.
 
 ;;; [ wrap line ]
 ;; truncate long lines.
