@@ -89,7 +89,9 @@
   ;; add source code version Org-mode Info into Emacs.
   (with-eval-after-load 'info
     (info-initialize)
-    (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/")))
+    (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/"))
+  ;; load org before using some Org settings.
+  (require 'org))
 
 ;;; [ package-lint ] -- A linting library for elisp package authors.
 

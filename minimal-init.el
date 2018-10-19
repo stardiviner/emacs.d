@@ -78,7 +78,7 @@
 
 
 
-;; (require 'init-org-mode)
+(require 'init-org-mode)
 
 ;;; Org-mode Babel
 (setq org-confirm-babel-evaluate nil)
