@@ -369,10 +369,14 @@ and append it."
         ("CVE" . "https://cve.mitre.org/cgi-bin/cvename.cgi?name=%s")
         ;; Lisp
         ("lispdoc" . "http://lispdoc.com/?q=%s")
-        ;; Ruby
-        ("Ruby-Doc" . "http://ruby-doc.com/search.html?q=%s")
+        ;; Clojure
+        ;; Java
+        ("Java JSR" . "https://jcp.org/en/jsr/detail?id=%s") ; Java Specification Requests
+        ("Java JEP" . "https://openjdk.java.net/jeps/%s") ; JEP
         ;; Python
         ("Python_3_Documentation" . "http://docs.python.org/3/search.html?q=%s")
+        ;; Ruby
+        ("Ruby-Doc" . "http://ruby-doc.com/search.html?q=%s")
         ;; Perl
         ("Perl_CPAN" . "http://search.cpan.org/search?mode=all&query=%s")
         ;; PHP
