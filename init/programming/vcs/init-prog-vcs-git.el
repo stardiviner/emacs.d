@@ -87,7 +87,7 @@
   (define-key prog-vcs-git-prefix (kbd "b") 'magit-blame-popup)
   (define-key prog-vcs-git-prefix (kbd "v") 'magit-status)
   (define-key prog-vcs-git-prefix (kbd "s") 'magit-stage)
-  (define-key prog-vcs-git-prefix (kbd "c") 'magit-commit)
+  (define-key prog-vcs-git-prefix (kbd "c") 'magit-commit-create)
   (define-key prog-vcs-git-prefix (kbd "C") 'magit-commit-amend)
   (define-key prog-vcs-git-prefix (kbd "d") 'magit-diff)
   (define-key prog-vcs-git-prefix (kbd "l") 'magit-log)

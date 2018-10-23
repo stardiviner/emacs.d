@@ -85,7 +85,7 @@
               ;; stage hunk at point
               ;; if region is active, stage all hunk lines within the region.
               ("s" . git-gutter+-stage-hunks)
-              ("c" . magit-commit)
+              ("c" . magit-commit-create)
               ("C" . git-gutter+-stage-and-commit)
               ("u" . git-gutter:update-all-windows)
               
