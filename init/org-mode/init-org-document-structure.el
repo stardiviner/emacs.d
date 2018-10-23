@@ -25,6 +25,22 @@
 
 (add-hook 'org-mode-hook 'variable-pitch-mode)
 
+;; (require 'skeleton)
+;; (setq skeleton-pair t)
+;; Like help you to input a pair of ==, ~~, **, and ++ in Org Mode.
+;; (define-key org-mode-map (kbd "~") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "=") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "*") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "/") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "_") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "+") 'skeleton-pair-insert-maybe)
+;;
+;; (define-key org-mode-map (kbd "[") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "{") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "(") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "\"") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "'") 'skeleton-pair-insert-maybe)
+
 ;;; [ Org faces ]
 (set-face-attribute 'org-document-title nil
                     :family "Gabriola"
