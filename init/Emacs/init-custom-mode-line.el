@@ -176,6 +176,7 @@ to the command loop."
 ;;; buffer name
 (defun *buffer-name ()
   "Display buffer name better."
+  (require 's) ; for `s-truncate'
   (propertize
    (format " %s" (s-truncate 50 (if (not (buffer-file-name))
                                     (buffer-name)
