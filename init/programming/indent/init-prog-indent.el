@@ -38,20 +38,6 @@
 
 (use-package indent-guide
   :ensure t
-  :defer t
-  :init
-  ;; global
-  ;; works with `indent-guide-global-mode'
-  (with-eval-after-load 'indent-guide
-    (add-to-list 'indent-guide-inhibit-modes 'org-mode)
-    (add-to-list 'indent-guide-inhibit-modes 'web-mode))
-  ;; (indent-guide-global-mode)
-  
-  ;; specific modes
-  (defun my/indent-guide-mode-enable ()
-    (unless (member major-mode indent-guide-inhibit-modes)
-      (indent-guide-mode 1)))
-  ;; (add-hook 'prog-mode-hook #'my/indent-guide-mode-enable)
   :config
   (setq indent-guide-recursive t
         ;; - 0 to avoid zero-column guide line.
@@ -83,6 +69,19 @@
                                      (color-darken-name (face-background 'default) 35))
                                     ('dark
                                      (color-lighten-name (face-background 'default) 20))))
+
+  ;; global
+  ;; works with `indent-guide-global-mode'
+  (with-eval-after-load 'indent-guide
+    (add-to-list 'indent-guide-inhibit-modes 'org-mode)
+    (add-to-list 'indent-guide-inhibit-modes 'web-mode))
+  ;; (indent-guide-global-mode)
+  
+  ;; specific modes
+  (defun my/indent-guide-mode-enable ()
+    (unless (member major-mode indent-guide-inhibit-modes)
+      (indent-guide-mode 1)))
+  (add-hook 'prog-mode-hook #'my/indent-guide-mode-enable)
   )
 
 
@@ -90,15 +89,17 @@
 
 (use-package aggressive-indent
   :ensure t
+  :init (setq aggressive-indent-sit-for-time 0.1)
   :config
+  ;; global
   ;; only work if `global-aggressive-indent-mode'
   (add-to-list 'aggressive-indent-excluded-modes 'python-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'snippet-mode)
-  ;; global
   ;; (global-aggressive-indent-mode 1)
+
   ;; specific
   (defun my/aggressive-indent-enable ()
     (unless (or (member major-mode aggressive-indent-excluded-modes)
@@ -107,8 +108,6 @@
   (add-hook 'prog-mode-hook #'my/aggressive-indent-enable)
 
   (add-to-list 'aggressive-indent-dont-electric-modes 'python-mode)
-
-  (setq aggressive-indent-sit-for-time 0.1)
 
   ;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
   ;; **don't** want indentation to happen.  For instance, if you think it's

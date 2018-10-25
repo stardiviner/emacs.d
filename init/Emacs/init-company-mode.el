@@ -126,8 +126,7 @@
     (interactive)
     ;; (company-abort)
     (company-cancel 'abort)
-    (newline-and-indent)
-    )
+    (newline-and-indent))
 
   (define-key company-active-map [return] 'company-new-line)
   (define-key company-active-map "\r" 'company-new-line)
@@ -137,8 +136,7 @@
     (interactive)
     ;; (company-abort)
     (company-cancel 'abort)
-    (insert " ")
-    )
+    (insert " "))
   
   (define-key company-active-map (kbd "SPC") 'company-space)
 
@@ -157,11 +155,10 @@
   ;; (setq company-etags-everywhere t)
 
   ;; [ company-transformers ]
-  ;; - `company-sort-prefer-same-case-prefix'
-  ;; - `company-sort-by-backend-importance'
-  ;; - `company-sort-by-occurrence'
-  ;; disable customize `company-transformers' to fix python-mode company candidates sorting.
-  ;; (setq company-transformers '(company-sort-prefer-same-case-prefix))
+  ;; NOTE: disable customize `company-transformers' to fix python-mode company candidates
+  ;; sorting.
+  ;; (setq company-transformers '(company-sort-by-backend-importance
+  ;;                              company-sort-prefer-same-case-prefix))
   )
 
 

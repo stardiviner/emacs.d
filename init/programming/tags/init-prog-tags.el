@@ -26,7 +26,7 @@
                                        ))
 
 (add-to-list 'display-buffer-alist
-             '("^\\*xref\\*$" (display-buffer-same-window)))
+             '("^\\*xref\\*$" (display-buffer-below-selected)))
 
 ;;; [ helm-xref ] -- Helm interface for xref results.
 

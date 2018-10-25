@@ -195,16 +195,17 @@
 
 (use-package lsp-javascript-typescript
   :ensure t
+  :ensure-system-package (javascript-typescript-stdio . "npm i -g javascript-typescript-langserver")
   :init (require 'lsp-javascript-typescript)
   (add-hook 'js-mode-hook #'lsp-mode)
   (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
-  
+
   (add-hook 'js2-mode-hook #'lsp-mode)
   (add-hook 'js2-mode-hook #'lsp-javascript-typescript-enable)
 
   (add-hook 'js3-mode-hook #'lsp-mode)
   (add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable) ;; for js3-mode support
-  
+
   (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable)
   (add-hook 'rjsx-mode #'lsp-javascript-typescript-enable) ;; for rjsx-mode support
   )
