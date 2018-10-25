@@ -15,7 +15,7 @@
   :ensure t
   :defer t
   :init
-  (defun my:org-convert-region-to-gfm ()
+  (defun my:org-paste-gfm ()
     "Convert selected region to GitHub Flawed Markdown and copy to clipboard.
 For pasting on sites like GitHub, and Stack Overflow."
     (interactive)
@@ -28,9 +28,9 @@ For pasting on sites like GitHub, and Stack Overflow."
       'gfm t
       '(:with-toc nil)))
     (deactivate-mark))
-  (define-key paste-prefix (kbd "m") 'my:org-convert-region-to-gfm))
+  (define-key paste-prefix (kbd "m") 'my:org-paste-gfm))
 
-(defun my:org-convert-region-to-md ()
+(defun my:org-paste-md ()
   "Convert selected region to Markdown and copy to clipboard.
 For pasting on sites like GitHub, and Stack Overflow."
   (interactive)
@@ -43,11 +43,16 @@ For pasting on sites like GitHub, and Stack Overflow."
     'md t
     '(:with-toc nil)))
   (deactivate-mark))
+(define-key paste-prefix (kbd "M") 'my:org-paste-md)
 
-(define-key paste-prefix (kbd "M") 'my:org-convert-region-to-md)
+(use-package ox-slack
+  :quelpa (ox-slack :fetcher github :repo "titaniumbones/ox-slack")
+  :commands (org-slack-export-to-clipboard-as-slack)
+  :init (defalias 'my:org-paste-slack 'org-slack-export-to-clipboard-as-slack)
+  :bind (:map paste-prefix ("S" . my:org-paste-slack)))
 
 ;;; copy formatted text from org-mode to applications.
-(defun my:org-convert-region-to-html ()
+(defun my:org-paste-html ()
   "Export region to HTML, and copy it to the clipboard.
 For pasting source code in Email."
   (interactive)
@@ -58,7 +63,7 @@ For pasting source code in Email."
    (htmlize-region-for-paste (region-beginning) (region-end)))
   (deactivate-mark))
 
-(define-key paste-prefix (kbd "h") 'my:org-convert-region-to-html)
+(define-key paste-prefix (kbd "h") 'my:org-paste-html)
 ;;; `htmlize-buffer' (convert current buffer into HTML output)
 (define-key paste-prefix (kbd "H") 'htmlize-buffer)
 
