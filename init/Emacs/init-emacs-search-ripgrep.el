@@ -15,7 +15,6 @@
 
 (use-package rg
   :ensure t
-  :ensure wgrep-ag
   :after projectile
   :defer t
   :custom (rg-keymap-prefix nil)
@@ -35,8 +34,8 @@
               )
   :init
   (rg-enable-default-bindings)
-  (if (fboundp 'wgrep-ag-setup)
-      (add-hook 'rg-mode-hook #'wgrep-ag-setup))
+  (if (fboundp 'wgrep-rg-setup)
+      (add-hook 'rg-mode-hook #'wgrep-rg-setup))
   :config
   (setq rg-group-result t
         ;; rg-command-line-flags '("--debug")
