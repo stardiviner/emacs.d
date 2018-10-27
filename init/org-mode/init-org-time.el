@@ -9,23 +9,13 @@
 
 ;;; [ Time Stamps ]
 
-(defun my-org-headline-add-date-property ()
-  "Auto add/update/append DATE property for new created headline."
+(defun my/org-property-add-date-auto ()
+  "A helper command for adding DATE/TIME property and value automatically."
   (interactive)
-  (when (yes-or-no-p "Add DATE property with value of inactive time-stamp? ")
-    (unless (assoc "DATE" (org-entry-properties nil nil))
-      (org-set-property
-       "DATE"
-       (format "%s" (with-temp-buffer
-                      (org-time-stamp 4 'inactive)
-                      (buffer-string)))))
-    ;; remove the inserted time-stamp in headline.
-    (org-back-to-heading t)
-    (org-beginning-of-line)
-    (org-kill-line)))
-
-(define-key org-mode-map (kbd "C-c C-x M-t") 'my-org-headline-add-date-property)
-;; (add-hook 'org-insert-heading-hook #'my-org-headline-add-date-property)
+  (save-excursion
+    (org-set-property "DATE" (format-time-string "[%Y-%m-%d %a %H:%M]"))))
+(define-key org-mode-map (kbd "C-c C-x M-t") 'my/org-property-add-date-auto)
+(add-hook 'org-insert-heading-hook #'my/org-property-add-date-auto)
 
 ;;; [ Time Interval ]
 
