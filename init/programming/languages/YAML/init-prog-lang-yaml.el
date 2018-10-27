@@ -18,6 +18,11 @@
   (setq yaml-indent-offset 4)
   )
 
+;;; [ yaml-imenu ] -- Enhancement of the imenu support in yaml-mode.
+
+(use-package yaml-imenu
+  :ensure t)
+
 
 (provide 'init-prog-lang-yaml)
 
