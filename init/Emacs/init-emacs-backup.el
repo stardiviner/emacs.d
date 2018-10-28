@@ -27,8 +27,8 @@
       backup-by-copying-when-mismatch t
       backup-by-copying-when-privileged-mismatch t
       backup-by-copying-when-linked t
-      version-control t ; use versioned backups filename.ext.~1~
-      vc-make-backup-files t ; do not backup files in vc.
+      version-control nil ; use versioned backups filename.ext.~1~
+      vc-make-backup-files nil ; do not backup files in vc.
       ;; backup-inhibited t ; do not generate backup
       delete-old-versions t             ; auto delete old versions.
       kept-new-versions 2               ; number of new versions.
