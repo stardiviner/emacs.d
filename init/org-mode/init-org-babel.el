@@ -39,14 +39,15 @@
 (add-to-list 'display-buffer-alist
              '("^\\*Org-Babel Error Output\\*" (display-buffer-below-selected)))
 
-;;; [ inline call code block ]
+;;; [ inline source block: src_{lang}[switchs,flags]{body} ]
 
 ;; (setq org-babel-exp-inline-code-template "src_%lang[%switches%flags]{%body}")
 (setq org-babel-default-inline-header-args
       '((:session . "none")
         (:results . "replace")
-        (:exports . "both")
-        (:hlines . "yes")))
+        ;; (:exports . "both")
+        (:hlines . "yes")
+        (:eval . "never-export")))
 ;; or "=%s=", "~%s~"
 ;; (setq org-babel-inline-result-wrap "=> (~%s~)")
 
