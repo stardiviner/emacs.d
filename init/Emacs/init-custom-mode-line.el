@@ -176,12 +176,16 @@ to the command loop."
 ;;; buffer name
 (defun *buffer-name ()
   "Display buffer name better."
-  (require 's) ; for `s-truncate'
-  (propertize
-   (format " %s" (s-truncate 50 (if (not (buffer-file-name))
-                                    (buffer-name)
-                                  (file-relative-name (buffer-file-name) "../.."))))
-   'face 'mode-line-buffer-id))
+  (propertize (format-mode-line "%b")
+              'face 'mode-line-buffer-id)
+  
+  ;; (require 's) ; for `s-truncate'
+  ;; (propertize
+  ;;  (format " %s" (s-truncate 50 (if (not (buffer-file-name))
+  ;;                                   (buffer-name)
+  ;;                                 (file-relative-name (buffer-file-name) "../.."))))
+  ;;  'face 'mode-line-buffer-id)
+  )
 
 ;;; buffer info
 (defun *buffer-info ()
