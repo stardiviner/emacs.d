@@ -243,16 +243,17 @@
   (add-hook 'mu4e-compose-mode-hook #'turn-on-auto-fill)
   (add-hook 'mu4e-compose-mode-hook #'turn-on-flyspell)
 
-;;; Message signatures
+  ;; Message signatures
   ;; include in message with [C-c C-w]
   (setq mu4e-compose-signature-auto-include t
         mu4e-compose-signature
-        "[ stardiviner ] don't need to convince with trends.
+        "[ stardiviner ]
+       I try to make every word tell the meaning what I want to express.
+
        Blog: https://stardiviner.github.io/
-       IRC(freenode): stardiviner
+       IRC(freenode): stardiviner, Matrix: stardiviner
        GPG: F09F650D7D674819892591401B5DF1C95AE89AC3
-      "
-        )
+      ")
 
   ;; compose address complete with [M-Tab].
   (setq mu4e-compose-complete-addresses t ; e-mail address auto completion
