@@ -40,8 +40,8 @@
   (define-key sly-prefix-map (kbd "M-h") 'sly-documentation-lookup)
   (define-key sly-mrepl-mode-map (kbd "C-c C-k") 'sly-mrepl-clear-recent-output)
 
-  ;; auto connect SLY.
-  (setq sly-auto-start t)
+  ;; Connecting to SLY automatically
+  (setq sly-auto-start 'always)
 
   (add-to-list 'display-buffer-alist
                '("^\\*sly-mrepl.*\\*" (display-buffer-below-selected)))
