@@ -7,16 +7,10 @@
 
 ;;; Code:
 
-;;; [ Hexadecimal ]
+;;; [ hexl ] -- hexlify and dehexlify binary file content.
 
-
-
-
-;;; [ hexl-mode ]
-
-;; (setq hexl-follow-ascii t
-;;       )
-
+(use-package hexl
+  :commands (hexl-mode hexl-find-file hexlify-buffer))
 
 ;;; [ hexview-mode ]
 
