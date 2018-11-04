@@ -9,7 +9,7 @@
 
 (setq mode-line-in-non-selected-windows t)
 
-(require 'init-custom-mode-line)
+;; (require 'init-custom-mode-line)
 ;; (require 'init-powerline)
 
 
