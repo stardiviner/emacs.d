@@ -97,8 +97,8 @@
   ;; [ web-narrow-mode ] -- narrow for web-mode
   (use-package web-narrow-mode
     :ensure t
-    :config
-    (add-hook 'web-mode-hook 'web-narrow-mode))
+    :delight web-narrow-mode
+    :init (add-hook 'web-mode-hook 'web-narrow-mode))
 
   ;; [ company-web ] -- company-mode version of ac-html, complete for web,html,emmet,jade,slim modes.
   (use-package company-web
@@ -193,8 +193,8 @@
   ;; [ web-mode-edit-element ] -- helper-functions for attribute- and element-handling.
   (use-package web-mode-edit-element
     :ensure t
-    :init
-    (add-hook 'web-mode-hook 'web-mode-edit-element-minor-mode))
+    :delight web-mode-edit-element-minor-mode
+    :init (add-hook 'web-mode-hook 'web-mode-edit-element-minor-mode))
   )
 
 ;; [ ob-html ]

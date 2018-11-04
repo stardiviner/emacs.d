@@ -40,7 +40,9 @@
 (use-package which-key
   :ensure t
   :defer t
+  :delight which-key-mode
   :init (which-key-mode 1)
+  (setq which-key-lighter "")
   :bind ("C-h C-h" . which-key-show-top-level)
   :config
   ;; (which-key-setup-side-window-right-bottom)

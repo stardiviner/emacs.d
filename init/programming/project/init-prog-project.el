@@ -15,6 +15,7 @@
 
 (use-package projectile
   :ensure t
+  :delight projectile-mode
   :config
   ;; nil: disable caching to fix TRAMP hang on sending password
   (setq projectile-enable-caching nil

@@ -13,6 +13,7 @@
   :ensure t
   :ensure ivy-hydra ; [C-o], [M-o]
   :defer t
+  :delight ivy-mode
   :init (ivy-mode 1)
   :config
   (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
@@ -36,6 +37,7 @@
 
 (use-package counsel
   :ensure t
+  :delight counsel-mode
   :bind (([remap yank-pop] . counsel-yank-pop)
          ([remap menu-bar-open] . counsel-tmm) ; [F10] text menu access
          ([remap apropos] . counsel-apropos)

@@ -9,6 +9,9 @@
 
 (require 'abbrev)
 
+(use-package delight
+  :delight abbrev-mode)
+
 ;;; setup my abbrevs file custom path.
 (setq abbrev-file-name "~/.emacs.d/abbrev_defs")
 (setq save-abbrevs 'silently) ; save abbrevs when files are saved, nil: stop asking.

@@ -17,6 +17,7 @@
 
 (use-package emr
   :ensure t
+  :delight emr-c-mode
   :bind (:map prog-mode-map ("M-RET" . emr-show-refactor-menu))
   :init (add-hook 'prog-mode-hook #'emr-initialize))
 

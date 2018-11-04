@@ -43,6 +43,7 @@
 (use-package ace-window
   :ensure t
   :defer t
+  :delight ace-window-mode
   :bind ("C-x C-j" . ace-window)
   :config
   (setq aw-background nil)

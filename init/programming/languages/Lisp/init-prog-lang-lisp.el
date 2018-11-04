@@ -24,6 +24,7 @@
 (use-package paredit
   :ensure t
   :defer t
+  :delight paredit-mode
   :config
   ;; remove following keybindings
   (dolist (binding (list (kbd "C-<left>") (kbd "C-<right>")
@@ -83,6 +84,7 @@
 (use-package rainbow-delimiters
   :ensure t
   :defer t
+  :delight rainbow-delimiters-mode
   ;; :config
   ;; 1. global
   ;; (global-rainbow-delimiters-mode)

@@ -95,6 +95,7 @@
 
 (use-package elisp-def
   :ensure t
+  :delight elisp-def-mode
   :init (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
           (add-hook hook #'elisp-def-mode)))
 

@@ -69,6 +69,7 @@
 (use-package sqlup-mode
   :ensure t
   :defer t
+  :delight sqlup-mode
   :init
   (dolist (hook '(sql-mode-hook
                   sql-interactive-mode-hook

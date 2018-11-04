@@ -26,6 +26,7 @@
 (use-package smartparens
   :ensure t
   :defer t
+  :delight smartparens-mode
   :load (smartparens-config)
   :config
   ;; `smartparens' is heavy in `org-self-insert-command'.

@@ -8,13 +8,12 @@
 
 ;;; [ auto-revert-mode ] -- auto-reload external file changes.
 
-(require 'autorevert)
-
-(setq global-auto-revert-non-file-buffers nil
-      auto-revert-verbose nil
-      auto-revert-use-notify t)
-
-(global-auto-revert-mode -1)
+(use-package autorevert
+  :delight auto-revert-mode
+  :init (setq global-auto-revert-non-file-buffers nil
+              auto-revert-verbose nil
+              auto-revert-use-notify t)
+  :config (global-auto-revert-mode -1))
 
 ;;; [ ibuffer ]
 

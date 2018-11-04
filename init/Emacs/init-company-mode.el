@@ -12,6 +12,7 @@
 (use-package company
   :ensure t
   :defer t
+  :delight company-mode
   ;; disable `company-mode' in `org-mode' for performance.
   ;; :preface (setq company-global-modes '(not org-mode))
   :commands (global-company-mode)

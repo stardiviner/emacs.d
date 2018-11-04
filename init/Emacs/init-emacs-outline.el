@@ -17,6 +17,7 @@
 (use-package allout
   :ensure t
   :defer t
+  :delight allout-mode
   :config
   (setq allout-auto-activation t
         ;; allout-layout
@@ -39,6 +40,7 @@
 ;;; [ outline ] -- outline mode commands for Emacs.
 
 (use-package outline ; [ C-c @]
+  :delight outline-minor-mode
   :init (add-hook 'prog-mode-hook 'outline-minor-mode))
 
 ;;; [ hideshow ] -- minor mode cmds to selectively display code/comment blocks.
@@ -46,6 +48,7 @@
 (use-package hideshow
   :ensure t
   :defer t
+  :delight hs-minor-mode
   :init (add-hook 'prog-mode-hook #'hs-minor-mode)
   ;; :config
   ;; (use-package hideshowvis

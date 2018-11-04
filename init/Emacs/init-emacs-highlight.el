@@ -37,6 +37,7 @@
 (use-package symbol-overlay
   :ensure t
   :defer t
+  :delight symbol-overlay-mode
   :bind (:map highlight-prefix
               ("h" . symbol-overlay-put)
               ("M-h" . symbol-overlay-toggle-in-scope)

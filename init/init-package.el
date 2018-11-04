@@ -57,6 +57,10 @@
 (eval-when-compile
   (require 'use-package))
 (require 'bind-key)                     ; if you use any `:bind' variant
+(use-package delight                    ; if you use `:delight'
+  :ensure t)
+;; (use-package deminish                   ; if you use `:diminish'
+;;   :ensure t)
 
 (setq use-package-verbose t ; 'debug: any evaluation errors report to `*use-package*` buffer.
       use-package-always-ensure nil)

@@ -38,6 +38,7 @@
 
 (use-package indent-guide
   :ensure t
+  :delight indent-guide-mode
   :config
   (setq indent-guide-recursive t
         ;; - 0 to avoid zero-column guide line.
@@ -89,6 +90,7 @@
 
 (use-package aggressive-indent
   :ensure t
+  :delight aggressive-indent-mode
   :init (setq aggressive-indent-sit-for-time 0.1)
   :config
   ;; global

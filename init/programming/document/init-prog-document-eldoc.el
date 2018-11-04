@@ -11,6 +11,7 @@
 
 (use-package eldoc
   :ensure t
+  :delight eldoc-mode
   :init
   (setq eldoc-idle-delay 1)
   (add-hook 'prog-mode-hook #'eldoc-mode)

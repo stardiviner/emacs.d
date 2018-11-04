@@ -17,6 +17,9 @@
 
 (require 'color) ; for `color-lighten-name' and `color-darken-name'
 
+(use-package delight
+  :delight buffer-face-mode)
+
 ;;; [ leuven-theme ]
 
 (use-package leuven-theme

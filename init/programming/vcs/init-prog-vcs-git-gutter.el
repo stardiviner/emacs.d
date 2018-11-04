@@ -64,6 +64,7 @@
 (use-package git-gutter+
   :ensure t
   :defer t
+  :delight git-gutter+-mode
   :preface (setq git-gutter+-disabled-modes '(asm-mode image-mode))
   :init
   (autoload 'git-gutter+-turn-on "git-gutter+")
