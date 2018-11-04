@@ -135,16 +135,10 @@
 ;;; [ coderef ]
 ;;; prepend comment char ahead of `org-coderef-label'.
 ;; auto prefix with comment char when create code ref in src block with `org-store-link'.
-(use-package smartparens
-  :ensure t
-  :defer t
-  :init
-  (defun my-org-src-coderef-format (result)
-    "Auto prefix with comment char before `org-coderef-label' `RESULT'."
-    (if sp-comment-char
-        (format "%s %s" sp-comment-char result)
-      result))
-  (advice-add 'org-src-coderef-format :filter-return 'my-org-src-coderef-format))
+(defun my-org-src-coderef-format (result)
+  "Auto prefix with comment char before `org-coderef-label' `RESULT'."
+  (format "%s%s" comment-start result))
+(advice-add 'org-src-coderef-format :filter-return 'my-org-src-coderef-format)
 
 
 (add-hook 'org-src-mode-hook #'sound-tick)
