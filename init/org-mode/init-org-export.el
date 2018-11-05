@@ -29,6 +29,9 @@
 ;;; exclude org headlines exporting with a specific tags.
 (setq org-export-exclude-tags '("noexport"))
 
+;;; export to the kill ring automatically for interactive exports.
+(setq org-export-copy-to-kill-ring 'if-interactive)
+
 ;;; This snippet turns - [X] into ☑ and - [ ] into ☐.
 ;; 'ascii, 'unicode, 'html
 (setq org-html-checkbox-type 'unicode)
