@@ -29,7 +29,8 @@
 (use-package regex-tool
   :ensure t
   :defer t
-  :bind (:map regex-prefix ("e" . regex-tool)))
+  :bind (("M-%" . pcre-query-replace-regexp)
+         :map regex-prefix ("e" . regex-tool)))
 
 ;;; [ pcre2el ] -- convert between PCRE, Emacs and rx regexp syntax.
 
