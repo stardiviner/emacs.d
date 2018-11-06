@@ -43,15 +43,15 @@
 
 ;;; [ hideshow ] -- minor mode cmds to selectively display code/comment blocks.
 
-(use-package hideshow
-  :ensure t
-  :defer t
-  :delight hs-minor-mode
-  :init (add-hook 'prog-mode-hook #'hs-minor-mode)
-  ;; :config
-  ;; (use-package hideshowvis
-  ;;   :ensure t)
-  )
+;; (use-package hideshow
+;;   :ensure t
+;;   :defer t
+;;   :delight hs-minor-mode
+;;   :init (add-hook 'prog-mode-hook #'hs-minor-mode)
+;;   ;; :config
+;;   ;; (use-package hideshowvis
+;;   ;;   :ensure t)
+;;   )
 
 
 
