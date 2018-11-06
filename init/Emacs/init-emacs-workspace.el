@@ -115,6 +115,7 @@
 (use-package eyebrowse
   :ensure t
   :custom (eyebrowse-keymap-prefix (kbd "C-x w"))
+  :init (eyebrowse-mode t)
   :config
   (setq eyebrowse-new-workspace t
         eyebrowse-close-window-config-prompt t)
@@ -124,12 +125,9 @@
   (add-to-list 'window-persistent-parameters '(window-side . writable))
   (add-to-list 'window-persistent-parameters '(window-slot . writable))
 
-  (eyebrowse-mode t)
-
   (advice-add 'eyebrowse-create-window-config :after
               (lambda () (interactive)
-                (command-execute 'eyebrowse-rename-window-config)))
-  )
+                (command-execute 'eyebrowse-rename-window-config))))
 
 
 (provide 'init-emacs-workspace)

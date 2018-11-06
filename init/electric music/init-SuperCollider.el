@@ -24,9 +24,6 @@
   :ensure-system-package (sclang . "sudo pacman -S --noconfirm supercollider")
   :defer t
   :load (sclang)
-  :init
-  (add-to-list 'display-buffer-alist
-               '("\\*SCLang:PostBuffer\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
   :mode ("\\.sc\\'" . sclang-mode)
   :commands (sclang-mode sclang-start)
   :config
@@ -57,8 +54,7 @@
   (add-hook 'sclang-mode-hook
             (lambda ()
               (add-hook 'completion-at-point-functions
-                        'sclang-complete-symbol nil t)
-              ))
+                        'sclang-complete-symbol nil t)))
 
   (define-key sclang-mode-map (kbd "C-c M-r") 'sclang-main-run)
   (define-key sclang-mode-map (kbd "C-c M-s") 'sclnag-main-stop)
@@ -79,6 +75,10 @@
 
   ;; (add-hook 'sclang-mode-hook #'my-sclang-auto-start)
   (define-key sclang-mode-map (kbd "C-c C-s") 'my-sclang-auto-start)
+
+  (add-to-list 'display-buffer-alist
+               '("\\*SCLang:PostBuffer\\*" .
+                 (display-buffer-reuse-window display-buffer-below-selected)))
 
   ;; [ sclang-extensions ] -- A collection of minor modes that improve your SuperCollider experience within Emacs.
   (use-package sclang-extensions

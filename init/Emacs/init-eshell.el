@@ -131,8 +131,9 @@ PWD is not in a git repo (or the git command is not found)."
   (defun my-eshell-completing-setup ()
     "Setup my Eshell completing."
     (interactive)
+    (company-mode 1)
     (eshell-cmpl-initialize)
-    (setq-local company-minimum-prefix-length 4)
+    (setq-local company-minimum-prefix-length 3)
     (setq-local company-idle-delay 0.4))
   (add-hook 'eshell-mode-hook 'my-eshell-completing-setup)
 
@@ -222,9 +223,12 @@ otherwise, they are appended."
   ;; :quelpa ((aweshell :fetcher github :repo "manateelazycat/aweshell") :upgrade t)
   :quelpa (aweshell :fetcher github :repo "manateelazycat/aweshell")
   :commands (aweshell-new
+             aweshell-toggle
              aweshell-next aweshell-prev
-             aweshell-sudo-toggle aweshell-search-history)
-  :bind ("C-x !" . aweshell-new))
+             aweshell-sudo-toggle
+             aweshell-search-history)
+  :bind ("C-x !" . aweshell-new) ; TODO: ("C-x !" . aweshell-toggle)
+  :init (setq esh-autosuggest-use-company-map nil))
 
 
 (provide 'init-eshell)

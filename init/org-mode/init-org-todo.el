@@ -47,7 +47,7 @@
       '(
         ;; Status: Getting Things Done
         (sequence "TODO(t@/!)" "NEXT(n!)"
-                  "URGENT(u@/!)" "INPROGRESS(g@/!)" "LATER(l!)" "SOMEDAY(s@/!)"
+                  "URGENT(u@/!)" "INPROGRESS(g@/!)" "LATER(l!)" "SOMEDAY(S@/!)"
                   "|" "DONE(d@/!)" "FAILED(x@/!)" "CANCELLED(k@/!)")
         ;; Clock
         (sequence "STARTED(!)" "|" "DONE(d@/!)")
@@ -56,7 +56,7 @@
         ;; Habit
         (sequence "HABIT(h)" "|" "DONE(d)")
         ;; Code
-        (sequence "CODE(c@/!)" "BUG(b@/!)" "ISSUE(i@/!)" "ERROR(e@/!)" "FEATURE(f@/!)" "Pull-Request(p@/!)" "|" "DONE(d@/!)")
+        (sequence "CODE(c@/!)" "BUG(b@/!)" "ISSUE(i@/!)" "ERROR(e@/!)" "FEATURE(f@/!)" "Pull-Request(p@/!)" "SECURITY(s@/!)" "|" "DONE(d@/!)")
         ;; Work
         (type "WORK(w@/!)" "MEETING(m@/!)" "|" "DONE(d@/!)")
         ;; Learn
@@ -153,6 +153,11 @@
        :weight bold :box '(:color "dim gray" :line-width -1)))
   "Face for Org REVIEW keyword."
   :group 'org-faces)
+(defface org-todo-keyword-security-face
+  '((t :foreground "red" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org REVIEW keyword."
+  :group 'org-faces)
 
 (defface org-todo-keyword-sex-face
   '((t :foreground "deep pink" :family "Comic Sans MS"
@@ -190,6 +195,7 @@
         ("FEATURE" . org-todo-keyword-feature-face)
         ("Pull-Request" . org-todo-keyword-pull-request-face)
         ("REVIEW" . org-todo-keyword-review-face)
+        ("SECURITY" . org-todo-keyword-security-face)
         ;; life
         ("SEX" . org-todo-keyword-sex-face)
         ;; work
@@ -308,7 +314,7 @@
 
 (use-package org-edna
   :ensure t
-  :defer t)
+  :init (org-edna-load))
 
 
 

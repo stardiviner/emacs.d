@@ -33,7 +33,7 @@
 
 ;;; [ pcre2el ] -- convert between PCRE, Emacs and rx regexp syntax.
 
-(use-package pcre2el
+(use-package pcre2el ; prefix [C-c /] after toggle `rxt-mode'.
   :ensure t
   :defer t
   :bind (:map regex-prefix ("t" . rxt-mode) ("T" . rxt-global-mode)))

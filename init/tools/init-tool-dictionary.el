@@ -75,8 +75,7 @@
 
 (use-package ob-translate
   :ensure t
-  :defer t
-  :init
+  :config
   (add-to-list 'org-babel-load-languages '(translate . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   ;; add translate special block into structure template alist.

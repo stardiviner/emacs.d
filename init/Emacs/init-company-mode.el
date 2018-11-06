@@ -163,8 +163,8 @@
   )
 
 
-  (add-to-list 'display-buffer-alist
-               '("^\\*company-documentation\\*" . (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist
+             '("^\\*company-documentation\\*" . (display-buffer-below-selected)))
 
 ;;; [ company-mode in minibuffer `M-:' ]
 

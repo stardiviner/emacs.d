@@ -471,7 +471,7 @@
   ;; [ Cite ]
 
   ;; mu-cite
-;;; hide cited
+  ;; hide cited
   ;; (add-hook 'mu4e-view-mode-hook 'mu4e-view-toggle-hide-cited)
 
   ;; message-cite
@@ -502,7 +502,7 @@
   ;; this by setting mu4e-view-prefer-html to t.
   (setq mu4e-view-prefer-html t)
 
-;;; Attachments [C-u] + [e]
+  ;; Attachments [C-u] + [e]
 
   ;; - A -- action to pick some custom action to perform on current message/attachment.
   ;; - w -- open-with
@@ -514,7 +514,7 @@
 
   ;; (add-to-list 'mu4e-view-attachment-actions '("bbrowse-with-browser" . mu4e-view-browse-with-browser))
 
-;;; Actions
+  ;; Actions
 
   ;; - a -- (for messages)
   ;; - A -- mu4e-headers-action (for attachments)
@@ -536,7 +536,7 @@
   ;;         ("ein-emacs" . mu4e-view-open-attachment-emacs)
   ;;         ("|pipe" . mu4e-view-pipe-attachment)))
 
-;;; adding an action to actions list.
+  ;; adding an action to actions list.
   (defun show-number-of-recipients (msg)
     "Display the number of recipients for the MSG at point."
     (message "Number of recipients: %d"
@@ -555,7 +555,7 @@
 
 
 
-;;; Searching
+  ;; Searching
   ;; - Q -- search. mu4e-headers-toggle-full-search.
   ;;
   ;; mu4e is fully search-based: even if you 'jump to a folder', you are executing
@@ -571,7 +571,7 @@
   (setq mu4e-headers-full-search nil) ; whether show all search results. or depend on `mu4e-headers-results-limit'.
   (setq mu4e-headers-results-limit 500)
 
-;;; Including related messages
+  ;; Including related messages
   ;;
   ;; It can be useful to not only show the messages that directly match a certain
   ;; query, but also include messages that are related to these messages. That is,
@@ -581,13 +581,13 @@
   ;; including/not-including with <W>.
   (setq mu4e-headers-include-related t)
 
-;;; Send
+  ;; Send
 
   (setq mu4e-sent-messages-behavior 'sent)
 
 
-;;; Crypto (signing, encrypting, verifying, decrypting)
-;;; - v -- see the details of the signature verification by activating the Details.
+  ;; Crypto (signing, encrypting, verifying, decrypting)
+  ;; - v -- see the details of the signature verification by activating the Details.
   ;; start gpg-agent manually:
   ;; $ eval $(gpg-agent --daemon)
   (setq mu4e-auto-retrieve-keys t
@@ -595,7 +595,7 @@
         )
 
 
-;;; Refiling
+  ;; Refiling
 
   ;; - r -- refiling, mu4e-refile-folder
 
@@ -618,7 +618,7 @@
            )))
 
 
-;;; Bookmarks
+  ;; Bookmarks
 
   ;; - [b] :: bookmark
   ;; - [B] :: edit bookmark before jump/invoking.
@@ -690,7 +690,7 @@
                       :foreground "red")
 
 
-;;; Marking
+  ;; Marking
 
   (define-key mu4e-headers-mode-map (kbd "f") 'mu4e-headers-mark-for-flag)
   (define-key mu4e-headers-mode-map (kbd "m") 'mu4e-headers-mark-for-something)
@@ -698,7 +698,7 @@
 
   (add-hook 'mu4e-view-mode-hook #'turn-on-visual-line-mode)
 
-;;; Gmail
+  ;; Gmail
   ;; (setq mu4e-maildir "~/Maildir")
   ;; (setq mu4e-drafts-folder "/[Gmail].Drafts")
   ;; (setq mu4e-sent-folder   "/[Gmail].Sent Mail")
@@ -729,7 +729,7 @@
   ;;       smtpmail-smtp-service 587)
 
 
-;;; Contacts
+  ;; Contacts
 
   (add-hook
    'mu4e-compose-mode-hook

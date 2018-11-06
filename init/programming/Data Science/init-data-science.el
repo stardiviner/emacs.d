@@ -16,15 +16,15 @@
 (use-package ob-ipython
   :ensure t
   :defer t
-  :config
-  ;; open ipython block block with `python-mode'
-  ;; (add-to-list 'org-src-lang-modes '("ipython" . python))
-  ;; use IJulia backend for IPython notebook
-  ;; (add-to-list 'org-src-lang-modes '("ipython" . python))
-
+  :init
   (add-to-list 'org-babel-load-languages '(ipython . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("ipython" . "ipynb"))
+  :config
+  ;; by default open ipython block block with `python-mode'
+  ;; (add-to-list 'org-src-lang-modes '("ipython" . python))
+  ;; use IJulia backend for IPython notebook
+  ;; (add-to-list 'org-src-lang-modes '("ipython" . python))
   
   (setq org-babel-default-header-args:ipython
         '((:session . nil)
@@ -41,13 +41,10 @@ This can be useful for snippets to select kernel interactively."
                      "jupyter-kernelspec list | sed '1d' | awk -F ' ' '{print $1}'"))))
       ;; (completing-read "Jupyter kernels: "
       ;;                  kernels)
-      kernels
-      )
-    )
+      kernels))
 
   ;; support ox-latex + minted.
-  (add-to-list 'org-latex-minted-langs '(ipython "python"))
-  )
+  (add-to-list 'org-latex-minted-langs '(ipython "python")))
 
 
 ;;; [ Apache Hadoop ]

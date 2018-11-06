@@ -12,6 +12,7 @@
 (use-package json-mode
   :ensure t
   :defer t
+  :commands (json-mode-show-path json-mode-beautify)
   :config
   (setq json-reformat:indent-width 2
         json-reformat:pretty-string? t ; decode some special characters. like \u00e4.

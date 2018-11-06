@@ -7,9 +7,9 @@
 
 ;;; Code:
 
-(unless (boundp 'outline-prefix)
-  (define-prefix-command 'outline-prefix))
-(global-set-key (kbd "C-C C-h") 'outline-prefix)
+;; (unless (boundp 'outline-prefix)
+;;   (define-prefix-command 'outline-prefix))
+;; (global-set-key (kbd "C-C SPC") 'outline-prefix)
 
 
 ;;; [ allout ]

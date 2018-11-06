@@ -7,7 +7,7 @@
 
 ;;; Code:
 
-;;; [ nxml ]
+;;; [ nxml ] -- A new XML mode.
 
 (use-package nxml
   :mode "\\.xml\\'"
@@ -24,11 +24,8 @@
     (interactive)
     (shell-command-on-region
      (point-min) (point-max)
-     "xmllint -format -"
-     (current-buffer)
-     t
-     "*Xmllint Error Buffer*"
-     t))
+     "xmllint -format -" (current-buffer) t
+     "*Xmllint Error Buffer*" t))
   (define-key nxml-mode-map (kbd "C-c m f") 'my:xml-lint)
   )
 
