@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-install-octave
+# key: babel-install-octave
+# group: babel.install
+# --
+#+begin_src octave
+pkg install -forge ${1:package}
+#+end_src

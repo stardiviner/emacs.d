@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: print
+# key: p
+# group: python.alias
+# --
+print($0)

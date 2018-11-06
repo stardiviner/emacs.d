@@ -3,6 +3,6 @@
 # key: babel-download-to-file
 # group: babel.download
 # --
-#+begin_src sh :mkdir yes :results link :dir "${1:data/code}" :file "$0"
-wget -c "$2"
+#+begin_src sh :mkdir yes :results link :dir "${1:data/code}" :file "${3}"
+wget -c "$2" -O $3
 #+end_src

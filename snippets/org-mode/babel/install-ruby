@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-install-ruby
+# key: babel-install-ruby
+# group: babel.install
+# --
+#+begin_src sh
+gem install ${1:gem package}
+#+end_src
