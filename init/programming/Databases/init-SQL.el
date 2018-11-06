@@ -87,6 +87,12 @@
   (define-key sql-mode-map (kbd "C-c u") 'sqlup-capitalize-keywords-in-region)
   )
 
+;;; [ sqlformat ] -- Reformat SQL using sqlformat or pgformatter.
+
+(use-package sqlformat
+  :ensure t
+  :init (add-hook 'sql-mode-hook 'sqlformat-mode)
+  (setq sqlformat-mode-format-on-save t))
 
 ;;; [ edbi ]
 
