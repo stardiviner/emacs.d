@@ -8,8 +8,9 @@
 ;;; ----------------------------------------------------------------------------
 ;;; [ Emacs IPython Notebook (EIN) ] -- IPython notebook client in Emacs
 
-;; (use-package ein
-;;   :ensure t)
+(use-package ein
+  :ensure t
+  :commands (ein:jupyter-server-start))
 
 ;;; [ ob-ipython ]
 
