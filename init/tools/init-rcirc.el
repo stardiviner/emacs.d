@@ -1,6 +1,6 @@
 ;;; init-rcirc.el --- init for rcirc.
 
-;;; Time-stamp: <2018-07-28 11:19:21 stardiviner>
+;;; Time-stamp: <2018-11-02 13:35:31 stardiviner>
 
 ;;; Commentary:
 
@@ -29,7 +29,7 @@
 
   (setq rcirc-server-alist
         '(("irc.freenode.net"
-           :channels ("#emacs" "#lisp" "#clojure" "#archlinux")
+           :channels ("#emacs" "#lisp" "#archlinux")
            :nick "stardiviner"
            :user-name "stardiviner"
            :encryption tls :port 6697)))
