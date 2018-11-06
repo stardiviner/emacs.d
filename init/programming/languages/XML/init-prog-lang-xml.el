@@ -10,7 +10,7 @@
 ;;; [ nxml ] -- A new XML mode.
 
 (use-package nxml
-  :mode "\\.xml\\'"
+  :mode ("\\.xml\\'" . nxml-mode)
   :config
   ;; company-nxml
   (defun my-company-nxml-settings ()
