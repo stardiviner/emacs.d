@@ -22,8 +22,9 @@
 
 (define-key narrow-map (kbd "r") 'narrow-to-region)
 (define-key narrow-map (kbd "n") 'narrow-or-widen-dwim)
+(define-key narrow-map (kbd "w") 'narrow-or-widen-dwim)
 
-(define-key narrow-prefix (kbd "w") 'widen)
+(define-key narrow-prefix (kbd "w") 'narrow-or-widen-dwim)
 (define-key narrow-prefix (kbd "r") 'narrow-to-region)
 (define-key narrow-prefix (kbd "d") 'narrow-to-defun)
 (define-key narrow-prefix (kbd "p") 'narrow-to-page)
