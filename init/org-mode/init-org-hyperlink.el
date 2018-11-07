@@ -152,7 +152,7 @@ Optional for Org-mode file: `LINK'."
         (wl . wl-other-frame)))
 
 ;;; `eshell:'
-(require 'org-eshell)
+;; (require 'org-eshell)
 
 ;; `elisp:'
 (setq org-confirm-elisp-link-function 'yes-or-no-p)

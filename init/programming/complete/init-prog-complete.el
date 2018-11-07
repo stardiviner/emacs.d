@@ -10,7 +10,7 @@
 
 (require 'init-auto-complete)
 (require 'init-company-mode)
-(require 'init-jetbrains)
+;; (require 'init-jetbrains)
 
 
 (provide 'init-prog-complete)

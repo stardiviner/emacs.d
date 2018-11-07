@@ -12,9 +12,9 @@
 (use-package pdf-tools
   :ensure t
   :ensure-system-package (pdfinfo . "sudo pacman -S --noconfirm poppler poppler-data")
-  :mode ("\\.pdf\\'" . pdf-view-mode)
   :defer t
-  :init (pdf-tools-install)
+  :mode ("\\.pdf\\'" . pdf-view-mode)
+  ;; :init (pdf-tools-install)
   :config
   ;; [ PDF View ]
   ;; - [SPC] :: scroll continuous
@@ -85,8 +85,7 @@
 (use-package org-pdfview
   :ensure t
   :after org
-  :load (org-pdfview)
-  :init
+  :config
   (org-link-set-parameters "pdfview"
                            :follow #'org-pdfview-open
                            :export #'org-pdfview-export
@@ -111,8 +110,7 @@
 
 (use-package pdf-tools-org
   :quelpa (pdf-tools-org :fetcher github :repo "machc/pdf-tools-org" :upgrade nil)
-  :defer t
-  :init
+  :config
   (defun my/pdf-tools-org-setup ()
     (when (eq major-mode 'pdf-view-mode)
       (pdf-tools-org-export-to-org)))

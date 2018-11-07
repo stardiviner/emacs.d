@@ -9,8 +9,9 @@
 
 (use-package jetbrains
   :ensure t
-  :commands (jetbrains-create-dir-local-file jetbrains-open-project jetbrains-open-buffer-file)
-  )
+  :commands (jetbrains-create-dir-local-file
+             jetbrains-open-project
+             jetbrains-open-buffer-file))
 
 
 

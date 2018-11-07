@@ -152,6 +152,7 @@
   ;; [ company-tempo ]
 
   ;; [ company-etags ]
+  (setq company-etags-modes nil) ; disable `company-etags'
   ;; enable to offer completions in comment and strings.
   ;; (setq company-etags-everywhere t)
 

@@ -48,7 +48,8 @@
   ;; (find-file (expand-file-name (concat org-directory "/Wiki/Computer Technology/Programming/Programming Languages/Clojure/ClojureScript/Data/Manuals/My ClojureScript Language Syntax Reference/My ClojureScript Language Syntax Reference.org")))
   )
 
-(add-hook 'after-init-hook #'my/open-frequent-used-files 'append)
+;; (add-hook 'after-init-hook #'my/open-frequent-used-files 'append)
+(my/open-frequent-used-files)
 
 
 (provide 'init-emacs-session)

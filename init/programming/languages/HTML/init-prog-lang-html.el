@@ -9,8 +9,9 @@
 
 ;;; [ mhtml-mode ] -- Major mode based on ‘html-mode’, but works with embedded JS and CSS.
 
-(use-package mhtml-mode
-  :mode (("\\.html\\'" . mhtml-mode)))
+;;; NOTE: use `web-mode' instead now.
+;; (use-package mhtml-mode
+;;   :mode (("\\.html\\'" . mhtml-mode)))
 
 ;;; [ emmet-mode ]
 
@@ -25,8 +26,7 @@
   (setq emmet-preview-default t ; set preview as the default action.
         emmet-indentation 4
         emmet-indent-after-insert t
-        emmet-use-style-tag-and-attr-detection t
-        )
+        emmet-use-style-tag-and-attr-detection t)
 
   ;; By default, inserted markup will be indented with indent-region, according to
   ;; the buffer's mode. To disable this, do:
@@ -45,8 +45,7 @@
   (define-key emmet-mode-keymap (kbd "M-j") 'emmet-expand-yas)
 
   ;; preview minor mode
-  (emmet-preview-mode 1)
-  )
+  (emmet-preview-mode 1))
 
 
 ;;; [ tagedit ] -- A collection of paredit-like functions for editing in html-mode.
@@ -65,42 +64,23 @@
 
 (use-package impatient-mode
   :ensure t
-  :defer t)
-
+  :commands (impatient-mode))
 
 ;;; [ ob-browser ] -- render HTML in org babel
 
-;; #+BEGIN_SRC browser :out output.png
-;; <!DOCTYPE html>
-;; <html>
-;;   <body>
-;;     <p>hello, world</p>
-;;   </body>
-;; </html>
-;; #+END_SRC
-
 (use-package ob-browser
   :ensure t
-  :defer t
   :init
   ;; open those babels with `web-mode'.
   (with-eval-after-load "web-mode"
-    ;; (add-to-list 'org-src-lang-modes '("html" . html))
-    (add-to-list 'org-src-lang-modes '("browser" . web))
-    (add-to-list 'org-src-lang-modes '("rhtml" . web)))
-  )
+    ;; (add-to-list 'org-src-lang-modes '("browser" . html))
+    (add-to-list 'org-src-lang-modes '("browser" . web))))
 
 ;;; [ cakecrumbs ] -- Show parent-chain on header for HTML / Jade / Pug / LESS / SCSS / Sass / Stylus.
 
 ;; (use-package cakecrumbs
 ;;   :ensure t
-;;   :defer t
 ;;   :init (cakecrumbs-auto-setup))
-
-;;; [ elquery ] -- read and manipulate HTML in Emacs.
-
-(use-package elquery
-  :ensure t)
 
 
 (provide 'init-prog-lang-html)

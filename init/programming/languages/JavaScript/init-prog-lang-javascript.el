@@ -16,8 +16,7 @@
       ;; js-square-indent-offset 0
       ;; js-curly-indent-offset 0
       ;; js-switch-indent-offset 0
-      js-flat-functions nil
-      )
+      js-flat-functions nil)
 
 ;; (add-to-list 'js-enabled-frameworks 'reat)
 

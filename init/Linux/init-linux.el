@@ -15,8 +15,7 @@
   :config
   (add-hook 'systemd-mode-hook
             (lambda ()
-              (my-company-add-backend-locally 'systemd-company-backend)) :local t)
-  )
+              (my-company-add-backend-locally 'systemd-company-backend)) :local t))
 
 
 ;;; [ helm-systemd ] -- helm interface to control systemd units.
@@ -25,9 +24,8 @@
   :ensure t
   :defer t
   :commands (helm-systemd)
-  :init
-  (setq helm-systemd-list-not-loaded t
-        helm-systemd-list-all nil))
+  :init (setq helm-systemd-list-not-loaded t
+              helm-systemd-list-all nil))
 
 ;;; [ nginx-mode ]
 
@@ -72,16 +70,12 @@
 ;;; Arch PKGBUILD (pkgbuild-mode)
 (use-package pkgbuild-mode
   :ensure t
-  :mode ("/PKGBUILD\\'" . pkgbuild-mode)
-  ;; :init
-  ;; (autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
-  ;; (setq auto-mode-alist (append '(("/PKGBUILD\\'" . pkgbuild-mode)) auto-mode-alist))
-  )
+  :mode ("/PKGBUILD\\'" . pkgbuild-mode))
 
 ;;; [ pacfiles-mode ] -- pacnew and pacsave merging tool.
 
-(use-package pacfiles-mode
-  :ensure t)
+;; (use-package pacfiles-mode
+;;   :ensure t)
 
 ;;; [ arch-packer ] -- Arch Linux package management frontend for pacman and pacaur.
 

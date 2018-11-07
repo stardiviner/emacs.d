@@ -203,7 +203,7 @@
 (require 'init-prog-indent)
 ;; (require 'init-prog-folding)
 (require 'init-prog-complete)
-(require 'init-prog-sense)
+;; (require 'init-prog-sense)
 ;; (require 'init-prog-parser)
 ;;; fix issue which `company-rtags' backend is before `company-irony'.
 (require 'init-prog-snippet)
@@ -239,7 +239,7 @@
 (require 'init-prog-lang-shell)
 (require 'init-prog-lang-C-common)
 ;; (require 'init-prog-tags)
-(require 'init-prog-lang-csharp)
+;; (require 'init-prog-lang-csharp)
 ;; (require 'init-prog-lang-fsharp)
 ;; (require 'init-prog-lang-D)
 (require 'init-prog-lang-go)
@@ -260,7 +260,7 @@
 (require 'init-prog-lang-xml)
 (require 'init-prog-lang-json)
 ;; (require 'init-prog-lang-rdf)
-(require 'init-prog-lang-sdlang)
+;; (require 'init-prog-lang-sdlang)
 ;; (require 'init-prog-lang-haskell)
 ;; (require 'init-prog-lang-scala)
 ;; (require 'init-prog-lang-elixir)
@@ -338,8 +338,6 @@
    (require 'init-macOS))
   ('windows-nt
    (require 'init-microsoft-windows)))
-
-(require 'init-microsoft-windows)
 
 (require 'init-log-tools)
 

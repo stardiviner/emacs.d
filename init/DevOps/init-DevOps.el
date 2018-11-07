@@ -19,8 +19,8 @@
 (define-key prog-tools-prefix (kbd "i") 'infrastructure-as-code-prefix)
 
 ;; (require 'init-puppet)
-(require 'init-ansible)
-(require 'init-terraform)
+;; (require 'init-ansible)
+;; (require 'init-terraform)
 
 ;;; [ Deployment ]
 
@@ -36,8 +36,7 @@
 ;;; [ heroku ]
 
 (use-package heroku
-  :ensure t
-  :defer t)
+  :ensure t)
 
 
 (provide 'init-DevOps)

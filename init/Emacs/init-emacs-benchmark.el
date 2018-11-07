@@ -20,8 +20,8 @@
   :ensure t
   :config
   (benchmark-init/activate)
-  (setq max-specpdl-size 2500) ; increase to fix error on `benchmark-init/show-durations-tree'
-  )
+  ;; increase to fix error on `benchmark-init/show-durations-tree'
+  (setq max-specpdl-size 2500))
 
 
 ;;; [ esup ] -- the Emacs StartUp Profiler (ESUP)

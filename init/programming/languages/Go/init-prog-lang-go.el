@@ -30,8 +30,7 @@
     ;; use `godef-jump' instead of `etags' etc tags jumping.
     (local-set-key (kbd "M-.") #'godef-jump)
     )
-  (add-hook 'go-mode-hook #'my-go-mode-settings)
-  )
+  (add-hook 'go-mode-hook #'my-go-mode-settings))
 
 ;; [ ob-go ]
 

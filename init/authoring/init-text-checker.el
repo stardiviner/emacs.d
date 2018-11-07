@@ -22,14 +22,12 @@
               ("s" . ispell-word) ; [M-$]
               ("<tab>" . ispell-complete-word))
   :init
-  ;; set ispell program automatically.
-  (cond
+  (cond ; set ispell program automatically.
    ((executable-find "aspell")
     (setq ispell-program-name "aspell")
     (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US")))
    (t
-    (setq ispell-program-name nil))
-   )
+    (setq ispell-program-name nil)))
   :config
   (setq ispell-dictionary "english"
         ;; ispell-local-dictionary
@@ -80,10 +78,10 @@
   ;;             ))
 
   ;; TeX
-  (add-hook 'tex-mode-hook
-            (lambda ()
-              (setq ispell-parser 'tex)
-              (flyspell-mode 1)))
+  ;; (add-hook 'tex-mode-hook
+  ;;           (lambda ()
+  ;;             (setq ispell-parser 'tex)
+  ;;             (flyspell-mode 1)))
 
   ;; text
   (dolist (hook
