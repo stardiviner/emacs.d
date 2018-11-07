@@ -21,30 +21,11 @@
   :defer t
   :bind (:map calendar-prefix ("c" . calendar))
   :init
-  ;; ;; Month
-  ;; (setq calendar-month-name-array
-  ;;       ["January" "February" "March"     "April"   "May"      "June"
-  ;;        "July"    "August"   "September" "October" "November" "December"])
-  ;; ;; Week days
-  ;; (setq calendar-day-name-array
-  ;;       ["Sunday" "Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday"])
-
-  ;; First day of the week
-  (setq calendar-week-start-day 1) ; 0:Sunday, 1:Monday
-  (setq calendar-weekend-days '(0 6))
-  ;; 'american: month/day/year, 'european: day/month/year, 'iso: year/month/day
-  (setq calendar-date-style 'american)
-
-  ;; mark holidays
-  (setq calendar-mark-holidays-flag t
-        calendar-holiday-marker 'holiday)
-  ;; (add-hook 'calendar-initial-window-hook 'calendar-mark-holidays) ; this will slow down `org-time-stamp-inactive' performance.
-
-  ;; mark today
-  (setq calendar-today-marker 'calendar-today)
-  
-  ;; mark diary entries
-  ;; (setq calendar-mark-diary-entries-flag t)
+  ;; set calendar style
+  (setq calendar-week-start-day 1 ; 0:Sunday, 1:Monday
+        calendar-weekend-days '(0 6)
+        ;; 'american: month/day/year, 'european: day/month/year, 'iso: year/month/day
+        calendar-date-style 'iso)
 
   ;; Annotations
   ;; variable -> :annotation-sources
@@ -68,19 +49,26 @@
   (set-face-attribute 'calendar-today nil
                       :inherit 'highlight
                       :box '(:color "dim gray" :line-width -1 :style nil))
+
+  ;; mark holidays
+  (setq calendar-mark-holidays-flag t
+        calendar-view-holidays-initially-flag t)
+  ;; mark today
   (add-hook 'calendar-initial-window-hook 'calendar-mark-today)
+  ;; mark diary entries
+  ;; (setq calendar-mark-diary-entries-flag t)
   )
 
 ;;; Localized National Holidays
 (use-package holidays
-  :defer t
   :init
   ;; `calfw' collects holidays from function `calendar-holiday-list' and the
   ;; customize variable `calendar-holidays' which belongs to `holidays.el` in
   ;; Emacs.
-  ;; (setq holiday-general-holidays nil) ; get rid of U.S. holidays
-  (setq holiday-christian-holidays nil) ; get rid of christan holidays
-  (setq calendar-view-holidays-initially-flag t))
+  ;; get rid of U.S. holidays
+  ;; (setq holiday-general-holidays nil)
+  ;; get rid of christan holidays
+  (setq holiday-christian-holidays nil))
 
 (use-package cal-china
   :defer t
@@ -89,8 +77,7 @@
   (setq calendar-chinese-celestial-stem
         ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
         calendar-chinese-terrestrial-branch
-        ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"])
-  )
+        ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"]))
 
 ;; [ cal-china-x ] -- Chinese localization, lunar/horoscope/zodiac info and more...
 
@@ -108,11 +95,7 @@
                 cal-china-x-general-holidays
                 holiday-general-holidays
                 holiday-local-holidays
-                holiday-other-holidays))
-  )
-
-
-;; [ Diary ] -- Diary markers in Calendar.
+                holiday-other-holidays)))
 
 ;;; [ calfw ] -- Calendar framework for Emacs
 

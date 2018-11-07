@@ -217,7 +217,7 @@
 (require 'init-prog-debug)
 (require 'init-prog-test)
 ;; (require 'init-prog-test-coverage)
-(require 'init-prog-refactor)
+;; (require 'init-prog-refactor)
 (require 'init-prog-project)
 (require 'init-prog-vcs)
 ;; (require 'init-prog-bug-track-system)
