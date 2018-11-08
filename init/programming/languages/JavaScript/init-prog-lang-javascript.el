@@ -145,8 +145,8 @@
                '("^\\*JavaScript REPL\\*" (display-buffer-below-selected)))
   ;; if use node.js, we need nice output
   (setenv "NODE_NO_READLINE" "1")
-  (setq inferior-js-program-command "node")
-  (setq inferior-js-program-arguments '("--interactive"))
+  (setq js-comint-program-command "node")
+  (setq js-comint-program-arguments '("--interactive"))
   :config
   ;; integrate with nvm.
   (if (featurep 'nvm)
@@ -159,8 +159,7 @@
     (local-set-key (kbd "C-M-x") 'js-send-last-sexp-and-go)
     (local-set-key (kbd "C-c C-c") 'js-send-region)
     (local-set-key (kbd "C-c C-b") 'js-send-buffer)
-    ;; (local-set-key (kbd "C-c C-b") 'js-send-buffer-and-go)
-    (local-set-key (kbd "C-c C-l") 'js-load-file))
+    (local-set-key (kbd "C-c M-b") 'js-send-buffer-and-go))
   (add-hook 'js2-mode-hook #'my/js-comint-setup-keybindings)
   )
 
