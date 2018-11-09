@@ -100,7 +100,7 @@
   (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'snippet-mode)
-  ;; (global-aggressive-indent-mode 1)
+  (global-aggressive-indent-mode 1)
 
   ;; specific
   (defun my/aggressive-indent-enable ()
