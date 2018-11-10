@@ -26,6 +26,12 @@
   :ensure t
   :defer t)
 
+;;; [ LXD ]
+
+(use-package lxd-tramp ; TRAMP integration for LXD containers.
+  :ensure t
+  :defer t)
+
 
 (provide 'init-container)
 
