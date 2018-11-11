@@ -25,6 +25,12 @@
 (add-to-list 'display-buffer-alist
              '("\\*wclock\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
 
+;;; [ alarm-clock ] -- An alarm clock for Emacs.
+
+(use-package alarm-clock
+  :ensure t
+  :commands (alarm-clock-set alarm-clock-list-view))
+
 
 (provide 'init-tool-clock)
 
