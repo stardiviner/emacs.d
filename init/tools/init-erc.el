@@ -1,4 +1,4 @@
-;;; init-erc.el --- init ERC for Emacs
+;;; init-erc.el --- ERC is a powerful, modular, and extensible IRC client for Emacs.
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:

@@ -1,6 +1,6 @@
-;;; init-rcirc.el --- init for rcirc.
+;;; init-rcirc.el --- A simple IRC client for Emacs.
 
-;;; Time-stamp: <2018-11-02 13:35:31 stardiviner>
+;;; Time-stamp: <2018-11-11 14:33:54 stardiviner>
 
 ;;; Commentary:
 
