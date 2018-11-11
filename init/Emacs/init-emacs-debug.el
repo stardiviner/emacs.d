@@ -68,18 +68,6 @@
   :defer t
   :commands (bug-hunter-file bug-hunter-init-file))
 
-;;; [ profiler ] -- Emacs buolt-in profiler.
-
-;;; [ elp ] -- Emacs Lisp profiler.
-
-(add-to-list 'display-buffer-alist
-             '("\\*ELP Profiling Results\\*" . (display-buffer-below-selected)))
-
-;;; [ trace ] -- tracing facility for Emacs Lisp functions.
-
-;; (add-to-list 'display-buffer-alist
-;;              '("\\*trace-output\\*" . (display-buffer-below-selected)))
-
 
 (provide 'init-emacs-debug)
 

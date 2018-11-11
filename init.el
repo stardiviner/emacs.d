@@ -60,6 +60,7 @@
 ;;; debug, profiling etc
 
 (require 'init-emacs-debug)
+(require 'init-emacs-profiler)
 ;; (require 'init-emacs-benchmark)
 
 (use-package pinentry
