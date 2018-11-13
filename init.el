@@ -283,6 +283,7 @@
 ;; (require 'init-prog-lang-forth)
 ;; (require 'init-prog-lang-HDL)
 ;; (require 'init-prog-lang-applescript)
+(require 'init-prog-lang-solidity)
 
 ;;; [ Query Languages ]
 ;; SQL
