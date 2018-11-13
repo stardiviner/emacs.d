@@ -18,8 +18,7 @@
   :ensure t
   :defer t
   :delight allout-minor-mode
-  :commands (allout-minor-mode)
-  :init (add-hook 'prog-mode-hook #'allout-minor-mode)
+  ;; :init (add-hook 'prog-mode-hook #'allout-minor-mode)
   (setq allout-auto-activation t
         allout-command-prefix (kbd "C-c SPC"))
   :config
