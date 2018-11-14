@@ -12,6 +12,9 @@
 (setq org-agenda-window-setup 'current-window)
 (setq org-agenda-sticky t) ; don't kill *Org Agenda* buffer by [q].
 
+;;; show context details when jump from agenda.
+(add-to-list 'org-show-context-detail '(agenda . tree))
+
 ;; (defun org-agenda--around (split-vertically &rest args)
 ;;   (let ((split-width-threshold 80))
 ;;     split-vertically))
