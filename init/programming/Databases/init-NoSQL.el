@@ -16,6 +16,7 @@
 (require 'init-Redis)
 (require 'init-MongoDB)
 (require 'init-CouchDB)
+(require 'init-Neo4j)
 
 
 (provide 'init-NoSQL)
