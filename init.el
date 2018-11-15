@@ -263,6 +263,7 @@
 ;; (require 'init-prog-lang-rdf)
 ;; (require 'init-prog-lang-sdlang)
 ;; (require 'init-prog-lang-haskell)
+(require 'init-prog-lang-ML)
 ;; (require 'init-prog-lang-scala)
 ;; (require 'init-prog-lang-elixir)
 ;; (require 'init-prog-lang-erlang)
