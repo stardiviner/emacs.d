@@ -35,6 +35,7 @@
 (require 'init-org-image)
 (require 'init-org-capture)
 (require 'init-org-agenda)
+(require 'init-org-project-management)
 (require 'init-org-export)
 (require 'init-org-publish)
 (require 'init-org-search)
