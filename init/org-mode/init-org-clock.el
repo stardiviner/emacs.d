@@ -26,7 +26,7 @@
       org-clock-persist-file (concat user-emacs-directory "org-clock-save.el")
       org-clock-in-resume t    ; resume when clock in.
       org-clock-continuously nil ; don't continue on last clock out.
-      org-clock-in-switch-to-state nil
+      org-clock-in-switch-to-state nil ; "STARTED"
       org-clock-out-when-done t         ; clock will stop when task marked DONE.
       org-clock-into-drawer t  ; Save clock data and notes in the :LOGBOOK: drawer
       org-clock-out-remove-zero-time-clocks t ; Removes clocked tasks with 0:00 duration
@@ -63,10 +63,10 @@
 (define-key org-clock-mode-line-map [header-line mouse-2] 'org-clock-goto)
 (define-key org-clock-mode-line-map [header-line mouse-1] 'org-clock-menu)
 
-(add-hook 'org-clock-in-hook #'sound-voice-hacking)
 (add-hook 'org-clock-in-prepare-hook #'sound-typing)
-(add-hook 'org-clock-out-hook #'sound-voice-complete)
-(add-hook 'org-clock-cancel-hook #'sound-tick2)
+;; (add-hook 'org-clock-in-hook #'sound-voice-hacking)
+(add-hook 'org-clock-out-hook #'sound-tick)
+(add-hook 'org-clock-cancel-hook #'sound-newmessage)
 
 ;;; [ counsel-org-clock ] -- Counsel (Ivy) interface for org-clock.
 
