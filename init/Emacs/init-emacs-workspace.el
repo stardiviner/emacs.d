@@ -118,7 +118,9 @@
   :init (eyebrowse-mode t)
   :config
   (setq eyebrowse-new-workspace t
-        eyebrowse-close-window-config-prompt t)
+        eyebrowse-close-window-config-prompt t
+        eyebrowse-mode-line-style nil ; it has very often invoked by `posn-at-point' affect performance.
+        )
 
   ;; Fix side-window issue.
   ;; also save side and slot windows configuration.
