@@ -89,17 +89,15 @@
              org-web-tools-convert-links-to-page-entries ; convert all links in current Org entry to Org headings
              ))
 
-;;; [ org-board ] -- Org mode's web archiver.
+;;; [ org-board ] -- Org mode's web archiver for single web page or website.
 
 (use-package org-board
   :ensure t
   :ensure-system-package wget
   :defer t
-  :bind (:map Org-prefix ("C-a" . org-board-keymap))
-  :config
-  (add-to-list 'display-buffer-alist
-               '("org-board-wget-call" (display-buffer-below-selected)))
-  )
+  :bind (:map Org-prefix ("C-a" . org-board-archive))
+  :config (add-to-list 'display-buffer-alist
+                       '("org-board-wget-call" (display-buffer-below-selected))))
 
 ;;; [ org-attach-embedded-images ] --
 
