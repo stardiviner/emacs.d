@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: babel-julia-install
+# key: babel-julia-install
+# group: babel.install
+# --
+#+begin_src julia :session
+using Pkg
+Pkg.add("${1:package name}")
+#+end_src

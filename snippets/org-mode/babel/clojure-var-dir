@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: pass current dir into Clojure
+# key: ob-clojure-var-dir
+# group: babel.clojure
+# --
+:var dir=(concat (file-name-directory (buffer-file-name)) "data/images/")

@@ -3,11 +3,11 @@
 # key: git-fork
 # group: babel.git
 # --
-#+begin_src sh :dir "${1:~/Code/Emacs}" :var repo_name="${2:hl-sexp}" :results link :file "${2}/${3:README.md}"
+#+begin_src sh :dir "${1:~/Code/Emacs}" :var repo_name="${2:hl-sexp}" :results link :file "$2/${3:README.md}"
 if [ ! -d $repo_name ]; then
-  git clone ${4:Repo Git}
+  git clone ${4:forked repo Git}
   cd $repo_name
-  git remote add upstream ${5:Upstream Repo Git}
+  git remote add upstream ${5:upstream repo Git}
   git fetch upstream
   git remote show
 else
