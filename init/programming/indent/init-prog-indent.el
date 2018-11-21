@@ -75,7 +75,11 @@
   ;; works with `indent-guide-global-mode'
   (with-eval-after-load 'indent-guide
     (add-to-list 'indent-guide-inhibit-modes 'org-mode)
-    (add-to-list 'indent-guide-inhibit-modes 'web-mode))
+    (add-to-list 'indent-guide-inhibit-modes 'web-mode)
+    (add-to-list 'indent-guide-inhibit-modes 'emacs-lisp-mode)
+    (add-to-list 'indent-guide-inhibit-modes 'clojure-mode)
+    (add-to-list 'indent-guide-inhibit-modes 'lisp-mode)
+    (add-to-list 'indent-guide-inhibit-modes 'scheme-mode))
   ;; (indent-guide-global-mode)
   
   ;; specific modes

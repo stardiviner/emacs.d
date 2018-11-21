@@ -110,10 +110,13 @@
                       :reverse-video nil :foreground nil
                       :background (cl-case (alist-get 'background-mode (frame-parameters))
                                     ('light
-                                     (color-darken-name (face-background 'default) 8))
+                                     (color-darken-name "gainsboro" 0)
+                                     ;; (color-darken-name (face-background 'default) 8)
+                                     )
                                     ('dark
-                                     (color-darken-name (face-background 'default) 5))))
-  )
+                                     (color-darken-name "SlateGray" 26)
+                                     ;; (color-lighten-name (face-background 'default) 6)
+                                     ))))
 
 
 ;;; [ eval-sexp-fu ] -- highlighting the sexps during evaluation in action.
@@ -150,7 +153,6 @@
 ;;   )
 
 
-
 (defun my-lisp-common-settings ()
   "Common settings for all Lisp dialects."
   (interactive)
@@ -160,8 +162,7 @@
   (if (fboundp 'parinfer-mode)
       (parinfer-mode 1))
   (hl-sexp-mode 1)
-  (eldoc-mode 1)
-  )
+  (eldoc-mode 1))
 
 (defun my-lisp-repl-common-settings ()
   "Common settings for all Lisp dialects REPL."
@@ -169,8 +170,7 @@
   (paredit-mode 1)
   (rainbow-delimiters-mode 1)
   (hl-sexp-mode 1)
-  (eldoc-mode 1)
-  )
+  (eldoc-mode 1))
 
 ;; I already set upper Lisp common settings function in separately init files.
 ;; (dolist (hook '(lisp-mode-hook

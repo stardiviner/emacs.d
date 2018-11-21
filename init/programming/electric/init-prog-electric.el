@@ -31,6 +31,10 @@
   :config
   ;; `smartparens' is heavy in `org-self-insert-command'.
   (add-to-list 'sp-ignore-modes-list 'org-mode)
+  (add-to-list 'sp-ignore-modes-list 'emacs-lisp-mode)
+  (add-to-list 'sp-ignore-modes-list 'clojure-mode)
+  (add-to-list 'sp-ignore-modes-list 'lisp-mode)
+  (add-to-list 'sp-ignore-modes-list 'scheme-mode)
   ;; (setq sp-navigate-consider-sgml-tags '(html-erb-mode
   ;;                                        web-mode
   ;;                                        nxml-mode sgml-mode
