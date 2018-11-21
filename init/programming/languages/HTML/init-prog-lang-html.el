@@ -82,6 +82,16 @@
 ;;   :ensure t
 ;;   :init (cakecrumbs-auto-setup))
 
+;;; [ lsp-html ] -- HTML support for lsp-mode using vscode-html-languageserver-bin.
+
+(use-package lsp-html
+  :ensure t
+  :ensure-system-package ((html-languageserver . "npm i -g vscode-html-languageserver-bin"))
+  :after lsp-mode
+  :commands lsp-html-enable
+  :hook ((html-mode . lsp-html-enable)
+         (web-mode . lsp-html-enable)))
+
 
 (provide 'init-prog-lang-html)
 

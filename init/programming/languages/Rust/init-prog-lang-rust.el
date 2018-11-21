@@ -82,7 +82,9 @@
 
 (use-package lsp-rust
   :ensure t
-  :init (add-hook 'rust-mode-hook #'lsp-rust-enable))
+  :ensure-system-package ((rls . "rustup component add rls-preview rust-analysis rust-src"))
+  :after lsp-mode
+  :hook (rust-mode . lsp-rust-enable))
 
 
 (provide 'init-prog-lang-rust)

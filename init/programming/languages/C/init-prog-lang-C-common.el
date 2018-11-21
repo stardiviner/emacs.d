@@ -151,6 +151,20 @@
   (local-set-key (kbd "C-c C-o") 'ff-find-other-file))
 (add-hook 'c-mode-common-hook #'my/c-mode-common-header-switch)
 
+;;; [ ccls ] -- C/C++/Objective-C lang server support for lsp-mode using Clang.
+
+(use-package ccls
+  :defines projectile-project-root-files-top-down-recurring
+  :ensure t
+  ;; :ensure-system-package ((ccls . "aurman -S ccls"))
+  :after lsp-mode
+  :commands lsp-ccls-enable
+  :hook ((c-mode c++-mode objc-mode) . lsp-ccls-enable)
+  :config (with-eval-after-load 'projectile
+            (setq projectile-project-root-files-top-down-recurring
+                  (append '("compile_commands.json" ".ccls")
+                          projectile-project-root-files-top-down-recurring))))
+
 ;;; [ c-eldoc ] -- helpful description of the arguments to C functions.
 
 (use-package c-eldoc

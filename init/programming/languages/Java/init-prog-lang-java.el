@@ -38,34 +38,10 @@
 
 (use-package lsp-java
   :ensure t
-  :init (add-hook 'java-mode-hook #'lsp-java-enable)
-  :config
-  ;; set the projects that are going to be imported into the workspace.
-  (setq lsp-java--workspace-folders (list "~/Documents/learning/Java/test-project/"))
-  (setq lsp-java-progress-report nil
-        lsp-java-trace-server nil)
-  (setq lsp-response-timeout 20)
-  )
-
-(defun org-babel-edit-prep:java (babel-info)
-  "Prepare buffer local environment for Org source block Java."
-  (if-let* ((lang (car babel-info))
-            (ext (cdr (assoc lang org-babel-tangle-lang-exts)))
-            ;; detect the header argument :lsp-file exist, if not, use default
-            ;; "/tmp/tmp.EXT".
-            (lsp-file (or (->> babel-info
-                               caddr
-                               (alist-get :lsp-file))
-                          (format "/tmp/tmp.%s" ext)))
-            (lsp-file-url (lsp--path-to-uri lsp-file)))
-      (progn
-        (setq-local buffer-file-name lsp-file)
-        (setq-local lsp-buffer-uri lsp-file-url)))
-  ;; detect lsp-mode language enable function exist?
-  ;; (if (boundp ))
-  ;; (lsp-java-enable)
-  (message "lsp-mode workspace file setup for source block done!")
-  )
+  :after lsp-mode
+  :commands lsp-java-enable
+  :hook (java-mode . lsp-java-enable)
+  :config (lsp-org-babel-enbale "java"))
 
 ;;; [ lsp-javacomp ] -- Emacs Language Server client backed by JavaComp.
 

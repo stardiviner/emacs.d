@@ -62,12 +62,15 @@
   :defer t
   :init (add-hook 'go-mode-hook 'go-eldoc-setup))
 
-;;; [ lsp-go ] -- Go support for lsp-mode.
+;;; [ lsp-go ] -- Go support for lsp-mode using Sourcegraph's Go Language Server.
 
 (use-package lsp-go
   :ensure t
   :ensure-system-package ((go-langserver . "go get -u github.com/sourcegraph/go-langserver"))
-  :init (add-hook 'go-mode-hook #'lsp-go-enable))
+  :after lsp-mode
+  :commands lsp-go-enable
+  :hook (go-mode . lsp-go-enable)
+  :config (lsp-org-babel-enbale "go"))
 
 ;;; [ gorepl-mode ] -- Go REPL Interactive Development in top of Gore.
 

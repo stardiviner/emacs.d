@@ -159,6 +159,15 @@
    '(ruby-mode-hook inf-ruby-mode-hook))
   )
 
+;;; [ lsp-ruby ] -- Ruby support for lsp-mode using the solargraph Gem.
+
+(use-package lsp-ruby
+  :ensure t
+  :ensure-system-package ((solargraph . "gem install solargraph"))
+  :after lsp-mode
+  :hook (ruby-mode . lsp-ruby-enable)
+  :config (lsp-org-babel-enbale "ruby"))
+
 
 (provide 'init-prog-lang-ruby)
 

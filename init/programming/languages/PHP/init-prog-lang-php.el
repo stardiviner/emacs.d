@@ -40,7 +40,9 @@
 
 (use-package lsp-php
   :ensure t
-  :init (add-hook 'php-mode-hook #'lsp-php-enable))
+  :ensure-system-package (())
+  :after lsp-mode
+  :hook (php-mode . lsp-php-enable))
 
 
 (provide 'init-prog-lang-php)

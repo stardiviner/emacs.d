@@ -57,7 +57,13 @@
 
 (use-package lsp-sh
   :ensure t
-  :init (add-hook 'sh-mode-hook #'lsp-sh-enable))
+  :ensure-system-package ((bash-language-server . "npm i -g bash-language-server@1.4.0"))
+  :after lsp-mode
+  :commands lsp-sh-enable
+  :hook (sh-mode . lsp-sh-enable)
+  :config (lsp-org-babel-enbale "shell" "sh")
+  ;; (lsp-org-babel-enbale "sh")
+  )
 
 
 
