@@ -10,7 +10,14 @@
 
 (use-package ein
   :ensure t
-  :commands (ein:jupyter-server-start))
+  :commands (ein:jupyter-server-start)
+  :init
+  ;; [ ob-ein ] #+begin_src ein
+  (require 'ob-ein)
+  (setq ein:org-inline-image-directory "data/images")
+  (ein:org-register-lang-mode "ein-python" 'python)
+  (ein:org-register-lang-mode "ein-R" 'R)
+  (ein:org-register-lang-mode "ein-clojure" 'clojure))
 
 ;;; [ ob-ipython ]
 
