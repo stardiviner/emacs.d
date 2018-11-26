@@ -26,12 +26,12 @@
               ("d" . rg-dwim-current-dir)
               ("p" . rg-dwim-project-dir)
               ("C-r" . rg)
+              ("R" . rg-literal)
               :map projectile-command-map
               ("s r" . rg-project)
               ;; swap `projectile-ag' keybinding.
               ("s s" . rg-project)
-              ("s a" . projectile-ag)
-              )
+              ("s a" . projectile-ag))
   :init
   (rg-enable-default-bindings)
   (if (fboundp 'wgrep-rg-setup)
