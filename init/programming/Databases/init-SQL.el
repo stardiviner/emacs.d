@@ -92,7 +92,8 @@
 (use-package sqlformat
   :ensure t
   :init (add-hook 'sql-mode-hook 'sqlformat-mode)
-  (setq sqlformat-mode-format-on-save t))
+  ;; (setq sqlformat-mode-format-on-save t)
+  )
 
 ;;; [ edbi ]
 
@@ -151,9 +152,8 @@
 ;;; [ ejc-sql ] -- Emacs SQL client uses Clojure JDBC.
 
 (use-package ejc-sql
-  ;; :ensure t
-  :load-path "~/Code/Emacs/ejc-sql/"
-  :defer t
+  :ensure t
+  :load (ejc-interaction)
   :commands (ejc-connect ejc-connect-existing-repl ejc-sql-mode)
   :config
   (defun my-ejc-sql-ac-setup ()
@@ -161,26 +161,40 @@
     (auto-complete-mode 1)
     (ejc-ac-setup))
   (add-hook 'sql-mode-hook #'my-ejc-sql-ac-setup)
+
+  ;; (advice-add 'ejc-connect :before
+  ;;             #'(lambda (connection-name)
+  ;;                 (switch-to-buffer-other-window (format "*ejc-sql %s*" connection-name))))
   
   (ejc-create-connection
-   "PostgreSQL"
+   "PostgreSQL-db-postgres"
    :classpath "~/.m2/repository/postgresql/postgresql/9.3-1102.jdbc41/postgresql-9.3-1102.jdbc41.jar"
-   :classname "org.postgresql.Driver"
    :dbtype "postgresql"
    :host "localhost"
    :port "5432"
    :user "postgres"
-   :password "324324")
+   :password "324324"
+   :dbname "postgres")
+
+  (ejc-create-connection
+   "MariaDB-db-test"
+   :classpath "~/.m2/repository/org/mariadb/jdbc/mariadb-java-client/1.1.7/mariadb-java-client-1.1.7.jar"
+   :dbtype "mysql" ; TODO: "mariadb"?
+   :host "localhost"
+   :port "3306"
+   :user "root"
+   :password "324324"
+   :dbname "test")
   
   (ejc-create-connection
-   "MySQL"
+   "MySQL-db-test"
    :classpath "~/.m2/repository/mysql/mysql-connector-java/5.1.32/mysql-connector-java-5.1.32.jar"
-   :classname "com.mysql.jdbc.Driver"
    :dbtype "mysql"
    :host "localhost"
    :port "3306"
    :user "root"
-   :password "324324")
+   :password "324324"
+   :dbname "test")
   )
 
 
