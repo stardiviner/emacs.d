@@ -52,14 +52,12 @@
   (add-hook 'rust-mode-hook #'racer-mode)
   (use-package company-racer
     :ensure t
-    :init
-    (add-hook 'rust-mode-hook
-              (lambda () (my-company-add-backend-locally 'company-racer))))
+    :init (add-hook 'rust-mode-hook
+                    (lambda () (my-company-add-backend-locally 'company-racer))))
   :config
   (define-key racer-mode-map (kbd "C-c C-d C-d") 'racer-describe)
   (add-to-list 'display-buffer-alist
-               '("^\\*Racer Help\\*" . (display-buffer-below-selected)))
-  )
+               '("^\\*Racer Help\\*" . (display-buffer-below-selected))))
 
 ;;; [ cargo ] -- Emacs Cargo client.
 
@@ -75,8 +73,7 @@
   :init
   (add-to-list 'org-babel-load-languages '(rust . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  (add-to-list 'org-babel-tangle-lang-exts '("rust" . "rs"))
-  )
+  (add-to-list 'org-babel-tangle-lang-exts '("rust" . "rs")))
 
 ;;; [ lsp-rust ] Rust support for lsp-mdoe.
 
