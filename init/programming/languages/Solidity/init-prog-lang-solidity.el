@@ -18,10 +18,15 @@
             (lambda ()
               (my-company-add-backend-locally 'company-solidity))))
 
+;;; [ solidity-flycheck ] -- Flycheck integration for solidity emacs mode.
+
+(use-package solidity-flycheck
+  :ensure t)
+
 ;;; [ flymake-solidity ] -- A flymake handler for solidity using solc.
 
-(use-package flymake-solidity
-  :ensure t)
+;; (use-package flymake-solidity
+;;   :ensure t)
 
 
 
