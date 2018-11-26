@@ -351,14 +351,6 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 (add-to-list 'org-babel-default-header-args:clojure ; for Clojure `dotimes' etc.
              '(:show-process . "no"))
 
-
-;;; [ ob-clojure-literate ] -- Clojure Literate Programming in Org-mode Babel.
-
-(require 'ob-clojure-literate)
-(setq ob-clojure-literate-auto-jackin-p t)
-(setq ob-clojure-literate-project-location "~/.emacs.d/Org-mode/")
-(define-key org-babel-map (kbd "M-c") 'ob-clojure-literate-mode)
-
 ;;; [ ob-clojurescript ] -- org-babel support for ClojureScript
 
 (use-package ob-clojurescript
