@@ -321,7 +321,7 @@
 ;; (require 'init-prog-web-browser)
 ;; (require 'init-prog-framework-ruby-on-rails)
 ;; (require 'init-prog-framework-android)
-;; (require 'init-prog-framework-arduino)
+(require 'init-prog-framework-arduino)
 ;; (require 'init-serial-programming)
 ;; (require 'init-prog-framework-qt)
 ;; (require 'init-prog-framework-ethereum)
