@@ -9,9 +9,11 @@
 ;;; [ Matrix ] -- An open standard for decentralized persistent communication.
 
 (use-package matrix-client
-  :quelpa (matrix-client :fetcher github :repo "jgkamat/matrix-client-el")
-  :commands (matrix-client)
-  :config (setq matrix-client-show-images t))
+  :quelpa (matrix-client-ng :fetcher github :repo "jgkamat/matrix-client-el")
+  :commands (matrix-client-connect)
+  :init (setq matrix-client-ng-save-token t
+              matrix-client-use-tracking t
+              matrix-client-show-images t))
 
 ;;; [ slack ] -- Emacs interface for Slack.
 
