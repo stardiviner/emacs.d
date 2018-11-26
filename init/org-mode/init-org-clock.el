@@ -63,9 +63,9 @@
 (define-key org-clock-mode-line-map [header-line mouse-2] 'org-clock-goto)
 (define-key org-clock-mode-line-map [header-line mouse-1] 'org-clock-menu)
 
-(add-hook 'org-clock-in-prepare-hook #'sound-typing)
+(add-hook 'org-clock-in-prepare-hook #'sound-tick)
 ;; (add-hook 'org-clock-in-hook #'sound-voice-hacking)
-(add-hook 'org-clock-out-hook #'sound-tick)
+(add-hook 'org-clock-out-hook #'sound-success)
 (add-hook 'org-clock-cancel-hook #'sound-newmessage)
 
 ;;; [ counsel-org-clock ] -- Counsel (Ivy) interface for org-clock.
