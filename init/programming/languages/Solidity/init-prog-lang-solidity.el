@@ -1,6 +1,6 @@
 ;;; init-prog-lang-solidity.el --- init for Solidity
 
-;;; Time-stamp: <2018-11-13 13:22:54 stardiviner>
+;;; Time-stamp: <2018-11-26 15:17:37 stardiviner>
 
 ;;; Commentary:
 
@@ -11,6 +11,9 @@
 ;;; [ solidity-mode ] -- Major mode for editing Solidity.
 
 (use-package solidity-mode
+  :ensure t)
+
+(use-package company-solidity
   :ensure t
   :config
   ;; `company-solidity' is in `solidity-mode'
