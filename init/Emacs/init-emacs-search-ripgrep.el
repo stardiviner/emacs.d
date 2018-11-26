@@ -36,6 +36,9 @@
   (rg-enable-default-bindings)
   (if (fboundp 'wgrep-rg-setup)
       (add-hook 'rg-mode-hook #'wgrep-rg-setup))
+  (if (null rg-command-line-flags)
+      (setq rg-command-line-flags '("-j 4"))
+    (add-to-list 'rg-command-line-flags "-j 4"))
   :config
   (setq rg-group-result t
         ;; rg-command-line-flags '("--debug")
