@@ -28,6 +28,7 @@
   :ensure t
   :ensure-system-package (proselint . "pip install --user proselint")
   :defer t
+  :init (add-hook 'prog-mode-hook #'flycheck-mode-on-safe)
   :commands flycheck-mode
   :preface (setq flycheck-check-syntax-automatically '(save))
   ;; NOTE: ONLY enable `flycheck-mode' MANUALLY. automatically checking will
