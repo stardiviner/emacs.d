@@ -105,6 +105,7 @@
   :ensure t
   :defer t
   :after clojure-mode
+  :hook (clojure-mode . cider-mode)
   :bind (:map cider-doc-map
               ("c" . helm-cider-cheatsheet)
               ("C-c" . helm-cider-cheatsheet))
