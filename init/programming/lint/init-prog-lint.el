@@ -20,8 +20,7 @@
 ;;   :bind (:map linter-prefix ("!" . flymake-mode)
 ;;               :map flymake-mode-map
 ;;               ("M-g M-n" . flymake-goto-next-error)
-;;               ("M-g M-p" . flymake-goto-prev-error))
-;;   )
+;;               ("M-g M-p" . flymake-goto-prev-error)))
 
 ;;; [ FlyCheck ] --- modern on-the-fly syntax checking
 
@@ -49,14 +48,13 @@
   (add-to-list 'display-buffer-alist
                '("^\\*Flycheck checker\\*" (display-buffer-below-selected)))
   ;; checker `proselint' for `org-mode', `markdown-mode', `gfm-mode'.
-  (add-to-list 'flycheck-checkers 'proselint)
-  )
+  (add-to-list 'flycheck-checkers 'proselint))
 
 ;;; [ flycheck-inline ] -- display Flycheck errors inline.
 
-;; (use-package flycheck-inline
-;;   :quelpa (flycheck-inline :fetcher github :repo "flycheck/flycheck-inline" :upgrade nil)
-;;   :init (flycheck-inline-mode))
+(use-package flycheck-inline
+  :ensure t
+  :init (flycheck-inline-mode))
 
 ;;; [ flycheck-popup-tip ] -- displaying errors from Flycheck using popup.el.
 
