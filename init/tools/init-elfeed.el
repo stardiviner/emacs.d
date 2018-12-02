@@ -155,6 +155,13 @@
           (Programming elfeed-programming-tag)))
   )
 
+;;; [ elfeed-org ] -- Configure the Elfeed RSS reader with an Org Mode file.
+
+(use-package elfeed-org
+  :ensure t
+  :init (elfeed-org)
+  (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed/elfeed.org")))
+
 
 (provide 'init-elfeed)
 
