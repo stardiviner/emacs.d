@@ -13,26 +13,49 @@
 
 ;;; [ sdcv.el ]
 
+;; (use-package sdcv
+;;   :ensure t
+;;   :commands (sdcv-search-pointer+ sdcv-search-input)
+;;   :bind (:map dictionary-prefix
+;;               ("C-d" . sdcv-search-pointer+)
+;;               ("M-d" . sdcv-search-input))
+;;   :config
+;;   ;; a simple dictionary list for popup display
+;;   (setq sdcv-dictionary-simple-list
+;;         '("懒虫简明英汉词典"
+;;           "懒虫简明汉英词典"
+;;           ;; "WordNet"
+;;           "牛津英汉双解美化版"))
+;;   ;; a complete dictionary list for buffer display
+;;   (setq sdcv-dictionary-complete-list
+;;         '("WordNet"
+;;           "牛津英汉双解美化版"
+;;           "朗道英汉字典5.0"
+;;           "朗道汉英字典5.0")))
+
+;;; [ manateelazycat/sdcv ]
+
 (use-package sdcv
-  :ensure t
-  :defer t
+  :quelpa (sdcv :fetcher github :repo "manateelazycat/sdcv")
+  :ensure posframe
+  :commands (sdcv-search-pointer sdcv-search-pointer+ sdcv-search-input sdcv-search-input+)
   :bind (:map dictionary-prefix
               ("C-d" . sdcv-search-pointer+)
               ("M-d" . sdcv-search-input))
-  :config
+  :init
+  (setq sdcv-say-word-p t)
   ;; a simple dictionary list for popup display
   (setq sdcv-dictionary-simple-list
-        '(;; "WordNet"
-          "牛津英汉双解美化版"
-          ))
+        '(;; "懒虫简明英汉词典"
+          ;; "懒虫简明汉英词典"
+          ;; "WordNet"
+          "牛津英汉双解美化版"))
   ;; a complete dictionary list for buffer display
   (setq sdcv-dictionary-complete-list
         '("WordNet"
           "牛津英汉双解美化版"
           "朗道英汉字典5.0"
-          "朗道汉英字典5.0"
-          ))
-  )
+          "朗道汉英字典5.0")))
 
 ;;; [ Goldendict ]
 
