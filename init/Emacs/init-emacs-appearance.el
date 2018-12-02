@@ -145,6 +145,13 @@
 (add-hook 'prog-mode-hook
           #'(lambda () (setq-local comment-auto-fill-only-comments t)))
 
+;;; [ visual-fill ] -- Auto-refill paragraphs without modifying the buffer.
+
+;; (use-package visual-fill
+;;   :ensure t
+;;   ;; :config (visual-fill-mode 1)
+;;   )
+
 ;;; [ visual-line-mode ] -- visual soft wrap long line at word boundary.
 
 (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
