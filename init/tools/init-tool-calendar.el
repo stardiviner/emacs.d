@@ -9,16 +9,11 @@
 (unless (boundp 'calendar-prefix)
   (define-prefix-command 'calendar-prefix))
 (define-key tools-prefix (kbd "c") 'calendar-prefix)
-(unless (boundp 'Org-prefix)
-  (define-prefix-command 'Org-prefix))
-(define-key Org-prefix (kbd "C") 'calendar-prefix)
-
 
 ;;; [ calendar ]
 
 (use-package calendar
   :ensure t
-  :defer t
   :bind (:map calendar-prefix ("c" . calendar))
   :init
   ;; set calendar style
@@ -34,11 +29,10 @@
   ;;
   ;; for predicate lunar eclipses.
   ;;
-  ;; Zhejiang, China Area: Latitude: 27° 09' ~ 31° 11' N , Longitude: 118° 02' ~ 122° 57' E
-  ;; Shaoxing Area: Latitude: 29° 42' ~ 30° 19' 15" , Longitude: 120° 16' 55" ~ 120° 46' 39"
-  ;; XiaJiangChun, Zhuji, Zhejiang, China: 29.90256956936341, 120.37954302845002
-  ;; Yunnan, Dali: Latitude: 25.60, Longitude: 100.23,
-
+  ;; - Zhejiang, China Area: Latitude: 27° 09' ~ 31° 11' N , Longitude: 118° 02' ~ 122° 57' E
+  ;; - Shaoxing Area: Latitude: 29° 42' ~ 30° 19' 15" , Longitude: 120° 16' 55" ~ 120° 46' 39"
+  ;; - XiaJiangChun, Zhuji, Zhejiang, China: 29.90256956936341, 120.37954302845002
+  ;; - Yunnan, Dali: Latitude: 25.60, Longitude: 100.23,
   ;; - Zhejiang, Shaoxing, Zhuji: 29.72, 120.20, UTC+8 (China): +480
   (setq calendar-location-name "Shaoxing Town"
         calendar-time-zone +480
@@ -48,7 +42,8 @@
   :config
   (set-face-attribute 'calendar-today nil
                       :inherit 'highlight
-                      :box '(:color "dim gray" :line-width -1 :style nil))
+                      :foreground "white" :background "dark green"
+                      :box '(:color "dark gray" :line-width -1 :style nil))
 
   ;; mark holidays
   (setq calendar-mark-holidays-flag t
@@ -71,7 +66,6 @@
   (setq holiday-christian-holidays nil))
 
 (use-package cal-china
-  :defer t
   :init
   ;; display the ‘celestial-stem’ (天干) and the ‘terrestrial-branch’ (地支) in Chinese:
   (setq calendar-chinese-celestial-stem
@@ -83,19 +77,22 @@
 
 (use-package cal-china-x
   :ensure t
-  :defer t
   :config
   (setq calendar-mark-holidays-flag t)
   (setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
   (setq cal-china-x-general-holidays '((holiday-lunar 12 23 "小年")
                                        (holiday-lunar 1 15 "元宵节")
                                        (holiday-lunar 9 9 "重阳节")))
+  ;; [M-x holidays]
+  ;; from function `holiday-list'.
   (setq calendar-holidays
         (append cal-china-x-important-holidays
                 cal-china-x-general-holidays
                 holiday-general-holidays
                 holiday-local-holidays
-                holiday-other-holidays)))
+                holiday-other-holidays
+                holiday-solar-holidays
+                holiday-oriental-holidays)))
 
 ;;; [ calfw ] -- Calendar framework for Emacs
 
@@ -103,9 +100,7 @@
   :ensure t
   :ensure calfw-org
   :defer t
-  :bind (:map calendar-prefix
-              ("o" . cfw:open-org-calendar)
-              ("x" . cfw:open-calendar-buffer))
+  :bind (:map calendar-prefix ("x" . cfw:open-calendar-buffer))
   :config
   ;; Grid frame
   (setq cfw:fchar-junction ?╬
@@ -208,18 +203,13 @@
   (defun calfw:week ()
     (interactive)
     (cfw:open-calendar-buffer
-     :contents-sources
-     (list
-      (cfw:org-create-source "dark gray") ; Org-mode source
-      ;; (cfw:cal-create-source "orange") ; Diary source
-      ;; (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; iCalendar source1
-      ;; (cfw:ical-create-source "gcal" "https://..../basic.ics" "IndianRed") ; Google Calendar ICS
-      ;; (cfw:howm-create-source "blue") ; howm source
-      )
-     ;; :annotation-sources
-     ;; (list
-     ;;  (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; Moon annotations
-     ;;  )
+     :contents-sources (list (cfw:org-create-source "dark gray") ; Org-mode source
+                             ;; (cfw:cal-create-source "orange") ; Diary source
+                             ;; (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; iCalendar source1
+                             ;; (cfw:ical-create-source "gcal" "https://..../basic.ics" "IndianRed") ; Google Calendar ICS
+                             ;; (cfw:howm-create-source "blue") ; howm source
+                             )
+     ;; :annotation-sources (list (cfw:ical-create-source "Moon" "~/moon.ics" "Gray"))
      :view 'week)
     (bury-buffer)
     (switch-to-buffer "*cfw-calendar*")
@@ -231,39 +221,32 @@
     (interactive)
     (cfw:open-calendar-buffer
      :contents-sources
-     (list
-      (cfw:org-create-source "dark gray") ; Org-mode source
-      (cfw:cal-create-source "orange") ; Diary source
-      )
+     (list (cfw:org-create-source "dark gray")
+           (cfw:cal-create-source "orange"))
      :view 'day)
     (bury-buffer)
-    (switch-to-buffer "*cfw-calendar*")
-    )
+    (switch-to-buffer "*cfw-calendar*"))
 
   (defun calfw:month ()
     (interactive)
     (cfw:open-calendar-buffer
      :contents-sources
-     (list
-      (cfw:org-create-source "dark gray") ; Org-mode source
-      ;; (cfw:cal-create-source "orange") ; Diary source
-      )
+     (list (cfw:org-create-source "dark gray")
+           (cfw:cal-create-source "orange"))
      :view 'month)
     (bury-buffer)
     (switch-to-buffer "*cfw-calendar*"))
 
-  (define-key calendar-prefix (kbd "c") 'calfw:week)
   (define-key calendar-prefix (kbd "w") 'calfw:week)
   (define-key calendar-prefix (kbd "d") 'calfw:day)
-  (define-key calendar-prefix (kbd "m") 'calfw:month)
-  )
+  (define-key calendar-prefix (kbd "m") 'calfw:month))
 
 ;;; [ calfw-org ] -- calendar view for org-agenda.
 
 (use-package calfw-org
   :ensure t
-  :defer t
   :commands (cfw:open-org-calendar)
+  :bind (:map calendar-prefix ("o" . cfw:open-org-calendar))
   :init
   ;; (setq cfw:org-agenda-schedule-args '(:timestamp))
   ;; (setq cfw:org-overwrite-default-keybinding nil)
@@ -272,13 +255,12 @@
   (setq cfw:org-capture-template
         '("D" "[D] calfw2org" entry
           (file nil)
-          "* %?\n %(cfw:org-capture-day)"))
-  )
+          "* %?\n %(cfw:org-capture-day)")))
 
 ;; [ calfw-cal ] -- for Emacs Diary
 
-(use-package calfw-cal
-  :ensure t)
+;; (use-package calfw-cal
+;;   :ensure t)
 
 ;;; [ iCalendar ] -- for for iCalendar (Google Calendar) users
 
