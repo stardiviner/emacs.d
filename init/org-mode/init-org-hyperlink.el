@@ -112,6 +112,7 @@ Optional for Org-mode file: `LINK'."
         ("\\.mov\\'" . "mplayer %s")
         ("\\.ogv\\'" . "mplayer %s")
         ("\\.webm\\'" . "mplayer %s")
+        ("\\.flv\\'" . "mplayer %s")
         ("\\.f4v\\'" . "mplayer %s")
         ("\\.mkv\\'" . "mplayer %s")
         ;; Audio
