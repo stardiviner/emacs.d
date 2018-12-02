@@ -134,17 +134,13 @@
 
 (use-package cquery
   :ensure t
-  :ensure company-lsp
-  :defer t
-  :load (company-lsp)
   :init
   (defun my:cquery-setup ()
     (when
         (or (locate-dominating-file default-directory "compile_commands.json")
             (locate-dominating-file default-directory ".cquery"))
       (lsp-cquery-enable)))
-  (add-hook 'c-mode-common-hook #'my:cquery-setup)
-  )
+  (add-hook 'c-mode-common-hook #'my:cquery-setup))
 
 ;;; open header files at point.
 (defun my/c-mode-common-header-switch ()
@@ -157,9 +153,9 @@
   :defines projectile-project-root-files-top-down-recurring
   :ensure t
   ;; :ensure-system-package ((ccls . "aurman -S ccls"))
-  :after lsp-mode
+  :after lsp
   :commands lsp-ccls-enable
-  :hook ((c-mode c++-mode objc-mode) . lsp-ccls-enable)
+  :hook ((c-mode c++-mode objc-mode) . lsp)
   :config (with-eval-after-load 'projectile
             (setq projectile-project-root-files-top-down-recurring
                   (append '("compile_commands.json" ".ccls")

@@ -164,9 +164,8 @@
 (use-package lsp-ruby
   :ensure t
   :ensure-system-package ((solargraph . "gem install solargraph"))
-  :after lsp-mode
-  :hook (ruby-mode . lsp-ruby-enable)
-  :config (lsp-org-babel-enbale "ruby"))
+  :after lsp
+  :hook (ruby-mode . lsp))
 
 
 (provide 'init-prog-lang-ruby)

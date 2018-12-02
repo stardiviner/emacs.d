@@ -67,10 +67,8 @@
 (use-package lsp-go
   :ensure t
   :ensure-system-package ((go-langserver . "go get -u github.com/sourcegraph/go-langserver"))
-  :after lsp-mode
-  :commands lsp-go-enable
-  :hook (go-mode . lsp-go-enable)
-  :config (lsp-org-babel-enbale "go"))
+  :after lsp
+  :hook (go-mode . lsp))
 
 ;;; [ gorepl-mode ] -- Go REPL Interactive Development in top of Gore.
 

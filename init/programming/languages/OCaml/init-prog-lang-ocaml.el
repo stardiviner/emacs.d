@@ -89,7 +89,8 @@
 
 (use-package lsp-ocaml
   :ensure t
-  :init (add-hook 'tuareg-mode-hook #'lsp-ocaml-enable))
+  :after lsp
+  :hook (tuareg-mode . lsp))
 
 
 (provide 'init-prog-lang-ocaml)

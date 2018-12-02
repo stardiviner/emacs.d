@@ -93,18 +93,8 @@
 (use-package lsp-css
   :ensure t
   :ensure-system-package ((css-languageserver . "npm i -g vscode-css-languageserver-bin"))
-  :after lsp-mode
-  :commands (lsp-css-enable
-             lsp-less-enable
-             lsp-sass-enable
-             lsp-scss-enable)
-  :hook ((css-mode . lsp-css-enable)
-         (less-mode . lsp-less-enable)
-         (sass-mode . lsp-sass-enable)
-         (scss-mode . lsp-scss-enable))
-  :config
-  (lsp-org-babel-enbale "css")
-  (lsp-org-babel-enbale "sass"))
+  :after lsp
+  :hook ((css-mode . lsp) (less-mode . lsp) (sass-mode . lsp) (scss-mode . lsp)))
 
 
 (provide 'init-prog-lang-css)

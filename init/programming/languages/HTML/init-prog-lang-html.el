@@ -87,10 +87,8 @@
 (use-package lsp-html
   :ensure t
   :ensure-system-package ((html-languageserver . "npm i -g vscode-html-languageserver-bin"))
-  :after lsp-mode
-  :commands lsp-html-enable
-  :hook ((html-mode . lsp-html-enable)
-         (web-mode . lsp-html-enable)))
+  :after lsp
+  :hook ((html-mode . lsp) (web-mode . lsp)))
 
 
 (provide 'init-prog-lang-html)

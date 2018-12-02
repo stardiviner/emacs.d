@@ -157,7 +157,8 @@
 
 (use-package lsp-haskell
   :ensure t
-  :init (add-hook 'haskell-mode-hook #'lsp-haskell-enable))
+  :after lsp
+  :hook (haskell-mode . lsp))
 
 ;;; [ company-ghc ] -- company-mode back-end for haskell-mode via ghc-mod.
 

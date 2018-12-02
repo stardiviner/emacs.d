@@ -38,15 +38,14 @@
 
 (use-package lsp-java
   :ensure t
-  :after lsp-mode
-  :commands lsp-java-enable
-  :hook (java-mode . lsp-java-enable)
-  :config (lsp-org-babel-enbale "java"))
+  :after lsp
+  :hook (java-mode . lsp))
 
 ;;; [ lsp-javacomp ] -- Emacs Language Server client backed by JavaComp.
 
 ;; (use-package lsp-javacomp
 ;;   :ensure t
+;;   :after lsp
 ;;   :config
 ;;   (lsp-javacomp-install-server)
 ;;   (add-hook 'java-mode-hook #'lsp-javacomp-enable))
@@ -55,6 +54,7 @@
 
 ;; (use-package lsp-intellij
 ;;   :ensure t
+;;   :after lsp
 ;;   :init (add-hook 'java-mode-hook #'lsp-intellij-enable))
 
 ;;; [ malabar-mode ] -- JVM Integration for Java and other JVM based languages.

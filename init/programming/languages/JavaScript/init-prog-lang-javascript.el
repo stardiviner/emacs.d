@@ -194,10 +194,8 @@
 (use-package lsp-javascript-typescript
   :ensure t
   :ensure-system-package (javascript-typescript-stdio . "npm i -g javascript-typescript-langserver")
-  :after lsp-mode
-  :commands lsp-javascript-typescript-enable
-  :hook ((js2-mode typescript-mode rjsx-mode) . lsp-javascript-typescript-enable)
-  :config (lsp-org-babel-enbale "js" "javascript-typescript"))
+  :after lsp
+  :hook ((js2-mode typescript-mode rjsx-mode) . lsp))
 
 ;;; [ skewer-mode ] -- Live interactive web development in Emacs.
 

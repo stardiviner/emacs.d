@@ -40,9 +40,9 @@
 
 (use-package lsp-php
   :ensure t
-  :ensure-system-package (())
-  :after lsp-mode
-  :hook (php-mode . lsp-php-enable))
+  ;; :ensure-system-package (( . "composer require jetbrains/phpstorm-stubs; composer require felixfbecker/language-server ; composer run-script --working-dir=vendor/felixfbecker/language-server parse-stubs"))
+  :after lsp
+  :hook (php-mode . lsp))
 
 
 (provide 'init-prog-lang-php)
