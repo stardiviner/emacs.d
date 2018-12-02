@@ -167,12 +167,10 @@ Optional for Org-mode file: `LINK'."
 
 ;; IRC: `irc:'
 (require 'org-irc)
-(if (featurep 'erc)
-    (progn
-      (setq org-irc-client 'erc)
-      (setq erc-default-port 8000))
-  (if (featurep 'circe)
-      (setq org-irc-client 'circe)))
+;;; IRC clients: 'erc, 'rcirc, 'circe,
+(setq org-irc-client 'erc)
+(if (and (featurep 'erc) (featurep 'init-erc))
+    (require 'init-erc))
 
 
 ;;; Telnet:
