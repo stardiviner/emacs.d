@@ -285,6 +285,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   :ensure t
   ;; :pin "melpa-unstable" ; fix clj-refactor not compatible with CIDER issue.
   :defer t
+  :delight clj-refactor-mode
   :init
   (defun my:clj-refactor-setup ()
     (clj-refactor-mode 1)
