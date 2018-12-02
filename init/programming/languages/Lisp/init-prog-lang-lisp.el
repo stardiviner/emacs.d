@@ -118,6 +118,20 @@
                                      ;; (color-lighten-name (face-background 'default) 6)
                                      ))))
 
+;;; [ rainbow-blocks ] -- block syntax highlighting for lisp code.
+
+;; (use-package rainbow-blocks
+;;   :ensure t
+;;   :config (global-rainbow-blocks-mode))
+
+;;; [ rainbow-blocks-bg ] -- rainbow background highlighting of code blocks.
+
+(use-package rainbow-blocks-bg
+  :quelpa (rainbow-blocks-bg :fetcher github :repo "seanirby/rainbow-blocks-bg")
+  :no-require t
+  ;; :config (global-rainbow-blocks-bg-mode)
+  ;; (add-hook 'clojure-mode-hook 'rainbow-blocks-bg-mode)
+  )
 
 ;;; [ eval-sexp-fu ] -- highlighting the sexps during evaluation in action.
 
