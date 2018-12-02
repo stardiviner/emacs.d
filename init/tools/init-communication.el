@@ -10,7 +10,8 @@
 
 (use-package matrix-client
   :quelpa (matrix-client-ng :fetcher github :repo "jgkamat/matrix-client-el")
-  :commands (matrix-client-connect)
+  :commands (matrix-client-connect matrix-client-disconnect)
+  :bind (:map matrix-client-mode-map ("C-c C-b" . matrix-client-switch-buffer))
   :init (setq matrix-client-ng-save-token t
               matrix-client-use-tracking t
               matrix-client-show-images t))
