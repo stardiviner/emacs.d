@@ -107,12 +107,14 @@
 ;;; [ javap-mode ] -- show the ouput of javap when opening a jvm class file in Emacs.
 
 (use-package javap-mode
-  :ensure t)
+  :ensure t
+  :commands (javap-buffer javap-mode))
 
 ;;; [ jdecomp ] -- Emacs interface to Java decompilers.
 
 ;; (use-package jdecomp
 ;;   :ensure t
+;;   :commands (jdecomp)
 ;;   :config
 ;;   ;; (setq jdecomp-decompiler-paths '((cfr . "~/.java/cfr.jar")
 ;;   ;;                                  (fernflower . "")))
