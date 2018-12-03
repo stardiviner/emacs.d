@@ -1,64 +1,16 @@
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(ansi-color-names-vector
-   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
- '(custom-safe-themes)
- '(eyebrowse-keymap-prefix "w")
- '(fci-rule-color "#dedede")
- '(global-hl-line-mode nil)
- '(hl-sexp-background-color "#efebe9")
- '(org-trello-current-prefix-keybinding "C-c o")
- '(rg-keymap-prefix nil)
+ '(package-selected-packages
+   (quote
+    (elfeed-org slack solidity-flycheck flycheck-inline ccls lsp-css lsp-html package-lint-flymake org-gantt n4js ob-cypher cypher-mode quick-peek ob-sml sml-mode rainbow-blocks-bg company-solidity solidity-mode alarm-clock lxc-tramp lxc lsp-ruby lxd-tramp ein youdao-dictionary yesql-ghosts yaxception yari yaml-imenu yagist xterm-color xref-js2 x86-lookup x-path-walker writeroom-mode writegood-mode wolfram-mode wolfram which-key wgrep-ag web-narrow-mode web-mode-edit-element wc-mode vlf visual-regexp-steroids visual-fill vagrant-tramp vagrant use-package-ensure-system-package undo-tree transmission tracking tabbar systemd symbol-overlay sx switch-buffer-functions swift-mode suggest sudo-edit stem-english sqlup-mode sqlformat sql-indent spray smartparens sly-repl-ansi-color sly-quicklisp sly-macrostep skewer-mode show-marks sdlang-mode sdcv sclang-extensions ruby-tools robe rmsbolt rg restclient-test regex-tool redshank redis realgud rcirc-alertify rainbow-mode rainbow-identifiers rainbow-delimiters rainbow-blocks racer quickrun quelpa-use-package python-mode px puppet-mode proxy-mode projectile-variable projectile-ripgrep prodigy processing-mode pretty-symbols powershell poporg poet-theme plantuml-mode pkgbuild-mode pinentry pig-mode picpocket php-eldoc perl6-mode pdfgrep pdf-tools-org parseclj paperless pamparam package-build pacfiles-mode ox-slack ox-rst ox-reveal ox-pandoc ox-gfm ox-epub ov orgtbl-join orgtbl-ascii-plot orgtbl-aggregate orgit org-wc org-vcard org-trello org-tree-slide org-transform-tree-table org-table-sticky-header org-sync-snippets org-send-ebook org-radiobutton org-protocol-capture-html org-projectile-helm org-pomodoro org-pdfview org-password-manager org-osm-link org-noter org-mind-map org-mime org-kanban org-if org-emms org-edna org-edit-latex org-download org-commentary org-chef org-bullets org-board org-attach-screenshot omnisharp olivetti ob-uart ob-translate ob-swift ob-sql-mode ob-rust ob-restclient ob-redis ob-prolog ob-nim ob-mongo ob-mermaid ob-kotlin ob-ipython ob-http ob-go ob-elixir ob-csharp ob-coffee ob-clojurescript ob-browser ob-blockdiag ob-async oauth2 nov nim-mode nginx-mode nasm-mode mysql-to-org mu4e-alert mongo modern-cpp-font-lock mmm-mode mips-mode meghanada matlab-mode makefile-executor make-it-so magithub magit-todos magit-org-todos magit-gitflow magic-latex-buffer lsp-ui lsp-sh lsp-rust lsp-python lsp-php lsp-javascript-typescript lsp-java lsp-haskell lsp-go logview lognav-mode ledger-mode latex-preview-pane kubernetes-tramp kubernetes kotlin-mode keycast key-chord jsx-mode json-navigator js-comint jetbrains ivy-yasnippet ivy-rich ivy-hydra irony-eldoc interleave insert-translated-name ini-mode info-colors inf-mongo inf-clojure indium indent-guide impatient-mode imgbb image-dired+ ido-vertical-mode ibuffer-sidebar ibuffer-projectile iasm-mode ialign hugsql-ghosts httprepl httpcode html2org hl-sexp hive heroku helm-systemd helm-rg helm-rage helm-org-rifle helm-lib-babel helm-dash helm-clojuredocs helm-cider helm-bibtex graphviz-dot-mode graphql-mode gradle-mode gotest gorepl-mode goldendict go-projectile go-imports go-gopath gnuplot-mode gnuplot glsl-mode gitignore-templates gitignore-mode github-notifier github-browse-file gitconfig-mode gitattributes-mode git-messenger git-gutter+ git geiser flyspell-correct flycheck-swift flycheck-rust flycheck-package flycheck-nim flycheck-ledger flycheck-irony floobits fancy-narrow eyebrowse expand-region exiftool eww-lnum esup ess-view ess-R-data-view eros eredis ereader engine-mode emr emojify emms emmet-mode emaps elquery elpy elnode elmacro elisp-refs elisp-def elfeed elein elcouch ejc-sql edit-server-htmlize ediprolog edebug-x edbi-sqlite edbi-minor-mode edbi-database-url download-region dotnet doom dockerfile-mode docker-compose-mode docker-api docker dired-toggle-sudo dired-single dired-sidebar dired-rsync dired-narrow dired-launch dired-efap diminish diffview diff-hl demo-it delight dap-mode css-eldoc cquery cql-mode counsel-tramp counsel-projectile counsel-org-clock counsel-css copy-file-on-save company-web company-terraform company-tern company-sourcekit company-restclient company-racer company-quickhelp company-php company-nginx company-math company-lua company-lsp company-irony-c-headers company-go company-ghci company-ghc company-english-helper company-edbi company-box company-auctex company-arduino company-ansible coffee-mode clojure-mode-extra-font-locking cljsbuild-mode clj-refactor circe cdlatex cargo carbon-now-sh camcorder calfw-org calfw-cal calfw cal-china-x c-eldoc buttercup build-helper bug-hunter bpr boxquote bmx-mode bm blockdiag-mode blimp benchmark-init beacon basic-mode banner-comment awesome-tab aweshell autothemer auto-yasnippet auto-complete-rst atomic-chrome aria2 apache-mode anzu ansible-doc ansible anaphora ample-regexps all-the-icons-dired alchemist ahk-mode aggressive-indent aggressive-fill-paragraph ace-jump-mode academic-phrases ac-octave 4clojure)))
  '(safe-local-variable-values
    (quote
-    ((org-src-preserve-indentation)
-     (eval and
-           (featurep
-            (quote ox-extra))
-           (ox-extras-activate
-            (quote
-             (ignore-headlines))))
-     (eval require
-           (quote ox-texinfo+)
-           nil t)
-     (eval require
-           (quote ox-extra)
-           nil t)
-     (eval require
-           (quote org-man)
-           nil t)
-     (eval require
-           (quote magit-utils)
-           nil t)
-     (firestarter . value)
-     (major-mode . lua-mode)
-     (elisp-lint-indent-specs
-      (if-let* . 2)
-      (when-let* . 1)
-      (let* . defun)
-      (nrepl-dbind-response . 2)
-      (cider-save-marker . 1)
-      (cider-propertize-region . 1)
-      (cider--make-result-overlay . 1)
-      (multiline-comment-handler . defun)
-      (insert-label . defun)
-      (insert-align-label . defun)
-      (insert-rect . defun)
-      (cl-defun . 2)
-      (with-parsed-tramp-file-name . 2)
-      (thread-first . 1)
-      (thread-last . 1))
-     (checkdoc-package-keywords-flag)
-     (org-html-infojs-options)
-     (org-startup-with-inline-images)
-     (org-indent-mode)
-     ))))
-
+    ((major-mode . org-mode)
+     (org-startup-with-inline-images)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
