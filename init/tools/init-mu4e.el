@@ -243,6 +243,12 @@
   (add-hook 'mu4e-compose-mode-hook #'turn-on-auto-fill)
   (add-hook 'mu4e-compose-mode-hook #'turn-on-flyspell)
 
+  ;; enable `company-ispell' backend in `mu4e-compose-mode'.
+  (defun mu4e-enable-company-ispell ()
+    "Enable company-ispell backend in company-backends for mu4e-compose-mode."
+    (add-to-list 'company-backends 'company-ispell 'append))
+  (add-hook 'mu4e-compose-mode-hook #'mu4e-enable-company-ispell)
+
   ;; Message signatures
   ;; include in message with [C-c C-w]
   (setq mu4e-compose-signature-auto-include t
