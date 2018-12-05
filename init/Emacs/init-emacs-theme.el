@@ -23,11 +23,11 @@
 
 ;;; [ leuven-theme ]
 
-(use-package leuven-theme
-  :load-path "~/Code/Emacs/leuven-theme/"
-  :no-require t
-  :init (require 'leuven-theme)
-  :config (load-theme 'leuven t))
+;; (use-package leuven-theme
+;;   :load-path "~/Code/Emacs/leuven-theme/"
+;;   :no-require t
+;;   :init (require 'leuven-theme)
+;;   :config (load-theme 'leuven t))
 
 ;;; [ eziam-theme ] -- A mostly monochrome theme, inspired by Tao and Leuven, with dark and light versions.
 
@@ -48,8 +48,7 @@
 ;;   (with-eval-after-load 'ivy
 ;;     (set-face-attribute 'ivy-current-match nil
 ;;                         :background "SeaGreen" :foreground "white"
-;;                         :weight 'normal))
-;;   )
+;;                         :weight 'normal)))
 
 ;;; [ one-themes ] -- One color scheme.
 
@@ -57,6 +56,23 @@
 ;;   :ensure t
 ;;   :no-require t
 ;;   :config (load-theme 'one-dark t))
+
+;;; [ doom-themes ] -- an opinionated pack of modern color-themes.
+
+(use-package doom-themes
+  :ensure t
+  :no-require t
+  :config (load-theme 'doom-one t)
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+
+  ;; Enable custom neotree theme (all-the-icons must be installed!)
+  (doom-themes-neotree-config)
+  ;; or for treemacs users
+  (doom-themes-treemacs-config)
+
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
 
 (set-face-attribute 'underline nil
                     :underline (cl-case (alist-get 'background-mode (frame-parameters))
