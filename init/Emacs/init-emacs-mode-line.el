@@ -11,6 +11,7 @@
 
 ;; (require 'init-custom-mode-line)
 ;; (require 'init-powerline)
+(require 'init-doom-modeline)
 
 
 (provide 'init-emacs-mode-line)
