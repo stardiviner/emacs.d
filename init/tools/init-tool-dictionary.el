@@ -55,7 +55,15 @@
         '("WordNet"
           "牛津英汉双解美化版"
           "朗道英汉字典5.0"
-          "朗道汉英字典5.0")))
+          "朗道汉英字典5.0"))
+  :config
+  (set-face-attribute 'sdcv-tooltip-face nil
+                      :foreground (face-foreground 'default)
+                      :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('light
+                                     (color-darken-name (face-background 'default) 10))
+                                    ('dark
+                                     (color-lighten-name (face-background 'default) 5)))))
 
 ;;; [ Goldendict ]
 
