@@ -160,7 +160,11 @@ but `delete-file' is ignored."
 ;;; [ ob-async ] -- enables asynchronous execution of org-babel src blocks for *any* languages.
 
 (use-package ob-async
-  :ensure t)
+  :ensure t
+  :init
+  ;; FIX: void variable `inferior-julia-program-name'.
+  (add-hook 'ob-async-pre-execute-src-block-hook
+            '(lambda () (setq inferior-julia-program-name "julia"))))
 
 ;;; [ org-babel-eval-in-repl ] -- eval org-babel block code with eval-in-repl.el
 
