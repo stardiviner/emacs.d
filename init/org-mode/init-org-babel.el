@@ -160,8 +160,7 @@ but `delete-file' is ignored."
 ;;; [ ob-async ] -- enables asynchronous execution of org-babel src blocks for *any* languages.
 
 (use-package ob-async
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; [ org-babel-eval-in-repl ] -- eval org-babel block code with eval-in-repl.el
 
