@@ -94,8 +94,8 @@
 
 (setq org-priority-faces
       '((?A .
-            (:foreground "dark gray"
-                         :background "OrangeRed"
+            (:foreground "#222222"
+                         :background "orchid"
                          :box '(:color "dark gray" :line-width -1)))
         (?B .
             (:foreground "dark gray"
@@ -104,8 +104,7 @@
         (?C .
             (:foreground "dim gray"
                          :background "gray"
-                         :box '(:color "dark gray" :line-width -1)))
-        ))
+                         :box '(:color "dark gray" :line-width -1)))))
 
 ;; * Plain Lists::
 
