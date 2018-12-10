@@ -15,6 +15,9 @@
 (setq org-hide-emphasis-markers t
       org-fontify-quote-and-verse-blocks t)
 
+;;; apply `variable-pitch-mode' on Org Mode.
+(add-hook 'org-mode-hook 'variable-pitch-mode)
+
 (setq org-ellipsis "  ")
 
 ;;; TODO: whether remove this extra setting which not supported by Org-mode built-in.

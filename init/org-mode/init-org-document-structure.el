@@ -23,8 +23,6 @@
 
 (setq org-ctrl-k-protect-subtree t)
 
-(add-hook 'org-mode-hook 'variable-pitch-mode)
-
 ;; (require 'skeleton)
 ;; (setq skeleton-pair t)
 ;; Like help you to input a pair of ==, ~~, **, and ++ in Org Mode.

@@ -10,7 +10,7 @@
 
 (set-face-attribute 'variable-pitch nil
                     :family "Source Sans Pro"
-                    ;; :height 1.0
+                    :height 105
                     :weight 'light :slant 'normal)
 (set-face-attribute 'fixed-pitch nil
                     ;; :family "DejaVu Sans Mono"

@@ -140,7 +140,7 @@
 
 ;;; [ auto-fill-mode ] -- auto fill (break line) paragraphs like hitting [M-q].
 
-(setq-default fill-column 90)
+(setq-default fill-column 80)
 ;;; auto fill comments but not code in programming modes:
 (add-hook 'prog-mode-hook
           #'(lambda () (setq-local comment-auto-fill-only-comments t)))
