@@ -41,8 +41,8 @@
 
 ;;; [ Org faces ]
 (set-face-attribute 'org-document-title nil
-                    :family "Gabriola"
-                    :height 200)
+                    :family "Comic Sans MS"
+                    :height 170)
 (set-face-attribute 'org-level-1 nil
                     :inherit 'variable-pitch
                     :family "Comic Sans MS"
