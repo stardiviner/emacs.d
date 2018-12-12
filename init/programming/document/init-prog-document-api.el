@@ -17,7 +17,7 @@
   (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
         helm-dash-min-length 3
         ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
-        helm-dash-browser-func 'browse-url
+        helm-dash-browser-func 'eww-browse-url
         helm-dash-candidate-format "%d  %n  (%t)"
         helm-case-fold-search 'smart)
   
