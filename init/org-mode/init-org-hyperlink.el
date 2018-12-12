@@ -215,8 +215,7 @@ Optional for Org-mode file: `LINK'."
   (grep-compute-defaults)
   (rgrep regexp "*" (expand-file-name "./")))
 
-(org-link-set-parameters "grep"
-                         #'org-grep-link-open)
+(org-link-set-parameters "grep" #'org-grep-link-open)
 
 
 ;;; `tag:'

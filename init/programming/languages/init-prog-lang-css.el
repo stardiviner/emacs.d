@@ -7,7 +7,6 @@
 
 ;;; Code:
 
-
 (defvar css-dialects-mode
   '(css-mode
     sass-mode
@@ -16,9 +15,8 @@
 
 (hook-modes css-dialects-mode
   (css-eldoc-enable)
-  (rainbow-mode 1)
-  )
-
+  (rainbow-mode 1))
+
 ;;; [ css-mode ]
 
 (autoload 'css-mode "css-mode" "Mode for editing CSS files" t)
@@ -27,7 +25,6 @@
 
 (setq css-indent-offset 2)
 
-
 ;;; [ ob-css ]
 
 (require 'ob-css)
@@ -36,7 +33,6 @@
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 (add-to-list 'org-babel-tangle-lang-exts '("css" . "css"))
 
-
 ;;; [ css-eldoc ]
 
 (use-package css-eldoc

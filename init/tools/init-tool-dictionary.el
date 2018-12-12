@@ -71,7 +71,7 @@
   :ensure t
   :bind (:map dictionary-prefix ("d" . goldendict-dwim)))
 
-;;; [ google-translate ]
+;;; [ google-translate ] -- Emacs interface to Google Translate.
 
 (use-package google-translate
   :ensure t
@@ -83,10 +83,7 @@
               ("C-r" . google-translate-at-point-reverse)
               ("M-r" . google-translate-query-translate-reverse))
   :config
-  (setq google-translate-enable-ido-completion nil
-        google-translate-show-phonetic t
-        ;; google-translate-listen-program
-        google-translate-output-destination nil ; 'echo-area, 'popup
+  (setq google-translate-show-phonetic t
         google-translate-pop-up-buffer-set-focus t
         ;; `google-translate-supported-languages'
         google-translate-default-target-language "zh-CN"
@@ -94,13 +91,11 @@
         google-translate-translation-directions-alist '(("en" . "zh-CN")
                                                         ("zh-CN" . "en")
                                                         ("zh-CN" . "ja")
-                                                        ("zh-CN" . "ko"))
-        )
+                                                        ("zh-CN" . "ko")))
   
   (add-to-list 'display-buffer-alist
                '("^\\*Google Translate\\*" .
-                 (display-buffer-reuse-window display-buffer-below-selected)))
-  )
+                 (display-buffer-reuse-window display-buffer-below-selected))))
 
 ;;; [ ob-translate ] -- allows you to translate blocks of text within org-mode.
 
@@ -115,7 +110,7 @@
     (call-interactively 'proxy-mode-enable)
     (let ((output (funcall origin-func body params)))
       (call-interactively 'proxy-mode-disable)
-      output))  
+      output))
   (advice-add 'org-babel-execute:translate :around #'ob-translate-toggle-proxy))
 
 ;;; [ youdao-dictionary ] -- Youdao Dictionary (有道词典) interface for Emacs

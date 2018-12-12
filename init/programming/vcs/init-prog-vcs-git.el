@@ -73,8 +73,7 @@
   (setq magit-repository-directories
         `((,user-emacs-directory . 0)
           ("~/Code/" . 3)
-          ("~/Org/Website" . 1)
-          ))
+          ("~/Org/Website" . 1)))
   
   ;; let magit status buffer display in current window.
   (setq magit-display-buffer-function 'display-buffer)
@@ -109,8 +108,7 @@
   (add-to-list 'display-buffer-alist
                '("^magit-log.*" (display-buffer-same-window)))
   (add-to-list 'display-buffer-alist
-               '("^magit-process.*" (display-buffer-same-window)))
-  )
+               '("^magit-process.*" (display-buffer-same-window))))
 
 ;;; [ magit-gitflow ] -- Git Flow plugin for magit
 

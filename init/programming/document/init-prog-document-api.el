@@ -19,8 +19,7 @@
         ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
         helm-dash-browser-func 'browse-url
         helm-dash-candidate-format "%d  %n  (%t)"
-        helm-case-fold-search 'smart
-        )
+        helm-case-fold-search 'smart)
   
   (setq helm-dash-common-docsets
         '("Clojure"

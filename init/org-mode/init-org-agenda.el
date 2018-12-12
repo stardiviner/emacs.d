@@ -333,11 +333,8 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                 (agenda ""
                         ((org-agenda-ndays 1)
                          (org-agenda-span 1)
-                         (org-agenda-use-time-grid t))
-                        )
-                )
-               ((org-agenda-compact-blocks t)))
-             )
+                         (org-agenda-use-time-grid t))))
+               ((org-agenda-compact-blocks t))))
 
 (add-to-list 'org-agenda-custom-commands
              '("F" "[F]uture tasks in someday"
@@ -368,8 +365,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (add-to-list 'org-agenda-custom-commands
              '("f" "[f]ragment time tasks"
                tags "fragment"
-               ((org-agenda-overriding-header "Fragment Tasks"))
-               ))
+               ((org-agenda-overriding-header "Fragment Tasks"))))
 
 (define-key org-agenda-mode-map (kbd "M-s") 'org-search-view)
 

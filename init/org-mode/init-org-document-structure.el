@@ -183,6 +183,9 @@
 
 ;;; [ Dynamic Blocks ] -- [C-c C-x i]
 
+
+
+;;; [ HTML, Computer Input/Output literal macro ]
 ;;; insert the kbd tag
 (defun my/org-insert-key (key)
   "Ask for a key then insert its description.
