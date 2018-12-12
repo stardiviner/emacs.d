@@ -10,13 +10,6 @@
 
 ;;; Code:
 
-;; [ save-place ]
-
-;; (require 'saveplace)
-;; (setq-default save-place t) ; save point place
-;; (setq save-place-file (expand-file-name ".places" user-emacs-directory))
-
-
 ;;; [ desktop ] -- save partial status of Emacs when killed for persistence.
 
 (use-package desktop
