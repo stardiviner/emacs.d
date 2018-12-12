@@ -123,6 +123,21 @@
                '("^\\*Youdao Dictionary\\*" .
                  (display-buffer-reuse-window display-buffer-below-selected))))
 
+;;; [ insert-translated-name ] -- Insert translated string as variable, function name or sentence for comment.
+
+(use-package insert-translated-name
+  :quelpa (insert-translated-name
+           :fetcher github :repo "manateelazycat/insert-translated-name")
+  :init (require 'insert-translated-name)
+  :config
+  (define-key dictionary-prefix (kbd "SPC") 'insert-translated-name-insert)
+  (set-face-attribute 'insert-translated-name-font-lock-mark-word nil
+                      :foreground "hot pink")
+  ;; auto active in some modes:
+  (dolist (hook (list
+                 'atomic-chrome-edit-mode-hook))
+    (add-hook hook '(lambda () (insert-translated-name-use-original-translation)))))
+
 
 (provide 'init-tool-dictionary)
 
