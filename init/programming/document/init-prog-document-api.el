@@ -80,7 +80,7 @@
   (add-hook 'common-lisp-mode-hook 'helm-dash-buffer-local-common-lisp-docsets)
   ;; Clojure
   (defun helm-dash-buffer-local-clojure-docsets ()
-    (setq-local helm-dash-docsets '("Clojure" "Java_SE9"))
+    (setq-local helm-dash-docsets '("Clojure" "Java"))
     (my-helm-dash-buffer-local-docsets-add '("ClojureDocs")))
   (add-hook 'clojure-mode-hook 'helm-dash-buffer-local-clojure-docsets)
   ;; ClojureScript
