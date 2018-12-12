@@ -13,6 +13,12 @@
   :ensure t
   :defer t)
 
+;;; [ ghub+ ] -- A thick GitHub API client built on ghub.
+
+(use-package ghub+
+  :ensure t
+  :defer t)
+
 ;;; [ magithub ] -- Magit interfaces for GitHub.
 
 (use-package magithub
