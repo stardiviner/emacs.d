@@ -12,8 +12,6 @@
 (use-package engine-mode
   :ensure t
   :defer t
-  :preface
-  (setq engine/keybinding-prefix "C-x /")
   ;; (setq engine/browser-function)
   :config
   ;; general search engines
