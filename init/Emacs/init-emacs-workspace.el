@@ -27,6 +27,14 @@
               (lambda () (interactive)
                 (command-execute 'eyebrowse-rename-window-config))))
 
+
+;;; [ persp-mode ] -- windows/buffers sets shared among frames + save/load.
+
+;; (use-package persp-mode
+;;   :ensure t
+;;   :init (setq persp-keymap-prefix (kbd "C-x p"))
+;;   :hook (after-init . persp-mode))
+
 
 (provide 'init-emacs-workspace)
 
