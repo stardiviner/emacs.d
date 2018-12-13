@@ -17,7 +17,7 @@
 
 (use-package ghub+
   :ensure t
-  :defer t)
+  :commands ghubp-get-notifications)
 
 ;;; [ magithub ] -- Magit interfaces for GitHub.
 

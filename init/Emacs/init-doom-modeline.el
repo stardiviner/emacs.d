@@ -1,6 +1,6 @@
 ;;; init-doom-modeline.el --- init for doom-modeline.
 
-;;; Time-stamp: <2018-12-06 07:28:24 stardiviner>
+;;; Time-stamp: <2018-12-13 08:45:10 stardiviner>
 
 ;;; Commentary:
 
@@ -9,6 +9,10 @@
 ;;; Code:
 
 ;;; [ doom-modeline ] -- A minimal and modern mode-line.
+
+(use-package ghub+
+  :ensure t
+  :commands ghubp-get-notifications)
 
 (use-package doom-modeline
   :ensure t
