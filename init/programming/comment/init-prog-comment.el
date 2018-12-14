@@ -63,9 +63,12 @@ column.  Place the point after the comment box."
 
 (use-package hl-todo
   :ensure t
-  :init
-  (setq hl-todo-highlight-punctuation ":")
-  (global-hl-todo-mode))
+  :commands (hl-todo-next hl-todo-previous hl-todo-occur)
+  :bind (:map comment-tag-prefix
+              ("n" . hl-todo-next)
+              ("p" . hl-todo-previous)
+              ("o" . hl-todo-occur))
+  :init (global-hl-todo-mode))
 
 ;; [ poporg ] -- Editing program comments or strings in text mode.
 
