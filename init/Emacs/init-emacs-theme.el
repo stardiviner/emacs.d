@@ -23,11 +23,11 @@
 
 ;;; [ leuven-theme ]
 
-;; (use-package leuven-theme
-;;   :load-path "~/Code/Emacs/leuven-theme/"
-;;   :no-require t
-;;   :init (require 'leuven-theme)
-;;   :config (load-theme 'leuven t))
+(use-package leuven-theme
+  :load-path "~/Code/Emacs/leuven-theme/"
+  :no-require t
+  :init (require 'leuven-theme)
+  :config (load-theme 'leuven t))
 
 ;;; [ eziam-theme ] -- A mostly monochrome theme, inspired by Tao and Leuven, with dark and light versions.
 
@@ -59,20 +59,31 @@
 
 ;;; [ doom-themes ] -- an opinionated pack of modern color-themes.
 
-(use-package doom-themes
-  :ensure t
-  :no-require t
-  :config (load-theme 'doom-one t)
-  ;; Enable flashing mode-line on errors
-  (doom-themes-visual-bell-config)
+;; (use-package doom-themes
+;;   :ensure t
+;;   :no-require t
+;;   :config
+;;   (load-theme 'doom-solarized-light t)
+;;   ;; (load-theme 'doom-one t)
+;;   ;; (load-theme 'doom-spacegrey t)
+;;   ;; Enable flashing mode-line on errors
+;;   (doom-themes-visual-bell-config)
+;;
+;;   ;; Enable custom neotree theme (all-the-icons must be installed!)
+;;   (doom-themes-neotree-config)
+;;   ;; or for treemacs users
+;;   (doom-themes-treemacs-config)
+;;
+;;   ;; Corrects (and improves) org-mode's native fontification.
+;;   (doom-themes-org-config))
 
-  ;; Enable custom neotree theme (all-the-icons must be installed!)
-  (doom-themes-neotree-config)
-  ;; or for treemacs users
-  (doom-themes-treemacs-config)
-
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
+;;; [ solaire-mode ] -- If only certain buffers could be so grossly incandescent.
+;;
+;; (use-package solaire-mode
+;;   :ensure t
+;;   :hook (((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
+;;          (minibuffer-setup . solaire-mode-in-minibuffer)
+;;          (after-load-theme . solaire-mode-swap-bg)))
 
 (set-face-attribute 'underline nil
                     :underline (cl-case (alist-get 'background-mode (frame-parameters))
