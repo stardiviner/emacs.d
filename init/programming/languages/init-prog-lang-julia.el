@@ -32,7 +32,18 @@
 
 (use-package ess
   :ensure t
+  :after org
   :load (ess-site ess-custom)
+  :defines inferior-julia-program-name ; for `ob-julia'
+  :init
+  (define-obsolete-variable-alias 'inferior-julia-program-name
+    'inferior-julia-program "ESS 18.10")
+  (defcustom inferior-julia-program (or (executable-find "julia-basic")
+                                        "julia")
+    "Executable for Julia.
+Should be an absolute path to the julia executable."
+    :group 'ess-Julia
+    :type '(choice (string) (file)))
   :config
   (require 'ob-julia)
   (add-to-list 'org-babel-load-languages '(julia . t))
