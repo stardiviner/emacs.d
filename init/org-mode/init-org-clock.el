@@ -77,14 +77,14 @@
               ("C-c" . counsel-org-clock-context)))
 
 ;;; display org-clock in head-line.
-(setq org-clock-clocked-in-display nil)
-(defun my/show-org-clock-in-header-line ()
-  (setq-default header-line-format '((" " org-mode-line-string " "))))
-(defun my/remove-org-clock-in-header-line ()
-  (setq-default header-line-format nil))
-(add-hook 'org-clock-in-hook #'my/show-org-clock-in-header-line)
-(add-hook 'org-clock-out-hook #'my/remove-org-clock-in-header-line)
-(add-hook 'org-clock-cancel-hook #'my/remove-org-clock-in-header-line)
+;; (setq org-clock-clocked-in-display nil)
+;; (defun my/show-org-clock-in-header-line ()
+;;   (setq-default header-line-format '((" " org-mode-line-string " "))))
+;; (defun my/remove-org-clock-in-header-line ()
+;;   (setq-default header-line-format nil))
+;; (add-hook 'org-clock-in-hook #'my/show-org-clock-in-header-line)
+;; (add-hook 'org-clock-out-hook #'my/remove-org-clock-in-header-line)
+;; (add-hook 'org-clock-cancel-hook #'my/remove-org-clock-in-header-line)
 
 
 (provide 'init-org-clock)
