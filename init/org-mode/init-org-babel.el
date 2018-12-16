@@ -20,7 +20,7 @@
 (setq-default org-babel-default-header-args
               '((:session . "none")
                 (:noweb . "no") (:hlines . "no")
-                (:tangle . "no") (:comments . "links")
+                (:tangle . "no") (:comments . "link")
                 (:cache . "yes")
                 (:results . "replace")
                 ;; for exporting
