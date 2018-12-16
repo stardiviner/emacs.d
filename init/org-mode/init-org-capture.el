@@ -21,16 +21,14 @@
          "* %(completing-read \"Todo keyword: \" org-todo-keywords-for-agenda nil t) %^{Capture} \n:PROPERTIES:\n:TIME: %U\n:END: \n%i\n%a\n\n%?"
          ;; :time-prompt t
          :empty-lines-before 1
-         :empty-lines-after 1
-         )
+         :empty-lines-after 1)
 
         ;; Tasks
         ("t" "Add a [t]ime scheduled task into Tasks"
          entry (file "~/Org/Tasks/Computer Todos.org")
          "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
          :clock-in t :clock-resume t :clock-keep t
-         :empty-lines 1
-         )
+         :empty-lines 1)
 
         ;; Diary
         ("d" "Write [d]iary"
@@ -39,30 +37,32 @@
          ;; :time-prompt t
          :empty-lines-before 1
          :empty-lines-after 1
-         :jump-to-captured t
-         )
+         :jump-to-captured t)
         
         ;; Bookmark
         ("u" "Add an [U]RL to bookmarks database"
          entry (file "~/Org/Bookmarks/Bookmarks.org")
          "* %^{Bookmark URL}\n\n%A\n\n%?\n\n"
          :empty-lines 1
-         :jump-to-captured t
-         )
+         :jump-to-captured t)
 
         ;; org-passwords
         ("A" "[A]ccount passwords"
          entry (file "~/Org/Accounts/accounts.org.gpg")
          "* %^{Title}\n  %^{URL}p %^{USERNAME}p %^{PASSWORD}p %^{EMAIL}p"
          :empty-lines-before 1
-         :empty-lines-after 1
-         )
+         :empty-lines-after 1)
+
+        ("B" "[B]eauty"
+         entry (file "~/Org/Beauty/Beauty.org")
+         "* %^{Name}\n   %^{DATE}p %^{GENDER}p %^{NAME(Chinese)}p %^{Name(English)}p %^{Constellation}p %^{Birthday}p %^{Address(Birth)}p %^{IMDb}p %^{Douban}p"
+         :empty-lines 1
+         :jump-to-captured t)
 
         ;; current buffer: in file logging
         ("L" "Add Change[L]og into current buffer file"
          entry (file+headline (lambda () (buffer-file-name)) "Change Log")
-         "* %^{Header of Changelog item}\n:PROPERTIES:\n:LOGGED: %U \n:LINK: %a \n:AUTHOR: stardiviner, email: numbchild@gmail.com\n :END:\n %?")
-        ))
+         "* %^{Header of Changelog item}\n:PROPERTIES:\n:LOGGED: %U \n:LINK: %a \n:AUTHOR: stardiviner, email: numbchild@gmail.com\n :END:\n %?")))
 
 ;;; code snippets capture template
 (defun my/org-capture-get-src-block-string (major-mode)
