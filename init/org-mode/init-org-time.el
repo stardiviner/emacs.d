@@ -15,7 +15,7 @@
   (save-excursion
     (org-set-property "DATE" (format-time-string "[%Y-%m-%d %a %H:%M]"))))
 (define-key org-mode-map (kbd "C-c C-x M-t") 'my/org-property-add-date-auto)
-(add-hook 'org-insert-heading-hook #'my/org-property-add-date-auto)
+;; (add-hook 'org-insert-heading-hook #'my/org-property-add-date-auto)
 
 ;;; [ Time Interval ]
 
