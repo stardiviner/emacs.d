@@ -22,7 +22,7 @@
         helm-case-fold-search 'smart)
   
   (setq helm-dash-common-docsets
-        '("Clojure"
+        '("Clojure" "Java"
           ;; "Common Lisp"
           ;; "Python 3" "Ruby"
           "HTML" "CSS"
