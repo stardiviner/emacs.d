@@ -2,6 +2,7 @@
 # name: git fork
 # key: git-fork
 # group: babel.git
+# expand-env: ((yas-indent-line 'fixed))
 # --
 #+begin_src sh :dir "${1:~/Code/Emacs}" :var repo_name="${2:hl-sexp}" :results link :file "$2/${3:README.md}"
 if [ ! -d $repo_name ]; then

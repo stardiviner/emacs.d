@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: ob-ein
+# key: ob-ein
+# group: babel.ein
+# --
+#+begin_src ein-${1:python} :session 8888/${2:Untitled}.ipynb
+$0
+#+end_src

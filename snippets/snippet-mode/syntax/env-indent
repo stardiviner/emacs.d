@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: expand-env: indent
+# key: env-indent
+# group: env
+# --
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))

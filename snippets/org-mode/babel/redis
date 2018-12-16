@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-redis
+# key: babel-redis
+# group: babel
+# --
+#+begin_src redis :results output
+$0
+#+end_src
