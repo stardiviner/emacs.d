@@ -141,6 +141,12 @@ PWD is not in a git repo (or the git command is not found)."
         eshell-review-quick-commands nil
         eshell-smart-space-goes-to-end t)
 
+  ;; Disable company-mode in Eshell in TRAMP because invalid or heavy completion.
+  (defun eshell-disable-company-in-tramp ()
+    (if (and (not (null (buffer-file-name)))
+             (file-remote-p (buffer-file-name)))
+        (company-mode -1)))
+  (add-hook 'eshell-mode-hook #'eshell-disable-company-in-tramp)
   
   ;; count how much time the command used.
   ;;
