@@ -57,6 +57,12 @@ For example: input regexp like [[:space:]]+ for align several space separated se
   :ensure t
   :commands (ialign-interactive-align))
 
+;;; [ format-table ] -- Parse and reformat tabular data in Emacs.
+
+(use-package format-table
+  :ensure t
+  :commands (format-table))
+
 
 (provide 'init-emacs-edit-tabulate)
 
