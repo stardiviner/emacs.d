@@ -22,10 +22,12 @@
   
   (make-local-variable 'company-backends)
   (setq company-backends
-        `(company-capf
-          company-yasnippet
-          company-dabbrev-code company-abbrev))
-  )
+        '(company-files
+          (company-capf :with company-yasnippet
+                        :separate company-tempo
+                        :separate company-dabbrev-code)
+          (company-keywords :with company-abbrev)
+          company-ispell)))
 
 (add-hook 'org-mode-hook #'my-org-mode-completion-setting)
 
