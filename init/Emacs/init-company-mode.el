@@ -48,11 +48,9 @@
                    :separate company-tempo  ; tempo: flexible template insertion
                    :separate company-dabbrev-code ; dabbrev with only code
                    ;; :separate company-semantic
-                   ;; :separate company-ispell ; for word completion in comment.
                    )
-                  (company-keywords
-                   :with company-abbrev)
-                  ))
+                  (company-keywords :with company-abbrev)
+                  company-ispell))
   
   (defun my-company-add-backend-locally (backend)
     "Add a backend in my custom way.
