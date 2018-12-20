@@ -9,7 +9,8 @@
 
 ;;; [ inline images ]
 
-;; (setq org-startup-with-inline-images t)  ; disable starup preview inline image to improve org-mode pferformance.
+;; PERFORMANCE: disable starup preview inline image to improve org-mode pferformance.
+(setq org-startup-with-inline-images t)
 
 ;;; manually specify inline image size.
 ;; you need to use:
