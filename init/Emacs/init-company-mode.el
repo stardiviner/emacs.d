@@ -187,7 +187,7 @@
   :load (all-the-icons)
   :init
   (setq company-idle-delay .3
-        company-tooltip-idle-delay 0
+        company-tooltip-idle-delay 0.5 ; fix company-box tooltip swagging.
         company-box-doc-delay 0.5)
   ;; disable auto `company-box-doc' timer.
   (setq company-box-doc-enable nil)
