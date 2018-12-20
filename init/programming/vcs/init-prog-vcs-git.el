@@ -196,8 +196,12 @@
   :defer t
   :after magit
   :init (magit-org-todos-autoinsert)
-  :bind (:map projectile-command-map ("C-o" . magit-org-todos--magit-visit-org-todo))
-  )
+  :bind (:map projectile-command-map ("C-o" . magit-org-todos--magit-visit-org-todo)))
+
+;;; [ forge ] -- Work with Git forges, such as Github and Gitlab, from the comfort of Magit and the rest of Emacs.
+
+(use-package forge
+  :ensure t)
 
 
 
