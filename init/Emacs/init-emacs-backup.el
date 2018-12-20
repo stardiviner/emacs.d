@@ -23,11 +23,13 @@
       backup-by-copying-when-mismatch t
       backup-by-copying-when-privileged-mismatch t
       backup-by-copying-when-linked t
-      backup-directory-alist
-      '(("." . ".emacs_backups")) ; save backups in $(pwd)/.emacs_backups/filename.bak
-      ;; `(("." . ,(expand-file-name "~/.emacs.d/.backups")))
-      ;; `((".*" . ,temporary-file-directory)) ; put all under directory /tmp.
       )
+
+;; (setq backup-directory-alist
+;;       '(("." . ".emacs_backups")) ; save backups in $(pwd)/.emacs_backups/filename.bak
+;;       ;; `(("." . ,(expand-file-name "~/.emacs.d/.backups")))
+;;       ;; `((".*" . ,temporary-file-directory)) ; put all under directory /tmp.
+;;       )
 
 ;;; [ version control ]
 ;;; version control with versioned backup filename like "filename.ext.~1~".
