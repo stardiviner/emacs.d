@@ -117,19 +117,18 @@
 
 ;; setup column views for effort estimates
 (setq org-columns-default-format
-      "%50ITEM(Task) %8TODO %1PRIORITY %14TIMESTAMP_IA(TimeStamp) %Effort(Effort){:}"
+      "%50ITEM(Task) %8TODO %1PRIORITY %14TIMESTAMP_IA(TimeStamp) %Effort(Effort){:} %CLOCKSUM"
       ;; Default column view headings
       ;; - %ITEM(Task) :: Headline (where (Task) is the column head)
       ;; - %PRIORITY :: Priority
       ;; - %TAGS :: tags
-      ;; - %CLOCKSUM :: Clock Sum
       ;; - %ITEMSTAMP_IA :: Timestamp
       ;; - %Effort(Effort){:} :: Effort
+      ;; - %CLOCKSUM :: Clock Sum
       
       ;; org-global-properties
       org-agenda-columns-add-appointments-to-effort-sum t
-      org-agenda-columns-compute-summary-properties t
-      )
+      org-agenda-columns-compute-summary-properties t)
 
 ;;; Statistics [1/4]
 
