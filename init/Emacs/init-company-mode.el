@@ -221,15 +221,15 @@
       (set-frame-parameter nil 'company-box-doc-frame nil)))
 
   (setq company-box-backends-colors
-        '((company-capf . (:icon "LightSeaGreen"))
-          (company-keywords . (:all "tomato"))
-          (company-files . (:all "CornflowerBlue"))
-          (company-yasnippet . (:icon "#7C4Dff"
-                                      :candidate "LightSlateBlue" :annotation "SlateBlue"
-                                      :selected (:background "LightSlateBlue" :foreground "white")))
-          (company-tempo . (:all "chocolate"))
-          (company-dabbrev . (:all "khaki"))
-          (company-dabbrev-code . (:all "dark khaki"))
+        '((company-capf . (:candidate "LightSeaGreen"))
+          (company-keywords . (:candidate "tomato"))
+          (company-files . (:candidate "CornflowerBlue"))
+          (company-yasnippet . (:icon "DarkCyan"
+                                      :candidate "DarkCyan" :annotation "SteelBlue"
+                                      :selected (:foreground "white")))
+          (company-tempo . (:candidate "chocolate"))
+          (company-dabbrev . (:candidate "black"))
+          (company-dabbrev-code . (:candidate "gray"))
           ;; extra backends
           (company-elisp . (:icon "firebrick"))
           (sly-company . (:icon "RoyalBlue"))
