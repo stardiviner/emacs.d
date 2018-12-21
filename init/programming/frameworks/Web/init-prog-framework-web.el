@@ -65,12 +65,6 @@
   (add-to-list 'web-mode-expanders '("P/" . "<p>\n | \n</p>"))
   (add-to-list 'web-mode-expanders '("B/" . "<br />\n|"))
 
-  ;;_* disable "<" pair from smartparens.
-  (autoload 'sp-local-pair "smartparens" t)
-  (sp-local-pair '(web-mode)
-                 "<" nil
-                 :actions '(:rem insert))
-
   ;;_* comment
   ;; (add-to-list 'web-mode-comment-formats '("javascript" . "//"))
 
