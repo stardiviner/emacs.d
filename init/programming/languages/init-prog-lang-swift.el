@@ -11,7 +11,9 @@
 
 (use-package swift-mode
   :ensure t
-  :defer t)
+  :defer t
+  :commands (run-swift)
+  :init (setq swift-mode:repl-executable "docker run --rm --privileged -it swift swift"))
 
 ;; [ ob-swift ] -- org-babel functions for swift evaluation.
 (use-package ob-swift
