@@ -16,14 +16,13 @@
   :init (setq swift-mode:repl-executable "docker run --rm --privileged -it swift swift"))
 
 ;; [ ob-swift ] -- org-babel functions for swift evaluation.
+
 (use-package ob-swift
   :ensure t
-  :defer t
   :init
   (add-to-list 'org-babel-load-languages '(swift . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  (add-to-list 'org-babel-tangle-lang-exts '("swift" . "swift"))
-  )
+  (add-to-list 'org-babel-tangle-lang-exts '("swift" . "swift")))
 
 ;; [ company-sourcekit ]
 
