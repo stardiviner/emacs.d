@@ -10,16 +10,15 @@
 
 (use-package lsp-mode
   :ensure t
+  :commands lsp
   :load (lsp-clients) ; load `lsp-clients' for auto configuration of language server clients.
-  :init
-  ;; inhibit lsp progress message in echo area.
-  (setq lsp-inhibit-message t
-        lsp-auto-guess-root t))
+  :init (setq lsp-auto-guess-root t))
 
 ;; [ lsp-ui ] -- UI modules for lsp-mode.
 
 (use-package lsp-ui
   :ensure t
+  :commands lsp-ui-mode
   :hook (lsp-mode . lsp-ui-mode)
   :bind (:map lsp-ui-mode-map
               ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
@@ -35,6 +34,7 @@
 (use-package company-lsp
   :after company
   :ensure t
+  :commands company-lsp
   :init (setq company-lsp-enable-recompletion t)
   :config
   (defun my:company-lsp-enable ()
