@@ -18,13 +18,13 @@
               ("i" . docker-images)
               ("v" . docker-volumes)
               ("n" . docker-networks))
-  :init
-  (setq docker-containers-show-all t)
+  :init (setq docker-containers-show-all t)
 
-  (defun docker-insert-container (container-name)
+  (defun docker-container-insert-name ()
     "A helper function to insert container ID or name."
-    (interactive (list (docker-read-container-name "Docker container name: ")))
-    (insert container-name))
+    (interactive)
+    (insert (funcall-interactively 'docker-container-read-name)))
+  (define-key container-prefix (kbd "M-i") #'docker-container-insert-name)
 
   (add-to-list 'display-buffer-alist
                '("\\*docker-images\\*" .
