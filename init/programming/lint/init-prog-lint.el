@@ -55,7 +55,7 @@
 
 (use-package flycheck-inline
   :ensure t
-  :init (flycheck-inline-mode))
+  :init (add-hook 'prog-mode-hook #'flycheck-inline-mode))
 
 ;;; [ flycheck-popup-tip ] -- displaying errors from Flycheck using popup.el.
 
