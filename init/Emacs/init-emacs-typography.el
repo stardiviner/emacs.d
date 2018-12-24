@@ -10,7 +10,7 @@
 
 ;;; setence end require one/two spaces after a sentence periods.
 ;;; [[info:emacs#Sentences][info:emacs#Sentences]]
-(setq-default sentence-end-double-space t)
+(setq-default sentence-end-double-space nil)
 
 
 
