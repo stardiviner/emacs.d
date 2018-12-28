@@ -1,9 +1,9 @@
 # -*- mode: snippet -*-
-# name: babel-gnuplot
+# name: babel gnuplot
 # key: babel-gnuplot
-# group: babel
+# group: babel.gnuplot
 # --
-#+begin_src gnuplot${2: :var data=${3:table name}} :session none :results graphics :file "${4:data/images/}${1:figure}.png"
+#+begin_src gnuplot${2: :var data=${3:table name}} :session none :results file graphics :file "${4:data/images/}${1:figure}.png"
 set grid
 
 plot $0

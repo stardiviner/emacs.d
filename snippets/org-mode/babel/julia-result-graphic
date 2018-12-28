@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: babel-julia-plot-graphic
-# key: babel-julia-plot-graphic
-# group: babel
-# --
-#+begin_src julia :results graphics${2: :dir "data/images"} :file ${1:image name}.png
-${3:draw(PNG("$1", ${5:width}, ${6:height}), ${4:figure})}
-#+end_src
