@@ -4,5 +4,5 @@
 # group: babel
 # --
 #+begin_src sh :dir /sudo:: :results none
-aurman -S --noconfirm --noedit $0
+aurman -S --noconfirm $0
 #+end_src

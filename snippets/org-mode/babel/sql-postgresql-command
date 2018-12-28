@@ -2,6 +2,7 @@
 # name: PostgreSQL
 # key: babel-sql-postgresql
 # group: babel.sql.postgresql
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
 ${1:#+NAME: ${2:src block name}
 }#+headers: :cmdline -h ${3:localhost} -U ${4:username} -w${5: -d ${6:dbname}}

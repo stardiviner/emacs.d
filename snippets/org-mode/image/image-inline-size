@@ -2,6 +2,7 @@
 # name: inline-image-size
 # key: image-size
 # group: image
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
 #+ATTR_ORG: :width ${1:200/250/300/400/500/600}
 #+ATTR_LATEX: :width ${1:$(/ (string-to-number yas-text) 100.0)}in

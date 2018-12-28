@@ -1,6 +1,7 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: MySQL
 # key: babel-sql-mysql
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
 ${1:#+NAME: ${2:src block name}
 }#+headers: :cmdline -h ${3:localhost} -u ${4:username} -p${5:password}${6: -D ${7:dbname}}

@@ -1,6 +1,7 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: babel SQL cmdline
 # key: babel-sql-cmd
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
 ${1:#+NAME: ${2:src block name}
 }#+begin_src sql :engine ${3:engine:${4:$$(yas-choose-value '("mysql" "postgresql"))}} :exports results :cmdline -h ${5:HOST} -p ${6:PORT: 5443} -U ${7:username} -d ${8:password}

@@ -2,6 +2,7 @@
 # name: babel SQL
 # key: babel-sql
 # group: babel.sql
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
 
 ${1:#+NAME: ${2:}

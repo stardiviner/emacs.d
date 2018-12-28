@@ -2,6 +2,7 @@
 # name: inline-image-size-name
 # key: image-size-name
 # group: image
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
 #+NAME: ${1:figure name}
 #+CAPTION: $1

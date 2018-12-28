@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: babel julia
 # key: babel-julia
-# group: babel
+# group: babel.julia
 # --
 #+begin_src julia :session ${1:"*julia*"}
 $0

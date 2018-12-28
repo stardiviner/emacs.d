@@ -2,6 +2,7 @@
 # name: babel sql-mode
 # key: babel-sql-mode
 # group: babel.sql
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
 ${1:#+NAME: ${2:}
 }#+begin_src sql-mode :product ${3:$$(yas-choose-value '("postgres" "mysql" "sqlite" "oracle"))} :session ${4:session}
