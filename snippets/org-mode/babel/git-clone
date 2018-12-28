@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: git clone
+# key: babel-clone
+# group: babel.file
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+#+begin_src sh :mkdir yes :results file link ${4::dir "${5:data/code}"} :file "${2:project}${3:/README.md}"
+if [ -d $2 ]; then
+  cd $2 ; git pull
+else
+  git clone --recursive $1 $2
+fi
+#+end_src

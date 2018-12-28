@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: clj-new-project
+# key: babel-clj-new-project
+# group: babel.clojure
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+#+begin_src sh :dir "data/code" :var project="${2:project}" :results file link :file "$2/deps.edn"
+clj -A:new app ${1:groupId}/"$project"
+#+end_src

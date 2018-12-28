@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: git clone
-# key: babel-clone
-# group: babel.file
-# --
-#+begin_src sh :mkdir yes :results link ${4::dir "${5:data/code}"} :file "${2:project}${3:/README.md}"
-git clone --recursive $1 $2
-cd $2 ; git pull
-#+end_src
