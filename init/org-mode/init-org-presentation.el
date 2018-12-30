@@ -30,7 +30,6 @@
   (define-key org-tree-slide-mode-map (kbd "<right>") 'org-tree-slide-move-next-tree)
   )
 
-
 ;;; [ ox-reveal ] -- Org-mode export with Reveal.js.
 
 (use-package ox-reveal
@@ -50,6 +49,11 @@
   (setq org-reveal-rolling-links t)
   (setq org-reveal-default-frag-style t)
   )
+
+;;; [ ox-spectacle ] -- Exports Org-Mode to Spectacle HTML presentation.
+
+(use-package ox-spectacle
+  :ensure t)
 
 ;;; [ ox-ioslide ] -- Export org-mode to Google I/O HTML5 slide.
 
