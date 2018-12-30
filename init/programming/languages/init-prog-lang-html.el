@@ -66,15 +66,12 @@
   :ensure t
   :commands (impatient-mode))
 
-;;; [ ob-browser ] -- render HTML in org babel
+;;; [ ob-browser-chrome ] -- Export Org HTML SRC blocks as PNG files using Chrome in "headless" mode.
 
-(use-package ob-browser
+(use-package ob-html-chrome
   :ensure t
-  :init
-  ;; open those babels with `web-mode'.
-  (with-eval-after-load "web-mode"
-    ;; (add-to-list 'org-src-lang-modes '("browser" . html))
-    (add-to-list 'org-src-lang-modes '("browser" . web))))
+  :init (setq org-babel-html-chrome-chrome-executable
+              (executable-find "google-chrome-unstable")))
 
 ;;; [ cakecrumbs ] -- Show parent-chain on header for HTML / Jade / Pug / LESS / SCSS / Sass / Stylus.
 
