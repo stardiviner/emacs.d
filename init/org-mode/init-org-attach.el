@@ -95,7 +95,22 @@
   :ensure t
   :ensure-system-package wget
   :defer t
-  :bind (:map Org-prefix ("C-a" . org-board-archive))
+  :preface
+  (unless (boundp 'org-board-prefix)
+    (define-prefix-command 'org-board-prefix))
+  (define-key Org-prefix (kbd "C-a") 'org-board-prefix)
+  :commands (org-board-new
+             org-board-archive org-board-archive-dry-run org-board-cancel
+             org-board-open)
+  :bind (:map org-board-prefix
+              ("n" . org-board-new)
+              ("a" . org-board-archive)
+              ("o" . org-board-open)
+              ("r" . org-board-archive-dry-run)
+              ("k" . org-board-cancel)
+              ("d" . org-board-delete-all)
+              ("f" . org-board-diff)
+              ("3" . org-board-diff3))
   :config (add-to-list 'display-buffer-alist
                        '("org-board-wget-call" (display-buffer-below-selected))))
 
