@@ -132,56 +132,28 @@
 ;; (blink-cursor-mode 1)
 (setq blink-cursor-mode nil) ; disable `blink-cursor-mode'.
 
-;;; [ wrap line ]
-;; truncate long lines.
+;;; [ wrap/truncate long line ]
+
 ;; (setq-default truncate-lines t)
 ;; (setq-default word-wrap t)
 ;; (setq-default truncate-partial-width-windows 50)
 
-;;; [ auto-fill-mode ] -- auto fill (break line) paragraphs like hitting [M-q].
+;;; [ auto fill ] -- auto fill (break line) paragraphs like hitting [M-q].
 
-(setq-default fill-column 80)
+(setq-default fill-column 80
+              comment-fill-column 80)
 ;;; auto fill comments but not code in programming modes:
 (add-hook 'prog-mode-hook
           #'(lambda () (setq-local comment-auto-fill-only-comments t)))
 
-;;; [ visual-fill ] -- Auto-refill paragraphs without modifying the buffer.
-
-;; (use-package visual-fill
-;;   :ensure t
-;;   ;; :config (visual-fill-mode 1)
-;;   )
-
-;;; [ visual-line-mode ] -- visual soft wrap long line at word boundary.
+(use-package aggressive-fill-paragraph
+  :ensure t
+  :init (add-hook 'text-mode-hook #'aggressive-fill-paragraph-mode)
+  :config
+  (add-to-list 'afp-fill-comments-only-mode-list 'lisp-mode)
+  (add-to-list 'afp-fill-comments-only-mode-list 'clojure-mode))
 
 (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
-
-;;; [ visual-fill-column ] -- visual (hide) extra fill column width.
-
-(use-package visual-fill-column
-  :ensure t
-  :commands (visual-fill-column-mode)
-  :init
-  (setq visual-fill-column-width (default-value 'fill-column))
-  ;; (setq visual-fill-column-center-text t) ; center the text area in the window.
-  (with-eval-after-load "simple"
-    (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)))
-
-;;; [ fill-column-indicator ]
-;; (use-package fill-column-indicator
-;;   :ensure t
-;;   :config
-;;   (setq fci-rule-width 10)
-;;   (setq fci-rule-character ?❚)
-;;   ;; (setq fci-rule-character-color "#999999")
-;;   (setq fci-dash-pattern 1.00)
-;;   )
-
-;;; [ aggressive-fill-paragraph ] -- minor-mode for keeping paragraphs filled (in both comments and prose).
-
-;; (use-package aggressive-fill-paragraph
-;;   :ensure t
-;;   :init (add-hook 'org-mode-hook #'aggressive-fill-paragraph-mode))
 
 ;;; [ page (^L) ]
 
