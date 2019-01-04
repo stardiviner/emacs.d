@@ -10,14 +10,11 @@
 
 ;;; [ doom-modeline ] -- A minimal and modern mode-line.
 
-(use-package ghub+
-  :ensure t
-  :commands ghubp-get-notifications)
-
 (use-package doom-modeline
   :ensure t
   :hook (after-init . doom-modeline-init)
-  :init (setq doom-modeline-buffer-file-name-style 'truncate-with-project))
+  :init (setq doom-modeline-buffer-file-name-style 'truncate-with-project
+	      doom-modeline-github nil))
 
 
 
