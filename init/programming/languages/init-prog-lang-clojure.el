@@ -120,8 +120,7 @@
   ;; Clojure
   ;; (setq cider-default-repl-command 'clojure-cli)
   ;; ClojureScript
-  (setq cider-default-cljs-repl 'figwheel)
-  ;; (setq cider-default-cljs-repl 'nashorn)
+  (setq cider-default-cljs-repl 'shadow)
 
   (setq
    ;; resources
