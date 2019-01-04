@@ -110,7 +110,8 @@
   :init (add-hook 'org-mode-hook #'org-edit-latex-mode))
 
 
-;;; [ ob-latex ]
+;;; [ ob-latex ] -- Babel Functions for LaTeX.
+
 (require 'ob-latex)
 (add-to-list 'org-babel-load-languages '(latex . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)

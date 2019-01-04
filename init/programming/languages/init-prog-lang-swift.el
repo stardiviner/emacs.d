@@ -29,11 +29,8 @@
 (use-package company-sourcekit
   :ensure t
   :defer t
-  :init
-  (add-hook 'swift-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-sourcekit)
-              ))
+  :init (add-hook 'swift-mode-hook
+                  (lambda () (my-company-add-backend-locally 'company-sourcekit)))
   :config
   (with-eval-after-load 'company-keywords
     (add-to-list 'company-keywords-alist

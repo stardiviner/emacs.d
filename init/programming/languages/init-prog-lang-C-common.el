@@ -144,6 +144,7 @@
 
 ;;; open header files at point.
 (defun my/c-mode-common-header-switch ()
+  "Open header file at point."
   (local-set-key (kbd "C-c C-o") 'ff-find-other-file))
 (add-hook 'c-mode-common-hook #'my/c-mode-common-header-switch)
 

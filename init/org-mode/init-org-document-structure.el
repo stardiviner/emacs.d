@@ -148,8 +148,7 @@
 (setq org-footnote-auto-label 'confirm
       org-footnote-auto-adjust t
       org-footnote-define-inline nil ; t: define foot inline, instead of separate section.
-      org-footnote-fill-after-inline-note-extraction t
-      )
+      org-footnote-fill-after-inline-note-extraction t)
 
 ;;; [ Structure Templates ] -- <[s] expand.
 
@@ -187,8 +186,8 @@
 ;;; [ HTML, Computer Input/Output literal macro ]
 ;;; insert the kbd tag
 (defun my/org-insert-key (key)
-  "Ask for a key then insert its description.
-Will work on both org-mode and any mode that accepts plain html."
+  "Ask for a KEY then insert its description.
+Will work on both Org Mode and any mode that accepts plain html."
   (interactive "kType key sequence: ")
   (let* ((orgp (derived-mode-p 'org-mode))
          (tag (if orgp "@@html:<kbd>@@%s@@html:</kbd>@@" "<kbd>%s</kbd>")))

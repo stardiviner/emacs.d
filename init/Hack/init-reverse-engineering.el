@@ -1,6 +1,6 @@
 ;;; init-reverse-engineering.el --- init for Reverse Engineering
 
-;;; Time-stamp: <2018-09-29 20:13:51 stardiviner>
+;;; Time-stamp: <2018-12-28 07:32:03 stardiviner>
 
 ;;; Commentary:
 
@@ -12,7 +12,8 @@
 
 (use-package rmsbolt
   :ensure t
-  :commands (rmsbolt-compile))
+  :load (rmsbolt)
+  :commands (rmsbolt-mode rmsbolt-compile))
 
 
 

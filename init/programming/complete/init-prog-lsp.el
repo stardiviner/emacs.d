@@ -36,7 +36,6 @@
   :ensure t
   :commands company-lsp
   :init (setq company-lsp-enable-recompletion t)
-  :config
   (defun my:company-lsp-enable ()
     (my-company-add-backend-locally 'company-lsp))
   (add-hook 'lsp-mode-hook #'my:company-lsp-enable))

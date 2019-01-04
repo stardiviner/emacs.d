@@ -26,14 +26,14 @@
 
 (use-package flycheck
   :ensure t
-  :ensure-system-package (proselint . "pip install --user proselint")
+  :ensure-system-package (proselint . "pip install proselint")
   :defer t
-  :init (add-hook 'prog-mode-hook #'flycheck-mode-on-safe)
   :commands flycheck-mode
-  :preface (setq flycheck-check-syntax-automatically '(save))
+  :preface (setq flycheck-check-syntax-automatically '(save)
+                 flycheck-global-modes '(not emacs-lisp-mode clojure-mode lisp-mode))
   ;; NOTE: ONLY enable `flycheck-mode' MANUALLY. automatically checking will
   ;; cause high CPU. especially big source code file.
-  ;; :init (add-hook 'prog-mode-hook #'flycheck-mode)
+  :init (add-hook 'prog-mode-hook #'flycheck-mode-on-safe)
   :bind (:map linter-prefix ("!" . flycheck-mode)
               :map flycheck-mode-map
               ("M-g M-n" . flycheck-next-error)

@@ -436,7 +436,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                         :actions (-ding -notify/window)
                         :audible t))
 
-(org-notify-start 1200)
+(org-notify-start (* 60 2))
 
 
 ;;; [ org-collector ] -- collect properties into tables.

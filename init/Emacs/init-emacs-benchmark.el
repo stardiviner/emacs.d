@@ -27,7 +27,8 @@
 ;;; [ esup ] -- the Emacs StartUp Profiler (ESUP)
 
 (use-package esup
-  :ensure t)
+  :ensure t
+  :commands (esup))
 
 
 (provide 'init-emacs-benchmark)

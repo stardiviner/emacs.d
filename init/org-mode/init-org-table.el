@@ -41,7 +41,7 @@
 
 (use-package orgtbl-aggregate
   :ensure t
-  :defer t)
+  :commands (org-insert-dblock org-insert-dblock:aggregate))
 
 ;;; [ orgtbl-join ] -- join two Org-mode tables.
 

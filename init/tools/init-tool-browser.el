@@ -54,8 +54,7 @@
 (if (featurep 'eww)
     (progn
       (define-key browser-prefix (kbd "b") 'eww)
-      (define-key browser-prefix (kbd "o") 'eww-follow-link)
-      )
+      (define-key browser-prefix (kbd "o") 'eww-follow-link))
   (progn
     (define-key browser-prefix (kbd "o") 'browse-url-at-point)
     (define-key browser-prefix (kbd "g") 'w3m-goto-url)

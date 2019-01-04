@@ -80,8 +80,7 @@
                              "#E6E1DC" "#232323"))
               ;; the following can be used to nicely offset block quotes in email bodies.
               (org-mime-change-element-style
-               "blockquote" "border-left: 2px solid gray; padding-left: 4px;")
-              ))
+               "blockquote" "border-left: 2px solid gray; padding-left: 4px;")))
   
   ;; Out of the box, =org-mime= does not seem to attach file links to emails or
   ;; make images for equations.

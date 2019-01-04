@@ -104,6 +104,7 @@
 (use-package cider
   :ensure t
   :defer t
+  :commands (cider-jack-in)
   :after clojure-mode
   :hook (clojure-mode . cider-mode)
   :bind (:map cider-doc-map

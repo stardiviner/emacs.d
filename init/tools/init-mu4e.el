@@ -170,8 +170,7 @@
         mu4e-headers-has-child-prefix '("+" . "◼ ") ; "Parent" ╰
         mu4e-headers-empty-parent-prefix '("-" . "◽ ") ; "Orphan"
         mu4e-headers-first-child-prefix '("\\" . "↳ ")
-        mu4e-headers-duplicate-prefix '("=" . "≡ ")
-        )
+        mu4e-headers-duplicate-prefix '("=" . "≡ "))
 
 
   ;; [ Message ]
