@@ -30,7 +30,8 @@
   (with-eval-after-load 'rainbow-delimiters
     (rainbow-delimiters-mode-enable))
   (with-eval-after-load 'smartparens
-    (smartparens-strict-mode 1)))
+    (if (fboundp 'smartparens-strict-mode)
+        (smartparens-strict-mode 1))))
 (add-hook 'eval-expression-minibuffer-setup-hook #'my/minibuffer-lisp-setup)
 
 ;;; - `eval-expression-minibuffer-setup-hook'

@@ -29,7 +29,9 @@
         (progn
           (eldoc-mode t)
           ;; (paredit-mode t)
-          (smartparens-strict-mode 1)
+          (with-eval-after-load 'smartparens
+            (if (fboundp 'smartparens-strict-mode)
+                (smartparens-strict-mode 1)))
           ;; for `company-mode' backend `company-capf'
           (add-hook 'completion-at-point-functions
                     'newlisp-completion-at-point nil t)
