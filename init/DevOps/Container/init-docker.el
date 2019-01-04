@@ -111,6 +111,13 @@ For Org-babel header argument :dir /docker:<name>:."
   :ensure t
   :defer t)
 
+;;; [ k8s-mode ] -- Kubernetes mode for Kubernetes config files in Emacs.
+
+(use-package k8s-mode
+  :ensure t
+  :mode (".*/\\.kube/config\\'" . k8s-mode)
+  :hook (k8s-mode . yas-minor-mode))
+
 ;;; [ kubernetes ] -- Emacs porcelain for Kubernetes. A magit-style interface to the Kubernetes command-line client.
 
 (use-package kubernetes
