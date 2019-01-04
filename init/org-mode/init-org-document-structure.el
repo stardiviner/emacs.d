@@ -150,9 +150,9 @@
       org-footnote-define-inline nil ; t: define foot inline, instead of separate section.
       org-footnote-fill-after-inline-note-extraction t)
 
-;;; [ Structure Templates ] -- <[s] expand.
+;;; [ Structure Templates ] --  ; expand snippet <[s]
 
-;; (require 'org-tempo) ; expand snippet <KEY
+(require 'org-tempo)
 ;; (add-to-list 'org-structure-template-alist '("?" . "..."))
 ;; `tempo-define-template'
 
