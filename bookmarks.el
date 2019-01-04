@@ -2,7 +2,69 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Computer Machine.org"
+(("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure编程乐趣 第2版.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure编程乐趣 第2版.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Cyber Security/data/4c/0b5218-bb8a-4001-acef-60dee93778f7/ESET-LoJax.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Cyber Security/data/4c/0b5218-bb8a-4001-acef-60dee93778f7/ESET-LoJax.pdf")
+ (position . 1)
+ (page . 5)
+ (slice 0.030461999999999996 0.0047269999999999986 0.87521 0.8300230000000001)
+ (size . fit-width)
+ (origin 0.0 . 0.6397306397306398)
+ (handler . pdf-view-bookmark-jump-handler))
+("Commercial Science.org"
+ (filename . "~/Org/Wiki/Commercial Science/Commercial Science.org")
+ (front-context-string . "#+TITLE: Commerc")
+ (rear-context-string)
+ (position . 1))
+("My Sex Positions Reference.org"
+ (filename . "~/Org/Wiki/Sexology/Sexual Intercourse/Sex Knowledge/Sex Positions/Data/Manuals/My Sex Positions Reference/My Sex Positions Reference.org")
+ (front-context-string . "#+TITLE: My Sex ")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Books/Java 8实战.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Books/Java 8实战.pdf")
+ (position . 1)
+ (page . 13)
+ (slice 0.08286099999999999 0.05991899999999999 0.8141680000000001 0.8684480000000001)
+ (size . fit-width)
+ (origin 0.0 . 0.35333707234997197)
+ (handler . pdf-view-bookmark-jump-handler))
+("dotfiles.org"
+ (filename . "~/Org/dotfiles/dotfiles.org")
+ (front-context-string . "#+TITLE: my dotf")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Documents/learning/Emacs/Org-mode/proj1/file.pdf"
+ (filename . "~/Documents/learning/Emacs/Org-mode/proj1/file.pdf")
+ (position . 1)
+ (page . 1)
+ (slice 0.177614 0.13914100000000001 0.6382360000000001 0.7684350000000001)
+ (size . fit-width)
+ (origin 0.0 . 0.6976744186046512)
+ (handler . pdf-view-bookmark-jump-handler))
+("Eshell.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/Eshell.org")
+ (front-context-string . "#+TITLE: Eshell\n")
+ (rear-context-string)
+ (position . 1))
+("Computational Statistics.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Data Science/Data Analysis/Computational Statistics/Computational Statistics.org")
+ (front-context-string . "#+TITLE: Computa")
+ (rear-context-string)
+ (position . 1))
+("OrientDB.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/NoSQL/OrientDB/OrientDB.org")
+ (front-context-string . "#+TITLE: OrientD")
+ (rear-context-string)
+ (position . 1))
+("Computer Machine.org"
  (filename . "~/Org/Wiki/Computer Technology/Computer Machine/Computer Machine.org")
  (front-context-string . "#+TITLE: Compute")
  (rear-context-string)
@@ -21,9 +83,9 @@
  (filename . "~/Org/Wiki/Literature/Novels/Data/Novel Books/命若琴弦 - 史铁生.pdf")
  (position . 1)
  (page . 9)
- (slice 0 0 1 1)
+ (slice)
  (size . fit-width)
- (origin 0.0 . 0.324773413897281)
+ (origin)
  (handler . pdf-view-bookmark-jump-handler))
 ("Cosmetology.org"
  (filename . "~/Org/Wiki/Cosmetology/Cosmetology.org")
@@ -54,7 +116,7 @@
 ("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Technologies/Web Scraping/Data/Books/自己动手写网络爬虫.pdf"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Technologies/Web Scraping/Data/Books/自己动手写网络爬虫.pdf")
  (position . 1)
- (page . 21)
+ (page . 11)
  (slice)
  (size . fit-width)
  (origin)
@@ -654,7 +716,7 @@
  (page . 4)
  (slice 0.077521 0 0.8449580000000001 1)
  (size . fit-width)
- (origin 0.0 . 0.0)
+ (origin 0.0 . 0.14732142857142858)
  (handler . pdf-view-bookmark-jump-handler))
 ("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/data/14/5ac406-61da-4413-99bc-d1e1530b02b9/dtp-overview.pdf"
  (filename . "~/Org/Wiki/Computer Technology/Softwares/data/14/5ac406-61da-4413-99bc-d1e1530b02b9/dtp-overview.pdf")
@@ -1237,15 +1299,15 @@
  (rear-context-string . "\n\n\n* Physics\n\n\n\n")
  (position . 123883))
 ("org-refile-last-stored"
- (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** physixfan\n   ")
- (rear-context-string . "\n\n\n* Physics\n\n\n\n")
- (position . 123883))
+ (filename . "~/Org/Projects/Programming Projects/Code.org")
+ (front-context-string . "** Pull-Request ")
+ (rear-context-string . "e my own fork.\n\n")
+ (position . 303353))
 ("org-capture-last-stored"
  (filename . "~/Org/Diary/Diary.org")
- (front-context-string)
- (rear-context-string . "给所有守护孩子灿烂时光的父母。\n")
- (position . 51677))
+ (front-context-string . "**** 快要过年了，我想到一点")
+ (rear-context-string . "mind as start.\n\n")
+ (position . 53133))
 ("PDF-LAST-VIEWED: /tmp/mu-1000/b53469b1/3/test.pdf"
  (filename .
            #("/tmp/mu-1000/b53469b1/3/test.pdf" 0 32
@@ -1298,11 +1360,6 @@
 ("Visual Studio Code.org"
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Visual Studio Code.org")
  (front-context-string . "#+TITLE: Visual ")
- (rear-context-string)
- (position . 1))
-("Datomic.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/Datomic/Datomic.org")
- (front-context-string . "#+TITLE: Datomic")
  (rear-context-string)
  (position . 1))
 ("IntelliJ IDEA.org"
@@ -2715,7 +2772,7 @@
 (#("My C Language Syntax Reference.org" 0 1
    (idx 542))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C/Data/Manuals/My C Language Syntax Reference/My C Language Syntax Reference.org")
- (front-context-string . "* Intro\n\n** Comp")
+ (front-context-string . "#+TITLE: My C La")
  (rear-context-string)
  (position . 1))
 (#("C Programming Language" 0 1
