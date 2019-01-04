@@ -693,7 +693,9 @@
                       ;; :weight 'normal
                       )
   (set-face-attribute 'mu4e-flagged-face nil
-                      :foreground "red")
+                      :foreground "black" :background "red")
+  (set-face-attribute 'mu4e-replied-face nil
+                      :foreground "black" :background "PaleGoldenrod")
 
 
   ;; Marking
