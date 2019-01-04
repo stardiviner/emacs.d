@@ -179,9 +179,7 @@
 		                  ("l" (lambda (element) (insert (nth 1 (cdr element)))) "latex")
 		                  ("h" (lambda (element) (insert (nth 3 (cdr element)))) "html"))))
 
-;;; [ Dynamic Blocks ] -- [C-c C-x i]
-
-
+;;; [ Dynamic Blocks ] -- [C-c C-x x]
 
 ;;; [ HTML, Computer Input/Output literal macro ]
 ;;; insert the kbd tag
