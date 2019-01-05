@@ -18,6 +18,9 @@
 ;;; apply `variable-pitch-mode' on Org Mode.
 (add-hook 'org-mode-hook 'variable-pitch-mode)
 
+;;; highlight org-entities with different face.
+(setq org-highlight-latex-and-related '(entities))
+
 (setq org-ellipsis "  ")
 
 ;;; TODO: whether remove this extra setting which not supported by Org-mode built-in.
