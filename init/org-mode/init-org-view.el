@@ -54,6 +54,12 @@
 ;;       org-hide-leading-stars t)
 ;; (setq org-adapt-indentation nil)
 
+;;; [ org-num ] -- Dynamic Headlines Numbering.
+
+(require 'org-num)
+(setq org-num-skip-footnotes t)
+(add-hook 'org-mode-hook #'org-num-mode)
+
 ;;; [ org-bullets ]
 
 (use-package org-bullets
