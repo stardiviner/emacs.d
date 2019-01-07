@@ -14,6 +14,7 @@
   :defer t
   :load (auto-complete-config)
   ;; :init (ac-config-default)
+  ;; (global-auto-complete-mode 1) ; use auto-complete globally
   :config
   ;; fuzzy completion
   ;; (setq ac-use-fuzzy t)
@@ -100,10 +101,7 @@
                   ac-source-abbrev
                   ;; ac-source-dabbrev
                   ;; ac-source-dictionary
-                  ac-source-words-in-same-mode-buffers
-                  ))
-
-  ;; (global-auto-complete-mode 1) ; use auto-complete globally
+                  ac-source-words-in-same-mode-buffers))
   )
 
 
@@ -111,19 +109,14 @@
 
 ;; (use-package ac-capf
 ;;   :ensure t
-;;   :config
-;;   ;; global
-;;   ;; (ac-capf-setup)
-;;   (add-to-list 'ac-sources 'ac-source-capf)
-;;   )
-
+;;   :init (ac-capf-setup) ; global
+;;   :config (add-to-list 'ac-sources 'ac-source-capf))
 
 
 (defun my/ac-source-remove (source-removed-list)
   "remove some ac-source from ac-sources."
   (mapc (lambda (x) (setq-local ac-sources (remq x ac-sources)))
-        source-removed-list)
-  )
+        source-removed-list))
 
 
 
