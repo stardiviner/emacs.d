@@ -12,7 +12,7 @@
 ;; - 'native :: highlight inline LaTeX, and LaTeX blocks with
 ;;              `org-src-font-lock-fontify-block' nativelly.
 ;;; - 'latex :: highlight inline LaTeX, and LaTeX blocks.
-(add-to-list 'org-highlight-latex-and-related 'native)
+;; (add-to-list 'org-highlight-latex-and-related 'native) ; FIXME: this has fontify problem.
 
 ;; let org-mode auto delete those auxiliary files after exporting.
 (setq org-latex-remove-logfiles t)
