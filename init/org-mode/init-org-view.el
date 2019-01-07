@@ -9,17 +9,8 @@
 
 ;; [ default view ]
 
-(setq org-startup-truncated t) ; `truncate-lines'
-(setq org-startup-folded t)
-
-(setq org-hide-emphasis-markers t
-      org-fontify-quote-and-verse-blocks t)
-
 ;;; apply `variable-pitch-mode' on Org Mode.
 (add-hook 'org-mode-hook 'variable-pitch-mode)
-
-;;; highlight org-entities with different face.
-(setq org-highlight-latex-and-related '(entities))
 
 (setq org-ellipsis "  ")
 
@@ -27,24 +18,6 @@
 ;; include ' in org-verbatim face highlight.
 ;; (setcar (nthcdr 2 org-emphasis-regexp-components) " \t\r\n,\"")
 ;; (org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
-
-;; [ pretty entities ]
-
-;; \pi will display as π
-(setq org-pretty-entities t
-      org-pretty-entities-include-sub-superscripts t
-      org-use-sub-superscripts "{}" ; force use {} to avoid _ confuse in Chinese and pretty-entities.
-      )
-
-(setq org-script-display
-      '(((raise -0.3)
-         (height 0.7)
-         (:foreground "yellow"))
-        ((raise 0.3)
-         (height 0.7)
-         (:foreground "yellow"))
-        ((raise -0.5))
-        ((raise 0.5))))
 
 ;; [ indent ]
 
@@ -56,7 +29,6 @@
 
 ;;; [ org-num ] -- Dynamic Headlines Numbering.
 
-(require 'org-num)
 (setq org-num-skip-footnotes t)
 (add-hook 'org-mode-hook #'org-num-mode)
 
@@ -65,8 +37,8 @@
 (use-package org-bullets
   :ensure t
   :ensure all-the-icons
-  :after all-the-icons
-  :init
+  :init (add-hook 'org-mode-hook #'org-bullets-mode)
+  :config
   (setq-default org-bullets-bullet-list
                 `(;; disk -> folder -> file style
                   ,(all-the-icons-faicon "hdd-o")
@@ -94,9 +66,7 @@
                   ;; ,(all-the-icons-faicon "chevron-circle-down")
                   ;; ,(all-the-icons-faicon "caret-square-o-right")
                   ;; ,(all-the-icons-faicon "arrow-circle-o-down")
-                  ))
-  (add-hook 'org-mode-hook #'org-bullets-mode)
-  )
+                  )))
 
 
 (provide 'init-org-view)

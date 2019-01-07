@@ -23,22 +23,6 @@
 
 (setq org-ctrl-k-protect-subtree t)
 
-;; (require 'skeleton)
-;; (setq skeleton-pair t)
-;; Like help you to input a pair of ==, ~~, **, and ++ in Org Mode.
-;; (define-key org-mode-map (kbd "~") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "=") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "*") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "/") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "_") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "+") 'skeleton-pair-insert-maybe)
-;;
-;; (define-key org-mode-map (kbd "[") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "{") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "(") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "\"") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "'") 'skeleton-pair-insert-maybe)
-
 ;;; [ Org faces ]
 (set-face-attribute 'org-document-title nil
                     :family "Comic Sans MS"
@@ -143,6 +127,8 @@
 
 ;; * Blocks::                      Folding blocks
 
+(setq org-fontify-quote-and-verse-blocks t)
+
 ;; * Footnotes::                   How footnotes are defined in Org's syntax
 
 (setq org-footnote-auto-label 'confirm
@@ -156,7 +142,44 @@
 ;; (add-to-list 'org-structure-template-alist '("?" . "..."))
 ;; `tempo-define-template'
 
+;;; [ Emphasis ]
+
+(setq org-hide-emphasis-markers t)
+
 ;;; [ Entities ]
+
+;; \pi will display as π
+(setq org-highlight-latex-and-related '(entities)
+      org-pretty-entities t
+      org-use-sub-superscripts "{}"
+      org-pretty-entities-include-sub-superscripts t)
+
+(setq org-script-display
+      '(((raise -0.3)
+         (height 0.7)
+         (:foreground "yellow"))
+        ((raise 0.3)
+         (height 0.7)
+         (:foreground "yellow"))
+        ((raise -0.5))
+        ((raise 0.5))))
+
+
+;; (require 'skeleton)
+;; (setq skeleton-pair t)
+;; Like help you to input a pair of ==, ~~, **, and ++ in Org Mode.
+;; (define-key org-mode-map (kbd "~") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "=") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "*") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "/") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "_") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "+") 'skeleton-pair-insert-maybe)
+;;
+;; (define-key org-mode-map (kbd "[") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "{") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "(") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "\"") 'skeleton-pair-insert-maybe)
+;; (define-key org-mode-map (kbd "'") 'skeleton-pair-insert-maybe)
 
 (defun org-insert-entity-with-ivy ()
   "Insert an org-entity using Ivy."
