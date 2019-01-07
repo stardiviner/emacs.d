@@ -41,7 +41,15 @@
 
 (use-package orgtbl-aggregate
   :ensure t
-  :commands (org-insert-dblock org-insert-dblock:aggregate))
+  :commands (org-insert-dblock org-insert-dblock:aggregate)
+  :init
+  ;; add `orgtbl-aggregate' dynamic blocks into list.
+  (org-dynamic-block-define "aggregate" 'org-insert-dblock:aggregate)
+  (org-dynamic-block-define "invoice" 'org-insert-dblock:invoice)
+  (org-dynamic-block-define "join" 'org-insert-dblock:join)
+  (org-dynamic-block-define "org-gantt" 'org-insert-dblock:org-gantt)
+  (org-dynamic-block-define "propview" 'org-insert-dblock:propview)
+  (org-dynamic-block-define "transpose" 'org-insert-dblock:transpose))
 
 ;;; [ orgtbl-join ] -- join two Org-mode tables.
 

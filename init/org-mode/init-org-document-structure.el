@@ -204,6 +204,8 @@
 
 ;;; [ Dynamic Blocks ] -- [C-c C-x x]
 
+(org-dynamic-block-define "columnview" 'org-insert-columns-dblock)
+
 ;;; [ HTML, Computer Input/Output literal macro ]
 ;;; insert the kbd tag
 (defun my/org-insert-key (key)
