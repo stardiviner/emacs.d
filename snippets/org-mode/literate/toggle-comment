@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: toggle comment
+# key: literate-toggle-comment
+# group: literate
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+#+begin_src sh :dir /sudo::
+sudo sed -i '/${1:match}/ s/^#\ *//g' ${2:/etc/pacman.conf}
+grep "$1" $2
+#+end_src

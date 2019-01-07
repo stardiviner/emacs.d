@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: babel browser chrome
+# key: babel-browser-chrome
+# group: babel.browser
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+#+begin_src html-chrome :flags --window-size=${1:600,150} :file "data/images/${2:screenshot}.png"
+$0
+#+end_src
