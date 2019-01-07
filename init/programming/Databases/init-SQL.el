@@ -155,7 +155,10 @@
   :ensure t
   :load (ejc-interaction)
   :commands (ejc-connect ejc-connect-existing-repl ejc-sql-mode)
+  :init (setq nrepl-sync-request-timeout 60)
   :config
+  (add-to-list 'ob-async-no-async-languages-alist "sql")
+  
   (defun my-ejc-sql-ac-setup ()
     (ejc-sql-mode 1)
     (auto-complete-mode 1)
@@ -176,16 +179,6 @@
    :password "324324"
    :dbname "postgres")
 
-  (ejc-create-connection
-   "MariaDB-db-test"
-   :classpath "~/.m2/repository/org/mariadb/jdbc/mariadb-java-client/1.1.7/mariadb-java-client-1.1.7.jar"
-   :dbtype "mysql" ; TODO: "mariadb"?
-   :host "localhost"
-   :port "3306"
-   :user "root"
-   :password "324324"
-   :dbname "test")
-  
   (ejc-create-connection
    "MySQL-db-test"
    :classpath "~/.m2/repository/mysql/mysql-connector-java/5.1.32/mysql-connector-java-5.1.32.jar"

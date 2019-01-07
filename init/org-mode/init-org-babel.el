@@ -162,6 +162,7 @@ but `delete-file' is ignored."
 (use-package ob-async
   :ensure t
   :init
+  (setq ob-async-no-async-languages-alist '("ipython"))
   ;; FIX: void variable `inferior-julia-program-name'.
   (add-hook 'ob-async-pre-execute-src-block-hook
             '(lambda () (setq inferior-julia-program-name "julia"))))
