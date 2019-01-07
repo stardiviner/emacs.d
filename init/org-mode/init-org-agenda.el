@@ -81,7 +81,10 @@
 
 ;;; clock report mode
 (setq org-agenda-start-with-clockreport-mode t
-      org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))
+      org-agenda-clockreport-parameter-plist '(:scope agenda-with-archives
+                                                      :maxlevel 5
+                                                      :block today
+                                                      :fileskip0 t))
 
 (setq org-agenda-block-separator ?=
       org-agenda-compact-blocks t)
