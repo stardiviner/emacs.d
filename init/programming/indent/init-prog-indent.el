@@ -97,14 +97,14 @@
   :delight aggressive-indent-mode
   :init (setq aggressive-indent-sit-for-time 0.1)
   :config
-  ;; global
-  ;; only work if `global-aggressive-indent-mode'
   (add-to-list 'aggressive-indent-excluded-modes 'python-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'snippet-mode)
-  (global-aggressive-indent-mode 1)
+
+  ;; global
+  ;; (global-aggressive-indent-mode 1)
 
   ;; specific
   (defun my/aggressive-indent-enable ()
