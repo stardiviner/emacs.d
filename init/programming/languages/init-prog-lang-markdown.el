@@ -14,6 +14,12 @@
   :ensure-system-package (markdown . "sudo pacman -S --noconfirm discount")
   :defer t)
 
+;;; [ flymd ] -- On the fly markdown preview.
+
+(use-package flymd
+  :ensure t
+  :commands (flymd-flyit))
+
 
 (provide 'init-prog-lang-markdown)
 
