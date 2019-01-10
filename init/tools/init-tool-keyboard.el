@@ -16,6 +16,12 @@
   ;; (selectric-mode 1)
   )
 
+;;; [ esonify ] -- An Emacs extension that sonifies your code.
+
+(use-package esonify
+  :ensure t
+  :commands (esonify-mode))
+
 
 (provide 'init-tool-keyboard)
 
