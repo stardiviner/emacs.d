@@ -17,15 +17,12 @@
             (lambda ()
               (my-company-add-backend-locally 'systemd-company-backend)) :local t))
 
+;;; [ daemons ] -- An Emacs UI for managing init system services like Systemd.
 
-;;; [ helm-systemd ] -- helm interface to control systemd units.
-
-(use-package helm-systemd
+(use-package daemons
   :ensure t
   :defer t
-  :commands (helm-systemd)
-  :init (setq helm-systemd-list-not-loaded t
-              helm-systemd-list-all nil))
+  :commands (daemons))
 
 ;;; [ nginx-mode ]
 
