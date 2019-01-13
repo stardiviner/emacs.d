@@ -88,8 +88,8 @@
 
 (use-package sly-quicklisp
   :ensure t
-  :defer t
-  :after sly)
+  :after sly
+  :commands (sly-quickload))
 
 
 (provide 'init-sly)
