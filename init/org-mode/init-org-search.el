@@ -266,6 +266,67 @@
   (define-key reference-prefix (kbd "C-b") 'rifle-bookmarks-ref)
   )
 
+;; search multiple words in files.
+(use-package rg
+  :ensure t
+  :config
+  (defun rg-files-with-matches-beginning (dir file-type word)
+    "Construct literal rg comdnam end part for the beginning WORD in DIR with FILE-TYPE."
+    (format "rg --files-with-matches --null --type %s -e \"%s\" %s" file-type word dir))
+
+  (defun rg-files-with-matches-middle (word)
+    "Construct literal rg comdnam end part for the middle WORD."
+    (format " | xargs --null rg --files-with-matches --null -e \"%s\"" word))
+
+  (defun rg-files-with-matches-end (word)
+    "Construct literal rg comdnam end part for the last WORD."
+    (format " | xargs --null rg --heading -e \"%s\"" word))
+
+  (defun rg-files-construct-command (dir)
+    "Construct a literal rg command to search WORDS in DIR."
+    (let* ((words (split-string (read-from-minibuffer "Words: ") " "))
+           (file-type (completing-read "file type: "
+                                       (mapcar 'car (rg-get-type-aliases))
+                                       nil nil "org"))
+           (file-type-exts (assq file-type (rg-get-type-aliases))))
+      (case (length words)
+        (1 (format "rg %s" (car words)))
+        (2 (concat (rg-files-with-matches-beginning dir file-type (car words))
+                   (rg-files-with-matches-end (cdr words))))
+        (3 (concat (rg-files-with-matches-beginning dir file-type (car words))
+                   (rg-files-with-matches-middle (cadr words))
+                   (rg-files-with-matches-end (car (reverse words)))))
+        (t (concat (rg-files-with-matches-beginning dir file-type (car words))
+                   ;; KLUDGE: Do I have to use (car (mapcan ...))?
+                   (car (mapcan
+                         (lambda (word) (list (rg-files-with-matches-middle word)))
+                         (delq (car (reverse words)) (cdr words))))
+                   (rg-files-with-matches-end (car (reverse words))))))))
+
+  (defun rg-search-words-by-files (directory)
+    "Search multiple words in files of DIRECTORY as unit instead of line.
+
+The literal rg command looks like this:
+
+rg --files-with-matches --null \"foo\" . | \\
+xargs --null rg --files-with-matches --null \"bar\" | \\
+... | \\
+xargs --null rg --heading \"baz\"
+
+That's it.
+"
+    ;; interactively select Org default directory or current directory.
+    (interactive (list (completing-read "Dir: " `(,(expand-file-name org-directory)
+                                                  ,default-directory))))
+    (let* ((command (rg-files-construct-command directory)))
+      ;; FIXME rg report 0 match, but the result has matches.
+      ;; dive into rg.el source code to figure out.
+      ;; use `rg-define-search'
+      (compilation-start command 'rg-mode)))
+
+  (define-key rg-prefix (kbd "M-o") 'rg-search-words-by-files)
+  (define-key Org-prefix (kbd "s") 'rg-search-words-by-files))
+
 
 
 (provide 'init-org-search)
