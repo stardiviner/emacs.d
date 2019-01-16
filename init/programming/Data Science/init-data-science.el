@@ -15,9 +15,15 @@
   :commands (ein:jupyter-server-start)
   :config
   (setq ein:org-inline-image-directory "data/images")
+  ;; Python backend
   (ein:org-register-lang-mode "ein-python" 'python)
+  ;; R backend
   (ein:org-register-lang-mode "ein-R" 'R)
-  (ein:org-register-lang-mode "ein-clojure" 'clojure))
+  ;; Clojure backend
+  (ein:org-register-lang-mode "ein-clojure" 'clojure)
+  ;; Dynamic JavaScript
+  (require 'ein-skewer)
+  (setq ein:enable-dynamic-javascript t))
 
 ;;; [ ob-ipython ]
 
