@@ -11,26 +11,18 @@
 
 (auto-compression-mode 1)           ; auto decompress when open compressed file.
 
-
 ;;; [ vlf ] -- View Large Files
 
 (use-package vlf
-  :ensure t
-  :defer t
-  ;; :config
-  ;; All VLF operations are grouped under the C-c C-v prefix by default. Here’s
-  ;; example how to add another prefix (C-x v):
-  ;; (with-eval-after-load "vlf"
-  ;;   (define-key vlf-prefix "\C-xv" vlf-mode-map))
-  )
-
+  :ensure t)
 
 ;;; [ openwith ]
 
 ;; (use-package openwith
 ;;   :ensure t
 ;;   :defer t
-;;   :init (openwith-mode -1) ; disable `openwith' in Org-mode auto open file links.
+;;   :init (setq openwith-confirm-invocation t)
+;;   (openwith-mode -1) ; disable `openwith' in Org-mode auto open file links.
 ;;   :config
 ;;   (setq openwith-associations
 ;;         (append openwith-associations
@@ -52,9 +44,7 @@
 ;;                  '("\\.chm\\'" "kchmviewer" (file))
 ;;                  (list (openwith-make-extension-regexp
 ;;                         '("ps" "ps.gz" "dvi"))
-;;                        "zathure" '(file))
-;;                  )))
-;;
+;;                        "zathure" '(file)))))
 ;;
 ;;   ;;; NOTE: enable this will cause Org-mode open inline displayed images with external program.
 ;;   ;; (add-to-list 'openwith-associations '("\\.gif\\'" "gwenview" (file)))
