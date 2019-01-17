@@ -12,8 +12,8 @@
 (use-package aria2
   :ensure t
   :defer t
-  :init
-  (setq aria2-download-directory (expand-file-name "~/Downloads")))
+  :commands (aria2-downloads-list)
+  :init (setq aria2-download-directory (expand-file-name "~/Downloads")))
 
 ;;; [ download-region ] -- simple in-buffer download manager for Emacs.
 
@@ -26,21 +26,21 @@
 (use-package transmission
   :ensure t
   :defer t
-  :init
-  (add-to-list 'display-buffer-alist
-               '("\\*transmission\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
-  )
+  :commands (transmission transmission-add)
+  :init (add-to-list 'display-buffer-alist
+                     '("\\*transmission\\*" .
+                       (display-buffer-reuse-window display-buffer-below-selected))))
 
 ;;; [ youtube-dl ] -- A youtube-dl download manager for Emacs.
 
 (use-package youtube-dl
   :load-path "~/Code/Emacs/youtube-dl-emacs/"
   :defer t
-  :commands (youtube-dl)
-  :init
+  :commands (youtube-dl youtube-dl-list)
+  :init (setq youtube-dl-directory "~/Downloads/")
   (add-to-list 'display-buffer-alist
-               '("^\\*youtube-dl list\\*" (display-buffer-reuse-window display-buffer-below-selected)))
-  )
+               '("^\\*youtube-dl list\\*" .
+                 (display-buffer-reuse-window display-buffer-below-selected))))
 
 
 (provide 'init-tool-downloader)
