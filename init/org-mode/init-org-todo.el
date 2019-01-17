@@ -18,7 +18,7 @@
 (add-to-list 'org-default-properties "ORDERED")
 
 ;;; time repeat
-(setq org-todo-repeat-to-state "REPEAT"
+(setq org-todo-repeat-to-state nil ; or "REPEAT". Leave the todo state as it is, like "HABIT".
       org-agenda-prefer-last-repeat nil
       org-log-repeat 'time)
 
