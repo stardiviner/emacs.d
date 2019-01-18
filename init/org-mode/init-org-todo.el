@@ -225,25 +225,20 @@
   (interactive)
   (beginning-of-line)
   (org-todo "HABIT")
-  ;; The format-time-string code is correct.
-  ;; (format-time-string "%Y-%m-%d %H:%M .+1d" (current-time))
-  ;; (org-schedule nil (format-time-string "%Y-%m-%d %H:%M" (current-time))) ; deactive
-  (org-schedule nil) ; interactive
+  ;; (format-time-string "%Y-%m-%d %a %H:%M .+1d" (current-time))
+  (org-schedule nil (format-time-string "%Y-%m-%d %a %H:%M" (current-time)))
   (save-excursion
     (next-line) (beginning-of-line)
     (when (looking-at "\\( \\)*SCHEDULED: [^>]*\\(>\\)")
       (goto-char (match-beginning 2))
       (insert (concat
                " .+"
-               (read-string "Minimum interval: ")
-               "d"
-               "/"
-               (read-string "Maximum interval: ")
-               "d"))))
-
+               (read-string "Minimum interval (d,w,m,y): ") "/"
+               (read-string "Maximum interval (d,w,m,y): ")))))
+  (if (yes-or-no-p "Set schedule delay day? ")
+      (org-schedule '(16)))
   (org-set-property "STYLE" "habit")
-  (org-set-property "LOGGING" "TODO DONE(!)")
-  )
+  (org-set-property "LOGGING" "TODO DONE(!)"))
 
 (define-key org-mode-map (kbd "C-c C-x M-h") 'org-habit-apply)
 
