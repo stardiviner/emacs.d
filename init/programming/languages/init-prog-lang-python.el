@@ -48,7 +48,7 @@
                '("^\\*Python\\*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
                '("^\\*Python Doc\\*" (display-buffer-below-selected)))
-  )
+  (add-hook 'python-mode-hook #'flymake-mode-off 'append))
 
 
 ;;; [ ob-python ]
@@ -73,6 +73,7 @@
 
 (use-package elpy
   :ensure t
+  :after python-mode
   :hook (python-mode . elpy-enable)
   :init (defun my-elpy-company-setup ()
           ;; don't use `elpy-company-backend', `company-capf' works correctly.
@@ -105,7 +106,6 @@
 
 (use-package pyvenv
   :ensure t
-  :defer t
   :init (pyvenv-workon "python3.7")
   (add-hook 'python-mode-hook #'pyvenv-mode))
 
