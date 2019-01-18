@@ -53,8 +53,12 @@ column.  Place the point after the comment box."
   :bind (:map comment-tag-prefix
               ("n" . hl-todo-next)
               ("p" . hl-todo-previous)
-              ("o" . hl-todo-occur))
-  :init (global-hl-todo-mode))
+              ("o" . hl-todo-occur)
+              ("i" . hl-todo-insert-keyword))
+  :init (global-hl-todo-mode)
+  :config
+  (add-to-list 'hl-todo-keyword-faces '("PERFORMANCE" . "#5f7f5f"))
+  (add-to-list 'hl-todo-activate-in-modes 'conf-mode 'append))
 
 ;; [ poporg ] -- Editing program comments or strings in text mode.
 
