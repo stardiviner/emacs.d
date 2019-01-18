@@ -96,10 +96,10 @@
 ;; additional space to put between lines.
 (setq-default line-spacing 0)         ; 0.1, 1, 0, nil.
 
-;;; [ line numbers ]
+;;; [ line numbers ] -- Emacs native line number mode.
 
-;;; Emacs native line number mode.
-;; (global-display-line-numbers-mode -1)
+;; (setq display-line-numbers-width-start t) ; right-align
+;; (global-display-line-numbers-mode 1)
 
 ;;; [ current line & column ]
 
@@ -190,7 +190,6 @@
   ;; :ensure t
   ;; :quelpa (all-the-icons :fetcher github :repo "stardiviner/all-the-icons.el")
   :load-path "~/Code/Emacs/all-the-icons.el"
-  :defer t
   :config
   (add-to-list 'all-the-icons-mode-icon-alist
                '(erc-mode all-the-icons-faicon "commenting-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
