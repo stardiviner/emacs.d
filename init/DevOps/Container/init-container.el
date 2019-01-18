@@ -12,25 +12,8 @@
   (define-prefix-command 'container-prefix))
 (define-key prog-tools-prefix (kbd "c") 'container-prefix)
 
-;;; [ Docker ]
-
 (require 'init-docker)
-
-;;; [ LXC ] -- Linux Containers (LXC) integration with Emacs.
-
-(use-package lxc
-  :ensure t
-  :defer t)
-
-(use-package lxc-tramp ; TRAMP integration for LXC containers.
-  :ensure t
-  :defer t)
-
-;;; [ LXD ]
-
-(use-package lxd-tramp ; TRAMP integration for LXD containers.
-  :ensure t
-  :defer t)
+;; (require 'init-LXC)
 
 
 (provide 'init-container)
