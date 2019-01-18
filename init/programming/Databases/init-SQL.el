@@ -158,6 +158,14 @@
   :init (setq nrepl-sync-request-timeout 60)
   :config
   (add-to-list 'ob-async-no-async-languages-alist "sql")
+
+  (add-hook 'ejc-sql-mode-hook
+            (lambda ()
+              (setq-local ac-delay 0.3)
+              (company-mode -1)))
+
+  (add-to-list 'display-buffer-alist
+               '("^\\*ejc-sql-output\\*" (display-buffer-below-selected)))
   
   (defun my-ejc-sql-ac-setup ()
     (ejc-sql-mode 1)
