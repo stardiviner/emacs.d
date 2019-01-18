@@ -51,6 +51,9 @@
       org-clock-history-length 20 ; keep a long clocking tasks history for easy re-select history task to clock.
       )
 
+;;; `org-clock-display'
+;; (setq org-clock-display-default-range 'thisyear) 'untilnow,
+
 
 ;;; To save the clock history across Emacs sessions, use
 (if (file-exists-p org-clock-persist-file)

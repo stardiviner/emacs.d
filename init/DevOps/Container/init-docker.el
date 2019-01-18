@@ -57,35 +57,29 @@
   ;; enable global docker minor mode
   (docker-global-mode 1))
 
-;;; [ dockerfile-mode ] -- Dockerfile
+;;; [ dockerfile-mode ] -- Major mode for editing `Dockerfile'.
 
 (use-package dockerfile-mode
   :ensure t
-  :defer t
-  :after company
-  :init
-  (add-to-list 'company-keywords-alist
-               '(dockerfile-mode
-                 "FROM"
-                 "ADD" "COPY"
-                 "RUN" "CMD" "ENTRYPOINT"
-                 "VOLUME" "ENV" "EXPOSE"  "LABEL" "ARG"
-                 "STOPSIGNAL" "USER"  "WORKDIR"
-                 "ONBUILD" "HEALTHCHECK" "SHELL"))
-  )
+  :init (add-to-list 'company-keywords-alist
+                     '(dockerfile-mode
+                       "FROM"
+                       "ADD" "COPY"
+                       "RUN" "CMD" "ENTRYPOINT"
+                       "VOLUME" "ENV" "EXPOSE"  "LABEL" "ARG"
+                       "STOPSIGNAL" "USER"  "WORKDIR"
+                       "ONBUILD" "HEALTHCHECK" "SHELL")))
 
-;;; [ docker-compose-mode ] -- Major mode for editing docker-compose files.
+;;; [ docker-compose-mode ] -- Major mode for editing `docker-compose.yml'.
 
 (use-package docker-compose-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; [ docker-tramp ]
 
 (use-package docker-tramp
   :ensure t
-  :init
-  (setq docker-tramp-use-names t)
+  :init (setq docker-tramp-use-names t)
   ;; (setq docker-tramp-docker-options nil)
 
   (defun docker-tramp-insert-running-container (container)
@@ -102,8 +96,7 @@ For Org-babel header argument :dir /docker:<name>:."
                    (list (completing-read "Docker container name: " containers-name))))
     (insert (format ":dir /docker:%s:" container)))
   (with-eval-after-load "ob-keys"
-    (define-key org-babel-map (kbd "M-d") 'docker-tramp-insert-running-container))
-  )
+    (define-key org-babel-map (kbd "M-d") 'docker-tramp-insert-running-container)))
 
 ;;; [ docker-api ] -- Emacs interface to the Docker API.
 
@@ -122,14 +115,12 @@ For Org-babel header argument :dir /docker:<name>:."
 
 (use-package kubernetes
   :ensure t
-  :defer t
   :commands (kubernetes-display-pods kubernetes-display-configmaps))
 
 ;;; [ kubernetes-tramp ] -- offers a TRAMP method for Docker containers deployed in a Kubernetes cluster.
 
 (use-package kubernetes-tramp
-  :ensure t
-  :defer t)
+  :ensure t)
 
 
 (provide 'init-docker)

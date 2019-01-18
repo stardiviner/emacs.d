@@ -28,7 +28,7 @@
 ;; (use-package kiwix
 ;;   :ensure t
 ;;   :after org
-;;   :functions (org-add-link-type)
+;;   :functions (org-link-set-parameters)
 ;;   :defer t
 ;;   :bind (:map prog-doc-map
 ;;               ("w" . kiwix-at-point)

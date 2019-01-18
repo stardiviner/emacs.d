@@ -226,7 +226,8 @@
           (company-files . (:candidate "CornflowerBlue"))
           (company-yasnippet . (:icon "DarkCyan"
                                       :candidate "DarkCyan" :annotation "SteelBlue"
-                                      :selected (:foreground "white")))
+                                      ;; :selected (:foreground "white")
+                                      ))
           (company-tempo . (:candidate "chocolate"))
           (company-dabbrev . (:candidate "black"))
           (company-dabbrev-code . (:candidate "gray"))

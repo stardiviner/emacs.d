@@ -86,16 +86,16 @@
   (setq org-modules nil)
   :mode (("\\.org\\'" . org-mode))
   :init
-  (use-package org-plus-contrib
-    :pin manual
-    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-    :no-require t)
   ;; add source code version Org-mode Info into Emacs.
   (with-eval-after-load 'info
     (info-initialize)
     (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/"))
   ;; load org before using some Org settings.
-  (require 'org))
+  (require 'org)
+  (use-package org-plus-contrib
+    :pin manual
+    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :no-require t))
 
 ;;; [ package-lint ] -- A linting library for elisp package authors.
 

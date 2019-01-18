@@ -98,8 +98,7 @@
         (tags priority-down category-keep)
         (search category-keep))
       org-agenda-sorting-strategy-selected
-      '(time-up priority-down deadline-up ts-up habit-down category-keep)
-      )
+      '(time-up priority-down deadline-up ts-up habit-down category-keep))
 
 ;;; Time Grid
 (setq org-agenda-timegrid-use-ampm t)

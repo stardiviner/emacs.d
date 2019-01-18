@@ -644,7 +644,7 @@
           ("date:1w..now"                  "This week's messages"    ?w)
           ("maildir:/Emacs/help"           "Emacs mailbox"           ?e)
           ("maildir:/Emacs/Org-mode"       "Org-mode mailbox"        ?o)
-          ("size:5M..500M"                 "Big messages"            ?b)
+          ("size:5M..500M"                 "Big messages"            ?B)
           ))
 
   (setq mu4e-index-cleanup nil ; don't do a full cleanup check

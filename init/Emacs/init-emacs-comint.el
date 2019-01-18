@@ -11,8 +11,7 @@
 
 (setq comint-prompt-read-only t
       comint-eol-on-send t ; go to the end of the line before sending input.
-      comint-move-point-for-output t
-      )
+      comint-move-point-for-output t)
 
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'comint-mode-hook 'ansi-color-for-comint-mode-on)

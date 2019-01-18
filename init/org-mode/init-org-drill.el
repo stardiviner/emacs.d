@@ -51,9 +51,7 @@
   (find-file my-org-drill-words-file)
   (if (org-drill-entries-pending-p)
       (org-drill-resume)
-    (org-drill))
-  )
-
+    (org-drill)))
 (define-key Org-prefix (kbd "w") 'my-org-drill)
 
 (use-package stem-english
@@ -90,8 +88,7 @@
       (org-capture nil "w")
       ;; disable region selection.
       ;; FIXME: the current buffer is CAPTURE buffer.
-      (if (region-active-p) (deactivate-mark))
-      )))
+      (if (region-active-p) (deactivate-mark)))))
 
 (autoload 'goldendict-dwim "goldendict")
 (advice-add 'goldendict-dwim :after #'my-org-drill-record-word)

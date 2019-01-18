@@ -95,22 +95,20 @@ $0`(yas-escape-text yas-selected-text)`"
   (define-key yas-minor-mode-map (kbd "C-c & a") 'aya-create)
   (define-key yas-minor-mode-map (kbd "C-c & e") 'aya-expand)
   (define-key yas-minor-mode-map (kbd "C-c & o") 'aya-open-line)
-  (define-key yas-minor-mode-map (kbd "C-c & s") 'aya-persist-snippet)
-  )
+  (define-key yas-minor-mode-map (kbd "C-c & s") 'aya-persist-snippet))
 
 ;;; [ org-sync-snippets ] -- simple extension to export snippets to org-mode and vice versa.
 
 (use-package org-sync-snippets
   :ensure t
-  :defer t
   :after org ; to fix variable `org-directory' is not customized to "~/Org" issue.
-  :config
+  :commands (org-sync-snippets-snippets-to-org org-sync-snippets-org-to-snippets)
+  :init
   (setq org-sync-snippets-snippets-dir (concat user-emacs-directory "snippets/"))
   (setq org-sync-snippets-org-snippets-file
         (concat (file-name-as-directory org-directory)
                 "Programming Code/Code Snippets/yasnippets.org"))
-  (add-hook 'yas-after-reload-hook 'org-sync-snippets-snippets-to-org)
-  )
+  (add-hook 'yas-after-reload-hook 'org-sync-snippets-snippets-to-org))
 
 
 (provide 'init-prog-snippet)
