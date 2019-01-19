@@ -215,6 +215,15 @@ otherwise, they are appended."
        (propertize " " 'display (create-image img)))))
   )
 
+;;; [ eshell-bookmark ] -- Integrate bookmarks with EShell.
+
+(use-package eshell-bookmark
+  :ensure t
+  ;; avoid `eshell-bookmark' open docker-tramp eshell buffer by `counsel' with
+  ;; `counsel-find-file' instead of corresponding eshell bookmark buffer.
+  :init (setq counsel-bookmark-avoid-dired nil)
+  (add-hook 'eshell-mode-hook 'eshell-bookmark-setup))
+
 ;;; [ ob-eshell ]
 
 ;; FIXME: void variable `org-babel-load-languages'
