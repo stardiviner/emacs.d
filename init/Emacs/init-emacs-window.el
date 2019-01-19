@@ -51,6 +51,33 @@
   (set-face-attribute 'aw-leading-char-face nil
                       :height 200))
 
+;;; manipulate windows
+
+(use-package hydra
+  :ensure t
+  :ensure ace-window
+  :config
+  (global-set-key
+   (kbd "C-x C-z")
+   (defhydra hydra-window-menu ()
+     "window"
+     ("h" windmove-left   :color black)
+     ("j" windmove-down   :color black)
+     ("k" windmove-up     :color black)
+     ("l" windmove-right  :color black)
+     ("s" split-window-vertically   "split |" :color cyan)
+     ("v" split-window-horizontally "split --" :color cyan)
+     ("^" enlarge-window "enlarge" :color blue)
+     ("V" shrink-window "shrink" :color blue)
+     ("}" enlarge-window-horizontally "enlarge" :color blue)
+     ("{" shrink-window-horizontally "shrink" :color blue)
+     ("b" balance-windows "balance" :color blue)
+     ("f" my-turn-current-window-into-new-frame "new-frame" :color blue)
+     ("o" delete-other-windows "only-one" :color red)
+     ("d" delete-window "delete" :color red)
+     ("s" ace-swap-window "swap" :color yellow)
+     ("q" nil "quit"))))
+
 ;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
 
 (require 'follow)

@@ -95,45 +95,7 @@
 ;;; [ hydra ] -- tie related commands into a family of short bindings with a common prefix - a Hydra.
 
 (use-package hydra
-  :ensure t
-  :defer t
-  :config
-  ;; ace-window + hydra
-  (global-set-key
-   (kbd "C-x C-z")
-   (defhydra hydra-window ()
-     "window"
-     ("h" windmove-left)
-     ("j" windmove-down)
-     ("k" windmove-up)
-     ("l" windmove-right)
-     ("s" (lambda ()
-            (interactive)
-            (split-window-right)
-            (windmove-right))
-      "split hor")
-     ("v" (lambda ()
-            (interactive)
-            (split-window-below)
-            (windmove-down))
-      "split vert")
-     ("t" transpose-frame "trans frame" :color blue)
-     ("f" my-turn-current-window-into-new-frame "frame" :color blue)
-     ("o" delete-other-windows "one" :color red)
-     ("a" ace-window "ace" :color cyan)
-     ("C-j" ace-window "ace" :color cyan)
-     ("s" ace-swap-window "swap" :color yellow)
-     ("d" delete-window "del" :color red)
-     ("m" ace-maximize-window "max" :color orange)
-     ("b" bookmark-jump "bookmark" :color blue)
-     ("C-x" bm-toggle "bm (toggle)" :color yellow)
-     ("C-b" bm-previous "bm (prev)" :color yellow)
-     ("C-f" bm-next "bm (next)" :color yellow)
-     ("q" nil "cancel")
-     )
-   )
-  )
-
+  :ensure t)
 
 ;;; [ emaps ] -- Emaps provides utilities for working with keymaps and keybindings in Emacs.
 
