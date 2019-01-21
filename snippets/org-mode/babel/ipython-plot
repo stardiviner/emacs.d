@@ -2,7 +2,7 @@
 # name: babel-ipython-plot
 # key: babel-ipython-plot
 # --
-#+begin_src ipython :session :kernel "${1:$$(yas-choose-value (ob-ipython-kernel-get-kernels))}"${3: :dir "data/images"} :file "${2}.png"
+#+begin_src ipython :session :kernel "${1:$$(yas-choose-value (ob-ipython-kernel-get-kernels))}" :results graphics file link ${3: :dir "data/images"} :file "${2}.png"
 %matplotlib inline
 import matplotlib.pyplot as plt
 import numpy as np

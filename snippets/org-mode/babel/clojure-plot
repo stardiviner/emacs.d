@@ -4,7 +4,7 @@
 # group: babel.clojure
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
-#+begin_src clojure :results file graphics :dir "data/images" :file "${1:plot file}.png" :var dir=(concat (file-name-directory (buffer-file-name)) "data/images/")
+#+begin_src clojure :results graphics file link :dir "data/images" :file "${1:plot file}.png" :var dir=(concat (file-name-directory (buffer-file-name)) "data/images/")
 (use '(incanter core stats datasets charts io pdf))
 (import '(java.io File))
 

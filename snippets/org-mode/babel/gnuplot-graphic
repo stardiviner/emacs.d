@@ -3,9 +3,10 @@
 # key: babel-gnuplot-graphic
 # group: babel.gnuplot
 # --
-#+begin_src gnuplot${2: :var data=${3:table name}} :session none :results file graphics :file "${4:data/images/}${1:figure}.png"
+#+begin_src gnuplot${2: :var data=${3:table name}} :session none :results graphics file link :file "${4:data/images/}${1:figure}.png"
+reset
+
 set term png
-set output '$4$1.png'
 set grid
 
 plot $0

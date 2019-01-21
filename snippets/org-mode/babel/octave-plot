@@ -3,7 +3,7 @@
 # key: babel-octave-plot
 # group: babel.octave
 # --
-#+begin_src octave :results graphics :dir "data/images" :file "${1:figure}.png"
+#+begin_src octave :results graphics file link :dir "data/images" :file "${1:figure}.png"
 clf ();
 $0
 #+end_src
