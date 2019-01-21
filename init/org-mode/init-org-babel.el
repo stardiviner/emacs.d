@@ -137,9 +137,12 @@
 ;; auto prefix with comment char when create code ref in src block with `org-store-link'.
 (defun my-org-src-coderef-format (result)
   "Auto prefix with comment char before `org-coderef-label' `RESULT'."
-  (format "%s%s" comment-start result))
+  ;;; notice `org-src-coderef-format' is invoked twice. got two different `comment-start' "#" and ";".
+  (if (string= org-coderef-label-format "(ref:%s)")
+      (setq-local org-coderef-label-format
+                  (format "%s %s" comment-start org-coderef-label-format))
+    org-coderef-label-format))
 (advice-add 'org-src-coderef-format :filter-return 'my-org-src-coderef-format)
-
 
 (add-hook 'org-src-mode-hook #'sound-tick)
 
