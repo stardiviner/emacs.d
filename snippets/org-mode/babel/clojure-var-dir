@@ -3,4 +3,4 @@
 # key: ob-clojure-var-dir
 # group: babel.clojure
 # --
-:var dir=(concat (file-name-directory (buffer-file-name)) "data/images/")
+:var dir=(concat (file-name-directory (buffer-file-name)) "data/${1:code}/")$0

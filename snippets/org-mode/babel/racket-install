@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: racket-install
+# key: babel-racket-install
+# group: babel.racket
+# --
+#+begin_src sh :async
+raco pkg install $0
+#+end_src
