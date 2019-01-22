@@ -15,12 +15,14 @@
 ;;; [ Proxy ]
 
 ;; (setq url-proxy-services
-;;       '(("http"  . "http://b.qypac.net:57008")
-;;         ("https" . "127.0.0.1:1080")
-;;         ("ftp"   . "b.qypac.net:57008")
-;;         ;; don't use `localhost', avoid robe server (For Ruby) can't response.
+;;       '(;; shadowsocks
+;;         ("http"  . "127.0.0.1:1086")
+;;         ("https" . "127.0.0.1:1086")
+;;         ;; ("ftp"   . "b.qypac.net:57008")
+;;         ;; don't proxy for localhost, avoid robe server (For Ruby) can't response.
 ;;         ("no_proxy" . "127.0.0.1")
-;;         ("no_proxy" . "^.*\\(baidu\\|sina)\\.com")
+;;         ;; no proxy for baidu.com, sina.com etc. proxy for all others.
+;;         ;; ("no_proxy" . "^.*\\(baidu\\|sina)\\.com")
 ;;         ))
 
 ;; (setq url-using-proxy "http://b.qypac.net:57008")

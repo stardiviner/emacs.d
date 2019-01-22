@@ -95,7 +95,15 @@
   
   (add-to-list 'display-buffer-alist
                '("^\\*Google Translate\\*" .
-                 (display-buffer-reuse-window display-buffer-below-selected))))
+                 (display-buffer-reuse-window display-buffer-below-selected)))
+
+  (setq google-translate-base-url "http://translate.google.cn/translate_a/single")
+  (setq google-translate-listen-url "http://translate.google.cn/translate_tts")
+  (setq google-translate--tkk-url "http://translate.google.cn/")
+  
+  ;; enable proxy for translate.google.com
+  ;; (add-to-list 'url-proxy-services '("no_proxy" . "^.*(?!translate\\.google\\.com).*$"))
+  )
 
 ;;; [ ob-translate ] -- allows you to translate blocks of text within org-mode.
 
