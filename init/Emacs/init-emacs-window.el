@@ -53,30 +53,48 @@
 
 ;;; manipulate windows
 
+(defun my:turn-current-window-into-new-frame ()
+  "Popup current window to another new frame."
+  (interactive)
+  (let ((buffer (current-buffer)))
+    (unless (one-window-p)
+      (delete-window))
+    (display-buffer-pop-up-frame buffer nil)))
+
+(global-set-key (kbd "C-x 5 5") 'my:turn-current-window-into-new-frame)
+
 (use-package hydra
   :ensure t
   :ensure ace-window
   :config
-  (global-set-key
-   (kbd "C-x C-z")
-   (defhydra hydra-window-menu ()
-     "window"
-     ("h" windmove-left   :color black)
-     ("j" windmove-down   :color black)
-     ("k" windmove-up     :color black)
-     ("l" windmove-right  :color black)
-     ("s" split-window-vertically   "split |" :color cyan)
-     ("v" split-window-horizontally "split --" :color cyan)
-     ("^" enlarge-window "enlarge" :color blue)
-     ("V" shrink-window "shrink" :color blue)
-     ("}" enlarge-window-horizontally "enlarge" :color blue)
-     ("{" shrink-window-horizontally "shrink" :color blue)
-     ("b" balance-windows "balance" :color blue)
-     ("f" my-turn-current-window-into-new-frame "new-frame" :color blue)
-     ("o" delete-other-windows "only-one" :color red)
-     ("d" delete-window "delete" :color red)
-     ("s" ace-swap-window "swap" :color yellow)
-     ("q" nil "quit"))))
+  ;; `hydra-frame-window' is designed from `ace-window' and
+  ;; matches aw-dispatch-alist with a few extra
+  (defhydra hydra-frame-window (:color red :hint nil)
+    "
+^Frame^                 ^Window^      Window Size^^^^^^    ^Text Zoom^               (__)
+_0_: delete             _t_oggle        ^ ^ _k_ ^ ^            _=_                   (oo)
+_1_: delete others      _s_wap          _h_ ^+^ _l_            ^+^             /------\\/
+_2_: new                _d_elete        ^ ^ _j_ ^ ^            _-_            / |    ||
+_F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\---/\\  ~~  C-c w/C-x o w
+"
+    ("0" delete-frame :exit t)
+    ("1" delete-other-frames :exit t)
+    ("2" make-frame  :exit t)
+    ("b" balance-windows)
+    ("s" ace-swap-window)
+    ("F" toggle-frame-fullscreen)
+    ("t" toggle-window-split)
+    ("d" delete-window :exit t)
+    ("f" my:turn-current-window-into-new-frame :exit t)
+    ("-" text-scale-decrease)
+    ("=" text-scale-increase)
+    ("h" shrink-window-horizontally)
+    ("k" shrink-window)
+    ("j" enlarge-window)
+    ("l" enlarge-window-horizontally)
+    ("q" nil "quit"))
+  (global-set-key (kbd "C-x C-z") #'hydra-frame-window/body)
+  (add-to-list 'aw-dispatch-alist '(?w hydra-frame-window/body) t))
 
 ;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
 
