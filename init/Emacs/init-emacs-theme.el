@@ -23,11 +23,11 @@
 
 ;;; [ leuven-theme ]
 
-(use-package leuven-theme
-  :load-path "~/Code/Emacs/leuven-theme/"
-  :no-require t
-  :init (require 'leuven-theme)
-  :config (load-theme 'leuven t))
+;; (use-package leuven-theme
+;;   :load-path "~/Code/Emacs/leuven-theme/"
+;;   :no-require t
+;;   :init (require 'leuven-theme)
+;;   :config (load-theme 'leuven t))
 
 ;;; [ eziam-theme ] -- A mostly monochrome theme, inspired by Tao and Leuven, with dark and light versions.
 
@@ -38,17 +38,17 @@
 
 ;;; [ spacemacs-theme ] -- Spacemacs default color-theme.
 
-;; (use-package spacemacs-theme
-;;   :ensure t
-;;   :no-require t
-;;   :config (load-theme 'spacemacs-dark t)
-;;   (set-face-attribute 'mode-line nil
-;;                       :background (color-darken-name (face-background 'default) 5)
-;;                       :box '(:color "DarkSlateBlue" :line-width 2))
-;;   (with-eval-after-load 'ivy
-;;     (set-face-attribute 'ivy-current-match nil
-;;                         :background "SeaGreen" :foreground "white"
-;;                         :weight 'normal)))
+(use-package spacemacs-theme
+  :ensure t
+  :no-require t
+  :config (load-theme 'spacemacs-dark t)
+  (set-face-attribute 'mode-line nil
+                      :background (color-darken-name (face-background 'default) 5)
+                      :box '(:color "DarkSlateBlue" :line-width 2))
+  (with-eval-after-load 'ivy
+    (set-face-attribute 'ivy-current-match nil
+                        :background "SeaGreen" :foreground "white"
+                        :weight 'normal)))
 
 ;;; [ one-themes ] -- One color scheme.
 
