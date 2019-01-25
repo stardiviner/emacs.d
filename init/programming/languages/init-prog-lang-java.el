@@ -39,7 +39,10 @@
 (use-package lsp-java
   :ensure t
   :after lsp
-  :hook (java-mode . lsp))
+  :hook (java-mode . lsp)
+  ;; `aggressive-indent-mode' caused long suspend with lots of requests.
+  :init (with-eval-after-load 'aggressive-indent
+          (add-to-list 'aggressive-indent-excluded-modes 'java-mode)))
 
 ;;; [ lsp-javacomp ] -- Emacs Language Server client backed by JavaComp.
 
