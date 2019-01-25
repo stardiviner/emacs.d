@@ -25,9 +25,10 @@
            (intern-pre (intern (format "lsp--%s" (symbol-name edit-pre)))))
       `(progn
          (defun ,intern-pre (info)
-           ;; TODO: `lsp-file' can be improved by auto generate under /tmp.
            (let ((lsp-file (or (->> info caddr (alist-get :file))
-                               buffer-file-name)))
+                               buffer-file-name
+                               (concat (org-babel-temp-file (format "lsp-%s-" ,lang))
+                                       (cdr (assoc ,lang org-babel-tangle-lang-exts))))))
              (setq-local buffer-file-name lsp-file)
              (setq-local lsp-buffer-uri (lsp--path-to-uri lsp-file))
              (lsp)))
@@ -37,7 +38,7 @@
              (defun ,edit-pre (info)
                (,intern-pre info))
              (put ',edit-pre 'function-documentation
-                  (format "Prepare local buffer environment for org source block (%s)."
+                  (format "Add LSP info to Org source block dedicated buffer (%s)."
                           (upcase ,lang))))))))
 
   (defvar org-babel-lang-list
