@@ -18,6 +18,9 @@
   :config
   ;; Support LSP in Org Babel with header argument `:file'.
   ;; https://github.com/emacs-lsp/lsp-mode/issues/377
+  (defvar org-babel-lsp-explicit-lang-list
+    '("java")
+    "Org Mode Babel languages which need explicitly specify header argument :file.")
   (cl-defmacro lsp-org-babel-enbale (lang)
     "Support LANG in org source code block."
     ;; (cl-check-type lang symbolp)
@@ -27,8 +30,9 @@
          (defun ,intern-pre (info)
            (let ((lsp-file (or (->> info caddr (alist-get :file))
                                buffer-file-name
-                               (concat (org-babel-temp-file (format "lsp-%s-" ,lang))
-                                       (cdr (assoc ,lang org-babel-tangle-lang-exts))))))
+                               (unless (member ,lang org-babel-lsp-explicit-lang-list)
+                                 (concat (org-babel-temp-file (format "lsp-%s-" ,lang))
+                                         (cdr (assoc ,lang org-babel-tangle-lang-exts)))))))
              (setq-local buffer-file-name lsp-file)
              (setq-local lsp-buffer-uri (lsp--path-to-uri lsp-file))
              (lsp)))
@@ -41,9 +45,10 @@
                   (format "Add LSP info to Org source block dedicated buffer (%s)."
                           (upcase ,lang))))))))
 
-  (defvar org-babel-lang-list
+  (defvar org-babel-lsp-lang-list
     '("shell" "python" "ipython" "ruby" "js" "css" "C" "rust" "java" "go"))
   (dolist (lang org-babel-lang-list)
+  (dolist (lang org-babel-lsp-lang-list)
     (eval `(lsp-org-babel-enbale ,lang)))
   )
 
