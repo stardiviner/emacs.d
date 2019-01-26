@@ -87,6 +87,12 @@
   :after lsp
   :hook ((html-mode . lsp) (web-mode . lsp)))
 
+(defun my:html-mode-company-add ()
+  "Add company-mode backend like `company-web-html' for completion."
+  (make-variable-buffer-local 'company-backends)
+  (add-to-list 'company-backends 'company-web-html))
+(add-hook 'html-mode-hook #'my:html-mode-company-add)
+
 
 (provide 'init-prog-lang-html)
 
