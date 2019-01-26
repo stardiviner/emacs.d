@@ -39,6 +39,7 @@
 (use-package lsp-java
   :ensure t
   :after lsp
+  :load (lsp-java)
   :hook (java-mode . lsp)
   ;; `aggressive-indent-mode' caused long suspend with lots of requests.
   :init (with-eval-after-load 'aggressive-indent
