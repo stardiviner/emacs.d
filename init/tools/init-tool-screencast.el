@@ -22,6 +22,8 @@
 
 (use-package gif-screencast
   :ensure t
+  :commands (gif-screencast)
+  :init (setq gif-screencast-output-directory (expand-file-name "~/"))
   :config
   (with-eval-after-load 'gif-screencast
     (define-key gif-screencast-mode-map (kbd "<f12>") 'gif-screencast-toggle-pause)
@@ -32,6 +34,7 @@
 (use-package camcorder
   :ensure t
   :defer t
+  :commands (camcorder-mode camcorder-record)
   :bind (:map screencast-prefix
               ("r" . camcorder-mode)
               ("R" . camcorder-record))
