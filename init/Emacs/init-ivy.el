@@ -81,22 +81,25 @@
   :ensure t
   :after ivy
   :config
-  (setq )
   (setq ivy-posframe-style 'window-bottom-left
         ivy-fixed-height-minibuffer nil)
   ;;; replace ivy default with posframe
-  ;; global replace
-  ;; (setq ivy-display-function #'ivy-posframe-display-at-point) ; #'ivy-posframe-display-at-window-bottom-left
+  (setq ivy-display-function #'ivy-posframe-display)
   ;; replace some specific commands
-  (push '(t . ivy-posframe-display-at-point) ivy-display-functions-alist)
+  (push '(counsel-M-x . ivy-posframe-display-at-window-bottom-left)
+        ivy-display-functions-alist)
   (push '(completion-at-point . ivy-posframe-display-at-point)
         ivy-display-functions-alist)
-  (push '(complete-symbol . ivy-posframe-display-at-point) ivy-display-functions-alist)
+  (push '(complete-symbol . ivy-posframe-display-at-point)
+        ivy-display-functions-alist)
   ;; posframe doesn't work well with async sources
   (push '(swiper . ivy-posframe-display-at-window-bottom-left)
         ivy-display-functions-alist)
   (push '(counsel-org-goto . ivy-posframe-display-at-window-bottom-left)
         ivy-display-functions-alist)
+  ;; fallback mode
+  (push '(t . ivy-posframe-display-at-point) ivy-display-functions-alist)
+  
   (ivy-posframe-enable)
   ;; set ivy-posframe frame parameters
   (setq ivy-posframe-parameters `((min-width . 90)
@@ -111,7 +114,7 @@
                                     ('light
                                      (color-darken-name (face-background 'default) 5))
                                     ('dark
-                                     (color-lighten-name (face-background 'default) 5)))))
+                                     (color-lighten-name (face-background 'default) 10)))))
 
 
 (provide 'init-ivy)
