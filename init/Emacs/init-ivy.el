@@ -102,17 +102,21 @@
   
   (ivy-posframe-enable)
   ;; set ivy-posframe frame parameters
-  (setq ivy-posframe-parameters `((min-width . 90)
-                                  (min-height .,ivy-height)
-                                  (internal-border-width . 10)
-                                  (left-fringe . 5)
-                                  (right-fringe . 5)))
+  (setq ivy-posframe-hide-minibuffer t
+        ivy-posframe-parameters `((min-width . 90)
+                                  (min-height . ,ivy-height)
+                                  (internal-border-width . 5)
+                                  (left-fringe . 0)
+                                  (right-fringe . 0))
+        ;; ivy-posframe-width (/ (display-pixel-width) 14)
+        ;; ivy-posframe-border-width 0
+        )
   ;; set ivy-posframe face
   (set-face-attribute 'ivy-posframe nil
                       :foreground (face-foreground 'default)
                       :background (cl-case (alist-get 'background-mode (frame-parameters))
                                     ('light
-                                     (color-darken-name (face-background 'default) 5))
+                                     (color-darken-name (face-background 'default) 10))
                                     ('dark
                                      (color-lighten-name (face-background 'default) 10)))))
 
