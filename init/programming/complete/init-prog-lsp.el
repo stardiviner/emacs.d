@@ -13,7 +13,8 @@
   :commands (lsp lsp-describe-session)
   :load (lsp-clients) ; load `lsp-clients' for auto configuration of language server clients.
   ;; :hook (prog-mode . lsp)
-  :init (setq lsp-auto-guess-root t
+  :init (setq lsp-auto-configure nil
+              lsp-auto-guess-root t
               lsp-prefer-flymake nil) ; use `flycheck' and `lsp-ui'.
   :config
   ;; Support LSP in Org Babel with header argument `:file'.
