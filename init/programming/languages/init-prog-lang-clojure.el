@@ -356,6 +356,26 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 (add-to-list 'org-babel-default-header-args:clojure ; for Clojure `dotimes' etc.
              '(:show-process . "no"))
 
+(defun ob-clojure-specify-session ()
+  "Specify ob-clojure header argument :session.
+With value selected from a list of available sessions."
+  (interactive)
+  (let ((lang (nth 0 (org-babel-get-src-block-info))))
+    (unless (and (string= lang "clojure")
+                 ;; only when :session is not specified yet.
+                 (assq :session (nth 2 (org-babel-get-src-block-info))))
+      (org-babel-insert-header-arg
+       "session"
+       (format "\"%s\""
+               (completing-read
+                "Choose :session for ob-clojure: "
+                (mapcar (lambda (pair)
+                          (buffer-name (car (cdr pair))))
+                        (let ((sesman-system 'CIDER))
+                          (sesman--all-system-sessions sesman-system 'sort)))))))))
+
+(define-key org-babel-map (kbd "M-j") 'ob-clojure-specify-session)
+
 ;;; [ ob-clojurescript ] -- org-babel support for ClojureScript
 
 (use-package ob-clojurescript
