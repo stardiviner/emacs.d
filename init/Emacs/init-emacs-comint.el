@@ -13,13 +13,17 @@
       comint-eol-on-send t ; go to the end of the line before sending input.
       comint-move-point-for-output t)
 
+;;; translate ANSI color sequences into text properties.
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'comint-mode-hook 'ansi-color-for-comint-mode-on)
 
-;; It will always put point back to the statement you entered, right above the
-;; output it created.
-;; (add-to-list 'comint-output-filter-functions
-;;              #'(lambda (STR) (comint-show-output)))
+;;; strip ANSI color escape sequences.
+;; (autoload 'ansi-color-for-comint-mode-filter "ansi-color" nil t)
+;; (add-hook 'comint-mode-hook 'ansi-color-for-comint-mode-filter)
+
+(add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
+
+;; (add-hook 'comint-output-filter-functions 'comint-truncate-buffer)
 
 
 (provide 'init-emacs-comint)
