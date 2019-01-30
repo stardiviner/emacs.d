@@ -7,6 +7,11 @@
 
 ;;; Code:
 
+;;; [ graphql ] -- GraphQL utilities.
+
+(use-package graphql
+  :ensure t)
+
 ;;; [ graphql-mode ] -- Major mode for editing GraphQL.
 
 (use-package graphql-mode
