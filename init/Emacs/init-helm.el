@@ -29,8 +29,8 @@
           helm-source-recentf
           helm-source-buffer-not-found
           ))
-  (setq helm-org-headings-fontify t)
-  )
+  (setq helm-input-idle-delay 0.1) ; fix Helm fast respond to input caused failed issue.
+  (setq helm-org-headings-fontify t))
 
 
 (provide 'init-helm)
