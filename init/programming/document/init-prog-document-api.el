@@ -17,14 +17,14 @@
   (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
         helm-dash-min-length 3
         ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
-        helm-dash-browser-func 'eww-browse-url
+        helm-dash-browser-func 'browse-url-generic
         helm-dash-candidate-format "%d  %n  (%t)"
         helm-case-fold-search 'smart)
   
   (setq helm-dash-common-docsets
         '("Clojure" "Java"
           ;; "Common Lisp"
-          ;; "Python 3" "Ruby"
+          ;; "Python 3"
           "HTML" "CSS"
           "JavaScript" "NodeJS"))
 
@@ -47,32 +47,34 @@
   (add-hook 'enh-ruby-mode-hook 'helm-dash-buffer-local-ruby-docsets)
   ;; Ruby on Rails
   (defun helm-dash-buffer-local-rails-docsets ()
-    (my-helm-dash-buffer-local-docsets-add '("Ruby on Rails" "Ruby" "HTML" "JavaScript" "CSS" "jQuery"))
-    )
+    (setq-local helm-dash-docsets '("Ruby on Rails" "Ruby"))
+    (my-helm-dash-buffer-local-docsets-add '("HTML" "JavaScript" "CSS" "jQuery")))
   (add-hook 'projectile-rails-mode-hook 'helm-dash-buffer-local-rails-docsets)
   ;; Python
   (defun helm-dash-buffer-local-python-docsets ()
     (setq-local helm-dash-docsets '("Python 3")))
   (add-hook 'python-mode-hook 'helm-dash-buffer-local-python-docsets)
   ;; Web
-  (defun helm-dash-buffer-local-web-docsets ()
-    (setq-local helm-dash-docsets '("HTML" "CSS" "JavaScript"))
-    (my-helm-dash-buffer-local-docsets-add '("jQuery"))
-    )
-  (add-hook 'web-mode-hook 'helm-dash-buffer-local-web-docsets)
+  (with-eval-after-load 'web-mode
+    (defun helm-dash-buffer-local-web-docsets ()
+      (setq-local helm-dash-docsets '("HTML" "CSS" "JavaScript"))
+      (my-helm-dash-buffer-local-docsets-add '("jQuery" "React")))
+    (add-hook 'web-mode-hook 'helm-dash-buffer-local-web-docsets))
   ;; JavaScript
-  (defun helm-dash-buffer-local-javascript-docsets ()
-    (setq-local helm-dash-docsets '("JavaScript" "NodeJS"))
-    (my-helm-dash-buffer-local-docsets-add '("jQuery")))
-  (add-hook 'js2-mode-hook 'helm-dash-buffer-local-javascript-docsets)
+  (with-eval-after-load 'js2-mode
+    (defun helm-dash-buffer-local-javascript-docsets ()
+      (setq-local helm-dash-docsets '("JavaScript" "NodeJS"))
+      (my-helm-dash-buffer-local-docsets-add '("jQuery" "React")))
+    (add-hook 'js2-mode-hook 'helm-dash-buffer-local-javascript-docsets))
   ;; HTML
   (defun helm-dash-buffer-local-html-docsets ()
     (setq-local helm-dash-docsets '("HTML"))
-    (my-helm-dash-buffer-local-docsets-add '("JavaScript" "jQuery")))
+    (my-helm-dash-buffer-local-docsets-add '("JavaScript" "jQuery" "React" "D3JS")))
   (add-hook 'html-mode-hook 'helm-dash-buffer-local-html-docsets)
   ;; CSS
   (defun helm-dash-buffer-local-css-docsets ()
-    (setq-local helm-dash-docsets '("CSS")))
+    (setq-local helm-dash-docsets '("CSS"))
+    (my-helm-dash-buffer-local-docsets-add '("Bootstrap_4")))
   (add-hook 'css-mode-hook 'helm-dash-buffer-local-css-docsets)
   ;; Common Lisp
   (defun helm-dash-buffer-local-common-lisp-docsets ()
@@ -100,12 +102,11 @@
   ;; C
   (defun helm-dash-buffer-local-C-docsets ()
     (setq-local helm-dash-docsets '("C"))
-    (my-helm-dash-buffer-local-docsets-add '("CMake")))
+    (my-helm-dash-buffer-local-docsets-add '("GNU Make" "CMake" "LLVM" "Clang" "GLib")))
   (add-hook 'c-mode-hook 'helm-dash-buffer-local-C-docsets)
   ;; C++
   (defun helm-dash-buffer-local-C++-docsets ()
-    (setq-local helm-dash-docsets '("C++"))
-    )
+    (setq-local helm-dash-docsets '("C++")))
   (add-hook 'c++-mode-hook 'helm-dash-buffer-local-C++-docsets)
   ;; Go
   (defun helm-dash-buffer-local-go-docsets ()
@@ -117,26 +118,47 @@
   (add-hook 'java-mode-hook 'helm-dash-buffer-local-java-docsets)
   ;; SQL
   (defun helm-dash-buffer-local-sql-docsets ()
-    (setq-local helm-dash-docsets '("SQLite" "PostgreSQL" "MySQL")))
+    (setq-local helm-dash-docsets '("SQLite" "MySQL" "PostgreSQL")))
   (add-hook 'sql-mode-hook 'helm-dash-buffer-local-sql-docsets)
   (add-hook 'sql-interactive-mode-hook 'helm-dash-buffer-local-sql-docsets)
+  ;; Redis
+  (defun helm-dash-buffer-local-redis-docsets ()
+    (setq-local helm-dash-docsets '("Redis")))
+  (add-hook 'redis-mode-hook 'helm-dash-buffer-local-redis-docsets)
   ;; LaTeX
   (defun helm-dash-buffer-local-latex-docsets ()
     (setq-local helm-dash-docsets '("LaTeX")))
   (add-hook 'latex-mode-hook 'helm-dash-buffer-local-latex-docsets)
   (add-hook 'LaTeX-mode-hook 'helm-dash-buffer-local-latex-docsets)
-  ;; ESS: Julia, R
-  (defun helm-dash-buffer-local-ess-docsets ()
-    (setq-local helm-dash-docsets '("Julia"))
-    ;; (my-helm-dash-buffer-local-docsets-add '("R"))
-    )
-  (add-hook 'ess-mode-hook 'helm-dash-buffer-local-ess-docsets)
-  (add-hook 'julia-mode-hook 'helm-dash-buffer-local-ess-docsets)
+  ;; PlantUML
+  (defun helm-dash-buffer-local-PlantUML-docsets ()
+    (setq-local helm-dash-docsets '("PlantUML")))
+  (add-hook 'plantuml-mode-hook 'helm-dash-buffer-local-PlantUML-docsets)
+  ;; R
+  (defun helm-dash-buffer-local-R-docsets ()
+    (setq-local helm-dash-docsets '("R")))
+  (add-hook 'ess-r-mode-hook 'helm-dash-buffer-local-R-docsets)
+  ;; Julia
+  (defun helm-dash-buffer-local-julia-docsets ()
+    (setq-local helm-dash-docsets '("Julia")))
+  (add-hook 'ess-julia-mode-hook 'helm-dash-buffer-local-julia-docsets)
+  (add-hook 'julia-mode-hook 'helm-dash-buffer-local-julia-docsets)
   ;; Docker
   (with-eval-after-load 'dockerfile-mode
     (defun helm-dash-buffer-local-docker-docsets ()
       (setq-local helm-dash-docsets '("Docker")))
     (add-hook 'dockerfile-mode-hook 'helm-dash-buffer-local-docker-docsets))
+  ;; Kubernetes
+  (with-eval-after-load 'k8s-mode
+    (defun helm-dash-buffer-local-kubernetes-docsets ()
+      (setq-local helm-dash-docsets '("kubernetes")))
+    (add-hook 'k8s-mode-hook 'helm-dash-buffer-local-kubernetes-docsets))
+  ;; Vagrant
+  ;; GraphQL
+  (with-eval-after-load 'graphql-mode
+    (defun helm-dash-buffer-local-GraphQL-docsets ()
+      (setq-local helm-dash-docsets '("GraphQL Specification")))
+    (add-hook 'graphql-mode-hook 'helm-dash-buffer-local-GraphQL-docsets))
   ;; Swift
   (with-eval-after-load 'swift-mode
     (defun helm-dash-buffer-local-swift-docsets ()
