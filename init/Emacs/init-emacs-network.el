@@ -7,6 +7,10 @@
 
 ;;; Code:
 
+;;; [ network functions ]
+
+(require 'net-utils)
+
 ;;; [ Network Security Manager (NSM) ]
 
 ;; - M-x customize `network-security'
@@ -20,7 +24,7 @@
 ;;         ("https" . "127.0.0.1:1086")
 ;;         ;; ("ftp"   . "b.qypac.net:57008")
 ;;         ;; don't proxy for localhost, avoid robe server (For Ruby) can't response.
-;;         ("no_proxy" . "127.0.0.1")
+;;         ("no_proxy" . "^\\(localhost\\|192.168.*\\|10.*\\)")
 ;;         ;; no proxy for baidu.com, sina.com etc. proxy for all others.
 ;;         ;; ("no_proxy" . "^.*\\(baidu\\|sina)\\.com")
 ;;         ))
@@ -46,7 +50,6 @@
 
 (use-package proxy-mode
   :ensure t
-  :commands (proxy-mode)
   :init (setq proxy-mode-socks-proxy '("Default server" "127.0.0.1" 1086 5)))
 
 
