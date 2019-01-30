@@ -94,7 +94,8 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
     ("l" enlarge-window-horizontally)
     ("q" nil "quit"))
   (global-set-key (kbd "C-x C-z") #'hydra-frame-window/body)
-  (add-to-list 'aw-dispatch-alist '(?w hydra-frame-window/body) t))
+  (with-eval-after-load 'ace-window
+    (add-to-list 'aw-dispatch-alist '(?w hydra-frame-window/body) t)))
 
 ;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
 
