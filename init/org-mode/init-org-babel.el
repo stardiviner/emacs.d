@@ -20,7 +20,7 @@
 (setq-default org-babel-default-header-args
               '((:session . "none")
                 (:noweb . "no") (:hlines . "no")
-                (:tangle . "no") (:comments . "link")
+                (:tangle . "no") ; (:comments . "link")
                 (:cache . "yes")
                 (:results . "replace")
                 ;; for exporting
@@ -92,10 +92,11 @@
       '(("latex" . "tex")
         ("awk" . "awk")))
 
-(setq org-babel-tangle-use-relative-file-links t
-      ;; org-babel-pre-tangle-hook '(save-buffer)
-      ;; org-babel-post-tangle-hook
-      )
+;; this will cause target file like config file which is used by programs to errors.
+;; (setq org-babel-tangle-use-relative-file-links t)
+
+;; (setq org-babel-pre-tangle-hook '(save-buffer)
+;;       org-babel-post-tangle-hook)
 
 
 ;;; [ Library of Babel ]
