@@ -103,7 +103,7 @@
   (ivy-posframe-enable)
   ;; set ivy-posframe frame parameters
   (setq ivy-posframe-hide-minibuffer t
-        ivy-posframe-parameters `((min-width . 90)
+        ivy-posframe-parameters `((min-width . 95)
                                   (min-height . ,ivy-height)
                                   (internal-border-width . 5)
                                   (left-fringe . 0)

@@ -25,6 +25,7 @@
   :quelpa (company-english-helper :fetcher github
                                   :repo "manateelazycat/company-english-helper")
   ;; :load-path "~/Code/Emacs/company-english-helper/"
+  :defer t
   :commands (toggle-company-english-helper)
   :config
   (defun my/company-english-helper-setup ()
@@ -34,8 +35,7 @@
   (dolist (hook '(org-mode-hook
                   git-commit-mode-hook
                   rcirc-mode-hook))
-    (add-hook hook #'my/company-english-helper-setup))
-  )
+    (add-hook hook #'my/company-english-helper-setup)))
 
 
 (provide 'init-language-english)

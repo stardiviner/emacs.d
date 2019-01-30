@@ -348,6 +348,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
              '(:eval . "yes"))
 (add-to-list 'org-babel-default-header-args:clojure
              '(:noweb . "yes"))
+;; caused tangled code wrapped in `clojure.pp/print'.
 ;; (add-to-list 'org-babel-default-header-args:clojure
 ;;              '(:results . "pp"))
 

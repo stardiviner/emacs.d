@@ -21,8 +21,8 @@
         (:grouptags)
         ("noexport" . ?E)
         ("deprecated" . ?D)
-        (:endgroup)
-        ))
+        ("outdated" . ?O)
+        (:endgroup)))
 
 (setq org-tag-alist
       '((:startgroup) ("Org" . ?o) ("Idea" . ?i) (:endgroup)
@@ -100,6 +100,16 @@
         ("Rust" :foreground "WhiteSmoke" :weight bold)
         ("JavaScript" :foreground "yellow" :weight bold)
         ))
+
+;; ;;; `org-archive-tag', `org-archived'
+;; (defconst org-deprecated-tag "deprecated"
+;;   "The tag that marks a subtree as archived.
+;; An archived subtree does not open during visibility cycling, and does
+;; not contribute to the agenda listings.")
+;;
+;; (defface org-deprecated '((t :inherit shadow))
+;;   "Face for headline with the deprecated tag."
+;;   :group 'org-faces)
 
 
 (provide 'init-org-tag)

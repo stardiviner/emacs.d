@@ -114,12 +114,11 @@
 
   ;; Queuing mail
   ;; you can queue the mail, and send it when you have restored your internet connection.
-  ;; (setq smtpmail-queue-mail t  ;; start in non-queuing mode
+  ;; (setq message-send-mail-function 'smtpmail-send-it
+  ;;       smtpmail-queue-mail t  ;; start in non-queuing mode
   ;;       smtpmail-queue-dir  "~/Mails/queue/cur" ; send with `smtpmail-send-queued-mail'
   ;;       smtpmail-queue-index "~/Mails/queue/index"
-  ;;       smtpmail-queue-index-file "index"
-  ;;       )
-
+  ;;       smtpmail-queue-index-file "index")
 
   ;; two: [smtp] for Gmail
   ;; (require 'smtpmail)
@@ -777,6 +776,7 @@
 
 
 ;; [ mu4e-alert ] -- Desktop notifications and modeline display for mu4e.
+
 ;; (use-package mu4e-alert
 ;;   :ensure t
 ;;   :config
