@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: maven install without POM
+# key: babel-maven-install
+# group: babel.install
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+#+begin_src sh :async
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.10:get \
+    -Dartifact=${1:postgresql:postgresql:9.1-901-1.jdbc4}
+#+end_src
