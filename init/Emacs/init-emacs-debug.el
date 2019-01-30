@@ -47,12 +47,12 @@
                       :reverse-video nil :foreground nil :overline nil
                       :background (cl-case (alist-get 'background-mode (frame-parameters))
                                     ('light "orange")
-                                    ('dark "orange red")))
+                                    ('dark "DarkMagenta")))
   (set-face-attribute 'hi-edebug-x-debug-line nil
                       :reverse-video nil :foreground nil :underline nil
                       :background (cl-case (alist-get 'background-mode (frame-parameters))
                                     ('light "pink")
-                                    ('dark "hot pink")))
+                                    ('dark "DarkSlateGray")))
 
   (add-to-list 'display-buffer-alist
                '("^\\*Instrumented Functions\\*" (display-buffer-below-selected)))
