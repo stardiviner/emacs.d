@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: dot
+# key: .
+# group: syntax
+# --
+.$0 ${1:object}
