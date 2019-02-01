@@ -42,14 +42,9 @@
 
 (use-package ace-window
   :ensure t
-  :defer t
   :delight ace-window-mode
   :bind ("C-x C-j" . ace-window)
-  :config
-  (setq aw-background nil)
-  (setq aw-dispatch-always t)
-  (set-face-attribute 'aw-leading-char-face nil
-                      :height 200))
+  :init (setq aw-background nil))
 
 ;;; manipulate windows
 
