@@ -11,9 +11,8 @@
 
 (use-package helm-dash
   :ensure t
-  :defer t
   :bind (:map prog-doc-map ("C-d" . helm-dash-at-point) ("M-d" . helm-dash))
-  :config
+  :init
   (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
         helm-dash-min-length 3
         ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
@@ -30,6 +29,7 @@
 
   (setq helm-dash-enable-debugging nil)
   
+  :config
   ;; buffer local docsets
   (defun my-helm-dash-buffer-local-docsets-add (docsets-list)
     (mapc
