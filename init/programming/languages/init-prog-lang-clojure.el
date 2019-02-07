@@ -161,8 +161,8 @@
   ;; auto inject Clojure dependencies.
   ;; (cider-add-to-alist 'cider-jack-in-dependencies "org.clojure/tools.nrepl" "0.2.13")
   ;; hot load dependencies.
-  (add-to-list 'cider-jack-in-dependencies '("org.clojure/core.async" "0.4.490"))
   (add-to-list 'cider-jack-in-dependencies '("com.cemerick/pomegranate" "1.1.0"))
+  (add-to-list 'cider-jack-in-dependencies '("datawalk" "0.1.12"))
   (add-to-list 'cider-jack-in-dependencies '("criterium" "0.4.4"))
   ;; auto add incanter as dependency for Org Mode clojure Babel generate plot image result.
   ;; (add-to-list 'cider-jack-in-dependencies '("incanter" "1.9.2"))
