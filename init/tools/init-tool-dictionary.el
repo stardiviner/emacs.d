@@ -81,7 +81,8 @@
               ("C-t" . google-translate-at-point)
               ("M-t" . google-translate-query-translate)
               ("C-r" . google-translate-at-point-reverse)
-              ("M-r" . google-translate-query-translate-reverse))
+              ("M-r" . google-translate-query-translate-reverse)
+              ("C-b" . google-translate-buffer))
   :config
   (setq google-translate-show-phonetic t
         google-translate-pop-up-buffer-set-focus t
