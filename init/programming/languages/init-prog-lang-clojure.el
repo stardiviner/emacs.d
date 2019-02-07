@@ -243,26 +243,6 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   ;;               ) t)
   )
 
-;;; run test when load file.
-
-;; (defun cider-tdd-test ()
-;;   "Thin wrapper around `cider-test-run-tests'."
-;;   (when (cider-connected-p)
-;;     (let ((cider-auto-select-test-report-buffer nil)
-;;           (cider-test-show-report-on-success nil))
-;;       (cider-test-run-ns-tests nil)
-;;       (message "CIDER TDD test run successfully."))))
-;;
-;; (define-minor-mode cider-tdd-mode
-;;   "Run all tests whenever a file is saved."
-;;   t nil nil
-;;   :global t
-;;   (if cider-tdd-mode
-;;       (add-hook 'cider-file-loaded-hook #'cider-tdd-test)
-;;     (remove-hook 'cider-file-loaded-hook #'cider-tdd-test)))
-;;
-;; (add-hook 'clojure-mode-hook 'cider-tdd-mode)
-
 ;;; [ debux.el ] -- Integrate Clojure/ClojureScript debugger "Debux" into Emacs.
 
 ;; TODO: https://github.com/philoskim/debux
