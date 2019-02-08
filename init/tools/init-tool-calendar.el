@@ -80,14 +80,53 @@
   :config
   (setq calendar-mark-holidays-flag t)
   (setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
-  (setq cal-china-x-general-holidays '((holiday-lunar 12 23 "小年")
-                                       (holiday-lunar 1 15 "元宵节")
-                                       (holiday-lunar 9 9 "重阳节")))
-  ;; [M-x holidays]
-  ;; from function `holiday-list'.
+  (setq cal-china-x-general-holidays '((holiday-lunar 1 1 "春节")
+                                       (holiday-lunar 1 14 "祭灶")
+                                       (holiday-lunar 1 15 "元宵节(上元节)")
+                                       (holiday-lunar 2 2 "龙抬头(土地诞)")
+                                       (holiday-lunar 3 3 "上巳节")
+                                       (holiday-lunar 7 7 "七夕节")
+                                       (holiday-lunar 7 14 "七月半(中元节)")
+                                       (holiday-lunar 7 15 "七月半(中元节)")
+                                       (holiday-lunar 8 15 "中秋节")
+                                       (holiday-lunar 9 9 "重阳节")
+                                       (holiday-fixed 10 1 "寒衣节")
+                                       (holiday-fixed 10 15 "下元节")
+                                       (holiday-lunar 12 8 "腊八节")
+                                       (holiday-lunar 12 23 "小年")
+                                       (holiday-lunar 12 24 "小年")
+                                       (holiday-lunar 12 29 "除夕(岁除)")
+                                       (holiday-lunar 12 30 "除夕(岁除)")))
+  (setq cal-china-x-solar-days '((holiday-fixed 4 3 "寒食节")
+                                 (holiday-fixed 4 4 "寒食节")
+                                 (holiday-fixed 4 5 "清明节")
+                                 (holiday-solar-term "冬至" "冬至节")
+                                 (holiday-fixed 12 21 "冬至节")
+                                 (holiday-fixed 12 22 "冬至节")
+                                 (holiday-fixed 12 23 "冬至节")))
+  (setq cal-china-x-ethical-holidays '((holiday-fixed 4 15 "傣族 - 泼水节")
+                                       (holiday-fixed 7 10 "蒙古族 - 那达慕大会")
+                                       (holiday-lunar 6 24 "彝族 - 火把节")
+                                       (holiday-lunar 5 29 "瑶族 - 达努节")
+                                       (holiday-lunar 3 15 "白族 - 三月街")
+                                       (holiday-lunar 3 16 "白族 - 三月街")
+                                       (holiday-lunar 3 17 "白族 - 三月街")
+                                       (holiday-lunar 3 18 "白族 - 三月街")
+                                       (holiday-lunar 3 19 "白族 - 三月街")
+                                       (holiday-lunar 3 20 "白族 - 三月街")
+                                       (holiday-lunar 3 21 "白族 - 三月街")
+                                       ;; ( "壮族 - 歌圩")
+                                       ;; ( "藏族 - 藏历年")
+                                       ;; ( "藏族 - 望果节")
+                                       ;; ( "苗族 - 跳花节")
+                                       ))
+  ;; [M-x holidays] from function `holiday-list'.
   (setq calendar-holidays
         (append cal-china-x-important-holidays
                 cal-china-x-general-holidays
+                ;; cal-china-x-japanese-holidays
+                cal-china-x-solar-days
+                cal-china-x-ethical-holidays
                 holiday-general-holidays
                 holiday-local-holidays
                 holiday-other-holidays
