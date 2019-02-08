@@ -98,10 +98,8 @@
 
 (use-package calfw
   :ensure t
-  :ensure calfw-org
-  :defer t
   :bind (:map calendar-prefix ("x" . cfw:open-calendar-buffer))
-  :config
+  :init
   ;; Grid frame
   (setq cfw:fchar-junction ?╬
         cfw:fchar-vertical-line ?║
@@ -111,7 +109,7 @@
         cfw:fchar-top-junction ?╦
         cfw:fchar-top-left-corner ?╔
         cfw:fchar-top-right-corner ?╗)
-
+  :config
   ;; Faces
   ;; Year / Month
   (set-face-attribute 'cfw:face-title nil
@@ -199,16 +197,17 @@
                       :weight 'normal)
 
   ;; General setting
-  (require 'calfw-org)
+  ;; (require 'calfw-org)
   (defun calfw:week ()
     (interactive)
     (cfw:open-calendar-buffer
-     :contents-sources (list (cfw:org-create-source "dark gray") ; Org-mode source
-                             ;; (cfw:cal-create-source "orange") ; Diary source
-                             ;; (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; iCalendar source1
-                             ;; (cfw:ical-create-source "gcal" "https://..../basic.ics" "IndianRed") ; Google Calendar ICS
-                             ;; (cfw:howm-create-source "blue") ; howm source
-                             )
+     :contents-sources (list
+                        ;; (cfw:org-create-source "dark gray") ; Org-mode source
+                        ;; (cfw:cal-create-source "orange") ; Diary source
+                        ;; (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; iCalendar source1
+                        ;; (cfw:ical-create-source "gcal" "https://..../basic.ics" "IndianRed") ; Google Calendar ICS
+                        ;; (cfw:howm-create-source "blue") ; howm source
+                        )
      ;; :annotation-sources (list (cfw:ical-create-source "Moon" "~/moon.ics" "Gray"))
      :view 'week)
     (bury-buffer)
@@ -221,8 +220,7 @@
     (interactive)
     (cfw:open-calendar-buffer
      :contents-sources
-     (list (cfw:org-create-source "dark gray")
-           (cfw:cal-create-source "orange"))
+     (list )
      :view 'day)
     (bury-buffer)
     (switch-to-buffer "*cfw-calendar*"))
@@ -230,9 +228,9 @@
   (defun calfw:month ()
     (interactive)
     (cfw:open-calendar-buffer
-     :contents-sources
-     (list (cfw:org-create-source "dark gray")
-           (cfw:cal-create-source "orange"))
+     :contents-sources (list 
+                        ;; (cfw:org-create-source "dark gray")
+                        )
      :view 'month)
     (bury-buffer)
     (switch-to-buffer "*cfw-calendar*"))
