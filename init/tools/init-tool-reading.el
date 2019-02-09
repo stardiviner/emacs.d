@@ -1,4 +1,4 @@
-;;; init-tool-OpenSpritz.el --- init Spray for Emacs OpenSpritz implement.
+;;; init-tool-reading.el --- init reading for Emacs.
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -35,6 +35,6 @@
   )
 
 
-(provide 'init-tool-OpenSpritz)
+(provide 'init-tool-reading)
 
-;;; init-tool-OpenSpritz.el ends here
+;;; init-tool-reading.el ends here
