@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: clj-new-project
+# name: clj new project
 # key: babel-clj-new-project
 # group: babel.clojure
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))

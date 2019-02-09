@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: flatpak-install
+# key: babel-flatpak-install
+# group: flatpak.install
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+#+begin_src sh :async
+flatpak install -y --noninteractive ${1:flathub com.uploadedlobster.peek}
+#+end_src

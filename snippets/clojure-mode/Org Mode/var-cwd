@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: inject Org Babel path
+# key: ob-clojure-cwd
+# group: org.babel
+# --
+$0(str cwd "${1:path/to/}")

@@ -1,10 +1,11 @@
 # -*- mode: snippet -*-
-# name: Clojure clj -Sdeps EDN
-# key: babel-clj-deps-edn
+# name: clj install
+# key: babel-clj-install
 # group: babel.clojure
+# expand-env: ((yas-indent-line nil) (yas-wrap-around-region 'nil))
 # --
 **** Clojure CLI/deps.edn
 
 #+begin_src sh :async
-clj -Sdeps '{:deps \{${1:name} {:mvn/version "$0"}\}\}'
+clj -Sdeps '{:deps \{${1:${2:name} \{:mvn/version "${3:version}"\}}$0\}\}'
 #+end_src

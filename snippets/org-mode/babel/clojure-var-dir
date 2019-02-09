@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: pass current dir into Clojure
+# name: inject current dir into Clojure
 # key: ob-clojure-var-dir
 # group: babel.clojure
 # --
-:var dir=(concat (file-name-directory (buffer-file-name)) "data/${1:code}/")$0
+ :var cwd=(concat (file-name-directory (buffer-file-name)) "data/${1:code}/")$0

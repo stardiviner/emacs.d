@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: hg-clone
+# key: hg-clone
+# group: hg.clone
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+#+begin_src sh :mkdirp yes :results file link :dir "data/code" :file "${2:target}/${3:README.md}" :async$0
+if [ -d org-drill ]; then
+  cd org-drill ; hg pull
+else
+  hg clone ${1:ssh://hg@bitbucket.org/eeeickythump/org-drill} $2
+fi
+#+end_src

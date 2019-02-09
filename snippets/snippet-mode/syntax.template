@@ -259,6 +259,11 @@
 #     By the way, C-d will only clear the field if you cursor is at the
 #     beginning of the field and it hasn't been changed yet. Otherwise, it
 #     performs the normal Emacs delete-char command.
+#     for example:
+#
+#     #+begin_src sh :async
+#     clj -Sdeps '{:deps \{${1:${2:name} \{:mvn/version "$0"\}}\}\}'
+#     #+end_src
 
 # - $> or $&
 #     means indent the line according to the mode's indentation rule.

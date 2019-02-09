@@ -2,8 +2,8 @@
 # name: babel-install-python-pip
 # key: babel-install-python-pip
 # group: babel.install
-# expand-env: ((yas-indent-line 'fixed))
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
-#+begin_src sh
+#+begin_src sh :async
 pip install -U $0
 #+end_src
