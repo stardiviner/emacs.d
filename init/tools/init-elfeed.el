@@ -12,7 +12,7 @@
 (use-package elfeed
   :ensure t
   :defer t
-  :bind (:map tools-prefix ("r" . elfeed))
+  :bind (:map tools-prefix ("R" . elfeed))
   :init
   (setq elfeed-db-directory "~/.emacs.d/.elfeed")
   :config

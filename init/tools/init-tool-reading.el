@@ -34,6 +34,14 @@
                       )
   )
 
+;;; [ greader ] -- gnamù reader, a reader with Espeak TTS.
+
+(use-package greader
+  :ensure t
+  :ensure-system-package (espeak speech-dispatcher)
+  :commands (greader-mode)
+  :bind (:map tools-prefix ("r" . greader-mode)))
+
 
 (provide 'init-tool-reading)
 
