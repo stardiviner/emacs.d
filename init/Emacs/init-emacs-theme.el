@@ -57,14 +57,6 @@
   :no-require t
   :config (load-theme 'one-dark t))
 
-;;; [ solaire-mode ] -- If only certain buffers could be so grossly incandescent.
-;;
-;; (use-package solaire-mode
-;;   :ensure t
-;;   :hook (((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
-;;          (minibuffer-setup . solaire-mode-in-minibuffer)
-;;          (after-load-theme . solaire-mode-swap-bg)))
-
 (set-face-attribute 'underline nil
                     :underline (cl-case (alist-get 'background-mode (frame-parameters))
                                  ('light
