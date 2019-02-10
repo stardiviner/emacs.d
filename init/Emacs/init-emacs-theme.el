@@ -38,24 +38,24 @@
 
 ;;; [ spacemacs-theme ] -- Spacemacs default color-theme.
 
-(use-package spacemacs-theme
-  :ensure t
-  :no-require t
-  :config (load-theme 'spacemacs-dark t)
-  (set-face-attribute 'mode-line nil
-                      :background (color-darken-name (face-background 'default) 5)
-                      :box '(:color "DarkSlateBlue" :line-width 2))
-  (with-eval-after-load 'ivy
-    (set-face-attribute 'ivy-current-match nil
-                        :background "SeaGreen" :foreground "white"
-                        :weight 'normal)))
+;; (use-package spacemacs-theme
+;;   :ensure t
+;;   :no-require t
+;;   :config (load-theme 'spacemacs-dark t)
+;;   (set-face-attribute 'mode-line nil
+;;                       :background (color-darken-name (face-background 'default) 5)
+;;                       :box '(:color "DarkSlateBlue" :line-width 2))
+;;   (with-eval-after-load 'ivy
+;;     (set-face-attribute 'ivy-current-match nil
+;;                         :background "SeaGreen" :foreground "white"
+;;                         :weight 'normal)))
 
 ;;; [ one-themes ] -- One color scheme.
 
-;; (use-package one-themes
-;;   :ensure t
-;;   :no-require t
-;;   :config (load-theme 'one-dark t))
+(use-package one-themes
+  :ensure t
+  :no-require t
+  :config (load-theme 'one-dark t))
 
 ;;; [ doom-themes ] -- an opinionated pack of modern color-themes.
 
@@ -63,16 +63,18 @@
 ;;   :ensure t
 ;;   :no-require t
 ;;   :config
-;;   (load-theme 'doom-solarized-light t)
-;;   ;; (load-theme 'doom-one t)
+;;   (load-theme 'doom-one t)
+;;   ;; (load-theme 'doom-one-light t)
+;;   ;; (load-theme 'doom-solarized-light t)
 ;;   ;; (load-theme 'doom-spacegrey t)
+;;
 ;;   ;; Enable flashing mode-line on errors
 ;;   (doom-themes-visual-bell-config)
 ;;
 ;;   ;; Enable custom neotree theme (all-the-icons must be installed!)
-;;   (doom-themes-neotree-config)
+;;   ;; (doom-themes-neotree-config)
 ;;   ;; or for treemacs users
-;;   (doom-themes-treemacs-config)
+;;   ;; (doom-themes-treemacs-config)
 ;;
 ;;   ;; Corrects (and improves) org-mode's native fontification.
 ;;   (doom-themes-org-config))
