@@ -57,28 +57,6 @@
   :no-require t
   :config (load-theme 'one-dark t))
 
-;;; [ doom-themes ] -- an opinionated pack of modern color-themes.
-
-;; (use-package doom-themes
-;;   :ensure t
-;;   :no-require t
-;;   :config
-;;   (load-theme 'doom-one t)
-;;   ;; (load-theme 'doom-one-light t)
-;;   ;; (load-theme 'doom-solarized-light t)
-;;   ;; (load-theme 'doom-spacegrey t)
-;;
-;;   ;; Enable flashing mode-line on errors
-;;   (doom-themes-visual-bell-config)
-;;
-;;   ;; Enable custom neotree theme (all-the-icons must be installed!)
-;;   ;; (doom-themes-neotree-config)
-;;   ;; or for treemacs users
-;;   ;; (doom-themes-treemacs-config)
-;;
-;;   ;; Corrects (and improves) org-mode's native fontification.
-;;   (doom-themes-org-config))
-
 ;;; [ solaire-mode ] -- If only certain buffers could be so grossly incandescent.
 ;;
 ;; (use-package solaire-mode
