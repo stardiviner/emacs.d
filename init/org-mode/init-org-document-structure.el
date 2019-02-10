@@ -72,7 +72,24 @@
 (set-face-attribute 'org-verbatim nil
                     :inherit 'fixed-pitch)
 (set-face-attribute 'org-block nil
-                    :inherit 'fixed-pitch)
+                    :inherit 'fixed-pitch
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 7))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 3))))
+(set-face-attribute 'org-block-begin-line nil
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 10))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 6))))
+(set-face-attribute 'org-block-end-line nil
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 10))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 6))))
 (set-face-attribute 'org-table nil
                     :inherit 'fixed-pitch
                     :height 1.0)
