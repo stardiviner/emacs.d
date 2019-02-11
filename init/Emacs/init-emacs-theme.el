@@ -57,46 +57,6 @@
   :no-require t
   :config (load-theme 'one-dark t))
 
-(set-face-attribute 'underline nil
-                    :underline (cl-case (alist-get 'background-mode (frame-parameters))
-                                 ('light
-                                  (color-darken-name (face-background 'default) 50))
-                                 ('dark
-                                  (color-lighten-name (face-background 'default) 30))))
-(set-face-attribute 'italic nil
-                    :slant 'italic
-                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light "black")
-                                  ('dark "white"))
-                    :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light
-                                   (color-darken-name (face-background 'default) 10))
-                                  ('dark
-                                   (color-lighten-name (face-background 'default) 5)))
-                    )
-(set-face-attribute 'bold nil
-                    :weight 'bold
-                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light "black")
-                                  ('dark "white"))
-                    )
-(set-face-attribute 'bold-italic nil
-                    :weight 'bold :slant 'italic
-                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light "black")
-                                  ('dark "white"))
-                    )
-(set-face-attribute 'underline nil
-                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light "black")
-                                  ('dark "white"))
-                    :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light
-                                   (color-darken-name (face-background 'default) 10))
-                                  ('dark
-                                   (color-lighten-name (face-background 'default) 5)))
-                    )
-
 
 (provide 'init-emacs-theme)
 
