@@ -9,7 +9,8 @@
 
 ;;; [ image-mode ]
 
-(define-key image-mode-map (kbd "q") 'kill-current-buffer)
+(with-eval-after-load 'image-mode
+ (define-key image-mode-map (kbd "q") 'kill-current-buffer))
 
 ;;; [ auto-image-file-mode ]
 
