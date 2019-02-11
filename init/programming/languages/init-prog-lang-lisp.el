@@ -106,17 +106,18 @@
   ;; don't enable `global-hl-sexp-mode' automatically.
   :init (global-hl-sexp-mode -1)
   :config
-  (set-face-attribute 'hl-sexp-face nil
-                      :reverse-video nil :foreground nil
-                      :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('light
-                                     (color-darken-name "gainsboro" 0)
-                                     ;; (color-darken-name (face-background 'default) 8)
-                                     )
-                                    ('dark
-                                     (color-darken-name "SlateGray" 26)
-                                     ;; (color-lighten-name (face-background 'default) 6)
-                                     ))))
+  ;; (set-face-attribute 'hl-sexp-face nil
+  ;;                     :reverse-video nil :foreground nil
+  ;;                     :background (cl-case (alist-get 'background-mode (frame-parameters))
+  ;;                                   ('light
+  ;;                                    (color-darken-name "gainsboro" 0)
+  ;;                                    ;; (color-darken-name (face-background 'default) 8)
+  ;;                                    )
+  ;;                                   ('dark
+  ;;                                    (color-darken-name "SlateGray" 26)
+  ;;                                    ;; (color-lighten-name (face-background 'default) 6)
+  ;;                                    )))
+  )
 
 ;;; [ rainbow-blocks ] -- block syntax highlighting for lisp code.
 
