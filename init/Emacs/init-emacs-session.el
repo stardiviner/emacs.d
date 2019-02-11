@@ -15,6 +15,7 @@
 (use-package desktop
   :ensure t
   :config
+  (setq desktop-files-not-to-save "\\(^/[^/:]*:\\|(ftp)$\\|^/tmp/\\)")
   (let ((desktop-dir (concat user-emacs-directory ".desktop-save")))
     (unless (file-exists-p desktop-dir)
       (make-directory desktop-dir))
