@@ -10,6 +10,7 @@
 ;;; [ Dired ] (Directory editing mode)
 
 (use-package dired
+  :ensure direx
   :defer t
   :bind (("C-x d" . dired)
          :map dired-mode-map
