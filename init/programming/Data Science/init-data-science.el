@@ -6,6 +6,23 @@
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
+;;; [ jupyter ] -- An interface to communicate with Jupyter kernels in Emacs.
+
+(use-package jupyter
+  :ensure t
+  :commands (jupyter-run-repl jupyter-connect-repl jupyter-repl-associate-buffer)
+  :init
+  (require 'ob-jupyter)
+  (add-to-list 'org-babel-load-languages '(jupyter . t) 'append)
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'display-buffer-alist
+               '("^\\*jupyter-repl.*\\*" (display-buffer-below-selected)))
+  (with-eval-after-load 'ob-async
+    (add-to-list 'ob-async-no-async-languages-alist "jupyter-python")
+    (add-to-list 'ob-async-no-async-languages-alist "jupyter-clojure")
+    (add-to-list 'ob-async-no-async-languages-alist "jupyter-julia")
+    (add-to-list 'ob-async-no-async-languages-alist "jupyter-ruby")))
+
 ;;; [ Emacs IPython Notebook (EIN) ] -- IPython notebook client in Emacs
 
 (use-package ein
@@ -24,34 +41,6 @@
   ;; Dynamic JavaScript
   (require 'ein-skewer)
   (setq ein:enable-dynamic-javascript t))
-
-;;; [ ob-ipython ]
-
-;; (use-package ob-ipython
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (add-to-list 'org-babel-load-languages '(ipython . t))
-;;   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-;;   (add-to-list 'org-babel-tangle-lang-exts '("ipython" . "ipynb"))
-;;   :config
-;;   ;; by default open ipython block block with `python-mode'
-;;   ;; (add-to-list 'org-src-lang-modes '("ipython" . python))
-;;   ;; use IJulia backend for IPython notebook
-;;   ;; (add-to-list 'org-src-lang-modes '("ipython" . julia))
-;;
-;;   (setq org-babel-default-header-args:ipython
-;;         '((:exports . "both")
-;;           ;; (:session . nil)
-;;           ;; (:dir . "data/images")
-;;           ))
-;;
-;;   ;; support ox-latex + minted.
-;;   (add-to-list 'org-latex-minted-langs '(ipython "python")))
-
-
-;;; [ Apache Hadoop ]
-
 
 ;;; [ Apache Pig ]
 
