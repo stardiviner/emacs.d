@@ -335,7 +335,7 @@
 
 ;;; Systems
 
-(case system-type
+(cl-case system-type
   ('gnu/linux
    (require 'init-linux))
   ('darwin

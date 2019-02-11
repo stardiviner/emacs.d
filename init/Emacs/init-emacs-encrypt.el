@@ -31,7 +31,7 @@
   (epa-file-enable)
   :config
   (setq epa-file-encrypt-to "stardiviner")
-  (setq epa-file-select-keys (case epa-file-encrypt-to
+  (setq epa-file-select-keys (cl-case epa-file-encrypt-to
                                ('nil t)
                                (t nil)))
   ;; cache passphrase for symmetric encryption.
