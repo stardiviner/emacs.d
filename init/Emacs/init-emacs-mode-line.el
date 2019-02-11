@@ -11,7 +11,15 @@
 
 ;; (require 'init-custom-mode-line)
 ;; (require 'init-powerline)
-(require 'init-doom-modeline)
+
+;;; [ doom-modeline ] -- A minimal and modern mode-line.
+
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode)
+  :init (setq doom-modeline-buffer-file-name-style 'buffer-name
+              doom-modeline-icon nil ; don't use icon will be faster
+              doom-modeline-github nil))
 
 
 (provide 'init-emacs-mode-line)
