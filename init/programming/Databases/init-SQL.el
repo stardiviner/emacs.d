@@ -152,16 +152,18 @@
 ;;; [ ejc-sql ] -- Emacs SQL client uses Clojure JDBC.
 
 (use-package ejc-sql
-  :ensure t
+  ;; :ensure t
+  :load-path "~/Code/Emacs/ejc-sql/"
   :load (ejc-interaction)
   :commands (ejc-connect ejc-connect-existing-repl ejc-sql-mode)
-  :init (setq nrepl-sync-request-timeout 60)
+  :init (setq nrepl-sync-request-timeout 60
+              ejc-connection-validate-timeout 60)
   :config
   (add-to-list 'ob-async-no-async-languages-alist "sql")
 
   (add-hook 'ejc-sql-mode-hook
             (lambda ()
-              (setq-local ac-delay 0.3)
+              (setq-local ac-delay 0.2)
               (company-mode -1)))
 
   (add-to-list 'display-buffer-alist
@@ -169,7 +171,8 @@
   
   (defun my-ejc-sql-ac-setup ()
     (ejc-sql-mode 1)
-    (auto-complete-mode 1)
+    (unless (eq major-mode 'org-mode)
+      (auto-complete-mode 1))
     (ejc-ac-setup))
   (add-hook 'sql-mode-hook #'my-ejc-sql-ac-setup)
 
@@ -179,23 +182,32 @@
   
   (ejc-create-connection
    "PostgreSQL-db-postgres"
-   :classpath "~/.m2/repository/postgresql/postgresql/9.3-1102.jdbc41/postgresql-9.3-1102.jdbc41.jar"
+   :classpath (concat "~/.m2/repository/postgresql/postgresql/"
+                      "9.3-1102.jdbc41/postgresql-9.3-1102.jdbc41.jar")
    :dbtype "postgresql"
    :host "localhost"
    :port "5432"
    :user "postgres"
-   :password "324324"
-   :dbname "postgres")
+   :password "****"
+   :dbname "test")
 
   (ejc-create-connection
    "MySQL-db-test"
-   :classpath "~/.m2/repository/mysql/mysql-connector-java/5.1.32/mysql-connector-java-5.1.32.jar"
+   :classpath (concat "~/.m2/repository/mysql/mysql-connector-java/"
+                      "5.1.32/mysql-connector-java-5.1.32.jar")
    :dbtype "mysql"
    :host "localhost"
    :port "3306"
    :user "root"
-   :password "324324"
+   :password "****"
    :dbname "test")
+
+  (ejc-create-connection
+   "SQLite-db-temp"
+   :classpath (concat "~/.m2/repository/org/xerial/sqlite-jdbc/"
+                      "3.25.2/sqlite-jdbc-3.25.2.jar")
+   :subprotocol "sqlite"
+   :subname (file-truename "~/test.db"))
   )
 
 
