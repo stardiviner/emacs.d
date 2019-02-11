@@ -67,8 +67,7 @@
                 (variable-pitch-mode 1) ; only in Org-mode instead of global!!!
                 (set-face-attribute 'default nil :height 130)
                 (set-face-attribute 'fixed-pitch nil :family "Fira Code")
-                (set-face-attribute 'variable-pitch nil :family "Georgia")
-                )))
+                (set-face-attribute 'variable-pitch nil :family "Georgia"))))
   ;; TODO: how to disable upper settings after disable `olivetti-mode'?
   (defun poet-theme-disable ()
     (interactive)

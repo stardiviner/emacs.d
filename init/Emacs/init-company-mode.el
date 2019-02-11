@@ -20,7 +20,7 @@
   :config
   (setq company-minimum-prefix-length 3
         ;; decrease this delay when you can type code continuously fast.
-        company-idle-delay .1
+        company-idle-delay 0.1
         company-tooltip-idle-delay 0.1
         ;; determine which characters trigger auto-completion the selected candidate.
         company-auto-complete nil ; nil: don't auto select the first candidate when input `company-auto-complete-chars'.
@@ -34,8 +34,7 @@
         ;; company-tooltip-minimum-width 0 ; the minimum width of the tooltip's inner area
         company-tooltip-margin 1 ; width of margin columns to show around the tooltip
         company-selection-wrap-around t ; loop over candidates
-        company-search-regexp-function #'company-search-flex-regexp
-        )
+        company-search-regexp-function #'company-search-flex-regexp)
 
   ;; `company-mode' frontend showing the selection as if it had been inserted.
   ;; (add-to-list 'company-frontends 'company-preview-frontend)
@@ -246,8 +245,7 @@
           (company-tern . (:icon "yellow3"))
           (company-lua . (:icon "LightBlue"))
           (company-edbi . (:icon "DarkGreen"))
-          (company-restclient . (:icon "DarkTurquoise"))
-          ))
+          (company-restclient . (:icon "DarkTurquoise"))))
 
   (setq company-box-icons-unknown (all-the-icons-faicon "code" :height 0.8 :v-adjust -0.05))
   (setq company-box-icons-yasnippet (all-the-icons-faicon "file-code-o" :height 0.8 :v-adjust -0.05))

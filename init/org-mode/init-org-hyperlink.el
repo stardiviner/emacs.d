@@ -65,8 +65,7 @@ Optional for Org-mode file: `LINK'."
     (erase-buffer)
     (insert-image gif-image)
     (image-animate gif-image nil t)
-    (local-set-key (kbd "q") 'kill-current-buffer)
-    ))
+    (local-set-key (kbd "q") 'kill-current-buffer)))
 
 (setq org-file-apps
       `(;; Web Pages

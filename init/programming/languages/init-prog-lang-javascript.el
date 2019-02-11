@@ -95,8 +95,7 @@
       (define-key js2-mode-map (kbd "M-.") nil)
       (add-to-list (make-local-variable 'xref-backend-functions)
                    'xref-js2-xref-backend))
-    (add-hook 'js2-mode-hook #'my/xref-js2-setup))
-  )
+    (add-hook 'js2-mode-hook #'my/xref-js2-setup)))
 
 ;;; [ js3-mode ]
 
@@ -160,8 +159,7 @@
     (local-set-key (kbd "C-c C-c") 'js-send-region)
     (local-set-key (kbd "C-c C-b") 'js-send-buffer)
     (local-set-key (kbd "C-c M-b") 'js-send-buffer-and-go))
-  (add-hook 'js2-mode-hook #'my/js-comint-setup-keybindings)
-  )
+  (add-hook 'js2-mode-hook #'my/js-comint-setup-keybindings))
 
 ;;; [ nodejs-repl ] -- Run Node.js REPL and communicate the process.
 
@@ -208,8 +206,8 @@
                '("\\*skewer-repl\\*" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
                '("\\*skewer-error\\*" . (display-buffer-below-selected)))
-  (advice-add 'run-skewer :before #'httpd-start) ; auto start httpd before `run-skewer'.
-  )
+  ;; auto start httpd before `run-skewer'.
+  (advice-add 'run-skewer :before #'httpd-start))
 
 ;;; [ Indium ] -- A JavaScript development environment for Emacs.
 
@@ -228,8 +226,7 @@
   (add-hook 'indium-update-script-source-hook
             (lambda (url)
               (indium-eval
-               (format "window.dispatchEvent(new CustomEvent('patch', {detail: {url: '%s'}}))" url))))
-  )
+               (format "window.dispatchEvent(new CustomEvent('patch', {detail: {url: '%s'}}))" url)))))
 
 ;;; [ jsx-mode ] -- The XML inside of JavaScript.
 

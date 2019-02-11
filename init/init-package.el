@@ -69,8 +69,7 @@
   :ensure t
   :config
   ;; for system-packages
-  (setq system-packages-noconfirm t)
-  )
+  (setq system-packages-noconfirm t))
 
 ;; detect whether ~/.emacs.d/elpa/org-9.1.9/ exist?
 ;; (unless (require 'org nil 'noerror)

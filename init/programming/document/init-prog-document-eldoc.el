@@ -11,10 +11,8 @@
 
 (use-package eldoc
   :ensure t
-  :delight eldoc-mode
-  :init
-  (setq eldoc-idle-delay 1)
-  (add-hook 'prog-mode-hook #'eldoc-mode)
+  :diminish eldoc-mode
+  :init (global-eldoc-mode -1) (add-hook 'prog-mode-hook #'eldoc-mode)
   :config
   ;; ElDoc with most `paredit' command.
   ;; whenever the listed commands are used, ElDoc will automatically refresh the minibuffer.

@@ -58,15 +58,13 @@
                                   ('light
                                    (color-darken-name (face-background 'default) 20))
                                   ('dark
-                                   (color-lighten-name (face-background 'default) 20)))
-                    )
+                                   (color-lighten-name (face-background 'default) 20))))
 (set-face-attribute 'org-agenda-done nil
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light
                                    (color-darken-name (face-background 'default) 20))
                                   ('dark
-                                   (color-lighten-name (face-background 'default) 20)))
-                    )
+                                   (color-lighten-name (face-background 'default) 20))))
 (set-face-attribute 'org-code nil
                     :inherit 'fixed-pitch)
 (set-face-attribute 'org-verbatim nil
