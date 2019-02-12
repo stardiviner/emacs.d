@@ -32,6 +32,12 @@
 (setq org-num-skip-footnotes t)
 (add-hook 'org-mode-hook #'org-num-mode)
 
+;;; [ org-outline-numbering ] -- displays an outline numbering as overlays on Org mode headlines.
+
+;; (use-package org-outline-numbering
+;;   :ensure t
+;;   :init (add-hook 'org-mode-hook #'org-outline-numbering-mode))
+
 ;;; [ org-bullets ]
 
 (use-package org-bullets
