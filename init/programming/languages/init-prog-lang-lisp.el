@@ -101,10 +101,10 @@
 ;;; [ hl-sexp ] -- highlight the current sexp.
 
 (use-package hl-sexp
-  :ensure t
-  :defer t
+  ;; :ensure t
+  :quelpa (hl-sexp :fetcher github :repo "stardiviner/hl-sexp")
   ;; don't enable `global-hl-sexp-mode' automatically.
-  :init (global-hl-sexp-mode -1)
+  ;; :init (global-hl-sexp-mode -1)
   :config
   ;; (set-face-attribute 'hl-sexp-face nil
   ;;                     :reverse-video nil :foreground nil
