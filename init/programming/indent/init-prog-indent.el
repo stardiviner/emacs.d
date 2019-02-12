@@ -36,58 +36,58 @@
 
 ;;; [ indent-guide ]
 
-(use-package indent-guide
-  :ensure t
-  :delight indent-guide-mode
-  :config
-  (setq indent-guide-recursive t
-        ;; - 0 to avoid zero-column guide line.
-        ;; - -1 to show all indent lines.
-        indent-guide-threshold 0
-        ;; indent-guide-delay 0.1
-        )
-
-  ;; custom indent line char
-  ;; 1: use `indent-guide-char'.
-  ;; │ ┃  ▍ ┇ ┋ ┊ ┆ ╽ ╿
-  ;; (setq indent-guide-char "┃")
-  ;; (setq indent-guide-char ":")
-
-  ;; 2: use face-attribute stipple pixmap data.
-  (setq indent-guide-char " ")
-  (set-face-attribute 'indent-guide-face nil
-                      :inherit nil
-                      ;; small dots
-                      ;; :stipple (list 7 4 (string 16 0 0 0))
-                      ;; straight line
-                      :stipple (list 7 4 (string 16 16 16 16))
-                      )
-
-  (set-face-attribute 'indent-guide-face nil
-                      :background nil
-                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('light
-                                     (color-darken-name (face-background 'default) 35))
-                                    ('dark
-                                     (color-lighten-name (face-background 'default) 20))))
-
-  ;; global
-  ;; works with `indent-guide-global-mode'
-  (with-eval-after-load 'indent-guide
-    (add-to-list 'indent-guide-inhibit-modes 'org-mode)
-    (add-to-list 'indent-guide-inhibit-modes 'web-mode)
-    (add-to-list 'indent-guide-inhibit-modes 'emacs-lisp-mode)
-    (add-to-list 'indent-guide-inhibit-modes 'clojure-mode)
-    (add-to-list 'indent-guide-inhibit-modes 'lisp-mode)
-    (add-to-list 'indent-guide-inhibit-modes 'scheme-mode))
-  ;; (indent-guide-global-mode)
-  
-  ;; specific modes
-  (defun my/indent-guide-mode-enable ()
-    (unless (member major-mode indent-guide-inhibit-modes)
-      (indent-guide-mode 1)))
-  (add-hook 'prog-mode-hook #'my/indent-guide-mode-enable)
-  )
+;; (use-package indent-guide
+;;   :ensure t
+;;   :delight indent-guide-mode
+;;   :config
+;;   (setq indent-guide-recursive t
+;;         ;; - 0 to avoid zero-column guide line.
+;;         ;; - -1 to show all indent lines.
+;;         indent-guide-threshold 0
+;;         ;; indent-guide-delay 0.1
+;;         )
+;;
+;;   ;; custom indent line char
+;;   ;; 1: use `indent-guide-char'.
+;;   ;; │ ┃  ▍ ┇ ┋ ┊ ┆ ╽ ╿
+;;   ;; (setq indent-guide-char "┃")
+;;   ;; (setq indent-guide-char ":")
+;;
+;;   ;; 2: use face-attribute stipple pixmap data.
+;;   (setq indent-guide-char " ")
+;;   (set-face-attribute 'indent-guide-face nil
+;;                       :inherit nil
+;;                       ;; small dots
+;;                       ;; :stipple (list 7 4 (string 16 0 0 0))
+;;                       ;; straight line
+;;                       :stipple (list 7 4 (string 16 16 16 16))
+;;                       )
+;;
+;;   (set-face-attribute 'indent-guide-face nil
+;;                       :background nil
+;;                       :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+;;                                     ('light
+;;                                      (color-darken-name (face-background 'default) 35))
+;;                                     ('dark
+;;                                      (color-lighten-name (face-background 'default) 20))))
+;;
+;;   ;; global
+;;   ;; works with `indent-guide-global-mode'
+;;   (with-eval-after-load 'indent-guide
+;;     (add-to-list 'indent-guide-inhibit-modes 'org-mode)
+;;     (add-to-list 'indent-guide-inhibit-modes 'web-mode)
+;;     (add-to-list 'indent-guide-inhibit-modes 'emacs-lisp-mode)
+;;     (add-to-list 'indent-guide-inhibit-modes 'clojure-mode)
+;;     (add-to-list 'indent-guide-inhibit-modes 'lisp-mode)
+;;     (add-to-list 'indent-guide-inhibit-modes 'scheme-mode))
+;;   ;; (indent-guide-global-mode)
+;;
+;;   ;; specific modes
+;;   (defun my/indent-guide-mode-enable ()
+;;     (unless (member major-mode indent-guide-inhibit-modes)
+;;       (indent-guide-mode 1)))
+;;   (add-hook 'prog-mode-hook #'my/indent-guide-mode-enable)
+;;   )
 
 
 ;;; [ aggressive-indent-mode ]
