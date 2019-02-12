@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: ffmpeg cut video clip
+# key: babel-ffmpeg-clip
+# group: babel.ffmpeg
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+#+NAME: timestamp-subtract
+| start timestamp | end timestamp | estimate |
+|-----------------+---------------+----------|
+|  ${3:00:02:12}  | ${4:00:07:47} |          |
+$0#+TBLFM: @2\$3=\$1+\$2;T
+
+#+begin_src sh :var input="${1:FILENAME.mp4}" :var start=timestamp-subtract[2,0] :var estimate=timestamp-subtract[2,2] :var output="${2:output.mp4}"
+ffmpeg -i "$input" -s $start -t $estimate -c copy "$out" && mpv "$out"
+#+end_src

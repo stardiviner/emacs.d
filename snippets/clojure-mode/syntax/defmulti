@@ -3,4 +3,6 @@
 # key: defmulti
 # group: defmulti
 # --
-defmulti ${1:name} ${2:dispatch-fn}
+defmulti ${1:name}
+"docstring"
+${2:keyword / dispatch-fn}

@@ -3,4 +3,4 @@
 # key: script-load-file
 # group: javascript.script
 # --
-<script src="${1:/path/to/js}"></script>
+<script type="text/javascript" src="${1:/path/to/js}"></script>

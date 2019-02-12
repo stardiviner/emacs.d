@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
 # name: defmethod
-# key: defm
+# key: defmethod
 # group: defmethod
 # --
-defmethod ${1:name} ${2:match}
+defmethod ${1:name} ${2:matched value for dispatch-fn}
   [${3:args}]
   $0
