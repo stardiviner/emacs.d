@@ -205,23 +205,6 @@
 
 ;;; [ Dynamic Blocks ] -- [C-c C-x x]
 
-;;; [ HTML, Computer Input/Output literal macro ]
-;;; insert the kbd tag
-(defun my/org-insert-key (key)
-  "Ask for a KEY then insert its description.
-Will work on both Org Mode and any mode that accepts plain html."
-  (interactive "kType key sequence: ")
-  (let* ((orgp (derived-mode-p 'org-mode))
-         (tag (if orgp "@@html:<kbd>@@%s@@html:</kbd>@@" "<kbd>%s</kbd>")))
-    (if (null (equal key (kbd "C-m")))
-        (insert
-         (format tag (help-key-description key nil)))
-      ;; If you just hit RET.
-      (insert (format tag ""))
-      (forward-char (if orgp -1 -6)))))
-
-(define-key org-mode-map (kbd "C-c k") #'my/org-insert-key)
-
 ;;; [ org-outline-numbering ] -- displays an outline numbering as overlays on Org mode headlines.
 
 ;; (use-package org-outline-numbering
