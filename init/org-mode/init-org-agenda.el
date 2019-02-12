@@ -282,6 +282,7 @@
       org-agenda-skip-scheduled-delay-if-deadline 'post-deadline
       org-agenda-skip-scheduled-if-deadline-is-shown t
       org-deadline-past-days 30 ; 10000
+      org-scheduled-past-days 30 ; 10000
       ;; future scheduled items.
       org-scheduled-delay-days 0 ; XXX: if change default 0, will invalid `org-habit'.
       ;; XXX: org-agenda-ignore-properties '(effort appt stats category)
