@@ -94,6 +94,14 @@
 ;;                                )
 ;;                 elpy-company-post-completion-function 'elpy-company-post-complete-parens))
 
+;;; [ anaconda-mode ] -- Code navigation, documentation lookup and completion for Python.
+
+;; (use-package anaconda-mode
+;;   :ensure t
+;;   :ensure company-anaconda
+;;   :after python-mode
+;;   :hook (python-mode . anaconda-mode))
+
 ;;; [ lsp-python ] Python support for lsp-mode with pyls.
 
 (use-package lsp-python
