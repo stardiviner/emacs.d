@@ -77,48 +77,48 @@
 
 ;;; [ ivy-posframe ] -- Using posframe to show Ivy.
 
-(use-package ivy-posframe
-  :ensure t
-  :after ivy
-  :config
-  (setq ivy-posframe-style 'window-bottom-left
-        ivy-fixed-height-minibuffer nil)
-  ;;; replace ivy default with posframe
-  (setq ivy-display-function #'ivy-posframe-display)
-  ;; replace some specific commands
-  (push '(counsel-M-x . ivy-posframe-display-at-window-bottom-left)
-        ivy-display-functions-alist)
-  (push '(completion-at-point . ivy-posframe-display-at-point)
-        ivy-display-functions-alist)
-  (push '(complete-symbol . ivy-posframe-display-at-point)
-        ivy-display-functions-alist)
-  ;; posframe doesn't work well with async sources
-  (push '(swiper . ivy-posframe-display-at-window-bottom-left)
-        ivy-display-functions-alist)
-  (push '(counsel-org-goto . ivy-posframe-display-at-window-bottom-left)
-        ivy-display-functions-alist)
-  ;; fallback mode
-  (push '(t . ivy-posframe-display-at-point) ivy-display-functions-alist)
-  
-  (ivy-posframe-enable)
-  ;; set ivy-posframe frame parameters
-  (setq ivy-posframe-hide-minibuffer t
-        ivy-posframe-parameters `((min-width . 95)
-                                  (min-height . ,ivy-height)
-                                  (internal-border-width . 5)
-                                  (left-fringe . 0)
-                                  (right-fringe . 0))
-        ;; ivy-posframe-width (/ (display-pixel-width) 14)
-        ;; ivy-posframe-border-width 0
-        )
-  ;; set ivy-posframe face
-  (set-face-attribute 'ivy-posframe nil
-                      :foreground (face-foreground 'default)
-                      :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('light
-                                     (color-darken-name (face-background 'default) 10))
-                                    ('dark
-                                     (color-lighten-name (face-background 'default) 10)))))
+;; (use-package ivy-posframe
+;;   :ensure t
+;;   :after ivy
+;;   :config
+;;   (setq ivy-posframe-style 'window-bottom-left
+;;         ivy-fixed-height-minibuffer nil)
+;;   ;;; replace ivy default with posframe
+;;   (setq ivy-display-function #'ivy-posframe-display)
+;;   ;; replace some specific commands
+;;   (push '(counsel-M-x . ivy-posframe-display-at-window-bottom-left)
+;;         ivy-display-functions-alist)
+;;   (push '(completion-at-point . ivy-posframe-display-at-point)
+;;         ivy-display-functions-alist)
+;;   (push '(complete-symbol . ivy-posframe-display-at-point)
+;;         ivy-display-functions-alist)
+;;   ;; posframe doesn't work well with async sources
+;;   (push '(swiper . ivy-posframe-display-at-window-bottom-left)
+;;         ivy-display-functions-alist)
+;;   (push '(counsel-org-goto . ivy-posframe-display-at-window-bottom-left)
+;;         ivy-display-functions-alist)
+;;   ;; fallback mode
+;;   (push '(t . ivy-posframe-display-at-point) ivy-display-functions-alist)
+;;  
+;;   (ivy-posframe-enable)
+;;   ;; set ivy-posframe frame parameters
+;;   (setq ivy-posframe-hide-minibuffer t
+;;         ivy-posframe-parameters `((min-width . 95)
+;;                                   (min-height . ,ivy-height)
+;;                                   (internal-border-width . 5)
+;;                                   (left-fringe . 0)
+;;                                   (right-fringe . 0))
+;;         ;; ivy-posframe-width (/ (display-pixel-width) 14)
+;;         ;; ivy-posframe-border-width 0
+;;         )
+;;   ;; set ivy-posframe face
+;;   (set-face-attribute 'ivy-posframe nil
+;;                       :foreground (face-foreground 'default)
+;;                       :background (cl-case (alist-get 'background-mode (frame-parameters))
+;;                                     ('light
+;;                                      (color-darken-name (face-background 'default) 10))
+;;                                     ('dark
+;;                                      (color-lighten-name (face-background 'default) 10)))))
 
 
 (provide 'init-ivy)
