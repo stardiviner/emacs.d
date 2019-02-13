@@ -3,4 +3,4 @@
 # key: .
 # group: syntax
 # --
-.$0 ${1:object}
+.${2:method} ${1:object}$0

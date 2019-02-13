@@ -4,9 +4,10 @@
 # group: babel.clojure.plot
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
-#+begin_src clojure :results graphics file link :dir "data/images" :file "${1:plot-filename}.png" :var dir=(concat (file-name-directory (buffer-file-name)) "data/images/")
+#+HEADERS: :var cwd=(concat (file-name-directory (buffer-file-name)) "data/images/")
+#+begin_src clojure :results graphics file link :dir "data/images" :file "${1:plot-filename}.png"
 (use '(incanter core stats datasets charts io pdf))
 
 (def ${2:plot-var} $0)
-(save $2 (str dir "$1.png"))
+(save $2 (str cwd "$1.png"))
 #+end_src

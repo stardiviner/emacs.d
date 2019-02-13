@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: comment
-# key: c
-# group: comment
-# --
-(comment
- $0)

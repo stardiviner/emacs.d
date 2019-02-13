@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: clojure Leiningen
+# key: babel-clojure-lein-install
+# group: babel.clojure
+# --
+**** Leiningen/Boot
+
+#+begin_src clojure :eval no
+$0
+#+end_src
