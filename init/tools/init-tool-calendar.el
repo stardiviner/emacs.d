@@ -40,11 +40,6 @@
         calendar-longitude 120.37954302845002)
   
   :config
-  (set-face-attribute 'calendar-today nil
-                      :inherit 'highlight
-                      :foreground "white" :background "dark green"
-                      :box '(:color "dark gray" :line-width -1 :style nil))
-
   ;; mark holidays
   (setq calendar-mark-holidays-flag t
         calendar-view-holidays-initially-flag t)
@@ -149,79 +144,6 @@
         cfw:fchar-top-left-corner ?╔
         cfw:fchar-top-right-corner ?╗)
   :config
-  ;; Faces
-  ;; Year / Month
-  (set-face-attribute 'cfw:face-title nil
-                      :foreground "forest green"
-                      :weight 'bold
-                      :height 2.0)
-  ;; 1-31
-  (set-face-attribute 'cfw:face-default-day nil
-                      :foreground "dark gray")
-  ;; 1-31 (N)
-  (set-face-attribute 'cfw:face-day-title nil
-                      :foreground "dim gray")
-  ;; Week (1-5)
-  (set-face-attribute 'cfw:face-header nil
-                      :foreground "blue"
-                      :weight 'bold)
-  ;; Saturday
-  (set-face-attribute 'cfw:face-saturday nil
-                      :inherit 'cfw:face-day-title
-                      :foreground "OrangeRed"
-                      :weight 'bold)
-  ;; Sunday
-  (set-face-attribute 'cfw:face-sunday nil
-                      :inherit 'cfw:face-day-title
-                      :foreground "OrangeRed"
-                      :weight 'bold)
-  ;; Holidays
-  (set-face-attribute 'cfw:face-holiday nil
-                      :inherit 'cfw:face-day-title
-                      :foreground "DodgerBlue"
-                      :weight 'bold :underline t)
-  ;; Grid
-  (set-face-attribute 'cfw:face-grid nil
-                      :inherit nil
-                      :foreground "#888888")
-  ;; ??
-  (set-face-attribute 'cfw:face-default-content nil
-                      :foreground "gray")
-  ;; ??
-  (set-face-attribute 'cfw:face-periods nil
-                      :foreground "cyan")
-  ;; ??
-  (set-face-attribute 'cfw:face-annotation nil
-                      :foreground "dark green")
-  ;; past days
-  (set-face-attribute 'cfw:face-disable nil
-                      :foreground "light gray"
-                      :strike-through t)
-  ;; today (N)
-  (set-face-attribute 'cfw:face-today-title nil
-                      :inherit 'cfw:face-day-title
-                      :foreground "red" :background "dark gray"
-                      :weight 'bold)
-  ;; the today events grid
-  (set-face-attribute 'cfw:face-today nil
-                      :inherit 'cfw:face-day-title
-                      :background "gainsboro"
-                      :weight 'normal)
-  ;; current select
-  (set-face-attribute 'cfw:face-select nil
-                      :foreground "white"
-                      :background "DeepPink")
-  ;; toolbar [ < ] [ > ] [Today ]                      [Day] [Week] [Two Weeks] [Month]
-  (set-face-attribute 'cfw:face-toolbar nil
-                      :foreground "black")
-  (set-face-attribute 'cfw:face-toolbar-button-on nil
-                      :foreground "black"
-                      :box '(:color "dim gray" :line-width 1)
-                      :weight 'bold)
-  (set-face-attribute 'cfw:face-toolbar-button-off nil
-                      :foreground "dark gray"
-                      :weight 'normal)
-
   ;; General setting
   ;; (require 'calfw-org)
   (defun calfw:week ()
