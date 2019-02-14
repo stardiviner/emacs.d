@@ -189,7 +189,7 @@
         company-tooltip-idle-delay 0.5 ; fix company-box tooltip swagging.
         company-box-doc-delay 0.5)
   ;; disable auto `company-box-doc' timer.
-  (setq company-box-doc-enable nil)
+  (setq company-box-doc-enable t)
   :config
   (add-to-list 'company-box-frame-parameters
                '(font . "-SRC-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
