@@ -96,10 +96,10 @@
                  '("^\\*image-dired-display-image\\*" (display-buffer-same-window)))
     :config (image-diredx-async-mode 1) (image-diredx-adjust-mode 1))
 
-  ;; rename files editing their names in dired buffers.
-  (autoload 'wdired-change-to-wdired-mode "wdired.el" nil t)
+  ;; [ wdired ] -- rename files editing their names in dired buffers.
+  (require 'wdired)
   (define-key dired-mode-map (kbd "C-c C-p") 'wdired-change-to-wdired-mode)
-  ;; (setq wdired-allow-to-change-permissions t)
+  (setq wdired-allow-to-change-permissions t)
 
   (use-package dired-x ; extra Dired functionality
     ;; don't bind [C-x C-j] from `dired-x'. (conflict with `ace-window')
@@ -111,8 +111,7 @@
     (setq dired-omit-files
           (concat dired-omit-files
                   "\\|^.DS_STORE$\\|^.projectile$"
-                  "\\(?:.*\\.\\(?:aux\\|log\\|synctex\\.gz\\|run\\.xml\\|bcf\\|am\\|in\\)\\'\\)\\|^\\.\\|-blx\\.bib"))
-    )
+                  "\\(?:.*\\.\\(?:aux\\|log\\|synctex\\.gz\\|run\\.xml\\|bcf\\|am\\|in\\)\\'\\)\\|^\\.\\|-blx\\.bib")))
 
   ;; use `all-the-icons' icons to display for files.
   (use-package all-the-icons-dired
