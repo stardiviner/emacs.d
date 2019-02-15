@@ -69,7 +69,9 @@
 ;;; [ ob-browser-chrome ] -- Export Org HTML SRC blocks as PNG files using Chrome in "headless" mode.
 
 (use-package ob-html-chrome
-  :ensure t
+  ;; :ensure t
+  :quelpa (ob-html-chrome :fetcher github :repo "stardiviner/ob-html-chrome")
+  ;; :load-path "~/Code/Emacs/ob-html-chrome"
   :init (setq org-babel-html-chrome-chrome-executable
               (executable-find "google-chrome-unstable")))
 
