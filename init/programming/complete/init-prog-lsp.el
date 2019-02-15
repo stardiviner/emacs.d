@@ -88,7 +88,10 @@
 
 (use-package dap-mode
   :ensure t
-  :after lsp)
+  :after lsp
+  :config
+  (dap-mode t)
+  (dap-ui-mode t))
 
 
 (provide 'init-prog-lsp)
