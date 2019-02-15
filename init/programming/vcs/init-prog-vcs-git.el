@@ -48,8 +48,7 @@
     (setq-local company-dabbrev-ignore-buffers
                 #'my:company-dabbrev-ignore-except-magit-diff)
     (setq company-dabbrev-code-other-buffers 'all))
-  (add-hook 'git-commit-setup-hook #'my:git-commit-setup-hook)
-  )
+  (add-hook 'git-commit-setup-hook #'my:git-commit-setup-hook))
 
 ;;; [ Magit ]
 
@@ -60,11 +59,25 @@
   :commands (magit-status)
   :bind (:map prog-vcs-prefix
               ("v" . magit-status)
-              ("l" . magit-list-repositories))
-  :init
-  ;; Git WIP (work in progress) in Magit
-  (add-to-list 'magit-no-confirm 'safe-with-wip)
+              ("l" . magit-list-repositories)
 
+              :map prog-vcs-git-prefix
+              ("F" . magit-log-buffer-file)
+              ("b" . magit-blame-popup)
+              ("v" . magit-status)
+              ("s" . magit-stage)
+              ("c" . magit-commit-create)
+              ("C" . magit-commit-amend)
+              ("d" . magit-diff)
+              ("l" . magit-log)
+              ("o" . magit-checkout)
+              ("M-b" . magit-bisect)
+              ("B" . magit-blame)
+              ("f" . magit-file-popup))
+  :init
+  (defalias 'magit-log-region 'magit-log-buffer-file)
+  (define-key prog-vcs-git-prefix (kbd "r") 'magit-log-region)
+  
   ;; Performance
   ;; (setq magit-refresh-status-buffer nil)
   ;; (setq auto-revert-buffer-list-filter
@@ -78,26 +91,13 @@
   
   ;; let magit status buffer display in current window.
   (setq magit-display-buffer-function 'display-buffer)
-  ;; enable color for Magit logs by default
-  (add-to-list 'magit-log-arguments "--color")
   ;; show gravatar in Magit revision.
   (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
-
-  ;; keybindings
-  (define-key prog-vcs-git-prefix (kbd "F") 'magit-log-buffer-file)
-  (define-key prog-vcs-git-prefix (kbd "b") 'magit-blame-popup)
-  (define-key prog-vcs-git-prefix (kbd "v") 'magit-status)
-  (define-key prog-vcs-git-prefix (kbd "s") 'magit-stage)
-  (define-key prog-vcs-git-prefix (kbd "c") 'magit-commit-create)
-  (define-key prog-vcs-git-prefix (kbd "C") 'magit-commit-amend)
-  (define-key prog-vcs-git-prefix (kbd "d") 'magit-diff)
-  (define-key prog-vcs-git-prefix (kbd "l") 'magit-log)
-  (defalias 'magit-log-region 'magit-log-buffer-file)
-  (define-key prog-vcs-git-prefix (kbd "r") 'magit-log-region)
-  (define-key prog-vcs-git-prefix (kbd "o") 'magit-checkout)
-  (define-key prog-vcs-git-prefix (kbd "M-b") 'magit-bisect)
-  (define-key prog-vcs-git-prefix (kbd "B") 'magit-blame)
-  (define-key prog-vcs-git-prefix (kbd "f") 'magit-file-popup)
+  :config
+  ;; Git WIP (work in progress) in Magit
+  (add-to-list 'magit-no-confirm 'safe-with-wip)
+  ;; enable color for Magit logs by default
+  (add-to-list 'magit-log-arguments "--color")
 
   ;; manage popup buffers.
   (add-to-list 'display-buffer-alist
