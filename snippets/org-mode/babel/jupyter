@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: babel jupyter
+# key: babel-jupyter
+# group: babel.jupyter
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+#+begin_src jupyter-${1:language} :kernel ${2:kernel like python3} :session ${3:session}${4: :async yes}
+$0
+#+end_src

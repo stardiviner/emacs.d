@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: jupyter python plot
+# key: babel-jupyter-python-plot
+# group: babel.jupyter
+# --
+#+begin_src jupyter-python :kernel python3 :session py :results graphics file link :file "${1:plot}.png"
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+plt.plot($0)
+#+end_src
