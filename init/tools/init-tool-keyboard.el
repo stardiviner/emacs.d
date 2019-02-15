@@ -9,12 +9,10 @@
 
 ;;; [ selectric-mode ] -- Make your Emacs sound like a proper typewriter.
 
-(use-package selectric-mode
-  :ensure t
-  :commands selectric-mode
-  ;; :config
-  ;; (selectric-mode 1)
-  )
+;; (use-package selectric-mode
+;;   :ensure t
+;;   :commands selectric-mode
+;;   :init (selectric-mode 1))
 
 ;;; [ esonify ] -- An Emacs extension that sonifies your code.
 
