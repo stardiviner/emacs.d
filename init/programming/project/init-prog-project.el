@@ -15,6 +15,7 @@
 
 (use-package projectile
   :ensure t
+  :defer t
   :delight projectile-mode
   :config
   ;; nil: disable caching to fix TRAMP hang on sending password
@@ -31,7 +32,8 @@
 ;;; [ projectile-variable ] -- store project local variables.
 
 (use-package projectile-variable
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ project-shells ] -- manage the shell buffers for each project.
 

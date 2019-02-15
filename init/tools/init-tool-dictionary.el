@@ -110,6 +110,7 @@
 
 (use-package ob-translate
   :ensure t
+  :defer t
   :config
   (add-to-list 'org-babel-load-languages '(translate . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
@@ -126,6 +127,7 @@
 
 (use-package youdao-dictionary
   :ensure t
+  :defer t
   :bind (:map dictionary-prefix ("y" . youdao-dictionary-search-at-point))
   :init
   (add-to-list 'display-buffer-alist
@@ -137,6 +139,7 @@
 (use-package insert-translated-name
   :quelpa (insert-translated-name
            :fetcher github :repo "manateelazycat/insert-translated-name")
+  :defer t
   :init (require 'insert-translated-name)
   :config
   (define-key dictionary-prefix (kbd "SPC") 'insert-translated-name-insert)

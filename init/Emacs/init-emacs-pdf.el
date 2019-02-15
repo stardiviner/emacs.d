@@ -102,6 +102,7 @@
 (use-package org-noter
   :ensure t
   :defer t
+  :commands (org-noter)
   :preface (unless (boundp 'Org-prefix)
              (define-prefix-command 'Org-prefix))
   :bind (:map Org-prefix ("n" . org-noter)))

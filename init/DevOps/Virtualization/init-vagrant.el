@@ -38,8 +38,7 @@
 ;;; [ vagrant-tramp ] --
 
 (use-package vagrant-tramp
-  :ensure t
-  :defer t)
+  :ensure t)
 
 
 (provide 'init-vagrant)

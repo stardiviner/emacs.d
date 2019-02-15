@@ -61,6 +61,7 @@
 
 (use-package dockerfile-mode
   :ensure t
+  :defer t
   :init (add-to-list 'company-keywords-alist
                      '(dockerfile-mode
                        "FROM"
@@ -73,7 +74,8 @@
 ;;; [ docker-compose-mode ] -- Major mode for editing `docker-compose.yml'.
 
 (use-package docker-compose-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ docker-tramp ]
 
@@ -108,6 +110,7 @@ For Org-babel header argument :dir /docker:<name>:."
 
 (use-package k8s-mode
   :ensure t
+  :defer t
   :mode (".*/\\.kube/config\\'" . k8s-mode)
   :hook (k8s-mode . yas-minor-mode))
 
@@ -115,6 +118,7 @@ For Org-babel header argument :dir /docker:<name>:."
 
 (use-package kubernetes
   :ensure t
+  :defer t
   :commands (kubernetes-display-pods kubernetes-display-configmaps))
 
 ;;; [ kubernetes-tramp ] -- offers a TRAMP method for Docker containers deployed in a Kubernetes cluster.

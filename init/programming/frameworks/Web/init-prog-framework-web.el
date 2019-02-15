@@ -11,8 +11,8 @@
 
 (use-package web-mode
   :ensure t
-  :mode ("\\.html\\'" . web-mode)
   :defer t
+  :mode ("\\.html\\'" . web-mode)
   :config
   ;; fontifications
   (setq web-mode-enable-element-tag-fontification t

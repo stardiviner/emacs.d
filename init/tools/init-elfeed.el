@@ -159,6 +159,7 @@
 
 (use-package elfeed-org
   :ensure t
+  :defer t
   :init (elfeed-org)
   (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed/elfeed.org")))
 

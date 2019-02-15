@@ -10,6 +10,7 @@
 
 (use-package jupyter
   :ensure t
+  :defer t
   :commands (jupyter-run-repl jupyter-connect-repl jupyter-repl-associate-buffer)
   :init
   (require 'ob-jupyter)

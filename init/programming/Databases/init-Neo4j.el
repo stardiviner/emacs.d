@@ -12,6 +12,7 @@
 
 (use-package n4js
   :ensure t
+  :defer t
   :commands (n4js-start)
   :init (defalias 'run-neo4j 'n4js-start))
 
@@ -23,12 +24,14 @@
 ;;; [ cypher-mode ] -- major mode for editing cypher scripts.
 
 (use-package cypher-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ ob-cypher ] -- Query Neo4j using Cypher in Org Mode source blocks.
 
 (use-package ob-cypher
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 

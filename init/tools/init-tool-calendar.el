@@ -14,6 +14,7 @@
 
 (use-package calendar
   :ensure t
+  :defer t
   :bind (:map calendar-prefix ("c" . calendar))
   :init
   ;; set calendar style
@@ -51,6 +52,7 @@
 
 ;;; Localized National Holidays
 (use-package holidays
+  :defer t
   :init
   ;; `calfw' collects holidays from function `calendar-holiday-list' and the
   ;; customize variable `calendar-holidays' which belongs to `holidays.el` in
@@ -61,6 +63,7 @@
   (setq holiday-christian-holidays nil))
 
 (use-package cal-china
+  :defer t
   :init
   ;; display the ‘celestial-stem’ (天干) and the ‘terrestrial-branch’ (地支) in Chinese:
   (setq calendar-chinese-celestial-stem
@@ -72,6 +75,7 @@
 
 (use-package cal-china-x
   :ensure t
+  :defer t
   :config
   (setq calendar-mark-holidays-flag t)
   (setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
@@ -132,6 +136,7 @@
 
 (use-package calfw
   :ensure t
+  :defer t
   :bind (:map calendar-prefix ("x" . cfw:open-calendar-buffer))
   :init
   ;; Grid frame
@@ -191,6 +196,7 @@
 
 (use-package calfw-org
   :ensure t
+  :defer t
   :commands (cfw:open-org-calendar)
   :bind (:map calendar-prefix ("o" . cfw:open-org-calendar))
   :init
