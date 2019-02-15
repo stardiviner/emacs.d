@@ -145,7 +145,8 @@
 
 ;;; [ Emphasis ]
 
-(setq org-hide-emphasis-markers t)
+(setq org-hide-emphasis-markers t
+      org-hide-macro-markers t)
 
 ;;; [ Entities ]
 
