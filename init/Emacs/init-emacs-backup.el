@@ -65,7 +65,20 @@
 ;; auto-save buffer contents to the visited files directly and will also run all
 ;; save-related hooks. See Info node `Saving' for details of the save process.
 
-(auto-save-visited-mode t)
+;; (auto-save-visited-mode t)
+
+;;; [ super-save ] -- Auto-save buffers, based on your activity, Save Emacs buffers when they lose focus.
+
+(use-package super-save
+  :ensure t
+  :init (setq auto-save-default nil ; turn off Emacs built-in `auto-save-mode'.
+              super-save-auto-save-when-idle t
+              super-save-remote-files nil)
+  :config (super-save-mode 1)
+  ;; add integration with ace-window
+  (add-to-list 'super-save-triggers 'ace-window)
+  ;; save on find-file
+  (add-to-list 'super-save-hook-triggers 'find-file-hook))
 
 
 (provide 'init-emacs-backup)
