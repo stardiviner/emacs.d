@@ -9,13 +9,14 @@
 
 ;;; add Org-mode's `capf' default to `pcomplete' for `company-mode'.
 
-(defun my-org-mode-completion-setting ()
+(defun my/org-mode-completion-setting ()
   "My basic settings for org-mode completion."
   (interactive)
-  (setq-local company-minimum-prefix-length 2)
+  (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil 'local)
 
-  (add-hook 'completion-at-point-functions
-            'pcomplete-completions-at-point nil 'local)
+  (setq-local company-minimum-prefix-length 4)
+  (setq-local company-idle-delay 0.3)
+  (setq-local company-tooltip-idle-delay 0.1)
 
   (make-local-variable 'company-auto-complete-chars)
   (setq company-auto-complete-chars '(?\( ?. ?#))
@@ -29,7 +30,7 @@
           (company-keywords :with company-abbrev)
           company-ispell)))
 
-(add-hook 'org-mode-hook #'my-org-mode-completion-setting)
+(add-hook 'org-mode-hook #'my/org-mode-completion-setting)
 
 
 (provide 'init-org-complete)

@@ -58,8 +58,7 @@
     (if (local-variable-if-set-p 'company-backends)
         (add-to-list 'company-backends `(,backend :with company-yasnippet))
       (add-to-list (make-local-variable 'company-backends)
-                   `(,backend :with company-yasnippet))
-      ))
+                   `(,backend :with company-yasnippet))))
 
   ;; [ company-ispell ]
   ;; (setq company-ispell-dictionary "/usr/share/dict/words")
@@ -185,11 +184,9 @@
   :hook (company-mode . company-box-mode)
   :load (all-the-icons)
   :init
-  (setq company-idle-delay .3
-        company-tooltip-idle-delay 0.5 ; fix company-box tooltip swagging.
-        company-box-doc-delay 0.5)
   ;; disable auto `company-box-doc' timer.
   (setq company-box-doc-enable t)
+  (setq company-box-doc-delay 0.5)
   :config
   (add-to-list 'company-box-frame-parameters
                '(font . "-SRC-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
@@ -198,8 +195,8 @@
   (add-to-list 'company-box-frame-parameters
                '(internal-border-width . 2))
   (add-to-list 'company-box-frame-parameters
-               '(border-color . "gray"))
-
+               '(border-color . "dim gray"))
+  
   (defun company-box-doc--get-frame ()
     (frame-parameter nil 'company-box-doc-frame))
   (defun company-box-child-frame-reset ()
