@@ -99,23 +99,22 @@
 ;;; [ org-emms ] -- Play multimedia files from org-mode with EMMS.
 
 (use-package org-emms
+  :after emms
   :ensure t)
 
 ;; [ emms-bilibili ] -- Play Bilibili user favourite videos in EMMS.
+
 (use-package emms-bilibili
   ;; :ensure t
   :load-path "~/Code/Emacs/emms-bilibili"
   :defer t
+  :after emms
   :commands (emms-bilibili)
-  :init
-  (setq emms-bilibili-mid
-        (string-to-number (my/json-read-value my/account-file 'emms-bilibili)))
-  (setq emms-bilibili-use-popup t)
-  :config
+  :config (setq emms-bilibili-mid
+                (string-to-number (my/json-read-value my/account-file 'emms-bilibili))
+                emms-bilibili-use-popup t)
   (use-package youtube-dl
-    :load-path "~/Code/Emacs/youtube-dl-emacs/"
-    )
-  )
+    :load-path "~/Code/Emacs/youtube-dl-emacs/"))
 
 
 (provide 'init-emms)

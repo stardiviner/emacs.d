@@ -15,15 +15,12 @@
   (setq erc-nick "stardiviner"
         erc-try-new-nick-p nil
         erc-user-full-name "Christopher M. Miles"
-        erc-email-userid "numbchild@gmail.com"
-        )
+        erc-email-userid "numbchild@gmail.com")
   ;; [ password ]
   (setq erc-prompt-for-password nil
-        erc-password (my/json-read-value my/account-file 'erc)
-        )
+        erc-password (my/json-read-value my/account-file 'erc))
   ;; encoding
   (setq  erc-server-coding-system '(utf-8 . utf-8))
-
 
   ;; [ NickServ ]
   (require 'erc-services)
@@ -36,8 +33,7 @@
         `((freenode ((,(eval erc-nick) . ,(my/json-read-value my/account-file 'erc))
                      ("Evanescence" . ,(my/json-read-value my/account-file 'erc))))
           ;; (oftc (("numbchild" . "PASSWORD")))
-          )
-        )
+          ))
 
   ;; auto ghost yourself.
   (defun erc-ghost-maybe (server nick)
@@ -78,8 +74,7 @@ The function is suitable for `erc-after-connect'."
            ;; "#docker"
            ;; "#hackerrank"
            ;; "#dc5" ; #0xDEATHCODE
-           )
-          ))
+           )))
 
   ;; [ disconnect ]
   ;;
@@ -101,8 +96,7 @@ The function is suitable for `erc-after-connect'."
       (erc
        :server "irc.freenode.net" :port 6667
        :nick "stardiviner" :password (my/json-read-value my/account-file 'erc)
-       :full-name "christopher M. miles")
-      ))
+       :full-name "christopher M. miles")))
 
   (define-key tools-prefix (kbd "i") 'my-erc-start-or-switch)
 
@@ -191,8 +185,7 @@ The function is suitable for `erc-after-connect'."
     :ensure t
     :config
     (add-to-list 'erc-modules 'scrolltoplace)
-    (erc-update-modules)
-    )
+    (erc-update-modules))
 
   ;; [ Filling & Wrap ]
   (require 'erc-fill)
@@ -209,8 +202,7 @@ The function is suitable for `erc-after-connect'."
   (setq erc-timestamp-format "[%H:%M]")
   (setq erc-timestamp-use-align-to t
         erc-timestamp-right-column nil
-        erc-timestamp-format-right "[%H:%M]"
-        )
+        erc-timestamp-format-right "[%H:%M]")
 
   (set-face-attribute 'erc-prompt-face nil
                       :inherit 'fixed-pitch)
@@ -332,8 +324,7 @@ The function is suitable for `erc-after-connect'."
      (concat user-emacs-directory
              "resources/audio/Hacking Game/track-intro.wav")
      ;; "voice-connecting.wav", "voice-welcome.wav"
-     )
-    )
+     ))
 
   (defun my/erc-play-sound-hacking ()
     "Play sound when tick on ERC."

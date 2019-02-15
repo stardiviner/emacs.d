@@ -37,8 +37,7 @@
   (add-to-list 'display-buffer-alist
                '("^\\*magithub-dash\\*" (display-buffer-same-window)))
   (add-to-list 'display-buffer-alist
-               '("^\\*magithub:.*\\*" (display-buffer-same-window)))
-  )
+               '("^\\*magithub:.*\\*" (display-buffer-same-window))))
 
 
 

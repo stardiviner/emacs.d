@@ -78,14 +78,10 @@ For pasting source code in Email."
               ("b" . yagist-buffer)
               ("l" . yagist-list))
   :config
-  ;; *Encrypt your token by using `kaesar' package with AES encryption algorithm.
-  ;; (setq yagist-encrypt-risky-config t)
-
   (setq yagist-view-gist t ; view gist URL after posted.
         yagist-working-directory "~/.gist"
         ;; yagist-working-directory-alist
-        yagist-github-token (my/json-read-value my/account-file 'yagist)
-        )
+        yagist-github-token (my/json-read-value my/account-file 'yagist))
 
   ;; Fix `yagist' detect major-mode issue.
   (defun yagist-anonymous-file-name-for-org-babel ()
@@ -96,8 +92,7 @@ For pasting source code in Email."
                 ;; (cdr (assoc (nth 0 (org-babel-get-src-block-info)) org-babel-tangle-lang-exts))
                 ))
       (setq buffer-file-name
-            (concat (file-name-sans-extension (buffer-file-name)) (format ".%s" ext)))
-      ))
+            (concat (file-name-sans-extension (buffer-file-name)) (format ".%s" ext)))))
   (advice-add 'yagist-anonymous-file-name :before #'yagist-anonymous-file-name-for-org-babel)
   )
 
