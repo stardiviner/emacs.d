@@ -35,53 +35,23 @@
 (global-set-key (kbd "M-[") 'backward-sentence)
 
 
-;;; [ which-key ]
+;;; [ which-key ] -- Display available keybindings in popup.
 
 (use-package which-key
   :ensure t
   :defer t
   :delight which-key-mode
   :init (which-key-mode 1)
-  (setq which-key-lighter "")
   :bind ("C-h C-h" . which-key-show-top-level)
   :config
   ;; (which-key-setup-side-window-right-bottom)
   (setq which-key-popup-type 'side-window)
   (setq which-key-side-window-location 'bottom)
-  ;; (setq which-key-side-window-max-height 0.25)
-  
-  (setq which-key-idle-delay 1.0)
-
-  (setq which-key-max-description-length 27
-        ;; which-key-separator " ⇢ "
-	      which-key-separator " "
+  (setq which-key-separator " "
         which-key-show-prefix 'mode-line ; 'mode-line 'echo 'left, 'top
         which-key-show-remaining-keys t
-        )
-
-  (setq which-key-enable-extended-define-key t)
-  (setq which-key-sort-order 'which-key-key-order-alpha)
-
-  (add-to-list 'which-key-replacement-alist '(("TAB" . nil) . ("↹" . nil)))
-  (add-to-list 'which-key-replacement-alist '(("RET" . nil) . ("⏎" . nil)))
-  (add-to-list 'which-key-replacement-alist '(("DEL" . nil) . ("⇤" . nil)))
-  (add-to-list 'which-key-replacement-alist '(("SPC" . nil) . ("␣" . nil)))
-
-  (push (cons '(nil . "paredit-mode") 
-              (lambda (kb)
-                (cons (car kb)
-                      (if paredit-mode
-                          "[x] paredit-mode"
-                        "[ ] paredit-mode"))))
-        which-key-replacement-alist)
-  
-  (setq which-key-highlighted-command-list
-        '("toggle"
-          "register" "bookmark"
-          "rectangle" "iedit"
-	        "describe"
-          ("emacs" . highlight)
-          ))
+        ;; which-key-enable-extended-define-key t
+        which-key-sort-order 'which-key-key-order-alpha)
 
   (set-face-attribute 'which-key-highlighted-command-face nil
 		                  :underline nil :weight 'bold)
