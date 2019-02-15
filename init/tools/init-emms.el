@@ -26,6 +26,11 @@
   (emms-all)
   ;; [ players ]
   (emms-default-players)
+  ;; play:
+  ;; next: 'emms-next-noerror
+  ;; random: 'emms-random
+  ;; only play current song: 'emms-stop
+  (setq emms-player-next-function 'emms-stop)
 
   ;; [ Playlist ]
   ;; format
