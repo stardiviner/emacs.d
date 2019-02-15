@@ -56,6 +56,11 @@
                                 (awk-mode . "awk")
                                 (other . "gnu")))
 
+(defun my/c-mode-common-header-switch ()
+  "Open header file at point."
+  (local-set-key (kbd "C-c C-o") 'ff-find-other-file))
+(add-hook 'c-mode-common-hook #'my/c-mode-common-header-switch)
+
 
 ;;; [ ob-C ]
 
@@ -142,11 +147,6 @@
       (lsp-cquery-enable)))
   (add-hook 'c-mode-common-hook #'my:cquery-setup))
 
-;;; open header files at point.
-(defun my/c-mode-common-header-switch ()
-  "Open header file at point."
-  (local-set-key (kbd "C-c C-o") 'ff-find-other-file))
-(add-hook 'c-mode-common-hook #'my/c-mode-common-header-switch)
 
 ;;; [ ccls ] -- C/C++/Objective-C lang server support for lsp-mode using Clang.
 

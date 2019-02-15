@@ -31,10 +31,8 @@
 
   ;; wrap around region
   (setq yas-wrap-around-region t) ; snippet expansion wraps around selected region.
-
   ;; stacked expansion
   (setq yas-triggers-in-field t) ; allow stacked expansions (snippets inside field).
-
   (setq yas-snippet-revival t) ; re-activate snippet field after undo/redo.
 
   ;; (setq yas-key-syntaxes '("w" "w_" "w_." "w_.()" yas-try-key-from-whitespace))
@@ -71,10 +69,8 @@ $0`(yas-escape-text yas-selected-text)`"
     (interactive)
     (make-local-variable 'yas-snippet-dirs)
     (add-to-list 'yas-snippet-dirs
-                 (concat (projectile-project-root) ".snippets"))
-    )
-  (add-hook 'projectile-find-file-hook #'yasnippet-project-local)
-  )
+                 (concat (projectile-project-root) ".snippets")))
+  (add-hook 'projectile-find-file-hook #'yasnippet-project-local))
 
 ;;; [ ivy-yasnippet ] -- preview yasnippet snippets with Ivy.
 

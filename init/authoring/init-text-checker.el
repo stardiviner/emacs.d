@@ -35,14 +35,12 @@
         ispell-complete-word-dict "/usr/share/dict/words"
         ;; ispell-alternate-dictionary "/usr/share/dict/words"
         ispell-silently-savep t ; `ispell-pdict-save' save silently. stop confirm when saving personal dictionary.
-        ispell-parser 'use-mode-name
-        )
+        ispell-parser 'use-mode-name)
   ;;; skip regions in Org-mode for ispell.
   (add-to-list 'ispell-skip-region-alist '("[^\000-\377]+"))
   (add-to-list 'ispell-skip-region-alist '(":\\(PROPERTIES\\|LOGBOOK\\):" . ":END:"))
   (add-to-list 'ispell-skip-region-alist '("#\\+begin_src" . "#\\+end_src"))
-  (add-to-list 'ispell-skip-region-alist '("#\\+begin_example" . "#\\+end_example"))
-  )
+  (add-to-list 'ispell-skip-region-alist '("#\\+begin_example" . "#\\+end_example")))
 
 ;;; [ Flyspell ] -- [M-$], [C-;]
 
@@ -50,7 +48,6 @@
   :ensure t
   :ensure-system-package (ispell aspell)
   :defer t
-  :commands (flyspell-buffer)
   :preface
   ;; don't use [M-TAB] keybinding to correct word.
   (setq flyspell-use-meta-tab nil)
@@ -110,18 +107,14 @@
   ;; I highly suggest setting ‘flyspell-issue-message-flag’ to nil, as printing
   ;; messages for every word (when checking the entire buffer) causes an enormous
   ;; slowdown.
-  (setq flyspell-issue-message-flag nil)
-  )
+  (setq flyspell-issue-message-flag nil))
 
 ;;; [ flyspell-correct ] -- correcting words with flyspell via custom interface.
 
 (use-package flyspell-correct
   :ensure t
-  :defer t
   :after flyspell
-  :bind (:map flyspell-mode-map
-              ("C-." . flyspell-correct-word-generic))
-  )
+  :bind (:map flyspell-mode-map ("C-." . flyspell-correct-word-generic)))
 
 
 

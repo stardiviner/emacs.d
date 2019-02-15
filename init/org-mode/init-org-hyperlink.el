@@ -137,7 +137,7 @@ Optional for Org-mode file: `LINK'."
 ;; `org-link-types'
 ;; `org-link-set-parameters'
 
-;;; fontify broken link.
+;;; fontify invalid file: link.
 (org-link-set-parameters
  "file"
  :face (lambda (path)
