@@ -9,6 +9,9 @@
 
 ;; (setq org-use-property-inheritance t)
 
+(add-to-list 'org-default-properties "LOCATION")
+(add-to-list 'org-default-properties "CLASS")
+
 (add-to-list 'org-default-properties "DATE")
 (add-to-list 'org-default-properties "TIME")
 (add-to-list 'org-default-properties "SOURCE")
