@@ -21,7 +21,7 @@
   
   ;; auto raise popup menu
   (setq ac-auto-start 2)
-  (setq ac-delay 0.05)
+  (setq ac-delay 0.1)
   (setq ac-auto-show-menu t)
   (setq ac-show-menu-immediately-on-auto-complete t)
   (setq ac-menu-height 10)
