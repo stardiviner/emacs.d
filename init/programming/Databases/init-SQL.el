@@ -89,11 +89,10 @@
 
 ;;; [ sqlformat ] -- Reformat SQL using sqlformat or pgformatter.
 
-(use-package sqlformat
-  :ensure t
-  :init (add-hook 'sql-mode-hook 'sqlformat-mode)
-  ;; (setq sqlformat-mode-format-on-save t)
-  )
+;; (use-package sqlformat
+;;   :ensure t
+;;   :init (add-hook 'sql-mode-hook 'sqlformat-mode)
+;;   (setq sqlformat-mode-format-on-save t))
 
 ;;; [ edbi ]
 
