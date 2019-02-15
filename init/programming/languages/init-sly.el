@@ -35,7 +35,7 @@
   (add-hook 'sly-mrepl-mode-hook #'my-lisp-repl-common-settings)
 
   ;; `sly-simple-completions', `sly-flex-completions'
-  (setq sly-complete-symbol-function #'sly-simple-completions)
+  ;; (setq sly-complete-symbol-function #'sly-simple-completions)
   
   (define-key sly-prefix-map (kbd "M-h") 'sly-documentation-lookup)
   (define-key sly-mrepl-mode-map (kbd "C-c C-k") 'sly-mrepl-clear-recent-output)
