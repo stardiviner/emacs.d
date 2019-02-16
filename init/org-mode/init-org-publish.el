@@ -14,7 +14,7 @@
 ;;; [ ox-html ]
 
 ;;; Allow displaying source code block using "klipse".
-(setq org-html-klipsify-src t)
+(setq org-html-klipsify-src nil)
 
 (setq org-html-allow-name-attribute-in-anchors t)
 
