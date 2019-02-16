@@ -39,8 +39,7 @@
         calendar-time-zone +480
         calendar-latitude 29.90256956936341
         calendar-longitude 120.37954302845002)
-  
-  :config
+
   ;; mark holidays
   (setq calendar-mark-holidays-flag t
         calendar-view-holidays-initially-flag t)
@@ -52,7 +51,6 @@
 
 ;;; Localized National Holidays
 (use-package holidays
-  :defer t
   :init
   ;; `calfw' collects holidays from function `calendar-holiday-list' and the
   ;; customize variable `calendar-holidays' which belongs to `holidays.el` in
@@ -63,7 +61,6 @@
   (setq holiday-christian-holidays nil))
 
 (use-package cal-china
-  :defer t
   :init
   ;; display the ‘celestial-stem’ (天干) and the ‘terrestrial-branch’ (地支) in Chinese:
   (setq calendar-chinese-celestial-stem
@@ -75,7 +72,6 @@
 
 (use-package cal-china-x
   :ensure t
-  :defer t
   :config
   (setq calendar-mark-holidays-flag t)
   (setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
@@ -136,7 +132,6 @@
 
 (use-package calfw
   :ensure t
-  :defer t
   :bind (:map calendar-prefix ("x" . cfw:open-calendar-buffer))
   :init
   ;; Grid frame
@@ -196,18 +191,12 @@
 
 (use-package calfw-org
   :ensure t
-  :defer t
   :commands (cfw:open-org-calendar)
   :bind (:map calendar-prefix ("o" . cfw:open-org-calendar))
-  :init
-  ;; (setq cfw:org-agenda-schedule-args '(:timestamp))
-  ;; (setq cfw:org-overwrite-default-keybinding nil)
-
-  ;; org-capture template
-  (setq cfw:org-capture-template
-        '("D" "[D] calfw2org" entry
-          (file nil)
-          "* %?\n %(cfw:org-capture-day)")))
+  :init (setq cfw:org-capture-template
+              '("D" "[D] calfw2org" entry
+                (file nil)
+                "* %?\n %(cfw:org-capture-day)")))
 
 ;; [ calfw-cal ] -- for Emacs Diary
 
