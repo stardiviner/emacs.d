@@ -428,32 +428,33 @@
   :ensure htmlize
   :defer t
   :preface (setq org-reveal-note-key-char nil) ; avoid register old #+BEGIN_NOTES.
-  :init (require 'ox-reveal))
+  :init (require 'ox-reveal)
+  :config (setq org-reveal-root "./reveal.js"))
 
-(add-to-list 'org-publish-project-alist
-             `("slides-data"
-               :base-directory ,(concat my-org-publish-source "Slides/data")
-               :base-extension any
-               :publishing-directory ,(concat my-org-publish-destination "Slides/data")
-               :recursive t
-               :publishing-function org-publish-attachment))
-
-(add-to-list 'org-publish-project-alist
-             `("slides-org"
-               :base-directory ,(concat my-org-publish-source "Slides")
-               :base-extension "org"
-               :publishing-directory ,(concat my-org-publish-destination "Slides")
-               :publishing-function org-reveal-publish-to-reveal
-               :recursive t
-               :exclude-tags ("noexport" "note")
-               :reveal-single-file t))
-
-(add-to-list 'org-publish-project-alist
-             '("Slides" :components ("slides-org" "slides-data")))
+;; (add-to-list 'org-publish-project-alist
+;;              `("slides-data"
+;;                :base-directory ,(concat my-org-publish-source "Slides/data")
+;;                :base-extension any
+;;                :publishing-directory ,(concat my-org-publish-destination "Slides/data")
+;;                :recursive t
+;;                :publishing-function org-publish-attachment))
+;;
+;; (add-to-list 'org-publish-project-alist
+;;              `("slides-org"
+;;                :base-directory ,(concat my-org-publish-source "Slides")
+;;                :base-extension "org"
+;;                :publishing-directory ,(concat my-org-publish-destination "Slides")
+;;                :publishing-function org-reveal-publish-to-reveal
+;;                :recursive t
+;;                :exclude-tags ("noexport" "note")
+;;                :reveal-single-file t))
+;;
+;; (add-to-list 'org-publish-project-alist
+;;              '("Slides" :components ("slides-org" "slides-data")))
 
 (add-to-list 'org-publish-project-alist
              '("WEBSITE"
-               :components ("assets" "About" "Blog" "Thought" "Literature" "Slides" "Index")))
+               :components ("assets" "About" "Blog" "Thought" "Literature" "Index")))
 
 
 (defun my-org-publish-finished-notify (args)
