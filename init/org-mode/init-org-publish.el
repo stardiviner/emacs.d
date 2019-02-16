@@ -41,7 +41,7 @@
 ;;; use a specific theme for `ox-org'.
 (setq org-html-htmlize-output-type 'inline-css)
 ;;; FIXME: this seems does not work.
-(setq my:org-html-export-theme 'spacemacs-dark)
+(setq my:org-html-export-theme 'leuven)
 (defun my:ox-org-with-theme (orig-fun &rest args)
   (load-theme my:org-html-export-theme)
   (unwind-protect
