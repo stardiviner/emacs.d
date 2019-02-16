@@ -163,6 +163,7 @@
   ;; hot load dependencies.
   (add-to-list 'cider-jack-in-dependencies '("com.cemerick/pomegranate" "1.1.0"))
   (add-to-list 'cider-jack-in-dependencies '("datawalk" "0.1.12"))
+  (add-to-list 'cider-jack-in-dependencies '("io.github.erdos/erdos.assert" "0.1.0"))
   (add-to-list 'cider-jack-in-dependencies '("criterium" "0.4.4"))
   ;; auto add incanter as dependency for Org Mode clojure Babel generate plot image result.
   ;; (add-to-list 'cider-jack-in-dependencies '("incanter" "1.9.2"))
