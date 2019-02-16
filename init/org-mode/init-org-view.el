@@ -29,7 +29,8 @@
 
 ;;; [ org-num ] -- Dynamic Headlines Numbering.
 
-(setq org-num-skip-footnotes t)
+(setq org-num-skip-footnotes t
+      org-num-skip-unnumbered t)
 ;; (add-hook 'org-mode-hook #'org-num-mode)
 
 ;;; [ org-bullets ]
