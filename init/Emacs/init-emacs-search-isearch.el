@@ -98,17 +98,15 @@
 
 ;;; [ Swpier ] -- gives you an overview as you search for a regex.
 
-(use-package swiper
-  :ensure t
-  :defer t
-  ;; :bind ("C-s" . swiper)
-  :bind ("C-s" . counsel-grep-or-swiper)
-  :init (setq counsel-grep-base-command "grep -E -i -n -e %s %s")
-  :config
-  (set-face-attribute 'swiper-line-face nil
-                      :inherit nil
-                      :foreground nil)
-  )
+;; (use-package swiper
+;;   :ensure t
+;;   :defer t
+;;   ;; :bind ("C-s" . swiper)
+;;   :bind ("C-s" . counsel-grep-or-swiper)
+;;   :init (setq counsel-grep-base-command "grep -E -i -n -e %s %s")
+;;   :config (set-face-attribute 'swiper-line-face nil
+;;                               :inherit nil
+;;                               :foreground nil))
 
 
 (provide 'init-emacs-search-isearch)
