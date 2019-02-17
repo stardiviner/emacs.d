@@ -19,7 +19,6 @@
 (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
 (add-to-list 'org-babel-load-languages '(clojure . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images 'append)
 
 
 

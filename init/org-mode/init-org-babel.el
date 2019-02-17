@@ -161,6 +161,9 @@ but `delete-file' is ignored."
     (org-babel-tangle '(4))))
 (define-key org-babel-map (kbd "M-t") 'my/org-babel-tangle-append)
 
+;;; auto re-display inline images when source block generate graphics image file link result.
+(add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images 'append)
+
 ;;; [ ob-async ] -- enables asynchronous execution of org-babel src blocks for *any* languages.
 
 (use-package ob-async
