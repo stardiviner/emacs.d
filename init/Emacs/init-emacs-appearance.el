@@ -138,6 +138,25 @@
 ;; (setq-default word-wrap t)
 ;; (setq-default truncate-partial-width-windows 50)
 
+(define-fringe-bitmap 'left-curly-arrow
+  [#b00011000
+   #b00011000
+   #b00000000
+   #b00011000
+   #b00011000
+   #b00000000
+   #b00011000
+   #b00011000])
+(define-fringe-bitmap 'right-curly-arrow
+  [#b00011000
+   #b00011000
+   #b00000000
+   #b00011000
+   #b00011000
+   #b00000000
+   #b00011000
+   #b00011000])
+
 ;;; [ auto fill ] -- auto fill (break line) paragraphs like hitting [M-q].
 
 (setq-default fill-column 80
