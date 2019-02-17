@@ -9,13 +9,6 @@
 
 ;;; [ benchmark-init.el ] -- Benchmark your Emacs initialization
 
-;;; Usage:
-;;
-;; - [benchmark-init/activate]
-;; - [benchmark-init/deactivate]
-;; - [benchmark-init/show-durations-tree]
-;; - [benchmark-init/show-durations-tabulated]
-
 (use-package benchmark-init
   :ensure t
   :config
@@ -28,6 +21,7 @@
 
 (use-package esup
   :ensure t
+  :defer t
   :commands (esup))
 
 

@@ -22,8 +22,7 @@
 (setq backup-by-copying t
       backup-by-copying-when-mismatch t
       backup-by-copying-when-privileged-mismatch t
-      backup-by-copying-when-linked t
-      )
+      backup-by-copying-when-linked t)
 
 ;; (setq backup-directory-alist
 ;;       '(("." . ".emacs_backups")) ; save backups in $(pwd)/.emacs_backups/filename.bak
@@ -71,6 +70,7 @@
 
 (use-package super-save
   :ensure t
+  :defer t
   :init (setq auto-save-default nil ; turn off Emacs built-in `auto-save-mode'.
               super-save-auto-save-when-idle t
               super-save-remote-files nil)

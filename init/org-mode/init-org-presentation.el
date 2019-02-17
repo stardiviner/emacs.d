@@ -40,20 +40,21 @@
   :init
   ;; "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
   ;; (concat user-emacs-directory "init/org-mode/reveal.js")
-  (setq org-reveal-root (expand-file-name (concat user-emacs-directory "Org-mode/reveal.js/")))
-  (setq org-reveal-highlight-css "%r/lib/css/zenburn.css")
-  (setq org-reveal-theme "blood")
+  (setq org-reveal-root (expand-file-name (concat user-emacs-directory "Org-mode/reveal.js/"))
+        org-reveal-single-file t
+        org-reveal-theme "blood"
+        org-reveal-highlight-css "%r/lib/css/zenburn.css"
+        org-reveal-rolling-links t
+        org-reveal-default-frag-style t)
+  :config
   (add-to-list 'org-reveal-plugins 'highlight)
-  (add-to-list 'org-reveal-plugins 'multiplex)
-  (setq org-reveal-single-file t)
-  (setq org-reveal-rolling-links t)
-  (setq org-reveal-default-frag-style t)
-  )
+  (add-to-list 'org-reveal-plugins 'multiplex))
 
 ;;; [ ox-spectacle ] -- Exports Org-Mode to Spectacle HTML presentation.
 
 (use-package ox-spectacle
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ ox-ioslide ] -- Export org-mode to Google I/O HTML5 slide.
 

@@ -56,6 +56,7 @@
 
 (use-package atomic-chrome
   :ensure t
+  :defer t
   :bind (:map atomic-chrome-edit-mode-map ("C-x #" . atomic-chrome-close-current-buffer))
   :init (atomic-chrome-start-server)
   (setq atomic-chrome-default-major-mode 'markdown-mode)
@@ -72,8 +73,7 @@
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=ruby" . ruby-mode)
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=julia" . julia-mode)
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=python" . python-mode)
-          ))
-  )
+          )))
 
 ;;; [ with-editor ]
 

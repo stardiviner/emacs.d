@@ -29,8 +29,7 @@
 (use-package regex-tool
   :ensure t
   :defer t
-  :bind (("M-%" . pcre-query-replace-regexp)
-         :map regex-prefix ("e" . regex-tool)))
+  :bind (("M-%" . pcre-query-replace-regexp) :map regex-prefix ("e" . regex-tool)))
 
 ;;; [ pcre2el ] -- convert between PCRE, Emacs and rx regexp syntax.
 
@@ -78,12 +77,11 @@
   (setq vr/engine 'emacs) ; 'python, 'emacs, 'custom, 'vr/command-python, 'vr/command-custom,
 
   (setq vr/match-separator-use-custom-face t
-        vr/match-separator-string " ⇨ ")
+        vr/match-separator-string " ⇨ "))
 
-  (use-package visual-regexp-steroids
-    :ensure t
-    :defer t)
-  )
+(use-package visual-regexp-steroids
+  :ensure t
+  :defer t)
 
 ;;; Making Elisp regex look nicer
 ;;

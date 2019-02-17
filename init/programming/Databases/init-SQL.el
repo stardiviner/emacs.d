@@ -17,7 +17,6 @@
 (add-to-list 'display-buffer-alist
              '("^\\*SQL:.*\\*" (display-buffer-below-selected)))
 
-
 ;;; [ ob-sql ]
 
 (require 'ob-sql)
@@ -31,7 +30,6 @@
 ;; (add-to-list 'org-babel-default-header-args:sql
 ;;              '(:results . "table"))
 
-
 ;;; [ ob-sql-mode ] -- SQL code blocks evaluated by sql-mode.
 
 (use-package ob-sql-mode
@@ -48,15 +46,14 @@
 
   ;; security guard
   (setq org-confirm-babel-evaluate
-        (lambda (lang body) (string= lang "sql-mode")))
-  )
+        (lambda (lang body) (string= lang "sql-mode"))))
 
-
-;;; [ sql-indent]
+;;; [ sql-indent] -- Support for indenting code in SQL files.
 
 (use-package sql-indent
   :ensure t
-  :config
+  :defer t
+  :init
   (defun sql-indent-setup-local ()
     (make-local-variable 'indent-line-function)
     (setq-local indent-line-function 'sql-indent-line))
@@ -70,11 +67,10 @@
   :ensure t
   :defer t
   :delight sqlup-mode
-  :init
-  (dolist (hook '(sql-mode-hook
-                  sql-interactive-mode-hook
-                  edbi:sql-mode-hook))
-    (add-hook hook #'sqlup-mode))
+  :init (dolist (hook '(sql-mode-hook
+                        sql-interactive-mode-hook
+                        edbi:sql-mode-hook))
+          (add-hook hook #'sqlup-mode))
   :config
   (defun my-sqlup-backward ()
     "Capitalization the word backward."
@@ -84,8 +80,7 @@
     (forward-char 1))
 
   (define-key sql-mode-map (kbd "C-c C-u") 'my-sqlup-backward)
-  (define-key sql-mode-map (kbd "C-c u") 'sqlup-capitalize-keywords-in-region)
-  )
+  (define-key sql-mode-map (kbd "C-c u") 'sqlup-capitalize-keywords-in-region))
 
 ;;; [ sqlformat ] -- Reformat SQL using sqlformat or pgformatter.
 
@@ -153,6 +148,7 @@
 (use-package ejc-sql
   ;; :ensure t
   :load-path "~/Code/Emacs/ejc-sql/"
+  :defer t
   :load (ejc-interaction)
   :commands (ejc-connect ejc-connect-existing-repl ejc-sql-mode)
   :init (setq nrepl-sync-request-timeout 60

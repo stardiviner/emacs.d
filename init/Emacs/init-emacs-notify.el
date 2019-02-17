@@ -22,13 +22,12 @@
 
 (use-package alert
   :ensure t
-  :config
+  :defer t
+  :init
   (setq alert-default-style 'libnotify ; 'notifications
         alert-reveal-idle-time 15
         alert-persist-idle-time 900
-        alert-fade-time 5
-        )
-  )
+        alert-fade-time 5))
 
 
 (provide 'init-emacs-notify)

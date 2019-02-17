@@ -9,14 +9,15 @@
 
 ;;; [ org-contacts ] -- Contacts management in Org-mode.
 
-(require 'org-contacts)
-
-(setq org-contacts-files (list (concat org-directory "/Contacts/Contacts.org")))
-
-(setq org-capture-templates
-      (append '(("C" "[C]ontact"
-                 entry (file (lambda () (car org-contacts-files)))
-                 "** %^{NAME}
+(use-package org-contacts
+  :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+  :defer t
+  :commands (org-contacts-setup-completion-at-point) ; autoload for mu4e contacts completion
+  :init (setq org-contacts-files (list (concat org-directory "/Contacts/Contacts.org")))
+  (setq org-capture-templates
+        (append '(("C" "[C]ontact"
+                   entry (file (lambda () (car org-contacts-files)))
+                   "** %^{NAME}
 :PROPERTIES:
 :AVATAR: %^{Avatar}
 :NICK: %^{Nick}
@@ -58,32 +59,31 @@
 :Mother:
 :Financial-Condition:
 :END:"
-                 :empty-lines 0
-                 :jump-to-captured t
-                 )
-                )
-              org-capture-templates))
+                   :empty-lines 0
+                   :jump-to-captured t
+                   )
+                  )
+                org-capture-templates))
+  (setq org-contacts-matcher
+        "NAME<>\"\"|EMAIL<>\"\"|Mailing-List<>\"\"|ALIAS<>\"\"|RELATIONSHIP<>\"\"|PHONE<>\"\"|ADDRESS<>\"\"|BIRTHDAY<>\"\"|PROGRAMMING-SKILLS<>\"\"|SKILLS<>\"\"|EDUCATION<>\"\"|JOBS<>\"\"|NOTE"
+        )
+  
+  ;; (add-to-list 'org-property-set-functions-alist
+  ;;              '(".*" . org-completing-read))
 
-;; (add-to-list 'org-property-set-functions-alist
-;;              '(".*" . org-completing-read))
+  ;; avatar
+  (setq org-contacts-icon-use-gravatar nil
+        org-contacts-icon-property "AVATAR")
+  
+  ;; Create agenda view for contacts matching NAME.
+  (unless (boundp 'Org-prefix)
+    (define-prefix-command 'Org-prefix))
+  (define-key Org-prefix (kbd "M-c") 'org-contacts)
 
-(setq org-contacts-matcher
-      "NAME<>\"\"|EMAIL<>\"\"|Mailing-List<>\"\"|ALIAS<>\"\"|RELATIONSHIP<>\"\"|PHONE<>\"\"|ADDRESS<>\"\"|BIRTHDAY<>\"\"|PROGRAMMING-SKILLS<>\"\"|SKILLS<>\"\"|EDUCATION<>\"\"|JOBS<>\"\"|NOTE"
-      )
-
-;;; avatar
-(setq org-contacts-icon-use-gravatar nil
-      org-contacts-icon-property "AVATAR")
-
-;; Create agenda view for contacts matching NAME.
-(unless (boundp 'Org-prefix)
-  (define-prefix-command 'Org-prefix))
-(define-key Org-prefix (kbd "M-c") 'org-contacts)
-
-(dolist (hook '(message-mode-hook
-                mu4e-compose-mode-hook
-                ))
-  (add-hook hook 'org-contacts-setup-completion-at-point))
+  (dolist (hook '(message-mode-hook
+                  mu4e-compose-mode-hook))
+    (add-hook hook 'org-contacts-setup-completion-at-point))
+  )
 
 (use-package helm-org-rifle
   :ensure t
@@ -100,21 +100,17 @@
   (unless (boundp 'reference-prefix)
     (define-prefix-command 'reference-prefix))
   (define-key Org-prefix (kbd "r") 'reference-prefix)
-  (define-key reference-prefix (kbd "C-c") 'rifle-Contacts-ref)
-  )
+  (define-key reference-prefix (kbd "C-c") 'rifle-Contacts-ref))
 
-
 ;;; [ org-vcard ] -- export and import vCards from within Org-mode.
 
 (use-package org-vcard
   :ensure t
   :defer t
   :commands (org-vcard-export org-vcard-import)
-  :config
-  (setq org-vcard-append-to-existing-import-buffer t
-        org-vcard-append-to-existing-export-buffer t)
-  (setq org-vcard-include-import-unknowns t)
-  )
+  :init (setq org-vcard-append-to-existing-import-buffer t
+              org-vcard-append-to-existing-export-buffer t
+              org-vcard-include-import-unknowns t))
 
 
 (provide 'init-org-contacts)

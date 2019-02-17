@@ -14,26 +14,29 @@
 
 (use-package gitconfig-mode
   :ensure t
+  :defer t
   :mode ("\\.gitconfig\\'" . gitconfig-mode))
 (use-package gitattributes-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 (use-package gitignore-mode
   :ensure t
+  :defer t
   :mode ("\\.gitignore\\'" . gitignore-mode))
 
 ;;; [ gitignore-templates ] -- Access GitHub .gitignore templates.
 
 (use-package gitignore-templates
   :ensure t
-  :commands (gitignore-templates-insert gitignore-templates-new-file)
-  ;; TODO: add a hook for find-file on new file named ".gitignore".
-  )
+  :defer t
+  :commands (gitignore-templates-insert gitignore-templates-new-file))
 
 ;; (use-package gitconfig ; Emacs lisp interface to work with git-config variables.
 ;;   :ensure t)
 
 (use-package git-commit ; edit Git commit messages.
   :ensure t
+  :defer t
   :init
   ;; `company-dabbrev' in git commit buffer.
   ;; https://github.com/company-mode/company-mode/issues/704
@@ -54,8 +57,8 @@
 
 (use-package magit
   :ensure t
-  :defer t
   :ensure-system-package git
+  :defer t
   :commands (magit-status)
   :bind (:map prog-vcs-prefix
               ("v" . magit-status)
@@ -115,13 +118,9 @@
 
 (use-package magit-gitflow
   :ensure t
-  :after magit
   :defer t
-  :init (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
-  :config
-  ;; TODO: check out the original Issue on GitHub.
-  (magit-define-popup-switch 'magit-gitflow-release-finish-popup ?p
-    "Push after finish" "--push" t))
+  :after magit
+  :init (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
 
 ;;; [ magit-p4 ] -- Magit plugin integrating git-p4 add-on.
 
@@ -141,8 +140,7 @@
   :init
   (setq git-messenger:show-detail t ; always show detail message.
         ;; git-messenger:handled-backends '(git svn)
-        git-messenger:use-magit-popup t
-        )
+        git-messenger:use-magit-popup t)
   :config
   ;; enable `magit-commit-mode' after typing 's', 'S', 'd'
   (add-hook 'git-messenger:popup-buffer-hook 'magit-commit-mode))
@@ -187,6 +185,7 @@
 
 (use-package magit-todos
   :ensure t
+  :defer t
   :init (magit-todos-mode 1))
 
 ;;; [ magit-org-todos ] -- Display file "todo.org" (in project root path) to your Magit status section.
@@ -197,7 +196,6 @@
   :defer t
   :after magit
   :init (magit-org-todos-autoinsert)
-  :config
   (with-eval-after-load 'projectile
     (define-key projectile-command-map (kbd "C-o")  'magit-org-todos--magit-visit-org-todo)))
 

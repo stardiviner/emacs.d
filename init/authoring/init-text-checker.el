@@ -51,7 +51,9 @@
   :preface
   ;; don't use [M-TAB] keybinding to correct word.
   (setq flyspell-use-meta-tab nil)
-  :bind (:map flyspell-mode-map
+  :bind (:map text-checker-prefix
+              ("m" . flyspell-mode)
+              :map flyspell-mode-map
               ("C-." . flyspell-correct-word-before-point)
               ("C-," . flyspell-goto-next-error)
               :map text-checker-prefix
@@ -111,8 +113,9 @@
 
 ;;; [ flyspell-correct ] -- correcting words with flyspell via custom interface.
 
-(use-package flyspell-correct
+(use-package flyspell-correct ; [C-.]
   :ensure t
+  :defer t
   :after flyspell
   :bind (:map flyspell-mode-map ("C-." . flyspell-correct-word-generic)))
 

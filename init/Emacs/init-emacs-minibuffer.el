@@ -41,14 +41,12 @@
 ;;       eval-expression-print-length nil
 ;;       )
 
-;;; [ echo area ]
-
-
 ;;; [ savehist ] -- save minibuffer history.
 
-(require 'savehist)
-(setq savehist-autosave-interval (* 60 100))
-(savehist-mode 1)
+(use-package savehist
+  :defer t
+  :init (setq savehist-autosave-interval (* 60 100))
+  (savehist-mode 1))
 
 
 (provide 'init-emacs-minibuffer)

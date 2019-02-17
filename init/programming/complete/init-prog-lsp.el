@@ -15,9 +15,9 @@
 
 (use-package lsp-mode
   :ensure t
+  :defer t
   :commands (lsp lsp-describe-session)
-  :load (lsp-clients) ; load `lsp-clients' for auto configuration of language server clients.
-  ;; :hook (prog-mode . lsp)
+  :hook (prog-mode . lsp)
   :init (setq lsp-auto-configure nil
               lsp-auto-guess-root t
               lsp-prefer-flymake nil) ; use `flycheck' and `lsp-ui'.
@@ -56,20 +56,23 @@
   (dolist (lang org-babel-lang-list)
   (dolist (lang org-babel-lsp-lang-list)
     (eval `(lsp-org-babel-enbale ,lang)))
-  )
+  ;; load `lsp-clients' for auto configuration of language server clients.
+  :config (require 'lsp-clients))
 
 ;; [ lsp-ui ] -- UI modules for lsp-mode.
 
 (use-package lsp-ui
   :ensure t
+  :defer t
+  :after lsp
   :commands lsp-ui-mode
   :hook (lsp-mode . lsp-ui-mode)
   :bind (:map lsp-ui-mode-map
-              ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-              ([remap xref-find-references] . lsp-ui-peek-find-references)
+              ([remap xref-find-definitions] . lsp-ui-peek-find-definitions) ; [M-.]
+              ([remap xref-find-references] . lsp-ui-peek-find-references)   ; [M-?]
               ("C-c C-j" . lsp-ui-imenu))
   :init (setq lsp-ui-doc-enable nil
-              lsp-ui-doc-header t
+              lsp-ui-doc-header nil
               lsp-ui-doc-include-signature t
               ;; lsp-ui-sideline-update-mode 'point
               lsp-ui-doc-position 'at-point))
@@ -78,6 +81,8 @@
 
 (use-package company-lsp
   :ensure t
+  :defer t
+  :after lsp
   :commands company-lsp
   :init
   (defun my:company-lsp-enable ()
@@ -88,6 +93,7 @@
 
 (use-package dap-mode
   :ensure t
+  :defer t
   :after lsp
   :config
   (dap-mode t)

@@ -12,7 +12,7 @@
 (use-package tramp
   :ensure t
   :defer t
-  :config
+  :init
   (with-eval-after-load 'tramp-cache
     (setq tramp-persistency-file-name (concat user-emacs-directory "tramp")))
   
@@ -27,6 +27,7 @@
   ;; <default method>
   (setq tramp-default-method "ssh")
 
+  :config
   ;; (add-to-list 'tramp-default-method-alist
   ;;              '("\\`\\(127\\.0\\.0\\.1\\|::1\\|dark\\|localhost6?\\)\\'"
   ;;                "\\`root\\'"
@@ -87,13 +88,15 @@
                         (member method '("su" "sudo"))))))))
   
   ;; [ sh ]
-  (require 'tramp-sh)
-  (add-to-list 'tramp-remote-path "~/bin")
+  (use-package tramp-sh
+    :defer t
+    :init (add-to-list 'tramp-remote-path "~/bin"))
   
   ;; [ sudo in Tramp ]
 
   ;; [ Android adb ]
-  (require 'tramp-adb)
+  (use-package tramp-adb
+    :defer t)
   )
 
 ;;; [ counsel-tramp ] -- Tramp with Ivy/counsel interface.
@@ -102,9 +105,7 @@
   :ensure t
   :defer t
   :commands (counsel-tramp)
-  :config
-  (defalias 'exit-tramp 'tramp-cleanup-all-buffers)
-  )
+  :init (defalias 'exit-tramp 'tramp-cleanup-all-buffers))
 
 ;;; [ helm-tramp ] -- Tramp with Helm interface.
 

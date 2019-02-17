@@ -17,8 +17,7 @@
          ("j" . dired-next-line)
          ("k" . dired-previous-line)
          ("g" . dired-do-redisplay)
-         ("F" . find-name-dired)
-         )
+         ("F" . find-name-dired))
   :init
   ;; auto refresh dired when file changes
   (setq dired-auto-revert-buffer t)
@@ -48,6 +47,7 @@
   ;; reuse the current dired buffer to visit a directory.
   (use-package dired-single
     :ensure t
+    :defer t
     :init
     (defun my:dired-single-enable ()
       (define-key dired-mode-map [return] 'dired-single-buffer)
@@ -58,11 +58,13 @@
   
   (use-package dired-toggle-sudo        ; browse directory with sudo privileges.
     :ensure t
+    :defer t
     :bind (:map dired-mode-map ("#" . dired-toggle-sudo)))
   
   ;; allow rsync from dired buffers especially for large files.
   (use-package dired-rsync
     :ensure t
+    :defer t
     :commands (dired-rsync))
 
   ;; open file with external program.
@@ -78,23 +80,24 @@
   ;; [image-dired ] -- image in Dired
   (use-package image-dired+
     :ensure t
-    :load (image-dired)
+    :defer t
     :after image-dired
+    :bind (:map image-dired-thumbnail-mode-map
+                ("C-n" . image-diredx-next-line)
+                ("C-p" . image-diredx-previous-line)
+                ("g" . revert-buffer)
+                ("D" . image-diredx-flagged-delete)
+                :map image-dired-minor-mode-map
+                ("C-t D" . image-dired-show-all-from-dir)
+                ("C-t s" . image-dired-slideshow-start))
     :init
-    (define-key image-dired-thumbnail-mode-map (kbd "C-n") 'image-diredx-next-line)
-    (define-key image-dired-thumbnail-mode-map (kbd "C-p") 'image-diredx-previous-line)
-    (define-key image-dired-thumbnail-mode-map (kbd "g") 'revert-buffer)
-    (define-key image-dired-thumbnail-mode-map (kbd "x") 'image-diredx-flagged-delete)
     (setq image-dired-track-movement nil) ; suppress unknown cursor movements.
-    ;; TODO: not work.
-    (define-key image-dired-minor-mode-map (kbd "C-t D") 'image-dired-show-all-from-dir)
-    (define-key image-dired-minor-mode-map (kbd "C-t s") 'image-dired-slideshow-start)
-    (define-key image-dired-thumbnail-mode-map "g" 'revert-buffer)
     (add-to-list 'display-buffer-alist
                  '("^\\*image-dired\\*" (display-buffer-same-window)))
     (add-to-list 'display-buffer-alist
                  '("^\\*image-dired-display-image\\*" (display-buffer-same-window)))
-    :config (image-diredx-async-mode 1) (image-diredx-adjust-mode 1))
+    :config
+    (image-diredx-async-mode 1) (image-diredx-adjust-mode 1))
 
   ;; [ wdired ] -- rename files editing their names in dired buffers.
   (require 'wdired)
@@ -116,24 +119,22 @@
   ;; use `all-the-icons' icons to display for files.
   (use-package all-the-icons-dired
     :ensure t
-    :init (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+    :defer t
+    :init (add-hook 'dired-mode-hook #'all-the-icons-dired-mode))
 
   ;; Edit Filename At Point in an Emacs' dired buffer
   (use-package dired-efap
     :ensure t
-    :bind (:map dired-mode-map
-                ([f2] . dired-efap)
-                ([down-mouse-1] . dired-efap-click))
-    :init
-    (setq dired-efap-use-mouse t)
-    ;; (setq dired-efap-initial-filename-selection 'no-extension)
-    )
+    :defer t
+    :bind (:map dired-mode-map ([f2] . dired-efap) ([down-mouse-1] . dired-efap-click))
+    :init (setq dired-efap-use-mouse t))
 
   ;; `dired-do-*' commands
   (require 'dired-aux)
 
   (use-package dired-narrow
     :ensure t
+    :defer t
     :bind (:map dired-mode-map ("/" . dired-narrow)))
 
   ;; [ make-it-so ] -- Transform files with Makefile recipes.

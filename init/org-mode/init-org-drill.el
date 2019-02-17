@@ -55,7 +55,8 @@
 (define-key Org-prefix (kbd "w") 'my-org-drill)
 
 (use-package stem-english
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (defun my-org-drill-check-not-exist (word)
   "Check word exist in Words.org file?"
@@ -111,6 +112,7 @@
 
 (use-package pamparam
   :ensure t
+  :defer t
   :bind (:map Org-prefix ("M-w" . hydra-pamparam/body)))
 
 

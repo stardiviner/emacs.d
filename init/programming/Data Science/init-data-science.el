@@ -12,8 +12,7 @@
   :ensure t
   :defer t
   :commands (jupyter-run-repl jupyter-connect-repl jupyter-repl-associate-buffer)
-  :init
-  (require 'ob-jupyter)
+  :init (require 'ob-jupyter)
   (add-to-list 'org-babel-load-languages '(jupyter . t) 'append)
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'display-buffer-alist
@@ -28,6 +27,7 @@
 
 (use-package ein
   :ensure t
+  :defer t
   ;; [ ob-ein ] #+begin_src ein[-??]
   :load (ob-ein)
   :commands (ein:jupyter-server-start)

@@ -10,6 +10,7 @@
 (use-package erc
   :ensure t
   :defer t
+  :commands (erc)
   :config
   ;; [ user info ]
   (setq erc-nick "stardiviner"

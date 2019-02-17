@@ -272,8 +272,7 @@
           
           (".*" ,(list (all-the-icons-faicon "question-circle-o")) nil nil :ascent center)
           ;; (".*" '(space . (:width (16))))
-          ))
-  )
+          )))
 
 (setq org-agenda-skip-timestamp-if-done t
       org-agenda-skip-deadline-if-done t
@@ -291,8 +290,7 @@
 ;;; Org-Agenda All Todo List
 (setq org-agenda-todo-ignore-timestamp 'all
       org-agenda-todo-ignore-with-date nil
-      org-agenda-todo-ignore-scheduled 'future
-      )
+      org-agenda-todo-ignore-scheduled 'future)
 
 ;;; entry text mode
 ;; (setq org-agenda-start-with-entry-text-mode t)

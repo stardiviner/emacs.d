@@ -269,7 +269,8 @@
 ;; search multiple words in files.
 (use-package rg
   :ensure t
-  :config
+  :defer t
+  :init
   (defun rg-files-with-matches-beginning (dir file-type word)
     "Construct literal rg comdnam end part for the beginning WORD in DIR with FILE-TYPE."
     (format "rg --files-with-matches --null --type %s -e \"%s\" %s" file-type word dir))

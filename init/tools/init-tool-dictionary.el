@@ -83,24 +83,22 @@
               ("C-r" . google-translate-at-point-reverse)
               ("M-r" . google-translate-query-translate-reverse)
               ("C-b" . google-translate-buffer))
-  :config
-  (setq google-translate-show-phonetic t
-        google-translate-pop-up-buffer-set-focus t
-        ;; `google-translate-supported-languages'
-        google-translate-default-target-language "zh-CN"
-        ;; for `google-translate-smooth-translate' + [C-n/p]
-        google-translate-translation-directions-alist '(("en" . "zh-CN")
-                                                        ("zh-CN" . "en")
-                                                        ("zh-CN" . "ja")
-                                                        ("zh-CN" . "ko")))
-  
+  :preface (setq google-translate-base-url "http://translate.google.cn/translate_a/single"
+                 google-translate-listen-url "http://translate.google.cn/translate_tts"
+                 google-translate--tkk-url "http://translate.google.cn/")
+  :init (setq google-translate-show-phonetic t
+              google-translate-pop-up-buffer-set-focus t
+              ;; `google-translate-supported-languages'
+              google-translate-default-target-language "zh-CN"
+              ;; for `google-translate-smooth-translate' + [C-n/p]
+              google-translate-translation-directions-alist '(("en" . "zh-CN")
+                                                              ("zh-CN" . "en")
+                                                              ("zh-CN" . "ja")
+                                                              ("zh-CN" . "ko")))
+
   (add-to-list 'display-buffer-alist
                '("^\\*Google Translate\\*" .
                  (display-buffer-reuse-window display-buffer-below-selected)))
-
-  (setq google-translate-base-url "http://translate.google.cn/translate_a/single")
-  (setq google-translate-listen-url "http://translate.google.cn/translate_tts")
-  (setq google-translate--tkk-url "http://translate.google.cn/")
   
   ;; enable proxy for translate.google.com
   ;; (add-to-list 'url-proxy-services '("no_proxy" . "^.*(?!translate\\.google\\.com).*$"))

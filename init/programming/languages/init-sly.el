@@ -14,7 +14,7 @@
   :defer t
   :commands (sly)
   :preface (setq sly-default-lisp 'sbcl)
-  :init
+  :config
   ;; setup the `sly-contribs' before starting SLY via [M-x sly].
   (setq sly-contribs `(sly-fancy sly-scratch sly-mrepl sly-autodoc))
   (sly-setup sly-contribs)
@@ -56,8 +56,7 @@
 
   ;; [ ob-lisp ]
   (require 'ob-lisp)
-  (setq org-babel-lisp-eval-fn #'sly-eval)
-  )
+  (setq org-babel-lisp-eval-fn #'sly-eval))
 
 ;;; [ sly-repl-ansi-color ]
 
@@ -88,6 +87,7 @@
 
 (use-package sly-quicklisp
   :ensure t
+  :defer t
   :after sly
   :commands (sly-quickload))
 

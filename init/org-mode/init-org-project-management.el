@@ -1,6 +1,6 @@
 ;;; init-org-project-management.el --- Project Management with Org Mode.
 
-;;; Time-stamp: <2019-02-15 15:37:49 stardiviner>
+;;; Time-stamp: <2019-02-18 14:13:35 stardiviner>
 
 ;;; Commentary:
 
@@ -12,7 +12,8 @@
 
 (use-package org-gantt
   ;; :quelpa (org-gantt :fetcher github :repo "swillner/org-gantt" :files ("org-gantt.el"))
-  :quelpa (org-gantt :fetcher github :repo "stardiviner/org-gantt" :files ("org-gantt.el")))
+  :quelpa (org-gantt :fetcher github :repo "stardiviner/org-gantt" :files ("org-gantt.el"))
+  :defer t)
 
 
 

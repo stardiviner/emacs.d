@@ -139,7 +139,8 @@
 
 ;;; [ Structure Templates ] --  ; expand snippet <[s]
 
-(require 'org-tempo)
+(use-package org-tempo
+  :defer t)
 ;; (add-to-list 'org-structure-template-alist '("?" . "..."))
 ;; `tempo-define-template'
 

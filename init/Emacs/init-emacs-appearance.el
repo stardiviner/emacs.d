@@ -167,6 +167,7 @@
 
 (use-package aggressive-fill-paragraph
   :ensure t
+  :defer t
   :init (add-hook 'text-mode-hook #'aggressive-fill-paragraph-mode)
   :config
   (add-to-list 'afp-fill-keys ?。) ; support for Chinese sentence end.
@@ -212,6 +213,7 @@
   ;; :ensure t
   ;; :quelpa (all-the-icons :fetcher github :repo "stardiviner/all-the-icons.el")
   :load-path "~/Code/Emacs/all-the-icons.el"
+  :defer t
   :config
   (add-to-list 'all-the-icons-mode-icon-alist
                '(erc-mode all-the-icons-faicon "commenting-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))

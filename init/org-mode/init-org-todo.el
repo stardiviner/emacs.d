@@ -207,65 +207,65 @@
 
 ;;; [ Habit ]
 
-(require 'org-habit)
+(use-package org-habit
+  :defer t
+  :init (setq org-habit-show-habits t      ; show habits in agenda.
+              org-habit-show-all-today nil   ; show all habits' consistency graph in today
+              org-habit-show-habits-only-for-today t
+              org-habit-graph-column 70
+              org-habit-preceding-days 14
+              org-habit-following-days 7
+              org-habit-today-glyph ?>
+              org-habit-completed-glyph ?✔)
 
-(setq org-habit-show-habits t      ; show habits in agenda.
-      org-habit-show-all-today nil   ; show all habits' consistency graph in today
-      org-habit-show-habits-only-for-today t
-      org-habit-graph-column 70
-      org-habit-preceding-days 14
-      org-habit-following-days 7
-      org-habit-today-glyph ?>
-      org-habit-completed-glyph ?✔
-      )
+  ;; set task to habit
+  (defun org-habit-apply ()
+    "Apply org-habit on this task."
+    (interactive)
+    (beginning-of-line)
+    (org-todo "HABIT")
+    ;; (format-time-string "%Y-%m-%d %a %H:%M .+1d" (current-time))
+    (org-schedule nil (format-time-string "%Y-%m-%d %a %H:%M" (current-time)))
+    (save-excursion
+      (next-line) (beginning-of-line)
+      (when (looking-at "\\( \\)*SCHEDULED: [^>]*\\(>\\)")
+        (goto-char (match-beginning 2))
+        (insert (concat
+                 " .+"
+                 (read-string "Minimum interval (d,w,m,y): ") "/"
+                 (read-string "Maximum interval (d,w,m,y): ")))))
+    (if (yes-or-no-p "Set schedule delay day? ")
+        (org-schedule '(16)))
+    (org-set-property "STYLE" "habit")
+    (org-set-property "LOGGING" "TODO DONE(!)"))
 
-;; set task to habit
-(defun org-habit-apply ()
-  "Apply org-habit on this task."
-  (interactive)
-  (beginning-of-line)
-  (org-todo "HABIT")
-  ;; (format-time-string "%Y-%m-%d %a %H:%M .+1d" (current-time))
-  (org-schedule nil (format-time-string "%Y-%m-%d %a %H:%M" (current-time)))
-  (save-excursion
-    (next-line) (beginning-of-line)
-    (when (looking-at "\\( \\)*SCHEDULED: [^>]*\\(>\\)")
-      (goto-char (match-beginning 2))
-      (insert (concat
-               " .+"
-               (read-string "Minimum interval (d,w,m,y): ") "/"
-               (read-string "Maximum interval (d,w,m,y): ")))))
-  (if (yes-or-no-p "Set schedule delay day? ")
-      (org-schedule '(16)))
-  (org-set-property "STYLE" "habit")
-  (org-set-property "LOGGING" "TODO DONE(!)"))
-
-(define-key org-mode-map (kbd "C-c C-x M-h") 'org-habit-apply)
-
-;; ;; "Face for future days on which a task shouldn't be done yet."
-;; (set-face-attribute 'org-habit-clear-future-face nil
-;;                     :background "#222222")
-;; ;; "Face for days on which a task shouldn't be done yet."
-;; (set-face-attribute 'org-habit-clear-face nil
-;;                     :background "black")
-;; ;; "Face for days on which a task should start to be done."
-;; (set-face-attribute 'org-habit-ready-future-face nil
-;;                     :background "#444444")
-;; ;; "Face for days on which a task should start to be done."
-;; (set-face-attribute 'org-habit-ready-face nil
-;;                     :background "#888888")
-;; ;; "Face for days on which a task is due."
-;; (set-face-attribute 'org-habit-alert-face nil
-;;                     :background "orange")
-;; ;; "Face for days on which a task is due."
-;; (set-face-attribute 'org-habit-alert-future-face nil
-;;                     :background "DarkOrange2")
-;; ;; "Face for days on which a task is overdue."
-;; (set-face-attribute 'org-habit-overdue-face nil
-;;                     :background "dark red")
-;; ;; "Face for days on which a task is overdue."
-;; (set-face-attribute 'org-habit-overdue-future-face nil
-;;                     :background "DarkSlateBlue")
+  (define-key org-mode-map (kbd "C-c C-x M-h") 'org-habit-apply)
+  ;; :config
+  ;; ;; "Face for future days on which a task shouldn't be done yet."
+  ;; (set-face-attribute 'org-habit-clear-future-face nil
+  ;;                     :background "#222222")
+  ;; ;; "Face for days on which a task shouldn't be done yet."
+  ;; (set-face-attribute 'org-habit-clear-face nil
+  ;;                     :background "black")
+  ;; ;; "Face for days on which a task should start to be done."
+  ;; (set-face-attribute 'org-habit-ready-future-face nil
+  ;;                     :background "#444444")
+  ;; ;; "Face for days on which a task should start to be done."
+  ;; (set-face-attribute 'org-habit-ready-face nil
+  ;;                     :background "#888888")
+  ;; ;; "Face for days on which a task is due."
+  ;; (set-face-attribute 'org-habit-alert-face nil
+  ;;                     :background "orange")
+  ;; ;; "Face for days on which a task is due."
+  ;; (set-face-attribute 'org-habit-alert-future-face nil
+  ;;                     :background "DarkOrange2")
+  ;; ;; "Face for days on which a task is overdue."
+  ;; (set-face-attribute 'org-habit-overdue-face nil
+  ;;                     :background "dark red")
+  ;; ;; "Face for days on which a task is overdue."
+  ;; (set-face-attribute 'org-habit-overdue-future-face nil
+  ;;                     :background "DarkSlateBlue")
+  )
 
 ;;; Stuck Project: Find projects you need to review. [C-c o a #]
 
@@ -280,10 +280,10 @@
 
 ;;; [ inline task ]
 
-(require 'org-inlinetask)
-
-(setq org-inlinetask-default-state "TODO"
-      org-inlinetask-show-first-star nil)
+(use-package org-inlinetask
+  :defer t
+  :init (setq org-inlinetask-default-state "TODO"
+              org-inlinetask-show-first-star nil))
 
 ;;; [ Task Dependencies ]
 
@@ -319,6 +319,7 @@
 
 (use-package org-edna
   :ensure t
+  :defer t
   :init (org-edna-load))
 
 

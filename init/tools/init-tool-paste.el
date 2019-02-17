@@ -13,7 +13,8 @@
 ;;; on sites like GitHub, and Stack Overflow.
 (use-package ox-gfm
   :ensure t
-  :config
+  :defer t
+  :init
   (defun my:org-paste-gfm ()
     "Convert selected region to GitHub Flawed Markdown and copy to clipboard.
 For pasting on sites like GitHub, and Stack Overflow."
@@ -45,6 +46,7 @@ For pasting on sites like GitHub, and Stack Overflow."
 
 (use-package ox-slack
   :quelpa (ox-slack :fetcher github :repo "titaniumbones/ox-slack")
+  :defer t
   :commands (org-slack-export-to-clipboard-as-slack)
   :init (defalias 'my:org-paste-slack 'org-slack-export-to-clipboard-as-slack)
   :bind (:map paste-prefix ("S" . my:org-paste-slack)))
@@ -77,12 +79,9 @@ For pasting source code in Email."
               ("r" . yagist-region)
               ("b" . yagist-buffer)
               ("l" . yagist-list))
-  :config
-  (setq yagist-view-gist t ; view gist URL after posted.
-        yagist-working-directory "~/.gist"
-        ;; yagist-working-directory-alist
-        yagist-github-token (my/json-read-value my/account-file 'yagist))
-
+  :init (setq yagist-view-gist t
+              yagist-working-directory "~/.gist")
+  :config (setq yagist-github-token (my/json-read-value my/account-file 'yagist))
   ;; Fix `yagist' detect major-mode issue.
   (defun yagist-anonymous-file-name-for-org-babel ()
     "Fix `yagist' detect major-mode issue."
@@ -100,7 +99,9 @@ For pasting source code in Email."
 
 (use-package carbon-now-sh
   :ensure t
-  :commands (carbon-now-sh))
+  :defer t
+  :commands (carbon-now-sh)
+  :bind (:map paste-prefix ("i" . carbon-now-sh)))
 
 
 (provide 'init-tool-paste)

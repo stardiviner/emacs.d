@@ -107,6 +107,7 @@
 
 (use-package org-edit-latex
   :ensure t
+  :defer t
   :delight org-edit-latex-mode
   :preface (setq org-edit-latex-create-master nil)
   :init (add-hook 'org-mode-hook #'org-edit-latex-mode))

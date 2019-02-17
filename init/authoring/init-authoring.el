@@ -14,13 +14,13 @@
   :defer t
   :config
   (org-babel-do-load-languages 'org-babel-load-languages '((org-if . t)))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  )
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 
 ;;; [ org-wc ] count words under every org-mode trees
 
 (use-package org-wc
   :ensure t
+  :defer t
   :commands (org-wc-display org-wc-count-subtrees))
 
 ;;; [ wc-mode ] -- minor mode of command `wc' for word counting.
@@ -46,12 +46,14 @@
 
 (use-package writeroom-mode
   :ensure t
+  :defer t
   :commands (writeroom-mode global-writeroom-mode))
 
 ;;; [ olivetti ] -- Olivetti is a simple Emacs minor mode for a nice writing environment.
 
 (use-package olivetti
   :ensure t
+  :defer t
   :commands (olivetti-mode))
 
 ;;; [ poet-theme ] -- A theme well suited for modes using variable pitch: particularly org-mode and markdown-mode.

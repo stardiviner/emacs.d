@@ -15,7 +15,6 @@
   :defer t
   :delight ivy-mode
   :init (ivy-mode 1)
-  :config
   (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
         ivy-virtual-abbreviate 'full ; use 'full to fix bookmarks uniquify issue.
         ivy-height 7
@@ -23,8 +22,7 @@
         ivy-display-style 'fancy
         ivy-initial-inputs-alist nil ; remove initial ^ input.
         ;; ivy-extra-directories '() ; remove . and .. directory.
-        )
-  )
+        ))
 
 ;;; [ ivy-rich ] -- More friendly display transformer for ivy.
 
@@ -37,6 +35,7 @@
 
 (use-package counsel
   :ensure t
+  :defer t
   :delight counsel-mode
   :bind (([remap yank-pop] . counsel-yank-pop)
          ([remap menu-bar-open] . counsel-tmm) ; [F10] text menu access
@@ -70,10 +69,9 @@
   ;; [C-u] prompt for dir support
   (define-key search-prefix (kbd "M-r") 'counsel-rg)
   ;; (define-key search-prefix (kbd "M-a") 'counsel-ag)
-  :config
+
   (setq counsel-mode-override-describe-bindings t)
-  (counsel-mode 1)
-  )
+  (counsel-mode 1))
 
 ;;; [ ivy-posframe ] -- Using posframe to show Ivy.
 

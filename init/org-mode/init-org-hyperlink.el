@@ -165,34 +165,31 @@ Optional for Org-mode file: `LINK'."
 
 
 ;; IRC: `irc:'
-(require 'org-irc)
-;;; IRC clients: 'erc, 'rcirc, 'circe,
-(setq org-irc-client 'erc)
-(if (and (featurep 'erc) (featurep 'init-erc))
-    (require 'init-erc))
-
+(use-package org-irc
+  :defer t
+  :init (setq org-irc-client 'erc)
+  ;; (if (and (featurep 'erc)) (require 'init-erc))
+  )
 
 ;;; Telnet:
 ;;  telnet://ptt.cc
-(org-link-set-parameters "telnet"
-                         :follow #'telnet)
+(org-link-set-parameters "telnet" :follow #'telnet)
 
 
 ;; RSS
 (defun org-rss-link-open (uri)
   "Open rss:// URI link."
   (eww uri))
-
-(org-link-set-parameters "rss"
-                         :follow #'org-rss-link-open)
+(org-link-set-parameters "rss" :follow #'org-rss-link-open)
 
 ;;; `info:' link.
-(require 'org-info)
+(use-package org-info)
 
 ;; append "`man:'" protocol.
 ;; `[[man:(section: 7 or 3r)gv][gv (man page)]]'
-(require 'org-man)
-(setq org-man-command 'man) ; 'man, 'woman.
+(use-package org-man
+  ;; 'man, 'woman.
+  :init (setq org-man-command 'man))
 
 ;;; `occur:'
 ;;   occur:my-file.txt#regex
@@ -203,9 +200,7 @@ Optional for Org-mode file: `LINK'."
   (let ((list (split-string uri "#")))
     (org-open-file (car list) t)
     (occur (mapconcat 'identity (cdr list) "#"))))
-
-(org-link-set-parameters "occur"
-                         :follow #'org-occur-link-open)
+(org-link-set-parameters "occur" :follow #'org-occur-link-open)
 
 ;;; `grep:'
 ;;  [[grep:regexp][regexp (grep)]]
@@ -213,7 +208,6 @@ Optional for Org-mode file: `LINK'."
   "Run `rgrep' with `REGEXP' as argument."
   (grep-compute-defaults)
   (rgrep regexp "*" (expand-file-name "./")))
-
 (org-link-set-parameters "grep" #'org-grep-link-open)
 
 
@@ -223,43 +217,42 @@ Optional for Org-mode file: `LINK'."
   "Display a list of TODO headlines with tag TAG.
 With prefix argument, also display headlines without a TODO keyword."
   (org-tags-view (null current-prefix-arg) tag))
-
-(org-link-set-parameters "tag"
-                         :follow #'org-tag-link-open)
+(org-link-set-parameters "tag" :follow #'org-tag-link-open)
 
 ;;; [ Git ]
-(require 'org-git-link)
 
-;;; add file path completion support for `git:' and `gitbare:'
-(org-link-set-parameters "git"
-                         :complete 'org-git-complete-link)
+(use-package org-git-link
+  :defer t
+  :init
+  ;; add file path completion support for `git:' and `gitbare:'
+  (org-link-set-parameters "git" :complete 'org-git-complete-link)
 
-;;; TODO: add a function to complete git: link. parse git repo metadata, show in available candidates.
-(defun org-git-complete-link ()
-  "Use the existing file name completion for file.
+  ;; TODO: add a function to complete git: link. parse git repo metadata, show in available candidates.
+  (defun org-git-complete-link ()
+    "Use the existing file name completion for file.
 Links to get the file name, then ask the user for the page number
 and append it."
-  (concat (replace-regexp-in-string "^file:" "git:" (org-file-complete-link))
-	        "::"
-	        (read-from-minibuffer "branch:" "1")
-          "@"
-          (read-from-minibuffer "date:" "{2017-06-24}")
-          "::"
-          (read-from-minibuffer "line:" "1")))
+    (concat (replace-regexp-in-string "^file:" "git:" (org-file-complete-link))
+            "::"
+            (read-from-minibuffer "branch:" "1")
+            "@"
+            (read-from-minibuffer "date:" "{2017-06-24}")
+            "::"
+            (read-from-minibuffer "line:" "1")))
+  )
 
 ;;; [ orgit ] -- support for Org links to Magit buffers.
 
 (use-package orgit
   :ensure t
-  :init
-  (setq orgit-log-save-arguments t)
-  ;; (add-to-list 'orgit-export-alist '())
-  )
+  :defer t
+  :init (setq orgit-log-save-arguments t))
 
 ;;; `track:' for OSM Maps
 ;; [[track:((9.707032442092896%2052.37033874553582)(9.711474180221558%2052.375238282987))data/images/org-osm-link.svg][Open this link will generate svg, png image for track link on map]]
 (use-package org-osm-link
   :quelpa (org-osm-link :fetcher github :repo "emacsattic/org-osm-link")
+  :defer t
   :init (setq osm-do-cache t))
 
 ;;; `geo:'

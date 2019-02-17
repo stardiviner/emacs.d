@@ -50,6 +50,7 @@
 
 (use-package proxy-mode
   :ensure t
+  :defer t
   :init (setq proxy-mode-socks-proxy '("Default server" "127.0.0.1" 1086 5)))
 
 

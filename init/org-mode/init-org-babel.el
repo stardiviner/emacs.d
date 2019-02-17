@@ -11,7 +11,8 @@
 (setq org-babel-hash-show-time t) ; header argument: :cache yes.
 
 (add-to-list 'display-buffer-alist
-             '("^\\*Org-Babel Results\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
+             '("^\\*Org-Babel Results\\*" .
+               (display-buffer-reuse-window display-buffer-below-selected)))
 
 ;;; add org-babel header-args property into default properties list.
 (add-to-list 'org-default-properties "header-args")
@@ -28,7 +29,8 @@
                 ;; (:exports . "both") conflict with (:eval "never-export")
                 ))
 
-;;; don't evaluate babel when exporting. For helper functions like `my:org-convert-region-to-html' etc.
+;;; don't evaluate babel when exporting. For helper functions like
+;;; `my:org-convert-region-to-html' etc.
 ;; (setq org-export-babel-evaluate nil)
 
 ;;; Manage org-babel popup buffers with `display-buffer-alist'.
@@ -48,8 +50,6 @@
         ;; (:exports . "both")
         (:hlines . "yes")
         (:eval . "never-export")))
-;; or "=%s=", "~%s~"
-;; (setq org-babel-inline-result-wrap "=> (~%s~)")
 
 ;;; [ noweb ]
 ;; Raise errors when noweb references don't resolve.
@@ -62,13 +62,10 @@
       ;; 0: fix `diff' babel syntax highlighting invalid issue.
       org-edit-src-content-indentation 0
       org-src-window-setup 'current-window ; 'split-window-below
-      org-src-ask-before-returning-to-edit-buffer nil
-      )
+      org-src-ask-before-returning-to-edit-buffer nil)
 
-(setq org-babel-load-languages
-      '((org . t)                       ; Org-mode
-        ;; (shell . t)                     ; Shell Script
-        ))
+;;; default loading babel language.
+(setq org-babel-load-languages '((org . t)))
 
 ;;; [ ob-shell ]
 
@@ -88,9 +85,8 @@
 
 ;;; [ Tangle ]
 
-(setq org-babel-tangle-lang-exts
-      '(("latex" . "tex")
-        ("awk" . "awk")))
+(add-to-list 'org-babel-tangle-lang-exts '("latex" . "tex"))
+(add-to-list 'org-babel-tangle-lang-exts '("awk" . "awk"))
 
 ;; this will cause target file like config file which is used by programs to errors.
 ;; (setq org-babel-tangle-use-relative-file-links t)
@@ -102,28 +98,11 @@
 ;;; [ Library of Babel ]
 
 ;;; automatically ingest "Library of Babel".
-(org-babel-lob-ingest
- (concat user-emacs-directory "Org-mode/Library of Babel/Library of Babel.org"))
+(with-eval-after-load 'org
+  (org-babel-lob-ingest
+   (concat user-emacs-directory "Org-mode/Library of Babel/Library of Babel.org")))
 
 ;; (setq org-babel-default-lob-header-args)
-
-;;; interactive completing named src blocks. [C-c C-v C-q]
-(defun my/org-babel-insert-named-src-block (&optional template)
-  (interactive)
-  (let ((src-block
-	       (completing-read "Enter src block name[or TAB or ENTER]: " (org-babel-src-block-names))))
-    (unless (string-equal "" src-block)
-	    (insert (format "<<%s>>" src-block)))))
-(define-key org-babel-map (kbd "M-q") 'my/org-babel-insert-named-src-block)
-
-(defun my/org-babel-insert-src-block-call (&optional template)
-  "Interactively insert a named src block call with `TEMPLATE'."
-  (interactive)
-  (let ((template (or template "#+call: %s()\n"))
-	      (src-block (completing-read "Enter src block name[or TAB or ENTER]: " (org-babel-src-block-names))))
-    (unless (string-equal "" src-block)
-	    (insert (format template src-block)))))
-(define-key org-babel-map (kbd "M-c") 'my/org-babel-insert-src-block-call)
 
 ;;; [ Literate dotfiles management with Org-mode ]
 
@@ -145,8 +124,8 @@
     org-coderef-label-format))
 (advice-add 'org-src-coderef-format :filter-return 'my-org-src-coderef-format)
 
+;;; ding around source block execution.
 (add-hook 'org-src-mode-hook #'sound-tick)
-
 (add-hook 'org-babel-after-execute-hook #'sound-voice-complete)
 (add-hook 'org-babel-post-tangle-hook #'sound-voice-complete)
 (add-hook 'org-babel-pre-tangle-hook #'sound-tick)
@@ -166,7 +145,34 @@ but `delete-file' is ignored."
   (org-redisplay-inline-images))
 (advice-add 'org-babel-execute-src-block :after #'my/org-redisplay-inline-images)
 
-;;; [ ob-async ] -- enables asynchronous execution of org-babel src blocks for *any* languages.
+;;; interactive completing named src blocks. [C-c C-v C-q]
+(defun my/org-babel-insert-named-src-block (&optional template)
+  (interactive)
+  (let ((src-block
+	       (completing-read "Enter src block name[or TAB or ENTER]: "
+                          (org-babel-src-block-names))))
+    (unless (string-equal "" src-block)
+	    (insert (format "<<%s>>" src-block)))))
+(define-key org-babel-map (kbd "M-q") 'my/org-babel-insert-named-src-block)
+
+(defun my/org-babel-insert-src-block-call (&optional template)
+  "Interactively insert a named src block call with `TEMPLATE'."
+  (interactive)
+  (let ((template (or template "#+call: %s()\n"))
+	      (src-block (completing-read "Enter src block name[or TAB or ENTER]: "
+                                    (org-babel-src-block-names))))
+    (unless (string-equal "" src-block)
+	    (insert (format template src-block)))))
+(define-key org-babel-map (kbd "M-c") 'my/org-babel-insert-src-block-call)
+
+;;; [ helm-lib-babel ] -- inserting a #+CALL: reference to an source block name.
+
+(use-package helm-lib-babel
+  :ensure t
+  :defer t
+  :bind (:map org-babel-map ("M-i" . helm-lib-babel-insert)))
+
+;;; [ ob-async ] -- asynchronous execution of org-babel src blocks for *any* languages.
 
 (use-package ob-async
   :ensure t
@@ -187,12 +193,6 @@ but `delete-file' is ignored."
 ;;     (setq eir-jump-after-eval nil))
 ;;   )
 
-;;; [ helm-lib-babel ] -- Emacs helm extension for inserting a reference to an org source block function.
-
-(use-package helm-lib-babel
-  :ensure t
-  :defer t
-  :bind (:map org-babel-map ("M-i" . helm-lib-babel-insert)))
 
 ;;; [ org-radiobutton ] -- Get the checked item from a check list to be used for
 ;;; Org-mode Literate Programming variable.
@@ -202,7 +202,7 @@ but `delete-file' is ignored."
 ;;   :defer t
 ;;   :init (global-org-radiobutton-mode))
 
-;; load all languages at last.
+;; load all languages AT LAST.
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 
 

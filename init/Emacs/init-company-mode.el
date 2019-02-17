@@ -17,7 +17,6 @@
   ;; :preface (setq company-global-modes '(not org-mode))
   :commands (global-company-mode)
   :init (global-company-mode 1)
-  :config
   (setq company-minimum-prefix-length 3
         ;; decrease this delay when you can type code continuously fast.
         company-idle-delay 0.1
@@ -51,6 +50,7 @@
                   (company-keywords :with company-abbrev)
                   company-ispell))
   
+  :config
   (defun my-company-add-backend-locally (backend)
     "Add a backend in my custom way.
 
@@ -181,6 +181,7 @@
 (use-package company-box
   :ensure t
   :ensure all-the-icons
+  :defer t
   :hook (company-mode . company-box-mode)
   :load (all-the-icons)
   :init

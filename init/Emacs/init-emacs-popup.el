@@ -10,8 +10,9 @@
 ;;; [ tooltip ]
 
 (use-package tooltip
+  :defer t
   :init (tooltip-mode 1)
-  :config
+  ;; :config
   ;; (setq tooltip-reuse-hidden-frame t)
 
   ;; (setq-default tooltip-delay 0.3         ; default 0.7
@@ -47,12 +48,9 @@
   :ensure t
   :defer t
   :preface (setq x-gtk-use-system-tooltips nil)
-  :config
-  (setq pos-tip-border-width 1
-        pos-tip-internal-border-width 2)
-  (set-face-attribute 'tooltip nil
-                      :family "Hack")
-  )
+  :init (setq pos-tip-border-width 1
+              pos-tip-internal-border-width 2)
+  :config (set-face-attribute 'tooltip nil :family "Hack"))
 
 ;;; [ showtip ]
 
@@ -64,7 +62,8 @@
 ;;; [ posframe ] -- Pop a posframe (just a child-frame) at point.
 
 (use-package posframe
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-emacs-popup)

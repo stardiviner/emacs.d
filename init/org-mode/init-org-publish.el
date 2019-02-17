@@ -4,9 +4,13 @@
 
 ;;; Code:
 
-(require 'ox-publish)
-(require 'ox-html)
-(require 'ox-rss)
+(use-package ox-publish
+  :defer t)
+(use-package ox-html
+  :defer t)
+(use-package ox-rss
+  :defer t
+  :commands (org-rss-publish-to-rss))
 
 (defvar my-org-publish-source "~/Org/Website/")
 (defvar my-org-publish-destination "~/org-publish/")
@@ -34,8 +38,10 @@
 
 ;;; [ ox-org ]
 ;;; support "Show Org Source" (.org.html version) button.
-(require 'ox-org) ; `org-org-publish-to-org'
-(require 'htmlize)
+;; `org-org-publish-to-org'
+(use-package ox-org
+  :defer t
+  :ensure htmlize)
 
 ;;; - inline CSS (better colors support for src blocks)
 ;;; use a specific theme for `ox-org'.
@@ -428,8 +434,7 @@
   :ensure htmlize
   :defer t
   :preface (setq org-reveal-note-key-char nil) ; avoid register old #+BEGIN_NOTES.
-  :init (require 'ox-reveal)
-  :config (setq org-reveal-root "./reveal.js"))
+  :init (setq org-reveal-root "./reveal.js"))
 
 ;; (add-to-list 'org-publish-project-alist
 ;;              `("slides-data"
@@ -494,25 +499,26 @@
     (shell-command "rm -rf ~/.org-timestamps/")
     (shell-command "rm -rf ~/org-publish/*")))
 
-(require 'org-capture)
-(defun my/org-capture-template-blog--generate-template ()
-  (let ((title (read-from-minibuffer "Blog Title: ")))
-    (format
-     "* %s\n:PROPERTIES:\n:DATE: %%U\n:END:\n\n[[file:%s.org][%s]]\n%%i"
-     title
-     ;; make URL use - to replace space %20.
-     (replace-regexp-in-string "\\ " "-" title)
-     title)))
-(add-to-list
- 'org-capture-templates
- '("b" "[b]log"
-   entry (file "~/Org/Website/Blog/index.org")
-   (function my/org-capture-template-blog--generate-template)
-   :empty-lines 1
-   :prepend t
-   :immediate-finish t
-   :jump-to-captured t
-   ))
+(use-package org-capture
+  :defer t
+  :init
+  (defun my/org-capture-template-blog--generate-template ()
+    (let ((title (read-from-minibuffer "Blog Title: ")))
+      (format "* %s\n:PROPERTIES:\n:DATE: %%U\n:END:\n\n[[file:%s.org][%s]]\n%%i"
+              title
+              ;; make URL use - to replace space %20.
+              (replace-regexp-in-string "\\ " "-" title)
+              title)))
+  (add-to-list 'org-capture-templates
+               '("b" "[b]log"
+                 ;; TODO: how to use pause on new capture for later refile to target file?
+                 entry (file "~/Org/Website/Blog/index.org")
+                 (function my/org-capture-template-blog--generate-template)
+                 :empty-lines 1
+                 :prepend t
+                 :immediate-finish t
+                 :jump-to-captured t
+                 )))
 
 (define-key Org-prefix (kbd "b") 'org-publish)
 

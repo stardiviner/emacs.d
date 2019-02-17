@@ -44,11 +44,11 @@
 
 (use-package eaf
   :load-path "~/Code/Emacs/emacs-application-framework/"
+  :defer t
   :commands (eaf-open
              eaf-open-url eaf-dired-open-file
              eaf-show-file-qrcode dired-show-file-qrcode
-             eaf-air-share eaf-upload-file)
-  :init (require 'eaf))
+             eaf-air-share eaf-upload-file))
 
 
 

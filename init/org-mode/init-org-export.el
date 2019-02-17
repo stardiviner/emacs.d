@@ -43,13 +43,13 @@
 ;; (define-key org-mode-map (kbd "C-c M-e") 'org-latex-exp-conf-mode)
 
 ;;; [ ox-html ]
-(require 'ox-html)
-
-(setq org-html-doctype "html5"
-      org-html-html5-fancy t
-      org-html-use-infojs t ; 'when-configured
-      org-html-htmlize-output-type 'inline-css ; make HTML self-containing
-      )
+(use-package ox-html
+  :defer t
+  :init (setq org-html-doctype "html5"
+              org-html-html5-fancy t
+              org-html-use-infojs t ; 'when-configured
+              org-html-htmlize-output-type 'inline-css ; make HTML self-containing
+              ))
 
 ;;; Exporting JavaScript babel code block into <script> tag in HTML export.
 
@@ -136,8 +136,7 @@
                     (if (eq fmt 'html) 'org 'ascii) t)
                    html)
                   (mapconcat 'identity images "\n")))))
-      (mapc #'mml-attach-file files)))
-  )
+      (mapc #'mml-attach-file files))))
 
 ;;; [ html2org ] -- convert html to org format text.
 
@@ -154,18 +153,20 @@
 ;;; [ ox-pandoc ] -- another org-mode exporter via pandoc.
 
 (use-package ox-pandoc
-  :ensure t
-  :ensure-system-package (pandoc . "sudo pacman -S --noconfirm pandoc pandoc-citeproc pandoc-crossref"))
+  :ensure-system-package (pandoc . "sudo pacman -S --noconfirm pandoc pandoc-citeproc pandoc-crossref")
+  :ensure t)
 
-;;; [ htmlize ]
+;;; [ htmlize ] -- deprecated htmlize implementation.
 
 (use-package htmlize
-  :ensure t)
+  :ensure t
+  :defer t)
 
-;;; [ htmlfontify ]
+;;; [ htmlfontify ] -- try to replace `htmlize'.
 
 (use-package htmlfontify
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-org-export)

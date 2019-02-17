@@ -16,11 +16,10 @@
   :mode (("\\.php\\'" . php-mode)
          ("\\(pages\\|snippets\\|templates\\)/.*\\.php?$" . web-mode))
   :load (php-ext)
-  :config
-  (setq indent-tabs-mode nil
-        c-basic-offset 2
-        php-template-compatibility nil
-        php-search-documentation-browser-function t))
+  :init (setq indent-tabs-mode nil
+              c-basic-offset 2
+              php-template-compatibility nil
+              php-search-documentation-browser-function t))
 
 ;;; [ php-eldoc ]
 

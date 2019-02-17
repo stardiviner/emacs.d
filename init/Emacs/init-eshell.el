@@ -219,6 +219,7 @@ otherwise, they are appended."
 
 (use-package eshell-bookmark
   :ensure t
+  :defer t
   ;; avoid `eshell-bookmark' open docker-tramp eshell buffer by `counsel' with
   ;; `counsel-find-file' instead of corresponding eshell bookmark buffer.
   :init (setq counsel-bookmark-avoid-dired nil)

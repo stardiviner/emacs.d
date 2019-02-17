@@ -9,13 +9,9 @@
 
 (use-package mu4e
   ;; :ensure-system-package mu
-  ;; ;; from Linux package
-  ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
-  
-  ;; compile from source code
-  :load-path "~/Code/Emacs/mu/mu4e/"
-
-  :load (mu4e mu4e-contrib mu4e-main mu4e-vars mu4e-proc mu4e-speedbar mu4e-compose)
+  ;; :load-path "/usr/share/emacs/site-lisp/mu4e/" ; from Linux package
+  :load-path "~/Code/Emacs/mu/mu4e/" ; compile from source code
+  :defer t
   :commands (mu4e)
   :bind (:map tools-prefix ("m" . mu4e))
   :init
@@ -37,9 +33,8 @@
   (setq mu4e-maildir "~/Mails"       ; top-level Maildir
         mu4e-sent-folder "/Send"
         mu4e-drafts-folder "/Drafts"
-        mu4e-trash-folder "/Trash"
         ;; mu4e-refile-folder "/Archives"
-        )
+        mu4e-trash-folder "/Trash")
   ;; (i.e.. /home/user/Maildir/sent must exist)
   (unless (file-exists-p mu4e-maildir)
     (make-directory mu4e-maildir))
@@ -61,9 +56,7 @@
                                  ("/Lisp/"          . ?l)
                                  ("/Clojure"        . ?c)
                                  ("/ClojureScript"  . ?C)
-                                 ("/JavaScript"     . ?j)
-                                 ))
-
+                                 ("/JavaScript"     . ?j)))
 
   ;; Get Mail, Update -- [U]
   ;; program to get mail; alternatives are 'fetchmail', 'getmail'
@@ -145,7 +138,6 @@
 
 
   ;; [ View ]
-
   (setq mu4e-split-view 'horizontal ; 'vertical, 'horizontal
         mu4e-headers-visible-lines 13
         mu4e-headers-visible-columns 30
@@ -171,7 +163,6 @@
         mu4e-headers-first-child-prefix '("\\" . "↳ ")
         mu4e-headers-duplicate-prefix '("=" . "≡ "))
 
-
   ;; [ Message ]
 
   ;; the headers to show in the headers list -- a pair of a field
@@ -196,9 +187,7 @@
           (:from  . 22)
           ;; (:mailing-list  .   10)
           ;; (:thread-subject . 30)
-          (:subject . nil)
-          )
-        )
+          (:subject . nil)))
 
   ;; general emacs mail settings; used when composing e-mail
   ;; the non-mu4e-* stuff is inherited from emacs/message-mode
@@ -206,7 +195,8 @@
         user-mail-address "numbchild@gmail.com"
         user-full-name  "stardiviner")
 
-
+  :config
+  
   ;; [ Compose ]
 
   ;; - `org-mu4e-compose-org-mode' ::
@@ -240,7 +230,6 @@
   (add-hook 'mu4e-compose-mode-hook #'visual-fill-column-mode)
   (add-hook 'mu4e-compose-mode-hook #'turn-on-auto-fill)
   (add-hook 'mu4e-compose-mode-hook #'turn-on-flyspell)
-
   ;; enable `company-ispell' backend in `mu4e-compose-mode'.
   (defun mu4e-enable-company-ispell ()
     "Enable company-ispell backend in company-backends for mu4e-compose-mode."
@@ -271,9 +260,7 @@
   ;; don't keep message buffers around
   (setq message-kill-buffer-on-exit t)
 
-
   ;;  [ Reply ]
-
   ;; don't include self (that is, any member of `mu4e-user-mail-address-list') in
   ;; replies.
   (setq mu4e-compose-dont-reply-to-self nil)
@@ -282,56 +269,47 @@
   (define-key mu4e-headers-mode-map (kbd "R") 'mu4e-headers-mark-for-refile)
   (define-key mu4e-view-mode-map (kbd "r") 'mu4e-compose-reply)
   (define-key mu4e-view-mode-map (kbd "R") 'mu4e-view-mark-for-refile)
-
+  
   ;; reply only to thread: header `Reply-to:', `List-Post:'
   ;; - `mu4e~draft-reply-construct'
 
-
   ;; [ Sign ]
-
   ;; Signing and encrypting It's possible using emacs-mime, most easily accessed
   ;; through the Attachments-menu while composing a message, or with M-x
   ;; mml-secure-message-encrypt-pgp, M-x mml-secure-message-sign-pgp.  The support
   ;; for encryption and signing is independent of the support for their
   ;; counterparts, decrypting and signature verification. Even if your mu4e does
   ;; have support for the latter two, you can still sign/encrypt messages.
-
+  ;;
   ;; - [C-c C-m C-e] :: (mml-secure-message-sign-encrypt)
   ;;    This will add a tag at the beginning of the mail.
   ;;    <#secure method=pgpmime mode=signencrypt>
   ;;    the `mode=signencrypt' means:
   ;;      - `sign'
   ;;      - `encrypt'
-
-
+  ;;
   ;; message inline pgp sign.
   ;; `message-send-hook' or `mu4e-compose-mode-hook'
   ;; `mml-secure-message-sign-pgpauto' or `mml-secure-message-sign-pgpmime'
-
+  ;;
   ;; (add-hook 'message-send-hook 'mml-secure-message-sign-pgpauto)
   ;; (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-sign-pgpauto)
 
   ;; [ Encrypt ]
-
+  ;;
   ;; encrypt outgoing message.
   (require 'epg-config)
-
   (require 'mml2015)
   (setq mml2015-use 'epg
         epg-user-id "5AE89AC3"
         mml-secure-openpgp-encrypt-to-self t
-        mml-secure-openpgp-sign-with-sender t
-        )
-
+        mml-secure-openpgp-sign-with-sender t)
   ;; (add-hook 'message-send-hook 'mml-secure-message-encrypt-pgpauto)
   ;; (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-encrypt-pgpauto)
 
-
   ;; [ Headers ] -- `mu4e-header-info'.
   (setq mu4e-headers-auto-update t
-        mu4e-headers-skip-duplicates t
-        )
-
+        mu4e-headers-skip-duplicates t)
   (define-key mu4e-headers-mode-map (kbd "N") 'mu4e-headers-next-unread)
 
   ;; `mu4e-header-info-custom'
@@ -349,17 +327,15 @@
   ;; TODO: make use of flag: list.
 
   ;; [ Search ] -- [s/S]  [:references [regexp]] in search query.
-
+  ;;
   ;; result is:   -> :References : nil
   (add-to-list 'mu4e-header-info-custom
                '(:references :name "References"
                              :shortname "References"
                              :help "Reference of this thread"
                              :function
-                             (lambda
-                               (msg)
-                               (format "%s"
-                                       (mu4e-message-field msg :References)))))
+                             (lambda (msg)
+                               (format "%s" (mu4e-message-field msg :References)))))
 
   ;; (add-to-list 'mu4e-header-info-custom
   ;;              '(:reply2mythread :name "My thread smart choose depend on References"
@@ -394,7 +370,6 @@
                  (lambda nil
                    (message "Messages replied to your thread.")))
                t)
-
 
   ;; [ spam filtering ]
   (require 'mu4e-contrib)
@@ -450,7 +425,6 @@
   (add-to-list 'mu4e-headers-actions '("related thread" . my/mu4e-view-related-search) t)
   (add-to-list 'mu4e-view-actions '("relative thread" . my/mu4e-view-related-search) t)
 
-
   ;; [ Message view ]
   (setq mu4e-view-fields '(:from :to :cc
                                  :subject
@@ -462,27 +436,17 @@
                                  :references
                                  ;; :tags
                                  :signature
-                                 :decryption
-                                 )
+                                 :decryption)
         ;; show e-mail address after names of contacts From: field. or press [M-RET] to view.
-        mu4e-view-show-addresses t
-        )
+        mu4e-view-show-addresses t)
   (setq mu4e-view-scroll-to-next nil
-        mu4e-split-view 'horizontal ; split view
-        )
-
+        mu4e-split-view 'horizontal)
 
   ;; [ Cite ]
-
-  ;; mu-cite
-  ;; hide cited
   ;; (add-hook 'mu4e-view-mode-hook 'mu4e-view-toggle-hide-cited)
-
-  ;; message-cite
   (setq message-cite-style message-cite-style-gmail)
 
-
-  ;; viewing images inline
+  ;; [ viewing images inline ]
   ;;
   ;; It is possible to show images inline in the message view buffer if you run
   ;; emacs in GUI-mode. You can enable this by setting the variable
@@ -498,8 +462,7 @@
   (when (fboundp 'imagemagick-register-types)
     (imagemagick-register-types))
 
-
-  ;; Displaying rich-text messages
+  ;; [ Displaying rich-text messages ]
   ;;
   ;; mu4e normally prefers the plain-text version for messages that consist of
   ;; both a plain-text and html (rich-text) versions of the body-text. You change
@@ -507,7 +470,7 @@
   (setq mu4e-view-prefer-html t)
 
   ;; Attachments [C-u] + [e]
-
+  ;;
   ;; - A -- action to pick some custom action to perform on current message/attachment.
   ;; - w -- open-with
   ;; - | -- pipe
@@ -519,7 +482,7 @@
   ;; (add-to-list 'mu4e-view-attachment-actions '("bbrowse-with-browser" . mu4e-view-browse-with-browser))
 
   ;; Actions
-
+  ;;
   ;; - a -- (for messages)
   ;; - A -- mu4e-headers-action (for attachments)
   ;;
@@ -557,8 +520,6 @@
   ;; (add-to-list 'mu4e-view-actions
   ;;              '("xsearch for sender" . search-for-sender) t)
 
-
-
   ;; Searching
   ;; - Q -- search. mu4e-headers-toggle-full-search.
   ;;
@@ -586,21 +547,17 @@
   (setq mu4e-headers-include-related t)
 
   ;; Send
-
   (setq mu4e-sent-messages-behavior 'sent)
-
 
   ;; Crypto (signing, encrypting, verifying, decrypting)
   ;; - v -- see the details of the signature verification by activating the Details.
   ;; start gpg-agent manually:
   ;; $ eval $(gpg-agent --daemon)
   (setq mu4e-auto-retrieve-keys t
-        mu4e-decryption-policy t          ; auto decrypt.
-        )
-
+        mu4e-decryption-policy t)
 
   ;; Refiling
-
+  ;;
   ;; - r -- refiling, mu4e-refile-folder
 
   (setq mu4e-refile-folder                ; dynamic refiling
@@ -618,12 +575,10 @@
             "/Trash")
            ;; everything else goes to /archive
            ;; *important* to have a catch-all at the end!
-           (t "/archive")
-           )))
-
+           (t "/archive"))))
 
   ;; Bookmarks
-
+  ;;
   ;; - [b] :: bookmark
   ;; - [B] :: edit bookmark before jump/invoking.
   ;;          mu4e-headers-search-bookmark-edit, which lets you edit the bookmarked query before invoking it.
@@ -707,9 +662,7 @@
   ;;       smtpmail-smtp-server "smtp.gmail.com"
   ;;       smtpmail-smtp-service 587)
 
-
   ;; Contacts
-
   (add-hook
    'mu4e-compose-mode-hook
    (lambda ()
@@ -718,15 +671,12 @@
                    mail-completion-at-point-function
                    message-completion-function))))
 
-
-
   (defun my-mu4e-jump-to-index ()
     "User helper function to jump to index."
     (interactive)
     (if (not (mu4e-running-p))
         (mu4e)
-      (mu4e-headers-search "maildir:/INBOX"))
-    )
+      (mu4e-headers-search "maildir:/INBOX")))
 
   (setq mu4e-completing-read-function 'completing-read)
 

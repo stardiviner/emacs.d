@@ -24,7 +24,7 @@
 
 (use-package auctex
   :ensure t
-  :defer t
+  :no-require t
   :load (tex-site latex font-latex)
   :config
   ;; macros
@@ -88,7 +88,8 @@ character(s), in which case it deletes the space(s) first."
     (TeX-fold-mode)
     ;; electric
     (rainbow-delimiters-mode)
-    (smartparens-mode)
+    (if (featurep 'smartparens)
+        (smartparens-mode))
     ;; linter
     (flycheck-mode 1)
     ;; Doc
@@ -124,13 +125,11 @@ character(s), in which case it deletes the space(s) first."
   (set-face-attribute 'font-latex-sectioning-2-face nil
                       :height 1.2 :bold t)
   (set-face-attribute 'font-latex-sectioning-3-face nil
-                      :height 1.2 :bold nil)
-  )
+                      :height 1.2 :bold nil))
 
 (use-package company-auctex
   :ensure t
-  :defer t
-  :init
+  :config
   (defun my:company-auctex-setup ()
     ;; complete
     (make-local-variable 'company-backends)
@@ -144,32 +143,24 @@ character(s), in which case it deletes the space(s) first."
     (add-to-list 'company-backends 'company-auctex-bibs)
     (add-to-list 'company-backends 'company-auctex-environments)
     (add-to-list 'company-backends 'company-auctex-symbols)
-    (add-to-list 'company-backends 'company-auctex-macros)
-    )
+    (add-to-list 'company-backends 'company-auctex-macros))
 
-  (dolist (hook '(tex-mode-hook
-                  TeX-mode-hook
-                  latex-mode-hook
-                  LaTeX-mode-hook ; from AUCTeX
-                  ))
-    (add-hook hook #'my:company-auctex-setup))
+  (dolist (hook '(tex-mode-hook TeX-mode-hook latex-mode-hook LaTeX-mode-hook))
+    (add-hook hook #'my:company-auctex-setup)))
 
-  (use-package company-math
-    :ensure t)
-  )
+(use-package company-math
+  :ensure t)
 
 ;;; [ RefTeX ] -- a specialized package for support of labels, references.
 
 (use-package reftex
   :ensure t
-  :defer t
-  :config
+  :init
   (setq reftex-cite-prompt-optional-args t) ; prompt for empty optional arguments in cite.
   ;; enable RefTeX in AUCTeX (LaTeX-mode)
   (add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
-  (add-hook 'LaTeX-mode-hook #'reftex-mode)
-  )
+  (add-hook 'LaTeX-mode-hook #'reftex-mode))
 
 
 ;;; [ SyncTeX ] -- navigate from the source document to the typeset material and vice versa.
@@ -206,14 +197,13 @@ character(s), in which case it deletes the space(s) first."
   ;; disable this, because `iimage-mode' auto open image in external program
   ;; caused `LaTeX-mode-hook' break.
   ;; (add-hook 'LaTeX-mode-hook 'turn-off-iimage-mode)
-  :config
+
   ;; You can disable some features independently, if they’re too fancy.
   (setq magic-latex-enable-block-highlight nil
         magic-latex-enable-suscript        t
         magic-latex-enable-pretty-symbols  t
         magic-latex-enable-block-align     t
-        magic-latex-enable-inline-image    t)
-  )
+        magic-latex-enable-inline-image    t))
 
 
 ;;; [ latex-preview-pane ] -- Makes LaTeX editing less painful by providing a updatable preview pane.

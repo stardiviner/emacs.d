@@ -13,9 +13,7 @@
   :ensure t
   :defer t
   :bind (:map tools-prefix ("R" . elfeed))
-  :init
-  (setq elfeed-db-directory "~/.emacs.d/.elfeed")
-  :config
+  :init (setq elfeed-db-directory "~/.emacs.d/.elfeed")
   (setq elfeed-search-date-format '("%Y-%m-%d" 10 :right))
   (setq elfeed-feeds
         '(
@@ -74,6 +72,7 @@
           ("http://www.kali.org/feed/" Kali)
           ))
 
+  :config
   ;; (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
   ;; (setq elfeed-initial-tags '(unread))
   ;; "@1-week-ago +unread", "@6-months-ago +unread"
@@ -160,8 +159,9 @@
 (use-package elfeed-org
   :ensure t
   :defer t
-  :init (elfeed-org)
-  (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed/elfeed.org")))
+  :after elfeed
+  :init (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed/elfeed.org"))
+  :config (elfeed-org))
 
 
 (provide 'init-elfeed)

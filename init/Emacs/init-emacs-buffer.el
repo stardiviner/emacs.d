@@ -36,14 +36,13 @@
 
 ;;; [ recentf ] -- setup a menu of recently opened files.
 
-(require 'recentf)
-
-(recentf-mode)
-
-(setq recentf-save-file (expand-file-name ".temp/recentf" user-emacs-directory)
-      recentf-exclude '("/tmp/" "/ssh:")
-      ;; recentf-auto-cleanup 'mode ; 'mode, 'never.
-      )
+(use-package recentf
+  :defer t
+  :init (setq recentf-save-file (expand-file-name ".temp/recentf" user-emacs-directory)
+              recentf-exclude '("/tmp/" "/ssh:")
+              ;; recentf-auto-cleanup 'mode ; 'mode, 'never.
+              )
+  (recentf-mode))
 
 
 (provide 'init-emacs-buffer)

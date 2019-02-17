@@ -75,6 +75,7 @@
 
 (use-package counsel-org-clock
   :ensure t
+  :defer t
   :bind (:map org-clock-prefix
               ("C-i" . counsel-org-clock-history)
               ("C-c" . counsel-org-clock-context)))

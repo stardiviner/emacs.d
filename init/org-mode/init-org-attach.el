@@ -9,30 +9,29 @@
 
 ;;; [ org-attach ] -- Manage file attachments to org-mode tasks.
 
-(require 'org-attach)
-
-(setq org-attach-archive-delete 'query)
-
-(setq org-attach-store-link-p 'attached) ; add link to `org-store-link'.
-
-;; auto commit when Org file is in git repository.
-(setq org-attach-commit t)
-
-;;; don't auto add tag "ATTACH"
-(setq org-attach-auto-tag nil)
+(use-package org-attach
+  :defer t
+  :init
+  (setq org-attach-archive-delete 'query)
+  (setq org-attach-store-link-p 'attached) ; add link to `org-store-link'.
+  ;; auto commit when Org file is in git repository.
+  (setq org-attach-commit t)
+  ;; don't auto add tag "ATTACH"
+  (setq org-attach-auto-tag nil))
 
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
 (use-package org-plus-contrib
-  :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-  :no-require t
-  :pin manual
   :ensure-system-package scrot
+  :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+  :pin manual
+  :defer t
+  :no-require t
   :load (org-screenshot)
   :commands (org-screenshot-take)
-  :init (add-hook 'org-mode-hook
-                  #'(lambda () (local-set-key (kbd "C-c o M-s") 'org-screenshot-take)))
-  :config (setq org-screenshot-image-directory "data/images"))
+  :init (setq org-screenshot-image-directory "data/images")
+  (add-hook 'org-mode-hook
+            #'(lambda () (local-set-key (kbd "C-c o M-s") 'org-screenshot-take))))
 
 ;;; [ org-attach-screenshot ] -- screenshots integrated with org attachment dirs.
 
@@ -49,6 +48,7 @@
 (use-package org-download
   :ensure t
   :ensure-system-package wget
+  :defer t
   :init
   (unless (boundp 'org-download-prefix)
     (define-prefix-command 'org-download-prefix))
@@ -63,7 +63,7 @@
   (define-key org-mode-map (kbd "<drag-n-drop>") 'org-download-dnd)
   (define-key org-mode-map (kbd "<C-drag-n-drop>") 'org-download-dnd)
   (define-key org-mode-map (kbd "<M-drag-n-drop>") 'org-download-dnd)
-  :config
+
   (setq org-download-screenshot-method "scrot -s %s"
         org-download-method 'attach ; 'attach, 'directory,
         ;; if you don't want the #+DOWNLOADED: annotation in your Org document
@@ -76,13 +76,13 @@
         ;; org-download-img-regex-list '("<img +src=\"" "<img +\\(class=\"[^\"]+\"\\)? *src=\"")
         )
 
-  (org-download-enable)
-  )
+  (org-download-enable))
 
 ;;; [ org-web-tools ] -- retrieving web page content and processing it into Org-mode content.
 
 (use-package org-web-tools
   :ensure t
+  :defer t
   :commands (org-web-tools-insert-link-for-url ; insert Org link
              org-web-tools-insert-web-page-as-entry ; insert web page as Org entry
              org-web-tools-read-url-as-org ; display web page as Org in new buffer
@@ -111,9 +111,10 @@
               ("d" . org-board-delete-all)
               ("f" . org-board-diff)
               ("3" . org-board-diff3))
-  ;; :init (setq org-board-default-browser 'eww) ; press [&] in eww to open in external browser.
-  :config (add-to-list 'display-buffer-alist
-                       '("org-board-wget-call" (display-buffer-below-selected))))
+  :init
+  (setq org-board-default-browser 'eww) ; press [&] in eww to open in external browser.
+  (add-to-list 'display-buffer-alist
+               '("org-board-wget-call" (display-buffer-below-selected))))
 
 ;;; [ org-attach-embedded-images ] --
 

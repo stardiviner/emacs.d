@@ -14,15 +14,12 @@
   :ensure-system-package (pdfinfo . "sudo pacman -S --noconfirm poppler poppler-data")
   :defer t
   :mode ("\\.pdf\\'" . pdf-view-mode)
-  ;; :init (pdf-tools-install)
-  :config
-  ;; [ PDF View ]
-  ;; - [SPC] :: scroll continuous
-  ;; - [n/p] :: scroll to next/previous page
+  :init
+  ;; (pdf-tools-install)
   (setq pdf-view-use-scaling t ; open PDFs scaled to fit page.
-        pdf-view-use-unicode-ligther nil ; to speed-up pdf-tools by don't try to find unicode.
+        pdf-view-use-unicode-ligther nil ; speed-up pdf-tools by don't try to find unicode.
         )
-
+  :config
   ;; helpful accessibility shortcuts
   (define-key pdf-view-mode-map (kbd "q") 'kill-current-buffer)
   (define-key pdf-view-mode-map (kbd "h") 'pdf-annot-add-highlight-markup-annotation)
@@ -30,10 +27,7 @@
   (define-key pdf-view-mode-map (kbd "D") 'pdf-annot-delete)
 
   ;; save after adding annotation comment
-  (defun pdf-tools-save-buffer ()
-    "This function is used to save pdf-annot commits."
-    (save-buffer))
-  (advice-add 'pdf-annot-edit-contents-commit :after 'pdf-tools-save-buffer)
+  (advice-add 'pdf-annot-edit-contents-commit :after 'save-buffer)
 
   (defun my-pdf-tools-setup ()
     ;; auto slice page white spans
@@ -85,32 +79,30 @@
 (use-package org-pdfview
   :ensure t
   :after org
-  :config
-  (org-link-set-parameters "pdfview"
-                           :follow #'org-pdfview-open
-                           :export #'org-pdfview-export
-                           :complete #'org-pdfview-complete-link
-                           :store #'org-pdfview-store-link)
+  :config (org-link-set-parameters "pdfview"
+                                   :follow #'org-pdfview-open
+                                   :export #'org-pdfview-export
+                                   :complete #'org-pdfview-complete-link
+                                   :store #'org-pdfview-store-link)
   ;; change Org-mode default open PDF file function.
   ;; If you want, you can also configure the org-mode default open PDF file function.
   (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdfview-open link))))
-  (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . (lambda (file link) (org-pdfview-open link))))
-  )
+  (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . (lambda (file link) (org-pdfview-open link)))))
 
 ;; [ org-noter ] -- Emacs document annotator, using Org-mode.
 
 (use-package org-noter
   :ensure t
-  :defer t
   :commands (org-noter)
-  :preface (unless (boundp 'Org-prefix)
-             (define-prefix-command 'Org-prefix))
+  :preface (unless (boundp 'Org-prefix) (define-prefix-command 'Org-prefix))
   :bind (:map Org-prefix ("n" . org-noter)))
 
 ;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
 
 (use-package pdf-tools-org
-  :quelpa (pdf-tools-org :fetcher github :repo "machc/pdf-tools-org" :upgrade nil)
+  :quelpa (pdf-tools-org :fetcher github :repo "machc/pdf-tools-org")
+  :defer t
+  :commands (pdf-tools-org-export-to-org pdf-tools-org-import-from-org)
   :config
   (defun my/pdf-tools-org-setup ()
     (when (eq major-mode 'pdf-view-mode)
@@ -123,15 +115,15 @@
   :ensure t
   :defer t
   :commands (paperless)
-  :config
-  (setq paperless-capture-directory "~/Downloads"
-        paperless-root-directory "~/Org"))
+  :init (setq paperless-capture-directory "~/Downloads"
+              paperless-root-directory "~/Org"))
 
 ;;; [ pdfgrep ] -- Grep PDF for searching PDF.
 
 (use-package pdfgrep
-  :ensure-system-package pdfgrep
   :ensure t
+  :ensure-system-package pdfgrep
+  :defer t
   :commands (pdfgrep))
 
 

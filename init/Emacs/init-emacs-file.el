@@ -14,7 +14,8 @@
 ;;; [ vlf ] -- View Large Files
 
 (use-package vlf
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ openwith ]
 

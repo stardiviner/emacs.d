@@ -18,7 +18,8 @@
 
 ;; [ org-plot ] -- Plotting Tables in Org-mode.
 
-(require 'org-plot)
+(use-package org-plot
+  :defer t)
 
 ;;; Org Table translator functions.
 (add-to-list 'org-default-properties "ORGTBL") ; for Org-mode Table translator functions.
@@ -41,6 +42,7 @@
 
 (use-package orgtbl-aggregate
   :ensure t
+  :defer t
   :commands (org-insert-dblock org-insert-dblock:aggregate)
   :init
   ;; add `orgtbl-aggregate' dynamic blocks into list.

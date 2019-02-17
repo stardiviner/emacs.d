@@ -14,23 +14,19 @@
 
 ;; [ Bookmark ] -- Emacs built-in bookmark
 
-(require 'bookmark)
-
-;; load bookmarks from file.
-(with-eval-after-load 'bookmark
-  (setq-default bookmark-default-file
-                (expand-file-name "bookmarks.el" user-emacs-directory))
-  (bookmark-maybe-load-default-file))
-
-(global-unset-key (kbd "C-x r l"))
-(global-unset-key (kbd "C-x r m"))
-
-(define-key bookmark-prefix (kbd "b") 'bookmark-jump)
-(define-key bookmark-prefix (kbd "j") 'bookmark-jump)
-(define-key bookmark-prefix (kbd "l") 'bookmark-bmenu-list)
-(define-key bookmark-prefix (kbd "m") 'bookmark-set)
-(define-key bookmark-prefix (kbd "a") 'bookmark-set)
-
+(use-package bookmark
+  :defer t
+  :init (with-eval-after-load 'bookmark
+          (setq-default bookmark-default-file
+                        (expand-file-name "bookmarks.el" user-emacs-directory))
+          (bookmark-maybe-load-default-file))
+  (global-unset-key (kbd "C-x r l"))
+  (global-unset-key (kbd "C-x r m"))
+  :bind (:map bookmark-prefix
+              ("b" . bookmark-jump)
+              ("j" . bookmark-jump)
+              ("l" . bookmark-bmenu-list)
+              ("m" . bookmark-set)))
 
 ;;; [ bm.el ] -- Visual Bookmarks for GNU Emacs.
 
@@ -38,9 +34,8 @@
   :ensure t
   :defer t
   :preface (setq bm-face 'highlight)
-  :init
-  (add-to-list 'display-buffer-alist
-               '("\\*bm-bookmarks\\*" (display-buffer-same-window)))
+  :init (add-to-list 'display-buffer-alist
+                     '("\\*bm-bookmarks\\*" (display-buffer-same-window)))
   
   (unless (boundp 'bookmark-bm-prefix)
     (define-prefix-command 'bookmark-bm-prefix))

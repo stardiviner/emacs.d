@@ -69,20 +69,19 @@
 
 ;;; [ ob-scheme ]
 
-(require 'ob-scheme)
-
-(add-to-list 'org-babel-load-languages '(scheme . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("scheme" . "scm"))
-
-(pcase scheme-program-name
-  ("guile"
-   (add-to-list 'org-babel-default-header-args:scheme
-                '(:session . "* Guile REPL *")))
-  ("racket"
-   (add-to-list 'org-babel-default-header-args:scheme
-                '(:session . "* Racket REPL *")))
-  )
+(use-package ob-scheme
+  :defer t
+  :init
+  (add-to-list 'org-babel-load-languages '(scheme . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("scheme" . "scm"))
+  (pcase scheme-program-name
+    ("guile"
+     (add-to-list 'org-babel-default-header-args:scheme
+                  '(:session . "* Guile REPL *")))
+    ("racket"
+     (add-to-list 'org-babel-default-header-args:scheme
+                  '(:session . "* Racket REPL *")))))
 
 
 (provide 'init-prog-lang-scheme)

@@ -1,6 +1,6 @@
 ;;; init-rcirc.el --- A simple IRC client for Emacs.
 
-;;; Time-stamp: <2019-02-15 10:57:03 stardiviner>
+;;; Time-stamp: <2019-02-18 13:34:33 stardiviner>
 
 ;;; Commentary:
 
@@ -62,6 +62,7 @@
 
 (use-package rcirc-alertify
   :ensure t
+  :defer t
   :after rcirc
   :init (setq alert-default-style 'libnotify)
   :config (rcirc-alertify-enable))

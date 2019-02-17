@@ -16,9 +16,9 @@
 (setq abbrev-file-name "~/.emacs.d/abbrev_defs")
 (setq save-abbrevs 'silently) ; save abbrevs when files are saved, nil: stop asking.
 (setq-default abbrev-mode t)
+;; reads the abbreviations file on startup quietly.
 (if (file-exists-p abbrev-file-name)
-    (quietly-read-abbrev-file) ; reads the abbreviations file on startup quietly.
-  )
+    (quietly-read-abbrev-file))
 
 (define-abbrev-table 'global-abbrev-table
   '(("mynick" "stardiviner")
@@ -27,10 +27,9 @@
     ("mygmailformat" "numbchild[@]{gmail}.com")
     ("myhomepage" "http://stardiviner.github.io")
     ("mytwitter" "@numbchild")
-    ("myqq" "348284894")
-    ))
+    ("myqq" "348284894")))
 
-;;; define more keybindings
+;;; define more keybindings [C-x a]
 (define-key abbrev-map (kbd "/") 'exapnd-abbrev)
 (define-key abbrev-map (kbd "e") 'edit-abbrevs)
 (define-key abbrev-map (kbd "M-l") 'list-abbrevs)

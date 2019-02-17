@@ -95,6 +95,7 @@
 
 (use-package elisp-def
   :ensure t
+  :defer t
   :delight elisp-def-mode
   :init (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
           (add-hook hook #'elisp-def-mode)))
@@ -115,8 +116,7 @@
     (define-key tags-prefix (kbd "m") 'elisp-refs-macro)
     (define-key tags-prefix (kbd "v") 'elisp-refs-variable)
     (define-key tags-prefix (kbd "S") 'elisp-refs-special))
-  (add-hook 'emacs-lisp-mode-hook #'elisp-refs-keybindings-setup)
-  )
+  (add-hook 'emacs-lisp-mode-hook #'elisp-refs-keybindings-setup))
 
 
 ;;; [ suggest ] -- suggest elisp functions that give the output requested.

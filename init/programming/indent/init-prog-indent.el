@@ -14,8 +14,9 @@
               standard-indent 2)
 (setq-default tab-stop-list (number-sequence 2 120 2))
 
-(require 'cc-mode)
-(setq c-basic-offset 2)
+(use-package cc-mode
+  :defer t
+  :init (setq c-basic-offset 2))
 
 ;;; [ electric-indent-mode ]
 
@@ -38,8 +39,9 @@
 
 ;; (use-package indent-guide
 ;;   :ensure t
+;;   :defer t
 ;;   :delight indent-guide-mode
-;;   :config
+;;   :init
 ;;   (setq indent-guide-recursive t
 ;;         ;; - 0 to avoid zero-column guide line.
 ;;         ;; - -1 to show all indent lines.
@@ -94,6 +96,7 @@
 
 (use-package aggressive-indent
   :ensure t
+  :defer t
   :delight aggressive-indent-mode
   :init (setq aggressive-indent-sit-for-time 0.1)
   :config

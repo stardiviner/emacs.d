@@ -7,13 +7,11 @@
 
 ;;; Code:
 
-
 (unless (boundp 'web-server-prefix)
   (define-prefix-command 'web-server-prefix))
 (define-key tools-prefix (kbd "w") 'web-server-prefix)
 
-
-;;; [ elnode ] -- Asynchronous (non-blocking evented IO) HttpServer framework written in Emacs Lisp.
+;;; [ elnode ] -- Asynchronous (non-blocking evented IO) HttpServer framework written in Emacs Lisp bind to Node.js.
 
 ;;; Usage:
 ;;
@@ -25,27 +23,25 @@
 ;; - `elnode-start' & `elnode-stop'
 ;; - `list-elnode-servers' & `elnode-server-list'
 
-(require 'elnode)
-
-(setq elnode-init-host "localhost"
-      elnode-init-port "8000"
-      )
-
-(define-key web-server-prefix (kbd "e") 'elnode-make-webserver)
-
+(use-package elnode
+  :ensure t
+  :defer t
+  :commands (elnode-make-webserver elnode-server-list elnode-start elnode-stop)
+  :bind (:map web-server-prefix ("e" . elnode-make-webserver))
+  :init (setq elnode-init-host "localhost"
+              elnode-init-port "8000"))
 
 ;;; [ web-server ]
 
 (use-package web-server
-  :config
-  )
-
+  :ensure t
+  :defer t)
 
 ;;; [ websocket ] -- Emacs WebSocket Client and Server
 
 (use-package websocket
-  :config
-  )
+  :ensure t
+  :defer t)
 
 
 (provide 'init-prog-web-server)

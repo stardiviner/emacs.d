@@ -63,11 +63,11 @@
 ;; follow mode keybindings support.
 (use-package eww-lnum
   :ensure t
-  :bind (:map eww-mode-map
-              ("f" . eww-lnum-follow)
-              ("U" . eww-lnum-universal)))
+  :defer t
+  :bind (:map eww-mode-map ("f" . eww-lnum-follow) ("U" . eww-lnum-universal)))
 
-(require 'org-eww)
+(use-package org-eww
+  :defer t)
 
 ;;; - store URL in EWW for `org-store-link'.
 ;;; - copy region and convert to Org format on the fly with `org-eww-copy-for-org-mode' [C-c C-x C-w].

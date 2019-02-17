@@ -12,6 +12,7 @@
 (use-package python-mode
   :ensure t
   :ensure-system-package python
+  :defer t
   :commands (py-shell ; `py-python-shell-mode'
              python python3 python2 ipython jpython)
   :preface
@@ -53,26 +54,29 @@
 
 ;;; [ ob-python ]
 
-(require 'ob-python)
+(use-package ob-python
+  :defer t
+  :init
+  (add-to-list 'org-babel-load-languages '(python . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("python" . "py"))
 
-(add-to-list 'org-babel-load-languages '(python . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("python" . "py"))
-
-(add-to-list 'org-babel-default-header-args:python
-             '(:eval . "yes"))
-(add-to-list 'org-babel-default-header-args:python
-             '(:noweb . "yes"))
-(add-to-list 'org-babel-default-header-args:python
-             '(:results . "output"))
-;; (add-to-list 'org-babel-default-header-args:python
-;;              '(:session . "*Python*"))
+  (add-to-list 'org-babel-default-header-args:python
+               '(:eval . "yes"))
+  (add-to-list 'org-babel-default-header-args:python
+               '(:noweb . "yes"))
+  (add-to-list 'org-babel-default-header-args:python
+               '(:results . "output"))
+  ;; (add-to-list 'org-babel-default-header-args:python
+  ;;              '(:session . "*Python*"))
+  )
 
 
 ;;; [ elpy ] -- Emacs Python Development Environment.
 
 ;; (use-package elpy
 ;;   :ensure t
+;;   :defer t
 ;;   :after python-mode
 ;;   :hook (python-mode . elpy-enable)
 ;;   :init (defun my-elpy-company-setup ()
@@ -99,6 +103,7 @@
 ;; (use-package anaconda-mode
 ;;   :ensure t
 ;;   :ensure company-anaconda
+;;   :defer t
 ;;   :after python-mode
 ;;   :hook (python-mode . anaconda-mode))
 
@@ -107,6 +112,7 @@
 (use-package lsp-python
   :ensure t
   :ensure-system-package ((pyls . "pip install python-language-server"))
+  :defer t
   :after lsp
   :hook (python-mode . lsp))
 
@@ -114,6 +120,7 @@
 
 (use-package pyvenv
   :ensure t
+  :defer t
   :init (pyvenv-workon "python3.7")
   (add-hook 'python-mode-hook #'pyvenv-mode))
 

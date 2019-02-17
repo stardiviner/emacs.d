@@ -42,6 +42,7 @@
 
 (use-package ace-window
   :ensure t
+  :defer t
   :delight ace-window-mode
   :bind ("C-x C-j" . ace-window)
   :init (setq aw-background nil))
@@ -94,8 +95,9 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
 
 ;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
 
-(require 'follow)
-(add-hook 'follow-mode-hook #'split-window-horizontally)
+(use-package follow
+  :defer t
+  :config (add-hook 'follow-mode-hook #'split-window-horizontally))
 
 
 
