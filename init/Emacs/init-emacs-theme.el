@@ -53,8 +53,8 @@
 ;;; [ one-themes ] -- One color scheme.
 
 (use-package one-themes
-  :ensure t
-  :no-require t
+  ;; :ensure t
+  :quelpa (one-themes :fetcher git :repo "stardiviner/emacs-one-themes")
   :config (load-theme 'one-dark t))
 
 
