@@ -179,7 +179,7 @@
   ;; (better only use that for the last field.
   ;; These are the defaults:
 
-  (setq mu4e-headers-date-format "%x %X")
+  (setq mu4e-headers-date-format "%F")
 
   ;; normal fields
   ;; (setq mu4e-headers-fields
