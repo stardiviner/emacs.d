@@ -19,8 +19,8 @@
   :init (global-company-mode 1)
   (setq company-minimum-prefix-length 3
         ;; decrease this delay when you can type code continuously fast.
-        company-idle-delay 0.1
-        company-tooltip-idle-delay 0.1
+        company-idle-delay 0.3
+        company-tooltip-idle-delay 0.5
         ;; determine which characters trigger auto-completion the selected candidate.
         company-auto-complete nil ; nil: don't auto select the first candidate when input `company-auto-complete-chars'.
         ;; '(?_ ?\( ?w ?. ?\" ?$ ?\' ?/ ?| ?! ?#)
@@ -187,7 +187,7 @@
   :init
   ;; disable auto `company-box-doc' timer.
   (setq company-box-doc-enable t)
-  (setq company-box-doc-delay 0.5)
+  (setq company-box-doc-delay 0.3)
   :config
   (add-to-list 'company-box-frame-parameters
                '(font . "-SRC-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
