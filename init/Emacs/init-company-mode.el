@@ -198,25 +198,6 @@
   (add-to-list 'company-box-frame-parameters
                '(border-color . "dim gray"))
   
-  (defun company-box-doc--get-frame ()
-    (frame-parameter nil 'company-box-doc-frame))
-  (defun company-box-child-frame-reset ()
-    "Delete old child-frame, then `company-box' create new child-frame."
-    (interactive)
-    ;; delete all frames except current frame.
-    (mapc (lambda (frame)
-            (unless (equal frame (selected-frame))
-              (delete-frame frame)))
-          (frame-list))
-    (if (frame-live-p (company-box--get-frame))
-        (delete-frame (company-box--get-frame)))
-    (unless (frame-live-p (company-box--get-frame))
-      (company-box--set-frame (company-box--make-frame)))
-    (if (company-box-doc--get-frame)
-        (delete-frame (company-box-doc--get-frame)))
-    (unless (frame-live-p (company-box-doc--get-frame))
-      (set-frame-parameter nil 'company-box-doc-frame nil)))
-
   (setq company-box-backends-colors
         '((company-capf . (:candidate "LightSeaGreen"))
           (company-keywords . (:candidate "tomato"))
@@ -245,16 +226,19 @@
           (company-edbi . (:icon "DarkGreen"))
           (company-restclient . (:icon "DarkTurquoise"))))
 
-  (setq company-box-icons-unknown (all-the-icons-faicon "code" :height 0.8 :v-adjust -0.05))
-  (setq company-box-icons-yasnippet (all-the-icons-faicon "file-code-o" :height 0.8 :v-adjust -0.05))
-  (setq company-box-icons-elisp (list
-                                 ;; "λ" ; function/method
-                                 (all-the-icons-material "functions" :height 0.8 :v-adjust -0.15)
-                                 ;; (all-the-icons-faicon "hashtag" :height 0.8 :v-adjust -0.15)
-                                 (all-the-icons-faicon "asterisk" :height 0.8 :v-adjust -0.15) ; variable
-                                 (all-the-icons-octicon "package" :height 0.8 :v-adjust -0.05) ; library
-                                 (all-the-icons-faicon "font" :height 0.8 :v-adjust -0.05) ; face
-                                 ))
+  (setq company-box-icons-unknown
+        (all-the-icons-faicon "code" :height 0.8 :v-adjust -0.05))
+  (setq company-box-icons-yasnippet
+        (all-the-icons-faicon "file-code-o" :height 0.8 :v-adjust -0.05))
+  (setq company-box-icons-elisp
+        (list
+         ;; "λ" ; function/method
+         (all-the-icons-material "functions" :height 0.8 :v-adjust -0.15)
+         ;; (all-the-icons-faicon "hashtag" :height 0.8 :v-adjust -0.15)
+         (all-the-icons-faicon "asterisk" :height 0.8 :v-adjust -0.15) ; variable
+         (all-the-icons-octicon "package" :height 0.8 :v-adjust -0.05) ; library
+         (all-the-icons-faicon "font" :height 0.8 :v-adjust -0.05) ; face
+         ))
   (setq company-box-icons-lsp
         `((1 . ,(all-the-icons-faicon "file-text-o" :height 0.8 :v-adjust -0.05)) ;; Text: String
           (2 . ,(all-the-icons-material "functions" :height 0.8 :v-adjust -0.15)) ;; Method
