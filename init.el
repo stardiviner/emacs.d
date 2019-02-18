@@ -184,7 +184,7 @@
 (require 'init-tool-irc)
 (require 'init-communication)
 (require 'init-elfeed)
-;; (require 'init-tool-music)
+(require 'init-tool-music)
 ;; (require 'init-tool-subtitle)
 ;; (require 'init-tool-podcast)
 ;; (require 'init-tool-audio)
