@@ -216,17 +216,13 @@
   :defer t
   :config
   (add-to-list 'all-the-icons-mode-icon-alist
-               '(erc-mode all-the-icons-faicon "commenting-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
-  (add-to-list 'all-the-icons-mode-icon-alist
-               '(rcirc-mode all-the-icons-faicon "commenting-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
+               '(circe-channel-mode all-the-icons-faicon "commenting-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(ag-mode all-the-icons-faicon "search" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(rg-mode all-the-icons-faicon "search" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(ripgrep-search-mode all-the-icons-faicon "search" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
-  (add-to-list 'all-the-icons-mode-icon-alist
-               '(sh-mode all-the-icons-alltheicon "terminal" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(sql-interactive-mode all-the-icons-faicon "database" 1.0 :v-adjust 0.05 :face all-the-icons-lgreen))
   (add-to-list 'all-the-icons-mode-icon-alist
@@ -236,13 +232,7 @@
   (add-to-list 'all-the-icons-mode-icon-alist
                '(inferior-lisp-mode all-the-icons-fileicon "lisp" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan-alt))
   (add-to-list 'all-the-icons-mode-icon-alist
-               '(sly-mrepl-mode all-the-icons-fileicon "lisp" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan-alt))
-  (add-to-list 'all-the-icons-mode-icon-alist
-               '(slime-repl-mode all-the-icons-fileicon "lisp" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan-alt))
-  (add-to-list 'all-the-icons-mode-icon-alist
                '(inf-clojure-mode all-the-icons-fileicon "clj" :height 1.0 :v-adjust 0.0 :face all-the-icons-maroon))
-  (add-to-list 'all-the-icons-mode-icon-alist
-               '(inferior-python-mode all-the-icons-alltheicon "python" :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(py-python-shell-mode all-the-icons-alltheicon "python" :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt))
   (add-to-list 'all-the-icons-mode-icon-alist
