@@ -26,8 +26,7 @@
   
   ;; a list of user's e-mail addresses
   (setq mu4e-user-mail-address-list
-        '("numbchild@gmail.com" "348284894@qq.com"))
-
+        '("numbchild@gmail.com" "stardiviner@qq.com" "348284894@qq.com"))
 
   ;; [ Maildir ]
   (setq mu4e-maildir "~/Mails"       ; top-level Maildir
