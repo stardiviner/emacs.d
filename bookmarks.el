@@ -2,7 +2,190 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure编程乐趣 第2版.pdf"
+(("Zsh.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/Zsh/Zsh.org")
+ (front-context-string . "#+TITLE: Zsh\n\n* ")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure Applied - From Practice to Practitioner.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure Applied - From Practice to Practitioner.pdf")
+ (position . 1)
+ (page . 14)
+ (slice 0.035504 0.024881 0.928992 0.925297)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("History.org"
+ (filename . "~/Org/Wiki/History/History.org")
+ (front-context-string . "#+TITLE: History")
+ (rear-context-string)
+ (position . 1))
+("GraphQL.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/GraphQL/GraphQL.org")
+ (front-context-string . "#+TITLE: GraphQL")
+ (rear-context-string)
+ (position . 1))
+("Unity.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Unity/Unity.org")
+ (front-context-string . "#+TITLE: Unity\n\n")
+ (rear-context-string)
+ (position . 1))
+("Vega.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Vega.org")
+ (front-context-string . "#+TITLE: Vega & ")
+ (rear-context-string)
+ (position . 1))
+("Market.org"
+ (filename . "~/Org/Wiki/Market/Market.org")
+ (front-context-string . "#+TITLE: Market\n")
+ (rear-context-string)
+ (position . 1))
+("Natural Language Processing.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Natural Language Processing/Natural Language Processing.org")
+ (front-context-string . "#+TITLE: Natural")
+ (rear-context-string)
+ (position . 1))
+("My MariaDB Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/MariaDB/Data/Manuals/My MariaDB Syntax Reference/My MariaDB Syntax Reference.org")
+ (front-context-string . "#+TITLE: My Mari")
+ (rear-context-string)
+ (position . 1))
+("React.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/JavaScript Packages/React/React.org")
+ (front-context-string . "#+TITLE: React\n\n")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Sexology/Data/Books/The Tao of Sexology: The Book of Infinite Wisdom.pdf"
+ (filename . "~/Org/Wiki/Sexology/Data/Books/The Tao of Sexology: The Book of Infinite Wisdom.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Countries/China/Chinese Policy/data/92/7ae0c4-5847-4301-9400-3528a5ca6f1f/8 个月后，鸿茅药酒又回来了.pdf"
+ (filename . "~/Org/Wiki/Countries/China/Chinese Policy/data/92/7ae0c4-5847-4301-9400-3528a5ca6f1f/8 个月后，鸿茅药酒又回来了.pdf")
+ (position . 1)
+ (page . 2)
+ (slice 0.004411999999999999 0 0.9911760000000001 0.9780300000000001)
+ (size . fit-width)
+ (origin 0.0 . 0.6257449344457687)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/data/30/5d1325-ed91-415d-9d7f-af0218861819/Deep HTTP Dive Through Aleph & Netty.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/data/30/5d1325-ed91-415d-9d7f-af0218861819/Deep HTTP Dive Through Aleph & Netty.pdf")
+ (position . 1)
+ (page . 7)
+ (slice 0.025 0.066667 0.771875 0.788889)
+ (size . fit-width)
+ (origin 0.0 . 0.19788918205804748)
+ (handler . pdf-view-bookmark-jump-handler))
+("Bash.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/Bash/Bash.org")
+ (front-context-string . "#+TITLE: Bash\n\n*")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/data/0d/2f284f-3c09-4dcc-8727-a05aab10b567/hopl-4-emacs-lisp.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/data/0d/2f284f-3c09-4dcc-8727-a05aab10b567/hopl-4-emacs-lisp.pdf")
+ (position . 1)
+ (page . 2)
+ (slice 0.06964999999999999 0.056944 0.862757 0.915278)
+ (size . fit-width)
+ (origin 0.0 . 0.7040229885057471)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Rust and WebAssembly.pdf"
+ (filename . "~/Rust and WebAssembly.pdf")
+ (position . 1)
+ (page . 2)
+ (slice 0.004411999999999999 0 0.9911760000000001 0.976768)
+ (size . fit-width)
+ (origin 0.0 . 0.7660332541567696)
+ (handler . pdf-view-bookmark-jump-handler))
+("H2.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/H2/H2.org")
+ (front-context-string . "#+TITLE: H2\n\n* I")
+ (rear-context-string)
+ (position . 1))
+("RethinkDB.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/NoSQL/RethinkDB/RethinkDB.org")
+ (front-context-string . "* Intro\n\n*Distri")
+ (rear-context-string)
+ (position . 1))
+("License.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Program Copyright/Data/License/License.org")
+ (front-context-string . "#+TITLE: License")
+ (rear-context-string)
+ (position . 1))
+("My Applied Mathematics Formula Reference.org"
+ (filename . "~/Org/Wiki/Mathematics/Data/Manuals/My Applied Mathematics Formula Reference/My Applied Mathematics Formula Reference.org")
+ (front-context-string . "#+TITLE: Applied")
+ (rear-context-string)
+ (position . 1))
+("My Mathematics Formula Reference.org"
+ (filename . "~/Org/Wiki/Mathematics/Data/Manuals/My Mathematics Formula Reference/My Mathematics Formula Reference.org")
+ (front-context-string . "#+TITLE: My Math")
+ (rear-context-string)
+ (position . 1))
+("My Mathematics Glossary.org"
+ (filename . "~/Org/Wiki/Mathematics/Data/Manuals/My Mathematics Glossary/My Mathematics Glossary.org")
+ (front-context-string . "#+TITLE: My Math")
+ (rear-context-string)
+ (position . 1))
+("My Mathematics Manual.org"
+ (filename . "~/Org/Wiki/Mathematics/Data/Manuals/My Mathematics Manual/My Mathematics Manual.org")
+ (front-context-string . "#+TITLE: My Math")
+ (rear-context-string)
+ (position . 1))
+("The Mathematics Notations Cheat Sheet.org"
+ (filename . "~/Org/Wiki/Mathematics/Data/Manuals/The Mathematics Notations Cheat Sheet/The Mathematics Notations Cheat Sheet.org")
+ (front-context-string . "#+TITLE: The Mat")
+ (rear-context-string)
+ (position . 1))
+("Social Network.org"
+ (filename . "~/Org/Wiki/Sociology/Social Intercourse/Social Network/Social Network.org")
+ (front-context-string . "#+TITLE: Social ")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Countries/China/Chinese Policy/data/48/6f4176-2c3b-4b7c-814e-331b11969fa3/yang2018.pdf"
+ (filename . "~/Org/Wiki/Countries/China/Chinese Policy/data/48/6f4176-2c3b-4b7c-814e-331b11969fa3/yang2018.pdf")
+ (position . 1)
+ (page . 9)
+ (slice 0.045588 0 0.8920170000000001 0.922921)
+ (size . fit-width)
+ (origin 0.0 . 0.30991735537190085)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Manuals/My Clojure Language Syntax Reference/data/99/5b2f93-0096-440d-9768-c88abc68d771/idealhashtrees.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Manuals/My Clojure Language Syntax Reference/data/99/5b2f93-0096-440d-9768-c88abc68d771/idealhashtrees.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Manuals/My Clojure Language Syntax Reference/data/99/5b2f93-0096-440d-9768-c88abc68d771/okasaki.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Manuals/My Clojure Language Syntax Reference/data/99/5b2f93-0096-440d-9768-c88abc68d771/okasaki.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.3719723183391004)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Data Structure/Data/Books/Purely Functional Data Structures.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Data Structure/Data/Books/Purely Functional Data Structures.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure编程.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure编程.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure编程乐趣 第2版.pdf"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure编程乐趣 第2版.pdf")
  (position . 1)
  (page . 1)
@@ -167,10 +350,10 @@
 ("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/data/code/org-gantt/org-gantt-manual.pdf"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/data/code/org-gantt/org-gantt-manual.pdf")
  (position . 1)
- (page . 2)
- (slice 0.112255 0.08232300000000001 0.7950980000000001 0.8732330000000001)
+ (page . 6)
+ (slice 0.11388900000000002 0.086111 0.773856 0.8707070000000001)
  (size . fit-width)
- (origin 0.0 . 0.0)
+ (origin 0.0 . 0.6839378238341969)
  (handler . pdf-view-bookmark-jump-handler))
 ("Solidity.org"
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Solidity/Solidity.org")
@@ -1295,19 +1478,19 @@
  (position . 1))
 ("org-capture-last-stored-marker"
  (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** physixfan\n   ")
- (rear-context-string . "\n\n\n* Physics\n\n\n\n")
- (position . 123883))
+ (front-context-string . "** Benjamin DELP")
+ (rear-context-string . "08:53]\n   :END:\n")
+ (position . 129849))
 ("org-refile-last-stored"
  (filename . "~/Org/Projects/Programming Projects/Code.org")
  (front-context-string . "** Pull-Request ")
- (rear-context-string . "e my own fork.\n\n")
- (position . 303353))
+ (rear-context-string . "s not neither.\n\n")
+ (position . 393274))
 ("org-capture-last-stored"
- (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 快要过年了，我想到一点")
- (rear-context-string . "mind as start.\n\n")
- (position . 53133))
+ (filename . "~/Org/Contacts/Contacts.org")
+ (front-context-string . "* Benjamin DELPY")
+ (rear-context-string . "09:17]\n   :END:\n")
+ (position . 172449))
 ("PDF-LAST-VIEWED: /tmp/mu-1000/b53469b1/3/test.pdf"
  (filename .
            #("/tmp/mu-1000/b53469b1/3/test.pdf" 0 32
@@ -2697,18 +2880,6 @@
  (front-context-string . "#+TITLE: Algorit")
  (rear-context-string)
  (position . 1))
-(#("Mathematics Formula Reference.org" 0 1
-   (idx 519))
- (filename . "~/Org/Wiki/Mathematics/Data/Manuals/Mathematics Formula Reference/Mathematics Formula Reference.org")
- (front-context-string . "#+TITLE: Mathema")
- (rear-context-string)
- (position . 1))
-(#("Mathematics Terms Reference.org" 0 1
-   (idx 520))
- (filename . "~/Org/Wiki/Mathematics/Data/Manuals/Mathematics Terms Reference/Mathematics Terms Reference.org")
- (front-context-string . "#+TITLE: Mathema")
- (rear-context-string)
- (position . 1))
 (#("Internet Censorship.org" 0 1
    (idx 526))
  (filename . "~/Org/Wiki/Computer Technology/Internet Censorship/Internet Censorship.org")
@@ -3115,12 +3286,6 @@
    (idx 632))
  (filename . "~/Org/Wiki/Law/Law.org")
  (front-context-string . "* Intro\n\n\n* Data")
- (rear-context-string)
- (position . 1))
-(#("My Applied Mathematics Formula Reference.org" 0 1
-   (idx 633))
- (filename . "~/Org/Wiki/Mathematics/Data/Manuals/My Applied Mathematics Formula Reference/My Applied Mathematics Formula Reference.org")
- (front-context-string . "#+TITLE: Applied")
  (rear-context-string)
  (position . 1))
 (#("Bookmarks (Org)" 0 1
