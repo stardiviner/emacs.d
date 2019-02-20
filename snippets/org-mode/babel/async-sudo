@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: babel async sudo
+# key: babel-sudo-async
+# group: babel.async
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+#+begin_src sh :async :dir "/sudo:`user-login-name`@localhost:/"
+sudo $0
+#+end_src

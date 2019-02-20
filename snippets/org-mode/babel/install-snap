@@ -3,6 +3,6 @@
 # key: babel-install-snap
 # group: babel.install
 # --
-#+begin_src sh :results none
+#+begin_src sh :dir /sudo:: :results none
 sudo snap install $0
 #+end_src
