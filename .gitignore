@@ -104,3 +104,17 @@ pyim/
 /data/auto
 /init/extra/meghanada/
 /.cache/
+
+# lsp-mode related
+/php-language-server/
+/gotools/
+
+/site-lisp/
+
+# ProofGeneral
+/site-lisp/ProofGeneral/
+/init/Emacs/PG/
+/.lsp-session*
+/forge-database.sqlite
+/elfeed/
+/transient/
