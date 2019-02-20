@@ -227,8 +227,9 @@
   ;;                      (t "numbchild@gmail.com")))
   ;;               )))
 
-  (add-hook 'mu4e-compose-mode-hook #'visual-fill-column-mode)
+  ;; (add-hook 'mu4e-compose-mode-hook #'visual-fill-column-mode)
   (add-hook 'mu4e-compose-mode-hook #'turn-on-auto-fill)
+  (add-hook 'mu4e-compose-mode-hook #'aggressive-fill-paragraph-mode)
   (add-hook 'mu4e-compose-mode-hook #'turn-on-flyspell)
   ;; enable `company-ispell' backend in `mu4e-compose-mode'.
   (defun mu4e-enable-company-ispell ()
