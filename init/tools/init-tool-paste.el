@@ -44,12 +44,12 @@ For pasting on sites like GitHub, and Stack Overflow."
   (deactivate-mark))
 (define-key paste-prefix (kbd "M") 'my:org-paste-md)
 
-(use-package ox-slack
-  :quelpa (ox-slack :fetcher github :repo "titaniumbones/ox-slack")
-  :defer t
-  :commands (org-slack-export-to-clipboard-as-slack)
-  :init (defalias 'my:org-paste-slack 'org-slack-export-to-clipboard-as-slack)
-  :bind (:map paste-prefix ("S" . my:org-paste-slack)))
+;; (use-package ox-slack
+;;   :quelpa (ox-slack :fetcher github :repo "titaniumbones/ox-slack")
+;;   :defer t
+;;   :commands (org-slack-export-to-clipboard-as-slack)
+;;   :init (defalias 'my:org-paste-slack 'org-slack-export-to-clipboard-as-slack)
+;;   :bind (:map paste-prefix ("S" . my:org-paste-slack)))
 
 ;;; copy formatted text from org-mode to applications.
 (defun my:org-paste-html ()
