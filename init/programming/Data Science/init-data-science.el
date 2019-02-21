@@ -17,11 +17,12 @@
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'display-buffer-alist
                '("^\\*jupyter-repl.*\\*" (display-buffer-below-selected)))
-  (with-eval-after-load 'ob-async
-    (add-to-list 'ob-async-no-async-languages-alist "jupyter-python")
-    (add-to-list 'ob-async-no-async-languages-alist "jupyter-clojure")
-    (add-to-list 'ob-async-no-async-languages-alist "jupyter-julia")
-    (add-to-list 'ob-async-no-async-languages-alist "jupyter-ruby")))
+  (if (featurep 'ob-async)
+      (with-eval-after-load 'ob-async
+        (add-to-list 'ob-async-no-async-languages-alist "jupyter-python")
+        (add-to-list 'ob-async-no-async-languages-alist "jupyter-clojure")
+        (add-to-list 'ob-async-no-async-languages-alist "jupyter-julia")
+        (add-to-list 'ob-async-no-async-languages-alist "jupyter-ruby"))))
 
 ;;; [ Emacs IPython Notebook (EIN) ] -- IPython notebook client in Emacs
 
