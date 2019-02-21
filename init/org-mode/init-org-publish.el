@@ -47,7 +47,8 @@
 
 ;;; - inline CSS (better colors support for src blocks)
 ;;; use a specific theme for `ox-org'.
-(setq org-html-htmlize-output-type 'inline-css)
+(setq org-html-htmlize-output-type 'inline-css
+      org-org-htmlized-css-url t)
 ;;; FIXME: this seems does not work.
 (setq my:org-html-export-theme 'leuven)
 (defun my:ox-org-with-theme (orig-fun &rest args)
