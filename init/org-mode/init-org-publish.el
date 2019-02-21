@@ -26,15 +26,17 @@
 (setq org-html-infojs-options
       '((path . "/assets/scripts/org-info-src.js")
         (view . "showall") ; "info", "overview", "content", "showall"
-        (toc . :with-toc)
-        (ftoc . "2") ; fixed TOC
-        (tdepth . "max")
-        (sdepth . "max")
-        (mouse . "underline")
-        (buttons . "0")
-        (ltoc . "3") ; local TOC
+        (toc . :with-toc) ; TOC visible?
+        (ftoc . "2") ; which headline level to start hide fixed TOC?
+        (ltoc . "3") ; show local TOC of each child headline section?
+        (tdepth . "max") ; depth of TOC
+        (sdepth . "max") ; maximum headline level
+        (mouse . "underline") ; headlines is how highlighted when mouse is over them?
+        (buttons . "0") ; should view-toggle buttons be everwhere?
         (up . :html-link-up)
-        (home . :html-link-home)))
+        (home . :html-link-home))
+      ;; org-export-html-use-infojs t
+      )
 
 ;;; [ ox-org ]
 ;;; support "Show Org Source" (.org.html version) button.
