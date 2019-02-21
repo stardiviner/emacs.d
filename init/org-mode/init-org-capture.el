@@ -42,7 +42,7 @@
         ;; Bookmark
         ("u" "Add an [U]RL to bookmarks database"
          entry (file "~/Org/Bookmarks/Bookmarks.org")
-         "* %^{Bookmark URL}\n\n%A\n\n%?\n\n"
+         "* [[%^C][%^{link description}]]\n:PROPERTIES:\n:URL: %^C\n:DATE: %t\n:END: \n\n%?\n\n"
          :empty-lines 1
          :jump-to-captured t)
 
