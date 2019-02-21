@@ -21,9 +21,7 @@
   ;; (setq mu4e-mu-home nil ; nil for default
   ;;       mu4e-mu-binary "/usr/sbin/mu"
   ;;       )
-  :config
-  (setq mu4e-compose-in-new-frame t)
-  
+
   ;; a list of user's e-mail addresses
   (setq mu4e-user-mail-address-list
         '("numbchild@gmail.com" "stardiviner@qq.com" "348284894@qq.com"))
