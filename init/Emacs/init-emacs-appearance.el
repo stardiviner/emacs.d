@@ -173,9 +173,12 @@
   (add-to-list 'afp-fill-keys ?。) ; support for Chinese sentence end.
   (add-to-list 'afp-fill-comments-only-mode-list 'lisp-mode)
   (add-to-list 'afp-fill-comments-only-mode-list 'clojure-mode)
-  ;; disable `aggressive-fill-paragraph' to speedup Org typing performance.
-  (add-hook 'org-mode-hook (lambda () (aggressive-fill-paragraph-mode -1)))
-  (add-hook 'git-commit-mode-hook (lambda () (aggressive-fill-paragraph-mode -1))))
+  (add-to-list 'afp-fill-comments-only-mode-list 'TeX-mode)
+  (add-to-list 'afp-fill-comments-only-mode-list 'tex-mode)
+  (add-to-list 'afp-fill-comments-only-mode-list 'LaTeX-mode)
+  (add-to-list 'afp-fill-comments-only-mode-list 'latex-mode)
+  (add-to-list 'afp-fill-comments-only-mode-list 'org-mode)
+  (add-hook 'org-mode-hook (lambda () (aggressive-fill-paragraph-mode -1))))
 
 (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
 
