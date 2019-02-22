@@ -19,7 +19,7 @@
 ;; let org-mode auto delete those auxiliary files after exporting.
 (setq org-latex-remove-logfiles t)
 (setq org-latex-logfiles-extensions
-      '("lof" "lot" "tex" "aux" "idx" "out" "toc" "nav" "snm" "vrb"
+      '("lof" "lot" "aux" "idx" "out" "toc" "nav" "snm" "vrb"
         "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl"))
 
 ;;; Preview Org-mode LaTeX fragments
