@@ -9,6 +9,8 @@
 
 (require 'ox-latex)
 
+(setq org-highlight-latex-and-related '(script))
+
 ;; - 'native :: highlight inline LaTeX, and LaTeX blocks with
 ;;              `org-src-font-lock-fontify-block' nativelly.
 ;;; - 'latex :: highlight inline LaTeX, and LaTeX blocks.
