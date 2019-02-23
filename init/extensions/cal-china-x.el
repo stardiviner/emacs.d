@@ -333,10 +333,11 @@ See `cal-china-x-solar-term-name' for a list of solar term names ."
 
   (setq diary-date-forms chinese-date-diary-pattern)
 
+  ;; FIXME: void variable `calendar-font-lock-keywords' after upgrade to Emacs 27.
   ;; chinese month and year
-  (setq calendar-font-lock-keywords
-        (append calendar-font-lock-keywords
-                '(("[0-9]+年\\ *[0-9]+月" . font-lock-function-name-face))))
+  ;; (setq calendar-font-lock-keywords
+  ;;       (append calendar-font-lock-keywords
+  ;;               '(("[0-9]+年\\ *[0-9]+月" . font-lock-function-name-face))))
 
   (setq calendar-chinese-celestial-stem cal-china-x-celestial-stem
         calendar-chinese-terrestrial-branch cal-china-x-terrestrial-branch)
