@@ -21,6 +21,7 @@
         ;; decrease this delay when you can type code continuously fast.
         company-idle-delay 0.3
         company-tooltip-idle-delay 0.5
+        company-echo-delay 0 ; remove annoying blink
         ;; determine which characters trigger auto-completion the selected candidate.
         company-auto-complete nil ; nil: don't auto select the first candidate when input `company-auto-complete-chars'.
         ;; '(?_ ?\( ?w ?. ?\" ?$ ?\' ?/ ?| ?! ?#)

@@ -22,8 +22,8 @@
 
 ;; (use-package eldoc-overlay
 ;;   :ensure t
-;;   :init
-;;   (global-eldoc-overlay-mode 1))
+;;   :defer t
+;;   :init (global-eldoc-overlay-mode 1))
 
 ;;; [ help-at-pt ] -- local help through the keyboard.
 
