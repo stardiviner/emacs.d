@@ -9,21 +9,16 @@
 
 (require 'ox-latex)
 
-(setq org-highlight-latex-and-related '(script))
-
-;; - 'native :: highlight inline LaTeX, and LaTeX blocks with
-;;              `org-src-font-lock-fontify-block' nativelly.
-;;; - 'latex :: highlight inline LaTeX, and LaTeX blocks.
-;; (add-to-list 'org-highlight-latex-and-related 'native) ; FIXME: this has fontify problem.
-
-;; let org-mode auto delete those auxiliary files after exporting.
+;; let org-mode auto delete those auxiliary files after compile and exporting.
 (setq org-latex-remove-logfiles t)
 (setq org-latex-logfiles-extensions
       '("lof" "lot" "aux" "idx" "out" "toc" "nav" "snm" "vrb"
         "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl"))
 
-;;; Preview Org-mode LaTeX fragments
+;;; Preview Org-mode LaTeX fragments between $\LaTeX{}$
 (setq org-startup-with-latex-preview nil)
+(setq org-highlight-latex-and-related nil)
+
 ;; (setq org-preview-latex-default-process 'dvipng)    ; faster but don't support Chinese by default.
 ;; (setq org-preview-latex-default-process 'imagemagick)  ; slower but support Chinese by default.
 (setq org-preview-latex-default-process 'dvisvgm) ; generate SVG for better image.
