@@ -183,8 +183,7 @@ You can add this to your `calendar-holidays'.")
      :background "red")
     (((class color) (background dark))
      :background "red")
-    (t
-     :inverse-video t))
+    (t :inherit nil :inverse-video nil))
   "Face for indicating `cal-china-x-important-holidays'."
   :group 'cal-china-x)
 
@@ -193,8 +192,7 @@ You can add this to your `calendar-holidays'.")
      :background "green")
     (((class color) (background dark))
      :background "green")
-    (t
-     :inverse-video t))
+    (t :inherit nil :inverse-video nil))
   "Face for indicating `cal-china-x-general-holidays'."
   :group 'cal-china-x)
 
