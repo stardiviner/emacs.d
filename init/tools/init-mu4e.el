@@ -393,8 +393,12 @@
 
   (require 'org-mu4e) ; for [[mu4e:..]] links.
 
-  ;; store link to message if in "header view", not to "header query"
-  (setq org-mu4e-link-query-in-headers-mode nil)
+  ;; enable Org Mode for editing in `mu4e-compose-mode'.
+  (add-hook 'mu4e-compose-mode-hook #'org-mu4e-compose-org-mode)
+
+  (setq org-mu4e-link-query-in-headers-mode t)
+
+  ;; (setq org-mu4e-convert-to-html t)
 
   ;; - `org-mu4e-open' :: open the mu4e message (for paths starting with 'msgid:')
   ;;                      or run the query (for paths starting with 'query:').
