@@ -47,6 +47,13 @@
   (add-hook 'calendar-initial-window-hook 'calendar-mark-today)
   ;; mark diary entries
   ;; (setq calendar-mark-diary-entries-flag t)
+
+  ;; [ cal-china ]
+  ;; display the ‘celestial-stem’ (天干) and the ‘terrestrial-branch’ (地支) in Chinese:
+  (setq calendar-chinese-celestial-stem
+        ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
+        calendar-chinese-terrestrial-branch
+        ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"])
   )
 
 ;;; Localized National Holidays
@@ -60,20 +67,11 @@
   ;; get rid of christan holidays
   (setq holiday-christian-holidays nil))
 
-(use-package cal-china
-  :init
-  ;; display the ‘celestial-stem’ (天干) and the ‘terrestrial-branch’ (地支) in Chinese:
-  (setq calendar-chinese-celestial-stem
-        ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
-        calendar-chinese-terrestrial-branch
-        ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"]))
-
 ;; [ cal-china-x ] -- Chinese localization, lunar/horoscope/zodiac info and more...
 
 (use-package cal-china-x
   :ensure t
   :config
-  (setq calendar-mark-holidays-flag t)
   (setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
   (setq cal-china-x-general-holidays '((holiday-lunar 1 1 "春节")
                                        (holiday-lunar 1 14 "祭灶")
