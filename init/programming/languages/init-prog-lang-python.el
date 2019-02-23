@@ -16,9 +16,9 @@
   :commands (py-shell ; `py-python-shell-mode'
              python python3 python2 ipython jpython)
   :preface
-  (setq python-indent-offset 4
-        python-indent 4
-        python-indent-guess-indent-offset t)
+  (setq python-indent-guess-indent-offset nil
+        python-indent-offset 4
+        python-indent 4)
   :config
   ;; auto interactive insert skeleton
   (setq python-skeleton-autoinsert nil)
