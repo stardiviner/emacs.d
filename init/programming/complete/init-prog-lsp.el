@@ -17,7 +17,6 @@
   :ensure t
   :defer t
   :commands (lsp lsp-describe-session)
-  :hook (prog-mode . lsp)
   :init (setq lsp-auto-configure nil
               lsp-auto-guess-root t
               lsp-prefer-flymake nil) ; use `flycheck' and `lsp-ui'.
