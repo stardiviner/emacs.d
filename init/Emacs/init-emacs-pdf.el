@@ -22,10 +22,8 @@
   :config
   ;; helpful accessibility shortcuts
   (define-key pdf-view-mode-map (kbd "q") 'kill-current-buffer)
-  (define-key pdf-view-mode-map (kbd "h") 'pdf-annot-add-highlight-markup-annotation)
-  (define-key pdf-view-mode-map (kbd "t") 'pdf-annot-add-text-annotation)
-  (define-key pdf-view-mode-map (kbd "D") 'pdf-annot-delete)
 
+  (add-hook 'pdf-view-mode-hook #'pdf-annot-minor-mode)
   ;; save after adding annotation comment
   (advice-add 'pdf-annot-edit-contents-commit :after 'save-buffer)
 
