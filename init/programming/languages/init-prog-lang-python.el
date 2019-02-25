@@ -15,14 +15,14 @@
   :defer t
   :commands (py-shell ; `py-python-shell-mode'
              python python3 python2 ipython jpython)
-  :preface
-  (setq python-indent-guess-indent-offset nil
-        python-indent-offset 4
-        python-indent 4)
-  :config
+  :preface (setq python-indent-guess-indent-offset nil
+                 python-indent-offset 4
+                 python-indent 4)
+  :init
   ;; auto interactive insert skeleton
   (setq python-skeleton-autoinsert nil)
   ;; (setq python-shell-completion-native-enable nil) ; `python-shell-completion-native-toggle'
+  (add-hook 'python-mode-hook #'lsp-ui-doc-mode)
   )
 
 
