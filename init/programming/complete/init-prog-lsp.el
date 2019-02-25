@@ -17,6 +17,8 @@
   :ensure t
   :defer t
   :commands (lsp lsp-describe-session)
+  :bind (:map lsp-mode-map
+              ("C-c C-d" . lsp-describe-thing-at-point))
   :init (setq lsp-auto-configure nil
               lsp-auto-guess-root t
               lsp-prefer-flymake nil) ; use `flycheck' and `lsp-ui'.
@@ -56,7 +58,11 @@
   (dolist (lang org-babel-lsp-lang-list)
     (eval `(lsp-org-babel-enbale ,lang)))
   ;; load `lsp-clients' for auto configuration of language server clients.
-  :config (require 'lsp-clients))
+  :config (require 'lsp-clients)
+  ;; manage lsp-mode popup buffers
+  (add-to-list 'display-buffer-alist
+               '("^\\*lsp-help\\*" (display-buffer-below-selected)))
+  )
 
 ;; [ lsp-ui ] -- UI modules for lsp-mode.
 
