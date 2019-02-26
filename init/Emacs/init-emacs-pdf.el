@@ -96,7 +96,7 @@
   :bind (:map Org-prefix ("n" . org-noter))
   :init (setq org-noter-auto-save-last-location t))
 
-;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
+;; [ pdf-tools-org ] -- integrate pdf-tools annotations to exporting/importing with Org Mode.
 
 (use-package pdf-tools-org
   :quelpa (pdf-tools-org :fetcher github :repo "machc/pdf-tools-org")
@@ -110,12 +110,12 @@
 
 ;; [ paperless ] -- Emacs assisted PDF document filing.
 
-(use-package paperless
-  :ensure t
-  :defer t
-  :commands (paperless)
-  :init (setq paperless-capture-directory "~/Downloads"
-              paperless-root-directory "~/Org"))
+;; (use-package paperless
+;;   :ensure t
+;;   :defer t
+;;   :commands (paperless)
+;;   :init (setq paperless-capture-directory "~/Downloads"
+;;               paperless-root-directory "~/Org"))
 
 ;;; [ pdfgrep ] -- Grep PDF for searching PDF.
 
