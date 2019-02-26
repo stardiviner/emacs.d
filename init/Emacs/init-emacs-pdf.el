@@ -14,12 +14,13 @@
   :ensure-system-package (pdfinfo . "sudo pacman -S --noconfirm poppler poppler-data")
   :defer t
   :mode ("\\.pdf\\'" . pdf-view-mode)
-  :init
-  ;; (pdf-tools-install)
+  :init ; (pdf-tools-install)
   (setq pdf-view-use-scaling t ; open PDFs scaled to fit page.
         pdf-view-use-unicode-ligther nil ; speed-up pdf-tools by don't try to find unicode.
         )
   :config
+  (pdf-tools-install-noverify)
+
   ;; helpful accessibility shortcuts
   (define-key pdf-view-mode-map (kbd "q") 'kill-current-buffer)
 
