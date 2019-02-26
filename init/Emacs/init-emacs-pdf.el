@@ -122,7 +122,8 @@
   :ensure t
   :ensure-system-package pdfgrep
   :defer t
-  :commands (pdfgrep))
+  :commands (pdfgrep pdfgrep-mode)
+  :init (add-hook 'pdf-view-mode-hook #'pdfgrep-mode))
 
 
 (provide 'init-emacs-pdf)
