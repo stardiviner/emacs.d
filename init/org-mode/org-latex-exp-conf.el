@@ -34,6 +34,8 @@
   (make-local-variable 'org-format-latex-header)
   (make-local-variable 'org-latex-packages-alist)
 
+  (setq-local org-latex-packages-alist nil)
+
   ;; Org export to LaTeX default headers.
   ;; set LaTeX default font
   (org-latex-exp-conf-append 'org-format-latex-header "\\setmainfont{DejaVu Sans}")
