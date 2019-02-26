@@ -41,25 +41,19 @@
   :ensure t
   :defer t
   :delight which-key-mode
-  :init (which-key-mode 1)
   :bind ("C-h C-h" . which-key-show-top-level)
-  :config
+  :init (which-key-mode 1)
   ;; (which-key-setup-side-window-right-bottom)
-  (setq which-key-popup-type 'side-window)
-  (setq which-key-side-window-location 'bottom)
-  (setq which-key-separator " "
+  (setq which-key-popup-type 'side-window
+        which-key-side-window-location 'bottom
+        which-key-separator " "
         which-key-show-prefix 'mode-line ; 'mode-line 'echo 'left, 'top
         which-key-show-remaining-keys t
         ;; which-key-enable-extended-define-key t
         which-key-sort-order 'which-key-key-order-alpha)
-
+  :config
   (set-face-attribute 'which-key-highlighted-command-face nil
-		                  :underline nil :weight 'bold)
-  ;; (set-face-attribute 'which-key-command-description-face nil
-  ;;                     :inherit nil)
-  ;; (set-face-attribute 'which-key-local-map-description-face nil
-  ;;                     :weight 'bold)
-  )
+		                  :underline nil :weight 'bold))
 
 
 ;;; [ hydra ] -- tie related commands into a family of short bindings with a common prefix - a Hydra.
