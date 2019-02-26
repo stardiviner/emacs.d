@@ -93,7 +93,8 @@
   :ensure t
   :commands (org-noter)
   :preface (unless (boundp 'Org-prefix) (define-prefix-command 'Org-prefix))
-  :bind (:map Org-prefix ("n" . org-noter)))
+  :bind (:map Org-prefix ("n" . org-noter))
+  :init (setq org-noter-auto-save-last-location t))
 
 ;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
 
