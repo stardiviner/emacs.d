@@ -145,8 +145,8 @@
         mu4e-headers-new-mark '("N" . " ")
         mu4e-headers-unread-mark '("u" . "∘") ; · • ∘ ⋄
         mu4e-headers-seen-mark '("S" . " ")
-        mu4e-headers-signed-mark '("s" . "⋄")
-        mu4e-headers-encrypted-mark '("x" . "❖")
+        mu4e-headers-signed-mark '("s" . "✩")
+        mu4e-headers-encrypted-mark '("x" . "✡")
         mu4e-headers-draft-mark '("D" . "✍")
         mu4e-headers-attach-mark '("a" . "▣")
         mu4e-headers-passed-mark '("P" . "❯") ; my email in thread.
