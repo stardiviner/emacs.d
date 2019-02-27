@@ -58,7 +58,8 @@
   ;; Get Mail, Update -- [U]
   ;; program to get mail; alternatives are 'fetchmail', 'getmail'
   ;; isync or your own shellscript.
-  ;; (setq mu4e-get-mail-command "proxychains getmail")
+  (setq mu4e-get-mail-command
+        "getmail --rcfile numbchild@gmail.com --rcfile stardiviner@qq.com")
   (setq mu4e-update-interval 1800
         mu4e-hide-index-messages t)
 
