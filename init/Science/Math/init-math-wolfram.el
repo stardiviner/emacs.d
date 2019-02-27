@@ -12,7 +12,7 @@
 (use-package wolfram
   :ensure t
   :defer t
-  :bind (:map prog-doc-map ("A" . wolfram-alpha))
+  :bind (:map document-prefix ("A" . wolfram-alpha))
   :init (add-to-list 'display-buffer-alist
                      '("\\*WolframAlpha\\*" . (display-buffer-below-selected)))
   :config

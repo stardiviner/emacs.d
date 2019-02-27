@@ -11,7 +11,7 @@
 
 (use-package helm-dash
   :ensure t
-  :bind (:map prog-doc-map ("C-d" . helm-dash-at-point) ("M-d" . helm-dash))
+  :bind (:map document-prefix ("C-d" . helm-dash-at-point) ("M-d" . helm-dash))
   :init
   (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
         helm-dash-min-length 3
@@ -194,7 +194,7 @@
 ;;   :ensure t
 ;;   :ensure-system-package zeal
 ;;   :defer t
-;;   :bind (:map prog-doc-map
+;;   :bind (:map document-prefix
 ;;               ("C-d" . zeal-at-point))
 ;;   :init
 ;;   (setq zeal-at-point-zeal-version "0.3.0")

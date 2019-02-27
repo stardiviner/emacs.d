@@ -5,9 +5,9 @@
 ;;; Code:
 
 
-(unless (boundp 'prog-doc-map)
-  (define-prefix-command 'prog-doc-map))
-(global-set-key (kbd "C-h d") 'prog-doc-map)
+(unless (boundp 'document-prefix)
+  (define-prefix-command 'document-prefix))
+(global-set-key (kbd "C-h d") 'document-prefix)
 
 (require 'init-prog-document-eldoc)
 (require 'init-prog-document-man)

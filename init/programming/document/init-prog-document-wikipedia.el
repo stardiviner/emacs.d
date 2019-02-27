@@ -30,7 +30,7 @@
 ;;   :after org
 ;;   :functions (org-link-set-parameters)
 ;;   :defer t
-;;   :bind (:map prog-doc-map
+;;   :bind (:map document-prefix
 ;;               ("w" . kiwix-at-point)
 ;;               ("W" . kiwix-at-point-interactive)
 ;;               ("M-w" . kiwix-launch-server))

@@ -12,7 +12,7 @@
 (use-package irfc
   :ensure t
   :commands (irfc-visit)
-  :bind (:map prog-doc-map
+  :bind (:map document-prefix
               ("r" . irfc-visit))
   :config
   (setq irfc-directory (concat (getenv "HOME") "/Code/documentations/RFC"))
