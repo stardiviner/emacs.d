@@ -7,7 +7,7 @@
 
 (unless (boundp 'document-prefix)
   (define-prefix-command 'document-prefix))
-(global-set-key (kbd "C-h d") 'document-prefix)
+(global-set-key (kbd "C-c h") 'document-prefix)
 
 (require 'init-prog-document-eldoc)
 (require 'init-prog-document-man)
