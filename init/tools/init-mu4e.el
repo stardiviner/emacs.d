@@ -272,7 +272,10 @@
   ;; reply only to thread: header `Reply-to:', `List-Post:'
   ;; - `mu4e~draft-reply-construct'
 
-  ;; [ Sign ]
+  ;; [ mml-mode ] -- A package for parsing and validating MML documents.
+  (add-hook 'mu4e-compose-mode-hook #'mml-mode)
+  
+  ;; [ Sign ] -- `mml-secure-message-sign'
   ;; Signing and encrypting It's possible using emacs-mime, most easily accessed
   ;; through the Attachments-menu while composing a message, or with M-x
   ;; mml-secure-message-encrypt-pgp, M-x mml-secure-message-sign-pgp.  The support
@@ -294,10 +297,11 @@
   ;; (add-hook 'message-send-hook 'mml-secure-message-sign-pgpauto)
   ;; (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-sign-pgpauto)
 
-  ;; [ Encrypt ]
+  ;; [ Encrypt ] -- `mml-secure-message-encrypt'
   ;;
   ;; encrypt outgoing message.
   (require 'epg-config)
+  (require 'mml)
   (require 'mml2015)
   (setq mml2015-use 'epg
         epg-user-id "5AE89AC3"
