@@ -56,6 +56,11 @@
                                 (awk-mode . "awk")
                                 (other . "gnu")))
 
+;;; [ modern-cpp-font-lock ] -- Font-locking for "Modern C++"
+
+(use-package modern-cpp-font-lock
+  :ensure t)
+
 (defun my/c-mode-common-header-switch ()
   "Open header file at point."
   (local-set-key (kbd "C-c C-o") 'ff-find-other-file))
@@ -168,8 +173,7 @@
 ;;; [ c-eldoc ] -- helpful description of the arguments to C functions.
 
 (use-package c-eldoc
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; [ flycheck-cstyle ] --
 
