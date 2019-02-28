@@ -16,42 +16,16 @@
 ;; (load "~/compile/Emacs/emacspeak/lisp/emacspeak-setup.el")
 
 
-;;; [ Festival ]
+;;; [ Festival ] -- provides a simple interface into the festival speech synthesis program.
 
-;; (require 'festival)
-;;
-;; Command: `run-festival'
-;;
-;; (setq festival-auto-start t
-;;       festival-buffer "*festival*"
-;;       festival-default-audio-mode 'async
-;;       festival-default-voice 'festival-voice-english-male
-;;       festival-program "/usr/bin/festival"
-;;       festival-voices-alist '(("english-fair" . festival-voice-english-fair)
-;;                               ("english-male" . festival-voice-english-male)
-;;                               ("us-male" . festival-voice-US-male))
-;;       )
-;;
-;; (require 'thingatpt)
-;;
-;; (defun festival-read ()
-;;   "Read current word that at point by Festival."
-;;   (interactive)
-;;   (if (use-region-p)
-;;       (let ((region (buffer-substring-no-properties (region-beginning) (region-end))))
-;;         (festival-say-region region)
-;;         (message "Festival reading (region) ..."))
-;;     (let ((word (thing-at-point 'word)))
-;;       (festival-say word)
-;;       (message "Festival reading (word): %s" word))
-;;     )
-;;   )
-;;
-;; (define-key speak-map (kbd "s") 'festival-read)
-;; (define-key speak-map (kbd "r") 'festival-read-region)
-;; (define-key speak-map (kbd "b") 'festival-read-buffer)
-;; (define-key speak-map (kbd "f") 'festival-read-file)
-;; (define-key speak-map (kbd "i") 'festival-say)
+(use-package festival
+  :quelpa (festival :fetcher github :repo "davep/festival.el")
+  :commands (festival-start festival-stop
+                            festival-say
+                            festival-read-file festival-read-buffer
+                            festival-read-region festival-read-word
+                            festival-describe-function
+                            festival-voice festival-spook))
 
 ;;; [ ekho ] -- Ekho (余音) is a free, open source and multilingual text-to-speech (TTS)
 
