@@ -16,17 +16,19 @@
 
 (use-package bookmark
   :defer t
-  :init (with-eval-after-load 'bookmark
-          (setq-default bookmark-default-file
-                        (expand-file-name "bookmarks.el" user-emacs-directory))
-          (bookmark-maybe-load-default-file))
+  :commands (bookmark-maybe-load-default-file)
+  :init
+  (setq-default bookmark-default-file
+                (expand-file-name "bookmarks.el" user-emacs-directory))
+  (bookmark-maybe-load-default-file)
+  
   (global-unset-key (kbd "C-x r l"))
   (global-unset-key (kbd "C-x r m"))
   :bind (:map bookmark-prefix
               ("b" . bookmark-jump)
               ("j" . bookmark-jump)
               ("l" . bookmark-bmenu-list)
-              ("m" . bookmark-set)))
+              ("a" . bookmark-set)))
 
 ;;; [ bm.el ] -- Visual Bookmarks for GNU Emacs.
 
