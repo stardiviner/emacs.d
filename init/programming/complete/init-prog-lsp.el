@@ -16,6 +16,7 @@
 (use-package lsp-mode
   :ensure t
   :defer t
+  :load (lsp-clients)
   :commands (lsp lsp-describe-session)
   :bind (:map lsp-mode-map
               ("C-c C-d" . lsp-describe-thing-at-point))

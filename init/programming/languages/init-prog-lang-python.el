@@ -109,11 +109,10 @@
 
 ;;; [ lsp-python ] Python support for lsp-mode with pyls.
 
-(use-package lsp-python
+(use-package lsp-mode
   :ensure t
   :ensure-system-package ((pyls . "pip install python-language-server"))
   :defer t
-  :after lsp
   :hook (python-mode . lsp))
 
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.

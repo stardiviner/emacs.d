@@ -77,10 +77,9 @@
 
 ;;; [ lsp-rust ] Rust support for lsp-mdoe.
 
-(use-package lsp-rust
+(use-package lsp-mode
   :ensure t
   :ensure-system-package ((rls . "rustup component add rls-preview rust-analysis rust-src"))
-  :after lsp
   :hook (rust-mode . lsp))
 
 

@@ -161,10 +161,9 @@
 
 ;;; [ lsp-ruby ] -- Ruby support for lsp-mode using the solargraph Gem.
 
-(use-package lsp-ruby
+(use-package lsp-mode
   :ensure t
   :ensure-system-package ((solargraph . "gem install solargraph"))
-  :after lsp
   :hook (ruby-mode . lsp))
 
 

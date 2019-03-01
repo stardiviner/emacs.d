@@ -64,10 +64,9 @@
 
 ;;; [ lsp-go ] -- Go support for lsp-mode using Sourcegraph's Go Language Server.
 
-(use-package lsp-go
+(use-package lsp-mode
   :ensure t
   :ensure-system-package ((go-langserver . "go get -u github.com/sourcegraph/go-langserver"))
-  :after lsp
   :hook (go-mode . lsp))
 
 ;;; [ gorepl-mode ] -- Go REPL Interactive Development in top of Gore.

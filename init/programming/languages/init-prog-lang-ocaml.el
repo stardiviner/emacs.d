@@ -85,13 +85,6 @@
   :ensure t
   :defer t)
 
-;;; [ lsp-ocaml ] -- Ocaml support for lsp-mode.
-
-(use-package lsp-ocaml
-  :ensure t
-  :after lsp
-  :hook (tuareg-mode . lsp))
-
 
 (provide 'init-prog-lang-ocaml)
 

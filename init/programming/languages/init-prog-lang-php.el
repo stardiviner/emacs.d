@@ -35,14 +35,6 @@
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 (add-to-list 'org-babel-tangle-lang-exts '("php" . "php"))
 
-;;; [ lsp-php ] -- PHP support for lsp-mode.
-
-(use-package lsp-php
-  :ensure t
-  ;; :ensure-system-package (( . "composer require jetbrains/phpstorm-stubs; composer require felixfbecker/language-server ; composer run-script --working-dir=vendor/felixfbecker/language-server parse-stubs"))
-  :after lsp
-  :hook (php-mode . lsp))
-
 
 (provide 'init-prog-lang-php)
 

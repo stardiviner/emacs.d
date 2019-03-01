@@ -189,10 +189,9 @@
 
 ;;; [ lsp-javascript-typescript ] -- Javascript and Typescript support for lsp-mode using javascript-typescript-langserver.
 
-(use-package lsp-javascript-typescript
+(use-package lsp-mode
   :ensure t
   :ensure-system-package (javascript-typescript-stdio . "npm i -g javascript-typescript-langserver")
-  :after lsp
   :hook ((js-mode js2-mode typescript-mode rjsx-mode) . lsp))
 
 ;;; [ skewer-mode ] -- Live interactive web development in Emacs.

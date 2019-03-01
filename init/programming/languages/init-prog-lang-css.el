@@ -84,14 +84,6 @@
 ;;   :defer t
 ;;   :init (add-hook 'css-mode-hook 'stylefmt-enable-on-save))
 
-;;; [ lsp-css ] -- CSS, LESS, and SCSS/SASS support for lsp-mode using vscode-css-languageserver-bin.
-
-(use-package lsp-css
-  :ensure t
-  :ensure-system-package ((css-languageserver . "npm i -g vscode-css-languageserver-bin"))
-  :after lsp
-  :hook ((css-mode . lsp) (less-mode . lsp) (sass-mode . lsp) (scss-mode . lsp)))
-
 
 (provide 'init-prog-lang-css)
 
