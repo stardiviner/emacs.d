@@ -328,6 +328,18 @@ That's it.
   (define-key rg-prefix (kbd "M-o") 'rg-search-words-by-files)
   (define-key Org-prefix (kbd "s") 'rg-search-words-by-files))
 
+;;; [ org-recoll ] -- A lightweight Emacs Org Mode wrapper for the recoll full-text search engine.
+
+(use-package org-recoll
+  :quelpa (org-recoll :fetcher github :repo "alraban/org-recoll")
+  :ensure-system-package recoll
+  :commands (org-recoll-search org-recoll-update-index)
+  :bind (:map Org-prefix ("C-s" . org-recoll-search)
+              :map org-recoll-mode-map
+              ("M-n" . org-recoll-next-page)
+              ("M-p" . org-recoll-previous-page)
+              ("q" . delete-window)))
+
 
 
 (provide 'init-org-search)
