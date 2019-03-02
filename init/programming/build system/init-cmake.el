@@ -14,20 +14,20 @@
   :defer t
   :mode (("CMakeLists\\.txt\\'" . cmake-mode)
          ("\\.cmake\\'" . cmake-mode))
-  :config
-  (use-package cmake-font-lock
-    :ensure t
-    :defer t)
-  )
+  :init (use-package cmake-font-lock :ensure t))
+
+;;; [ eldoc-cmake ] -- Eldoc support for CMake.
+
+(use-package eldoc-cmake
+  :ensure t
+  :hook (cmake-mode . eldoc-cmake-enable))
 
 ;;; [ cmake-ide ]
 
 (use-package cmake-ide
   :ensure t
   :defer t
-  :config
-  (cmake-ide-setup)
-  )
+  :init (cmake-ide-setup))
 
 ;;; [ cmake-project ] -- Integrates CMake build process with Emacs.
 

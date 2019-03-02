@@ -20,7 +20,7 @@
 
 ;;; [ CMake ]
 
-;; (require 'init-cmake)
+(require 'init-cmake)
 
 ;;; [ build-helper ] -- Utilities to help build code.
 
