@@ -58,6 +58,13 @@
   (dolist (lang org-babel-lang-list)
   (dolist (lang org-babel-lsp-lang-list)
     (eval `(lsp-org-babel-enbale ,lang)))
+
+  (defun my/babel-insert-lsp-file-header-argument (lsp-mirror-file)
+    "A helper command to insert `:file' header argument path."
+    (interactive "fPath to file: ")
+    (org-babel-insert-header-arg "file" (format "\"%s\"" lsp-mirror-file)))
+  (define-key org-babel-map (kbd "M-f") 'my/babel-insert-lsp-file-header-argument)
+  
   ;; load `lsp-clients' for auto configuration of language server clients.
   :config (require 'lsp-clients)
   ;; manage lsp-mode popup buffers
