@@ -27,9 +27,6 @@
 
 (use-package edebug-x
   :ensure t
-  :preface
-  (autoload 'color-darken-name "color.el")
-  (autoload 'color-lighten-name "color.el")
   :bind (:map edebug-mode-map
               ("M-s" . edebug-x-show-data)
               ("M-b" . edebug-x-show-breakpoints)
