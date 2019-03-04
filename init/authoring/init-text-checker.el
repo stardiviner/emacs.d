@@ -22,10 +22,12 @@
               ("s" . ispell-word) ; [M-$]
               ("<tab>" . ispell-complete-word))
   :init
-  (cond ; set ispell program automatically.
+  (cond
+   ;; use smarter "aspell" to replace default "ispell".
    ((executable-find "aspell")
-    (setq ispell-program-name "aspell")
-    (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US")))
+    (setq-default ispell-program-name "aspell")
+    ;; --reverse :: fix `aspell' conflict bug with `ispell'.
+    (setq-default ispell-extra-args '("--reverse" "--sug-mode=ultra" "--lang=en_US")))
    (t
     (setq ispell-program-name nil)))
   :config
@@ -34,7 +36,7 @@
         ispell-personal-dictionary nil ; If nil, the default (~/.ispell_LANGUAGE) will be used
         ispell-complete-word-dict "/usr/share/dict/words"
         ;; ispell-alternate-dictionary "/usr/share/dict/words"
-        ispell-silently-savep t ; `ispell-pdict-save' save silently. stop confirm when saving personal dictionary.
+        ispell-silently-savep t ; `ispell-pdict-save' save silently.
         ispell-parser 'use-mode-name)
   ;;; skip regions in Org-mode for ispell.
   (add-to-list 'ispell-skip-region-alist '("[^\000-\377]+"))
