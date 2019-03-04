@@ -14,6 +14,15 @@
   :ensure t
   :mode (("\\.rkt\\'" . racket-mode)))
 
+;;; [ ob-racket ]
+
+(use-package ob-racket
+  :quelpa (ob-racket :fetcher github :repo "DEADB17/ob-racket")
+  :config
+  (add-to-list 'org-babel-load-languages '(racket . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("racket" . "rkt")))
+
 
 
 (provide 'init-prog-lang-racket)
