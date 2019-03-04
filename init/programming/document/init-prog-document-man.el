@@ -11,7 +11,6 @@
 ;;   (define-prefix-command 'man-prefix))
 ;; (define-key document-prefix (kbd "m") 'man-prefix)
 
-(global-set-key (kbd "C-h u") 'manual-entry) ; Unix man pages
 (define-key document-prefix (kbd "m") 'manual-entry)
 
 (add-to-list 'display-buffer-alist
