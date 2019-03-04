@@ -33,6 +33,7 @@
 
 (use-package company-arduino
   ;; :ensure t
+  :ensure company-c-headers
   :load-path "~/Code/Emacs/company-arduino"
   :defer t
   :after arduino-mode
