@@ -34,24 +34,13 @@
   :ensure t
   :after org
   :load (ess-site ess-custom)
-  :defines inferior-julia-program-name ; for `ob-julia'
+  :preface
+  (define-obsolete-variable-alias 'inferior-julia-program-name 'inferior-julia-program)
+  :custom (inferior-julia-program (or (executable-find "julia-basic") "julia"))
   :init
-  (define-obsolete-variable-alias 'inferior-julia-program-name
-    'inferior-julia-program "ESS 18.10")
-  (defcustom inferior-julia-program (or (executable-find "julia-basic")
-                                        "julia")
-    "Executable for Julia.
-Should be an absolute path to the julia executable."
-    :group 'ess-Julia
-    :type '(choice (string) (file)))
-  :config
   (require 'ob-julia)
   (add-to-list 'org-babel-load-languages '(julia . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  ;; (setq org-babel-default-header-args:julia
-  ;;       '((:results . "output replace")
-  ;;         (:padnewline . "yes")))
-  )
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 
 ;;; [ julia-shell ] -- Emacs major mode for an interactive Julia shell.
 
