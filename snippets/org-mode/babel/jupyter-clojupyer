@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: jupyter clojupyter
+# key: babel-jupyter-clojupyter
+# group: babel.jupyter
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+#+begin_src jupyter-clojure :kernel clojupyter :session ${1:clojupyter} :async yes
+$0
+#+end_src

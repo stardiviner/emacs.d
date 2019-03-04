@@ -3,6 +3,6 @@
 # key: babel-install-js-npm
 # group: babel.install
 # --
-#+begin_src sh
+#+begin_src sh :async
 npm install -g $0
 #+end_src
