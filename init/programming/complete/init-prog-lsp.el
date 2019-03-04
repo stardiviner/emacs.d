@@ -87,8 +87,10 @@
   :init (setq lsp-ui-doc-enable nil
               lsp-ui-doc-header nil
               lsp-ui-doc-include-signature t
-              ;; lsp-ui-sideline-update-mode 'point
-              lsp-ui-doc-position 'at-point))
+              lsp-ui-doc-position 'at-point)
+  (if (featurep 'xwidget-internal) (setq lsp-ui-doc-use-webkit t))
+  ;; (add-to-list 'lsp-ui-doc-frame-parameters )
+  )
 
 ;; [ company-lsp ] -- company-mode completion backend for lsp-mode.
 
