@@ -350,6 +350,34 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                          (org-agenda-show-log (quote clockcheck))
                          (org-agenda-clockreport t))))))
 
+;;; Show Org Agenda tasks with heigh spacing based on clock time.
+;;; https://emacs-china.org/t/org-agenda/8679
+;;; work with org-agenda dispatcher [c] "Today Clocked Tasks" to view today's clocked tasks.
+
+(defun org-agenda-time-grid-colorful-spacing ()
+  "Set different line spacing w.r.t. time duration."
+  (save-excursion
+    ;; (list "#aa557f" "DarkGreen" "DarkSlateGray" "DarkSlateBlue") ; dark theme
+    ;; (list "#F6B1C3" "#FFFF9D" "#BEEB9F" "#ADD5F7") ; white theme
+    (let* ((colors (list "#aa557f" "DarkGreen" "DarkSlateGray" "DarkSlateBlue"))
+           pos
+           duration)
+      (nconc colors colors)
+      (goto-char (point-min))
+      (while (setq pos (next-single-property-change (point) 'duration))
+        (goto-char pos)
+        (when (and (not (equal pos (point-at-eol)))
+                   (setq duration (org-get-at-bol 'duration)))
+          (let ((line-height (if (< duration 30) 1.0 (+ 0.5 (/ duration 60))))
+                (ov (make-overlay (point-at-bol) (1+ (point-at-eol)))))
+            (overlay-put ov 'face `(:background ,(car colors) :foreground "black"))
+            (setq colors (cdr colors))
+            (overlay-put ov 'line-height line-height)
+            (overlay-put ov 'line-spacing (1- line-height))))))))
+
+(add-hook 'org-agenda-finalize-hook #'org-agenda-time-grid-colorful-spacing)
+
+
 (add-to-list 'org-agenda-custom-commands
              '("p" "[p]rogramming - BUG, ISSUE, FEATURE etc."
                ((todo "BUG")
