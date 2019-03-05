@@ -310,7 +310,7 @@
 
 
 ;;; [ Composite Agenda View ]
-;;; Usage: `(org-agenda nil "c")'
+;;; Usage: `(org-agenda nil "C")'
 
 (defun org-agenda-skip-subtree-if-priority (priority)
   "Skip an agenda subtree if it has a priority of PRIORITY.
@@ -324,7 +324,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
       nil)))
 
 (add-to-list 'org-agenda-custom-commands
-             '("c" "Custom Agenda with in progress tasks, priority tasks (and all tasks)."
+             '("C" "Custom Agenda with in progress tasks, priority tasks (and all tasks)."
                ((todo "STARTED") ; from `org-clock' forced state keyword.
                 (todo "INPROGRESS")
                 (tags "PRIORITY=\"A\""
@@ -341,7 +341,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                todo "SOMEDAY"))
 
 (add-to-list 'org-agenda-custom-commands
-             '("C" "Tody [C]locked tasks."
+             '("c" "Tody [c]locked tasks."
                ((agenda ""
                         ((org-agenda-ndays 1)
                          (org-agenda-span-1)
