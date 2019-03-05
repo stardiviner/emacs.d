@@ -47,13 +47,12 @@
   (setq which-key-popup-type 'side-window
         which-key-side-window-location 'bottom
         which-key-separator " "
-        which-key-show-prefix 'mode-line ; 'mode-line 'echo 'left, 'top
+        which-key-show-prefix 'echo ; 'mode-line 'echo 'left, 'top
         which-key-show-remaining-keys t
         ;; which-key-enable-extended-define-key t
         which-key-sort-order 'which-key-key-order-alpha)
-  :config
-  (set-face-attribute 'which-key-highlighted-command-face nil
-		                  :underline nil :weight 'bold))
+  :config (set-face-attribute 'which-key-highlighted-command-face nil
+                              :underline nil :weight 'bold))
 
 
 ;;; [ hydra ] -- tie related commands into a family of short bindings with a common prefix - a Hydra.
