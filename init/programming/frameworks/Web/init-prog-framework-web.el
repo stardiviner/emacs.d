@@ -105,15 +105,14 @@
       (add-to-list 'company-backends 'company-css)
       (if (featurep 'company-jquery)
           (add-to-list 'company-backends 'company-jquery))
-      (add-to-list 'company-backends 'company-tern)
+      (if (featurep 'company-tern)
+          (add-to-list 'company-backends 'company-tern))
       ;; (add-to-list 'company-backends 'company-web-jade)
       ;; (add-to-list 'company-backends 'company-web-slim)
-      (add-to-list 'company-backends 'company-web-html)
-      )
+      (add-to-list 'company-backends 'company-web-html))
     
     (dolist (hook '(web-mode-hook
-                    html-mode-hook
-                    ))
+                    html-mode-hook))
       (add-hook hook #'my-company-web-backends-setup))
 
     :config
@@ -146,50 +145,54 @@
     ;;           (if tern-mode (tern-mode -1))
     ;;           ))))
 
-    (advice-add 'company-tern :before
-                #'(lambda (&rest _)
-                    (if (equal major-mode 'web-mode)
-                        (let ((web-mode-cur-language
-                               (web-mode-language-at-pos)))
-                          (if (or (string= web-mode-cur-language "javascript")
-                                  (string= web-mode-cur-language "jsx"))
-                              (unless tern-mode (tern-mode))
-                            (if tern-mode (tern-mode -1)))))))
+    (if (featurep 'company-tern)
+        (advice-add 'company-tern :before
+                    #'(lambda (&rest _)
+                        (if (equal major-mode 'web-mode)
+                            (let ((web-mode-cur-language
+                                   (web-mode-language-at-pos)))
+                              (if (or (string= web-mode-cur-language "javascript")
+                                      (string= web-mode-cur-language "jsx"))
+                                  (unless tern-mode (tern-mode))
+                                (if tern-mode (tern-mode -1))))))))
 
     ;; [C-c ']
     ;; make advantage of `org-src-edit-buffer-p' detection
     ;; let Org-mode Babel src code block auto set `web-mode-engine' for rhtml.
-    (defadvice org-edit-special (before org-edit-src-code activate)
-      (let ((lang (nth 0 (org-babel-get-src-block-info))))
-        (if (string= lang "rhtml")
-            (web-mode-set-engine "erb"))))
+    (when (featurep 'robe)
+      
+      (defadvice org-edit-special (before org-edit-src-code activate)
+        (let ((lang (nth 0 (org-babel-get-src-block-info))))
+          (if (string= lang "rhtml")
+              (web-mode-set-engine "erb"))))
 
-    (defadvice org-edit-special (after org-edit-src-code activate)
-      (if (string= web-mode-engine "erb")
-          (add-to-list (make-local-variable 'company-backends) 'company-robe)))
+      (defadvice org-edit-special (after org-edit-src-code activate)
+        (if (string= web-mode-engine "erb")
+            (add-to-list (make-local-variable 'company-backends) 'company-robe)))
+
+      ;; Enable Rails completion between <%= ... %>, or <% ... %>.
+      (defadvice company-robe (before web-mode-set-up-ac-sources activate)
+        "Set `robe-mode' based on current language before running `company-robe'."
+        (if (equal major-mode 'web-mode)
+            (let ((web-mode-cur-language (web-mode-language-at-pos)))
+              (if (string= web-mode-cur-language "erb")
+                  (unless robe-mode (robe-mode))
+                (if robe-mode (robe-mode -1))
+                )))))
     
-    ;; Enable Rails completion between <%= ... %>, or <% ... %>.
-    (defadvice company-robe (before web-mode-set-up-ac-sources activate)
-      "Set `robe-mode' based on current language before running `company-robe'."
-      (if (equal major-mode 'web-mode)
-          (let ((web-mode-cur-language (web-mode-language-at-pos)))
-            (if (string= web-mode-cur-language "erb")
-                (unless robe-mode (robe-mode))
-              (if robe-mode (robe-mode -1))
-              ))))
     )
-
-  
-  ;; [ web-completion-data ] -- dependency for `ac-html', `company-web'
-  (use-package web-completion-data
-    :ensure t)
-  
-  ;; [ web-mode-edit-element ] -- helper-functions for attribute- and element-handling.
-  (use-package web-mode-edit-element
-    :ensure t
-    :delight web-mode-edit-element-minor-mode
-    :init (add-hook 'web-mode-hook 'web-mode-edit-element-minor-mode))
   )
+
+;; [ web-completion-data ] -- dependency for `ac-html', `company-web'
+(use-package web-completion-data
+  :ensure t)
+
+;; [ web-mode-edit-element ] -- helper-functions for attribute- and element-handling.
+(use-package web-mode-edit-element
+  :ensure t
+  :delight web-mode-edit-element-minor-mode
+  :init (add-hook 'web-mode-hook 'web-mode-edit-element-minor-mode))
+
 
 ;; [ ob-html ]
 (with-eval-after-load 'web-mode
