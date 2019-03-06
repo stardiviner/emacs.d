@@ -114,6 +114,12 @@
   (dap-mode t)
   (dap-ui-mode t))
 
+;;; [ helm-lsp ] -- LSP helm integration.
+
+(use-package helm-lsp
+  :ensure t
+  :commands (helm-lsp-workspace-symbol helm-lsp-global-workspace-symbol))
+
 
 (provide 'init-prog-lsp)
 
