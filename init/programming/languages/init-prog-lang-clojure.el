@@ -342,10 +342,10 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   "Specify ob-clojure header argument :session.
 With value selected from a list of available sessions."
   (interactive)
-  (let ((lang (nth 0 (org-babel-get-src-block-info))))
-    (unless (and (string= lang "clojure")
-                 ;; only when :session is not specified yet.
-                 (assq :session (nth 2 (org-babel-get-src-block-info))))
+  (let ((info (org-babel-get-src-block-info)))
+    (when (and (string= (car info) "clojure")
+               ;; only when :session is not specified yet.
+               (string= (cdr (assq :session (nth 2 info))) "none"))
       (org-babel-insert-header-arg
        "session"
        (format "\"%s\""
