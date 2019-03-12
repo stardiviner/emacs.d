@@ -409,13 +409,11 @@ and append it."
 ;;   :quelpa ((org-quick-peek :fetcher github :repo "alphapapa/org-quick-peek") :upgrade nil)
 ;;   )
 
-;;; [ org-send-ebook ] -- Send org link file to ebook reader.
+;;; [ org-kindle ] -- Make Emacs bridge between Org Mode and Kindle.
 
-(use-package org-send-ebook
-  :ensure t
+(use-package org-kindle
   :defer t
-  :commands (org-send-ebook)
-  :bind (:map Org-prefix ("M-e" . org-send-ebook)))
+  :commands (org-kindle-send-to-device org-kindle-sync-notes))
 
 
 
