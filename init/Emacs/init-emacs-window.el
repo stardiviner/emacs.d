@@ -5,19 +5,19 @@
 
 ;;; Code:
 
-;;; [ display-buffer-alist ]
+;;; [ display-buffer-alist ] ;; apply actions on `display-buffer'
 
 ;; Learn about display actions, see [[info:elisp#Display Action Functions]].
 
-;; Actions:
-;; display-buffer actions:
+;; `display-buffer' actions:
+;;
 ;; - (display-buffer-same-window)
 ;; - (display-buffer-in-side-window) :: like which-key popup window upon bottom minibuffer.
 ;; - (display-buffer-no-window)
 ;; - (display-buffer-in-child-frame) :: don't use it!!!
 ;; - (display-buffer-reuse-window (window-height . 0.3))
 ;; - (display-buffer-reuse-window display-buffer-same-window)
-;; - (display-buffer-in-side-window . ((side . bottom) (window-height . 4)))
+;; - (display-buffer-in-side-window ((side . bottom) (window-height . 4)))
 (add-to-list 'display-buffer-alist
              '("^\\*Warnings\\*" (display-buffer-below-selected)))
 (add-to-list 'display-buffer-alist

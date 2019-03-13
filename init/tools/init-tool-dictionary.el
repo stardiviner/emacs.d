@@ -97,7 +97,7 @@
                                                               ("zh-CN" . "ko")))
 
   (add-to-list 'display-buffer-alist
-               '("^\\*Google Translate\\*" .
+               '("^\\*Google Translate\\*"
                  (display-buffer-reuse-window display-buffer-below-selected)))
   
   ;; enable proxy for translate.google.com
