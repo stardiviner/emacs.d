@@ -22,12 +22,15 @@
                                  :user "stardiviner"
                                  :pass ,(my/json-read-value my/account-file 'erc)
                                  :use-tls t
-                                 :channels ("#emacs" "#clojure"))))
+                                 :channels ("#emacs"))))
   ;; ignore
   (setq circe-reduce-lurker-spam t)
   ;; view
   (setq circe-format-say "{nick:-10s} {body}") ; align nick names and messages.
   (define-key circe-mode-map (kbd "C-c SPC") 'tracking-next-buffer)
+  ;; words completion
+  (add-hook 'circe-channel-mode-hook
+            (lambda () (my-company-add-backend-locally 'company-ispell)))
   ;; spelling checking
   (setq lui-flyspell-p t
         lui-flyspell-alist '(("#hamburg" "german8")
