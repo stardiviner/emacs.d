@@ -20,12 +20,12 @@
         helm-dash-candidate-format "%d  %n  (%t)"
         helm-case-fold-search 'smart)
   
-  (setq helm-dash-common-docsets
-        '("Clojure" "Java"
-          ;; "Common Lisp"
-          ;; "Python 3"
-          "HTML" "CSS"
-          "JavaScript" "NodeJS"))
+  ;; (setq helm-dash-common-docsets ; it will DUPLICATE with major mode docsets.
+  ;;       '("Clojure" "Java"
+  ;;         ;; "Common Lisp"
+  ;;         ;; "Python 3"
+  ;;         "HTML" "CSS"
+  ;;         "JavaScript" "NodeJS"))
 
   (setq helm-dash-enable-debugging nil)
   
