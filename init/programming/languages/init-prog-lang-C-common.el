@@ -31,8 +31,7 @@
 (defvar c-dialects-mode
   '(c-mode
     c++-mode
-    objc-mode
-    ))
+    objc-mode))
 
 
 ;; [ C-mode ]
@@ -50,7 +49,7 @@
   ;; (c-toggle-auto-newline 1)
   ;; (c-toggle-hungry-state 1)
   (electric-indent-mode 1)
-  )
+  (local-set-key (kbd "C-h d") 'manual-entry))
 
 (setq-default c-default-style '((java-mode . "java")
                                 (awk-mode . "awk")

@@ -153,8 +153,7 @@
   (add-hook 'cider-repl-mode-hook #'eldoc-mode)
   ;; (add-hook 'cider-repl-mode-hook #'cider-repl-require-repl-utils) ; require common functions like doc, source, etc.
   (setq cider-eldoc-display-for-symbol-at-point t
-        cider-eldoc-display-context-dependent-info t ; for datomic query input parameters
-        )
+        cider-eldoc-display-context-dependent-info t)
 
   (add-hook 'cider-repl-mode-hook #'subword-mode)
   

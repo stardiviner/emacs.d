@@ -22,7 +22,6 @@
   ;; auto interactive insert skeleton
   (setq python-skeleton-autoinsert nil)
   ;; (setq python-shell-completion-native-enable nil) ; `python-shell-completion-native-toggle'
-  (add-hook 'python-mode-hook #'lsp-ui-doc-mode)
   )
 
 

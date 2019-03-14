@@ -15,8 +15,7 @@
   ;; set tab with to 4.
   (setq-local c-basic-offset 4)
   (setq-local tab-width 4)
-  (setq-local standard-indent 4)
-  )
+  (setq-local standard-indent 4))
 
 (add-hook 'java-mode-hook #'my/java-mode-setup)
 
@@ -41,10 +40,12 @@
   :after lsp
   :load (lsp-java)
   :hook (java-mode . lsp)
+  :commands (lsp-java-classpath-browse)
   ;; `aggressive-indent-mode' caused long suspend with lots of requests.
   :init (with-eval-after-load 'aggressive-indent
           (add-to-list 'aggressive-indent-excluded-modes 'java-mode))
-  (add-hook 'java-mode-hook #'lsp-ui-doc-mode))
+  ;; (add-hook 'java-mode-hook #'lsp-ui-doc-mode)
+  )
 
 ;;; [ lsp-javacomp ] -- Emacs Language Server client backed by JavaComp.
 

@@ -185,10 +185,8 @@
   :defer t
   :hook (company-mode . company-box-mode)
   :load (all-the-icons)
-  :init
-  ;; disable auto `company-box-doc' timer.
-  (setq company-box-doc-enable t)
-  (setq company-box-doc-delay 0.3)
+  :init (setq company-box-doc-enable nil ; disable auto `company-box-doc' timer.
+              company-box-doc-delay 0.5)
   :config
   (add-to-list 'company-box-frame-parameters
                '(font . "-SRC-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))

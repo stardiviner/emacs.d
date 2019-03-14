@@ -74,7 +74,8 @@
   :init (setq auto-save-default nil ; turn off Emacs built-in `auto-save-mode'.
               super-save-auto-save-when-idle t
               super-save-remote-files nil)
-  :config (super-save-mode 1)
+  (super-save-mode 1)
+  :config
   ;; add integration with ace-window
   (add-to-list 'super-save-triggers 'ace-window)
   ;; save on find-file

@@ -147,7 +147,7 @@
 
 (use-package ejc-sql
   ;; :ensure t
-  :load-path "~/Code/Emacs/ejc-sql/"
+  :load-path "~/Code/Emacs/ejc-sql"
   :defer t
   :load (ejc-interaction)
   :commands (ejc-connect ejc-connect-existing-repl ejc-sql-mode)

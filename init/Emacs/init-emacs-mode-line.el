@@ -18,8 +18,9 @@
   :ensure t
   :hook (after-init . doom-modeline-mode)
   :init (setq doom-modeline-buffer-file-name-style 'buffer-name
-              doom-modeline-icon nil ; don't use icon will be faster
-              doom-modeline-github nil))
+              doom-modeline-icon t ; don't use icon will be faster
+              doom-modeline-github nil
+              doom-modeline-irc nil)
 
 
 (provide 'init-emacs-mode-line)

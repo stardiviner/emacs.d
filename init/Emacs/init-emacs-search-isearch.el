@@ -33,20 +33,6 @@
   (setq search-default-mode 'char-fold-to-regexp ; if you deal with multi-lingual stuff.
         ;; replace-char-fold t ; for command `query-replace'
         )
-  
-  ;; smart delete/backspace in `isearch'
-  (defun isearch-smart-delete ()
-    "Delete the failed portion of the search string, or the last char if successful."
-    (interactive)
-    (with-isearch-suspended
-     (setq isearch-new-string
-           (substring
-            isearch-string 0 (or (isearch-fail-pos) (1- (length isearch-string))))
-           isearch-new-message
-           (mapconcat 'isearch-text-char-description isearch-new-string ""))))
-
-  (define-key isearch-mode-map (kbd "<backspace>") 'isearch-smart-delete)
-  (define-key isearch-mode-map (kbd "DEL") 'isearch-smart-delete)
   )
 
 ;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.

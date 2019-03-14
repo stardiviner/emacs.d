@@ -132,11 +132,10 @@
 ;; (blink-cursor-mode 1)
 (setq blink-cursor-mode nil) ; disable `blink-cursor-mode'.
 
-;;; [ wrap/truncate long line ]
+;;; [ truncate continuous line & word wrap ]
 
-;; (setq-default truncate-lines t)
-;; (setq-default word-wrap t)
-;; (setq-default truncate-partial-width-windows 50)
+;; (setq-default truncate-lines t
+;;               word-wrap t)
 
 (define-fringe-bitmap 'left-curly-arrow
   [#b00011000
