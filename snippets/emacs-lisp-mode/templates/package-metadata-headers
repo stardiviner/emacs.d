@@ -3,16 +3,27 @@
 # key: package-metadata-headers
 # group: template.package
 # --
-;; Authors: ${1:stardiviner <numbchild@gmail.com>}
-${2:;; Package-Requires: ((emacs "25") (cl-lib "0.5")${3})}
-;; Package-Version: ${4:0.1}
-;; Keywords: ${5:keywords separated by comma}
-;; homepage: ${6:homepage}
+;; Authors: ${2:stardiviner <numbchild@gmail.com>}
+${3:;; Package-Requires: ((emacs "25") (cl-lib "0.5")${4})}
+;; Package-Version: ${5:0.1}
+;; Keywords: ${6:keywords separated by comma}
+;; homepage: ${7:homepage}
 
+;; ${1:package name} is free software; you can redistribute it and/or modify it
+;; under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 3, or (at your option)
+;; any later version.
+;;
+;; $1 is distributed in the hope that it will be useful, but WITHOUT
+;; ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+;; or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
+;; License for more details.
+;;
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
-${7}
+${8}
 
