@@ -164,6 +164,14 @@
 (add-to-list 'display-buffer-alist
              '("^\\*company-documentation\\*" . (display-buffer-below-selected)))
 
+;;; [ company-quickhelp ] -- Popup documentation for completion candidates.
+
+(use-package company-quickhelp
+  :if (not (featurep 'company-box))
+  :ensure t
+  :after company
+  :config (define-key company-active-map (kbd "M-h") 'company-quickhelp--show))
+
 ;;; [ company-mode in minibuffer `M-:' ]
 
 (defun company-mode-minibuffer-setup ()
