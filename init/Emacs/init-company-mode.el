@@ -186,7 +186,9 @@
   :hook (company-mode . company-box-mode)
   :load (all-the-icons)
   :init (setq company-box-doc-enable nil ; disable auto `company-box-doc' timer.
-              company-box-doc-delay 0.5)
+              company-box-doc-delay 0.5
+              company-box-show-single-candidate t ; for still can use doc popup keybinding.
+              )
   :config
   (add-to-list 'company-box-frame-parameters
                '(font . "-SRC-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
