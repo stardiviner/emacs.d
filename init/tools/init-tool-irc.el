@@ -46,6 +46,12 @@
 
 (define-key tools-prefix (kbd "i") 'circe)
 
+;;; [ circe-notifications ] -- Add desktop notifications to Circe.
+
+(use-package circe-notifications
+  :ensure t
+  :init (add-hook 'circe-server-connected-hook 'enable-circe-notifications))
+
 
 (provide 'init-tool-irc)
 
