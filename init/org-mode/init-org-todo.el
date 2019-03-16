@@ -291,26 +291,6 @@
 (add-to-list 'org-default-properties "TRIGGER")
 (add-to-list 'org-default-properties "BLOCKER")
 
-;;; [ org-depend ] -- manage dependencies of Org-mode tasks.
-;;
-;; Usage: use properties :TRIGGER: and :BLOCKER:
-;; This is an example implementation of TODO dependencies in Org-mode.
-;; It uses the new hooks in version 5.13 of Org-mode,
-;; `org-trigger-hook' and `org-blocker-hook'.
-;;
-;; (require 'org-depend)
-;;
-;; ;;; auto trigger by changing TODO states into NEXT.
-;; (defun my/org-insert-trigger ()
-;;   "Automatically insert chain-find-next trigger when entry becomes NEXT."
-;;   (cond ((equal org-state "NEXT")
-;;          (unless org-depend-doing-chain-find-next
-;;            (org-set-property "TRIGGER"
-;;                              "chain-find-next(NEXT,from-current,priority-up,effort-down)")))
-;;         ((not (member org-state org-done-keywords))
-;;          (org-delete-property "TRIGGER"))))
-;; (add-hook 'org-after-todo-state-change-hook 'my/org-insert-trigger)
-
 ;;; [ org-edna ] -- Extensible Dependencies 'N' Actions.
 
 ;;; Usage:
