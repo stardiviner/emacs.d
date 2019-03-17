@@ -7,6 +7,11 @@
 
 ;;; Code:
 
+;;; [ kotlin-mode ]
+
+(use-package kotlin-mode
+  :ensure t)
+
 ;;; [ ob-kotlin ]
 
 (use-package ob-kotlin
