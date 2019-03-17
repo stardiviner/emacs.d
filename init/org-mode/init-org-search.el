@@ -325,7 +325,6 @@ That's it.
       ;; use `rg-define-search'
       (compilation-start command 'rg-mode)))
 
-  (define-key rg-prefix (kbd "M-o") 'rg-search-words-by-files)
   (define-key Org-prefix (kbd "s") 'rg-search-words-by-files))
 
 ;;; [ org-recoll ] -- A lightweight Emacs Org Mode wrapper for the recoll full-text search engine.
