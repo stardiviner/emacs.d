@@ -25,7 +25,7 @@
 (use-package auctex
   :ensure t
   :no-require t
-  :load (tex-site latex font-latex)
+  :commands (TeX-latex-mode)
   :config
   ;; macros
   (defun latex-font-lock-add-macros ()

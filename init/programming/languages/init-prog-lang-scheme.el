@@ -58,8 +58,7 @@
       (unless (get-buffer geiser-guile-buffer)
         (save-window-excursion
           (run-geiser geiser-default-implementation)))))
-  (define-key scheme-mode-map (kbd "C-c C-s") 'my-run-geiser-auto)
-  )
+  (define-key scheme-mode-map (kbd "C-c C-s") 'my-run-geiser-auto))
 
 ;;; [ quack ] -- enhanced Emacs Support for Editing and Running Scheme Code
 
@@ -71,17 +70,17 @@
 
 (use-package ob-scheme
   :defer t
-  :init
+  :commands (org-babel-execute:scheme)
+  :config
   (add-to-list 'org-babel-load-languages '(scheme . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("scheme" . "scm"))
+  ;; FIXME: ob-scheme does not use already opened existing REPL session.
   (pcase scheme-program-name
     ("guile"
-     (add-to-list 'org-babel-default-header-args:scheme
-                  '(:session . "* Guile REPL *")))
+     (add-to-list 'org-babel-default-header-args:scheme '(:session . "* Guile REPL *")))
     ("racket"
-     (add-to-list 'org-babel-default-header-args:scheme
-                  '(:session . "* Racket REPL *")))))
+     (add-to-list 'org-babel-default-header-args:scheme '(:session . "* Racket REPL *")))))
 
 
 (provide 'init-prog-lang-scheme)

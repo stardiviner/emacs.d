@@ -98,6 +98,7 @@
   :ensure t
   :defer t
   :delight aggressive-indent-mode
+  :commands (aggressive-indent-mode)
   :init (setq aggressive-indent-sit-for-time 0.1)
   :config
   (add-to-list 'aggressive-indent-excluded-modes 'python-mode)

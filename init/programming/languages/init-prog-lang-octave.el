@@ -49,10 +49,13 @@
 
 ;;; [ ob-octave ]
 
-(require 'ob-octave)
-(add-to-list 'org-babel-load-languages '(octave . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("octave" . "m"))
+(use-package ob-octave
+  :defer t
+  :commands (org-babel-execute:octave)
+  :config
+  (add-to-list 'org-babel-load-languages '(octave . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("octave" . "m")))
 
 
 

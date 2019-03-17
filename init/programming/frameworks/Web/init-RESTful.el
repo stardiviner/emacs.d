@@ -70,6 +70,7 @@
 (use-package ob-restclient
   :ensure t
   :defer t
+  :commands (org-babel-execute:restclient)
   :config
   (add-to-list 'org-babel-load-languages '(restclient . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
@@ -79,6 +80,8 @@
 
 (use-package ob-http
   :ensure t
+  :defer t
+  :commands (org-babel-execute:http)
   :config
   (add-to-list 'org-babel-load-languages '(http . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)

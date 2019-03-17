@@ -7,122 +7,232 @@
 
 ;;; Code:
 
-(require 'org-agenda)
+(use-package org-agenda
+  :defer t
+  :commands (org-agenda)
+  :init
+  (setq org-agenda-window-setup 'current-window)
+  (setq org-agenda-sticky t) ; don't kill *Org Agenda* buffer by [q].
 
-(setq org-agenda-window-setup 'current-window)
-(setq org-agenda-sticky t) ; don't kill *Org Agenda* buffer by [q].
+  ;; `org-agenda-files'
+  (use-package dash ; for `-flatten'
+    :ensure t)
+  (setq org-agenda-files
+        ;; recursive in all directory and sub-directory.
+        (-flatten
+         (mapcar
+          (lambda (path)
+            (if (file-directory-p path)   ; if it is a directory
+                ;; return all files recursively in directory
+                (directory-files-recursively path ".org$")
+              ;; if it is a file, return the file directly.
+              path))
+          '("~/Org/Wiki/Things/Things.org" ; Buy Things
+            "~/Org/Tasks/"
+            "~/Org/Work/"
+            "~/Org/Projects/"
+            "~/Org/Learning Plan/"
+            "~/Org/Contacts/Contacts.org"
+            "~/Org/Calendars/Anniversary.org"
+            "~/Org/Myself/"               ; about Myself tasks
+            ))))
+  
+  ;; include `diary-file' from `calendar'
+  (setq org-agenda-include-diary nil
+        diary-file (concat org-directory "/Calendars/Anniversary.org")
+        org-agenda-diary-file (concat org-directory "/Calendars/Anniversary.org")
+        ;; org-agenda-insert-diary-strategy 'date-tree
+        )
 
-;;; show context details when jump from agenda.
-(add-to-list 'org-show-context-detail '(agenda . tree))
+  
+  ;; Agenda Views
+  (setq org-agenda-span 'day)
 
-;; (defun org-agenda--around (split-vertically &rest args)
-;;   (let ((split-width-threshold 80))
-;;     split-vertically))
-;; (advice-add 'org-agenda :around #'org-agenda--around)
-;;
-;; (defadvice org-agenda (around split-vertically activate)
-;;   (let ((split-width-threshold 160))
-;;     ad-do-it))
-;; (advice-remove 'org-agenda 'ad-Advice-org-agenda)
+  (setq org-agenda-align-tags-to-column (- (- (/ (/ (display-pixel-width) 2) 10) 3))
+        org-agenda-tags-column (- (- (/ (/ (display-pixel-width) 2) 10) 3)))
+  (setq org-agenda-prefix-format
+        '((agenda . " %i %-12:c %? e %?-12t % s")
+          (timeline . " % s")
+          (effort . " %e %(or (org-entry-get (point) \"Effort\") \"0:00\")")
+          (todo . " %i %-12:c")
+          (search . " %i %-12:c")
+          (tags . " %i %-12:c")
+          ))
+  (setq org-agenda-scheduled-leaders '("Scheduled: " "%3d days | "))
 
-(use-package dash ; for `-flatten'
-  :ensure t)
-(setq org-agenda-files
-      ;; recursive in all directory and sub-directory.
-      (-flatten
-       (mapcar
-        (lambda (path)
-          (if (file-directory-p path)   ; if it is a directory
-              ;; return all files recursively in directory
-              (directory-files-recursively path ".org$")
-            ;; if it is a file, return the file directly.
-            path))
-        '("~/Org/Wiki/Things/Things.org" ; Buy Things
-          "~/Org/Tasks/"
-          "~/Org/Work/"
-          "~/Org/Projects/"
-          "~/Org/Learning Plan/"
-          "~/Org/Contacts/Contacts.org"
-          "~/Org/Calendars/Anniversary.org"
-          "~/Org/Myself/"               ; about Myself tasks
-          ))))
+  ;; speedup Org Agenda
+  (setq org-agenda-inhibit-startup nil
+        org-agenda-dim-blocked-tasks nil ; don't dim blocked tasks: past deadline, etc
+        org-agenda-use-tag-inheritance nil)
 
-;; include `diary-file' from `calendar'
-(setq org-agenda-include-diary nil
-      diary-file (concat org-directory "/Calendars/Anniversary.org")
-      org-agenda-diary-file (concat org-directory "/Calendars/Anniversary.org")
-      ;; org-agenda-insert-diary-strategy 'date-tree
-      )
+  ;; toggle log mode in agenda buffer. Press [l] in org-agenda buffer.
+  (setq org-agenda-start-with-log-mode '(closed clock)
+        org-agenda-log-mode-items '(closed clock))
+
+  ;; clock report mode
+  (setq org-agenda-start-with-clockreport-mode t
+        org-agenda-clockreport-parameter-plist '(:scope agenda-with-archives
+                                                        :maxlevel 5
+                                                        :block today
+                                                        :fileskip0 t))
+
+  (setq org-agenda-block-separator ?=
+        org-agenda-compact-blocks t)
+
+  (setq org-agenda-prefer-last-repeat t)
+
+  ;; sorting strategy
+  (setq org-agenda-sorting-strategy
+        '((agenda time-up deadline-up priority-down ts-up habit-down category-keep)
+          (todo priority-down category-keep)
+          (tags priority-down category-keep)
+          (search category-keep))
+        org-agenda-sorting-strategy-selected
+        '(time-up priority-down deadline-up ts-up habit-down category-keep))
+
+  ;; Time Grid
+  (setq org-agenda-timegrid-use-ampm t)
+
+  ;; specify different color for days
+  (defun my-org-agenda-get-day-face-fn (date)
+    "Return the face DATE should be displayed with."
+    (let ((day-of-week (calendar-day-of-week date)))
+      (cond
+       ((or (= day-of-week 1) (= day-of-week 5))
+        '(:foreground "forest green" :box (:color "dim gray" :line-width 3)))
+       ((org-agenda-todayp date)
+        'org-agenda-date-today)
+       ((member day-of-week org-agenda-weekend-days)
+        'org-agenda-date-weekend)
+       (t 'org-agenda-date))))
+
+  (setq org-agenda-day-face-function 'my-org-agenda-get-day-face-fn)
+
+  (setq org-agenda-skip-timestamp-if-done t
+        org-agenda-skip-deadline-if-done t
+        org-agenda-skip-deadline-prewarning-if-scheduled t
+        org-agenda-skip-scheduled-if-done t
+        org-agenda-skip-scheduled-delay-if-deadline 'post-deadline
+        org-agenda-skip-scheduled-if-deadline-is-shown t
+        org-deadline-past-days 60 ; 10000
+        org-scheduled-past-days 60 ; 10000
+        ;; future scheduled items.
+        org-scheduled-delay-days 0 ; XXX: if change default 0, will invalid `org-habit'.
+        ;; XXX: org-agenda-ignore-properties '(effort appt stats category)
+        org-agenda-tags-todo-honor-ignore-options t)
+
+  ;; Org-Agenda All Todo List
+  (setq org-agenda-todo-ignore-timestamp 'all
+        org-agenda-todo-ignore-with-date nil
+        org-agenda-todo-ignore-scheduled 'future)
+  
+  ;; entry text mode
+  ;; (setq org-agenda-start-with-entry-text-mode t)
+  ;; follow mode
+  ;; (setq org-agenda-start-with-follow-mode t)
+
+  :config
+  ;; show context details when jump from agenda.
+  (add-to-list 'org-show-context-detail '(agenda . tree))
+
+  ;; [ Composite Agenda View ]
+  ;; Usage: `(org-agenda nil "C")'
+  ;; TODO: remove it?
+  (defun org-agenda-skip-subtree-if-priority (priority)
+    "Skip an agenda subtree if it has a priority of PRIORITY.
+
+PRIORITY may be one of the characters ?A, ?B, or ?C."
+    (let ((subtree-end (save-excursion (org-end-of-subtree t)))
+          (pri-value (* 1000 (- org-lowest-priority priority)))
+          (pri-current (org-get-priority (thing-at-point 'line t))))
+      (if (= pri-value pri-current)
+          subtree-end
+	nil)))
+
+  (add-to-list
+   'org-agenda-custom-commands
+   '("C" "Custom Agenda with in progress tasks, priority tasks (and all tasks)."
+     ((todo "STARTED") ; from `org-clock' forced state keyword.
+      (todo "INPROGRESS")
+      (tags "PRIORITY=\"A\""
+            ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+             (org-agenda-overriding-header "High-priority unfinished tasks:")))
+      (agenda ""
+              ((org-agenda-ndays 1)
+               (org-agenda-span 1)
+               (org-agenda-use-time-grid t))))
+     ((org-agenda-compact-blocks t))))
+
+  (add-to-list
+   'org-agenda-custom-commands
+   '("F" "[F]uture tasks in someday"
+     todo "SOMEDAY"))
+
+  (add-to-list
+   'org-agenda-custom-commands
+   '("c" "Tody [c]locked tasks."
+     ((agenda ""
+              ((org-agenda-ndays 1)
+               (org-agenda-span-1)
+               (org-agenda-use-time-grid t)
+               (org-agenda-include-diary nil)
+               (org-agenda-show-log (quote clockcheck))
+               (org-agenda-clockreport t))))))
+
+  (add-to-list 'org-agenda-custom-commands
+               '("p" "[p]rogramming - BUG, ISSUE, FEATURE etc."
+		 ((todo "BUG")
+                  (todo "ISSUE")
+                  (todo "FEATURE"))))
+
+  (add-to-list 'org-agenda-custom-commands
+               '("w" "[W]ork"
+		 todo "WORK"
+		 ((org-agenda-overriding-header "Work"))))
+
+  ;; used to filter out fragment time tasks.
+  (add-to-list 'org-agenda-custom-commands
+               '("f" "[f]ragment time tasks"
+		 tags "fragment"
+		 ((org-agenda-overriding-header "Fragment Tasks"))))
+
+  ;; Show Org Agenda tasks with heigh spacing based on clock time.
+  ;; https://emacs-china.org/t/org-agenda/8679
+  ;; work with org-agenda dispatcher [c] "Today Clocked Tasks" to view today's clocked tasks.
+  (defun org-agenda-time-grid-colorful-spacing ()
+    "Set different line spacing w.r.t. time duration."
+    (save-excursion
+      ;; (list "#aa557f" "DarkGreen" "DarkSlateGray" "DarkSlateBlue") ; dark theme
+      ;; (list "#F6B1C3" "#FFFF9D" "#BEEB9F" "#ADD5F7") ; white theme
+      (let* ((colors (list "#aa557f" "DarkGreen" "DarkSlateGray" "DarkSlateBlue"))
+             pos
+             duration)
+	(nconc colors colors)
+	(goto-char (point-min))
+	(while (setq pos (next-single-property-change (point) 'duration))
+          (goto-char pos)
+          (when (and (not (equal pos (point-at-eol)))
+                     (setq duration (org-get-at-bol 'duration)))
+            ;; larger duration bar height
+            (let ((line-height (if (< duration 15) 1.0 (+ 0.5 (/ duration 30))))
+                  (ov (make-overlay (point-at-bol) (1+ (point-at-eol)))))
+              (overlay-put ov 'face `(:background ,(car colors) :foreground "black"))
+              (setq colors (cdr colors))
+              (overlay-put ov 'line-height line-height)
+              (overlay-put ov 'line-spacing (1- line-height))))))))
+
+  (add-hook 'org-agenda-finalize-hook #'org-agenda-time-grid-colorful-spacing)
+
+  (define-key org-agenda-mode-map (kbd "M-s") 'org-search-view)
+  )
 
 
-;; Agenda Views
-(setq org-agenda-span 'day)
-
-(setq org-agenda-align-tags-to-column (- (- (/ (/ (display-pixel-width) 2) 10) 3))
-      org-agenda-tags-column (- (- (/ (/ (display-pixel-width) 2) 10) 3)))
-(setq org-agenda-prefix-format
-      '((agenda . " %i %-12:c %? e %?-12t % s")
-        (timeline . " % s")
-        (effort . " %e %(or (org-entry-get (point) \"Effort\") \"0:00\")")
-        (todo . " %i %-12:c")
-        (search . " %i %-12:c")
-        (tags . " %i %-12:c")
-        ))
-(setq org-agenda-scheduled-leaders '("Scheduled: " "%3d days | "))
-
-;; speedup Org Agenda
-(setq org-agenda-inhibit-startup nil
-      org-agenda-dim-blocked-tasks nil ; don't dim blocked tasks: past deadline, etc
-      org-agenda-use-tag-inheritance nil)
-
-;;; toggle log mode in agenda buffer. Press [l] in org-agenda buffer.
-(setq org-agenda-start-with-log-mode '(closed clock)
-      org-agenda-log-mode-items '(closed clock))
-
-;;; clock report mode
-(setq org-agenda-start-with-clockreport-mode t
-      org-agenda-clockreport-parameter-plist '(:scope agenda-with-archives
-                                                      :maxlevel 5
-                                                      :block today
-                                                      :fileskip0 t))
-
-(setq org-agenda-block-separator ?=
-      org-agenda-compact-blocks t)
-
-(setq org-agenda-prefer-last-repeat t)
-
-;;; sorting strategy
-(setq org-agenda-sorting-strategy
-      '((agenda time-up deadline-up priority-down ts-up habit-down category-keep)
-        (todo priority-down category-keep)
-        (tags priority-down category-keep)
-        (search category-keep))
-      org-agenda-sorting-strategy-selected
-      '(time-up priority-down deadline-up ts-up habit-down category-keep))
-
-;;; Time Grid
-(setq org-agenda-timegrid-use-ampm t)
-
-;;; specify different color for days
-(defun my-org-agenda-get-day-face-fn (date)
-  "Return the face DATE should be displayed with."
-  (let ((day-of-week (calendar-day-of-week date)))
-    (cond
-     ((or (= day-of-week 1) (= day-of-week 5))
-      '(:foreground "forest green" :box (:color "dim gray" :line-width 3)))
-     ((org-agenda-todayp date)
-      'org-agenda-date-today)
-     ((member day-of-week org-agenda-weekend-days)
-      'org-agenda-date-weekend)
-     (t 'org-agenda-date))))
-
-(setq org-agenda-day-face-function 'my-org-agenda-get-day-face-fn)
-
-;;; Icon
-
+;;; display icon for Org Agenda category
 (use-package all-the-icons
   :ensure t
-  :config
+  :defer t
+  :after org-agenda
+  :init
   (setq org-agenda-category-icon-alist
         `(("Diary" ,(list (all-the-icons-faicon "file-text-o")) nil nil :ascent center)
           ("Todo" ,(list (all-the-icons-faicon "check-square-o" :height 1.2)) nil nil :ascent center)
@@ -274,30 +384,6 @@
           ;; (".*" '(space . (:width (16))))
           )))
 
-(setq org-agenda-skip-timestamp-if-done t
-      org-agenda-skip-deadline-if-done t
-      org-agenda-skip-deadline-prewarning-if-scheduled t
-      org-agenda-skip-scheduled-if-done t
-      org-agenda-skip-scheduled-delay-if-deadline 'post-deadline
-      org-agenda-skip-scheduled-if-deadline-is-shown t
-      org-deadline-past-days 60 ; 10000
-      org-scheduled-past-days 60 ; 10000
-      ;; future scheduled items.
-      org-scheduled-delay-days 0 ; XXX: if change default 0, will invalid `org-habit'.
-      ;; XXX: org-agenda-ignore-properties '(effort appt stats category)
-      org-agenda-tags-todo-honor-ignore-options t)
-
-;;; Org-Agenda All Todo List
-(setq org-agenda-todo-ignore-timestamp 'all
-      org-agenda-todo-ignore-with-date nil
-      org-agenda-todo-ignore-scheduled 'future)
-
-;;; entry text mode
-;; (setq org-agenda-start-with-entry-text-mode t)
-
-;;; follow mode
-;; (setq org-agenda-start-with-follow-mode t)
-
 ;;; Tag changes that should be triggered by TODO state changes.
 ;; [C-c C-x a]
 ;; (setq org-todo-state-tags-triggers
@@ -309,93 +395,6 @@
 ;;         ))
 
 
-;;; [ Composite Agenda View ]
-;;; Usage: `(org-agenda nil "C")'
-
-(defun org-agenda-skip-subtree-if-priority (priority)
-  "Skip an agenda subtree if it has a priority of PRIORITY.
-
-PRIORITY may be one of the characters ?A, ?B, or ?C."
-  (let ((subtree-end (save-excursion (org-end-of-subtree t)))
-        (pri-value (* 1000 (- org-lowest-priority priority)))
-        (pri-current (org-get-priority (thing-at-point 'line t))))
-    (if (= pri-value pri-current)
-        subtree-end
-      nil)))
-
-(add-to-list 'org-agenda-custom-commands
-             '("C" "Custom Agenda with in progress tasks, priority tasks (and all tasks)."
-               ((todo "STARTED") ; from `org-clock' forced state keyword.
-                (todo "INPROGRESS")
-                (tags "PRIORITY=\"A\""
-                      ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
-                       (org-agenda-overriding-header "High-priority unfinished tasks:")))
-                (agenda ""
-                        ((org-agenda-ndays 1)
-                         (org-agenda-span 1)
-                         (org-agenda-use-time-grid t))))
-               ((org-agenda-compact-blocks t))))
-
-(add-to-list 'org-agenda-custom-commands
-             '("F" "[F]uture tasks in someday"
-               todo "SOMEDAY"))
-
-(add-to-list 'org-agenda-custom-commands
-             '("c" "Tody [c]locked tasks."
-               ((agenda ""
-                        ((org-agenda-ndays 1)
-                         (org-agenda-span-1)
-                         (org-agenda-use-time-grid t)
-                         (org-agenda-include-diary nil)
-                         (org-agenda-show-log (quote clockcheck))
-                         (org-agenda-clockreport t))))))
-
-;;; Show Org Agenda tasks with heigh spacing based on clock time.
-;;; https://emacs-china.org/t/org-agenda/8679
-;;; work with org-agenda dispatcher [c] "Today Clocked Tasks" to view today's clocked tasks.
-
-(defun org-agenda-time-grid-colorful-spacing ()
-  "Set different line spacing w.r.t. time duration."
-  (save-excursion
-    ;; (list "#aa557f" "DarkGreen" "DarkSlateGray" "DarkSlateBlue") ; dark theme
-    ;; (list "#F6B1C3" "#FFFF9D" "#BEEB9F" "#ADD5F7") ; white theme
-    (let* ((colors (list "#aa557f" "DarkGreen" "DarkSlateGray" "DarkSlateBlue"))
-           pos
-           duration)
-      (nconc colors colors)
-      (goto-char (point-min))
-      (while (setq pos (next-single-property-change (point) 'duration))
-        (goto-char pos)
-        (when (and (not (equal pos (point-at-eol)))
-                   (setq duration (org-get-at-bol 'duration)))
-          (let ((line-height (if (< duration 30) 1.0 (+ 0.5 (/ duration 60))))
-                (ov (make-overlay (point-at-bol) (1+ (point-at-eol)))))
-            (overlay-put ov 'face `(:background ,(car colors) :foreground "black"))
-            (setq colors (cdr colors))
-            (overlay-put ov 'line-height line-height)
-            (overlay-put ov 'line-spacing (1- line-height))))))))
-
-(add-hook 'org-agenda-finalize-hook #'org-agenda-time-grid-colorful-spacing)
-
-
-(add-to-list 'org-agenda-custom-commands
-             '("p" "[p]rogramming - BUG, ISSUE, FEATURE etc."
-               ((todo "BUG")
-                (todo "ISSUE")
-                (todo "FEATURE"))))
-
-(add-to-list 'org-agenda-custom-commands
-             '("w" "[W]ork"
-               todo "WORK"
-               ((org-agenda-overriding-header "Work"))))
-
-;; used to filter out fragment time tasks.
-(add-to-list 'org-agenda-custom-commands
-             '("f" "[f]ragment time tasks"
-               tags "fragment"
-               ((org-agenda-overriding-header "Fragment Tasks"))))
-
-(define-key org-agenda-mode-map (kbd "M-s") 'org-search-view)
 
 
 ;;;; [ org-review ] -- Track when you have done a review in org mode.

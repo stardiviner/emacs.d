@@ -39,8 +39,9 @@
 
 ;;; [ ox-latex ]
 
-(require 'org-latex-exp-conf)
-;; (define-key org-mode-map (kbd "C-c M-e") 'org-latex-exp-conf-mode)
+(use-package org-latex-exp-conf
+  :defer t
+  :commands (org-latex-exp-conf-mode))
 
 ;;; [ ox-html ]
 (use-package ox-html

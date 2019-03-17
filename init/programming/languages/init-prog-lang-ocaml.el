@@ -24,22 +24,18 @@
   ;;   (setenv (car var) (cadr var)))
   
   ;; utop top level
-  (add-hook 'tuareg-mode-hook 'utop-minor-mode)
-  )
+  (add-hook 'tuareg-mode-hook 'utop-minor-mode))
 
-
 ;;; [ ob-ocaml ]
 
-(require 'ob-ocaml)
+(use-package ob-ocaml
+  :defer t
+  :commands (org-babel-execute:ocaml)
+  :config
+  (add-to-list 'org-babel-load-languages '(ocaml . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("ocaml" . "ml")))
 
-(add-to-list 'org-babel-load-languages '(ocaml . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("ocaml" . "ml"))
-
-;; (add-to-list 'org-babel-default-header-args:ocaml
-;;              '(:results . "value"))
-
-
 ;;; [ merlin ] -- context-sensitive completion for OCaml in Vim and Emacs.
 
 (use-package merlin
@@ -75,10 +71,8 @@
     (interactive)
     (tuareg-run-process-if-needed
      "/usr/bin/opam config exec -- metaocaml")
-    (display-buffer tuareg-interactive-buffer-name))
-  )
+    (display-buffer tuareg-interactive-buffer-name)))
 
-
 ;;; [ utop ] -- universal toplevel for OCaml.
 
 (use-package utop

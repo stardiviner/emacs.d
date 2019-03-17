@@ -7,12 +7,17 @@
 
 ;;; Code:
 
-;;;_ web-mode
+;;; [ web-mode ]
 
 (use-package web-mode
   :ensure t
   :defer t
   :mode ("\\.html\\'" . web-mode)
+  :init
+  ;; open Org HTML source block with `web-mode'
+  (with-eval-after-load 'web-mode
+    (add-to-list 'org-src-lang-modes '("html" . web))
+    (add-to-list 'org-src-lang-modes '("rhtml" . web)))
   :config
   ;; fontifications
   (setq web-mode-enable-element-tag-fontification t
@@ -184,20 +189,16 @@
   )
 
 ;; [ web-completion-data ] -- dependency for `ac-html', `company-web'
+
 (use-package web-completion-data
   :ensure t)
 
 ;; [ web-mode-edit-element ] -- helper-functions for attribute- and element-handling.
+
 (use-package web-mode-edit-element
   :ensure t
   :delight web-mode-edit-element-minor-mode
   :init (add-hook 'web-mode-hook 'web-mode-edit-element-minor-mode))
-
-
-;; [ ob-html ]
-(with-eval-after-load 'web-mode
-  (add-to-list 'org-src-lang-modes '("html" . web))
-  (add-to-list 'org-src-lang-modes '("rhtml" . web)))
 
 ;;; [ RESTful ]
 

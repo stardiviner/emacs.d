@@ -35,30 +35,31 @@
 
 ;;; [ ob-js ]
 
-(require 'ob-js)
-(add-to-list 'org-babel-load-languages '(js . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("js" . "js"))
+(use-package ob-js
+  :defer t
+  :commands (org-babel-execute:js)
+  :config
+  (add-to-list 'org-babel-load-languages '(js . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("js" . "js"))
+  (add-to-list 'org-babel-default-header-args:js
+               '(:results . "output"))
 
-(add-to-list 'org-babel-default-header-args:js
-             '(:results . "output"))
-
-
-(defun ob-js-insert-session-header-arg (session)
-  "Insert ob-js `SESSION' header argument.
+  (defun ob-js-insert-session-header-arg (session)
+    "Insert ob-js `SESSION' header argument.
 - `js-comint'
 - `skewer-mode'
 - `Indium'
 "
-  (interactive (list (completing-read "ob-js session: "
-                                      '("js-comint" "skewer-mode" "indium"))))
-  (org-babel-insert-header-arg
-   "session"
-   (pcase session
-     ("js-comint" "\"*Javascript REPL*\"")
-     ("skewer-mode" "\"*skewer-repl*\"")
-     ("indium" "\"*JS REPL*\""))))
-(define-key org-babel-map (kbd "J") 'ob-js-insert-session-header-arg)
+    (interactive (list (completing-read "ob-js session: "
+                                        '("js-comint" "skewer-mode" "indium"))))
+    (org-babel-insert-header-arg
+     "session"
+     (pcase session
+       ("js-comint" "\"*Javascript REPL*\"")
+       ("skewer-mode" "\"*skewer-repl*\"")
+       ("indium" "\"*JS REPL*\""))))
+  (define-key org-babel-map (kbd "J") 'ob-js-insert-session-header-arg))
 
 ;;; [ js2-mode ]
 

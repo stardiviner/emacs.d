@@ -37,7 +37,13 @@
 ;;; [ ob-coffee ]
 
 (use-package ob-coffee
-  :ensure t)
+  :ensure t
+  :defer t
+  :commands (org-babel-execute:coffee)
+  :config
+  (add-to-list 'org-babel-load-languages '(coffee . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("coffee" . "coffee")))
 
 
 (provide 'init-prog-lang-coffeescript)

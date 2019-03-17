@@ -27,10 +27,13 @@
 
 ;;; [ ob-redis ]
 
-(require 'ob-redis)
-(add-to-list 'org-babel-load-languages '(redis . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("redis" . "redis"))
+(use-package ob-redis
+  :defer t
+  :commands (org-babel-execute:redis)
+  :config
+  (add-to-list 'org-babel-load-languages '(redis . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("redis" . "redis")))
 
 
 (provide 'init-Redis)

@@ -27,7 +27,7 @@
 ;;   :ensure t
 ;;   :defer t
 ;;   :delight smartparens-mode
-;;   :load (smartparens-config)
+;;   :commands (smartparens-mode)
 ;;   :config
 ;;   ;; `smartparens' is heavy in `org-self-insert-command'.
 ;;   (add-to-list 'sp-ignore-modes-list 'org-mode)

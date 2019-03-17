@@ -11,11 +11,9 @@
 (use-package eshell
   :ensure t
   :defer t
-  :load (em-term em-smart)
+  :commands (eshell)
   :bind ("C-x !" . eshell)
-  :init
-  ;; change PAGER from `less' to `cat'.
-  (setenv "PAGER" "cat")
+  :init (setenv "PAGER" "cat") ; change PAGER from `less' to `cat'.
   :config
   ;; Eshell sudo
   ;; load eshell's sudo which use Tramp's su/sudo methods.
@@ -37,15 +35,13 @@
         eshell-mv-interactive-query t
         eshell-rm-interactive-query t
         eshell-mv-overwrite-files nil
-        eshell-highlight-prompt t
-        )
+        eshell-highlight-prompt t)
 
   ;; visual commands
   ;; (setq eshell-destroy-buffer-when-process-dies nil)
   (setq eshell-visual-commands '("vi" "screen" "top" "less" "more" "lynx"
                                  "ncftp" "pine" "tin" "trn" "elm" "vim"
-                                 "nmtui" "alsamixer" "htop" "el" "elinks"
-                                 ))
+                                 "nmtui" "alsamixer" "htop" "el" "elinks"))
   (setq eshell-visual-subcommands '(("git" "log" "diff" "show")))
   (add-to-list 'eshell-visual-options '("git" "--help"))
 
@@ -81,8 +77,7 @@ PWD is not in a git repo (or the git command is not found)."
                 (if (> (length git-output) 0)
                     (substring git-output 0 -1)
                   "(no branch)")
-                "]")
-        )))
+                "]"))))
 
   ;; Eshell prompt
   (require 'em-prompt)
@@ -227,11 +222,14 @@ otherwise, they are appended."
 
 ;;; [ ob-eshell ]
 
-;; FIXME: void variable `org-babel-load-languages'
-;; (require 'ob-eshell)
-;; (add-to-list 'org-babel-load-languages '(eshell . t))
-;; (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-;; (add-to-list 'org-babel-tangle-lang-exts '("eshell" . "sh"))
+;; (use-package ob-eshell
+;;   :load-path "~/.emacs.d/init/extensions/ob-eshell.el"
+;;   :defer t
+;;   :commands (org-babel-execute:eshell)
+;;   :config
+;;   (add-to-list 'org-babel-load-languages '(eshell . t))
+;;   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+;;   (add-to-list 'org-babel-tangle-lang-exts '("eshell" . "sh")))
 
 ;;; [ Aweshell ] -- An enhanced Eshell layer like on-my-zsh with many features.
 

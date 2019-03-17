@@ -70,19 +70,22 @@
 
 ;;; [ ob-shell ]
 
-(require 'ob-shell)
-(add-to-list 'org-babel-load-languages '(shell . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("shell" . "sh"))
-
-(add-to-list 'org-babel-default-header-args:shell
-             '(:results . "output"))
-(add-to-list 'org-babel-default-header-args:shell
-             '(:noweb . "yes"))
-
-(defvar org-babel-default-header-args:sh '())
-(add-to-list 'org-babel-default-header-args:sh
-             '(:results . "output"))
+(use-package ob-shell
+  :defer t
+  :commands (org-babel-execute:shell org-babel-shell-initialize)
+  :init (org-babel-shell-initialize)
+  :config
+  (add-to-list 'org-babel-load-languages '(shell . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("shell" . "sh"))
+  (add-to-list 'org-babel-default-header-args:sh
+               '(:results . "output"))
+  (add-to-list 'org-babel-default-header-args:sh
+               '(:noweb . "yes"))
+  (add-to-list 'org-babel-default-header-args:shell
+               '(:results . "output"))
+  (add-to-list 'org-babel-default-header-args:shell
+               '(:noweb . "yes")))
 
 ;;; [ Tangle ]
 

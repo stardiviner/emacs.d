@@ -1,6 +1,6 @@
 ;;; init-Neo4j.el --- init for Neo4j.
 
-;;; Time-stamp: <2019-02-15 14:23:40 stardiviner>
+;;; Time-stamp: <2019-03-17 16:00:55 stardiviner>
 
 ;;; Commentary:
 
@@ -19,7 +19,9 @@
 ;;; [ ob-neo4j ] -- Execute Neo4j's Cypher query in Org Mode Babel source block.
 
 ;; (use-package ob-neo4j
-;;   :quelpa (ob-neo4j :fetcher github :repo "MarkBorcherding/ob-neo4j"))
+;;   :quelpa (ob-neo4j :fetcher github :repo "MarkBorcherding/ob-neo4j")
+;;   :defer t
+;;   :commands (org-babel-execute:neo4j))
 
 ;;; [ cypher-mode ] -- major mode for editing cypher scripts.
 
@@ -31,7 +33,8 @@
 
 (use-package ob-cypher
   :ensure t
-  :defer t)
+  :defer t
+  :commands (org-babel-execute:cypher))
 
 
 

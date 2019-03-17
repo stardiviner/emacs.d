@@ -112,9 +112,12 @@
 
 ;;; [ ob-latex ] -- Babel Functions for LaTeX.
 
-(require 'ob-latex)
-(add-to-list 'org-babel-load-languages '(latex . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(use-package ob-latex
+  :defer t
+  :commands (org-babel-execute:latex)
+  :config
+  (add-to-list 'org-babel-load-languages '(latex . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 
 
 (provide 'init-org-latex)

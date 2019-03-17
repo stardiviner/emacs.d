@@ -13,14 +13,15 @@
   :ensure t
   :ensure-system-package lua
   :defer t
+  :commands (run-lua)
   :bind (:map lua-mode-map ("C-c C-s" . run-lua))
-  :config
+  :init
   (setq lua-documentation-function 'eww
         ;; lua-indent-string-contents t
         )
   (add-to-list 'display-buffer-alist
                '("^\\*lua\\*" (display-buffer-below-selected)))
-
+  :config
   ;; Fix Lua indentation lisp lisp-y error
   (defun lua-busted-fuckups-fix ()
     (save-excursion
@@ -40,17 +41,18 @@
 	      (apply old-function arguments)))
 
   (advice-add #'lua-calculate-indentation-override
-	            :around #'rgc-lua-calculate-indentation-override)
-  )
+	            :around #'rgc-lua-calculate-indentation-override))
 
 
 ;;; [ ob-lua ]
 
-(require 'ob-lua)
-
-(add-to-list 'org-babel-load-languages '(lua . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("lua" . "lua"))
+(use-package ob-lua
+  :defer t
+  :commands (org-babel-execute:lua)
+  :config
+  (add-to-list 'org-babel-load-languages '(lua . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("lua" . "lua")))
 
 
 ;;; [ company-lua ]
@@ -59,12 +61,8 @@
   :ensure t
   :defer t
   :after lua-mode
-  :init
-  (add-hook 'lua-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-lua)
-              ))
-  )
+  :init (add-hook 'lua-mode-hook
+                  (lambda () (my-company-add-backend-locally 'company-lua))))
 
 
 (provide 'init-prog-lang-lua)

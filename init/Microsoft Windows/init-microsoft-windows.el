@@ -43,8 +43,9 @@
 
 (use-package ob-powershell
   :load-path "~/.emacs.d/init/extensions/ob-powershell.el"
-  :init (require 'ob-powershell)
-  (setq org-babel-powershell-command "pwsh")
+  :defer t
+  :commands (org-babel-execute:powershell)
+  :init (setq org-babel-powershell-command "pwsh")
   :config
   (add-to-list 'org-babel-load-languages '(powershell . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)

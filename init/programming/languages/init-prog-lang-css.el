@@ -25,13 +25,21 @@
 
 (setq css-indent-offset 2)
 
+;;; [ company-css ]
+
+(defun my:company-css-setup ()
+  (my-company-add-backend-locally 'company-css))
+(add-hook 'css-mode-hook #'my:company-css-setup)
+
 ;;; [ ob-css ]
 
-(require 'ob-css)
-
-(add-to-list 'org-babel-load-languages '(css . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("css" . "css"))
+(use-package ob-css
+  :defer t
+  :commands (org-babel-execute:css)
+  :config
+  (add-to-list 'org-babel-load-languages '(css . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("css" . "css")))
 
 ;;; [ css-eldoc ]
 

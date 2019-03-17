@@ -19,16 +19,17 @@
 
 ;;; [ ob-sql ]
 
-(require 'ob-sql)
-
-(add-to-list 'org-babel-load-languages '(sql . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("sql" . "sql"))
-
-(add-to-list 'org-src-lang-modes (cons "SQL" 'sql))
-
-;; (add-to-list 'org-babel-default-header-args:sql
-;;              '(:results . "table"))
+(use-package ob-sql
+  :defer t
+  :commands (org-babel-execute:sql)
+  :config
+  (add-to-list 'org-babel-load-languages '(sql . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("sql" . "sql"))
+  (add-to-list 'org-src-lang-modes (cons "SQL" 'sql))
+  ;; (add-to-list 'org-babel-default-header-args:sql
+  ;;              '(:results . "table"))
+  )
 
 ;;; [ ob-sql-mode ] -- SQL code blocks evaluated by sql-mode.
 
@@ -36,6 +37,7 @@
   ;; :ensure t
   :load-path "~/Code/Emacs/ob-sql-mode"
   :defer t
+  :commands (org-babel-execute:sql-mode)
   :config
   (add-to-list 'org-babel-load-languages '(sql-mode . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
@@ -146,15 +148,15 @@
 ;;; [ ejc-sql ] -- Emacs SQL client uses Clojure JDBC.
 
 (use-package ejc-sql
-  ;; :ensure t
-  :load-path "~/Code/Emacs/ejc-sql"
+  :ensure t
+  ;; :load-path "~/Code/Emacs/ejc-sql"
   :defer t
-  :load (ejc-interaction)
   :commands (ejc-connect ejc-connect-existing-repl ejc-sql-mode)
   :init (setq nrepl-sync-request-timeout 60
               ejc-connection-validate-timeout 60)
   :config
-  (add-to-list 'ob-async-no-async-languages-alist "sql")
+  (with-eval-after-load 'ob-async
+    (add-to-list 'ob-async-no-async-languages-alist "sql"))
 
   (add-hook 'ejc-sql-mode-hook
             (lambda ()

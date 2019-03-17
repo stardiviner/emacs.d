@@ -30,18 +30,21 @@
 
 ;;; [ ob-emacs-lisp ]
 
-(require 'ob-emacs-lisp)
+(use-package ob-emacs-lisp
+  :defer t
+  :commands (org-babel-execute:emacs-lisp)
+  :config
+  (add-to-list 'org-babel-load-languages '(emacs-lisp . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("emacs-lisp" . "el"))
 
-(add-to-list 'org-babel-load-languages '(emacs-lisp . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("emacs-lisp" . "el"))
-
-(add-to-list 'org-babel-default-header-args:emacs-lisp
-             '(:results . "value"))
-(add-to-list 'org-babel-default-header-args:emacs-lisp
-             '(:noweb . "yes"))
-;; (add-to-list 'org-babel-default-header-args:emacs-lisp
-;;              '(:lexical . "yes"))
+  (add-to-list 'org-babel-default-header-args:emacs-lisp
+               '(:results . "value"))
+  (add-to-list 'org-babel-default-header-args:emacs-lisp
+               '(:noweb . "yes"))
+  ;; (add-to-list 'org-babel-default-header-args:emacs-lisp
+  ;;              '(:lexical . "yes"))
+  )
 
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
 

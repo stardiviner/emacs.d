@@ -87,8 +87,8 @@
   :init
   ;; add source code version Org-mode Info into Emacs.
   (with-eval-after-load 'info
-    (info-initialize)
-    (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/"))
+    (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/")
+    (info-initialize))
   ;; load org before using some Org settings.
   (require 'org)
   (use-package org-plus-contrib
@@ -115,9 +115,8 @@
 (use-package quelpa
   :ensure t
   :preface (setq quelpa-update-melpa-p nil) ; disable Emacs startup quelpa melpa update.
-  :config
-  (add-to-list 'quelpa-melpa-recipe-stores
-               (concat user-emacs-directory "elpa/recipes")))
+  :config (add-to-list 'quelpa-melpa-recipe-stores
+                       (concat user-emacs-directory "elpa/recipes")))
 
 ;;; [ Quelpa-use-package ] -- Emacs quelpa handler for use-package.
 

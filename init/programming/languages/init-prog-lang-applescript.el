@@ -23,7 +23,12 @@
 
 (use-package ob-applescript
   :ensure t
-  :defer t)
+  :defer t
+  :commands (org-babel-execute:applescript)
+  :config
+  (add-to-list 'org-babel-load-languages '(applescript . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("applescript" . "applescript")))
 
 
 (provide 'init-prog-lang-applescript)

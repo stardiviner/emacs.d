@@ -46,11 +46,14 @@
 (require 'picture)
 
 ;;; [ asymptote ] -- A vector graphics language (like metapost).
-(require 'ob-asymptote)
-(add-to-list 'org-babel-load-languages '(asymptote . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("asymptote" . "asy"))
 
+(use-package ob-asymptote
+  :defer t
+  :commands (org-babel-execute:asymptote)
+  :config
+  (add-to-list 'org-babel-load-languages '(asymptote . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("asymptote" . "asy")))
 
 (require 'init-UML)
 (require 'init-Graphviz) ; Graphviz, Dot

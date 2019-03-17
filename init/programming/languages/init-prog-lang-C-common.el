@@ -33,7 +33,6 @@
     c++-mode
     objc-mode))
 
-
 ;; [ C-mode ]
 
 ;; indent
@@ -65,25 +64,24 @@
   (local-set-key (kbd "C-c C-o") 'ff-find-other-file))
 (add-hook 'c-mode-common-hook #'my/c-mode-common-header-switch)
 
-
 ;;; [ ob-C ]
 
-(require 'ob-C)
+(use-package ob-C
+  :defer t
+  :commands (org-babel-execute:C org-babel-execute:C++)
+  :config
+  (add-to-list 'org-babel-load-languages '(C . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("C" . "c"))
+  (add-to-list 'org-babel-tangle-lang-exts '("C++" . "cpp"))
+  
+  ;; (setq org-babel-C++-compiler "g++") ; "g++", "c++", "g++ -v"
+  (add-to-list 'org-babel-default-header-args:C
+               '(:results . "output"))
+  ;; (add-to-list 'org-babel-default-header-args:C++
+  ;;              '(:results . "output"))
+  )
 
-(add-to-list 'org-babel-load-languages '(C . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("C" . "c"))
-
-(add-to-list 'org-babel-default-header-args:C
-             '(:results . "output"))
-
-;; (setq org-babel-C++-compiler "g++") ; "g++", "c++", "g++ -v"
-(add-to-list 'org-babel-tangle-lang-exts '("C++" . "cpp"))
-
-;; (add-to-list 'org-babel-default-header-args:C++
-;;              '(:results . "output"))
-
-
 ;;; [ Irony-mode ] --- A C/C++ minor mode for Emacs powered by libclang.
 
 (use-package irony

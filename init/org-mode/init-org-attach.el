@@ -21,13 +21,11 @@
 
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
-(use-package org-plus-contrib
+(use-package org-screenshot
   :ensure-system-package scrot
   :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
   :pin manual
   :defer t
-  :no-require t
-  :load (org-screenshot)
   :commands (org-screenshot-take)
   :init (setq org-screenshot-image-directory "data/images")
   (add-hook 'org-mode-hook

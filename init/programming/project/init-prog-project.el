@@ -17,7 +17,7 @@
   :ensure t
   :defer t
   :delight projectile-mode
-  :config
+  :init
   ;; nil: disable caching to fix TRAMP hang on sending password
   (setq projectile-enable-caching nil
         projectile-file-exists-remote-cache-expire '(* 60 30)
@@ -25,6 +25,7 @@
         projectile-use-git-grep t)
   ;; test
   (setq projectile-create-missing-test-files t)
+  :config
   (projectile-global-mode 1)
   ;; (add-hook 'prog-mode-hook 'projectile-mode)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))

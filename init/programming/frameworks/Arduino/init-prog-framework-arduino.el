@@ -13,7 +13,7 @@
   :ensure t
   :ensure-system-package arduino
   :defer t
-  :load (flycheck-arduino)
+  :commands (arduino-mode flycheck-arduino-setup)
   :config (add-hook 'arduino-mode-hook #'flycheck-arduino-setup))
 
 ;;; [ ob-arduino ]
@@ -23,11 +23,14 @@
   :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
   :no-require t
   :pin manual
-  :load (ob-arduino)
-  :init (with-eval-after-load 'org
-          (add-to-list 'org-babel-load-languages '(arduino . t))
-          (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-          (add-to-list 'org-babel-tangle-lang-exts '("arduino" . "ino"))))
+  :init
+  (use-package ob-arduino
+    :defer t
+    :commands (org-babel-execute:arduino)
+    :config
+    (add-to-list 'org-babel-load-languages '(arduino . t))
+    (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+    (add-to-list 'org-babel-tangle-lang-exts '("arduino" . "ino"))))
 
 ;;; [ company-arduino ]
 

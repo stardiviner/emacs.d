@@ -21,10 +21,13 @@
 
 ;;; [ ob-matlab ]
 
-(require 'ob-matlab)
-(add-to-list 'org-babel-load-languages '(matlab . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("matlab" . "m"))
+(use-package ob-octave
+  :defer t
+  :commands (org-babel-execute:matlab)
+  :config
+  (add-to-list 'org-babel-load-languages '(matlab . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("matlab" . "m")))
 
 
 

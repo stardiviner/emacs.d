@@ -27,6 +27,8 @@
 
 (use-package edebug-x
   :ensure t
+  :defer t
+  :commands (edebug-x-show-data edebug-x-show-breakpoints edebug-x-show-instrumented)
   :bind (:map edebug-mode-map
               ("M-s" . edebug-x-show-data)
               ("M-b" . edebug-x-show-breakpoints)
@@ -46,13 +48,14 @@
   (add-to-list 'display-buffer-alist
                '("^\\*Instrumented Functions\\*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("^\\*Edebug Breakpoints\\*" (display-buffer-below-selected)))
-  )
+               '("^\\*Edebug Breakpoints\\*" (display-buffer-below-selected))))
 
 ;;; [ edebug-inline-result ] -- Show Edebug result inline.
 
 (use-package edebug-inline-result
-  :quelpa (edebug-inline-result :fetcher github :repo "stardiviner/edebug-inline-result"))
+  :quelpa (edebug-inline-result :fetcher github :repo "stardiviner/edebug-inline-result")
+  :defer t
+  :commands (edebug-inline-result-show))
 
 ;;; [ bug-hunter ] -- Hunt down errors in elisp files.
 

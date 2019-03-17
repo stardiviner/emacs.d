@@ -170,6 +170,7 @@
   :if (not (featurep 'company-box))
   :ensure t
   :after company
+  :defer t
   :config (define-key company-active-map (kbd "M-h") 'company-quickhelp--show))
 
 ;;; [ company-mode in minibuffer `M-:' ]
@@ -191,8 +192,8 @@
   :ensure t
   :ensure all-the-icons
   :defer t
+  :commands (company-box-mode)
   :hook (company-mode . company-box-mode)
-  :load (all-the-icons)
   :init (setq company-box-doc-enable nil ; disable auto `company-box-doc' timer.
               company-box-doc-delay 0.5
               company-box-show-single-candidate t ; for still can use doc popup keybinding.

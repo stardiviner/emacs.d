@@ -25,22 +25,23 @@
   :init
   ;; add `julia-mode' to `prog-mode''.
   (add-hook 'julia-mode-hook
-            (lambda () (unless (derived-mode-p 'prog-mode) (run-hooks 'prog-mode-hook))))
-  )
+            (lambda () (unless (derived-mode-p 'prog-mode) (run-hooks 'prog-mode-hook)))))
 
 ;;; [ ob-julia ]
 
 (use-package ess
   :ensure t
   :after org
-  :load (ess-site ess-custom)
   :preface
   (define-obsolete-variable-alias 'inferior-julia-program-name 'inferior-julia-program)
   :custom (inferior-julia-program (or (executable-find "julia-basic") "julia"))
   :init
-  (require 'ob-julia)
-  (add-to-list 'org-babel-load-languages '(julia . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
+  (use-package ob-julia
+    :defer t
+    :commands (org-babel-execute:julia)
+    :config
+    (add-to-list 'org-babel-load-languages '(julia . t))
+    (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)))
 
 ;;; [ julia-shell ] -- Emacs major mode for an interactive Julia shell.
 

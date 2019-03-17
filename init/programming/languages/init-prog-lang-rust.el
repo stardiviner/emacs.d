@@ -70,7 +70,8 @@
 (use-package ob-rust
   :ensure t
   :defer t
-  :init
+  :commands (org-babel-execute:rust)
+  :config
   (add-to-list 'org-babel-load-languages '(rust . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("rust" . "rs")))

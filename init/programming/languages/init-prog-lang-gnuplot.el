@@ -23,7 +23,7 @@
   :mode (("\\.gp\\'" . gnuplot-mode)
          ("\\.plt\\'" . gnuplot-mode)
          ("\\.gnuplot\\'" . gnuplot-mode))
-  :load (gnuplot-context)
+  :commands (gnuplot-mode run-gnuplot)
   :bind (:map gnuplot-mode-map
               ("<f5>" . gnuplot-make-buffer)
               ("C-h d d" . gnuplot-info-at-point)
@@ -74,13 +74,15 @@
   :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
   :no-require t
   :init
-  (require 'ob-gnuplot)
-  (add-to-list 'org-babel-load-languages '(gnuplot . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  (add-to-list 'org-babel-tangle-lang-exts '("gnuplot" . "gnuplot"))
-  (add-to-list 'org-babel-default-header-args:gnuplot
-               '(:exports . "both"))
-  )
+  (use-package ob-gnuplot
+    :defer t
+    :commands (org-babel-execute:gnuplot)
+    :config
+    (add-to-list 'org-babel-load-languages '(gnuplot . t))
+    (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+    (add-to-list 'org-babel-tangle-lang-exts '("gnuplot" . "gnuplot"))
+    (add-to-list 'org-babel-default-header-args:gnuplot
+                 '(:exports . "both"))))
 
 
 

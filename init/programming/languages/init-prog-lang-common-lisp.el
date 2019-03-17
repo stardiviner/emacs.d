@@ -40,16 +40,19 @@
 
 ;;; [ ob-lisp ]
 
-(require 'ob-lisp)
+(use-package ob-lisp
+  :defer t
+  :commands (org-babel-execute:lisp)
+  :config
+  (add-to-list 'org-babel-load-languages '(lisp . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("lisp" . "lisp"))
 
-(add-to-list 'org-babel-load-languages '(lisp . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("lisp" . "lisp"))
-
-(add-to-list 'org-babel-default-header-args:lisp
-             '(:noweb . "yes"))
-;; (add-to-list 'org-babel-default-header-args:lisp
-;;              '(:results . "output pp"))
+  (add-to-list 'org-babel-default-header-args:lisp
+               '(:noweb . "yes"))
+  ;; (add-to-list 'org-babel-default-header-args:lisp
+  ;;              '(:results . "output pp"))
+  )
 
 
 ;;; [ SBCL ]
@@ -57,8 +60,7 @@
 (use-package lisp-mode
   ;; the SBCL configuration file is in Common Lisp
   :mode ("\\.sbclrc\\'" . lisp-mode)
-  :ensure-system-package sbcl
-  )
+  :ensure-system-package sbcl)
 
 
 ;;; [ Quick Lisp ]

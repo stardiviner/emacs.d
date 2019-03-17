@@ -129,14 +129,14 @@
 
 ;;; [ ob-haskell ]
 
-(require 'ob-haskell)
-
-(add-to-list 'org-babel-load-languages '(haskell . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("haskell" . "hs"))
-
-(add-to-list 'org-babel-default-header-args:haskell '(:session . "*haskell*"))
-
+(use-package ob-haskell
+  :defer t
+  :commands (org-babel-execute:haskell)
+  :config
+  (add-to-list 'org-babel-load-languages '(haskell . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("haskell" . "hs"))
+  (add-to-list 'org-babel-default-header-args:haskell '(:session . "*haskell*")))
 
 ;;; [ ghc ]
 

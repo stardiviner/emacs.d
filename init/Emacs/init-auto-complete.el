@@ -12,9 +12,9 @@
 (use-package auto-complete
   :ensure t
   :defer t
-  :load (auto-complete-config)
-  ;; :init (ac-config-default)
-  ;; (global-auto-complete-mode 1) ; use auto-complete globally
+  :commands (auto-complete-mode global-auto-complete-mode)
+  ;; :init (global-auto-complete-mode 1) ; use auto-complete globally
+  ;; (ac-config-default)
   :config
   ;; fuzzy completion
   ;; (setq ac-use-fuzzy t)

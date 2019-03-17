@@ -1,6 +1,6 @@
 ;;; init-prog-lang-ML.el --- init for ML.
 
-;;; Time-stamp: <2018-11-14 20:30:29 stardiviner>
+;;; Time-stamp: <2019-03-17 16:20:37 stardiviner>
 
 ;;; Commentary:
 
@@ -26,6 +26,8 @@
 
 (use-package ob-sml
   :ensure t
+  :defer t
+  :commands (org-babel-execute:sml)
   :config
   (add-to-list 'org-babel-load-languages '(sml . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)

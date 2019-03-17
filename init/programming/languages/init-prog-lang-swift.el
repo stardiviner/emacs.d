@@ -18,8 +18,11 @@
 ;; [ ob-swift ] -- org-babel functions for swift evaluation.
 
 (use-package ob-swift
-  :ensure t
-  :init
+  ;; :ensure t
+  :load-path "~/Code/Emacs/ob-swift"
+  :defer t
+  :commands (org-babel-execute:swift)
+  :config
   (add-to-list 'org-babel-load-languages '(swift . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("swift" . "swift")))

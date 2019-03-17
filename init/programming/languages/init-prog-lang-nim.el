@@ -30,7 +30,13 @@
 ;;; [ ob-nim ] -- Babel Functions for Nim Language.
 
 (use-package ob-nim
-  :ensure t)
+  :ensure t
+  :defer t
+  :commands (org-babel-execute:nim)
+  :config
+  (add-to-list 'org-babel-load-languages '(nim . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("nim" . "nim")))
 
 
 (provide 'init-prog-lang-nim)

@@ -43,6 +43,8 @@
 (use-package ob-sagemath
   ;; :ensure t
   :ensure ob-sage
+  :defer t
+  :commands (org-babel-execute:sagemath)
   :config
   ;; (setq ob-sagemath-output-display-function)
   ;; (setq org-babel-header-args:sage '())

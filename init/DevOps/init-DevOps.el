@@ -36,7 +36,9 @@
 ;;; [ heroku ]
 
 (use-package heroku
-  :ensure t)
+  :ensure t
+  :defer t
+  :commands (heroku-run))
 
 
 (provide 'init-DevOps)

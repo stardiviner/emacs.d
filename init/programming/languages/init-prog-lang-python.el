@@ -55,7 +55,8 @@
 
 (use-package ob-python
   :defer t
-  :init
+  :commands (org-babel-execute:python)
+  :config
   (add-to-list 'org-babel-load-languages '(python . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("python" . "py"))
@@ -119,7 +120,8 @@
 (use-package pyvenv
   :ensure t
   :defer t
-  :init (pyvenv-workon "python3.7")
+  :config
+  (pyvenv-workon "python3.7")
   (add-hook 'python-mode-hook #'pyvenv-mode))
 
 ;;; [ pygen ] -- Python code generation in Emacs with Elpy and python-mode.

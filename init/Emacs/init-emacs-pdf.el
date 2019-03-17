@@ -13,14 +13,13 @@
   :ensure t
   :ensure-system-package (pdfinfo . "sudo pacman -S --noconfirm poppler poppler-data")
   :defer t
-  :mode ("\\.pdf\\'" . pdf-view-mode)
-  :init ; (pdf-tools-install)
+  :commands (pdf-tools-install-noverify pdf-view-mode)
+  :init (pdf-tools-install-noverify) ; (pdf-tools-install)
   (setq pdf-view-use-scaling t ; open PDFs scaled to fit page.
         pdf-view-use-unicode-ligther nil ; speed-up pdf-tools by don't try to find unicode.
         )
+  :mode ("\\.pdf\\'" . pdf-view-mode)
   :config
-  (pdf-tools-install-noverify)
-
   ;; helpful accessibility shortcuts
   (define-key pdf-view-mode-map (kbd "q") 'kill-current-buffer)
 
@@ -52,12 +51,16 @@
 
 (use-package org-pdfview
   :ensure t
+  :defer t
   :after org
-  :config (org-link-set-parameters "pdfview"
-                                   :follow #'org-pdfview-open
-                                   :export #'org-pdfview-export
-                                   :complete #'org-pdfview-complete-link
-                                   :store #'org-pdfview-store-link)
+  :commands (org-pdfview-open
+             org-pdfview-export org-pdfview-complete-link org-pdfview-store-link)
+  :init
+  (org-link-set-parameters "pdfview"
+                           :follow #'org-pdfview-open
+                           :export #'org-pdfview-export
+                           :complete #'org-pdfview-complete-link
+                           :store #'org-pdfview-store-link)
   ;; change Org-mode default open PDF file function.
   ;; If you want, you can also configure the org-mode default open PDF file function.
   (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdfview-open link))))
@@ -67,6 +70,7 @@
 
 (use-package org-noter
   :ensure t
+  :defer t
   :commands (org-noter)
   :preface (unless (boundp 'Org-prefix) (define-prefix-command 'Org-prefix))
   :bind (:map Org-prefix ("n" . org-noter))

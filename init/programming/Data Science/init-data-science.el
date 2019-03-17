@@ -12,24 +12,32 @@
   :ensure t
   :defer t
   :commands (jupyter-run-repl jupyter-connect-repl jupyter-repl-associate-buffer)
-  :init (require 'ob-jupyter)
-  (add-to-list 'org-babel-load-languages '(jupyter . t) 'append)
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  (add-to-list 'display-buffer-alist
-               '("^\\*jupyter-repl.*\\*" (display-buffer-below-selected)))
-  (if (featurep 'ob-async)
-      (with-eval-after-load 'ob-async
-        (add-to-list 'ob-async-no-async-languages-alist "jupyter-python")
-        (add-to-list 'ob-async-no-async-languages-alist "jupyter-clojure")
-        (add-to-list 'ob-async-no-async-languages-alist "jupyter-julia")
-        (add-to-list 'ob-async-no-async-languages-alist "jupyter-ruby"))))
+  :init
+  (use-package ob-jupyter
+    :defer t
+    :commands (org-babel-execute:jupyter-python
+               org-babel-execute:jupyter-clojure
+               org-babel-execute:jupyter-julia
+               org-babel-execute:jupyter-ruby)
+    :config
+    (add-to-list 'org-babel-load-languages '(jupyter . t) 'append)
+    (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+    (add-to-list 'display-buffer-alist
+                 '("^\\*jupyter-repl.*\\*" (display-buffer-below-selected)))
+    (if (featurep 'ob-async)
+        (with-eval-after-load 'ob-async
+          (add-to-list 'ob-async-no-async-languages-alist "jupyter-python")
+          (add-to-list 'ob-async-no-async-languages-alist "jupyter-clojure")
+          (add-to-list 'ob-async-no-async-languages-alist "jupyter-julia")
+          (add-to-list 'ob-async-no-async-languages-alist "jupyter-ruby")))))
 
 ;;; [ Emacs IPython Notebook (EIN) ] -- IPython notebook client in Emacs
 
 (use-package ein
   :ensure t
   :defer t
-  :commands (ein:jupyter-server-start)
+  :commands (ein:jupyter-server-start
+             org-babel-execute:ein-python org-babel-execute:ein-clojure)
   ;; :config
   ;; ;; [ ob-ein ] #+begin_src ein[-??]
   ;; (require 'ob-ein)

@@ -11,13 +11,12 @@
   :ensure t
   :ensure-system-package (R . "sudo pacman -S --noconfirm r")
   :defer t
-  :load (ess-site)
   :mode (("\\.[rR]\\'" . R-mode)
          ("\\.Rd\\'" . Rd-mode) ; R documentation
          ("\\.S\\'" . S-mode)
          ("\\.Rprofile\\'" . R-mode)
          ("\\.Renviron\\'" . R-mode))
-  :commands (R)
+  :commands (R run-ess-r)
   :config
   ;; (setq ess-ask-for-ess-directory nil) ; suppress ESS from prompting for session directory.
   
@@ -65,7 +64,8 @@
   ;; (add-hook 'ess-mode-hook #'ess-force-buffer-current)
 
   ;; quickly insert assign operator: <-
-  (define-key ess-mode-map (kbd "C-c =") (lambda () (interactive) (insert " <- ")))
+  (with-eval-after-load 'ess-mode
+    (define-key ess-mode-map (kbd "C-c =") (lambda () (interactive) (insert " <- "))))
 
   (add-to-list 'display-buffer-alist
                '("\\*help\\[R\\]\\(.*\\)\\*" . (display-buffer-below-selected)))
@@ -88,22 +88,23 @@
 
 ;;; [ ob-R ]
 
-(require 'ob-R)
-
-(add-to-list 'org-babel-load-languages '(R . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("R" . "R"))
-
-(setq org-babel-default-header-args:R
-      '((:session . "*R*")
-        (:exports . "both")
-        (:results . "replace")
-        ;; customize R plot window
-        ;; (:width . 640)
-        ;; (:height . 640)
-        ;; (:bg . "white")
-        ;; (:type . :any)
-        ))
+(use-package ob-R
+  :defer t
+  :commands (org-babel-execute:R)
+  :config
+  (add-to-list 'org-babel-load-languages '(R . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("R" . "R"))
+  (setq org-babel-default-header-args:R
+        '((:session . "*R*")
+          (:exports . "both")
+          (:results . "replace")
+          ;; customize R plot window
+          ;; (:width . 640)
+          ;; (:height . 640)
+          ;; (:bg . "white")
+          ;; (:type . :any)
+          )))
 
 
 (provide 'init-prog-lang-R)

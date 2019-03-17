@@ -23,7 +23,6 @@
   :load-path "~/Code/Emacs/scel/build/el/"
   :ensure-system-package (sclang . "sudo pacman -S --noconfirm supercollider")
   :defer t
-  :load (sclang)
   :mode ("\\.sc\\'" . sclang-mode)
   :commands (sclang-mode sclang-start)
   :config
@@ -35,8 +34,7 @@
         sclang-show-workspace-on-startup nil
         sclang-use-symbol-table t
         sclang-main-run nil
-        sclang-main-stop nil
-        )
+        sclang-main-stop nil)
 
   ;; Sclang mode
   (setq sclang-indent-level 2)
@@ -53,8 +51,7 @@
   ;; company-mode for SuperCollider
   (add-hook 'sclang-mode-hook
             (lambda ()
-              (add-hook 'completion-at-point-functions
-                        'sclang-complete-symbol nil t)))
+              (add-hook 'completion-at-point-functions 'sclang-complete-symbol nil t)))
 
   (define-key sclang-mode-map (kbd "C-c M-r") 'sclang-main-run)
   (define-key sclang-mode-map (kbd "C-c M-s") 'sclnag-main-stop)
@@ -85,18 +82,20 @@
     :ensure t
     :init
     (setq sclang-bury-post-on-start? t
-          sclang-run-supercollider-if-not-active? nil ; run SuperCollider process will mute System sound.
-          )
+          ;; run SuperCollider process will mute System sound.
+          sclang-run-supercollider-if-not-active? nil)
     (add-hook 'sclang-mode-hook 'sclang-extensions-mode))
   )
 
 ;;; [ ob-sclang ] -- SuperCollider (sclang) with Org-mode Babel.
 
-(require 'ob-sclang)
-(add-to-list 'org-babel-load-languages '(sclang . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("sclang" . "sc"))
-
+(use-package ob-sclang
+  :defer t
+  :commands (org-babel-execute:sclang)
+  :config
+  (add-to-list 'org-babel-load-languages '(sclang . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("sclang" . "sc")))
 
 ;;; [ Overtone ] -- Combine SuperCollider + Clojure.
 

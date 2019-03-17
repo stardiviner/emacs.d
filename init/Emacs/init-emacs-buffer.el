@@ -9,6 +9,7 @@
 ;;; [ auto-revert-mode ] -- auto-reload external file changes.
 
 (use-package autorevert
+  :defer t
   :delight auto-revert-mode
   :init (setq global-auto-revert-non-file-buffers nil
               auto-revert-verbose nil
@@ -21,18 +22,17 @@
   :ensure t
   :defer t
   :bind ("C-x C-b" . ibuffer)
-  :config
-  (setq buffers-menu-max-size nil))
+  :init (setq buffers-menu-max-size nil))
 
 ;;; [uniquify] -- meaningful names for buffers with the same name
 
-(require 'uniquify)
-
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets
-      uniquify-separator " • "
-      uniquify-after-kill-buffer-p t
-      uniquify-ignore-buffers-re "^\\*" ; don't muck with special buffers
-      )
+(use-package uniquify
+  :defer t
+  :init (setq uniquify-buffer-name-style 'post-forward-angle-brackets
+              uniquify-separator " • "
+              uniquify-after-kill-buffer-p t
+              uniquify-ignore-buffers-re "^\\*" ; don't muck with special buffers
+              ))
 
 ;;; [ recentf ] -- setup a menu of recently opened files.
 
@@ -42,7 +42,7 @@
               recentf-exclude '("/tmp/" "/ssh:")
               ;; recentf-auto-cleanup 'mode ; 'mode, 'never.
               )
-  (recentf-mode))
+  :config (recentf-mode))
 
 
 (provide 'init-emacs-buffer)

@@ -21,24 +21,26 @@
 
 ;;; [ ob-java ]
 
-(require 'ob-java)
+(use-package ob-java
+  :defer t
+  :commands (org-babel-execute:java)
+  :config
+  (add-to-list 'org-babel-load-languages '(java . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("java" . "java"))
 
-(add-to-list 'org-babel-load-languages '(java . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("java" . "java"))
-
-(defvar org-babel-default-header-args:java nil)
-(add-to-list 'org-babel-default-header-args:java
-             '(:results . "output"))
-;; (add-to-list 'org-babel-default-header-args:java
-;;              '(:cmdline . "-cp ."))
+  (defvar org-babel-default-header-args:java nil)
+  (add-to-list 'org-babel-default-header-args:java
+               '(:results . "output"))
+  ;; (add-to-list 'org-babel-default-header-args:java
+  ;;              '(:cmdline . "-cp ."))
+  )
 
 ;;; [ lsp-java ]
 
 (use-package lsp-java
   :ensure t
   :after lsp
-  :load (lsp-java)
   :hook (java-mode . lsp)
   :commands (lsp-java-classpath-browse)
   ;; `aggressive-indent-mode' caused long suspend with lots of requests.

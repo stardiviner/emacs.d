@@ -293,10 +293,6 @@
 
 ;;; [ org-edna ] -- Extensible Dependencies 'N' Actions.
 
-;;; Usage:
-;;
-;; - properties: BLOCKER, TRIGGER.
-
 (use-package org-edna
   :ensure t
   :defer t

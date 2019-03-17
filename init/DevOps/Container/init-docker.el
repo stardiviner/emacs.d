@@ -13,6 +13,7 @@
   :ensure t
   :ensure-system-package docker
   :defer t
+  :commands (docker-containers docker-images docker-volumes docker-networks)
   :bind (:map container-prefix
               ("c" . docker-containers)
               ("i" . docker-images)
@@ -41,21 +42,19 @@
   (add-to-list 'display-buffer-alist
                '("\\*docker-networks\\*" .
                  (display-buffer-reuse-window display-buffer-below-selected)))
+  :config (docker-global-mode 1)
   
-  (add-to-list 'all-the-icons-mode-icon-alist
-               '(docker-images-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
-  (add-to-list 'all-the-icons-mode-icon-alist
-               '(docker-containers-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
-  (add-to-list 'all-the-icons-mode-icon-alist
-               '(docker-machines-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
-  (add-to-list 'all-the-icons-mode-icon-alist
-               '(docker-volumes-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
-  (add-to-list 'all-the-icons-mode-icon-alist
-               '(docker-networks-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
-
-  :config
-  ;; enable global docker minor mode
-  (docker-global-mode 1))
+  (with-eval-after-load 'all-the-icons
+    (add-to-list 'all-the-icons-mode-icon-alist
+                 '(docker-images-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
+    (add-to-list 'all-the-icons-mode-icon-alist
+                 '(docker-containers-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
+    (add-to-list 'all-the-icons-mode-icon-alist
+                 '(docker-machines-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
+    (add-to-list 'all-the-icons-mode-icon-alist
+                 '(docker-volumes-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
+    (add-to-list 'all-the-icons-mode-icon-alist
+                 '(docker-networks-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))))
 
 ;;; [ dockerfile-mode ] -- Major mode for editing `Dockerfile'.
 

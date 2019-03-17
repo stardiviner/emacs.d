@@ -72,6 +72,8 @@
   ;; :ensure t
   :quelpa (ob-html-chrome :fetcher github :repo "stardiviner/ob-html-chrome")
   ;; :load-path "~/Code/Emacs/ob-html-chrome"
+  :defer t
+  :commands (org-babel-execute:html-chrome)
   :init (setq org-babel-html-chrome-chrome-executable
               (executable-find "google-chrome-unstable")))
 

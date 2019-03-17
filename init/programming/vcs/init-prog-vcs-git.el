@@ -29,10 +29,14 @@
 (use-package gitignore-templates
   :ensure t
   :defer t
-  :commands (gitignore-templates-insert gitignore-templates-new-file))
-
-;; (use-package gitconfig ; Emacs lisp interface to work with git-config variables.
-;;   :ensure t)
+  :commands (gitignore-templates-insert gitignore-templates-new-file)
+  :preface
+  (unless (boundp 'gitignore-template-prefix)
+    (define-prefix-command 'gitignore-template-prefix))
+  (define-key prog-vcs-prefix (kbd "t") 'gitignore-template-prefix)
+  :bind (:map gitignore-template-prefix
+              ("t" . gitignore-templates-insert)
+              ("n" . gitignore-templates-new-file)))
 
 (use-package git-commit ; edit Git commit messages.
   :ensure t
@@ -96,6 +100,7 @@
   (setq magit-display-buffer-function 'display-buffer)
   ;; show gravatar in Magit revision.
   (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
+  
   :config
   ;; Git WIP (work in progress) in Magit
   (add-to-list 'magit-no-confirm 'safe-with-wip)

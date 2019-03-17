@@ -15,10 +15,11 @@
 
 (use-package ob-fsharp
   :ensure t
+  :defer t
+  :commands (org-babel-execute:fsharp)
   :config
   (add-to-list 'org-babel-load-languages '(fsharp . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  )
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 
 
 

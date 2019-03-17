@@ -41,24 +41,16 @@
   :ensure t
   :defer t
   :delight which-key-mode
+  :commands (which-key-mode)
   :bind ("C-h C-h" . which-key-show-top-level)
-  :init (which-key-mode 1)
-  ;; (which-key-setup-side-window-right-bottom)
-  (setq which-key-popup-type 'side-window
-        which-key-side-window-location 'bottom
-        which-key-separator " "
-        which-key-show-prefix 'echo ; 'mode-line 'echo 'left, 'top
-        which-key-show-remaining-keys t
-        ;; which-key-enable-extended-define-key t
-        which-key-sort-order 'which-key-key-order-alpha)
-  :config (set-face-attribute 'which-key-highlighted-command-face nil
-                              :underline nil :weight 'bold))
+  :init (which-key-mode 1))
 
 
 ;;; [ hydra ] -- tie related commands into a family of short bindings with a common prefix - a Hydra.
 
 (use-package hydra
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ emaps ] -- Emaps provides utilities for working with keymaps and keybindings in Emacs.
 

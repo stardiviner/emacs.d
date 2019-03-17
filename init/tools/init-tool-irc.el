@@ -50,6 +50,7 @@
 
 (use-package circe-notifications
   :ensure t
+  :defer t
   :init (add-hook 'circe-server-connected-hook 'enable-circe-notifications))
 
 

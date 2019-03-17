@@ -15,17 +15,7 @@
 (use-package calendar
   :ensure t
   :defer t
-  :bind (:map calendar-prefix ("c" . calendar))
-  :init
-  ;; set calendar style
-  (setq calendar-week-start-day 1 ; 0:Sunday, 1:Monday
-        calendar-weekend-days '(0 6)
-        ;; 'american: month/day/year, 'european: day/month/year, 'iso: year/month/day
-        calendar-date-style 'iso)
-
-  ;; Annotations
-  ;; variable -> :annotation-sources
-  
+  :preface
   ;; Calendar Location: Latitude, Longitude.
   ;;
   ;; for predicate lunar eclipses.
@@ -39,6 +29,17 @@
         calendar-time-zone +480
         calendar-latitude 29.90256956936341
         calendar-longitude 120.37954302845002)
+  
+  :bind (:map calendar-prefix ("c" . calendar))
+  :init
+  ;; set calendar style
+  (setq calendar-week-start-day 1 ; 0:Sunday, 1:Monday
+        calendar-weekend-days '(0 6)
+        ;; 'american: month/day/year, 'european: day/month/year, 'iso: year/month/day
+        calendar-date-style 'iso)
+
+  ;; Annotations
+  ;; variable -> :annotation-sources
 
   ;; mark holidays
   (setq calendar-mark-holidays-flag t

@@ -20,9 +20,12 @@
 
 ;;; [ ob-lilypond ]
 
-(require 'ob-lilypond)
-(add-to-list 'org-babel-load-languages '(lilypond . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(use-package ob-lilypond
+  :defer t
+  :commands (org-babel-execute:lilypond)
+  :config
+  (add-to-list 'org-babel-load-languages '(lilypond . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 
 ;;; [ gregorio-mode ] -- Gregorio Mode for .gabc files.
 

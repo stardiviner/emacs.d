@@ -30,13 +30,15 @@
 
 ;; [ ob-ledger ]
 
-(require 'ob-ledger)
-(add-to-list 'org-babel-load-languages '(ledger . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("ledger" . "ledger"))
-
-(setq org-babel-default-header-args:ledger
-      '((:results . "output") (:cmdline . "bal")))
+(use-package ob-ledger
+  :defer t
+  :commands (org-babel-execute:ledger)
+  :config
+  (add-to-list 'org-babel-load-languages '(ledger . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("ledger" . "ledger"))
+  (setq org-babel-default-header-args:ledger
+        '((:results . "output") (:cmdline . "bal"))))
 
 (with-eval-after-load 'org-capture
   (setq org-capture-templates

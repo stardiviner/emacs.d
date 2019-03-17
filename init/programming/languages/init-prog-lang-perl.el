@@ -22,10 +22,12 @@
 
 ;;; [ ob-perl ]
 
-(require 'ob-perl)
-
-(add-to-list 'org-babel-load-languages '(perl . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(use-package ob-perl
+  :defer t
+  :commands (org-babel-execute:perl)
+  :config
+  (add-to-list 'org-babel-load-languages '(perl . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 
 ;;; [ plsense ] -- interface for PlSense that is a development tool for Perl.
 

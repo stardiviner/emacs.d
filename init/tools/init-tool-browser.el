@@ -66,13 +66,13 @@
 (use-package ace-link ; [o]
   :ensure t
   :defer t
-  :init
-  (with-eval-after-load "mu4e"
+  :init (ace-link-setup-default)
+  (with-eval-after-load 'mu4e
     (define-key mu4e-view-mode-map (kbd "C-c M-o") 'ace-link-mu4e))
-  (with-eval-after-load "org"
-    (define-key org-agenda-mode-map (kbd "C-c M-o") 'ace-link-org-agenda)
+  (with-eval-after-load 'org
     (define-key org-mode-map (kbd "C-c M-o") 'ace-link-org))
-  :config (ace-link-setup-default))
+  (with-eval-after-load 'org-agenda
+    (define-key org-agenda-mode-map (kbd "C-c M-o") 'ace-link-org-agenda)))
 
 
 (provide 'init-tool-browser)

@@ -28,7 +28,6 @@
 ;;   :ensure ibuffer-projectile
 ;;   :ensure dired-sidebar
 ;;   :defer t
-;;   :load (ibuffer-projectile)
 ;;   :commands (ibuffer-sidebar-toggle-sidebar)
 ;;   :init
 ;;   ;; be toggled together with dired-sidebar.
@@ -41,8 +40,7 @@
 ;;   (global-set-key (kbd "<f8>") '+sidebar-toggle)
 ;;   :config
 ;;   (setq ibuffer-sidebar-use-custom-font nil)
-;;   (setq ibuffer-sidebar-face `(:family "Helvetica" :height 140))
-;;   )
+;;   (setq ibuffer-sidebar-face `(:family "Helvetica" :height 140)))
 
 
 

@@ -55,7 +55,6 @@
                '("^\\*sly-apropos.*\\*" (display-buffer-below-selected)))
 
   ;; [ ob-lisp ]
-  (require 'ob-lisp)
   (setq org-babel-lisp-eval-fn #'sly-eval))
 
 ;;; [ sly-repl-ansi-color ]

@@ -17,12 +17,14 @@
 
 ;;; [ ob-dot ]
 
-(require 'ob-dot)
-
-(add-to-list 'org-babel-load-languages '(dot . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-src-lang-modes '("dot" . graphviz-dot))
-(add-to-list 'org-babel-tangle-lang-exts '("dot" . "dot"))
+(use-package ob-dot
+  :defer t
+  :commands (org-babel-execute:dot)
+  :config
+  (add-to-list 'org-babel-load-languages '(dot . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot))
+  (add-to-list 'org-babel-tangle-lang-exts '("dot" . "dot")))
 
 
 

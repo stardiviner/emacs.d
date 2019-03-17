@@ -18,11 +18,12 @@
 
 ;;; [ ob-makefile ]
 
-(require 'ob-makefile)
-
-(add-to-list 'org-babel-load-languages '(makefile . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-;; FIXME: (add-to-list 'org-babel-tangle-lang-exts '("makefile" . "Makefile"))
+(use-package ob-makefile
+  :defer t
+  :commands (org-babel-execute:makefile)
+  :config
+  (add-to-list 'org-babel-load-languages '(makefile . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 
 
 ;;; [ makefile-executor ] -- Emacs helpers to run things from makefiles.

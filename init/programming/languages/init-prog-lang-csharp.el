@@ -49,6 +49,8 @@
 (use-package ob-csharp
   :quelpa (ob-csharp :fetcher github :repo "thomas-villagers/ob-csharp"
                      :files ("src/ob-csharp.el"))
+  :defer t
+  :commands (org-babel-execute:csharp)
   :init (setq org-babel-csharp-compiler "mcs")
   :config
   (add-to-list 'org-babel-load-languages '(csharp . t))

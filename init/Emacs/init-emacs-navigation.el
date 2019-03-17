@@ -89,19 +89,17 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 (use-package ace-jump-mode
   :ensure t
-  :bind (("C-'" . ace-jump-mode)
-         :map org-mode-map ("C-'" . ace-jump-mode))
+  :after org
+  :bind (("C-'" . ace-jump-mode) :map org-mode-map ("C-'" . ace-jump-mode))
   :init
   ;; fix `org-reload' reload `org' to override my upper keybinding.
   (add-hook 'after-init-hook
-            #'(lambda ()
-                (with-eval-after-load "org"
-                  (define-key org-mode-map (kbd "C-'") 'ace-jump-mode))))
+            #'(lambda () (with-eval-after-load "org"
+                      (define-key org-mode-map (kbd "C-'") 'ace-jump-mode))))
   ;; enable a more powerful jump back function from ace jump mode
   (autoload 'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
   (with-eval-after-load "ace-jump-mode"
-    (ace-jump-mode-enable-mark-sync))
-  )
+    (ace-jump-mode-enable-mark-sync)))
 
 
 (provide 'init-emacs-navigation)

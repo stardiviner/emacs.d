@@ -311,59 +311,61 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;;   :defer t)
 
 ;;; [ ob-clojure ]
-;;; Org-mode Babel Clojure
-(require 'ob-clojure)
 
-(add-to-list 'org-babel-load-languages '(clojure . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("clojure" . "clj"))
+(use-package ob-clojure
+  :defer t
+  :commands (org-babel-execute:clojure)
+  :init (setq org-babel-clojure-backend 'cider)
+  :config
+  (add-to-list 'org-babel-load-languages '(clojure . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("clojure" . "clj"))
 
-(setq org-babel-clojure-backend 'cider)
+  ;; whether check Org-mode buffer's (ns ) declarations.
+  ;; (setq cider-auto-track-ns-form-changes t)
 
-;; whether check Org-mode buffer's (ns ) declarations.
-;; (setq cider-auto-track-ns-form-changes t)
+  ;; let `ob-clojure' babel src blocks allow evaluation.
+  (add-to-list 'org-babel-default-header-args:clojure
+               '(:eval . "yes"))
+  (add-to-list 'org-babel-default-header-args:clojure
+               '(:noweb . "yes"))
+  ;; caused tangled code wrapped in `clojure.pp/print'.
+  ;; (add-to-list 'org-babel-default-header-args:clojure
+  ;;              '(:results . "pp"))
 
-;; let `ob-clojure' babel src blocks allow evaluation.
-(add-to-list 'org-babel-default-header-args:clojure
-             '(:eval . "yes"))
-(add-to-list 'org-babel-default-header-args:clojure
-             '(:noweb . "yes"))
-;; caused tangled code wrapped in `clojure.pp/print'.
-;; (add-to-list 'org-babel-default-header-args:clojure
-;;              '(:results . "pp"))
+  ;; No timeout when executing calls on Cider via nrepl
+  (setq org-babel-clojure-sync-nrepl-timeout 30)
+  (add-to-list 'org-babel-default-header-args:clojure ; for Clojure `dotimes' etc.
+               '(:show-process . "no"))
 
-;; No timeout when executing calls on Cider via nrepl
-(setq org-babel-clojure-sync-nrepl-timeout 30)
-(add-to-list 'org-babel-default-header-args:clojure ; for Clojure `dotimes' etc.
-             '(:show-process . "no"))
-
-(defun ob-clojure-specify-session ()
-  "Specify ob-clojure header argument :session.
+  (defun ob-clojure-specify-session ()
+    "Specify ob-clojure header argument :session.
 With value selected from a list of available sessions."
-  (interactive)
-  (let ((info (org-babel-get-src-block-info)))
-    (when (and (string= (car info) "clojure")
-               ;; only when :session is not specified yet.
-               (string= (cdr (assq :session (nth 2 info))) "none"))
-      (org-babel-insert-header-arg
-       "session"
-       (format "\"%s\""
-               (completing-read
-                "Choose :session for ob-clojure: "
-                (mapcar (lambda (pair)
-                          (buffer-name (car (cdr pair))))
-                        (let ((sesman-system 'CIDER))
-                          (sesman--all-system-sessions sesman-system 'sort)))))))))
+    (interactive)
+    (let ((info (org-babel-get-src-block-info)))
+      (when (and (string= (car info) "clojure")
+                 ;; only when :session is not specified yet.
+                 (string= (cdr (assq :session (nth 2 info))) "none"))
+        (org-babel-insert-header-arg
+         "session"
+         (format "\"%s\""
+                 (completing-read
+                  "Choose :session for ob-clojure: "
+                  (mapcar (lambda (pair)
+                            (buffer-name (car (cdr pair))))
+                          (let ((sesman-system 'CIDER))
+                            (sesman--all-system-sessions sesman-system 'sort)))))))))
 
-(define-key org-babel-map (kbd "M-j") 'ob-clojure-specify-session)
+  (define-key org-babel-map (kbd "M-j") 'ob-clojure-specify-session)
+  )
 
 ;;; [ ob-clojurescript ] -- org-babel support for ClojureScript
 
 (use-package ob-clojurescript
   :ensure t
   :defer t
-  :init
-  (require 'ob-clojurescript)
+  :commands (org-babel-execute:clojurescript)
+  :config
   (add-to-list 'org-babel-load-languages '(clojurescript . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 

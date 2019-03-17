@@ -12,7 +12,8 @@
   :ensure t
   :ensure blockdiag-mode
   :defer t
-  :init
+  :commands (org-babel-execute:blockdiag)
+  :config
   (add-to-list 'org-babel-load-languages '(blockdiag . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 

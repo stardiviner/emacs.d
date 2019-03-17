@@ -1,6 +1,6 @@
 ;;; init-prog-lang-racket.el --- init for Racket
 
-;;; Time-stamp: <2019-02-27 15:37:17 stardiviner>
+;;; Time-stamp: <2019-03-17 16:04:55 stardiviner>
 
 ;;; Commentary:
 
@@ -18,6 +18,8 @@
 
 (use-package ob-racket
   :quelpa (ob-racket :fetcher github :repo "DEADB17/ob-racket")
+  :defer t
+  :commands (org-babel-execute:racket)
   :config
   (add-to-list 'org-babel-load-languages '(racket . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)

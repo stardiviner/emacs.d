@@ -15,9 +15,12 @@
 
 ;;; [ ob-spice ] -- Org-mode Babel integrate with SPICE.
 
-(require 'ob-spice)
-(add-to-list 'org-babel-load-languages '(spice . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(use-package ob-spice
+  :defer t
+  :commands (org-babel-execute:spice)
+  :config
+  (add-to-list 'org-babel-load-languages '(spice . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 
 
 (provide 'init-spice)

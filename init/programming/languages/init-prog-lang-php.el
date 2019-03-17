@@ -15,7 +15,7 @@
   :defer t
   :mode (("\\.php\\'" . php-mode)
          ("\\(pages\\|snippets\\|templates\\)/.*\\.php?$" . web-mode))
-  :load (php-ext)
+  :commands (php-mode)
   :init (setq indent-tabs-mode nil
               c-basic-offset 2
               php-template-compatibility nil
@@ -30,10 +30,13 @@
 
 ;;; [ ob-php ] -- execute PHP within org-mode blocks.
 
-(require 'ob-php)
-(add-to-list 'org-babel-load-languages '(php . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("php" . "php"))
+(use-package ob-php
+  :defer t
+  :commands (org-babel-execute:php)
+  :config
+  (add-to-list 'org-babel-load-languages '(php . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("php" . "php")))
 
 
 (provide 'init-prog-lang-php)

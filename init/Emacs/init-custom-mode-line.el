@@ -899,9 +899,9 @@ dimensions of a block selection."
 ;;; mu4e
 (use-package mu4e
   :load-path "/usr/local/share/emacs/site-lisp/mu4e/"
-  :load (mu4e mu4e-contrib)
   :ensure mu4e-alert
   :defer t
+  :commands (mu4e)
   :preface (defun *mu4e ())
   :config
   (require 'mu4e-alert)
@@ -922,9 +922,7 @@ dimensions of a block selection."
              (propertize
               (format "%s" mu4e-alert-mode-line)
               'face 'mode-line-data-face)
-           "")
-         )))
-  )
+           "")))))
 
 ;;; Gnus
 ;; (use-package gnus

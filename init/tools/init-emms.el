@@ -17,7 +17,6 @@
 (use-package emms
   :ensure t
   :defer t
-  :load (emms-setup)
   :bind (:map emms-prefix ("e" . emms))
   :init
   (add-to-list 'display-buffer-alist
