@@ -24,6 +24,7 @@
                 (:tangle . "no") ; (:comments . "link")
                 (:cache . "yes")
                 (:results . "replace")
+                (:mkdirp . "yes") ; auto create specified path directory
                 ;; for exporting
                 (:eval . "never-export")
                 ;; (:exports . "both") conflict with (:eval "never-export")
