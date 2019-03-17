@@ -23,6 +23,12 @@
   (setq desktop-auto-save-timeout (* 60 10))
   (add-hook 'after-init-hook #'desktop-save-mode))
 
+;;; [ saveplace ] -- save visited files' point positions.
+
+(use-package saveplace
+  :defer 1
+  :commands (save-place-mode))
+
 ;;; open mostly used files
 ;; (defun my/open-frequent-used-files ()
 ;;   "Open my frequently used files."
