@@ -29,20 +29,18 @@
 (use-package ein
   :ensure t
   :defer t
-  ;; [ ob-ein ] #+begin_src ein[-??]
-  :load (ob-ein)
   :commands (ein:jupyter-server-start)
-  :config
-  (setq ein:org-inline-image-directory "data/images")
-  ;; Python backend
-  (ein:org-register-lang-mode "ein-python" 'python)
-  ;; R backend
-  (ein:org-register-lang-mode "ein-R" 'R)
-  ;; Clojure backend
-  (ein:org-register-lang-mode "ein-clojure" 'clojure)
-  ;; Dynamic JavaScript
-  (require 'ein-skewer)
-  (setq ein:enable-dynamic-javascript t))
+  ;; :config
+  ;; ;; [ ob-ein ] #+begin_src ein[-??]
+  ;; (require 'ob-ein)
+  ;; (setq ein:org-inline-image-directory "data/images")
+  ;; (ein:org-register-lang-mode "ein-python" 'python)
+  ;; (ein:org-register-lang-mode "ein-R" 'R)
+  ;; (ein:org-register-lang-mode "ein-clojure" 'clojure)
+  ;; ;; Dynamic JavaScript
+  ;; (require 'ein-skewer)
+  ;; (setq ein:enable-dynamic-javascript t)
+  )
 
 ;;; [ Apache Pig ]
 
