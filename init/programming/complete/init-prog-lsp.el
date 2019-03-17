@@ -87,7 +87,8 @@
   :init (setq lsp-ui-doc-enable nil
               lsp-ui-doc-header nil
               lsp-ui-doc-include-signature t
-              lsp-ui-doc-position 'at-point)
+              lsp-ui-doc-position 'at-point
+              lsp-ui-sideline-show-hover nil)
   (if (featurep 'xwidget-internal) (setq lsp-ui-doc-use-webkit t))
   ;; (add-to-list 'lsp-ui-doc-frame-parameters )
   )
