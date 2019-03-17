@@ -11,7 +11,7 @@
 
 (use-package helm-dash
   :ensure t
-  :bind (:map document-prefix ("C-d" . helm-dash-at-point) ("M-d" . helm-dash))
+  :bind (:map document-prefix ("d" . helm-dash-at-point) ("M-d" . helm-dash))
   :init
   (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
         helm-dash-min-length 3
