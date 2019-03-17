@@ -12,12 +12,14 @@
 (add-to-list 'org-default-properties "LOCATION")
 (add-to-list 'org-default-properties "CLASS")
 
+(add-to-list 'org-default-properties "COPYRIGHT")
 (add-to-list 'org-default-properties "DATE")
 (add-to-list 'org-default-properties "TIME")
 (add-to-list 'org-default-properties "SOURCE")
 (add-to-list 'org-default-properties "AUTHOR")
 (add-to-list 'org-default-properties "EMAIL")
 (add-to-list 'org-default-properties "URL")
+
 (add-to-list 'org-default-properties "Source-Code")
 (add-to-list 'org-default-properties "ISSUE")
 (add-to-list 'org-default-properties "Pull-Request")
