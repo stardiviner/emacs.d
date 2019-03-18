@@ -467,6 +467,9 @@ opening 4clojure questions"
   :ensure t
   :defer t)
 
+(with-eval-after-load 'org
+  (add-to-list 'org-default-properties "clojars"))
+
 
 
 (provide 'init-prog-lang-clojure)
