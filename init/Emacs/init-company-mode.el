@@ -236,6 +236,8 @@
           (company-edbi . (:icon "DarkGreen"))
           (company-restclient . (:icon "DarkTurquoise"))))
 
+  (setq company-box-icons-alist 'company-box-icons-all-the-icons)
+  
   (setq company-box-icons-unknown
         (all-the-icons-faicon "code" :height 0.8 :v-adjust -0.05))
   (setq company-box-icons-yasnippet
