@@ -378,6 +378,10 @@ With value selected from a list of available sessions."
 ;;   (add-hook 'clojure-mode-hook 'typed-clojure-mode)
 ;;   )
 
+;;; [ Java Docs ]
+
+;;; `helm-dash' to search Java docs.
+
 ;;; [ helm-clojuredocs ] -- Searching for help in clojurdocs.org with Helm.
 
 (use-package helm-clojuredocs
