@@ -16,6 +16,10 @@
   (org-babel-do-load-languages 'org-babel-load-languages '((org-if . t)))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 
+(if (featurep 'doom-modeline)
+    (with-eval-after-load 'doom-modeline
+      (setq doom-modeline-enable-word-count t)))
+
 ;;; [ org-wc ] count words under every org-mode trees
 
 (use-package org-wc
