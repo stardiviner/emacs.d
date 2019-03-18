@@ -1,8 +1,184 @@
-;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8 -*- 
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8 -*-
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Zsh.org"
+(("My Shell Script Examples.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/Data/Manuals/My Shell Script Examples/My Shell Script Examples.org")
+ (front-context-string . "#+TITLE: My Shel")
+ (rear-context-string)
+ (position . 1))
+("Myself.org"
+ (filename . "~/Org/Myself/Myself.org")
+ (front-context-string . "#+TITLE: Myself\n")
+ (rear-context-string)
+ (position . 1))
+("Art.org"
+ (filename . "~/Org/Wiki/Art/Art.org")
+ (front-context-string . "#+TITLE: Art (艺术")
+ (rear-context-string)
+ (position . 1))
+("Android Development.org"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Android/Android Development/Android Development.org")
+ (front-context-string . "#+TITLE: Android")
+ (rear-context-string)
+ (position . 1))
+("Kotlin Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Kotlin/Data/Kotlin Packages/Kotlin Packages.org")
+ (front-context-string . "#+TITLE: Kotlin ")
+ (rear-context-string)
+ (position . 1))
+("My Kotlin Examples.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Kotlin/Data/Manuals/My Kotlin Examples/My Kotlin Examples.org")
+ (front-context-string . "#+TITLE: My Kotl")
+ (rear-context-string)
+ (position . 1))
+("My Kotlin Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Kotlin/Data/Manuals/My Kotlin Language Syntax Reference/My Kotlin Language Syntax Reference.org")
+ (front-context-string . "#+TITLE: My Kotl")
+ (rear-context-string)
+ (position . 1))
+("C++ Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C++/Data/C++ Packages/C++ Packages.org")
+ (front-context-string . "#+TITLE: C++ Pac")
+ (rear-context-string)
+ (position . 1))
+("My C++ Language Examples.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C++/Data/Manuals/My C++ Language Examples/My C++ Language Examples.org")
+ (front-context-string . "#+TITLE: My C++ ")
+ (rear-context-string)
+ (position . 1))
+("My C++ Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C++/Data/Manuals/My C++ Language Syntax Reference/My C++ Language Syntax Reference.org")
+ (front-context-string . "#+TITLE: My C++ ")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Downloads/2018增长黑客案例合集【增长黑盒出品】.pdf"
+ (filename . "~/Downloads/2018增长黑客案例合集【增长黑盒出品】.pdf")
+ (position . 1)
+ (page . 1)
+ (slice 0 0 1 1)
+ (size . fit-width)
+ (origin 0.0 . 0.06417112299465241)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /tmp/mu-1000/9388306/3/Kindle-Notebook.pdf"
+ (filename . "/tmp/mu-1000/9388306/3/Kindle-Notebook.pdf")
+ (position . 1)
+ (page . 2)
+ (slice 0.09264700000000001 0.020455 0.8163400000000001 0.740656)
+ (size . fit-width)
+ (origin 0.0 . 0.4048843187660668)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Hardware/Automation & Robotics/Data/Books/Automation and Robotics.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Hardware/Automation & Robotics/Data/Books/Automation and Robotics.pdf")
+ (position . 1)
+ (page . 28)
+ (slice 0.094328 0.011860999999999997 0.8130250000000001 0.953686)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("iOS Apps.org"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/iOS/Data/iOS Apps/iOS Apps.org")
+ (front-context-string . "#+TITLE: iOS App")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/Docker/Data/Books/Docker Practice.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Docker/Data/Books/Docker Practice.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("Life.org"
+ (filename . "~/Org/Wiki/Life/Life.org")
+ (front-context-string . "#+TITLE: Life (人")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/HTML/HTML5/Data/Books/Mastering HTML5 Forms.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/HTML/HTML5/Data/Books/Mastering HTML5 Forms.pdf")
+ (position . 1)
+ (page . 1)
+ (slice 0 0 1 1)
+ (size . fit-width)
+ (origin 0.0 . 0.01756440281030445)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/HTML/Data/Books/深入浅出HTML与CSS, XHTML.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/HTML/Data/Books/深入浅出HTML与CSS, XHTML.pdf")
+ (position . 1)
+ (page . 39)
+ (slice 0.164236 0.075601 0.7722220000000001 0.9058550000000001)
+ (size . fit-width)
+ (origin 0.0 . 0.2684563758389262)
+ (handler . pdf-view-bookmark-jump-handler))
+("Environmental Protection.org"
+ (filename . "~/Org/Wiki/Environmental Protection/Environmental Protection.org")
+ (front-context-string . "#+TITLE: Environ")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/Data/TeX Macro Packages/data/code/background_test_graphics.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/Data/TeX Macro Packages/data/code/background_test_graphics.pdf")
+ (position . 1)
+ (page . 6)
+ (slice 0 0 1 0.9022720000000001)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/data/code/background_test.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/data/code/background_test.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.6147540983606558)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/Data/TeX Macro Packages/data/code/background_test.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/Data/TeX Macro Packages/data/code/background_test.pdf")
+ (position . 1)
+ (page . 3)
+ (slice 0.19232000000000002 0.13661600000000002 0.757517 0.740657)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/Data/TeX Macro Packages/data/c4/2372c8-b232-463c-a9b3-9b21760e95b9/background.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/Data/TeX Macro Packages/data/c4/2372c8-b232-463c-a9b3-9b21760e95b9/background.pdf")
+ (position . 1)
+ (page . 3)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("Live.org"
+ (filename . "~/Org/Wiki/Live/Live.org")
+ (front-context-string . "#+TITLE: Live (生")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Books/Java 编程思想 (第4版).pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Books/Java 编程思想 (第4版).pdf")
+ (position . 1)
+ (page . 4)
+ (slice 0 0 1 1)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("Chinese Economy.org"
+ (filename . "~/Org/Wiki/Countries/China/Chinese Economy/Chinese Economy.org")
+ (front-context-string . "#+TITLE: Chinese")
+ (rear-context-string)
+ (position . 1))
+("Open Science.org"
+ (filename . "~/Org/Wiki/Science and Technology/Open Science/Open Science.org")
+ (front-context-string . "#+TITLE: Open Sc")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Website/About/Resume.pdf"
+ (filename . "~/Org/Website/About/Resume.pdf")
+ (position . 1)
+ (page . 1)
+ (slice 0.125327 0.154293 0.7493460000000001 0.72803)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("Zsh.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/Zsh/Zsh.org")
  (front-context-string . "#+TITLE: Zsh\n\n* ")
  (rear-context-string)
@@ -299,10 +475,10 @@
 ("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Technologies/Web Scraping/Data/Books/自己动手写网络爬虫.pdf"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Technologies/Web Scraping/Data/Books/自己动手写网络爬虫.pdf")
  (position . 1)
- (page . 11)
- (slice)
+ (page . 3)
+ (slice 0.08760499999999999 0.109204 0.8466390000000001 0.794656)
  (size . fit-width)
- (origin)
+ (origin 0.0 . 0.2562642369020501)
  (handler . pdf-view-bookmark-jump-handler))
 ("Citizen Policy.org"
  (filename . "~/Org/Wiki/Countries/China/Chinese Policy/Citizen Policy/Citizen Policy.org")
@@ -683,10 +859,10 @@
 ("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Literature/Novels/Data/Novel Books/乌克兰拖拉机简史.pdf"
  (filename . "~/Org/Wiki/Literature/Novels/Data/Novel Books/乌克兰拖拉机简史.pdf")
  (position . 1)
- (page . 3)
- (slice 0.07133600000000001 0.039516 0.9536640000000001 0.9125190000000001)
+ (page . 1)
+ (slice 0.10661500000000002 0 0.918385 0.9762670000000001)
  (size . fit-width)
- (origin 0.0 . 0.26761819803746656)
+ (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
 ("My SQL Theory Explained.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/Data/Manuals/My SQL Theory Explained/My SQL Theory Explained.org")
@@ -888,10 +1064,10 @@
 ("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Books/深入浅出Java, 2nd Edition.pdf"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Books/深入浅出Java, 2nd Edition.pdf")
  (position . 1)
- (page . 9)
- (slice)
+ (page . 10)
+ (slice 0.131559 0.176798 0.727009 0.6553950000000001)
  (size . fit-width)
- (origin)
+ (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
 ("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Books/Java 8 简明教程.pdf"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Books/Java 8 简明教程.pdf")
@@ -1411,7 +1587,7 @@
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure for the Brave and True.pdf")
  (position . 1)
  (page . 84)
- (slice)
+ (slice 0.219048 0.041066 0.712698 0.9509010000000001)
  (size . fit-width)
  (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
@@ -1478,19 +1654,19 @@
  (position . 1))
 ("org-capture-last-stored-marker"
  (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** Benjamin DELP")
- (rear-context-string . "08:53]\n   :END:\n")
- (position . 129849))
+ (front-context-string . "** Saskia\n   :PR")
+ (rear-context-string . "14:17]\n   :END:\n")
+ (position . 125945))
 ("org-refile-last-stored"
- (filename . "~/Org/Projects/Programming Projects/Code.org")
- (front-context-string . "** Pull-Request ")
- (rear-context-string . "s not neither.\n\n")
- (position . 393274))
+ (filename . "~/Org/Contacts/Contacts.org")
+ (front-context-string . "** Saskia\n   :PR")
+ (rear-context-string . "14:17]\n   :END:\n")
+ (position . 125945))
 ("org-capture-last-stored"
  (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "* Benjamin DELPY")
+ (front-context-string . "* Saskia\n  :PROP")
  (rear-context-string . "09:17]\n   :END:\n")
- (position . 172449))
+ (position . 182037))
 ("PDF-LAST-VIEWED: /tmp/mu-1000/b53469b1/3/test.pdf"
  (filename .
            #("/tmp/mu-1000/b53469b1/3/test.pdf" 0 32
@@ -1776,12 +1952,6 @@
  (front-context-string . "#+TITLE: My Comp")
  (rear-context-string)
  (position . 1))
-(#("My Programming Glossary.org" 0 1
-   (idx 77))
- (filename . "~/Org/Wiki/Computer Technology/Programming/Data/Manuals/My Programming Glossary/My Programming Glossary.org")
- (front-context-string . "#+TITLE: My Prog")
- (rear-context-string)
- (position . 1))
 (#("shadowsocks.org" 0 1
    (idx 86))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/shadowsocks.org")
@@ -1798,12 +1968,6 @@
    (idx 97))
  (filename . "~/Org/Wiki/Kung Fu/Data/Manuals/My Kung Fu Manual/My Kung Fu Manual.org")
  (front-context-string . "#+TITLE: My Kung")
- (rear-context-string)
- (position . 1))
-(#("Products Manual.org" 0 1
-   (idx 100))
- (filename . "~/Org/Products Manual/Products Manual.org")
- (front-context-string . "#+TITLE: Product")
  (rear-context-string)
  (position . 1))
 (#("Arduino.org" 0 1
@@ -2800,12 +2964,6 @@
    (idx 500))
  (filename . "~/Org/Wiki/Computer Technology/Crack/Data/Crack Methods/Crack Methods.org")
  (front-context-string . "#+TITLE: Crack M")
- (rear-context-string)
- (position . 1))
-(#("My Docker Manual.org" 0 1
-   (idx 501))
- (filename . "~/Org/Wiki/Computer Technology/Softwares/Docker/Data/Manuals/My Docker Manual/My Docker Manual.org")
- (front-context-string . "#+TITLE: My Dock")
  (rear-context-string)
  (position . 1))
 (#("Docker.org" 0 1
