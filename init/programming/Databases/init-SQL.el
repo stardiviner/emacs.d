@@ -179,8 +179,8 @@
   
   (ejc-create-connection
    "PostgreSQL-db-postgres"
-   :classpath (concat "~/.m2/repository/postgresql/postgresql/"
-                      "9.3-1102.jdbc41/postgresql-9.3-1102.jdbc41.jar")
+   :classpath (concat "~/.m2/repository/org/postgresql/postgresql/"
+                      "42.2.5.jre7/postgresql-42.2.5.jre7.jar")
    :dbtype "postgresql"
    :host "localhost"
    :port "5432"
