@@ -63,6 +63,12 @@
 
 ;;; add your customizations from here
 
+(use-package one-themes
+  ;; :ensure t
+  ;; :quelpa (one-themes :fetcher git :repo "stardiviner/emacs-one-themes")
+  :load-path "~/Code/Emacs/one-themes"
+  :config (load-theme 'one-dark t))
+
 (use-package ace-window
   :ensure t
   :config
@@ -78,7 +84,7 @@
 
 
 
-(require 'init-org-mode)
+;; (require 'init-org-mode)
 
 ;;; Org-mode Babel
 (setq org-confirm-babel-evaluate nil)
@@ -100,21 +106,14 @@
 
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((emacs-lisp . t)                     ; Emacs Lisp
-   (org . t)                            ; Org-mode
-   (shell . t)                          ; Shell
-   (ruby . t)                           ; Ruby
-   (python . t)                         ; Python
-   (C . t)                              ; C
-   (lisp . t)                           ; Lisp
-   (clojure . t)                        ; Clojure
-   (js . t)                             ; JavaScript
-   (R . t)                              ; R
-   (haskell . t)                        ; Haskell
-   (latex . t)                          ; LaTeX
-   ))
+ '((emacs-lisp . t) (org . t)
+   (shell . t)
+   (lisp . t) (clojure . t)
+   (js . t)))
 
 
+
+;; (require 'init-prog-lang-clojure)
 
 
 
