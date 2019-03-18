@@ -14,7 +14,7 @@
   (interactive)
   (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil 'local)
 
-  (setq-local company-minimum-prefix-length 4)
+  (setq-local company-minimum-prefix-length 3)
   (setq-local company-idle-delay 0.3)
   (setq-local company-tooltip-idle-delay 0.1)
 
