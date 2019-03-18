@@ -33,22 +33,24 @@
 
 ;;; [ Emacs IPython Notebook (EIN) ] -- IPython notebook client in Emacs
 
-(use-package ein
-  :ensure t
-  :defer t
-  :commands (ein:jupyter-server-start
-             org-babel-execute:ein-python org-babel-execute:ein-clojure)
-  ;; :config
-  ;; ;; [ ob-ein ] #+begin_src ein[-??]
-  ;; (require 'ob-ein)
-  ;; (setq ein:org-inline-image-directory "data/images")
-  ;; (ein:org-register-lang-mode "ein-python" 'python)
-  ;; (ein:org-register-lang-mode "ein-R" 'R)
-  ;; (ein:org-register-lang-mode "ein-clojure" 'clojure)
-  ;; ;; Dynamic JavaScript
-  ;; (require 'ein-skewer)
-  ;; (setq ein:enable-dynamic-javascript t)
-  )
+;; (use-package ein
+;;   :ensure t
+;;   :defer t
+;;   :defines ein:%notebook% ; FIXME: void variable `ein:%notebook%'
+;;   :commands (ein:jupyter-server-start
+;;              org-babel-execute:ein-python org-babel-execute:ein-clojure)
+;;   :load (ein-notebook) ; fix void variable `ein:%notebook%'
+;;   ;; :config
+;;   ;; ;; [ ob-ein ] #+begin_src ein[-??]
+;;   ;; (require 'ob-ein)
+;;   ;; (setq ein:org-inline-image-directory "data/images")
+;;   ;; (ein:org-register-lang-mode "ein-python" 'python)
+;;   ;; (ein:org-register-lang-mode "ein-R" 'R)
+;;   ;; (ein:org-register-lang-mode "ein-clojure" 'clojure)
+;;   ;; ;; Dynamic JavaScript
+;;   ;; (require 'ein-skewer)
+;;   ;; (setq ein:enable-dynamic-javascript t)
+;;   )
 
 ;;; [ Apache Pig ]
 
