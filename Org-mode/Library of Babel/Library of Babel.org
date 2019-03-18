@@ -6,6 +6,8 @@
 
 *** header arguments
 
+**** source block image dir
+
 #+NAME: ob-image-dir
 #+begin_src emacs-lisp :cache no
 (concat (file-name-directory (buffer-file-name)) "data/images/")
@@ -14,6 +16,24 @@
 #+RESULTS: ob-image-dir
 : /home/stardiviner/.emacs.d/Org-mode/Library of Babel/data/images/
 
+**** post-processing source block results ANSI escape sequence
+
+Use bellowing source block name with header argument: ~:post ansi-escape-filter(data=*this*)~.
+
+#+NAME: ansi-escape-filter
+#+begin_src emacs-lisp :var data=""
+(with-temp-buffer
+  (insert data)
+  (ansi-color-apply-on-region (point-min) (point-max))
+  (buffer-substring-no-properties (point-min) (point-max)))
+#+end_src
+
+Or use vtclean with header argument: ~:post vtclean-escape-filter(data=*this*)~.
+
+#+NAME: vtclean-escape-filter
+#+begin_src sh :var data=""
+echo $data | vtclean
+#+end_src
 
 ** Export
 
