@@ -29,12 +29,11 @@
   ;; :ensure t
   :load-path "~/Code/Emacs/kiwix.el/"
   :after org
-  :commands (kiwix-launch-server kiwix-at-point kiwix-at-point-interactive)
-  :bind (:map document-prefix
-              ("w" . kiwix-at-point)
-              ("W" . kiwix-at-point-interactive)
-              ("M-w" . kiwix-launch-server))
-  :init (setq kiwix-your-language-library "zh"))
+  :commands (kiwix-launch-server kiwix-at-point-interactive)
+  :bind (:map document-prefix ("w" . kiwix-at-point-interactive))
+  :init (setq kiwix-server-use-docker t
+              kiwix-server-port 8089
+              kiwix-default-library "wikipedia_zh_all_2015-11.zim"))
 
 
 (provide 'init-prog-document-wikipedia)
