@@ -12,65 +12,52 @@
 (use-package elfeed
   :ensure t
   :defer t
-  :commands (elfeed)
+  :commands (elfeed elfeed-update)
   :bind (:map tools-prefix ("R" . elfeed))
   :init (setq elfeed-db-directory "~/.emacs.d/.elfeed")
   (setq elfeed-search-date-format '("%Y-%m-%d" 10 :right))
   (setq elfeed-feeds
-        '(
-          ;; Programming
-          ("http://blog.stackoverflow.com/feed/" Programming)
+        '(;; Programming
+          ("http://blog.stackoverflow.com/feed/" StackOverflowBlog)
           ("http://programmers.blogoverflow.com/feed/" Programming)
-          
           ;; Emacs
           ("http://planet.emacsen.org/atom.xml" Emacs)
-          
           ;; Web
-          ("https://blog.mozilla.org/feed/" Web)
-          ("http://hacks.mozilla.org/feed/" Web)
-          
+          ("https://blog.mozilla.org/feed/" Mozilla)
+          ("http://hacks.mozilla.org/feed/" Mozilla)
           ;; Linux
           ("https://www.linux.com/rss/feeds.php" Linux)
+          ("http://lwn.net/headlines/newrss" LinuxWeeklyNews)
+          ("http://linux.cn/rss.xml" LinuxCN)
           ;; Arch Linux
           ("http://www.archlinux.org/feeds/news/" Arch)
           ("http://archlinux.me/feed/" Arch)
           ;; ("http://planet.archlinux.org/atom.xml" Arch)
-          
           ;; DevOps
-          ("https://www.digitalocean.com/community/tutorials/feed" DevOps)
-          
+          ("https://www.digitalocean.com/community/tutorials/feed" DigitalOcean)
           ;; Geek News
-          ("http://news.ycombinator.com/rss" Geek)
+          ("http://www.solidot.org/index.rss" Solidot)
           ;; ("http://slashdot.org/index.rss" Geek)
-          ;; ("http://reddit.com/.rss" Geek)
-          ("http://www.solidot.org/index.rss" Geek)
-          ("http://lwn.net/headlines/newrss" Geek)
-          ("http://linux.cn/rss.xml" Geek)
-          ("http://blog.jobbole.com/feed/" Geek)
-          ("http://feeds.howtogeek.com/HowToGeek" Geek)
-          ("http://fullcirclemagazine.org/feed" Geek)
-          
+          ("http://news.ycombinator.com/rss" HackerNews)
+          ;; ("http://reddit.com/.rss" Reddit)
+          ("http://blog.jobbole.com/feed/" Jobbole)
+          ("http://feeds.howtogeek.com/HowToGeek" HowToGeek)
+          ("http://fullcirclemagazine.org/feed" FullCircle)
           ;; Podcasts
-          
           ;; Common Lisp
           ("http://planet.lisp.org/rss20.xml" Lisp)
-          
           ;; Clojure
           ("http://insideclojure.org/feed.xml" Clojure)
           ("http://www.lispcast.com/feed" Clojure)
-          
           ;; Blogs
           ("http://feed.williamlong.info/" Blog)
           ("http://www.ruanyifeng.com/blog/atom.xml" Blog)
-          
+          ("http://www.kingname.info/atom.xml" Blog)
+          ;; Kali Linux
+          ("http://www.kali.org/feed/" Kali)
           ;; Subscribe
           ("https://github.com/blog/all.atom" GitHub)
           ("http://www.salttiger.com/feed/" Ebook)
-          ("http://book.zi5.me/feed" Ebook)
-          
-          ;; Crack
-          ;; Kali Linux
-          ("http://www.kali.org/feed/" Kali)
           ))
 
   :config
@@ -161,6 +148,7 @@
   :ensure t
   :defer t
   :after elfeed
+  :commands (elfeed-org)
   :init (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed/elfeed.org"))
   :config (elfeed-org))
 
