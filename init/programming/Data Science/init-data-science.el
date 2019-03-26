@@ -28,6 +28,7 @@
               (add-to-list 'ob-async-no-async-languages-alist "jupyter-sql"))
             (use-package ob-python
               :commands (org-babel-variable-assignments:python)))
+    (setq jupyter-long-timeout 25) ; for Clojure Clojupyter long time startup.
     :config
     (add-to-list 'org-babel-load-languages '(jupyter . t) 'append)
     (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
