@@ -12,11 +12,14 @@
 
 (define-key search-prefix (kbd "f") 'find-prefix)
 
-(define-key find-prefix (kbd "h") 'helm-find)
+(use-package helm
+  :ensure t
+  :bind (:map find-prefix ("h" . helm-find)))
 
-;;; [ find-dired ]
+;;; [ find-dired ] -- run a `find' command and dired the output.
 
 (use-package find-dired
+  :defer t
   :commands (find-dired find-name-dired find-grep-dired)
   :bind (:map find-prefix
               ("f" . find-dired)
@@ -24,8 +27,7 @@
               ("g" . find-grep-dired))
   :init
   (add-to-list 'display-buffer-alist
-               '("\\*Find\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
-  )
+               '("\\*Find\\*" . (display-buffer-reuse-window display-buffer-below-selected))))
 
 
 (provide 'init-emacs-search-finder)
