@@ -209,6 +209,22 @@
 (use-package forge
   :ensure t)
 
+;;; [ flower ] -- Emacs task tracker client. Integration with Github, Gitlab, Atlassian Jira and Slack etc.
+
+(use-package flower
+  :ensure t
+  :defer t
+  :hook (org-mode . flower-mode)
+  :commands (flower-open
+             flower-org-show-task-info
+             flower-list-tasks flower-show-task-info)
+  :init (setq flower-tracker-queries
+              [("https://github.com/stardiviner/arduino-mode" nil nil)
+               ("https://github.com/stardiviner/kiwix.el" nil nil)])
+  (add-to-list 'display-buffer-alist
+               '("^\\*flower\\*"
+                 (display-buffer-reuse-window display-buffer-below-selected))))
+
 
 
 (provide 'init-prog-vcs-git)
