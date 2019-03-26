@@ -126,7 +126,7 @@ Optional for Org-mode file: `LINK'."
 (add-to-list 'org-file-apps '("\\.jar\\'" . "java -jar %s"))
 
 ;; System wise: xdg-open, kde-open, gnome-open.
-(setcdr (assq 'system org-file-apps-defaults-gnu) "xdg-open %s")
+(setcdr (assq 'system org-file-apps-gnu) "xdg-open %s")
 
 
 ;;; Links are now customizable
@@ -165,7 +165,7 @@ Optional for Org-mode file: `LINK'."
 
 
 ;; IRC: `irc:'
-(use-package org-irc
+(use-package ox-irc
   :defer t
   :init (setq org-irc-client 'erc)
   ;; (if (and (featurep 'erc)) (require 'init-erc))
@@ -187,7 +187,7 @@ Optional for Org-mode file: `LINK'."
 
 ;; append "`man:'" protocol.
 ;; `[[man:(section: 7 or 3r)gv][gv (man page)]]'
-(use-package org-man
+(use-package ox-man
   ;; 'man, 'woman.
   :init (setq org-man-command 'man))
 
@@ -208,7 +208,7 @@ Optional for Org-mode file: `LINK'."
   "Run `rgrep' with `REGEXP' as argument."
   (grep-compute-defaults)
   (rgrep regexp "*" (expand-file-name "./")))
-(org-link-set-parameters "grep" #'org-grep-link-open)
+(org-link-set-parameters "grep" :follow #'org-grep-link-open)
 
 
 ;;; `tag:'
@@ -269,8 +269,7 @@ and append it."
        "*org-geo-link-open*"
        org-geo-link-application-command
        (shell-quote-wildcard-pattern uri))
-    (browse-url uri))
-  )
+    (browse-url uri)))
 
 (org-link-set-parameters "geo" :follow #'org-geo-link-open)
 
