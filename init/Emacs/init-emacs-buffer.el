@@ -44,6 +44,13 @@
               )
   :config (recentf-mode))
 
+;;; [ midnight ] -- run something every midnight, e.g., kill old buffers.
+
+;; (use-package midnight
+;;   :defer t
+;;   :commands (midnight-mode)
+;;   :init (midnight-mode))
+
 
 (provide 'init-emacs-buffer)
 
