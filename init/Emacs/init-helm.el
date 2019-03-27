@@ -21,6 +21,10 @@
          ([remap org-goto] . helm-org-in-buffer-headings))
   ;; :init (helm-mode 1) (helm-top-poll-mode 1)
   :config
+  ;; echo input in header line
+  (setq helm-echo-input-in-header-line t)
+  (add-hook 'helm-minibuffer-set-up-hook #'helm-hide-minibuffer-maybe)
+  ;; helm window position
   (setq helm-split-window-inside-p t)
   (setq helm-mini-default-sources
         '(helm-source-buffers-list
