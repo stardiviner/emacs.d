@@ -26,6 +26,15 @@
   :bind (:map find-prefix ("f" . fd-dired))
   :config (add-to-list 'display-buffer-alist '("^\\*Fd\\*" (display-buffer-below-selected))))
 
+;;; [ find-file-in-project ] -- Find file/directory and review Diff/Patch/Commit efficiently.
+
+;; (use-package find-file-in-project
+;;   :ensure t
+;;   :defer t
+;;   :commands (find-file-in-project find-file-in-project-by-selected)
+;;   :bind ("M-t" . find-file-in-project) ; same with `counsel-git'
+;;   :init (setq ffip-use-rust-fd t))
+
 
 (provide 'init-emacs-search-finder)
 
