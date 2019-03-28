@@ -19,8 +19,8 @@
   (setq elfeed-search-date-format '("%Y-%m-%d" 10 :right))
   (setq elfeed-feeds
         '(;; Programming
-          ("http://blog.stackoverflow.com/feed/" StackOverflowBlog)
-          ("http://programmers.blogoverflow.com/feed/" Programming)
+          ("http://blog.stackoverflow.com/feed/" Programming StackOverflow)
+          ("http://programmers.blogoverflow.com/feed/" Programming StackOverflow)
           ;; Emacs
           ("http://planet.emacsen.org/atom.xml" Emacs)
           ;; Web
@@ -28,22 +28,22 @@
           ("http://hacks.mozilla.org/feed/" Mozilla)
           ;; Linux
           ("https://www.linux.com/rss/feeds.php" Linux)
-          ("http://lwn.net/headlines/newrss" LinuxWeeklyNews)
-          ("http://linux.cn/rss.xml" LinuxCN)
+          ("http://lwn.net/headlines/newrss" Linux)
+          ("http://linux.cn/rss.xml" Linux)
           ;; Arch Linux
-          ("http://www.archlinux.org/feeds/news/" Arch)
-          ("http://archlinux.me/feed/" Arch)
+          ("http://www.archlinux.org/feeds/news/" Arch Linux)
+          ("http://archlinux.me/feed/" Arch Linux)
           ;; ("http://planet.archlinux.org/atom.xml" Arch)
           ;; DevOps
-          ("https://www.digitalocean.com/community/tutorials/feed" DigitalOcean)
+          ("https://www.digitalocean.com/community/tutorials/feed" DigitalOcean Linux)
           ;; Geek News
-          ("http://www.solidot.org/index.rss" Solidot)
+          ("http://www.solidot.org/index.rss" Solidot News)
           ;; ("http://slashdot.org/index.rss" Geek)
-          ("http://news.ycombinator.com/rss" HackerNews)
+          ("http://news.ycombinator.com/rss" HackerNews Programmer)
           ;; ("http://reddit.com/.rss" Reddit)
-          ("http://blog.jobbole.com/feed/" Jobbole)
-          ("http://feeds.howtogeek.com/HowToGeek" HowToGeek)
-          ("http://fullcirclemagazine.org/feed" FullCircle)
+          ("http://blog.jobbole.com/feed/" Jobbole Subscribe)
+          ("http://feeds.howtogeek.com/HowToGeek" Linux Geek)
+          ("http://fullcirclemagazine.org/feed" Linux Geek)
           ;; Podcasts
           ;; Common Lisp
           ("http://planet.lisp.org/rss20.xml" Lisp)
@@ -55,9 +55,9 @@
           ("http://www.ruanyifeng.com/blog/atom.xml" Blog)
           ("http://www.kingname.info/atom.xml" Blog)
           ;; Kali Linux
-          ("http://www.kali.org/feed/" Kali)
+          ("http://www.kali.org/feed/" Kali Linux Subscribe)
           ;; Subscribe
-          ("https://github.com/blog/all.atom" GitHub)
+          ("https://github.com/blog/all.atom" GitHub SubScribe)
           ("http://www.salttiger.com/feed/" Ebook)
           ))
 
