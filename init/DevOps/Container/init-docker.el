@@ -7,6 +7,12 @@
 
 ;;; Code:
 
+;;; [ docker-api ] -- Emacs interface to the Docker API.
+
+(use-package docker-api
+  :ensure t
+  :defer t)
+
 ;;; [ docker ] -- Emacs interface to Docker.
 
 (use-package docker
@@ -83,7 +89,7 @@
   :ensure t
   :defer t)
 
-;;; [ docker-tramp ]
+;;; [ docker-tramp ] -- TRAMP integration for Docker containers.
 
 (use-package docker-tramp
   :ensure t
@@ -105,12 +111,6 @@ For Org-babel header argument :dir /docker:<name>:."
     (insert (format ":dir /docker:%s:" container)))
   (require 'ob-keys)
   (define-key org-babel-map (kbd "M-d") 'docker-tramp-insert-running-container))
-
-;;; [ docker-api ] -- Emacs interface to the Docker API.
-
-(use-package docker-api
-  :ensure t
-  :defer t)
 
 ;;; [ k8s-mode ] -- Kubernetes mode for Kubernetes config files in Emacs.
 
