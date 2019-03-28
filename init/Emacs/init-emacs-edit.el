@@ -19,7 +19,7 @@
 (require 'init-emacs-edit-indirect)
 (require 'init-emacs-edit-sudo)
 (require 'init-emacs-edit-server)
-(require 'init-emacs-edit-collaborate)
+;; (require 'init-emacs-edit-collaborate)
 
 (provide 'init-emacs-edit)
 
