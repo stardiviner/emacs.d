@@ -13,7 +13,8 @@
   :ensure t
   :defer t
   :commands (elfeed elfeed-update)
-  :bind (:map tools-prefix ("R" . elfeed))
+  :bind (:map tools-prefix ("R" . elfeed)
+              :map elfeed-search-mode-map ("g" . elfeed-update))
   :init (setq elfeed-db-directory "~/.emacs.d/.elfeed")
   (setq elfeed-search-date-format '("%Y-%m-%d" 10 :right))
   (setq elfeed-feeds
