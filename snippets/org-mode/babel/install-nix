@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: babel-install-nix
+# key: babel-install-nix
+# group: babel.install
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+#+begin_src sh :async
+nix-env -i fd
+#+end_src
