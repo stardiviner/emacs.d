@@ -20,12 +20,13 @@
               ("v" . docker-volumes)
               ("n" . docker-networks))
   :init (setq docker-containers-show-all t)
-
   (defun docker-container-insert-name ()
     "A helper function to insert container ID or name."
     (interactive)
     (insert (funcall-interactively 'docker-container-read-name)))
   (define-key container-prefix (kbd "M-i") #'docker-container-insert-name)
+  (require 'ob-keys)
+  (define-key org-babel-map (kbd "C-M-d") 'docker-container-insert-name)
 
   (add-to-list 'display-buffer-alist
                '("\\*docker-images\\*" .
@@ -96,8 +97,8 @@ For Org-babel header argument :dir /docker:<name>:."
                    ;; (mapcar 'cdr (docker-tramp--running-containers))
                    (list (completing-read "Docker container name: " containers-name))))
     (insert (format ":dir /docker:%s:" container)))
-  (with-eval-after-load "ob-keys"
-    (define-key org-babel-map (kbd "M-d") 'docker-tramp-insert-running-container)))
+  (require 'ob-keys)
+  (define-key org-babel-map (kbd "M-d") 'docker-tramp-insert-running-container))
 
 ;;; [ docker-api ] -- Emacs interface to the Docker API.
 
