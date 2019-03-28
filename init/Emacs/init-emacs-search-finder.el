@@ -16,18 +16,15 @@
   :ensure t
   :bind (:map find-prefix ("h" . helm-find)))
 
-;;; [ find-dired ] -- run a `find' command and dired the output.
+;;; [ fd-dired ] -- find-dired alternative using fd.
 
-(use-package find-dired
+(use-package fd-dired
+  :ensure t
+  :ensure-system-package fd
   :defer t
-  :commands (find-dired find-name-dired find-grep-dired)
-  :bind (:map find-prefix
-              ("f" . find-dired)
-              ("n" . find-name-dired)
-              ("g" . find-grep-dired))
-  :init
-  (add-to-list 'display-buffer-alist
-               '("\\*Find\\*" . (display-buffer-reuse-window display-buffer-below-selected))))
+  :commands (fd-dired)
+  :bind (:map find-prefix ("f" . fd-dired))
+  :config (add-to-list 'display-buffer-alist '("^\\*Fd\\*" (display-buffer-below-selected))))
 
 
 (provide 'init-emacs-search-finder)
