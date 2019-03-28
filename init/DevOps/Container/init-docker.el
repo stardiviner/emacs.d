@@ -13,12 +13,18 @@
   :ensure t
   :ensure-system-package docker
   :defer t
-  :commands (docker-containers docker-images docker-volumes docker-networks)
+  :commands (docker-containers docker-images docker-volumes docker-networks
+                               docker-container-eshell docker-container-shell
+                               docker-container-dired docker-container-find-file)
   :bind (:map container-prefix
               ("c" . docker-containers)
               ("i" . docker-images)
               ("v" . docker-volumes)
-              ("n" . docker-networks))
+              ("n" . docker-networks)
+              ("C-e" . docker-container-eshell)
+              ("C-s" . docker-container-shell)
+              ("C-d" . docker-container-dired)
+              ("C-f" . docker-container-find-file))
   :init (setq docker-containers-show-all t)
   (defun docker-container-insert-name ()
     "A helper function to insert container ID or name."
