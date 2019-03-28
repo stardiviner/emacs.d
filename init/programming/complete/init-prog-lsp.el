@@ -17,11 +17,10 @@
   :ensure t
   :defer t
   :commands (lsp lsp-describe-session)
-  :bind (:map lsp-mode-map
-              ("C-c C-d" . lsp-describe-thing-at-point))
+  :bind (:map lsp-mode-map ("C-c C-d" . lsp-describe-thing-at-point))
   :init (setq lsp-auto-configure nil
               lsp-auto-guess-root t
-              lsp-prefer-flymake nil) ; use `flycheck' and `lsp-ui'.
+              lsp-prefer-flymake nil)
   :config
   ;; Support LSP in Org Babel with header argument `:file'.
   ;; https://github.com/emacs-lsp/lsp-mode/issues/377
@@ -53,8 +52,12 @@
                           (upcase ,lang))))))))
 
   (defvar org-babel-lsp-lang-list
-    '("shell" "python" "ipython" "ruby" "js" "css" "C" "rust" "java" "go"))
-  (dolist (lang org-babel-lang-list)
+    '("shell"
+      "python" "ipython" "ruby"
+      "js" "css"
+      ;; "C" "C++"
+      "rust" "go"
+      "java"))
   (dolist (lang org-babel-lsp-lang-list)
     (eval `(lsp-org-babel-enbale ,lang)))
 
