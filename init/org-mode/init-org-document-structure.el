@@ -205,6 +205,15 @@
 		                  ("l" (lambda (element) (insert (nth 1 (cdr element)))) "latex")
 		                  ("h" (lambda (element) (insert (nth 3 (cdr element)))) "html"))))
 
+;;; [ Table Of Contents (TOC) ]
+
+;;; [ org-make-toc ] -- Automatic tables of contents for Org files.
+
+(use-package org-make-toc
+  :ensure t
+  :defer t
+  :commands (org-make-toc))
+
 ;;; [ Dynamic Blocks ] -- [C-c C-x x]
 
 
