@@ -17,18 +17,14 @@
   :ensure t
   :defer t
   :delight projectile-mode
-  :init
-  ;; nil: disable caching to fix TRAMP hang on sending password
-  (setq projectile-enable-caching nil
-        projectile-file-exists-remote-cache-expire '(* 60 30)
-        projectile-completion-system 'ivy
+  :commands (projectile-mode)
+  :init (projectile-mode 1)
+  (setq projectile-completion-system 'ivy
         projectile-use-git-grep t)
-  ;; test
+  ;; testing
   (setq projectile-create-missing-test-files t)
-  :config
-  (projectile-global-mode 1)
-  ;; (add-hook 'prog-mode-hook 'projectile-mode)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+  (with-eval-after-load 'projectile
+    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)))
 
 ;;; [ projectile-variable ] -- store project local variables.
 
