@@ -22,7 +22,7 @@
 
 (setq org-clock-persist t ; nil, t, 'clock, 'history
       org-clock-persist-query-save t
-      org-clock-persist-query-resume t
+      org-clock-persist-query-resume nil ; don't ask, resume by default when Emacs restart.
       org-clock-persist-file (concat user-emacs-directory "org-clock-save.el")
       org-clock-in-resume t    ; resume when clock in.
       org-clock-continuously nil ; don't continue on last clock out.
