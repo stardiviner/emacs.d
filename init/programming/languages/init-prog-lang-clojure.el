@@ -468,7 +468,8 @@ opening 4clojure questions"
   :defer t)
 
 (with-eval-after-load 'org
-  (add-to-list 'org-default-properties "clojars"))
+  (add-to-list 'org-default-properties "clojars")
+  (add-to-list 'org-default-properties "Maven"))
 
 
 
