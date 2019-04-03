@@ -43,6 +43,7 @@
                                  "ncftp" "pine" "tin" "trn" "elm" "vim"
                                  "nmtui" "alsamixer" "htop" "el" "elinks"))
   (setq eshell-visual-subcommands '(("git" "log" "diff" "show")))
+  (autoload 'eshell-visual-options "em-term")
   (add-to-list 'eshell-visual-options '("git" "--help"))
 
   ;; Eshell-banner
