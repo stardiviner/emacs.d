@@ -50,7 +50,13 @@
 
 (use-package hydra
   :ensure t
-  :defer t)
+  :defer t
+  ;; :init
+  ;; (use-package hydra-posframe ; a hydra extension which shows hydra hints on posframe.
+  ;;   :quelpa (hydra-posframe :fetcher github :repo "Ladicle/hydra-posframe")
+  ;;   :defer t
+  ;;   :hook (after-init . hydra-posframe-enable))
+  )
 
 ;;; [ emaps ] -- Emaps provides utilities for working with keymaps and keybindings in Emacs.
 
