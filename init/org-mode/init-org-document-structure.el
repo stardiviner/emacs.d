@@ -117,7 +117,7 @@
 
 ;;; Statistics [1/4]
 
-(setq org-hierarchical-todo-statistics t
+(setq org-hierarchical-todo-statistics nil
       org-checkbox-hierarchical-statistics nil)
 
 ;;; TODO: does this work?
