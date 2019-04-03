@@ -31,12 +31,12 @@
 (add-to-list 'display-buffer-alist
              '("^\\*Animation\\*" (display-buffer-below-selected)))
 
-;;; [ winner ]
+;;; [ winner ] -- Restore old window configurations.
 
-(use-package winner
-  :ensure t
-  :defer t
-  :init (winner-mode 1))
+;; (use-package winner
+;;   :ensure t
+;;   :defer t
+;;   :init (winner-mode 1))
 
 ;;; [ ace-window ] -- Quickly switch windows in Emacs.
 
