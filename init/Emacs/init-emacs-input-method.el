@@ -71,6 +71,24 @@
 ;;   ;;                 pyim-probe-punctuation-after-punctuation))
 ;;   )
 
+;;; pyim support Rime with librime.
+
+;; (use-package librime
+;;   ;; :load-path "/usr/lib/librime.so"
+;;   :load-path "~/Code/Emacs/librime/build/liberime.so"
+;;   :defer t
+;;   :after pyim
+;;   :config
+;;   (defun setup-librime ()
+;;     (interactive)
+;;     (liberime-start "/usr/share/rime-data" "~/.emacs.d/rime/")
+;;     ;; (liberime-get-schema-list)
+;;     (liberime-select-schema "luna_pinyin_simp")
+;;     ;; (liberime-get-schema-list)
+;;     (setq pyim-default-scheme 'rime))
+;;   ;; work with pyim
+;;   (add-hook 'pyim-load-hook 'setup-liberime))
+
 
 
 (provide 'init-emacs-input-method)
