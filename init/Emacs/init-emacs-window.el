@@ -95,11 +95,11 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
 
 ;;; [ golden-ratio ] -- Automatic resizing of Emacs windows to the golden ratio.
 
-(use-package golden-ratio
-  :ensure t
-  :defer t
-  :commands (golden-ratio-mode golden-ratio)
-  :init (golden-ratio-mode 1))
+;; (use-package golden-ratio
+;;   :ensure t
+;;   :defer t
+;;   :commands (golden-ratio-mode golden-ratio)
+;;   :init (golden-ratio-mode 1))
 
 ;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
 
