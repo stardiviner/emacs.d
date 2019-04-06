@@ -33,7 +33,12 @@
     (add-to-list 'org-babel-load-languages '(jupyter . t) 'append)
     (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
     (add-to-list 'display-buffer-alist
-                 '("^\\*jupyter-repl.*\\*" (display-buffer-below-selected)))))
+                 '("^\\*jupyter-repl.*\\*" (display-buffer-below-selected))))
+  (use-package jupyter-org-extensions
+    :defer t
+    :commands (jupyter-org-interaction-mode
+               jupyter-org-hydra/body jupyter-org-insert-src-block)
+    :bind (:map org-babel-map ("M-j" . jupyter-org-insert-src-block))))
 
 ;;; [ Emacs IPython Notebook (EIN) ] -- IPython notebook client in Emacs
 
