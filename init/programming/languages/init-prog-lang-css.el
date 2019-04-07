@@ -19,17 +19,21 @@
 
 ;;; [ css-mode ]
 
-(autoload 'css-mode "css-mode" "Mode for editing CSS files" t)
-
-(add-to-list 'auto-mode-alist '("\\.css\\'" . css-mode))
-
-(setq css-indent-offset 2)
+(use-package css-mode
+  :defer t
+  :mode "\\.css\\'"
+  :init (setq css-indent-offset 2)
+  :hook (css-mode . electric-pair-mode))
 
 ;;; [ company-css ]
 
-(defun my:company-css-setup ()
-  (my-company-add-backend-locally 'company-css))
-(add-hook 'css-mode-hook #'my:company-css-setup)
+(use-package company
+  :ensure t
+  :defer t
+  :init
+  (defun my:company-css-setup ()
+    (my-company-add-backend-locally 'company-css))
+  (add-hook 'css-mode-hook #'my:company-css-setup))
 
 ;;; [ ob-css ]
 
@@ -55,8 +59,8 @@
   :ensure t
   :defer t
   :commands (counsel-css)
-  :config
-  (add-hook 'css-mode-hook 'counsel-css-imenu-setup))
+  :bind (:map css-mode-map ("C-x j" . counsel-css))
+  :init (add-hook 'css-mode-hook 'counsel-css-imenu-setup))
 
 ;;; [ show-css ] -- Show the css of the html attribute the cursor is on.
 
