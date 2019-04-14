@@ -109,6 +109,7 @@
 (require 'init-emacs-clipboard)
 (require 'init-emacs-navigation)
 (require 'init-emacs-bookmark)
+(require 'init-emacs-annotate)
 (require 'init-emacs-keybinding)
 (require 'init-emacs-outline)
 (require 'init-emacs-macro)
