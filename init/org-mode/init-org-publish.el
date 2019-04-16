@@ -162,45 +162,50 @@
                :recursive t
                :publishing-function org-publish-attachment))
 
-(add-to-list 'org-publish-project-alist
-             `("Index"
-               :base-directory ,(concat org-directory "/Website")
-               :base-extension "org"
-               :exclude ".*" ; exclude all other files...
-               :include ("index.org") ; ... except index.org.
-               :recursive nil
-               :publishing-directory ,(expand-file-name my-org-publish-destination)
-               :publishing-function org-html-publish-to-html
-               
-               ;; [ html ]
-               :html-doctype "html5"
-               :html-html5-fancy t ; use new HTML5 elements.
-               :html-head-include-scripts t
-               :html-link-home "https://stardiviner.github.io/"
-               :html-preamble ,(org-file-contents (concat my-org-publish-source "assets/preamble.html"))
-               :html-postamble ,(org-file-contents (concat my-org-publish-source "assets/postamble.html"))
-               :html-link-org-files-as-html t
-               :section-numbers nil
-               :with-toc nil
-               :table-of-contents nil
-               ;; Generate .org.html
-               :htmlized-source t
-               ;; [ images ]
-               :html-inline-images t
-               ;; [ stylesheet ]
-               :html-head-include-default-style t
-               :html-head-extra ,(concat "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
-                                         "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
-                                         ;; icon
-                                         "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
-                                         "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
-                                         )
-               ;; [ info.js]
-               :html-use-infojs nil
-               
-               ;; NOTE: `:completion-function' must be in the last component in `org-publish-project-alist'.
-               :completion-function (my-org-publish-sync my-org-publish-finished-notify)
-               ))
+(add-to-list
+ 'org-publish-project-alist
+ `("Index"
+   :base-directory ,(concat org-directory "/Website")
+   :base-extension "org"
+   :exclude ".*" ; exclude all other files...
+   :include ("index.org") ; ... except index.org.
+   :recursive nil
+   :publishing-directory ,(expand-file-name my-org-publish-destination)
+   :publishing-function org-html-publish-to-html
+   
+   ;; [ html ]
+   :html-doctype "html5"
+   :html-html5-fancy t ; use new HTML5 elements.
+   :html-head-include-scripts t
+   :html-link-home "https://stardiviner.github.io/"
+   :html-preamble ,(org-file-contents (concat my-org-publish-source "assets/preamble.html"))
+   :html-postamble ,(org-file-contents (concat my-org-publish-source "assets/postamble.html"))
+   :html-link-org-files-as-html t
+   :section-numbers nil
+   :with-toc nil
+   :table-of-contents nil
+   ;; Generate .org.html
+   :htmlized-source t
+   ;; [ images ]
+   :html-inline-images t
+   ;; [ stylesheet ]
+   :html-head-include-default-style t
+   :html-head-extra
+   ,(concat
+     "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
+     "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
+     ;; icon
+     "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
+     "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
+     ;; tongji.baidu.com site statistics
+     "<script>var _hmt = _hmt || [];(function() {var hm = document.createElement(\"script\");hm.src = \"https://hm.baidu.com/hm.js?67a64d34ee16392a25f7065993fa3aca\";var s = document.getElementsByTagName(\"script\")[0];s.parentNode.insertBefore(hm, s);})();</script>"
+     )
+   ;; [ info.js]
+   :html-use-infojs nil
+   
+   ;; NOTE: `:completion-function' must be in the last component in `org-publish-project-alist'.
+   :completion-function (my-org-publish-sync my-org-publish-finished-notify)
+   ))
 
 (add-to-list 'org-publish-project-alist
              `("about-data"
