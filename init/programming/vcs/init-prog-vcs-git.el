@@ -104,8 +104,6 @@
   :config
   ;; Git WIP (work in progress) in Magit
   (add-to-list 'magit-no-confirm 'safe-with-wip)
-  ;; enable color for Magit logs by default
-  (add-to-list 'magit-log-arguments "--color")
 
   ;; manage popup buffers.
   (add-to-list 'display-buffer-alist
