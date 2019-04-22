@@ -17,6 +17,21 @@
 (add-to-list 'display-buffer-alist
              '("^\\*SQL:.*\\*" (display-buffer-below-selected)))
 
+;;; for command `sql-connect'.
+(setq sql-connection-alist
+      '((postgresql-test (sql-product 'postgres)
+                         (sql-server "localhost")
+                         (sql-port 5432)
+                         (sql-user "postgres")
+                         (sql-password "324324")
+                         (sql-database "test"))
+        (mysql-test (sql-product 'mysql)
+                    (sql-server "localhost")
+                    (sql-port 3306)
+                    (sql-user "root")
+                    (sql-password "324324")
+                    (sql-database "test"))))
+
 ;;; [ ob-sql ]
 
 (use-package ob-sql
