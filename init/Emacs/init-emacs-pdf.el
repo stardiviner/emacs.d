@@ -46,6 +46,11 @@
                '("\\*PDF-Occur\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
   )
 
+;;; [ pdf-view-restore ] -- support for opening last known pdf position in pdf-view-mode.
+
+(use-package pdf-view-restore
+  :ensure t
+  :config (add-hook 'pdf-view-mode-hook 'pdf-view-restore-mode))
 
 ;;; [ org-pdfview ] -- org-link support for pdf-view-mode
 
