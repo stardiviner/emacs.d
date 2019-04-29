@@ -30,6 +30,17 @@
   (add-hook 'js2-mode-hook 'js-mode-bindings)
   )
 
+;;; [ jq-format ] -- Reformat JSON and JSONLines using jq.
+
+(use-package jq-format
+  :ensure t
+  :defer t
+  :after json-mode
+  :commands (jq-format-json-on-save-mode
+             jq-format-json-buffer jq-format-json-region
+             jq-format-jsonlines-on-save-mode
+             jq-format-jsonlines-buffer jq-format-jsonlines-region)
+  :init (setq jq-format-command "jq"))
 
 ;;; [ json-snatcher ]
 
