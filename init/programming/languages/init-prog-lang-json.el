@@ -12,23 +12,14 @@
 (use-package json-mode
   :ensure t
   :defer t
-  :commands (json-mode-show-path json-mode-beautify)
+  :commands (json-mode-show-path
+             json-mode-beautify jsons-print-path jsons-print-path-jq)
   :config
   (setq json-reformat:indent-width 2
         json-reformat:pretty-string? t ; decode some special characters. like \u00e4.
         ;; json-reformat:special-chars-as-pretty-string '((?\" . ?\")
         ;;                                                (?\\ . ?\\))
-        )
-
-  ;; Then add the following lines to your .emacs file, which sets a hotkey when
-  ;; editing JSON files in either js or js2 mode
-  (defun js-mode-bindings ()
-    "Sets a hotkey for using the json-snatcher plugin"
-    (when (string-match  "\\.json$" (buffer-name))
-      (local-set-key (kbd "C-c C-g") 'jsons-print-path)))
-  (add-hook 'js-mode-hook 'js-mode-bindings)
-  (add-hook 'js2-mode-hook 'js-mode-bindings)
-  )
+        ))
 
 ;;; [ jq-format ] -- Reformat JSON and JSONLines using jq.
 
