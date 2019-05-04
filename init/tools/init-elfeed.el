@@ -16,6 +16,7 @@
   :bind (:map tools-prefix ("R" . elfeed)
               :map elfeed-search-mode-map ("g" . elfeed-update))
   :init (setq elfeed-db-directory "~/.emacs.d/.elfeed")
+  ;; (setq elfeed-log-level 'debug)
   (setq elfeed-search-date-format '("%Y-%m-%d" 10 :right))
   (setq elfeed-feeds
         '(;; Programming
@@ -27,22 +28,22 @@
           ("https://blog.mozilla.org/feed/" Mozilla)
           ("http://hacks.mozilla.org/feed/" Mozilla)
           ;; Linux
-          ("https://www.linux.com/rss/feeds.php" Linux)
-          ("http://lwn.net/headlines/newrss" Linux)
+          ;; ("https://www.linux.com/rss/feeds.php" Linux)
+          ;; ("http://lwn.net/headlines/newrss" Linux)
           ("http://linux.cn/rss.xml" Linux)
           ;; Arch Linux
           ("http://www.archlinux.org/feeds/news/" Arch Linux)
           ("http://archlinux.me/feed/" Arch Linux)
           ;; ("http://planet.archlinux.org/atom.xml" Arch)
           ;; DevOps
-          ("https://www.digitalocean.com/community/tutorials/feed" DigitalOcean Linux)
+          ;; ("https://www.digitalocean.com/community/tutorials/feed" DigitalOcean Linux)
           ;; Geek News
           ("http://www.solidot.org/index.rss" Solidot News)
           ;; ("http://slashdot.org/index.rss" Geek)
-          ("http://news.ycombinator.com/rss" HackerNews Programmer)
+          ;; ("http://news.ycombinator.com/rss" HackerNews Programmer)
           ;; ("http://reddit.com/.rss" Reddit)
           ("http://blog.jobbole.com/feed/" Jobbole Subscribe)
-          ("http://feeds.howtogeek.com/HowToGeek" Linux Geek)
+          ;; ("http://feeds.howtogeek.com/HowToGeek" Linux Geek)
           ("http://fullcirclemagazine.org/feed" Linux Geek)
           ;; Podcasts
           ;; Common Lisp
