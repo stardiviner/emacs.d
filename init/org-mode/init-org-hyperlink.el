@@ -165,7 +165,7 @@ Optional for Org-mode file: `LINK'."
 
 
 ;; IRC: `irc:'
-(use-package ox-irc
+(use-package ol-irc
   :defer t
   :init (setq org-irc-client 'erc)
   ;; (if (and (featurep 'erc)) (require 'init-erc))
@@ -187,7 +187,7 @@ Optional for Org-mode file: `LINK'."
 
 ;; append "`man:'" protocol.
 ;; `[[man:(section: 7 or 3r)gv][gv (man page)]]'
-(use-package ox-man
+(use-package ol-man
   ;; 'man, 'woman.
   :init (setq org-man-command 'man))
 
