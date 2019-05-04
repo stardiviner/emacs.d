@@ -13,9 +13,7 @@
 
 ;; need to modify English font settings to suitable with chinese font.
 ;; the value is in 1/10pt, so 100 will give you 10pt, etc
-;; (set-frame-font (format "%s:pixelsize=%d" "Droid Sans Mono" 12) t)
-;; (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)
-(set-frame-font (format "%s:pixelsize=%d" "Hack" 12) t)
+(set-frame-font (format "%s:pixelsize=%d" "Fira Code" 12) t)
 
 ;;; Styled fonts
 ;; (set-frame-font (format "%s:pixelsize=%d" "STALKER1" 16) t)
@@ -26,7 +24,7 @@
 
 ;; set default font.
 (set-face-attribute 'default nil
-		                :family "Hack"
+		                :family "Fira Code"
 		                :foundry "PfEd")
 
 ;; set Unicode characters font
@@ -42,7 +40,7 @@
                       ;; (font-spec :family "Noto Sans CJK SC" :size 13)
                       ;; (font-spec :family "Source Han" :size 12)
                       ;; (font-spec :family "Hack" :size 12)
-                      (font-spec :family "WenQuanYi Micro Hei" :size 14)
+                      (font-spec :family "WenQuanYi Micro Hei" :size 12)
                       ;; (font-spec :family "NSimSun" :size 14)
                       ;; (font-spec :family "BabelStone Han" :size 14)
                       ;; 方正清刻本悦宋简体
