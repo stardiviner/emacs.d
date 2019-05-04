@@ -12,8 +12,7 @@
 (use-package pretty-symbols
   :ensure t
   :defer t
-  :init
-  (global-prettify-symbols-mode 1)
+  :init (global-prettify-symbols-mode 1)
   :config
   (setq prettify-symbols-unprettify-at-point 'right-edge)
 
@@ -60,6 +59,11 @@
   ;;         (append my/clojure-prettify-alist
   ;;                 lisp-prettify-symbols-alist)))
   )
+
+;;; for Fira Code font
+;;; https://github.com/tonsky/FiraCode/wiki/Emacs-instructions#using-font-lock-keywords
+(require 'fira-code-mode)
+(fira-code-mode 1)
 
 
 (provide 'init-emacs-prettify)
