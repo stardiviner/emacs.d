@@ -166,7 +166,7 @@
   :ensure t
   ;; :load-path "~/Code/Emacs/ejc-sql"
   :defer t
-  :commands (ejc-connect ejc-connect-existing-repl ejc-sql-mode)
+  :commands (ejc-connect ejc-connect-existing-repl ejc-connect-interactive ejc-sql-mode)
   :init (setq nrepl-sync-request-timeout 60
               ejc-connection-validate-timeout 60)
   :config
@@ -220,6 +220,18 @@
                       "3.25.2/sqlite-jdbc-3.25.2.jar")
    :subprotocol "sqlite"
    :subname (file-truename "~/test.db"))
+
+  (defun ejc-connect-sqlite (sqlite-db-file)
+    "A helper command to dynamically create SQLite Driver connection."
+    (interactive "fSQLite db file: ")
+    (let ((connection-name (read-string "Input SQLite connection name: ")))
+      (ejc-create-connection
+       connection-name
+       :classpath (concat "~/.m2/repository/org/xerial/sqlite-jdbc/"
+                          "3.25.2/sqlite-jdbc-3.25.2.jar")
+       :subprotocol "sqlite"
+       :subname (file-truename sqlite-db-file))
+      (ejc-connect connection-name)))
   )
 
 
