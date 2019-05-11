@@ -17,14 +17,15 @@
   :ensure t
   :defer t)
 
-;;; [ openwith ]
+;;; [ openwith ] -- Open files with external programs.
 
+;;; FIXME: it cause Emacs auto display Org inline images with external command `display'.
+;;
 ;; (use-package openwith
 ;;   :ensure t
 ;;   :defer t
-;;   :init (setq openwith-confirm-invocation t)
-;;   (openwith-mode -1) ; disable `openwith' in Org-mode auto open file links.
-;;   :config
+;;   :init (openwith-mode -1) ; disable `openwith' in Org-mode auto open file links.
+;;   ;; (setq openwith-confirm-invocation t)
 ;;   (setq openwith-associations
 ;;         (append openwith-associations
 ;;                 (list
@@ -47,6 +48,7 @@
 ;;                         '("ps" "ps.gz" "dvi"))
 ;;                        "zathure" '(file)))))
 ;;
+;;   :config
 ;;   ;;; NOTE: enable this will cause Org-mode open inline displayed images with external program.
 ;;   ;; (add-to-list 'openwith-associations '("\\.gif\\'" "gwenview" (file)))
 ;;   ;; (add-to-list 'openwith-associations '("\\.svg\\'" "feh --magick-timeout 5" (file)))
@@ -60,6 +62,12 @@
 ;;; [ TRAMP ]
 
 (require 'init-tramp)
+
+;;; [ doc-view ] -- View PDF/PostScript/DVI files in Emacs.
+
+(use-package doc-view
+  :defer t
+  :commands (doc-view-mode))
 
 
 (provide 'init-emacs-file)
