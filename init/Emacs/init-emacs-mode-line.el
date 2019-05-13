@@ -12,6 +12,12 @@
 ;; (require 'init-custom-mode-line)
 ;; (require 'init-powerline)
 
+;;; [ mood-line ] -- a minimal mode-line configuration that aims to replicate some of the features of the doom-modeline.
+
+;; (use-package mood-line
+;;   :ensure t
+;;   :hook (after-init . mood-line-mode))
+
 ;;; [ doom-modeline ] -- A minimal and modern mode-line.
 
 (use-package doom-modeline
