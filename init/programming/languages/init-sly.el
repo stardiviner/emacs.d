@@ -90,6 +90,13 @@
   :after sly
   :commands (sly-quickload))
 
+;;; [ sly-asdf ] -- ASDF system support for SLY.
+
+(use-package sly-asdf
+  :ensure t
+  :after sly
+  :init (add-to-list 'sly-contribs 'sly-asdf 'append))
+
 
 (provide 'init-sly)
 
