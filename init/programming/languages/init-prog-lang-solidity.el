@@ -11,15 +11,14 @@
 ;;; [ solidity-mode ] -- Major mode for editing Solidity.
 
 (use-package solidity-mode
-  :ensure t)
-
-(use-package company-solidity
   :ensure t
-  :config
-  ;; `company-solidity' is in `solidity-mode'
-  (add-hook 'solidity-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-solidity))))
+  :init
+  (use-package company-solidity
+    :ensure t
+    :init
+    ;; `company-solidity' is in `solidity-mode'
+    (add-hook 'solidity-mode-hook
+              (lambda () (my-company-add-backend-locally 'company-solidity)))))
 
 ;;; [ solidity-flycheck ] -- Flycheck integration for solidity emacs mode.
 
