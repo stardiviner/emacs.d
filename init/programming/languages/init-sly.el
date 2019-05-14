@@ -57,13 +57,12 @@
   ;; [ ob-lisp ]
   (setq org-babel-lisp-eval-fn #'sly-eval))
 
-;;; [ sly-repl-ansi-color ]
+;;; [ sly-repl-ansi-color ] -- Add ANSI colors support to the sly mrepl.
 
 (use-package sly-repl-ansi-color
   :ensure t
-  :defer t
   :after sly
-  :init (add-to-list 'sly-contribs 'sly-repl-ansi-color))
+  :init (add-to-list 'sly-contribs 'sly-repl-ansi-color 'append))
 
 ;;; [ sly-macrostep ] -- Expand CL macros inside source files
 
