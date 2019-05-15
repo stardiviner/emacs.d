@@ -18,11 +18,18 @@
 (setq package-user-dir "~/.emacs.d/elpa")
 
 (defvar elpa-gnu '("gnu" . "https://elpa.gnu.org/packages/"))
-;; (defvar elpa-china '("elpa-china" . "http://elpa.emacs-china.org"))
 (defvar elpa-melpa '("melpa" . "http://melpa.org/packages/"))
 (defvar elpa-melpa-stable '("melpa-stable" . "http://stable.melpa.org/packages/"))
 (defvar elpa-marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
 (defvar elpa-org '("org"   . "http://orgmode.org/elpa/"))
+
+;;; Mirrors
+;; Emacs China ELPA
+;; (setq elpa-gnu '("gnu" . "https://elpa.emacs-china.org/gnu/"))
+;; (setq elpa-melpa '("melpa" . "https://elpa.emacs-china.org/melpa/"))
+;; TNUA ELPA
+(setq elpa-gnu '("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"))
+(setq elpa-melpa '("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))
 
 (setq-default package-archives nil)
 (add-to-list 'package-archives elpa-org t)
