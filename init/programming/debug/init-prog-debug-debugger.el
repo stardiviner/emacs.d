@@ -13,6 +13,10 @@
   :ensure t
   :defer t)
 
+;;; [ realgud-lldb ] -- realgud front-end to lldb.
+
+(use-package realgud-lldb
+  :ensure t)
 
 ;;; [ GDB ]
 
