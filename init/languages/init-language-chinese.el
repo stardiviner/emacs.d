@@ -7,6 +7,14 @@
 
 ;;; Code:
 
+;;; [ pangu-spacing ] -- Emacs minor-mode to add space between Chinese and English characters.
+
+(use-package pangu-spacing
+  :ensure t
+  :init (global-pangu-spacing-mode 1)
+  (add-hook 'org-mode-hook
+            '(lambda () (set (make-local-variable 'pangu-spacing-real-insert-separtor) t))))
+
 ;;; [ chinese-word-at-point ] -- Get (most likely) Chinese word under the cursor in Emacs.
 
 (use-package chinese-word-at-point
