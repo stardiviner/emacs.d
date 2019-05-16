@@ -104,6 +104,23 @@ $0`(yas-escape-text yas-selected-text)`"
                       "Programming Code/Code Snippets/yasnippets.org"))
   (add-hook 'yas-after-reload-hook 'org-sync-snippets-snippets-to-org))
 
+;;; [ code-archive ] -- saving selecting code regions and inserting them as org-mode styled code blocks.
+
+(use-package code-archive
+  :ensure t
+  :defer t
+  :commands (code-archive-save-code code-archive-insert-org-block code-archive-goto-src)
+  :init (setq code-archive-dir (concat org-directory "/Programming Code/Code Snippets/"))
+  :config
+  (add-to-list 'org-capture-templates
+               '("s" "code [s]nippet archive" entry
+                 (file (lambda () (concat code-archive-dir "snippets.org")))
+                 "* %? %(code-archive-org-src-tag \"%F\")
+:PROPERTIES:
+:FILE:  %F
+:END:
+%(code-archive-do-org-capture \"%F\")")))
+
 
 (provide 'init-prog-snippet)
 
