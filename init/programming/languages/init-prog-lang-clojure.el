@@ -293,6 +293,15 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 (use-package flycheck-clj-kondo
   :ensure t
   :after clojure-mode)
+
+;;; [ Emidje ] -- Test runner, report viewer and formatting tool for Midje within Emacs.
+
+(use-package emidje
+  :ensure t
+  :defer t
+  :commands (emidje-mode)
+  :init (eval-after-load 'cider #'emidje-setup))
+
 ;;; [ kibit-helper ] -- Conveniently use the Kibit Leiningen plugin from Emacs.
 
 ;; (use-package kibit-helper
