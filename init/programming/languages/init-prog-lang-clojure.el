@@ -288,6 +288,11 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
                '("^\\*cljr-*\\*" . (display-buffer-below-selected)))
   )
 
+;;; [ flycheck-clj-kondo ] -- Emacs integration for clj-kondo via flycheck.
+
+(use-package flycheck-clj-kondo
+  :ensure t
+  :after clojure-mode)
 ;;; [ kibit-helper ] -- Conveniently use the Kibit Leiningen plugin from Emacs.
 
 ;; (use-package kibit-helper
