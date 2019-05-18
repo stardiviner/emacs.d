@@ -12,20 +12,17 @@
 (use-package irfc
   :ensure t
   :commands (irfc-visit)
-  :bind (:map document-prefix
-              ("r" . irfc-visit))
+  :bind (:map document-prefix ("r" . irfc-visit))
+  :init (setq irfc-directory (concat user-emacs-directory "documentations/RFC"))
   :config
-  (setq irfc-directory (concat (getenv "HOME") "/Code/documentations/RFC"))
   (setq irfc-assoc-mode t)        ; RFC documents are associated with `irfc-mode'.
-
   (setq irfc-highlight-requirement-keywords t
         irfc-requirement-keywords '("MUST" "MUST NOT" "REQUIRED"
                                     "SHALL" "SHALL NOT" "SHOULD" "SHOULD NOT"
                                     "RECOMMENDED" "NOT RECOMMENDED"
                                     "MAY" "OPTIONAL" "NOT")
         irfc-requirement-keyword-overlay nil
-        irfc-highlight-references t)
-  )
+        irfc-highlight-references t))
 
 
 ;;; [ rfcview ]
