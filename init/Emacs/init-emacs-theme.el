@@ -17,9 +17,9 @@
 
 (require 'color) ; for `color-lighten-name' and `color-darken-name'
 
-(use-package delight
-  :ensure t
-  :delight buffer-face-mode)
+;; (use-package delight ; for `doom-themes'
+;;   :ensure t
+;;   :delight buffer-face-mode)
 
 ;;; [ leuven-theme ]
 
@@ -28,6 +28,10 @@
 ;;   :no-require t
 ;;   :init (require 'leuven-theme)
 ;;   :config (load-theme 'leuven t))
+
+;; (use-package parchment-theme
+;;   :ensure t
+;;   :config (load-theme 'parchment t))
 
 ;;; [ eziam-theme ] -- A mostly monochrome theme, inspired by Tao and Leuven, with dark and light versions.
 
@@ -54,7 +58,8 @@
 
 (use-package one-themes
   ;; :ensure t
-  :quelpa (one-themes :fetcher git :repo "stardiviner/emacs-one-themes")
+  ;; :quelpa (one-themes :fetcher git :repo "stardiviner/emacs-one-themes")
+  :load-path "~/Code/Emacs/one-themes"
   :config (load-theme 'one-dark t))
 
 
