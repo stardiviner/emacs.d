@@ -17,12 +17,9 @@
 
 
 (setq org-tag-persistent-alist
-      '((:startgroup)
-        (:grouptags)
-        ("noexport" . ?E)
+      '(("noexport" . ?E)
         ("deprecated" . ?D)
-        ("outdated" . ?O)
-        (:endgroup)))
+        ("outdated" . ?O)))
 
 (setq org-tag-alist
       '((:startgroup) ("Org" . ?o) ("Idea" . ?i) (:endgroup)

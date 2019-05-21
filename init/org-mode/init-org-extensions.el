@@ -13,17 +13,10 @@
 
 ;; You can change the tag to any complex tag matching string by
 ;; setting the `org-crypt-tag-matcher' variable.
-(setq org-crypt-tag-matcher "encrypt")
 (add-to-list 'org-default-properties "CRYPTKEY")
 
-;;; add `org-crypt' required tag to default tag list.
-(setq org-tag-alist
-      (append '((:startgroup . nil)
-                ("org-crypt" . nil)
-                (:grouptags . nil)
-                ("encrypt" . ?C)
-                (:endgroup . nil))
-              org-tag-alist))
+;;; add `org-crypt' required tag to default persistent tag list.
+(add-to-list 'org-tag-persistent-alist '("crypt" . ?b))
 
 ;;; set your public keyring.
 (setq org-crypt-key "F09F650D7D674819892591401B5DF1C95AE89AC3")
