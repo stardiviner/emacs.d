@@ -54,7 +54,8 @@
     (setq-local company-dabbrev-code-modes '(text-mode magit-diff-mode))
     (setq-local company-dabbrev-ignore-buffers
                 #'my:company-dabbrev-ignore-except-magit-diff)
-    (setq company-dabbrev-code-other-buffers 'all))
+    (setq company-dabbrev-code-other-buffers 'all)
+    (flyspell-mode-on))
   (add-hook 'git-commit-setup-hook #'my:git-commit-setup-hook))
 
 ;;; [ Magit ]
@@ -140,13 +141,9 @@
               :map git-messenger-map
               ("m" . git-messenger:copy-message)
               ("c" . git-messenger:copy-message))
-  :init
-  (setq git-messenger:show-detail t ; always show detail message.
-        ;; git-messenger:handled-backends '(git svn)
-        git-messenger:use-magit-popup t)
-  :config
-  ;; enable `magit-commit-mode' after typing 's', 'S', 'd'
-  (add-hook 'git-messenger:popup-buffer-hook 'magit-commit-mode))
+  :init (setq git-messenger:show-detail t ; always show detail message.
+              ;; git-messenger:handled-backends '(git svn)
+              git-messenger:use-magit-popup t))
 
 ;;; [ git-timemachine ] -- time-machine of Git revisions.
 
