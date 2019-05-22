@@ -25,8 +25,8 @@
 
 (use-package php-eldoc
   :ensure t
-  :defer t
-  :init (add-hook 'php-mode-hook 'php-eldoc-enable))
+  :ensure auto-complete
+  :init (require 'auto-complete) (add-hook 'php-mode-hook 'php-eldoc-enable))
 
 ;;; [ ob-php ] -- execute PHP within org-mode blocks.
 
