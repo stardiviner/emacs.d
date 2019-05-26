@@ -147,7 +147,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
           (pri-current (org-get-priority (thing-at-point 'line t))))
       (if (= pri-value pri-current)
           subtree-end
-	nil)))
+        nil)))
 
   (add-to-list
    'org-agenda-custom-commands
@@ -181,20 +181,20 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
   (add-to-list 'org-agenda-custom-commands
                '("p" "[p]rogramming - BUG, ISSUE, FEATURE etc."
-		 ((todo "BUG")
+                 ((todo "BUG")
                   (todo "ISSUE")
                   (todo "FEATURE"))))
 
   (add-to-list 'org-agenda-custom-commands
                '("w" "[W]ork"
-		 todo "WORK"
-		 ((org-agenda-overriding-header "Work"))))
+                 todo "WORK"
+                 ((org-agenda-overriding-header "Work"))))
 
   ;; used to filter out fragment time tasks.
   (add-to-list 'org-agenda-custom-commands
                '("f" "[f]ragment time tasks"
-		 tags "fragment"
-		 ((org-agenda-overriding-header "Fragment Tasks"))))
+                 tags "fragment"
+                 ((org-agenda-overriding-header "Fragment Tasks"))))
 
   ;; Show Org Agenda tasks with heigh spacing based on clock time.
   ;; https://emacs-china.org/t/org-agenda/8679
@@ -207,9 +207,9 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
       (let* ((colors (list "#aa557f" "DarkGreen" "DarkSlateGray" "DarkSlateBlue"))
              pos
              duration)
-	(nconc colors colors)
-	(goto-char (point-min))
-	(while (setq pos (next-single-property-change (point) 'duration))
+        (nconc colors colors)
+        (goto-char (point-min))
+        (while (setq pos (next-single-property-change (point) 'duration))
           (goto-char pos)
           (when (and (not (equal pos (point-at-eol)))
                      (setq duration (org-get-at-bol 'duration)))
