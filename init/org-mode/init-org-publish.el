@@ -105,25 +105,26 @@
          :html-inline-images t
          ;; [ stylesheet ]
          :html-head-include-default-style t
-         :html-head-extra ,(concat
-                            ;; icon
-                            "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
-                            "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
-                            ;; Stylesheet
-                            "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
-                            "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
-                            ;; RSS
-                            "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"https://stardiviner.github.io/Blog/index.xml\">"
-                            ;; org-info.js
-                            ;; "<script type=\"text/javascript\" language=\"JavaScript\" src=\"assets/scripts/org-info-src.js\"></script>"
-                            ;; JQuery
-                            ;; "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>"
-                            "<script type=\"text/javascript\" src=\"assets/scripts/jquery-3.4.1.min.js\"></script>"
-                            ;; main.js
-                            "<script type=\"text/javascript\" src=\"assets/scripts/main.js\"></script>"       
-                            ;; MathJax
-                            "<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML\"></script>"
-                            )
+         :html-head-extra
+         ,(concat
+           ;; icon
+           "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
+           "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
+           ;; Stylesheet
+           "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
+           "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
+           ;; RSS
+           "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"https://stardiviner.github.io/Blog/index.xml\">"
+           ;; org-info.js
+           ;; "<script type=\"text/javascript\" language=\"JavaScript\" src=\"/assets/scripts/org-info-src.js\"></script>"
+           ;; JQuery
+           ;; "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>"
+           "<script type=\"text/javascript\" src=\"/assets/scripts/jquery-3.4.1.min.js\"></script>"
+           ;; main.js
+           "<script type=\"text/javascript\" src=\"/assets/scripts/main.js\"></script>"
+           ;; MathJax
+           "<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML\"></script>"
+           )
          ;; :style "This is raw HTML for stylesheet <link>'s"
          ;; [ sitemap ]
          ;; :auto-sitemap t ; generate sitemap.html
@@ -199,11 +200,24 @@
    :html-head-include-default-style t
    :html-head-extra
    ,(concat
-     "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
-     "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
      ;; icon
      "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
      "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
+     ;; Stylesheet
+     "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
+     "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
+     ;; RSS
+     "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"https://stardiviner.github.io/Blog/index.xml\">"
+     ;; org-info.js
+     ;; "<script type=\"text/javascript\" language=\"JavaScript\" src=\"/assets/scripts/org-info-src.js\"></script>"
+     ;; JQuery
+     ;; "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>"
+     "<script type=\"text/javascript\" src=\"/assets/scripts/jquery-3.4.1.min.js\"></script>"
+     ;; main.js
+     "<script type=\"text/javascript\" src=\"/assets/scripts/main.js\"></script>"       
+     ;; MathJax
+     "<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML\"></script>"
+
      ;; tongji.baidu.com site statistics
      "<script>var _hmt = _hmt || [];(function() {var hm = document.createElement(\"script\");hm.src = \"https://hm.baidu.com/hm.js?67a64d34ee16392a25f7065993fa3aca\";var s = document.getElementsByTagName(\"script\")[0];s.parentNode.insertBefore(hm, s);})();</script>"
      )
@@ -247,12 +261,26 @@
                :html-inline-images t
                ;; [ stylesheet ]
                :html-head-include-default-style t
-               :html-head-extra ,(concat "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
-                                         "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
-                                         ;; icon
-                                         "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
-                                         "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
-                                         )
+               :html-head-extra
+               ,(concat
+                 ;; icon
+                 "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
+                 "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
+                 ;; Stylesheet
+                 "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
+                 "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
+                 ;; RSS
+                 "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"https://stardiviner.github.io/Blog/index.xml\">"
+                 ;; org-info.js
+                 ;; "<script type=\"text/javascript\" language=\"JavaScript\" src=\"/assets/scripts/org-info-src.js\"></script>"
+                 ;; JQuery
+                 ;; "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>"
+                 "<script type=\"text/javascript\" src=\"/assets/scripts/jquery-3.4.1.min.js\"></script>"
+                 ;; main.js
+                 "<script type=\"text/javascript\" src=\"/assets/scripts/main.js\"></script>"       
+                 ;; MathJax
+                 "<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML\"></script>"
+                 )
                ;; [ info.js]
                :html-use-infojs t
                ))
@@ -293,12 +321,24 @@
                :html-inline-images t
                ;; [ stylesheet ]
                :html-head-include-default-style t
-               :html-head-extra ,(concat "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
-                                         "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
-                                         ;; icon
-                                         "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
-                                         "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
-                                         )
+               :html-head-extra
+               ,(concat
+                 ;; icon
+                 "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
+                 "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
+                 ;; Stylesheet
+                 "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
+                 "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
+                 ;; RSS
+                 "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"https://stardiviner.github.io/Blog/index.xml\">"
+                 ;; org-info.js
+                 ;; "<script type=\"text/javascript\" language=\"JavaScript\" src=\"/assets/scripts/org-info-src.js\"></script>"
+                 ;; JQuery
+                 ;; "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>"
+                 "<script type=\"text/javascript\" src=\"/assets/scripts/jquery-3.4.1.min.js\"></script>"
+                 ;; main.js
+                 "<script type=\"text/javascript\" src=\"/assets/scripts/main.js\"></script>"
+                 )
                ;; [ info.js]
                :html-use-infojs t
                ))
@@ -339,12 +379,24 @@
                :html-inline-images t
                ;; [ stylesheet ]
                :html-head-include-default-style t
-               :html-head-extra ,(concat "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
-                                         "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
-                                         ;; icon
-                                         "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
-                                         "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
-                                         )
+               :html-head-extra
+               ,(concat
+                 ;; icon
+                 "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
+                 "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
+                 ;; Stylesheet
+                 "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
+                 "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
+                 ;; RSS
+                 "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"https://stardiviner.github.io/Blog/index.xml\">"
+                 ;; org-info.js
+                 ;; "<script type=\"text/javascript\" language=\"JavaScript\" src=\"/assets/scripts/org-info-src.js\"></script>"
+                 ;; JQuery
+                 ;; "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>"
+                 "<script type=\"text/javascript\" src=\"/assets/scripts/jquery-3.4.1.min.js\"></script>"
+                 ;; main.js
+                 "<script type=\"text/javascript\" src=\"/assets/scripts/main.js\"></script>"
+                 )
                ;; [ info.js]
                :html-use-infojs t
                ))
@@ -385,12 +437,24 @@
                :html-inline-images t
                ;; [ stylesheet ]
                :html-head-include-default-style t
-               :html-head-extra ,(concat "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
-                                         "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
-                                         ;; icon
-                                         "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
-                                         "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
-                                         )
+               :html-head-extra
+               ,(concat
+                 ;; icon
+                 "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
+                 "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
+                 ;; Stylesheet
+                 "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
+                 "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
+                 ;; RSS
+                 "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"https://stardiviner.github.io/Blog/index.xml\">"
+                 ;; org-info.js
+                 ;; "<script type=\"text/javascript\" language=\"JavaScript\" src=\"/assets/scripts/org-info-src.js\"></script>"
+                 ;; JQuery
+                 ;; "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>"
+                 "<script type=\"text/javascript\" src=\"/assets/scripts/jquery-3.4.1.min.js\"></script>"
+                 ;; main.js
+                 "<script type=\"text/javascript\" src=\"/assets/scripts/main.js\"></script>"
+                 )
                ;; [ info.js]
                :html-use-infojs t
                ))
@@ -431,12 +495,24 @@
                :html-inline-images t
                ;; [ stylesheet ]
                :html-head-include-default-style t
-               :html-head-extra ,(concat "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
-                                         "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
-                                         ;; icon
-                                         "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
-                                         "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
-                                         )
+               :html-head-extra
+               ,(concat
+                 ;; icon
+                 "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
+                 "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
+                 ;; Stylesheet
+                 "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
+                 "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
+                 ;; RSS
+                 "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"https://stardiviner.github.io/Blog/index.xml\">"
+                 ;; org-info.js
+                 ;; "<script type=\"text/javascript\" language=\"JavaScript\" src=\"/assets/scripts/org-info-src.js\"></script>"
+                 ;; JQuery
+                 ;; "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>"
+                 "<script type=\"text/javascript\" src=\"/assets/scripts/jquery-3.4.1.min.js\"></script>"
+                 ;; main.js
+                 "<script type=\"text/javascript\" src=\"/assets/scripts/main.js\"></script>"
+                 )
                ;; [ info.js]
                :html-use-infojs t
                ))
