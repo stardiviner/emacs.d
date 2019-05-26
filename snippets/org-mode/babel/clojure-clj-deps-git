@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: clj install deps through git
+# key: babel-clj-install-git
+# group: babel.clojure
+# expand-env: ((yas-indent-line nil) (yas-wrap-around-region 'nil))
+# --
+**** Clojure CLI/deps.edn
+
+#+begin_src sh :async
+clj -Sdeps '{:extra-deps {${1:artifact name} {:git/url "${2:URL}"
+                                 :sha "${3:SHA}"}}}'
+#+end_src

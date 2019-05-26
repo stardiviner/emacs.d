@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: clj install
-# key: babel-clj-install
+# name: clj install deps through edn
+# key: babel-clj-install-edn
 # group: babel.clojure
 # expand-env: ((yas-indent-line nil) (yas-wrap-around-region 'nil))
 # --

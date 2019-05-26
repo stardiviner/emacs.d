@@ -3,4 +3,4 @@
 # key: kbd
 # group: macro
 # --
-{{{kbd(${1:C-c })}}} $0
+{{{kbd(${1:C-c })}}}$0
