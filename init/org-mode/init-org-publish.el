@@ -510,7 +510,7 @@
 
 (use-package org-capture
   :defer t
-  :init
+  :config
   (defun my/org-capture-template-blog--generate-template ()
     (let ((title (read-from-minibuffer "Blog Title: ")))
       (format "* %s\n:PROPERTIES:\n:DATE: %%U\n:END:\n\n[[file:%s.org][%s]]\n%%i"
