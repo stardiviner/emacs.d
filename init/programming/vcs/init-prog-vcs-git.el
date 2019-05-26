@@ -155,6 +155,13 @@
 ;; (use-package magit-tbdiff
 ;;   :ensure t)
 
+;;; [ magit-diff-flycheck ] -- Flycheck for Magit diff buffers!
+
+(use-package magit-diff-flycheck
+  :ensure t
+  :defer t
+  :commands (magit-diff-flycheck))
+
 ;;; [ magit-lfs ] -- Magit support for GLFS: Git Large File System
 
 ;; (use-package magit-lfs
