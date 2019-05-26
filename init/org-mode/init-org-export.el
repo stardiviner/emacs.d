@@ -13,7 +13,8 @@
 (setq org-export-with-clocks t
       org-export-with-planning t
       org-export-with-timestamps t
-      org-export-with-properties t
+      org-export-with-properties nil
+      ;; org-export-with-drawers (not "LOGBOOK")
       org-export-with-tags t
       ;; don't raise error exception when handling broken link to interrupt exporting process.
       org-export-with-broken-links 'mark)
