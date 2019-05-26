@@ -503,6 +503,7 @@
 (defun my-org-publish-reset ()
   "Reset org-publish with DELETE all generated files."
   (interactive)
+  (require 'init-org-publish) ; reload org-publish init file to refresh new settings.
   (when (y-or-n-p "Are you seriously sure want to delete all org-publish files? ")
     (shell-command "rm -rf ~/.org-timestamps/")
     (shell-command "rm -rf ~/org-publish/*")))
