@@ -181,7 +181,8 @@
   (company-mode 1)
   (if (fboundp 'company-box-mode)
       (company-box-mode -1))
-  (setq-local company-frontends '(company-pseudo-tooltip-frontend))
+  ;; (setq-local company-frontends '(company-pseudo-tooltip-frontend))
+  (setq-local company-frontends '(company-box-frontend))
   (setq-local company-tooltip-limit 4)
   (setq-local company-tooltip-minimum 1))
 
