@@ -191,22 +191,16 @@
 (use-package company-box
   :ensure t
   :ensure all-the-icons
+  :after (company all-the-icons)
   :defer t
   :commands (company-box-mode)
   :hook (company-mode . company-box-mode)
   :init (setq company-box-doc-enable nil ; disable auto `company-box-doc' timer.
-              company-box-doc-delay 0.5
               company-box-show-single-candidate t ; for still can use doc popup keybinding.
-              )
+              company-box-doc-delay 0.5)
   :config
-  (add-to-list 'company-box-frame-parameters
-               '(font . "-SRC-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
-  (add-to-list 'company-box-frame-parameters
-               '(font-parameter . "-SRC-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
-  (add-to-list 'company-box-frame-parameters
-               '(internal-border-width . 2))
-  (add-to-list 'company-box-frame-parameters
-               '(border-color . "dim gray"))
+  (add-to-list 'company-box-frame-parameters '(internal-border-width . 2))
+  (add-to-list 'company-box-frame-parameters '(border-color . "dim gray"))
   
   (setq company-box-backends-colors
         '((company-capf . (:candidate "LightSeaGreen"))
