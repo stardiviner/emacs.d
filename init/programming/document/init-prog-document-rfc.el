@@ -46,6 +46,14 @@
   ;; (define-key rfcview-mode-map (kbd "d") 'rfcview-imenu-index-function)
   )
 
+;;; [ rfc-mode ] -- RFC document browser and viewer.
+
+(use-package rfc-mode
+  :ensure t
+  :defer t
+  :commands (rfc-mode-browse)
+  :init (setq rfc-mode-directory "~/.emacs.d/documentations/RFC/"))
+
 
 (provide 'init-prog-document-rfc)
 
