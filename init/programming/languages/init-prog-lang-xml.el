@@ -13,8 +13,9 @@
   :mode ("\\.xml\\'" . nxml-mode)
   :defer t
   :config
-  ;; company-nxml
+  ;; `company-nxml'
   (defun my-company-nxml-settings ()
+    (require 'company-nxml)
     (setq-local company-minimum-prefix-length 1)
     (add-to-list (make-local-variable 'company-backends) 'company-nxml))
   (add-hook 'nxml-mode-hook #'my-company-nxml-settings)

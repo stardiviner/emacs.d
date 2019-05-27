@@ -22,6 +22,11 @@
 ;;   :ensure t
 ;;   :defer t)
 
+;;; [ oddmuse ] --
+
+(defun my-oddmuse-setup ()
+  (require 'company-oddmuse)
+  (my-company-add-backend-locally 'company-oddmuse))
 
 ;;; [ kiwix ] -- Kiwix client for Emacs.
 

@@ -14,7 +14,11 @@
   :defer t
   :mode (("CMakeLists\\.txt\\'" . cmake-mode)
          ("\\.cmake\\'" . cmake-mode))
-  :init (use-package cmake-font-lock :ensure t))
+  :init (use-package cmake-font-lock :ensure t)
+  :config (add-hook 'cmake-mode-hook
+                    #'(lambda ()
+                        (require 'company-cmake)
+                        (my-company-add-backend-locally 'company-cmake))))
 
 ;;; [ eldoc-cmake ] -- Eldoc support for CMake.
 

@@ -32,6 +32,7 @@
   :defer t
   :init
   (defun my:company-css-setup ()
+    (require 'company-css)
     (my-company-add-backend-locally 'company-css))
   (add-hook 'css-mode-hook #'my:company-css-setup))
 

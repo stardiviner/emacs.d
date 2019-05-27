@@ -13,6 +13,12 @@
 (setq mac-command-modifier 'meta) ; sets the Command key as Meta
 (setq mac-control-modifier 'meta) ; sets the Control key as Meta
 
+;;; [ company-xcode ]
+
+(defun my-xcode-setup ()
+  (require 'company-xcode)
+  (my-company-add-backend-locally 'company-xcode))
+
 ;;; [ counsel-osx-app ]
 
 (use-package counsel-osx-app
