@@ -49,7 +49,8 @@
                    ;; :separate company-semantic
                    )
                   (company-keywords :with company-abbrev)
-                  company-ispell))
+                  ;; company-ispell
+                  ))
   
   :config
   (defun my-company-add-backend-locally (backend)
