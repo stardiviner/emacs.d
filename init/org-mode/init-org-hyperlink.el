@@ -108,12 +108,13 @@ Optional for Org-mode file: `LINK'."
         ("\\.xlsx\\'" . "libreoffice %s")
         ;; Video
         ("\\.mp4\\'" . "mplayer %s")
+        ("\\.mkv\\'" . "mplayer %s")
         ("\\.mov\\'" . "mplayer %s")
         ("\\.ogv\\'" . "mplayer %s")
         ("\\.webm\\'" . "mplayer %s")
         ("\\.flv\\'" . "mplayer %s")
         ("\\.f4v\\'" . "mplayer %s")
-        ("\\.mkv\\'" . "mplayer %s")
+        ("\\.rmvb\\'" . "mplayer %s")
         ;; Audio
         ("\\.mp3\\'" . "play %s")
         ("\\.ogg\\'" . "mplayer %s")
