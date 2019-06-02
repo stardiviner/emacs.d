@@ -267,7 +267,7 @@
 ;; (require 'init-prog-lang-rdf)
 ;; (require 'init-prog-lang-sdlang)
 ;; (require 'init-prog-lang-haskell)
-(require 'init-prog-lang-ML)
+;; (require 'init-prog-lang-ML)
 ;; (require 'init-prog-lang-scala)
 ;; (require 'init-prog-lang-elixir)
 ;; (require 'init-prog-lang-erlang)
@@ -289,7 +289,7 @@
 ;; (require 'init-prog-lang-forth)
 ;; (require 'init-prog-lang-HDL)
 ;; (require 'init-prog-lang-applescript)
-(require 'init-prog-lang-solidity)
+;; (require 'init-prog-lang-solidity)
 
 ;;; [ Query Languages ]
 ;; SQL
