@@ -80,6 +80,13 @@ helpful for learning and remembering forgotten binds."
 
 (define-key help-map (kbd "M-s") 'search-keybind)
 
+;;; [ key-quiz ] -- Key Quiz game for GNU Emacs.
+
+(use-package key-quiz
+  :ensure t
+  :defer t
+  :commands (key-quiz))
+
 
 (provide 'init-emacs-keybinding)
 
