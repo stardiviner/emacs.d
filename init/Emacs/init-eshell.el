@@ -211,6 +211,15 @@ otherwise, they are appended."
        (propertize " " 'display (create-image img)))))
   )
 
+;;; [ eshell-toggle ] -- Show/hide eshell at the bottom of active window with directory of its buffer.
+
+(use-package eshell-toggle
+  :ensure t
+  :defer t
+  :commands (eshell-toggle)
+  :bind ("C-x !" . eshell-toggle)
+  :custom (eshell-toggle-use-projectile-root t))
+
 ;;; [ eshell-bookmark ] -- Integrate bookmarks with EShell.
 
 (use-package eshell-bookmark
