@@ -13,7 +13,8 @@
   :ensure t
   :defer t
   :commands (auto-complete-mode global-auto-complete-mode)
-  ;; :init (global-auto-complete-mode 1) ; use auto-complete globally
+  :init (require 'auto-complete-config) ; load `ac-source-yasnippet'
+  ;; (global-auto-complete-mode 1) ; use auto-complete globally
   ;; (ac-config-default)
   :config
   ;; fuzzy completion
