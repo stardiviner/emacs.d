@@ -26,26 +26,16 @@
   :init (setq doom-modeline-buffer-file-name-style 'buffer-name
               doom-modeline-icon t ; don't use icon will be faster
               doom-modeline-github nil
-              doom-modeline-irc nil)
+              doom-modeline-irc nil
+              ;; Fix the laggy issue, by don't compact font caches during GC.
+              inhibit-compacting-font-caches t)
   :config
-  ;; doom-modeline segment replace IRC buffer name to icons.
-  ;; https://github.com/seagle0128/doom-modeline/pull/110
-  (defun smf/irc-icons (buffer)
-    "Given a BUFFER name, return an icon. Else return buffer."
-    (cond
-     ((string-match "#mercurial" buffer)
-      (all-the-icons-faicon "mercury" :v-adjust .05))
-     ((string-match "#bitbucket" buffer)
-      (all-the-icons-faicon "bitbucket" :v-adjust .05))
-     ((string-match "#octobus-hg" buffer)
-      ;; this inserts a custom fonticon, in this case, octobus
-      (propertize "\xe900"
-                  'face '(:family "smf-custom-icons")
-                  'rear-nonsticky t
-                  'display '(raise -0.1)
-                  'font-lock-ignore t))
-     (t buffer)))
-  (setq doom-modeline-irc-stylize #'smf/irc-icons))
+  ;; remove `workspace-name' segment
+  (doom-modeline-def-modeline 'remove-workspace
+    '(bar window-number modals matches buffer-info remote-host buffer-position parrot selection-info)
+    '(objed-state misc-info persp-name fancy-battery irc mu4e github debug lsp minor-modes input-method indent-info buffer-encoding major-mode process vcs checker))
+  (add-hook 'doom-modeline-mode-hook
+            #'(lambda () (doom-modeline-set-modeline 'remove-workspace))))
 
 
 (provide 'init-emacs-mode-line)
