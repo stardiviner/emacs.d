@@ -1,6 +1,6 @@
 ;;; init-Neo4j.el --- init for Neo4j.
 
-;;; Time-stamp: <2019-03-17 16:00:55 stardiviner>
+;;; Time-stamp: <2019-06-14 10:41:52 stardiviner>
 
 ;;; Commentary:
 
@@ -34,7 +34,17 @@
 (use-package ob-cypher
   :ensure t
   :defer t
-  :commands (org-babel-execute:cypher))
+  :commands (org-babel-execute:cypher)
+  :config
+  (add-to-list 'org-babel-load-languages '(cypher . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("cypher" . "cypher"))
+  (add-to-list 'org-babel-default-header-args:cypher
+               '(:eval . "yes"))
+  (add-to-list 'org-babel-default-header-args:cypher
+               '(:noweb . "yes"))
+  (add-to-list 'org-babel-default-header-args:cypher
+               '(:results . "output")))
 
 
 
