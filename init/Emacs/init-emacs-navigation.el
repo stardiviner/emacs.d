@@ -83,16 +83,6 @@ This is the same as using \\[set-mark-command] with the prefix argument."
       (when (= p (point)) ad-do-it))))
 
 
-;;; [ show-marks ]
-
-(use-package show-marks
-  :ensure t
-  :bind ("C-c `" . show-marks)
-  :init
-  (add-to-list 'display-buffer-alist
-               '("^\\*marks\\*" (display-buffer-reuse-window display-buffer-below-selected))))
-
-
 ;;; [ ace-jump-mode -- Ace Jump Mode ]
 
 (use-package ace-jump-mode
