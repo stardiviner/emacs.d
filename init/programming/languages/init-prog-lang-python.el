@@ -113,7 +113,9 @@
   :ensure t
   :ensure-system-package ((pyls . "pip install python-language-server"))
   :defer t
-  :hook (python-mode . lsp))
+  :hook (python-mode . lsp)
+  :init (with-eval-after-load 'lsp-clients
+          (add-to-list 'lsp-clients-python-library-directories "/usr/local/")))
 
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
 
