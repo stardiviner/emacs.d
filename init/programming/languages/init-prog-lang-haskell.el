@@ -13,19 +13,18 @@
   :ensure t
   :defer t
   :commands (run-haskell haskell-interactive-switch haskell-interactive-bring)
-  :bind (
-         :map haskell-mode-map
-         ("C-c C-s" . haskell-interactive-bring)
-         ("C-c C-k" . haskell-interactive-mode-clear)
-         ("M-." . haskell-mode-jump-to-def-or-tag)
-         ("C-c C-p C-l" . haskell-process-load-or-reload)
-         ("C-c C-p C-t" . haskell-process-do-type)
-         ("C-c C-p C-i" . haskell-process-do-info)
-         ("C-c C-p C-c" . haskell-process-cabal-build)
-         ("C-c C-p M-c" . haskell-process-cabal)
-         ([f8] . haskell-navigate-imports)
-         ([f5] . haskell-compile)
-         )
+  :bind (:map haskell-mode-map
+              ("C-c C-s" . haskell-interactive-bring)
+              ("C-c C-k" . haskell-interactive-mode-clear)
+              ("M-." . haskell-mode-jump-to-def-or-tag)
+              ("C-c C-p C-l" . haskell-process-load-or-reload)
+              ("C-c C-p C-t" . haskell-process-do-type)
+              ("C-c C-p C-i" . haskell-process-do-info)
+              ("C-c C-p C-c" . haskell-process-cabal-build)
+              ("C-c C-p M-c" . haskell-process-cabal)
+              ([f8] . haskell-navigate-imports)
+              ([f5] . haskell-compile)
+              )
   :defer t
   :config
   (setq haskell-font-lock-symbols t

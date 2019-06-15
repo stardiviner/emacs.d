@@ -64,15 +64,10 @@
          ;; :map read-expression-map ("C-r" . counsel-minibuffer-history) ; in [M-:]
          ;; :map ivy-minibuffer-map ("M-y" . ivy-next-line)
          )
-  :init
-  (unless (boundp 'search-prefix)
-    (define-prefix-command 'search-prefix))
+  :preface (unless (boundp 'search-prefix) (define-prefix-command 'search-prefix))
   (define-key search-prefix (kbd "M-g") 'counsel-grep)
-  ;; [C-u] prompt for dir support
-  (define-key search-prefix (kbd "M-r") 'counsel-rg)
-  ;; (define-key search-prefix (kbd "M-a") 'counsel-ag)
-
-  (setq counsel-mode-override-describe-bindings t)
+  (define-key search-prefix (kbd "M-r") 'counsel-rg) ; [C-u] prompt for dir support
+  :init (setq counsel-mode-override-describe-bindings t)
   (counsel-mode 1))
 
 ;;; [ ivy-posframe ] -- Using posframe to show Ivy.

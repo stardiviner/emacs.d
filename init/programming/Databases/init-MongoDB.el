@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-;;; [ mongo ]
+;;; [ mongo ] -- MongoDB driver for Emacs Lisp.
 
 (use-package mongo
   :ensure t
