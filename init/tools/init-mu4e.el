@@ -222,6 +222,11 @@
   ;;                      (t "numbchild@gmail.com")))
   ;;               )))
 
+  ;; [ `org-mu4e-compose-org-mode' ]
+  ;;
+  ;; [mu4e] org-mu4e-compose-org-mode enabled; press [M-m] before issuing
+  ;; message-mode commands.
+  
   ;; (add-hook 'mu4e-compose-mode-hook #'visual-fill-column-mode)
   (add-hook 'mu4e-compose-mode-hook #'turn-on-auto-fill)
   (add-hook 'mu4e-compose-mode-hook #'aggressive-fill-paragraph-mode)
