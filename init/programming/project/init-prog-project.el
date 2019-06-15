@@ -30,7 +30,8 @@
 
 (use-package projectile-variable
   :ensure t
-  :defer t)
+  :defer t
+  :commands (projectile-variable-put projectile-variable-get projectile-variable-alist))
 
 ;;; [ project-shells ] -- manage the shell buffers for each project.
 
