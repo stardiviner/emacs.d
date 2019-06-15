@@ -29,6 +29,15 @@
 
 (setq help-at-pt-display-when-idle t)
 
+;;; [ eldoc-eval ] -- Enable eldoc support when minibuffer is in use.
+
+;; (use-package eldoc-eval
+;;   :ensure t
+;;   :defer t
+;;   :commands (eldoc-eval-expression)
+;;   :bind ("M-:" . eldoc-eval-expression)
+;;   :init (setq eldoc-show-in-mode-line-delay 1))
+
 
 (provide 'init-prog-document-eldoc)
 
