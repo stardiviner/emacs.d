@@ -58,7 +58,7 @@
         ;; Code
         (sequence "CODE(c@/!)" "BUG(b@/!)" "ISSUE(i@/!)" "ERROR(e@/!)" "FEATURE(f@/!)" "Pull-Request(p@/!)" "SECURITY(s@/!)" "|" "DONE(d@/!)")
         ;; Work
-        (type "WORK(w@/!)" "MEETING(m@/!)" "JOB(j@/!)" "|" "DONE(d@/!)")
+        (type "WORK(w@/!)" "MEETING(m@/!)" "JOB(j@/!)" "BUSINESS(B@/!)" "|" "DONE(d@/!)")
         ;; Learn
         (type "LEARN(N!)" "REVIEW(R!)" "|" "DONE(d@/!)")
         ;; Life
@@ -73,7 +73,7 @@
   "Face for Org TODO keyword."
   :group 'org-faces)
 (defface org-todo-keyword-repeat-face
-  '((t :foreground "cyan" :family "Comic Sans MS"
+  '((t :foreground "dark gray" :family "Comic Sans MS"
        :weight bold :box '(:color "dim gray" :line-width -1)))
   "Face for Org REPEAT keyword."
   :group 'org-faces)
@@ -201,6 +201,7 @@
         ;; work
         ("WORK" . org-todo-keyword-work-face)
         ("JOB" . org-todo-keyword-work-face)
+        ("BUSINESS" . org-todo-keyword-work-face)
         ;; learn
         ("LEARN" . org-todo-keyword-learn-face)
         ))
