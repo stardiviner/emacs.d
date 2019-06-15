@@ -119,14 +119,14 @@
 ;;; [ coderef ]
 ;;; prepend comment char ahead of `org-coderef-label'.
 ;; auto prefix with comment char when create code ref in src block with `org-store-link'.
-(defun my-org-src-coderef-format (result)
+(defun org-src-coderef-format-prepend-comment (result)
   "Auto prefix with comment char before `org-coderef-label' `RESULT'."
   ;;; notice `org-src-coderef-format' is invoked twice. got two different `comment-start' "#" and ";".
   (if (string= org-coderef-label-format "(ref:%s)")
       (setq-local org-coderef-label-format
                   (format "%s %s" comment-start org-coderef-label-format))
     org-coderef-label-format))
-(advice-add 'org-src-coderef-format :filter-return 'my-org-src-coderef-format)
+(advice-add 'org-src-coderef-format :filter-return 'org-src-coderef-format-prepend-comment)
 
 ;;; ding around source block execution.
 (add-hook 'org-src-mode-hook #'sound-tick)
