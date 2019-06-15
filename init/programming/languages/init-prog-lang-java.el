@@ -67,12 +67,12 @@
 
 ;;; [ JDEE ] -- Java Development Environment for Emacs.
 
-(use-package jdee
-  :ensure t
-  :defer t
-  ;; :mode ("\\.java\\'" . jdee-mode)
-  :commands (jdee-mode)
-  :init (setq jdee-server-dir "~/Code/Emacs/jdee-server/target/"))
+;; (use-package jdee
+;;   :ensure t
+;;   :defer t
+;;   ;; :mode ("\\.java\\'" . jdee-mode)
+;;   :commands (jdee-mode)
+;;   :init (setq jdee-server-dir "~/Code/Emacs/jdee-server/target/"))
 
 ;;; [ java-imports ] -- dealing with Java imports.
 
