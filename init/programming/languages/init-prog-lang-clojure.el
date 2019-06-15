@@ -300,9 +300,9 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 ;;; [ flycheck-clj-kondo ] -- Emacs integration for clj-kondo via flycheck.
 
-(use-package flycheck-clj-kondo
-  :ensure t
-  :after clojure-mode)
+;; (use-package flycheck-clj-kondo
+;;   :ensure t
+;;   :after clojure-mode)
 
 ;;; [ Emidje ] -- Test runner, report viewer and formatting tool for Midje within Emacs.
 
