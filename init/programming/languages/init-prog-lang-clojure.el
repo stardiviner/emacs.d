@@ -276,7 +276,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   ;; :pin "melpa-unstable" ; fix clj-refactor not compatible with CIDER issue.
   :defer t
   :delight clj-refactor-mode
-  :init
+  :init (setq cljr-suppress-middleware-warnings t)
   (defun my:clj-refactor-setup ()
     (clj-refactor-mode 1)
     ;; (cljr-add-keybindings-with-prefix "C-c C-m")
