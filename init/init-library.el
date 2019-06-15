@@ -49,6 +49,36 @@
   :ensure t
   :defer t)
 
+;;; [ aio ] -- async/await for Emacs Lisp.
+
+;; (use-package aio
+;;   :ensure t)
+
+;;; [ deferred ] -- Simple asynchronous functions for Emacs Lisp.
+
+(use-package deferred
+  :ensure t)
+
+;;; [ async ] -- Simple library for asynchronous processing in Emacs.
+
+;; (use-package async
+;;   :ensure t)
+
+;;; [ pfuture ] -- a simple wrapper around asynchronous processes.
+
+;; (use-package pfuture
+;;   :ensure t)
+
+;;; [ promise ] -- A simple implementation of Promises/A+.
+
+;; (use-package promise
+;;   :ensure t)
+
+;;; [ lcr ] -- Codinig with explicit contination arguments is a well-known technique, called continuation-passing style (CPS).
+
+;; (use-package lcr
+;;   :ensure t)
+
 
 
 (provide 'init-library)
