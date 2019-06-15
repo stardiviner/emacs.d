@@ -94,17 +94,17 @@
 ;;         ivy-display-functions-alist)
 ;;   ;; fallback mode
 ;;   (push '(t . ivy-posframe-display-at-point) ivy-display-functions-alist)
-;;  
+;;
 ;;   (ivy-posframe-enable)
 ;;   ;; set ivy-posframe frame parameters
 ;;   (setq ivy-posframe-hide-minibuffer t
 ;;         ivy-posframe-parameters `((min-width . 95)
 ;;                                   (min-height . ,ivy-height)
 ;;                                   (internal-border-width . 5)
-;;                                   (left-fringe . 0)
-;;                                   (right-fringe . 0))
+;;                                   (left-fringe . ,left-fringe-width) ; 0
+;;                                   (right-fringe . ,right-fringe-width) ; 0
+;;                                   )
 ;;         ;; ivy-posframe-width (/ (display-pixel-width) 14)
-;;         ;; ivy-posframe-border-width 0
 ;;         )
 ;;   ;; set ivy-posframe face
 ;;   (set-face-attribute 'ivy-posframe nil
@@ -113,7 +113,11 @@
 ;;                                     ('light
 ;;                                      (color-darken-name (face-background 'default) 10))
 ;;                                     ('dark
-;;                                      (color-lighten-name (face-background 'default) 10)))))
+;;                                      (color-lighten-name (face-background 'default) 10))))
+;;
+;;   ;; set internal border
+;;   (setq ivy-posframe-border-width 1)
+;;   (set-face-attribute 'internal-border nil :background "gray50"))
 
 
 (provide 'init-ivy)
