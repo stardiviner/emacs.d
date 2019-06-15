@@ -13,7 +13,12 @@
   :ensure t
   :defer t
   :commands (run-swift)
-  :init (setq swift-mode:repl-executable "docker run --rm --privileged -it swift swift"))
+  :config
+  (setq swift-mode:repl-executable "docker run --rm --privileged -it swift swift")
+  (defun swift-mode-docker-attach-repl (cmd &optional dont-switch keep-default)
+    (docker-container-attach "swift" nil)
+    (rename-buffer "*swift*"))
+  (advice-add 'run-swift :after #'swift-mode-docker-attach-repl))
 
 ;; [ ob-swift ] -- org-babel functions for swift evaluation.
 
