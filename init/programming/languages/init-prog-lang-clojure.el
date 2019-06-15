@@ -123,6 +123,11 @@
   ;; ClojureScript
   (setq cider-default-cljs-repl 'shadow)
 
+  ;; Frequently used connections
+  ;; TODO: need to know how to run Docker container REPL with specific port.
+  ;; $ docker run --name clojure -p :7788 -it clojure:tools-deps clj
+  ;; (setq cider-known-endpoints '(("docker-clojure" "127.0.0.1" "7888")))
+  
   (setq
    ;; resources
    ;; cider-prefer-local-resources t
