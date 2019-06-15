@@ -2,7 +2,62 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("My Shell Script Examples.org"
+(("Design.org"
+ (filename . "~/Org/Wiki/Design/Design.org")
+ (front-context-string . "#+TITLE: Design\n")
+ (rear-context-string)
+ (position . 1))
+("My Business Manual.org"
+ (filename . "~/Org/Wiki/Commercial Science/Business/Data/Manuals/My Business Manual/My Business Manual.org")
+ (front-context-string . "#+TITLE: My Busi")
+ (rear-context-string)
+ (position . 1))
+("Kindle.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Kindle.org")
+ (front-context-string . "#+TITLE: Kindle\n")
+ (rear-context-string)
+ (position . 1))
+("Human.org"
+ (filename . "~/Org/Wiki/Sociology/Human/Human.org")
+ (front-context-string . "#+TITLE: Human\n\n")
+ (rear-context-string)
+ (position . 1))
+("dotNet Core.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/dotNet Core/dotNet Core.org")
+ (front-context-string . "#+TITLE: dotNet ")
+ (rear-context-string)
+ (position . 1))
+("Haskell Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Haskell/Data/Haskell Packages/Haskell Packages.org")
+ (front-context-string . "#+TITLE: Haskell")
+ (rear-context-string)
+ (position . 1))
+("Linux Network Management, Troubleshooting and Debugging.org"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Linux Administration/Linux Network Administration/Data/Manuals/Linux Network Management, Troubleshooting and Debugging/Linux Network Management, Troubleshooting and Debugging.org")
+ (front-context-string . "#+TITLE: Linux N")
+ (rear-context-string)
+ (position . 1))
+("Concurrency and Parallel.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Process/Concurrency and Parallel/Concurrency and Parallel.org")
+ (front-context-string . "#+TITLE: Concurr")
+ (rear-context-string)
+ (position . 1))
+("儒家.org"
+ (filename . "~/Org/Wiki/Thought/诸子百家/儒家/儒家.org")
+ (front-context-string . "#+TITLE: 儒家\n\n* I")
+ (rear-context-string)
+ (position . 1))
+("道家.org"
+ (filename . "~/Org/Wiki/Thought/诸子百家/道家/道家.org")
+ (front-context-string . "#+TITLE: 道家 Daoi")
+ (rear-context-string)
+ (position . 1))
+("We Media.org"
+ (filename . "~/Org/Wiki/Communication Studies/We Media/We Media.org")
+ (front-context-string . "#+TITLE: We Medi")
+ (rear-context-string)
+ (position . 1))
+("My Shell Script Examples.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/Data/Manuals/My Shell Script Examples/My Shell Script Examples.org")
  (front-context-string . "#+TITLE: My Shel")
  (rear-context-string)
@@ -1654,19 +1709,19 @@
  (position . 1))
 ("org-capture-last-stored-marker"
  (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** Saskia\n   :PR")
- (rear-context-string . "14:17]\n   :END:\n")
- (position . 125945))
+ (front-context-string . "** Max Veytsman\n")
+ (rear-context-string . "ols\",\n   :END:\n\n")
+ (position . 137263))
 ("org-refile-last-stored"
  (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** Saskia\n   :PR")
- (rear-context-string . "14:17]\n   :END:\n")
- (position . 125945))
+ (front-context-string . "** Max Veytsman\n")
+ (rear-context-string . "ols\",\n   :END:\n\n")
+ (position . 137263))
 ("org-capture-last-stored"
  (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "* Saskia\n  :PROP")
+ (front-context-string . "* Max Veytsman\n ")
  (rear-context-string . "09:17]\n   :END:\n")
- (position . 182037))
+ (position . 189237))
 ("PDF-LAST-VIEWED: /tmp/mu-1000/b53469b1/3/test.pdf"
  (filename .
            #("/tmp/mu-1000/b53469b1/3/test.pdf" 0 32
@@ -2070,12 +2125,6 @@
    (idx 157))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/GIMP/GIMP.org")
  (front-context-string . "#+TITLE: GIMP\n\n*")
- (rear-context-string)
- (position . 1))
-(#("Linux Troubleshooting.org" 0 1
-   (idx 159))
- (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Data/Manuals/Linux Troubleshooting/Linux Troubleshooting.org")
- (front-context-string . "#+TITLE: Linux T")
  (rear-context-string)
  (position . 1))
 (#("Peer-to-Peer.org" 0 1
@@ -3396,12 +3445,6 @@
    (idx 615))
  (filename . "~/Org/Wiki/Internet/Internet.org")
  (front-context-string . "#+TITLE: Interne")
- (rear-context-string)
- (position . 1))
-(#("Kindle.org" 0 1
-   (idx 618))
- (filename . "~/Org/Wiki/Computer Technology/Softwares/Kindle/Kindle.org")
- (front-context-string . "#+TITLE: Kindle\n")
  (rear-context-string)
  (position . 1))
 (#("Novels.org" 0 1
