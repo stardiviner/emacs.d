@@ -115,6 +115,13 @@
   :defer t
   :bind (:map Org-prefix ("M-w" . hydra-pamparam/body)))
 
+;;; [ guess-word ] -- Emacs guess word game for learning ESL. Emacs 背单词.
+
+(use-package guess-word
+  :quelpa (guess-word :fetcher github :repo "Qquanwei/emacs-guess-word-game")
+  :defer t
+  :commands (guess-word))
+
 
 (provide 'init-org-drill)
 
