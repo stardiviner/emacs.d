@@ -49,6 +49,23 @@
              eaf-open-url eaf-dired-open-file
              eaf-show-file-qrcode dired-show-file-qrcode
              eaf-air-share eaf-upload-file))
+;;; [ Threads ]
+
+(defun emacs-thread-asynchronously (key)
+  "Read key-sequence, then execute its command on a new thread."
+  (interactive (list (read-key-sequence "Key Sequence: ")))
+  (let ((l  (local-key-binding key))
+        (g (global-key-binding key)))
+    (cond
+     ((commandp l)
+      (make-thread l)
+      (message "Running %s on a new thread." l))
+     ((commandp g)
+      (make-thread g)
+      (message "Running %s on a new thread." g))
+     (t (error "%s is not bound to a command." key)))))
+
+;; (global-set-key (kbd "C-' a") 'emacs-thread-asynchronously)
 
 
 
