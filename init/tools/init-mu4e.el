@@ -706,6 +706,13 @@
                '("org-contact-add" . mu4e-action-add-org-contact) t)
   )
 
+;;; [ mu4e-overview ] -- show overview of maildirs.
+
+(use-package mu4e-overview
+  :ensure t
+  :defer t
+  :commands (mu4e-overview)
+  :bind (:map tools-prefix ("M-m" . mu4e-overview)))
 
 ;; [ mu4e-alert ] -- Desktop notifications and modeline display for mu4e.
 
