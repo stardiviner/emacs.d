@@ -7,42 +7,55 @@
 
 ;;; Code:
 
-(require 'ox-latex)
-
-;; let org-mode auto delete those auxiliary files after compile and exporting.
-(setq org-latex-remove-logfiles t)
-(setq org-latex-logfiles-extensions
-      '("lof" "lot" "aux" "idx" "out" "toc" "nav" "snm" "vrb"
-        "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl"))
+(use-package ox-latex
+  :defer t
+  :init
+  ;; let org-mode auto delete those auxiliary files after compile and exporting.
+  (setq org-latex-remove-logfiles t)
+  (setq org-latex-logfiles-extensions
+        '("lof" "lot" "aux" "idx" "out" "toc" "nav" "snm" "vrb"
+          "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl"))
 
 ;;; Preview Org-mode LaTeX fragments between $\LaTeX{}$
-(setq org-startup-with-latex-preview nil)
-(setq org-highlight-latex-and-related nil)
+  (setq org-startup-with-latex-preview nil)
+  (setq org-highlight-latex-and-related nil)
 
-;; (setq org-preview-latex-default-process 'dvipng)    ; faster but don't support Chinese by default.
-;; (setq org-preview-latex-default-process 'imagemagick)  ; slower but support Chinese by default.
-(setq org-preview-latex-default-process 'dvisvgm) ; generate SVG for better image.
+  ;; (setq org-preview-latex-default-process 'dvipng)    ; faster but don't support Chinese by default.
+  ;; (setq org-preview-latex-default-process 'imagemagick)  ; slower but support Chinese by default.
+  (setq org-preview-latex-default-process 'dvisvgm) ; generate SVG for better image.
 
-;; (setq org-preview-latex-default-process 'dvisvgm-xetex)
-;; (add-to-list 'org-preview-latex-process-alist
-;;              '(dvisvgm-xetex
-;;                :programs ("xetex" "dvisvgm")
-;;                :description "dvi > svg"
-;;                :message "you need to install the programs: latex and dvisvgm."
-;;                :use-xcolor t
-;;                :image-input-type "dvi"
-;;                :image-output-type "svg"
-;;                :image-size-adjust (1.7 . 1.5)
-;;                :latex-compiler ("xelatex -8bit --shell-escape -interaction=nonstopmode -output-directory %o %f")
-;;                :image-converter ("dvisvgm %f -n -b min -c %S -o %O")))
+  (setq org-latex-create-formula-image-program 'dvisvgm)
+;;; FIXME:
+  ;; (setq org-latex-pdf-process (my-org-latex-pdf-process-format))
+  ;; (defun my-org-latex-pdf-process-format (&optional texfile snippet caller-info)
+  ;;   (princ (format "The caller's info: %s" caller-info))
+  ;;   (cond
+  ;;    (snippet '("latex -interaction nonstopmode -output-directory %o %f"))
+  ;;    (t '("%latex -interaction nonstopmode -output-directory %o %f"
+  ;;         "%latex -interaction nonstopmode -output-directory %o %f"
+  ;;         "%latex -interaction nonstopmode -output-directory %o %f"))))
 
-(setq org-latex-image-default-width "1.5\\linewidth")
-(setq org-format-latex-options
-      (plist-put org-format-latex-options :scale 1.5)) ; adjust LaTeX preview image size.
-(setq org-format-latex-options
-      (plist-put org-format-latex-options :html-scale 2.0)) ; adjust HTML exporting LaTeX image size.
+  ;; (setq org-preview-latex-default-process 'dvisvgm-xetex)
+  ;; (add-to-list 'org-preview-latex-process-alist
+  ;;              '(dvisvgm-xetex
+  ;;                :programs ("xetex" "dvisvgm")
+  ;;                :description "dvi > svg"
+  ;;                :message "you need to install the programs: latex and dvisvgm."
+  ;;                :use-xcolor t
+  ;;                :image-input-type "dvi"
+  ;;                :image-output-type "svg"
+  ;;                :image-size-adjust (1.7 . 1.5)
+  ;;                :latex-compiler ("xelatex -8bit --shell-escape -interaction=nonstopmode -output-directory %o %f")
+  ;;                :image-converter ("dvisvgm %f -n -b min -c %S -o %O")))
 
-(setq org-latex-prefer-user-labels t)
+  (setq org-latex-image-default-width "1.5\\linewidth")
+  (setq org-format-latex-options
+        (plist-put org-format-latex-options :scale 1.5)) ; adjust LaTeX preview image size.
+  (setq org-format-latex-options
+        (plist-put org-format-latex-options :html-scale 2.0)) ; adjust HTML exporting LaTeX image size.
+
+  (setq org-latex-prefer-user-labels t)
+  )
 
 ;;; [ webkit-katex-render ] -- An instant Latex Previewer for Emacs.
 

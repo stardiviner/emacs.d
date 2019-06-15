@@ -8,35 +8,36 @@
 ;;; Code:
 
 
-(require 'ox)
+(use-package ox
+  :defer t
+  :init (setq org-export-with-clocks t
+              org-export-with-planning t
+              org-export-with-timestamps t
+              org-export-with-properties nil
+              ;; org-export-with-drawers (not "LOGBOOK")
+              org-export-with-tags t
+              ;; don't raise error exception when handling broken link to interrupt exporting process.
+              org-export-with-broken-links 'mark)
 
-(setq org-export-with-clocks t
-      org-export-with-planning t
-      org-export-with-timestamps t
-      org-export-with-properties nil
-      ;; org-export-with-drawers (not "LOGBOOK")
-      org-export-with-tags t
-      ;; don't raise error exception when handling broken link to interrupt exporting process.
-      org-export-with-broken-links 'mark)
+  ;; Org-mode Babel
+  ;; preserve spacing in src blocks when export LaTeX to PDF.
+  (setq TeX-auto-untabify t)
+  ;; `org-export-use-babel'
+  ;; export with results but don't re-evaluate src blocks.
+  ;; (setq org-export-babel-evaluate nil)
+  ;; (add-to-list 'org-babel-default-header-args '(:exports . "both"))
+  (add-to-list 'org-babel-default-header-args '(:eval . "never-export"))
 
-;;; Org-mode Babel
-;; preserve spacing in src blocks when export LaTeX to PDF.
-(setq TeX-auto-untabify t)
-;; `org-export-use-babel'
-;; export with results but don't re-evaluate src blocks.
-;; (setq org-export-babel-evaluate nil)
-;; (add-to-list 'org-babel-default-header-args '(:exports . "both"))
-(add-to-list 'org-babel-default-header-args '(:eval . "never-export"))
+  ;; exclude org headlines exporting with a specific tags.
+  (setq org-export-exclude-tags '("noexport"))
 
-;;; exclude org headlines exporting with a specific tags.
-(setq org-export-exclude-tags '("noexport"))
+  ;; export to the kill ring automatically for interactive exports.
+  (setq org-export-copy-to-kill-ring 'if-interactive)
 
-;;; export to the kill ring automatically for interactive exports.
-(setq org-export-copy-to-kill-ring 'if-interactive)
-
-;;; This snippet turns - [X] into ☑ and - [ ] into ☐.
-;; 'ascii, 'unicode, 'html
-(setq org-html-checkbox-type 'unicode)
+  ;; This snippet turns - [X] into ☑ and - [ ] into ☐.
+  ;; 'ascii, 'unicode, 'html
+  (setq org-html-checkbox-type 'unicode)
+  )
 
 ;;; [ ox-latex ]
 

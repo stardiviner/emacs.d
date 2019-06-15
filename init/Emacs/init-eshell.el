@@ -14,10 +14,9 @@
   :commands (eshell)
   :bind ("C-x !" . eshell)
   :init (setenv "PAGER" "cat") ; change PAGER from `less' to `cat'.
-  :config
   ;; Eshell sudo
   ;; load eshell's sudo which use Tramp's su/sudo methods.
-  (require 'em-tramp)
+  ;; (require 'em-tramp)
   ;; Switch to eshell’s sudo
   ;; by prefering built-in commands
   (setq eshell-prefer-lisp-functions t
@@ -43,24 +42,25 @@
                                  "ncftp" "pine" "tin" "trn" "elm" "vim"
                                  "nmtui" "alsamixer" "htop" "el" "elinks"))
   (setq eshell-visual-subcommands '(("git" "log" "diff" "show")))
-  (autoload 'eshell-visual-options "em-term")
-  (add-to-list 'eshell-visual-options '("git" "--help"))
+  ;; (require 'em-term)
+  ;; (add-to-list 'eshell-visual-options '("git" "--help"))
 
   ;; Eshell-banner
-  (setq eshell-banner-message (format "%s %s\nwith Emacs %s on Linux: %s"
-                                      (propertize
-                                       "Eshell session started on"
-                                       'face '((:foreground "dim gray")))
-                                      (propertize
-                                       (format-time-string "%c")
-                                       'face '((:foreground "gray")))
-                                      (propertize emacs-version
-                                                  'face '((:foreground "yellow")))
-                                      (propertize
-                                       (with-temp-buffer
-                                         (call-process "uname" nil t nil "-r")
-                                         (buffer-string))
-                                       'face '((:foreground "orange")))))
+  (setq eshell-banner-message
+        (format "%s %s\nwith Emacs %s on Linux: %s"
+                (propertize
+                 "Eshell session started on"
+                 'face '((:foreground "dim gray")))
+                (propertize
+                 (format-time-string "%c")
+                 'face '((:foreground "gray")))
+                (propertize emacs-version
+                            'face '((:foreground "yellow")))
+                (propertize
+                 (with-temp-buffer
+                   (call-process "uname" nil t nil "-r")
+                   (buffer-string))
+                 'face '((:foreground "orange")))))
 
   ;; EShell Prompt info:
   ;; Git
@@ -81,7 +81,7 @@ PWD is not in a git repo (or the git command is not found)."
                 "]"))))
 
   ;; Eshell prompt
-  (require 'em-prompt)
+  ;; (require 'em-prompt)
   (defun my:eshell-prompt-function ()
     (format "{%s} [%s]\n%s %s"
             (propertize
@@ -112,8 +112,7 @@ PWD is not in a git repo (or the git command is not found)."
              (if (= (user-uid) 0) " #" " $")
              'face '((:foreground "deep pink")))
             ;; set following cmd face
-            (propertize "" 'face '(:foreground "dark"))
-            ))
+            (propertize "" 'face '(:foreground "dark"))))
   (setq eshell-prompt-function 'my:eshell-prompt-function)
 
   (setq eshell-prompt-regexp "^[^#$\n]* [#$]")
@@ -122,8 +121,6 @@ PWD is not in a git repo (or the git command is not found)."
   ;; (add-to-list 'eshell-modules-list 'eshell-rebind)
 
   ;; Eshell completion
-  (require 'em-cmpl)
-
   (defun my-eshell-completing-setup ()
     "Setup my Eshell completing."
     (interactive)

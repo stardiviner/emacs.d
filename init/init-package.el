@@ -85,6 +85,7 @@
 (use-package org
   :pin manual
   :load-path "~/Code/Emacs/org-mode/lisp/"
+  :defer t
   :preface
   ;; Org Mode modules -- modules that should always be loaded together with org.el.
   ;; t: greedy load all modules.
@@ -101,6 +102,7 @@
   (use-package org-plus-contrib
     :pin manual
     :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :defer t
     :no-require t))
 
 ;;; [ package-lint ] -- A linting library for elisp package authors.

@@ -16,17 +16,16 @@
 ;;; [ realgud-lldb ] -- realgud front-end to lldb.
 
 (use-package realgud-lldb
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ GDB ]
 
 (use-package gdb-mi
   :ensure t
   :defer t
-  :config
-  (setq gdb-many-windows t
-        gdb-show-main t)
-  )
+  :init (setq gdb-many-windows t
+              gdb-show-main t))
 
 
 (provide 'init-prog-debug-debugger)

@@ -12,13 +12,9 @@
   ;; :load-path "/usr/share/emacs/site-lisp/mu4e/" ; from Linux package
   :load-path "~/Code/Emacs/mu/mu4e/" ; compile from source code
   :defer t
-  :load (mu4e-compose)
   :commands (mu4e)
   :bind (:map tools-prefix ("m" . mu4e))
-  :init
-  (require 'mu4e-compose)
-  ;; use mu4e as default Email program for Emacs [C-x m].
-  (setq mail-user-agent 'mu4e-user-agent)
+  :init (setq mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
   ;; (setq mu4e-mu-home nil ; nil for default
   ;;       mu4e-mu-binary "/usr/sbin/mu"
   ;;       )

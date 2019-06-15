@@ -124,7 +124,7 @@
   :ensure t
   :defer t
   :after magit
-  :init (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
+  :init (add-hook 'magit-status-mode-hook 'turn-on-magit-gitflow))
 
 ;;; [ magit-p4 ] -- Magit plugin integrating git-p4 add-on.
 
@@ -209,7 +209,8 @@
 ;;; [ forge ] -- Work with Git forges, such as Github and Gitlab, from the comfort of Magit and the rest of Emacs.
 
 (use-package forge
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ flower ] -- Emacs task tracker client. Integration with Github, Gitlab, Atlassian Jira and Slack etc.
 
