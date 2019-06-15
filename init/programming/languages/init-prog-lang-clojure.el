@@ -112,6 +112,7 @@
               ("C-c" . helm-cider-cheatsheet))
   :init (add-hook 'clojure-mode-hook #'cider-mode)
   ;; manage CIDER popup buffers.
+  (setq cider-repl-pop-to-buffer-on-connect nil)
   (add-to-list 'display-buffer-alist
                '("^\\*cider-.*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
