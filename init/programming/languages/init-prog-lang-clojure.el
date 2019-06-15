@@ -224,6 +224,10 @@ Optional argument NS, if not provided, defaults to
   ;; REPL history
   (define-key cider-repl-mode-map (kbd "M-r") 'cider-repl-history)
 
+  ;; Clojure dot operator with yasnippet for Object methods completion.
+  (setq yas-inhibit-overlay-modification-protection t)
+  ;; (advice-add 'yas--on-protection-overlay-modification :override #'ignore) ; fix $0 placeholder gone issue.
+  
   ;; CIDER helper functions
   (defun my/cider-repl-eval (input)
     "Execute Clojure `INPUT' in CIDER REPL.
