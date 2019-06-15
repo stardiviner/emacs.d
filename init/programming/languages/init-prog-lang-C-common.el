@@ -139,33 +139,33 @@
 
 ;;; [ cquery ] -- Low-latency language server supporting multi-million line C++ code-bases, powered by libclang.
 
-(use-package cquery
-  :ensure t
-  :defer t
-  :init
-  (defun my:cquery-setup ()
-    (when
-        (or (locate-dominating-file default-directory "compile_commands.json")
-            (locate-dominating-file default-directory ".cquery"))
-      (lsp-cquery-enable)))
-  (add-hook 'c-mode-common-hook #'my:cquery-setup))
+;; (use-package cquery
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (defun my:cquery-setup ()
+;;     (when
+;;         (or (locate-dominating-file default-directory "compile_commands.json")
+;;             (locate-dominating-file default-directory ".cquery"))
+;;       (lsp-cquery-enable)))
+;;   (add-hook 'c-mode-common-hook #'my:cquery-setup))
 
 ;;; [ ccls ] -- C/C++/Objective-C lang server support for lsp-mode using Clang.
 
-(use-package ccls
-  :ensure t
-  :defer t
-  :defines projectile-project-root-files-top-down-recurring
-  :ensure t
-  ;; :ensure-system-package ((ccls . "aurman -S ccls"))
-  :after lsp
-  :commands lsp-ccls-enable
-  :load ccls
-  :hook ((c-mode c++-mode objc-mode) . lsp)
-  :config (with-eval-after-load 'projectile
-            (setq projectile-project-root-files-top-down-recurring
-                  (append '("compile_commands.json" ".ccls")
-                          projectile-project-root-files-top-down-recurring))))
+;; (use-package ccls
+;;   :ensure t
+;;   :defer t
+;;   :defines projectile-project-root-files-top-down-recurring
+;;   :ensure t
+;;   ;; :ensure-system-package ((ccls . "aurman -S ccls"))
+;;   :after lsp
+;;   :commands lsp-ccls-enable
+;;   :load ccls
+;;   :hook ((c-mode c++-mode objc-mode) . lsp)
+;;   :config (with-eval-after-load 'projectile
+;;             (setq projectile-project-root-files-top-down-recurring
+;;                   (append '("compile_commands.json" ".ccls")
+;;                           projectile-project-root-files-top-down-recurring))))
 
 ;;; [ c-eldoc ] -- helpful description of the arguments to C functions.
 
