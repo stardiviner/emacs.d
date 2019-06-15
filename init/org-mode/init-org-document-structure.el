@@ -23,6 +23,8 @@
 
 (setq org-ctrl-k-protect-subtree t)
 
+;; (add-hook 'org-mode-hook #'eldoc-mode)
+
 ;;; [ Org faces ]
 (set-face-attribute 'org-document-title nil
                     :family "Comic Sans MS"
