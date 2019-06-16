@@ -50,7 +50,8 @@
 
 (use-package pdf-view-restore
   :ensure t
-  :config (add-hook 'pdf-view-mode-hook 'pdf-view-restore-mode))
+  :defer t
+  :init (add-hook 'pdf-view-mode-hook 'pdf-view-restore-mode))
 
 ;;; [ org-pdfview ] -- org-link support for pdf-view-mode
 
