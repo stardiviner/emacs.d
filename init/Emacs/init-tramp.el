@@ -15,18 +15,17 @@
   :init
   (with-eval-after-load 'tramp-cache
     (setq tramp-persistency-file-name (concat user-emacs-directory "tramp")))
-  
   (setq tramp-auto-save-directory "/tmp")
-
-  ;; (tramp-debug-buffer-name t)
-  ;; (setq tramp-verbose 10)
-
   ;; speed-up tramp.
   (setq tramp-completion-reread-directory-timeout nil)
-
   ;; <default method>
   (setq tramp-default-method "ssh")
+  ;; change SHELL environment variable to solve Tramp hangs issue.
+  ;; (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
+  ;; fix /bin/zsh no such file or directory issue on remote host.
+  ;; (setq explicit-shell-file-name "/bin/bash")
 
+  ;; (setq tramp-verbose 10) ; for debug TRAMP
   :config
   ;; (add-to-list 'tramp-default-method-alist
   ;;              '("\\`\\(127\\.0\\.0\\.1\\|::1\\|dark\\|localhost6?\\)\\'"
@@ -71,13 +70,6 @@
   ;;       "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   ;; (setq tramp-ssh-controlmaster-options
   ;;       "-o ControlMaster=auto -o ControlPath='ssh_%C' -o ControlPersist=no")
-  
-  ;; change SHELL environment variable to solve Tramp hangs issue.
-  (eval-after-load 'tramp
-    '(setenv "SHELL" "/bin/bash"))
-
-  ;; fix /bin/zsh no such file or directory issue on remote host.
-  (setq explicit-shell-file-name "/bin/bash")
 
   ;; don't generate backups for remote files opened as root (security hazzard)
   (setq backup-enable-predicate
@@ -87,7 +79,7 @@
                       (when (stringp method)
                         (member method '("su" "sudo"))))))))
   
-  ;; [ sh ]
+  ;; [ sh ] -- Tramp access functions for (s)sh-like connections.
   (use-package tramp-sh
     :defer t
     :init (add-to-list 'tramp-remote-path "~/bin"))
