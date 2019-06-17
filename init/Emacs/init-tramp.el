@@ -95,8 +95,8 @@
   ;; [ sudo in Tramp ]
 
   ;; [ Android adb ]
-  (use-package tramp-adb
-    :defer t)
+  ;; (use-package tramp-adb
+  ;;   :defer t)
   )
 
 ;;; [ counsel-tramp ] -- Tramp with Ivy/counsel interface.
