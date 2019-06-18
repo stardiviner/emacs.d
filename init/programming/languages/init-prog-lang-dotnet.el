@@ -1,4 +1,4 @@
-;;; init-prog-lang-csharp.el --- init for C#
+;;; init-prog-lang-dotnet.el --- init for .NET
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -7,20 +7,38 @@
 
 ;;; Code:
 
-;;; [ csharp-mode ]
+;;; [ dotnet ] -- Interact with dotnet CLI tool.
+
+(use-package dotnet ; dotnet-mode keymap prefix [C-c C-n]
+  :ensure t
+  :ensure-system-package dotnet-runtime
+  :ensure-system-package dotnet-host
+  :ensure-system-package dotnet-sdk
+  :defer t
+  :commands (dotnet-new dotnet-add-package dotnet-test dotnet-command))
+
+;;; [ csproj-mode ] -- Work with .NET project files (csproj, vbproj).
+
+(use-package csproj-mode
+  :ensure t
+  :defer t)
+
+;;; [ csharp-mode ] -- C# mode derived mode.
 
 (use-package csharp-mode
   :ensure t
-  :ensure-system-package (mono dotnet-runtime dotnet-host dotnet-sdk)
-  :modes ("\\.cs\\'" . csharp-mode))
+  :ensure-system-package mono
+  :defer t
+  :mode ("\\.cs\\'" . csharp-mode))
 
-;;; [ omnisharp ] -- C# IDE for Emacs.
+;;; [ omnisharp ] -- Omnicompletion (intellisense) and more for C#.
 
 (use-package omnisharp
   :ensure t
+  :defer t
   :init
-  ;; (setq omnisharp-server-executable-path
-  ;;       (expand-file-name "~/Code/CSharp/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe"))
+  (setq omnisharp-server-executable-path
+        (expand-file-name "~/Code/.NET/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe"))
   (setq omnisharp-company-begin-after-member-access t
         omnisharp-company-do-template-completion t
         omnisharp-company-template-use-yasnippet t
@@ -31,21 +49,15 @@
         ;; eldoc
         omnisharp-eldoc-support t
         ;; imenu
-        omnisharp-imenu-support nil
-        )
-  :config
+        omnisharp-imenu-support nil)
   (add-hook 'csharp-mode-hook 'omnisharp-mode)
-  
+  :config
   (defun my-omnisharp-setup ()
-    (interactive)
     (my-company-add-backend-locally 'company-omnisharp)
-    (define-key omnisharp-mode-map (kbd "M-.") 'omnisharp-go-to-definition)
-    )
-  
-  (add-hook 'omnisharp-mode-hook 'my-omnisharp-setup)
-  )
+    (define-key omnisharp-mode-map (kbd "M-.") 'omnisharp-go-to-definition))
+  (add-hook 'omnisharp-mode-hook 'my-omnisharp-setup))
 
-;;; [ ob-csharp ]
+;;; [ ob-csharp ] -- org-babel functions for csharp evaluation.
 
 (use-package ob-csharp
   :quelpa (ob-csharp :fetcher github :repo "thomas-villagers/ob-csharp"
@@ -68,7 +80,22 @@
   ;;              '(:session . "*???*")) ; TODO:
   )
 
-
-(provide 'init-prog-lang-csharp)
+;;; [ fsharp-mode ] -- F# mode for Emacs.
 
-;;; init-prog-lang-csharp.el ends here
+(use-package fsharp-mode
+  :ensure t)
+
+;;; [ ob-fsharp ] -- Org-mode Babel support for F#.
+
+(use-package ob-fsharp
+  :ensure t
+  :defer t
+  :commands (org-babel-execute:fsharp)
+  :config
+  (add-to-list 'org-babel-load-languages '(fsharp . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
+
+
+(provide 'init-prog-lang-dotnet)
+
+;;; init-prog-lang-dotnet.el ends here
