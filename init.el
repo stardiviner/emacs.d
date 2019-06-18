@@ -244,7 +244,7 @@
 (require 'init-prog-lang-shell)
 (require 'init-prog-lang-C-common)
 ;; (require 'init-prog-tags)
-;; (require 'init-prog-lang-csharp)
+(require 'init-prog-lang-csharp)
 ;; (require 'init-prog-lang-fsharp)
 ;; (require 'init-prog-lang-D)
 (require 'init-prog-lang-go)

@@ -11,7 +11,8 @@
 
 (use-package csharp-mode
   :ensure t
-  :ensure-system-package mono)
+  :ensure-system-package (mono dotnet-runtime dotnet-host dotnet-sdk)
+  :modes ("\\.cs\\'" . csharp-mode))
 
 ;;; [ omnisharp ] -- C# IDE for Emacs.
 
