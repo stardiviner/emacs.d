@@ -28,14 +28,7 @@
               doom-modeline-github nil
               doom-modeline-irc nil
               ;; Fix the laggy issue, by don't compact font caches during GC.
-              inhibit-compacting-font-caches t)
-  :config
-  ;; remove `workspace-name' segment
-  (doom-modeline-def-modeline 'remove-workspace
-    '(bar window-number modals matches buffer-info remote-host buffer-position parrot selection-info)
-    '(objed-state misc-info persp-name fancy-battery irc mu4e github debug lsp minor-modes input-method indent-info buffer-encoding major-mode process vcs checker))
-  (add-hook 'doom-modeline-mode-hook
-            #'(lambda () (doom-modeline-set-modeline 'remove-workspace))))
+              inhibit-compacting-font-caches t))
 
 
 (provide 'init-emacs-mode-line)
