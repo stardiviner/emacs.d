@@ -36,26 +36,28 @@
 (use-package omnisharp
   :ensure t
   :defer t
-  :init
-  (setq omnisharp-server-executable-path
-        (expand-file-name "~/Code/.NET/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe"))
+  :init (setq omnisharp-server-executable-path
+              (expand-file-name "~/Code/.NET/omnisharp-roslyn/run"))
   (setq omnisharp-company-begin-after-member-access t
         omnisharp-company-do-template-completion t
         omnisharp-company-template-use-yasnippet t
         omnisharp-company-ignore-case t
-        ;; auto-complete
         omnisharp-auto-complete-want-documentation nil
         omnisharp-auto-complete-popup-persist-help nil
-        ;; eldoc
         omnisharp-eldoc-support t
-        ;; imenu
         omnisharp-imenu-support nil)
   (add-hook 'csharp-mode-hook 'omnisharp-mode)
   :config
   (defun my-omnisharp-setup ()
     (my-company-add-backend-locally 'company-omnisharp)
     (define-key omnisharp-mode-map (kbd "M-.") 'omnisharp-go-to-definition))
-  (add-hook 'omnisharp-mode-hook 'my-omnisharp-setup))
+  (add-hook 'omnisharp-mode-hook 'my-omnisharp-setup)
+
+  (add-to-list 'display-buffer-alist
+               '("^\\* OmniSharp : Usages \\*" (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^\\* OmniSharp : Implementations \\*" (display-buffer-below-selected)))
+  )
 
 ;;; [ ob-csharp ] -- org-babel functions for csharp evaluation.
 
