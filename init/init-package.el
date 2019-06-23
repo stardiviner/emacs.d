@@ -51,7 +51,8 @@
 (package-initialize)
 
 (add-to-list 'display-buffer-alist
-             '("^\\*package-build-result\\*" (display-buffer-reuse-window display-buffer-below-selected)))
+             '("^\\*package-build-result\\*"
+               (display-buffer-reuse-window display-buffer-below-selected)))
 
 
 ;;; Load `use-package' ahead before `package-initialize' for (use-package org :pin manual ...).
@@ -144,9 +145,14 @@
   (prog1 "package"
     (custom-set-variables
      '(package-archives '(("org"   . "https://orgmode.org/elpa/")
-                          ("melpa" . "https://melpa.org/packages/")
-                          ("gnu"   . "https://elpa.gnu.org/packages/"))))
-    (package-initialize))
+                          ;; ("melpa" . "https://melpa.org/packages/")
+                          ;; ("gnu"   . "https://elpa.gnu.org/packages/")
+                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+                          ("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                          )))
+
+    (unless (and package--initialized (not after-init-time))
+      (package-initialize)))
 
   (prog1 "leaf"
     (unless (package-installed-p 'leaf)
