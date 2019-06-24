@@ -64,10 +64,10 @@
 
 ;;; [ dimmer ] -- Interactively highlight which buffer is active by dimming the others.
 
-(use-package dimmer
-  :ensure t
-  :init (setq dimmer-fraction 0.3)
-  :config (dimmer-mode 1))
+;; (use-package dimmer
+;;   :ensure t
+;;   :init (setq dimmer-exclusion-regexp "*company-*")
+;;   :config (dimmer-mode 1))
 
 
 (provide 'init-emacs-theme)
