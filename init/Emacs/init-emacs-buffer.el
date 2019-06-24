@@ -51,6 +51,14 @@
 ;;   :commands (midnight-mode)
 ;;   :init (midnight-mode))
 
+;;; [ frog-jump-buffer ] -- The fastest buffer-jumping Emacs lisp package around.
+
+(use-package frog-jump-buffer
+  :ensure t
+  :defer t
+  :commands (frog-jump-buffer)
+  :bind ("C-;" . frog-jump-buffer))
+
 
 (provide 'init-emacs-buffer)
 
