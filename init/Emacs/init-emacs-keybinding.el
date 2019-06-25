@@ -53,7 +53,7 @@
   :defer t
   ;; :init
   ;; (use-package hydra-posframe ; a hydra extension which shows hydra hints on posframe.
-  ;;   :quelpa (hydra-posframe :fetcher github :repo "Ladicle/hydra-posframe")
+  ;;   :ensure t
   ;;   :defer t
   ;;   :hook (after-init . hydra-posframe-enable))
   )

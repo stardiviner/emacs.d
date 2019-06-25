@@ -54,15 +54,18 @@
                                 (awk-mode . "awk")
                                 (other . "gnu")))
 
-;;; [ modern-cpp-font-lock ] -- Font-locking for "Modern C++"
-
-(use-package modern-cpp-font-lock
-  :ensure t)
-
 (defun my/c-mode-common-header-switch ()
   "Open header file at point."
   (local-set-key (kbd "C-c C-o") 'ff-find-other-file))
 (add-hook 'c-mode-common-hook #'my/c-mode-common-header-switch)
+
+
+;;; [ modern-cpp-font-lock ] -- Font-locking for "Modern C++"
+
+(use-package modern-cpp-font-lock
+  :ensure t
+  :defer t
+  :hook (c++-mode-hook . modern-c++-font-lock-mode))
 
 ;;; [ ob-C ]
 
@@ -88,22 +91,17 @@
   :ensure t
   :ensure-system-package clang
   :defer t
-  :init
-  (hook-modes c-dialects-mode
-    (when (memq major-mode '(c-mode c++-mode objc-mode))
-      (irony-mode 1)))
+  :init (hook-modes c-dialects-mode
+          (when (memq major-mode '(c-mode c++-mode objc-mode))
+            (irony-mode 1)))
   :config
   ;; find the compile flag options automatically:
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
-  ;; [ company-irony ]
   (use-package company-irony
     :ensure t
+    :ensure company-irony-c-headers
     :init
-    ;; [ company-irony-c-headers ]
-    (use-package company-irony-c-headers
-      :ensure t)
-
     (defun company-irony-add ()
       ;; (optional) adds CC special commands to `company-begin-commands'
       ;; in order to trigger completion at interesting places, such as
@@ -116,23 +114,21 @@
                    '(company-irony
                      :with
                      company-yasnippet))
-      (add-to-list 'company-backends 'company-irony-c-headers)
-      )
+      (add-to-list 'company-backends 'company-irony-c-headers))
 
     (hook-modes c-dialects-mode
       (when (memq major-mode '(c-mode c++-mode objc-mode))
-        (company-irony-add)))
-    )
+        (company-irony-add))))
 
-  ;; [ irony-eldoc ]
   (use-package irony-eldoc
     :ensure t
+    :defer t
     :after irony
     :init (add-hook 'irony-mode-hook #'irony-eldoc))
 
-  ;; [ flycheck-irony ]
   (use-package flycheck-irony
     :ensure t
+    :defer t
     :after irony
     :init (add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
   )
@@ -170,7 +166,9 @@
 ;;; [ c-eldoc ] -- helpful description of the arguments to C functions.
 
 (use-package c-eldoc
-  :ensure t)
+  :ensure t
+  :defer t
+  :hook (c-mode-hook . c-turn-on-eldoc-mode))
 
 ;;; [ flycheck-cstyle ] --
 

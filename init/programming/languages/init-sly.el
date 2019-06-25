@@ -14,15 +14,17 @@
   :defer t
   :commands (sly)
   :preface (setq sly-default-lisp 'sbcl)
+  :init (mapc
+         (lambda (hook) (add-hook hook #'sly-mode))
+         '(lisp-mode-hook lisp-interaction-mode-hook sly-mrepl-mode-hook))
+  
+  ;; Connecting to SLY automatically
+  (setq sly-auto-start 'always)
   :config
   ;; setup the `sly-contribs' before starting SLY via [M-x sly].
   (setq sly-contribs `(sly-fancy sly-scratch sly-mrepl sly-autodoc))
   (sly-setup sly-contribs)
   ;; (sly-enable-contrib)
-
-  (mapc
-   (lambda (hook) (add-hook hook #'sly-mode))
-   '(lisp-mode-hook lisp-interaction-mode-hook sly-mrepl-mode-hook))
   
   (defun my-sly-setup ()
     ;; Autodoc (like `eldoc')
@@ -39,9 +41,6 @@
   
   (define-key sly-prefix-map (kbd "M-h") 'sly-documentation-lookup)
   (define-key sly-mrepl-mode-map (kbd "C-c C-k") 'sly-mrepl-clear-recent-output)
-
-  ;; Connecting to SLY automatically
-  (setq sly-auto-start 'always)
 
   (add-to-list 'display-buffer-alist
                '("^\\*sly-mrepl.*\\*" (display-buffer-below-selected)))
@@ -61,6 +60,7 @@
 
 (use-package sly-repl-ansi-color
   :ensure t
+  :defer t
   :after sly
   :init (add-to-list 'sly-contribs 'sly-repl-ansi-color 'append))
 
@@ -93,6 +93,7 @@
 
 (use-package sly-asdf
   :ensure t
+  :defer t
   :after sly
   :init (add-to-list 'sly-contribs 'sly-asdf 'append))
 

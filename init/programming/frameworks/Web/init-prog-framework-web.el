@@ -191,14 +191,16 @@
 ;; [ web-completion-data ] -- dependency for `ac-html', `company-web'
 
 (use-package web-completion-data
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; [ web-mode-edit-element ] -- helper-functions for attribute- and element-handling.
 
 (use-package web-mode-edit-element
   :ensure t
+  :defer t
   :delight web-mode-edit-element-minor-mode
-  :init (add-hook 'web-mode-hook 'web-mode-edit-element-minor-mode))
+  :hook (web-mode-hook . web-mode-edit-element-minor-mode))
 
 ;;; [ RESTful ]
 

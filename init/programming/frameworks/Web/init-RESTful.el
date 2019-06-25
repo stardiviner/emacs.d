@@ -58,12 +58,14 @@
   ;; [ company-restclient ]
   (use-package company-restclient
     :ensure t
+    :defer t
     :init (add-hook 'restclient-mode-hook
                     (lambda () (my-company-add-backend-locally 'company-restclient))))
 
   ;; [ restclient-test ] -- Run tests with restclient.el
   (use-package restclient-test
-    :ensure t))
+    :ensure t
+    :defer t))
 
 
 ;; [ ob-restclient ]
@@ -111,10 +113,8 @@
 (use-package httpcode
   :ensure t
   :defer t
-  :bind (:map restclient-mode-map
-              ("C-c C-d" . hc)
-              :map ob-http-mode-map
-              ("C-c C-d" . hc)))
+  :bind (:map restclient-mode-map ("C-c C-d" . hc)
+              :map ob-http-mode-map ("C-c C-d" . hc)))
 
 
 

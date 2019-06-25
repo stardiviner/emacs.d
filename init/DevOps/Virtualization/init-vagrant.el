@@ -27,15 +27,13 @@
               ("h" . vagrant-halt)
               ("D" . vagrant-destroy)
               ("p" . vagrant-provision)
-              ("e" . vagrant-edit)
-              )
-  :config
-  (setq vagrant-project-directory "~/Code/Vagrant/Arch")
+              ("e" . vagrant-edit))
+  :init (setq vagrant-project-directory "~/Code/Vagrant/Arch")
   ;; (setq vagrant-up-options "")
   )
 
 
-;;; [ vagrant-tramp ] --
+;;; [ vagrant-tramp ] -- Vagrant method for TRAMP.
 
 (use-package vagrant-tramp
   :ensure t)

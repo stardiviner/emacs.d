@@ -61,7 +61,6 @@
           ("https://github.com/blog/all.atom" GitHub SubScribe)
           ("http://www.salttiger.com/feed/" Ebook)
           ))
-
   :config
   ;; (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
   ;; (setq elfeed-initial-tags '(unread))
@@ -146,13 +145,13 @@
 
 ;;; [ elfeed-org ] -- Configure the Elfeed RSS reader with an Org Mode file.
 
-(use-package elfeed-org
-  :ensure t
-  :defer t
-  :after elfeed
-  :commands (elfeed-org)
-  :init (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed/elfeed.org"))
-  :config (elfeed-org))
+;; (use-package elfeed-org
+;;   :ensure t
+;;   :defer t
+;;   :after elfeed
+;;   :commands (elfeed-org)
+;;   :init (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed/elfeed.org"))
+;;   :config (elfeed-org))
 
 
 (provide 'init-elfeed)

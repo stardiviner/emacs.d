@@ -189,7 +189,6 @@ Optional for Org-mode file: `LINK'."
 ;; append "`man:'" protocol.
 ;; `[[man:(section: 7 or 3r)gv][gv (man page)]]'
 (use-package ol-man
-  ;; 'man, 'woman.
   :init (setq org-man-command 'man))
 
 ;;; `occur:'

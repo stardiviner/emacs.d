@@ -69,10 +69,10 @@
 ;;; [ time-stamp ] -- auto-update last change time stamps in files edited by Emacs.
 
 (use-package time-stamp
-  :init
+  :defer t
+  :init (add-hook 'before-save-hook 'time-stamp)
   (setq time-stamp-active t ; enable `time-stamp'
-        time-stamp-line-limit 20)
-  (add-hook 'before-save-hook 'time-stamp))
+        time-stamp-line-limit 20))
 
 
 (provide 'init-prog-template)

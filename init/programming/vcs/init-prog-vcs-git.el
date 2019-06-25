@@ -189,10 +189,10 @@
 
 ;;; [ magit-todos ] -- Show source file TODOs in Magit.
 
-(use-package magit-todos
-  :ensure t
-  :defer t
-  :init (magit-todos-mode 1))
+;; (use-package magit-todos
+;;   :ensure t
+;;   :defer t
+;;   :init (magit-todos-mode 1))
 
 ;;; [ magit-org-todos ] -- Display file "todo.org" (in project root path) to your Magit status section.
 

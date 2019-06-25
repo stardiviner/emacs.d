@@ -129,6 +129,7 @@ character(s), in which case it deletes the space(s) first."
 
 (use-package company-auctex
   :ensure t
+  :defer t
   :config
   (defun my:company-auctex-setup ()
     ;; complete
@@ -149,12 +150,14 @@ character(s), in which case it deletes the space(s) first."
     (add-hook hook #'my:company-auctex-setup)))
 
 (use-package company-math
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ RefTeX ] -- a specialized package for support of labels, references.
 
 (use-package reftex
   :ensure t
+  :defer t
   :init
   (setq reftex-cite-prompt-optional-args t) ; prompt for empty optional arguments in cite.
   ;; enable RefTeX in AUCTeX (LaTeX-mode)
@@ -192,8 +195,8 @@ character(s), in which case it deletes the space(s) first."
 (use-package magic-latex-buffer
   :ensure t
   :defer t
+  :hook (LaTeX-mode-hook . magic-latex-buffer)
   :init
-  (add-hook 'LaTeX-mode-hook 'magic-latex-buffer)
   ;; disable this, because `iimage-mode' auto open image in external program
   ;; caused `LaTeX-mode-hook' break.
   ;; (add-hook 'LaTeX-mode-hook 'turn-off-iimage-mode)
@@ -211,8 +214,7 @@ character(s), in which case it deletes the space(s) first."
 (use-package latex-preview-pane
   :ensure t
   :defer t
-  :init
-  (setq-default shell-escape-mode "-shell-escape") ; should pdflatex command use shell escaping?
+  :init (setq-default shell-escape-mode "-shell-escape")
   (setq preview-orientation 'right)
   (latex-preview-pane-enable))
 

@@ -49,13 +49,14 @@ column.  Place the point after the comment box."
 
 (use-package hl-todo
   :ensure t
+  :defer t
   :commands (hl-todo-next hl-todo-previous hl-todo-occur)
   :bind (:map comment-tag-prefix
               ("n" . hl-todo-next)
               ("p" . hl-todo-previous)
               ("o" . hl-todo-occur)
               ("i" . hl-todo-insert-keyword))
-  :init (global-hl-todo-mode 1) (add-hook 'prog-mode-hook #'hl-todo-mode)
+  :init (add-hook 'prog-mode-hook #'hl-todo-mode)
   :config
   (add-to-list 'hl-todo-keyword-faces '("PERFORMANCE" . "#5f7f5f"))
   (add-to-list 'hl-todo-activate-in-modes 'conf-mode 'append))

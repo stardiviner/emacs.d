@@ -12,12 +12,9 @@
 (use-package wgrep
   :ensure t
   :defer t
-  :init
-  (setq wgrep-enable-key (kbd "C-c C-p"))
-  :config
-  (setq wgrep-auto-save-buffer nil)
-  (advice-add 'wgrep-finish-edit :after #'wgrep-save-all-buffers)
-  )
+  :init (setq wgrep-enable-key (kbd "C-c C-p")
+              wgrep-auto-save-buffer nil)
+  :config (advice-add 'wgrep-finish-edit :after #'wgrep-save-all-buffers))
 
 ;;; [ wgrep-helm ] -- Writable helm-grep-mode buffer and apply the changes to files.
 

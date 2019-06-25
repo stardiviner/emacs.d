@@ -86,12 +86,10 @@
 (use-package inf-ruby
   :ensure t
   :defer t
-  :commands (inf-ruby run-ruby)
-  :init
-  (setq inf-ruby-default-implementation "ruby")
-  (setq inf-ruby-prompt-read-only t)
+  :commands (run-ruby inf-ruby)
+  :init (setq inf-ruby-default-implementation "ruby"
+              inf-ruby-prompt-read-only t)
   (add-hook 'ruby-mode-hook #'inf-ruby-minor-mode)
-
   :config
   (add-to-list 'inf-ruby-implementations
                '("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8"))
@@ -130,15 +128,14 @@
 (use-package robe
   :ensure t
   :defer t
-  :init
-  (setq robe-highlight-capf-candidates t
-        robe-completing-read-func 'ivy-read)
-  :config
-  (add-hook 'robe-mode-hook
-            (lambda ()
-              (local-set-key (kbd "M-.") 'robe-jump)
-              (local-set-key (kbd "C-h d d") 'robe-doc)
-              ))
+  :init (setq robe-highlight-capf-candidates t
+              robe-completing-read-func 'ivy-read)
+  (mapc (lambda (hook) (add-hook hook #'robe-mode))
+        '(ruby-mode-hook inf-ruby-mode-hook))
+  :config (add-hook 'robe-mode-hook
+                    (lambda ()
+                      (local-set-key (kbd "M-.") 'robe-jump)
+                      (local-set-key (kbd "C-h d d") 'robe-doc)))
 
   (with-eval-after-load 'projectile-rails
     (define-key projectile-rails-mode-map (kbd "C-h d d") 'robe-doc))
@@ -152,10 +149,6 @@
           (ruby-load-file (buffer-file-name))
           (message "Robe loaded current file code."))))
   ;; (add-hook 'after-save-hook 'my-robe-lazily-load 'append)
-
-  (mapc
-   (lambda (hook) (add-hook hook #'robe-mode))
-   '(ruby-mode-hook inf-ruby-mode-hook))
   )
 
 ;;; [ lsp-ruby ] -- Ruby support for lsp-mode using the solargraph Gem.
@@ -163,6 +156,7 @@
 (use-package lsp-mode
   :ensure t
   :ensure-system-package ((solargraph . "gem install solargraph"))
+  :defer t
   :hook (ruby-mode . lsp))
 
 

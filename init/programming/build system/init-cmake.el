@@ -11,10 +11,10 @@
 
 (use-package cmake-mode
   :ensure t
+  :ensure cmake-font-lock
   :defer t
   :mode (("CMakeLists\\.txt\\'" . cmake-mode)
          ("\\.cmake\\'" . cmake-mode))
-  :init (use-package cmake-font-lock :ensure t)
   :config (add-hook 'cmake-mode-hook
                     #'(lambda ()
                         (require 'company-cmake)
@@ -24,6 +24,7 @@
 
 (use-package eldoc-cmake
   :ensure t
+  :defer t
   :hook (cmake-mode . eldoc-cmake-enable))
 
 ;;; [ cmake-ide ]

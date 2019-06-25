@@ -19,6 +19,7 @@
         pdf-view-use-unicode-ligther nil ; speed-up pdf-tools by don't try to find unicode.
         )
   :mode ("\\.pdf\\'" . pdf-view-mode)
+  :magic ("%PDF" . pdf-view-mode) ; for PDF binary header byte.
   :config
   ;; helpful accessibility shortcuts
   (define-key pdf-view-mode-map (kbd "q") 'kill-current-buffer)

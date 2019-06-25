@@ -11,13 +11,10 @@
   :ensure t
   :ensure-system-package go
   :defer t
-  :init
-  (add-hook 'before-save-hook #'gofmt-before-save)
-  (add-to-list 'display-buffer-alist
-               '("^\\*godoc .*\\*" . (display-buffer-below-selected)))
-  :config
+  :init (add-hook 'before-save-hook #'gofmt-before-save)
   (setq godoc-use-completing-read t)
-  
+  :config
+  (add-to-list 'display-buffer-alist '("^\\*godoc .*\\*" . (display-buffer-below-selected)))
   (defun my-go-mode-settings ()
     ;; go-import [C-c C-a]
     ;; gofmt
@@ -28,8 +25,7 @@
     ;; godef
     ;; [C-c C-d] `godef-describe'
     ;; use `godef-jump' instead of `etags' etc tags jumping.
-    (local-set-key (kbd "M-.") #'godef-jump)
-    )
+    (local-set-key (kbd "M-.") #'godef-jump))
   (add-hook 'go-mode-hook #'my-go-mode-settings))
 
 ;; [ ob-go ]
@@ -47,6 +43,7 @@
 
 (use-package go-projectile
   :ensure t
+  :defer t
   :commands (go-projectile-install-tools))
 
 ;;; [ go-gopath ] -- guess GOPATH using gb and projectile.
@@ -69,15 +66,17 @@
 (use-package lsp-mode
   :ensure t
   :ensure-system-package ((go-langserver . "go get -u github.com/sourcegraph/go-langserver"))
+  :defer t
   :hook (go-mode . lsp))
 
 ;;; [ gorepl-mode ] -- Go REPL Interactive Development in top of Gore.
 
 (use-package gorepl-mode
   :ensure t
+  :defer t
   :commands (gorepl-run)
   ;; default setup mapping (this will override `go-goto-map')
-  :init (add-hook 'go-mode-hook #'gorepl-mode))
+  :hook (go-mode-hook . gorepl-mode))
 
 ;;; [ go-errcheck ] -- errcheck integration for go-mode.
 
@@ -88,12 +87,14 @@
 
 (use-package go-guru
   :ensure t
+  :defer t
   :init (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode))
 
 ;;; [ go-imports ] -- Insert go import statement given package name.
 
 (use-package go-imports
   :ensure t
+  :defer t
   :commands (go-imports-insert-import go-imports-reload-packages-list)
   :bind (:map go-mode-map ("C-c I" . go-imports-insert-import)))
 
@@ -101,6 +102,7 @@
 
 (use-package gotest
   :ensure t
+  :defer t
   :commands (go-run
              go-test-current-test go-test-current-file go-test-current-project
              go-test-current-benchmark))

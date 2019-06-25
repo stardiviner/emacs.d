@@ -10,6 +10,7 @@
 
 (use-package graphviz-dot-mode
   :ensure t
+  :defer t
   :init (setq graphviz-dot-toggle-completions t
               graphviz-dot-auto-preview-on-save t)
   :config (define-key graphviz-dot-mode-map (kbd "TAB") 'graphviz-dot-complete-word))

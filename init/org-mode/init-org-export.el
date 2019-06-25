@@ -151,13 +151,16 @@
 ;;; [ ox-epub ] -- Org-mode EPUB export.
 
 (use-package ox-epub
-  :ensure t)
+  :ensure t
+  :defer t
+  :commands (org-epub-export-to-epub))
 
 ;;; [ ox-pandoc ] -- another org-mode exporter via pandoc.
 
 (use-package ox-pandoc
   :ensure-system-package (pandoc . "sudo pacman -S --noconfirm pandoc pandoc-citeproc pandoc-crossref")
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ htmlize ] -- deprecated htmlize implementation.
 

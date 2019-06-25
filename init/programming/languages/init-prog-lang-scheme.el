@@ -12,6 +12,7 @@
 (use-package scheme
   :ensure t
   :ensure-system-package guile
+  :defer t
   :init (setq scheme-program-name "guile")
   :config
   (add-hook 'scheme-mode-hook #'my-lisp-common-settings)
@@ -40,6 +41,7 @@
 
 (use-package geiser
   :ensure t
+  :defer t
   :commands (run-geiser run-guile)
   :preface
   ;; 'guile, 'racket, 'chicken
@@ -63,7 +65,8 @@
 ;;; [ quack ] -- enhanced Emacs Support for Editing and Running Scheme Code
 
 ;; (use-package quack
-;;   :ensure t)
+;;   :ensure t
+;;   :defer t)
 
 
 ;;; [ ob-scheme ]

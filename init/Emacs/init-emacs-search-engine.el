@@ -12,7 +12,7 @@
 (use-package engine-mode
   :ensure t
   :defer t
-  ;; (setq engine/browser-function)
+  ;; :init (engine-mode t)
   :config
   ;; general search engines
   (defengine google
@@ -210,8 +210,8 @@
     "http://www.faxin.cn/"
     :docstring "法信"
     :keybinding "L")
+  )
 
-  (engine-mode t))
 
 
 (provide 'init-emacs-search-engine)

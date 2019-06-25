@@ -19,6 +19,7 @@
   :defer t
   :custom (rg-keymap-prefix nil)
   :preface (setq rg-keymap-prefix rg-prefix)
+  ;; (setq rg-command-line-flags '("--debug"))
   :commands (rg rg-literal rg-dwim rg-dwim-current-dir rg-dwim-project-dir)
   :bind (:map search-prefix ("s" . rg)
               :map rg-prefix
@@ -32,15 +33,13 @@
               ;; swap `projectile-ag' keybinding.
               ("s s" . rg-project)
               ("s a" . projectile-ag))
-  :init
-  ;; (setq rg-command-line-flags '("--debug"))
-  (rg-enable-default-bindings)
-  (if (fboundp 'wgrep-rg-setup)
-      (add-hook 'rg-mode-hook #'wgrep-rg-setup))
+  :init (rg-enable-default-bindings)
+  (setq rg-group-result t)
   (if (null rg-command-line-flags)
       (setq rg-command-line-flags '("-j 4"))
     (add-to-list 'rg-command-line-flags "-j 4"))
-  :config (setq rg-group-result t)
+  :config (if (fboundp 'wgrep-rg-setup)
+              (add-hook 'rg-mode-hook #'wgrep-rg-setup))
   (add-to-list 'display-buffer-alist
                '("^\\*rg\\*" (display-buffer-reuse-window display-buffer-below-selected))))
 
@@ -48,6 +47,7 @@
 
 (use-package helm-rg
   :ensure t
+  :defer t
   :commands (helm-rg)
   :bind (:map rg-prefix ("h" . helm-rg)))
 

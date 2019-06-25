@@ -62,7 +62,8 @@
 ;;; [ posframe ] -- Pop a posframe (just a child-frame) at point.
 
 (use-package posframe
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-emacs-popup)

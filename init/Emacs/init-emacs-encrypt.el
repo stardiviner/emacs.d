@@ -21,16 +21,14 @@
 (use-package epa
   :ensure t
   :defer t
-  :init
   ;; force Emacs to use its own internal password prompt instead of an external
   ;; pin entry program.
-  (setenv "GPG_AGENT_INFO" nil)
+  :preface (setenv "GPG_AGENT_INFO" nil)
+  :init
   ;; let EasyPG Assistant to use loopback for pinentry.
-  (setq epa-pinentry-mode 'loopback)
-  (epa-file-enable)
-  :config
-  (setq epa-file-encrypt-to "stardiviner")
-  (setq epa-file-select-keys (cl-case epa-file-encrypt-to
+  (setq epa-pinentry-mode 'loopback
+        epa-file-encrypt-to "stardiviner"
+        epa-file-select-keys (cl-case epa-file-encrypt-to
                                ('nil t)
                                (t nil)))
   ;; cache passphrase for symmetric encryption.
@@ -39,10 +37,9 @@
   ;; does the same job in a safer way.
   (setq epa-file-cache-passphrase-for-symmetric-encryption t
         epa-file-inhibit-auto-save t)
-
-  (add-to-list 'display-buffer-alist
-               '("^\\*Keys\\*" (display-buffer-below-selected)))
-  )
+  (epa-file-enable)
+  :config
+  (add-to-list 'display-buffer-alist '("^\\*Keys\\*" (display-buffer-below-selected))))
 
 
 

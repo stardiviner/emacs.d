@@ -15,24 +15,19 @@
 
 ;;; [ Edebug ] -- Edebug is a source level debugger.
 
-(use-package edebug
-  :bind (:map emacs-lisp-mode-map ("C-c d e" . edebug-mode))
-  :config
-  ;; (setq edebug-trace t)
-  ;; (add-to-list 'display-buffer-alist
-  ;;              '("^\\*edebug-trace\\*" (display-buffer-below-selected)))
-  )
+;; (use-package edebug
+;;   :bind (:map emacs-lisp-mode-map ("C-c d e" . edebug-mode))
+;;   :init (setq edebug-trace t)
+;;   (add-to-list 'display-buffer-alist
+;;                '("^\\*edebug-trace\\*" (display-buffer-below-selected))))
 
 ;;; [ edebug-x ] -- Extensions for Edebug.
 
 (use-package edebug-x
   :ensure t
   :defer t
-  :commands (edebug-x-show-data edebug-x-show-breakpoints edebug-x-show-instrumented)
-  :bind (:map edebug-mode-map
-              ("M-s" . edebug-x-show-data)
-              ("M-b" . edebug-x-show-breakpoints)
-              ("M-i" . edebug-x-show-instrumented))
+  :commands (edebug-x-mode)
+  ;; :init (setq edebug-x-stop-point-overlay t)
   :config
   (set-face-attribute 'hi-edebug-x-stop nil
                       :reverse-video nil :foreground nil :overline nil
