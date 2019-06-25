@@ -29,7 +29,19 @@
   :ensure t
   :ensure-system-package mono
   :defer t
-  :mode ("\\.cs\\'" . csharp-mode))
+  :mode ("\\.cs\\'" . csharp-mode)
+  :config
+  (defun my:csharp-mode-setup ()
+    (setq-local indent-tabs-mode nil)
+    (setq-local c-syntactic-indentation t)
+    (c-set-style "ellemtel")
+    (setq-local c-basic-offset 4)
+    (setq-local truncate-lines t)
+    (setq-local tab-width 4)
+    (electric-pair-local-mode 1))
+  (add-hook 'csharp-mode-hook 'my:csharp-mode-setup t)
+
+  (define-key csharp-mode-map (kbd "C-c C-c") 'recompile))
 
 ;;; [ omnisharp ] -- Omnicompletion (intellisense) and more for C#.
 
