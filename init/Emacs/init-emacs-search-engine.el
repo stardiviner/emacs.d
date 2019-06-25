@@ -127,6 +127,10 @@
     "https://search.maven.org/search?q=%s"
     :docstring "Maven"
     :keybinding "M")
+  (defengine dotnet-api
+    "https://docs.microsoft.com/en-us/dotnet/api/?term=%s"
+    :docstring ".NET API"
+    :keybinding "n")
   (defengine ruby-doc
     "http://ruby-doc.com/search.html?q=%s"
     :docstring "Ruby doc")
