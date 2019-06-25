@@ -133,6 +133,7 @@
 
 
   ;; [ View ]
+  (setq mu4e-view-use-gnus t)
   (setq mu4e-split-view 'horizontal ; 'vertical, 'horizontal
         mu4e-headers-visible-lines 13
         mu4e-headers-visible-columns 30
