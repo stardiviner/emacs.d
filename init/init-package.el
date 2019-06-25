@@ -120,25 +120,6 @@
   :after flycheck
   :init (flycheck-package-setup))
 
-;;; [ Quelpa ] -- Build and install your Emacs Lisp packages on-the-fly directly from source.
-
-(use-package quelpa
-  :ensure t
-  :preface (setq quelpa-update-melpa-p nil) ; disable Emacs startup quelpa melpa update.
-  :config (add-to-list 'quelpa-melpa-recipe-stores
-                       (concat user-emacs-directory "elpa/recipes")))
-
-;;; [ Quelpa-use-package ] -- Emacs quelpa handler for use-package.
-
-;; (quelpa
-;;  '(quelpa-use-package
-;;    :fetcher github
-;;    :repo "quelpa/quelpa-use-package"))
-;; (require 'quelpa-use-package)
-
-(use-package quelpa-use-package
-  :ensure t)
-
 ;;; [ leaf ] -- Simplify your init.el configuration, extended use-package.
 
 (prog1 "prepare leaf"

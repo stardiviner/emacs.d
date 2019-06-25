@@ -330,8 +330,6 @@ That's it.
 ;;; [ org-recoll ] -- A lightweight Emacs Org Mode wrapper for the recoll full-text search engine.
 
 ;; (use-package org-recoll
-;;   ;; :quelpa (org-recoll :fetcher github :repo "alraban/org-recoll")
-;;   ;; :quelpa (org-recoll :fetcher github :repo "stardiviner/org-recoll")
 ;;   :load-path "~/Code/Emacs/org-recoll/"
 ;;   :ensure-system-package recoll
 ;;   :defer t

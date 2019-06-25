@@ -61,10 +61,9 @@
 
 ;;; [ ob-csharp ] -- org-babel functions for csharp evaluation.
 
-(use-package ob-csharp
-  :quelpa (ob-csharp :fetcher github :repo "thomas-villagers/ob-csharp"
-                     :files ("src/ob-csharp.el"))
-  :defer t
+(leaf ob-csharp
+  :straight (ob-csharp :type git :host github :repo "thomas-villagers/ob-csharp"
+                       :files ("src/ob-csharp.el"))
   :commands (org-babel-execute:csharp)
   :init (setq org-babel-csharp-compiler "mcs")
   :config

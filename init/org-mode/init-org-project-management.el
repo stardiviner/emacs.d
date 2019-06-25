@@ -1,6 +1,6 @@
 ;;; init-org-project-management.el --- Project Management with Org Mode.
 
-;;; Time-stamp: <2019-02-18 14:13:35 stardiviner>
+;;; Time-stamp: <2019-06-24 20:58:17 stardiviner>
 
 ;;; Commentary:
 
@@ -10,10 +10,8 @@
 
 ;;; [ org-gantt ] -- Generate Gantt chart for Org Mode headlines.
 
-(use-package org-gantt
-  ;; :quelpa (org-gantt :fetcher github :repo "swillner/org-gantt" :files ("org-gantt.el"))
-  :quelpa (org-gantt :fetcher github :repo "stardiviner/org-gantt" :files ("org-gantt.el"))
-  :defer t)
+(leaf org-gantt
+  :straight (org-gantt :type git :host github :repo "stardiviner/org-gantt" :files ("org-gantt.el")))
 
 
 

@@ -100,9 +100,9 @@
 
 ;;; [ hl-sexp ] -- highlight the current sexp.
 
-(use-package hl-sexp
+(leaf hl-sexp
   ;; :ensure t
-  :quelpa (hl-sexp :fetcher github :repo "stardiviner/hl-sexp")
+  :straight (hl-sexp :type git :host github :repo "stardiviner/hl-sexp")
   ;; don't enable `global-hl-sexp-mode' automatically.
   ;; :init (global-hl-sexp-mode -1)
   :config
@@ -127,9 +127,8 @@
 
 ;;; [ rainbow-blocks-bg ] -- rainbow background highlighting of code blocks.
 
-(use-package rainbow-blocks-bg
-  :quelpa (rainbow-blocks-bg :fetcher github :repo "seanirby/rainbow-blocks-bg")
-  :no-require t
+(leaf rainbow-blocks-bg
+  :straight (rainbow-blocks-bg :type git :host github :repo "seanirby/rainbow-blocks-bg")
   ;; :config (global-rainbow-blocks-bg-mode)
   ;; (add-hook 'clojure-mode-hook 'rainbow-blocks-bg-mode)
   )

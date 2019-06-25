@@ -63,11 +63,12 @@
 
 ;;; add your customizations from here
 
-(use-package one-themes
-  ;; :ensure t
-  ;; :quelpa (one-themes :fetcher git :repo "stardiviner/emacs-one-themes")
+(leaf one-themes
+  :doc "My customized one-themes custom theme."
+  :require t
+  ;; :straight (one-themes :type git :host github :repo "stardiviner/one-thems")
   :load-path "~/Code/Emacs/one-themes"
-  :config (load-theme 'one-dark t))
+  :init (load-theme 'one-dark t))
 
 (use-package ace-window
   :ensure t

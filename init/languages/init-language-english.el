@@ -21,13 +21,10 @@
 
 ;;; [ company-english-helper ] -- English helper base on Emacs company-mode.
 
-(use-package company-english-helper
-  :quelpa (company-english-helper :fetcher github
-                                  :repo "manateelazycat/company-english-helper")
-  ;; :load-path "~/Code/Emacs/company-english-helper/"
-  :defer t
+(leaf company-english-helper
+  :package t
   :commands (toggle-company-english-helper)
-  :config
+  :init
   (defun my/company-english-helper-setup ()
     (if (local-variable-if-set-p 'company-backends)
         (add-to-list 'company-backends 'company-english-helper-search)

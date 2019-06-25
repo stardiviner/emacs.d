@@ -1,6 +1,6 @@
 ;;; init-leetcode.el --- init for LeetCode
 
-;;; Time-stamp: <2019-04-19 07:18:23 stardiviner>
+;;; Time-stamp: <2019-06-24 21:10:42 stardiviner>
 
 ;;; Commentary:
 
@@ -10,10 +10,10 @@
 
 ;;; [ leetcode.el ] -- An Emacs LeetCode client.
 
-(use-package leetcode
-  :quelpa (leetcode :fetcher github :repo "kaiwk/leetcode.el")
+(leaf leetcode
+  :package t
+  ;; :straight (leetcode :type git :host github :repo "kaiwk/leetcode.el")
   :ensure request-deferred
-  :defer t
   :commands (leetcode)
   :config (setq leetcode-account "stardiviner"
                 leetcode-password (my/json-read-value my/account-file 'leetcode)

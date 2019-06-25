@@ -86,7 +86,7 @@
 ;; [ pdf-tools-org ] -- integrate pdf-tools annotations to exporting/importing with Org Mode.
 
 (use-package pdf-tools-org
-  :quelpa (pdf-tools-org :fetcher github :repo "machc/pdf-tools-org")
+  :ensure t
   :defer t
   :commands (pdf-tools-org-export-to-org pdf-tools-org-import-from-org)
   :config

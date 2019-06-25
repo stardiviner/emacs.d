@@ -56,10 +56,11 @@
 
 ;;; [ one-themes ] -- One color scheme.
 
-(use-package one-themes
-  ;; :ensure t
-  ;; :quelpa (one-themes :fetcher git :repo "stardiviner/emacs-one-themes")
+(leaf one-themes
+  :doc "My customized one-themes custom theme."
+  ;; :straight (one-themes :type git :host github :repo "stardiviner/one-thems")
   :load-path "~/Code/Emacs/one-themes"
+  :require t
   :config (load-theme 'one-dark t))
 
 ;;; [ dimmer ] -- Interactively highlight which buffer is active by dimming the others.

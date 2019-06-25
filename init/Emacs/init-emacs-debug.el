@@ -47,9 +47,8 @@
 
 ;;; [ edebug-inline-result ] -- Show Edebug result inline.
 
-(use-package edebug-inline-result
-  :quelpa (edebug-inline-result :fetcher github :repo "stardiviner/edebug-inline-result")
-  :defer t
+(leaf edebug-inline-result
+  :straight (edebug-inline-result :type git :host github :repo "stardiviner/edebug-inline-result")
   :commands (edebug-inline-result-show))
 
 ;;; [ bug-hunter ] -- Hunt down errors in elisp files.

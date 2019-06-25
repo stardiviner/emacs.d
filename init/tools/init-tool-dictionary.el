@@ -33,15 +33,13 @@
 ;;           "朗道英汉字典5.0"
 ;;           "朗道汉英字典5.0")))
 
-;;; [ manateelazycat/sdcv ]
 
-(use-package sdcv
-  :quelpa (sdcv :fetcher github :repo "manateelazycat/sdcv")
+(leaf sdcv
+  :straight (sdcv :type git :host github :repo "manateelazycat/sdcv")
   :ensure posframe
   :commands (sdcv-search-pointer sdcv-search-pointer+ sdcv-search-input sdcv-search-input+)
-  :bind (:map dictionary-prefix
-              ("C-d" . sdcv-search-pointer+)
-              ("M-d" . sdcv-search-input))
+  :bind (:dictionary-prefix ("C-d" . sdcv-search-pointer+)
+                            ("M-d" . sdcv-search-input))
   :init
   (setq sdcv-say-word-p t)
   ;; a simple dictionary list for popup display
@@ -135,18 +133,15 @@
 
 ;;; [ insert-translated-name ] -- Insert translated string as variable, function name or sentence for comment.
 
-(use-package insert-translated-name
-  :quelpa (insert-translated-name
-           :fetcher github :repo "manateelazycat/insert-translated-name")
-  :defer t
-  :init (require 'insert-translated-name)
-  :config
-  (define-key dictionary-prefix (kbd "SPC") 'insert-translated-name-insert)
-  (set-face-attribute 'insert-translated-name-font-lock-mark-word nil
-                      :foreground "hot pink")
+(leaf insert-translated-name
+  :package t
+  :require t
+  :commands (insert-translated-name-insert)
+  :bind (:dictionary-prefix ("SPC" . insert-translated-name-insert))
+  :config (set-face-attribute 'insert-translated-name-font-lock-mark-word nil
+                              :foreground "hot pink")
   ;; auto active in some modes:
-  (dolist (hook (list
-                 'atomic-chrome-edit-mode-hook))
+  (dolist (hook (list 'atomic-chrome-edit-mode-hook))
     (add-hook hook '(lambda () (insert-translated-name-use-original-translation)))))
 
 

@@ -59,14 +59,15 @@
 
 ;;; [ org-password-manager ]
 
-(use-package org-password-manager
+(leaf org-password-manager
   ;; :ensure t
-  :quelpa (org-password-manager :fetcher github :repo "stardiviner/org-password-manager")
-  :bind (:map org-password-prefix
-              ("u" . org-password-manager-get-username)
-              ("p" . org-password-manager-get-password)
-              ("P" . org-password-manager-get-property-value)
-              ("g" . org-password-manager-generate-password))
+  :straight (org-password-manager :type git :host github
+                                  :repo "stardiviner/org-password-manager")
+  :bind (:org-password-prefix
+         ("u" . org-password-manager-get-username)
+         ("p" . org-password-manager-get-password)
+         ("P" . org-password-manager-get-property-value)
+         ("g" . org-password-manager-generate-password))
   :init (setq org-password-manager-file "~/Org/Accounts/accounts.org.gpg"
               org-password-manager-scope 'file))
 

@@ -145,19 +145,14 @@ In ~%s~:
                 )
               org-capture-templates))
 
-;;; [ org-protocol-capture-html ] -- Capture HTML from the browser selection into Emacs as org-mode content.
-
-;; (use-package org-protocol-capture-html
-;;   :quelpa (org-protocol-capture-html
-;;            :fetcher github :repo "alphapapa/org-protocol-capture-html"
-;;            :upgrade nil)
-;;   :config
-;;   (setq org-capture-templates
-;;         (append '(("PH" "org-[p]rotocol-capture-[h]tml" entry
-;;                    (file "")
-;;                    "* %a :website:\n\n%U %?\n\n%:initial"))
-;;                 org-capture-templates))
-;;   )
+(leaf org-protocol-capture-html
+  :doc "Capture HTML from the browser selection into Emacs as org-mode content."
+  :straight (org-protocol-capture-html :type git :host github :repo "alphapapa/org-protocol-capture-html")
+  :init (setq org-capture-templates (append
+                                     '(("PH" "org-[p]rotocol-capture-[h]tml" entry
+                                        (file "")
+                                        "* %a :website:\n\n%U %?\n\n%:initial"))
+                                     org-capture-templates)))
 
 
 (provide 'init-org-capture)

@@ -35,7 +35,7 @@
 ;;; [ idle-scroll ] -- idle scroll buffer one line every second.
 
 (use-package idle-scroll
-  :quelpa (idle-scroll :fetcher github :repo "kensanata/idle-scroll")
+  :ensure t
   :defer t
   :commands (idle-scroll-mode)
   :bind (:map tools-prefix ("M-r" . idle-scroll-mode)))
