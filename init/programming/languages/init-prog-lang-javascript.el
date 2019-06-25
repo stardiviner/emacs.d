@@ -195,6 +195,14 @@
   :ensure-system-package (javascript-typescript-stdio . "npm i -g javascript-typescript-langserver")
   :hook ((js-mode js2-mode typescript-mode rjsx-mode) . lsp))
 
+;;; [ tern + company-tern ] -- Tern-powered JavaScript integration.
+
+(use-package company-tern
+  :ensure t
+  :defer t
+  :ensure tern
+  :hook (js2-mode-hook . (lambda () (tern-mode 1) (my-company-add-backend-locally 'company-tern))))
+
 ;;; [ skewer-mode ] -- Live interactive web development in Emacs.
 
 (use-package skewer-mode
