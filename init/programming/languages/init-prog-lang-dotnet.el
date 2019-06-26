@@ -48,6 +48,18 @@
 (use-package omnisharp
   :ensure t
   :defer t
+  :bind (:map omnisharp-mode-map
+              ("M-." . omnisharp-go-to-definition)
+              ("C-c ." . helm-imenu)
+              ("C-c /" . omnisharp-helm-find-symbols)
+              ("C-c ," . omnisharp-helm-find-usages)
+              ("<M-return>" . omnisharp-run-code-action-refactoring)
+              ("C-c C-r" . omnisharp-rename)
+              ("C-c C-j" . omnisharp-navigate-to-current-file-member)
+              ;; Tests
+              ("C-c C-t p" . omnisharp-unit-test-at-point)
+              ("C-c C-t b" . omnisharp-unit-test-buffer)
+              ("C-c C-t l" . omnisharp-unit-test-last))
   :init (setq omnisharp-server-executable-path
               (expand-file-name "~/Code/.NET/omnisharp-roslyn/run"))
   (setq omnisharp-company-begin-after-member-access t
@@ -61,8 +73,7 @@
   (add-hook 'csharp-mode-hook 'omnisharp-mode)
   :config
   (defun my-omnisharp-setup ()
-    (my-company-add-backend-locally 'company-omnisharp)
-    (define-key omnisharp-mode-map (kbd "M-.") 'omnisharp-go-to-definition))
+    (my-company-add-backend-locally 'company-omnisharp))
   (add-hook 'omnisharp-mode-hook 'my-omnisharp-setup)
 
   (add-to-list 'display-buffer-alist
