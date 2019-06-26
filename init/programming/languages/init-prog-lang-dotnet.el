@@ -12,7 +12,10 @@
 (use-package dotnet ; dotnet-mode keymap prefix [C-c C-n]
   :ensure t
   :defer t
-  :commands (dotnet-new dotnet-add-package dotnet-test dotnet-command))
+  :commands (dotnet-new dotnet-add-package dotnet-test dotnet-run dotnet-build dotnet-publish)
+  :config
+  (add-to-list 'display-buffer-alist
+               '("^\\*dotnet\\*" (display-buffer-below-selected))))
 
 ;;; [ csproj-mode ] -- Work with .NET project files (csproj, vbproj).
 
