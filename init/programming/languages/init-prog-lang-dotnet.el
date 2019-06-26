@@ -11,9 +11,6 @@
 
 (use-package dotnet ; dotnet-mode keymap prefix [C-c C-n]
   :ensure t
-  :ensure-system-package dotnet-runtime
-  :ensure-system-package dotnet-host
-  :ensure-system-package dotnet-sdk
   :defer t
   :commands (dotnet-new dotnet-add-package dotnet-test dotnet-command))
 
