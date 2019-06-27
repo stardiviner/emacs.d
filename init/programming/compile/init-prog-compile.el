@@ -6,18 +6,20 @@
 
 ;;; [ compile ]
 
-(setq compilation-ask-about-save t ; save without asking.
-      compilation-skip-threshold 2 ; don't stop on info or warnings.
-      compilation-window-height 7
-      compilation-scroll-output 'first-error ; 'first-error ; stop on first error.
-      compilation-auto-jump-to-first-error nil ; jump to error file position.
-      compilation-auto-jump-to-next nil
-      )
-
-(add-to-list 'display-buffer-alist
-             '("^\\*compilation\\*" (display-buffer-below-selected)))
-(add-to-list 'display-buffer-alist
-             '("^\\*Compile-Log\\*" (display-buffer-below-selected)))
+(use-package compile
+  :defer t
+  :commands (compile)
+  :init (setq compilation-ask-about-save t ; save without asking.
+              compilation-skip-threshold 2 ; don't stop on info or warnings.
+              compilation-window-height 7
+              compilation-scroll-output 'first-error ; 'first-error ; stop on first error.
+              compilation-auto-jump-to-first-error nil ; jump to error file position.
+              compilation-auto-jump-to-next nil)
+  :config
+  (add-to-list 'display-buffer-alist
+               '("^\\*compilation\\*" (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*Compile-Log\\*" (display-buffer-below-selected))))
 
 ;;; [ quickrun ] -- Run command quickly.
 

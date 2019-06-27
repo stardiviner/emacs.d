@@ -10,16 +10,7 @@
   (define-prefix-command 'build-system-prefix))
 (global-set-key (kbd "<f6>") 'build-system-prefix)
 
-;;; [ compile ]
-
-(require 'compile)
-
-;;; [ Make ]
-
 (require 'init-make)
-
-;;; [ CMake ]
-
 (require 'init-cmake)
 
 ;;; [ build-helper ] -- Utilities to help build code.
@@ -28,9 +19,9 @@
   :ensure t
   :defer t
   :bind (:map build-system-prefix
-              ("<f6>" . build-helper-run)
-              ("<f7>" . build-helper-re-run)
-              ("<f8>" . compile)))
+              ("<f5>" . compile)
+              ("<f7>" . build-helper-run)
+              ("<f8>" . build-helper-re-run)))
 
 ;;; [ build-status ] -- mode line build status indicator.
 

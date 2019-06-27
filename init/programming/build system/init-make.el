@@ -32,9 +32,8 @@
   :ensure t
   :defer t
   :commands (makefile-executor-mode)
-  :bind (:map build-system-prefix ("<f5>" . makefile-executor-execute-project-target))
-  :init
-  (add-hook 'makefile-mode-hook 'makefile-executor-mode))
+  :bind (:map build-system-prefix ("<f6>" . makefile-executor-execute-project-target))
+  :init (add-hook 'makefile-mode-hook 'makefile-executor-mode))
 
 
 (provide 'init-make)
