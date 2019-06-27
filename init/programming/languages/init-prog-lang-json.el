@@ -37,13 +37,15 @@
 
 (use-package json-snatcher
   :ensure t
-  :defer t)
+  :defer t
+  :commands (jsons-print-path))
 
 ;;; [ json-navigator ] -- view and navigate JSON structures.
 
 (use-package json-navigator
   :ensure t
-  :defer t)
+  :defer t
+  :commands (json-navigator-navigate-after-point json-navigator-navigate-region))
 
 
 
