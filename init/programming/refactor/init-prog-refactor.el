@@ -9,7 +9,8 @@
 
 (unless (boundp 'refactor-prefix)
   (define-prefix-command 'refactor-prefix))
-(global-set-key (kbd "M-RET") 'refactor-prefix)
+;; (global-set-key (kbd "M-RET") 'refactor-prefix)
+(global-set-key (kbd "<M-return>") 'refactor-prefix)
 ;; (global-set-key (kbd "C-c RET") 'refactor-prefix)
 
 
@@ -18,7 +19,7 @@
 (use-package emr
   :ensure t
   :delight emr-c-mode
-  :bind (:map prog-mode-map ("M-RET" . emr-show-refactor-menu))
+  :bind (:map prog-mode-map ("<M-return>" . emr-show-refactor-menu))
   :init (add-hook 'prog-mode-hook #'emr-initialize))
 
 
