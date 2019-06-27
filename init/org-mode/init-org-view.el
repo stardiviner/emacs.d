@@ -40,6 +40,7 @@
   :ensure all-the-icons
   :defer t
   :init (add-hook 'org-mode-hook #'org-bullets-mode)
+  :config
   ;; (setq org-bullets-bullet-list '("⊢" "⋮" "⋱" "⋮" "⋱"))
   (with-eval-after-load 'all-the-icons
     (setq-default org-bullets-bullet-list
