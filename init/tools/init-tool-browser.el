@@ -74,6 +74,13 @@
   (with-eval-after-load 'org-agenda
     (define-key org-agenda-mode-map (kbd "C-c M-o") 'ace-link-org-agenda)))
 
+;;; [ counsel-ffdata ] -- Ivy interface to access your firefox bookmarks and history in Emacs.
+
+(use-package counsel-ffdata
+  :ensure t
+  :defer t
+  :commands (counsel-ffdata-firefox-bookmarks counsel-ffdata-firefox-history))
+
 
 (provide 'init-tool-browser)
 
