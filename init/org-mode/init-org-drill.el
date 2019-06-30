@@ -8,31 +8,33 @@
 
 ;;; [ org-drill ] -- Begin an interactive "drill session" based on Org-mode.
 
-(require 'org-drill)
+(use-package org-drill
+  :ensure t
+  :defer t
+  :commands (org-drill)
+  :init
+  ;; add org-drill topic property into default properties list.
+  (add-to-list 'org-default-properties "DRILL_CARD_TYPE")
+  (setq org-tag-alist
+        (append '((:startgroup . nil) ("drill" . ?d) (:endgroup . nil))
+                org-tag-alist))
+  (add-to-list 'org-tag-faces
+               '("drill" :foreground "coral"))
 
-;; add org-drill topic property into default properties list.
-(add-to-list 'org-default-properties "DRILL_CARD_TYPE")
-(setq org-tag-alist
-      (append '((:startgroup . nil) ("drill" . ?d) (:endgroup . nil))
-              org-tag-alist))
-(add-to-list 'org-tag-faces
-             '("drill" :foreground "coral"))
+  (setq org-drill-use-visible-cloze-face-p nil ; t will caused [] invalid headline fontify.
+        org-drill-hide-item-headings-p nil
+        org-drill-save-buffers-after-drill-sessions-p nil
+        ;; org-drill-spaced-repetition-algorithm 'sm2
+        )
+  ;; record queried words to Org-mode drill files
+  (require 'org-capture) ; load `org-capture-templates'
 
-(setq org-drill-use-visible-cloze-face-p nil ; t will caused [] invalid headline fontify.
-      org-drill-hide-item-headings-p nil
-      org-drill-save-buffers-after-drill-sessions-p nil
-      ;; org-drill-spaced-repetition-algorithm 'sm2
-      )
+  (setq my-org-drill-words-file (concat org-directory "/Drills/Words.org"))
 
-;; [ record queried words to Org-mode drill files ]
-(require 'org-capture) ; load `org-capture-templates'
-
-(setq my-org-drill-words-file (concat org-directory "/Drills/Words.org"))
-
-(setq org-capture-templates
-      (append '(("w" "org-drill [w]ords"
-                 entry (file my-org-drill-words-file)
-                 "* %i :drill:
+  (setq org-capture-templates
+        (append '(("w" "org-drill [w]ords"
+                   entry (file my-org-drill-words-file)
+                   "* %i :drill:
 :PROPERTIES:
 :DRILL_CARD_TYPE: %^{Drill Difficulty|simple|twosided|multisided|hide1cloze}
 :END:
@@ -41,18 +43,19 @@
 
 %c
 "
-                 :empty-lines 1
-                 ))
-              org-capture-templates))
+                   :empty-lines 1))
+                org-capture-templates))
 
-(defun my-org-drill ()
-  "My wrapper helper function around `org-drill'."
-  (interactive)
-  (find-file my-org-drill-words-file)
-  (if (org-drill-entries-pending-p)
-      (org-drill-resume)
-    (org-drill)))
-(define-key Org-prefix (kbd "w") 'my-org-drill)
+  (defun my-org-drill ()
+    "My wrapper helper function around `org-drill'."
+    (interactive)
+    (find-file my-org-drill-words-file)
+    (if (org-drill-entries-pending-p)
+        (org-drill-resume)
+      (org-drill)))
+  (define-key Org-prefix (kbd "w") 'my-org-drill)
+  )
+
 
 (use-package stem-english
   :ensure t
