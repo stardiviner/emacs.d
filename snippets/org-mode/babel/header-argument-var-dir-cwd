@@ -3,4 +3,4 @@
 # key: :var-cwd
 # group: header-arguments.var
 # --
-:var cwd=(concat (file-name-directory (buffer-file-name)) "${1:data/images/}")
+ :var cwd=(concat (file-name-directory (buffer-file-name)) "${1:data/images/}")

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-install-centos
+# key: babel-install-centos
+# group: babel.install
+# --
+#+begin_src sh :dir /sudo:: :results none
+sudo dnf install $0
+#+end_src
