@@ -107,7 +107,7 @@
 ;;   :after python-mode
 ;;   :hook (python-mode . anaconda-mode))
 
-;;; [ lsp-python ] Python support for lsp-mode with pyls.
+;;; [ lsp-python ] -- Python support for lsp-mode with pyls.
 
 ;; (use-package lsp-mode
 ;;   :ensure t
@@ -116,6 +116,13 @@
 ;;   :hook (python-mode . lsp)
 ;;   :init (with-eval-after-load 'lsp-clients
 ;;           (add-to-list 'lsp-clients-python-library-directories "/usr/local/")))
+
+;;; [ lsp-python-ms ] -- Emacs lsp-mode client for Microsoft's python language server.
+
+(use-package lsp-python-ms
+  :ensure t
+  :demand
+  :hook (python-mode . lsp-deferred))
 
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
 
