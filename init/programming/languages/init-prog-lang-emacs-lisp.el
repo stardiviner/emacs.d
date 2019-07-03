@@ -14,11 +14,7 @@
 (defun my-emacs-lisp-setup ()
   "My Emacs Lisp mode settings."
   (interactive)
-  (eldoc-mode 1)
-  (require 'company-elisp)
-  (my-company-add-backend-locally 'company-elisp)
-  (setq company-elisp-detect-function-context t
-        company-elisp-show-locals-first t))
+  (eldoc-mode 1))
 (add-hook 'emacs-lisp-mode-hook 'my-emacs-lisp-setup)
 
 ;; Recompile your elc when saving an elisp file.

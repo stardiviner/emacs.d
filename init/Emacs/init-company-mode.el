@@ -40,27 +40,27 @@
   ;; (add-to-list 'company-frontends 'company-preview-frontend)
 
   (setq-default company-backends
-                '(company-files         ; files & directory
-                  ;; company-gtags company-etags
-                  (company-capf         ; `completion-at-point-functions'
-                   :with company-yasnippet
+                '((company-capf         ; `completion-at-point-functions'
+                   ;; :with company-semantic
+                   ;; company-gtags company-etags
+                   :separate company-yasnippet
                    :separate company-tempo  ; tempo: flexible template insertion
-                   :separate company-dabbrev-code ; dabbrev with only code
-                   ;; :separate company-semantic
-                   )
-                  (company-keywords :with company-abbrev)
-                  ;; company-ispell
-                  ))
+                   :separate company-keywords
+                   :separate company-abbrev)
+                  company-dabbrev-code
+                  company-files
+                  company-ispell))
   
   :config
   (defun my-company-add-backend-locally (backend)
     "Add a backend in my custom way.
 
 \\(my-company-add-backend-locally 'company-robe\\)"
-    (if (local-variable-if-set-p 'company-backends)
-        (add-to-list 'company-backends `(,backend :with company-yasnippet))
-      (add-to-list (make-local-variable 'company-backends)
-                   `(,backend :with company-yasnippet))))
+    (make-local-variable 'company-backends)
+    (unless (eq (car (car company-backends)) backend)
+      (setq-local company-backends
+                  (cons (cons backend (cons ':with (car company-backends)))
+                        (cdr company-backends)))))
 
   ;; [ company-ispell ]
   ;; (setq company-ispell-dictionary "/usr/share/dict/words")
