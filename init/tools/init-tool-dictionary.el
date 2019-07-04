@@ -144,6 +144,13 @@
   (dolist (hook (list 'atomic-chrome-edit-mode-hook))
     (add-hook hook '(lambda () (insert-translated-name-use-original-translation)))))
 
+;;; [ helm-baidu-fanyi-suggest ]
+
+(use-package helm-baidu-fanyi-suggest
+  :load-path "~/.emacs.d/init/extension/"
+  :defer t
+  :commands (helm-baidu-fanyi-suggest))
+
 
 (provide 'init-tool-dictionary)
 
