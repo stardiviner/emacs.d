@@ -22,7 +22,31 @@
         ivy-display-style 'fancy
         ivy-initial-inputs-alist nil ; remove initial ^ input.
         ;; ivy-extra-directories '() ; remove . and .. directory.
-        ))
+        )
+  :config
+  (set-face-attribute 'ivy-current-match nil ; selection
+                      :background nil :foreground nil
+                      :weight 'normal
+                      :box t)
+  (set-face-attribute 'ivy-minibuffer-match-highlight nil ; highlighting the match under the cursor
+                      :background "light gray" :foreground "black"
+                      :weight 'normal)
+  (set-face-attribute 'ivy-minibuffer-match-face-1 nil ; the text between multiple matches
+                      :foreground (face-attribute 'default :foreground)
+                      :overline "dim gray"
+                      ;; :strike-through nil
+                      :weight 'normal)
+  (set-face-attribute 'ivy-minibuffer-match-face-2 nil ; only one match
+                      :foreground (face-attribute 'default :foreground)
+                      :underline "red"
+                      :weight 'normal)
+  (set-face-attribute 'ivy-minibuffer-match-face-3 nil ; the first match in multiple matches
+                      :background " " :underline "orange"
+                      :weight 'normal)
+  (set-face-attribute 'ivy-minibuffer-match-face-4 nil ; the second match in multiple matches
+                      :background " " :underline "yellow"
+                      :weight 'normal)
+  )
 
 ;;; [ ivy-rich ] -- More friendly display transformer for ivy.
 
