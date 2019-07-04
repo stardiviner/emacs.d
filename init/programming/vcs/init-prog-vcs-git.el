@@ -55,7 +55,11 @@
     (setq-local company-dabbrev-ignore-buffers
                 #'my:company-dabbrev-ignore-except-magit-diff)
     (setq company-dabbrev-code-other-buffers 'all)
-    (flyspell-mode))
+    (flyspell-mode)
+    (setq-local company-backends
+                '(company-dabbrev-code
+                  :with company-abbrev                  
+                  :separate company-ispell)))
   (add-hook 'git-commit-setup-hook #'my:git-commit-setup-hook))
 
 ;;; [ Magit ]
