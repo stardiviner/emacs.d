@@ -170,6 +170,9 @@
         ((raise -0.5))
         ((raise 0.5))))
 
+;;; treats angle brackets (<>) as parenthesis
+;; (modify-syntax-entry ?< ".")
+;; (modify-syntax-entry ?> ".")
 
 ;; (require 'skeleton)
 ;; (setq skeleton-pair t)
