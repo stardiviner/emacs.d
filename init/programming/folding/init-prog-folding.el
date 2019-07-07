@@ -40,17 +40,10 @@
               ("O" . origami-show-only-node)
               ("u" . origami-undo)
               ("r" . origami-redo)
-              ("!" . origami-reset)
-              )
-  :config
+              ("!" . origami-reset))
+  :init (add-hook 'prog-mode-hook #'origami-mode)
   (setq origami-show-fold-header t
-        origami-fold-replacement "...")
-
-  ;; `global-origami-mode' & `origami-mode'
-  (dolist (hook '(prog-mode-hook
-                  ))
-    (add-hook hook 'origami-mode))
-  )
+        origami-fold-replacement "..."))
 
 
 (provide 'init-prog-folding)
