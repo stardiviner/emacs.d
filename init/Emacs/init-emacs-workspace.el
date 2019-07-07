@@ -36,6 +36,14 @@
 ;;   :init (setq persp-keymap-prefix (kbd "C-x p"))
 ;;   :hook (after-init . persp-mode))
 
+;;; [ spacebar ] -- Workspaces Tabbar.
+
+;; (use-package spacebar
+;;   :ensure t
+;;   ;; :custom (spacebar-keymap-prefix (kbd "C-c w"))
+;;   ;; :bind-keymap ("C-c w" . spacebar-command-map)
+;;   :config (spacebar-mode))
+
 
 (provide 'init-emacs-workspace)
 
