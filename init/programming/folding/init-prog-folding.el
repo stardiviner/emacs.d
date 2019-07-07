@@ -14,16 +14,11 @@
 ;;; [ hideshow ] -- minor mode to selectively hide/show code and comment blocks.
 
 ;; (use-package hideshow
-;;   :ensure t
-;;   :config
-;;   ;; Add markers to the fringe for regions foldable by hideshow.
-;;   (use-package hideshowvis
+;;   :init
+;;   (use-package hideshowvis ; Add markers to the fringe for regions foldable by hideshow.
 ;;     :ensure t
-;;     :config
-;;     (add-hook 'prog-mode-hook #'hideshowvis-enable)
-;;     (hideshowvis-symbols)
-;;     )
-;;   )
+;;     :init (add-hook 'prog-mode-hook #'hideshowvis-enable)
+;;     :config (hideshowvis-symbols)))
 
 ;;; [ origami ] -- A folding minor mode for Emacs.
 
