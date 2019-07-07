@@ -88,28 +88,13 @@
   (define-key company-active-map [tab] nil)
   (define-key company-active-map (kbd "<tab>") nil)
   (define-key company-active-map (kbd "<S-tab>") nil)
-  (define-key company-active-map (kbd "C-n") nil)
-  (define-key company-active-map (kbd "C-p") nil)
-  (define-key company-active-map (kbd "C-j") nil)
-  (define-key company-active-map (kbd "C-g") 'company-abort)
-  (define-key company-active-map (kbd "M-n") 'company-select-next)
-  (define-key company-active-map (kbd "M-p") 'company-select-previous)
   (define-key company-active-map (kbd "M-j") 'company-complete-selection)
   (define-key company-active-map (kbd "M-i") 'company-complete-common)
-  (define-key company-active-map [mouse-1] 'company-complete-mouse)
-  (define-key company-active-map [mouse-3] 'company-select-mouse)
-
-  ;; help
-  (define-key company-active-map (kbd "<f1>") 'company-show-doc-buffer)
   (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
-
   (define-key company-active-map (kbd "M-l") 'company-show-location)
-
-  ;; search
   ;; (setq company-search-regexp-function #regexp-quote)
-  ;; (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
-  (define-key company-active-map (kbd "M-s") 'company-filter-candidates)
-  (define-key company-active-map (kbd "C-M-s") 'company-search-candidates)
+  (define-key company-active-map (kbd "M-s") 'company-search-candidates)
+  (define-key company-active-map (kbd "C-M-s") 'company-filter-candidates)
   ;; nested searching map.
   (define-key company-search-map (kbd "M-g") 'company-search-toggle-filtering)
   (define-key company-search-map (kbd "C-g") 'company-search-abort)
