@@ -8,10 +8,15 @@
 ;;; Code:
 
 ;;; For MacOS
-(setq mac-option-modifier 'hyper) ; sets the Option key as Hyper
-(setq mac-option-modifier 'super) ; sets the Option key as Super
-(setq mac-command-modifier 'meta) ; sets the Command key as Meta
-(setq mac-control-modifier 'meta) ; sets the Control key as Meta
+;; (setq mac-option-modifier 'hyper) ; sets the Option key as Hyper
+;; (setq mac-option-modifier 'super) ; sets the Option key as Super
+;; (setq mac-command-modifier 'meta) ; sets the Command key as Meta
+;; (setq mac-control-modifier 'meta) ; sets the Control key as Meta
+
+;; Use Command key as Meta
+(setq mac-option-modifier 'alt)
+(setq mac-command-modifier 'meta)
+(global-set-key [kp-delete] 'delete-char) ; sets fn-delete to be right-delete
 
 ;;; [ company-xcode ]
 
