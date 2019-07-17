@@ -81,6 +81,17 @@
 (require 'init-functions)
 
 
+;;; Systems
+
+(cl-case system-type
+  ('gnu/linux
+   (require 'init-linux))
+  ('darwin
+   (require 'init-macOS))
+  ('windows-nt
+   (require 'init-microsoft-windows)))
+
+
 ;;; Emacs
 (require 'init-emacs-environment)
 (require 'init-emacs-settings)
@@ -334,16 +345,6 @@
 
 (require 'init-data-science)
 
-
-;;; Systems
-
-(cl-case system-type
-  ('gnu/linux
-   (require 'init-linux))
-  ('darwin
-   (require 'init-macOS))
-  ('windows-nt
-   (require 'init-microsoft-windows)))
 
 (require 'init-log-tools)
 
