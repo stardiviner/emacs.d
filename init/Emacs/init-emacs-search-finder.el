@@ -20,7 +20,6 @@
 
 (use-package fd-dired
   :ensure t
-  :ensure-system-package fd
   :defer t
   :commands (fd-dired)
   :bind (:map find-prefix ("f" . fd-dired))

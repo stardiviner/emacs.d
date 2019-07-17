@@ -11,7 +11,6 @@
 
 (use-package perl-mode
   :ensure t
-  :ensure-system-package perl
   :defer t)
 
 ;;; [ perl6-mode ]

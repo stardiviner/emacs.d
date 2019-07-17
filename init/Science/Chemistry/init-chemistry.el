@@ -9,7 +9,6 @@
 ;;; Chemistry: SMILES
 (use-package smiles-mode
   :ensure t
-  :ensure-system-package (babel . "sudo pacman -S --noconfirm openbabel")
   :defer t
   :init
   (use-package ob-smiles

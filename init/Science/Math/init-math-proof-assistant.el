@@ -11,8 +11,6 @@
 
 (use-package proof-general
   :ensure t
-  ;; :ensure-system-package ((proofgeneral . "yaourt -S --noconfirm proofgeneral")
-  ;;                         (coqc . "sudo pacman -S --noconfirm coq coq-doc coqide"))
   ;; :load-path "~/.emacs.d/site-lisp/ProofGeneral/generic"
   :defer t
   ;; :preface

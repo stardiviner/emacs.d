@@ -48,7 +48,6 @@
 
 (use-package flyspell
   :ensure t
-  :ensure-system-package (ispell aspell)
   :defer t
   :preface
   ;; don't use [M-TAB] keybinding to correct word.

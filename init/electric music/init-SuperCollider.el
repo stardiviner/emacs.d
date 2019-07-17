@@ -21,7 +21,6 @@
 (use-package sclang
   ;; :load-path "/usr/share/emacs/site-lisp/SuperCollider/"
   :load-path "~/Code/Emacs/scel/build/el/"
-  :ensure-system-package (sclang . "sudo pacman -S --noconfirm supercollider")
   :defer t
   :mode ("\\.sc\\'" . sclang-mode)
   :commands (sclang-mode sclang-start)

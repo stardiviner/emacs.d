@@ -65,7 +65,6 @@
 
 (use-package js2-mode
   :ensure t
-  :ensure-system-package (node . "sudo pacman -S --noconfirm nodejs")
   :defer t
   :mode ("\\.js\\'" . js2-mode)
   :init (add-hook 'js-mode-hook #'js2-minor-mode)
@@ -192,7 +191,6 @@
 
 (use-package lsp-mode
   :ensure t
-  :ensure-system-package (javascript-typescript-stdio . "npm i -g javascript-typescript-langserver")
   :hook ((js-mode js2-mode typescript-mode rjsx-mode) . lsp))
 
 ;;; [ tern + company-tern ] -- Tern-powered JavaScript integration.

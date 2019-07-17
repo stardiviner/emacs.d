@@ -9,7 +9,6 @@
 
 (use-package go-mode
   :ensure t
-  :ensure-system-package go
   :defer t
   :init (add-hook 'before-save-hook #'gofmt-before-save)
   (setq godoc-use-completing-read t)
@@ -65,7 +64,6 @@
 
 (use-package lsp-mode
   :ensure t
-  :ensure-system-package ((go-langserver . "go get -u github.com/sourcegraph/go-langserver"))
   :defer t
   :hook (go-mode . lsp))
 

@@ -195,7 +195,6 @@
 
 ;; (use-package zeal-at-point
 ;;   :ensure t
-;;   :ensure-system-package zeal
 ;;   :defer t
 ;;   :bind (:map document-prefix
 ;;               ("C-d" . zeal-at-point))

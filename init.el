@@ -65,7 +65,6 @@
 
 (use-package pinentry
   :ensure t
-  :ensure-system-package pinentry
   :config
   (pinentry-start))
 

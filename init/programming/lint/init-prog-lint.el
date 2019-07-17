@@ -26,7 +26,6 @@
 
 (use-package flycheck
   :ensure t
-  :ensure-system-package (proselint . "pip install proselint")
   :defer t
   :commands flycheck-mode
   :preface (setq flycheck-check-syntax-automatically '(save)

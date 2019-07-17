@@ -19,7 +19,6 @@
 ;; - #+ATTR_LATEX: :width 5in
 ;; - #+ATTR_HTML: :width 200px
 (use-package org
-  :ensure-system-package (convert . "sudo pacman -S --noconfirm imagemagick")
   :init
   ;; inline image scale width.
   (setq org-image-actual-width nil))

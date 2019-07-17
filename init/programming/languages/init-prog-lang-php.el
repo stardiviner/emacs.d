@@ -11,7 +11,6 @@
 
 (use-package php-mode
   :ensure t
-  :ensure-system-package php
   :defer t
   :mode (("\\.php\\'" . php-mode)
          ("\\(pages\\|snippets\\|templates\\)/.*\\.php?$" . web-mode))

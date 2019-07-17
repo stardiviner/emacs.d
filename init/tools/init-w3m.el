@@ -8,7 +8,6 @@
 
 (use-package w3m
   :ensure t
-  :ensure-system-package w3m
   :defer t
   :commands w3m-goto-url w3m-search
   :config

@@ -10,7 +10,6 @@
 
 (use-package terraform-mode
   :ensure t
-  :ensure-system-package terraform
   :defer t
   :config
   (use-package company-terraform

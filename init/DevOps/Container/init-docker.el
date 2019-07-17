@@ -17,7 +17,6 @@
 
 (use-package docker
   :ensure t
-  :ensure-system-package docker
   :defer t
   :commands (docker-containers docker-images docker-volumes docker-networks
                                docker-container-eshell docker-container-shell

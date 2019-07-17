@@ -158,7 +158,6 @@
 ;;; [ ox-pandoc ] -- another org-mode exporter via pandoc.
 
 (use-package ox-pandoc
-  :ensure-system-package (pandoc . "sudo pacman -S --noconfirm pandoc pandoc-citeproc pandoc-crossref")
   :ensure t
   :defer t)
 

@@ -66,7 +66,6 @@
 
 (use-package magit
   :ensure t
-  :ensure-system-package git
   :defer t
   :commands (magit-status)
   :bind (:map prog-vcs-prefix

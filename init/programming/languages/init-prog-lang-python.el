@@ -11,7 +11,6 @@
 
 (use-package python-mode
   :ensure t
-  :ensure-system-package python
   :defer t
   :commands (py-shell ; `py-python-shell-mode'
              python python3 python2 ipython jpython)
@@ -111,7 +110,6 @@
 
 ;; (use-package lsp-mode
 ;;   :ensure t
-;;   :ensure-system-package ((pyls . "pip install python-language-server"))
 ;;   :defer t
 ;;   :hook (python-mode . lsp)
 ;;   :init (with-eval-after-load 'lsp-clients

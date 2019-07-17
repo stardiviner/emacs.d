@@ -10,7 +10,6 @@
 
 (use-package es-mode
   :ensure t
-  :ensure-system-package jq
   :defer t
   :mode ("\\.es$" . es-mode)
   :init

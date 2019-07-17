@@ -73,12 +73,6 @@
 (setq use-package-verbose t ; 'debug: any evaluation errors report to `*use-package*` buffer.
       use-package-always-ensure nil)
 
-(use-package use-package-ensure-system-package
-  :ensure t
-  :config
-  ;; for system-packages
-  (setq system-packages-noconfirm t))
-
 ;; detect whether ~/.emacs.d/elpa/org-9.1.9/ exist?
 ;; (unless (require 'org nil 'noerror)
 ;;   (package-install-file (concat user-emacs-directory "init/extensions/org.el")))

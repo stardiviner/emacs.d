@@ -40,7 +40,6 @@
 
 (use-package say-what-im-doing
   :ensure t
-  :ensure-system-package (mimic . "yaourt -S --noconfirm mimic")
   :config
   (setq say-what-im-doing-shell-command (if (executable-find "mimic")
                                             "mimic"
@@ -61,26 +60,20 @@
 
 (use-package eloud
   :ensure t
-  :ensure-system-package espeak
-  :config
-  (setq eloud-espeak-path (cond
-                           ((string-equal system-type "gnu/linux")
-                            "/usr/bin/espeak")
-                           ((string-equal system-type "darwin")
-                            "/usr/local/bin/espeak")))
-
-  (eloud-mode 1)
-  )
+  :init (setq eloud-espeak-path (cond
+				 ((string-equal system-type "gnu/linux")
+				  "/usr/bin/espeak")
+				 ((string-equal system-type "darwin")
+				  "/usr/local/bin/espeak")))
+  :config (eloud-mode 1))
 
 
 ;;; [ read-aloud ] -- A simple Emacs interface to TTS (text-to-speech) engines.
 
 (use-package read-aloud
   :ensure t
-  :ensure-system-package (spd-say . "sudo pacman -S --noconfirm speech-dispatcher")
   :config
-  (setq read-aloud-engine "speech-dispatcher")
-  )
+  (setq read-aloud-engine "speech-dispatcher"))
 
 
 (provide 'init-tool-speak)

@@ -11,7 +11,6 @@
 
 (use-package pdf-tools
   :ensure t
-  :ensure-system-package (pdfinfo . "sudo pacman -S --noconfirm poppler poppler-data")
   :defer t
   :commands (pdf-tools-install-noverify pdf-view-mode)
   :init (pdf-tools-install-noverify) ; (pdf-tools-install)
@@ -108,7 +107,6 @@
 
 (use-package pdfgrep
   :ensure t
-  :ensure-system-package pdfgrep
   :defer t
   :commands (pdfgrep pdfgrep-mode)
   :init (add-hook 'pdf-view-mode-hook #'pdfgrep-mode))

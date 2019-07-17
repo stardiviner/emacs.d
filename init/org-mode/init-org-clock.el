@@ -17,9 +17,6 @@
 
 ;;; [ Clock ]
 
-(use-package org-clock
-  :ensure-system-package (aplay . "sudo pacman -S --noconfirm alsa-utils"))
-
 (setq org-clock-persist t ; nil, t, 'clock, 'history
       org-clock-persist-query-save t
       org-clock-persist-query-resume nil ; don't ask, resume by default when Emacs restart.

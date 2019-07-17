@@ -22,7 +22,6 @@
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
 (use-package org-screenshot
-  :ensure-system-package scrot
   :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
   :pin manual
   :defer t
@@ -45,7 +44,6 @@
 
 (use-package org-download
   :ensure t
-  :ensure-system-package wget
   :defer t
   :init
   (unless (boundp 'org-download-prefix)
@@ -91,7 +89,6 @@
 
 (use-package org-board
   :ensure t
-  :ensure-system-package wget
   :defer t
   :preface
   (unless (boundp 'org-board-prefix)

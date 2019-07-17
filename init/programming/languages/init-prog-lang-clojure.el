@@ -12,7 +12,6 @@
 (use-package clojure-mode
   :ensure t
   :ensure subword
-  :ensure-system-package clojure
   :defer t
   :mode (
          ;; Boot files
@@ -417,7 +416,6 @@ With value selected from a list of available sessions."
 
 (use-package elein
   :ensure t
-  :ensure-system-package (lein . "wget 'https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein' && mv lein ~/bin/ && chmod 755 ~/bin/lein")
   :defer t
   :init
   (defun elein-lein-try ()
