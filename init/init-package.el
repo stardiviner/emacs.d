@@ -78,8 +78,10 @@
 ;;   (package-install-file (concat user-emacs-directory "init/extensions/org.el")))
 
 (use-package org
-  :pin manual
-  :load-path "~/Code/Emacs/org-mode/lisp/"
+  :pin org
+  :ensure t
+  ;; :pin manual
+  ;; :load-path "~/Code/Emacs/org-mode/lisp/"
   :defer t
   :preface
   ;; Org Mode modules -- modules that should always be loaded together with org.el.
@@ -95,8 +97,10 @@
   ;; load org before using some Org settings.
   (require 'org)
   (use-package org-plus-contrib
-    :pin manual
-    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :pin org
+    :ensure t
+    ;; :pin manual
+    ;; :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
     :defer t
     :no-require t))
 
