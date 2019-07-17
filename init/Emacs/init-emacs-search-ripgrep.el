@@ -15,7 +15,6 @@
 
 (use-package rg
   :ensure t
-  :after projectile
   :defer t
   :custom (rg-keymap-prefix nil)
   :preface (setq rg-keymap-prefix rg-prefix)
@@ -34,6 +33,7 @@
               ("s s" . rg-project)
               ("s a" . projectile-ag))
   :init (rg-enable-default-bindings)
+  (setq rg-executable "/usr/local/bin/rg")
   (setq rg-group-result t)
   (if (null rg-command-line-flags)
       (setq rg-command-line-flags '("-j 4"))
