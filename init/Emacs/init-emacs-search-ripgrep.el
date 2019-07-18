@@ -16,6 +16,7 @@
 (use-package rg
   :ensure t
   :defer t
+  :after projectile
   :custom (rg-keymap-prefix nil)
   :preface (setq rg-keymap-prefix rg-prefix)
   ;; (setq rg-command-line-flags '("--debug"))

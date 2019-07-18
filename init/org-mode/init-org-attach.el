@@ -65,14 +65,9 @@
         ;; if you don't want the #+DOWNLOADED: annotation in your Org document
         org-download-annotate-function (lambda (_) "")
         org-download-backend t ; url-retrieve (t), wget, curl.
-        ;; org-download-heading-lvl
-        ;; org-download-timestamp "_%Y-%m-%d_%H:%M:%S"
         org-download-image-dir "data/images" ; nil: default to "."
-        ;; org-download-image-width nil ; use #+attr_html: :width
-        ;; org-download-img-regex-list '("<img +src=\"" "<img +\\(class=\"[^\"]+\"\\)? *src=\"")
         )
-
-  (org-download-enable))
+  :config (org-download-enable))
 
 ;;; [ org-web-tools ] -- retrieving web page content and processing it into Org-mode content.
 

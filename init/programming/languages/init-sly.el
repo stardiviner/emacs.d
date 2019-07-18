@@ -12,7 +12,7 @@
 (use-package sly
   :ensure t
   :defer t
-  :commands (sly)
+  :commands (sly sly-mode)
   :preface (setq sly-default-lisp 'sbcl)
   :init (mapc
          (lambda (hook) (add-hook hook #'sly-mode))
@@ -62,7 +62,9 @@
   :ensure t
   :defer t
   :after sly
-  :init (add-to-list 'sly-contribs 'sly-repl-ansi-color 'append))
+  :config
+  (add-to-list 'sly-contribs 'sly-repl-ansi-color 'append)
+  (sly-setup sly-contribs))
 
 ;;; [ sly-macrostep ] -- Expand CL macros inside source files
 
@@ -95,7 +97,9 @@
   :ensure t
   :defer t
   :after sly
-  :init (add-to-list 'sly-contribs 'sly-asdf 'append))
+  :config
+  (add-to-list 'sly-contribs 'sly-asdf 'append)
+  (sly-setup sly-contribs))
 
 
 (provide 'init-sly)
