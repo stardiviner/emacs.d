@@ -33,13 +33,12 @@
   :bind (:map python-mode-map ("C-c C-s" . run-python))
   :init
   (setq python-shell-interpreter "python")
-  (case python-shell-interpreter
+  (cl-case python-shell-interpreter
     ("python"
      (setq python-shell-interpreter-args "-i"))
     ("ipython"
      (setq python-shell-interpreter-args "--simple-prompt --pprint")
-     (setenv "IPY_TEST_SIMPLE_PROMPT" "1"))
-    )
+     (setenv "IPY_TEST_SIMPLE_PROMPT" "1")))
   :config
   (setq python-shell-completion-native-enable nil)
 

@@ -224,9 +224,8 @@
 
 (use-package orgtbl-aggregate
   :ensure t
-  :defer t
   :commands (org-insert-dblock org-insert-dblock:aggregate)
-  :init
+  :config
   ;; add `orgtbl-aggregate' dynamic blocks into list.
   (org-dynamic-block-define "columnview" 'org-insert-dblock:columnview)
   (org-dynamic-block-define "aggregate" 'org-insert-dblock:aggregate)

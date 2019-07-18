@@ -467,21 +467,17 @@ opening 4clojure questions"
 (use-package yesql-ghosts
   :ensure t
   :defer t
-  :config
-  (add-hook 'cider-mode-hook 'yesql-ghosts-auto-show-ghosts)
-  (setq yesql-ghosts-show-ghosts-automatically t
-        yesql-ghosts-show-descriptions t)
-  )
+  :init (setq yesql-ghosts-show-ghosts-automatically t
+              yesql-ghosts-show-descriptions t)
+  :config (add-hook 'cider-mode-hook 'yesql-ghosts-auto-show-ghosts))
 
 ;;; [ HugSQL Ghosts ] -- Display ghostly HugSQL defqueries inline, in Emacs.
 
 (use-package hugsql-ghosts
   :ensure t
   :defer t
-  :config
-  (add-hook 'cider-mode-hook 'hugsql-ghosts-install-hook)
-  (setq hugsql-ghosts-newline-before-docstrings t)
-  )
+  :init (setq hugsql-ghosts-newline-before-docstrings t)
+  :config (add-hook 'cider-mode-hook 'hugsql-ghosts-install-hook))
 
 ;;; [ parseclj ] -- EDN reader and Clojure Parser for Emacs Lisp
 
