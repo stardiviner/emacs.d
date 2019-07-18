@@ -18,6 +18,10 @@
 (setq mac-command-modifier 'meta)
 (global-set-key [kp-delete] 'delete-char) ; sets fn-delete to be right-delete
 
+;;; fix macOS /usr/local/bin/ path not in Emacs default path.
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
+
 ;;; [ company-xcode ]
 
 (defun my-xcode-setup ()
