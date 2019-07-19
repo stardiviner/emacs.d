@@ -22,6 +22,13 @@
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
 
+;;; [ exec-path-from-shell ] -- Make Emacs use the $PATH set up by the user's shell.
+
+(use-package exec-path-from-shell
+  :ensure t
+  :init (when (memq window-system '(mac ns x))
+          (exec-path-from-shell-initialize)))
+
 ;;; [ company-xcode ]
 
 (defun my-xcode-setup ()
