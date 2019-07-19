@@ -9,13 +9,17 @@
 ;;; [ variable-pitch ] -- support for displaying proportional fonts.
 
 (set-face-attribute 'variable-pitch nil
-                    :family "Source Sans Pro"
-                    :height 105
+                    :family "DejaVu Sans Mono"
+                    :height 120
                     :weight 'normal :slant 'normal)
 (set-face-attribute 'fixed-pitch nil
                     :family "Hack"
-                    :height 1.0
+                    :height 120
                     :weight 'normal :slant 'normal)
+(set-face-attribute 'fixed-pitch-serif nil
+                    :family "Hack"
+                    :height 120
+                    :weight 'normal :slant 'italic)
 
 
 
