@@ -101,11 +101,10 @@
 ;;; [ hl-sexp ] -- highlight the current sexp.
 
 (leaf hl-sexp
-  ;; :ensure t
   :straight (hl-sexp :type git :host github :repo "stardiviner/hl-sexp")
   ;; don't enable `global-hl-sexp-mode' automatically.
   ;; :init (global-hl-sexp-mode -1)
-  :config
+  ;; :config
   ;; (set-face-attribute 'hl-sexp-face nil
   ;;                     :reverse-video nil :foreground nil
   ;;                     :background (cl-case (alist-get 'background-mode (frame-parameters))
@@ -177,7 +176,8 @@
   (paredit-mode 1)
   (if (fboundp 'parinfer-mode)
       (parinfer-mode 1))
-  (hl-sexp-mode 1)
+  (if (fboundp 'hl-sexp-mode)
+      (hl-sexp-mode 1))
   (eldoc-mode 1))
 
 (defun my-lisp-repl-common-settings ()
@@ -185,7 +185,8 @@
   (interactive)
   (paredit-mode 1)
   (rainbow-delimiters-mode 1)
-  (hl-sexp-mode 1)
+  (if (fboundp 'hl-sexp-mode)
+      (hl-sexp-mode 1))
   (eldoc-mode 1))
 
 ;; I already set upper Lisp common settings function in separately init files.
