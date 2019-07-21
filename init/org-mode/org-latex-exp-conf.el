@@ -41,6 +41,13 @@
   (org-latex-exp-conf-append 'org-format-latex-header "\\setmainfont{DejaVu Sans}")
   (org-latex-exp-conf-append 'org-format-latex-header "\\setsansfont{DejaVu Serif}")
   (org-latex-exp-conf-append 'org-format-latex-header "\\setmonofont{DejaVu Sans Mono}")
+  ;; use `fontenc'
+  ;; https://orgmode.org/worg/org-tutorials/org-latex-export.html#org135e5d9
+  (org-latex-exp-conf-append 'org-format-latex-header "\\usepackage[T1]{fontenc}")
+  ;; font: Bera
+  (org-latex-exp-conf-append 'org-format-latex-header "\\usepackage[scale]{beraserif}")
+  (org-latex-exp-conf-append 'org-format-latex-header "\\usepackage[scale]{berasans}")
+  (org-latex-exp-conf-append 'org-format-latex-header "\\usepackage[scale]{beramono}")
 
   ;; export to PDF with src blocks syntax highlighting.
   (setq-local org-latex-listings 'minted)
