@@ -49,7 +49,6 @@
   :defer t
   :bind (:map omnisharp-mode-map
               ("M-." . omnisharp-go-to-definition)
-              ("C-c ." . helm-imenu)
               ("C-c /" . omnisharp-helm-find-symbols)
               ("C-c ," . omnisharp-helm-find-usages)
               ("<M-return>" . omnisharp-run-code-action-refactoring)
@@ -65,10 +64,13 @@
         omnisharp-company-do-template-completion t
         omnisharp-company-template-use-yasnippet t
         omnisharp-company-ignore-case t
-        omnisharp-auto-complete-want-documentation nil
-        omnisharp-auto-complete-popup-persist-help nil
+        omnisharp-auto-complete-popup-help-delay nil
+        omnisharp-auto-complete-want-documentation t
+        omnisharp-auto-complete-popup-persist-help t
         omnisharp-eldoc-support t
-        omnisharp-imenu-support nil)
+        omnisharp-imenu-support t
+        ;; omnisharp-auto-complete-want-importable-types t
+        )
   (add-hook 'csharp-mode-hook 'omnisharp-mode)
   :config
   (defun my-omnisharp-setup ()

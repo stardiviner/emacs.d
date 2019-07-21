@@ -9,12 +9,12 @@
 
 ;;; [ clojure-mode ]
 
-(use-package clojure-mode
+(use-package clojure-mode ; [C-c C-r] prefix
   :ensure t
   :ensure subword
   :defer t
-  :mode (
-         ;; Boot files
+  :commands (clojure-add-arity)
+  :mode (;; Boot files
          ("\\.boot\\'" . clojure-mode) ; recognize .boot file
          (".* boot" . clojure-mode) ; recognize script file using shebang
          )

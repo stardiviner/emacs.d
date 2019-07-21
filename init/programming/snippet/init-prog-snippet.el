@@ -30,7 +30,7 @@
               (setq yas-indent-line 'fixed)))
 
   ;; wrap around region
-  (setq yas-wrap-around-region t) ; snippet expansion wraps around selected region.
+  (setq yas-wrap-around-region t) ; snippet $0 field expansion wraps around selected region.
   ;; stacked expansion
   (setq yas-triggers-in-field t) ; allow stacked expansions (snippets inside field).
   (setq yas-snippet-revival t) ; re-activate snippet field after undo/redo.

@@ -15,7 +15,6 @@
 
 (use-package projectile
   :ensure t
-  :defer t
   :delight projectile-mode
   :commands (projectile-mode)
   :init (projectile-mode 1)
