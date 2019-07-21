@@ -40,10 +40,10 @@
 
 ;;; [ go-projectile ] -- Projectile GOPATH.
 
-(use-package go-projectile
-  :ensure t
-  :defer t
-  :commands (go-projectile-install-tools))
+;; (use-package go-projectile
+;;   :ensure t
+;;   :defer t
+;;   :commands (go-projectile-install-tools))
 
 ;;; [ go-gopath ] -- guess GOPATH using gb and projectile.
 
