@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: babel-install-javascript
+# key: babel-install-javascript
+# group: babel.install
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+#+begin_src sh :async
+# With npm: npm install $1
+# With pnpm: pnpm install $1
+# With yarn:
+yarn add ${1:package-name}
+#+end_src
