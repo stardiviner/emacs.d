@@ -231,6 +231,13 @@
       (ejc-connect connection-name)))
   )
 
+;;; [ icsql ] -- This library provides an Emacs SQL mode integration to the ciSQL program.
+
+(use-package icsql
+  :ensure t
+  :commands icsql
+  :init (setq icsql-connections '()))
+
 
 (provide 'init-SQL)
 
