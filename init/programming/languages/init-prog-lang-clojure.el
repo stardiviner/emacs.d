@@ -303,6 +303,13 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;;   :ensure t
 ;;   :after clojure-mode)
 
+;;; [ midje-mode ] -- Minor mode for running Midje tests in Emacs.
+
+(use-package midje-mode
+  :ensure t
+  :defer t
+  :commands (midje-mode))
+
 ;;; [ Emidje ] -- Test runner, report viewer and formatting tool for Midje within Emacs.
 
 (use-package emidje
