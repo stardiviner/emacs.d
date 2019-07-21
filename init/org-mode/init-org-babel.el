@@ -126,7 +126,7 @@
       (setq-local org-coderef-label-format
                   (format "%s %s" comment-start org-coderef-label-format))
     org-coderef-label-format))
-(advice-add 'org-src-coderef-format :filter-return 'org-src-coderef-format-prepend-comment)
+;; FIXME: (advice-add 'org-src-coderef-format :filter-return 'org-src-coderef-format-prepend-comment)
 
 ;;; ding around source block execution.
 (add-hook 'org-src-mode-hook #'sound-tick)
