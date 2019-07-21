@@ -145,6 +145,7 @@
 (use-package org-tempo
   :defer t)
 ;; (add-to-list 'org-structure-template-alist '("?" . "..."))
+;; (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 ;; `tempo-define-template'
 
 ;;; [ Emphasis ]
