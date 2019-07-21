@@ -2,7 +2,62 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Design.org"
+(("Chinese Credit.org"
+ (filename . "~/Org/Wiki/Sociology/Censorship/Chinese Credit/Chinese Credit.org")
+ (front-context-string . "#+TITLE: Chinese")
+ (rear-context-string)
+ (position . 1))
+("Visual Studio Code.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Visual Studio Code/Visual Studio Code.org")
+ (front-context-string . "#+TITLE: Visual ")
+ (rear-context-string)
+ (position . 1))
+("C#.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/.NET/C#/C#.org")
+ (front-context-string . "#+TITLE: C# Prog")
+ (rear-context-string)
+ (position . 1))
+("Fedora.org"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Linux Distributions/Fedora/Fedora.org")
+ (front-context-string . "#+TITLE: Fedora\n")
+ (rear-context-string)
+ (position . 1))
+("TiDB.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/NewSQL/NewSQL Databases/TiDB/TiDB.org")
+ (front-context-string . "#+TITLE: TiDB\n\n*")
+ (rear-context-string)
+ (position . 1))
+(".NET Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/.NET/.NET Packages/.NET Packages.org")
+ (front-context-string . "\n\n* .NET package")
+ (rear-context-string . "E: .NET Packages")
+ (position . 23))
+(".NET.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/.NET/.NET.org")
+ (front-context-string . "#+TITLE: .NET\n\n*")
+ (rear-context-string)
+ (position . 1))
+("JVM.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/JVM/JVM.org")
+ (front-context-string . "#+TITLE: JVM\n\n* ")
+ (rear-context-string)
+ (position . 1))
+("ClojureCLR.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/ClojureCLR/ClojureCLR.org")
+ (front-context-string . "#+TITLE: Clojure")
+ (rear-context-string)
+ (position . 1))
+("Shangyou Aliyun server .bashrc"
+ (filename . "/ssh:root@120.79.234.101:/root/.bashrc")
+ (front-context-string . "# .bashrc\n\n# Use")
+ (rear-context-string)
+ (position . 1))
+("Agriculture.org"
+ (filename . "~/Org/Wiki/Agriculture/Agriculture.org")
+ (front-context-string . "#+TITLE: Agricul")
+ (rear-context-string)
+ (position . 1))
+("Design.org"
  (filename . "~/Org/Wiki/Design/Design.org")
  (front-context-string . "#+TITLE: Design\n")
  (rear-context-string)
@@ -20,11 +75,6 @@
 ("Human.org"
  (filename . "~/Org/Wiki/Sociology/Human/Human.org")
  (front-context-string . "#+TITLE: Human\n\n")
- (rear-context-string)
- (position . 1))
-("dotNet Core.org"
- (filename . "~/Org/Wiki/Computer Technology/Softwares/dotNet Core/dotNet Core.org")
- (front-context-string . "#+TITLE: dotNet ")
  (rear-context-string)
  (position . 1))
 ("Haskell Packages.org"
@@ -906,11 +956,6 @@
  (front-context-string . "#+TITLE: My Powe")
  (rear-context-string)
  (position . 1))
-("Windows Batch Scripting.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Windows Batch Scripting/Windows Batch Scripting.org")
- (front-context-string . "#+TITLE: Windows")
- (rear-context-string)
- (position . 1))
 ("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Literature/Novels/Data/Novel Books/乌克兰拖拉机简史.pdf"
  (filename . "~/Org/Wiki/Literature/Novels/Data/Novel Books/乌克兰拖拉机简史.pdf")
  (position . 1)
@@ -955,11 +1000,6 @@
 ("Botany.org"
  (filename . "~/Org/Wiki/Botany/Botany.org")
  (front-context-string . "#+TITLE: Botany ")
- (rear-context-string)
- (position . 1))
-("lein-figwheel.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/ClojureScript/Data/ClojureScript Packages/lein-figwheel.org")
- (front-context-string . "#+TITLE: Figwhee")
  (rear-context-string)
  (position . 1))
 ("World Grid Information.org"
@@ -1460,11 +1500,6 @@
  (size . fit-width)
  (origin 0.0 . 0.29871977240398295)
  (handler . pdf-view-bookmark-jump-handler))
-("clj-new.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/clj-new.org")
- (front-context-string . "* Intro\n\nGenerat")
- (rear-context-string)
- (position . 1))
 ("Sex Knowledge.org"
  (filename . "~/Org/Wiki/Sexology/Sexual Intercourse/Sex Knowledge/Sex Knowledge.org")
  (front-context-string . "#+TITLE: Sex Kno")
@@ -1709,19 +1744,19 @@
  (position . 1))
 ("org-capture-last-stored-marker"
  (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** Max Veytsman\n")
- (rear-context-string . "ols\",\n   :END:\n\n")
- (position . 137263))
+ (front-context-string . "** 文棨\n   :PROPER")
+ (rear-context-string . "\n\n* Designer\n\n\n\n")
+ (position . 155065))
 ("org-refile-last-stored"
  (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** Max Veytsman\n")
- (rear-context-string . "ols\",\n   :END:\n\n")
- (position . 137263))
+ (front-context-string . "** 文棨\n   :PROPER")
+ (rear-context-string . "\n\n* Designer\n\n\n\n")
+ (position . 155065))
 ("org-capture-last-stored"
  (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "* Max Veytsman\n ")
+ (front-context-string . "* 文棨\n  :PROPERTI")
  (rear-context-string . "09:17]\n   :END:\n")
- (position . 189237))
+ (position . 194990))
 ("PDF-LAST-VIEWED: /tmp/mu-1000/b53469b1/3/test.pdf"
  (filename .
            #("/tmp/mu-1000/b53469b1/3/test.pdf" 0 32
@@ -1771,11 +1806,6 @@
  (front-context-string . "#+TITLE: Nginx\n\n")
  (rear-context-string)
  (position . 1))
-("Visual Studio Code.org"
- (filename . "~/Org/Wiki/Computer Technology/Softwares/Visual Studio Code.org")
- (front-context-string . "#+TITLE: Visual ")
- (rear-context-string)
- (position . 1))
 ("IntelliJ IDEA.org"
  (filename . "~/Org/Wiki/Computer Technology/Softwares/IntelliJ IDEA.org")
  (front-context-string . "* Intro\n\n\n\n** Fe")
@@ -1784,11 +1814,6 @@
 ("Linux Configurations.org"
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Linux Configurations.org")
  (front-context-string . "#+TITLE: Linux C")
- (rear-context-string)
- (position . 1))
-("clj-http.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/clj-http.org")
- (front-context-string . "* Intro\n\nAn idio")
  (rear-context-string)
  (position . 1))
 ("Computer Science.org"
@@ -2337,12 +2362,6 @@
  (front-context-string . "#+TITLE: My Gene")
  (rear-context-string)
  (position . 1))
-(#("codox.org" 0 1
-   (idx 234))
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/codox.org")
- (front-context-string . "#+TITLE: codox\n\n")
- (rear-context-string)
- (position . 1))
 (#("Jupyter.org" 0 1
    (idx 235))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Jupyter.org")
@@ -2485,12 +2504,6 @@
    (idx 288))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Programming Paradigms/Distributed Programming/Distributed Programming.org")
  (front-context-string . "#+TITLE: Distrib")
- (rear-context-string)
- (position . 1))
-(#("gnuplot.org" 0 1
-   (idx 290))
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/gnuplot/gnuplot.org")
- (front-context-string . "#+TITLE: gnuplot")
  (rear-context-string)
  (position . 1))
 (#("Overtone.org" 0 1
@@ -2977,12 +2990,6 @@
    (idx 486))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Git/Data/Manuals/My Git Usage Reference/My Git Usage Reference.org")
  (front-context-string . "#+TITLE: My Git ")
- (rear-context-string)
- (position . 1))
-(#("Yi Learning.org" 0 1
-   (idx 487))
- (filename . "~/Org/Wiki/Mysterious Culture/Yi Learning/Yi Learning.org")
- (front-context-string . "#+TITLE: Yi Lear")
  (rear-context-string)
  (position . 1))
 (#("Emacs Lisp.org" 0 1
