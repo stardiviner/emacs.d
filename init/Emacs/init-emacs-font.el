@@ -57,8 +57,8 @@
 
 ;; set default font.
 (set-face-attribute 'default nil
-		                :family "Fira Code"
-		                :foundry "PfEd")
+		    :family "Fira Code"
+		    :foundry "PfEd")
 
 ;; set Unicode characters font
 (when (display-graphic-p) ; for `set-fontset-font'

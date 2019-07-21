@@ -12,7 +12,6 @@
 (use-package clojure-mode
   :ensure t
   :ensure subword
-  :ensure-system-package clojure
   :defer t
   :mode (
          ;; Boot files
@@ -417,7 +416,6 @@ With value selected from a list of available sessions."
 
 (use-package elein
   :ensure t
-  :ensure-system-package (lein . "wget 'https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein' && mv lein ~/bin/ && chmod 755 ~/bin/lein")
   :defer t
   :init
   (defun elein-lein-try ()
@@ -469,21 +467,17 @@ opening 4clojure questions"
 (use-package yesql-ghosts
   :ensure t
   :defer t
-  :config
-  (add-hook 'cider-mode-hook 'yesql-ghosts-auto-show-ghosts)
-  (setq yesql-ghosts-show-ghosts-automatically t
-        yesql-ghosts-show-descriptions t)
-  )
+  :init (setq yesql-ghosts-show-ghosts-automatically t
+              yesql-ghosts-show-descriptions t)
+  :config (add-hook 'cider-mode-hook 'yesql-ghosts-auto-show-ghosts))
 
 ;;; [ HugSQL Ghosts ] -- Display ghostly HugSQL defqueries inline, in Emacs.
 
 (use-package hugsql-ghosts
   :ensure t
   :defer t
-  :config
-  (add-hook 'cider-mode-hook 'hugsql-ghosts-install-hook)
-  (setq hugsql-ghosts-newline-before-docstrings t)
-  )
+  :init (setq hugsql-ghosts-newline-before-docstrings t)
+  :config (add-hook 'cider-mode-hook 'hugsql-ghosts-install-hook))
 
 ;;; [ parseclj ] -- EDN reader and Clojure Parser for Emacs Lisp
 

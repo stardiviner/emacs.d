@@ -331,7 +331,6 @@ That's it.
 
 ;; (use-package org-recoll
 ;;   :load-path "~/Code/Emacs/org-recoll/"
-;;   :ensure-system-package recoll
 ;;   :defer t
 ;;   :commands (org-recoll-search org-recoll-update-index)
 ;;   :bind (:map Org-prefix ("C-s" . org-recoll-search)

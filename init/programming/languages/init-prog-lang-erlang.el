@@ -11,7 +11,6 @@
 
 (use-package erlang
   :ensure t
-  :ensure-system-package erlang
   :defer t
   :commands (run-erlang))
 

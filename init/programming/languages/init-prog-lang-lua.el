@@ -11,7 +11,6 @@
 
 (use-package lua-mode
   :ensure t
-  :ensure-system-package lua
   :defer t
   :commands (run-lua)
   :bind (:map lua-mode-map ("C-c C-s" . run-lua))

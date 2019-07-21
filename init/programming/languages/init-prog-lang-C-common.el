@@ -89,7 +89,6 @@
 
 (use-package irony
   :ensure t
-  :ensure-system-package clang
   :defer t
   :init (hook-modes c-dialects-mode
           (when (memq major-mode '(c-mode c++-mode objc-mode))
@@ -153,7 +152,6 @@
 ;;   :defer t
 ;;   :defines projectile-project-root-files-top-down-recurring
 ;;   :ensure t
-;;   ;; :ensure-system-package ((ccls . "aurman -S ccls"))
 ;;   :after lsp
 ;;   :commands lsp-ccls-enable
 ;;   :load ccls

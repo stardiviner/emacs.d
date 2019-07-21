@@ -11,7 +11,6 @@
 
 (use-package octave
   :ensure t
-  :ensure-system-package octave
   :defer t
   :mode ("\\.m\\'" . octave-mode)
   :commands (run-octave)

@@ -22,7 +22,6 @@
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
 (use-package org-screenshot
-  :ensure-system-package scrot
   :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
   :pin manual
   :defer t
@@ -45,7 +44,6 @@
 
 (use-package org-download
   :ensure t
-  :ensure-system-package wget
   :defer t
   :init
   (unless (boundp 'org-download-prefix)
@@ -67,14 +65,9 @@
         ;; if you don't want the #+DOWNLOADED: annotation in your Org document
         org-download-annotate-function (lambda (_) "")
         org-download-backend t ; url-retrieve (t), wget, curl.
-        ;; org-download-heading-lvl
-        ;; org-download-timestamp "_%Y-%m-%d_%H:%M:%S"
         org-download-image-dir "data/images" ; nil: default to "."
-        ;; org-download-image-width nil ; use #+attr_html: :width
-        ;; org-download-img-regex-list '("<img +src=\"" "<img +\\(class=\"[^\"]+\"\\)? *src=\"")
         )
-
-  (org-download-enable))
+  :config (org-download-enable))
 
 ;;; [ org-web-tools ] -- retrieving web page content and processing it into Org-mode content.
 
@@ -91,7 +84,6 @@
 
 (use-package org-board
   :ensure t
-  :ensure-system-package wget
   :defer t
   :preface
   (unless (boundp 'org-board-prefix)

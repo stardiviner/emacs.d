@@ -15,7 +15,6 @@
 
 (use-package ag
   :ensure t
-  :ensure-system-package (ag . "sudo pacman -S --noconfirm the_silver_searcher")
   :defer t
   :commands (ag ag-regexp ag-project ag-regexp-project-at-point ag-dired ag-files ag-kill-buffers)
   :init

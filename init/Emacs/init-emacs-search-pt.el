@@ -11,7 +11,6 @@
 
 (use-package pt
   :ensure t
-  :ensure-system-package (pt . "sudo pacman -S --noconfirm the_platinum_searcher")
   :config
   ;; (setq pt-arguments "--smart-case")
 

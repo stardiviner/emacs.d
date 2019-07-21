@@ -29,7 +29,6 @@
 
 (use-package racer
   :ensure t
-  :ensure-system-package (racer . "cargo +nightly install racer")
   :hook ((rust-mode . racer-mode) (racer-mode . eldoc-mode))
   :config
   (define-key racer-mode-map (kbd "C-c C-d C-d") 'racer-describe)
@@ -59,7 +58,6 @@
 
 (use-package lsp-mode
   :ensure t
-  :ensure-system-package ((rls . "rustup component add rls-preview rust-analysis rust-src"))
   :hook (rust-mode . lsp))
 
 

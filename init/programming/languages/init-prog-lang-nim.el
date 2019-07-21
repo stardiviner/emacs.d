@@ -11,7 +11,6 @@
 
 (use-package nim-mode
   :ensure t
-  :ensure-system-package nim
   :config (add-hook 'nim-mode-hook 'nimsuggest-mode))
 
 

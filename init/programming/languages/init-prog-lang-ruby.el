@@ -15,7 +15,6 @@
 
 (use-package ruby-mode
   :ensure t
-  :ensure-system-package ruby
   :defer t
   :mode (("\\.irbrc\\'" . ruby-mode))
   ;; :init
@@ -155,7 +154,6 @@
 
 (use-package lsp-mode
   :ensure t
-  :ensure-system-package ((solargraph . "gem install solargraph"))
   :defer t
   :hook (ruby-mode . lsp))
 

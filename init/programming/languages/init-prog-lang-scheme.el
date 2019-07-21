@@ -11,7 +11,6 @@
 
 (use-package scheme
   :ensure t
-  :ensure-system-package guile
   :defer t
   :init (setq scheme-program-name "guile")
   :config

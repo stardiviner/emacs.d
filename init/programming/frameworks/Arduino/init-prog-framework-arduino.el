@@ -11,7 +11,6 @@
 
 (use-package arduino-mode
   :ensure t
-  :ensure-system-package arduino
   :defer t
   :commands (arduino-mode flycheck-arduino-setup)
   :config (add-hook 'arduino-mode-hook #'flycheck-arduino-setup))
@@ -19,7 +18,6 @@
 ;;; [ ob-arduino ]
 
 (use-package org-plus-contrib
-  :ensure-system-package arduino
   :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
   :no-require t
   :pin manual

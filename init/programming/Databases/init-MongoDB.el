@@ -8,7 +8,6 @@
 
 (use-package mongo
   :ensure t
-  :ensure-system-package mongodb
   :defer t)
 
 

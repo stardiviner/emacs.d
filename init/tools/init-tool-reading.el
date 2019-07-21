@@ -38,7 +38,6 @@
 
 (use-package greader
   :ensure t
-  :ensure-system-package (espeak speech-dispatcher)
   :commands (greader-mode)
   :bind (:map tools-prefix ("r" . greader-mode))
   ;; disable show shell command process output to minibuffer.

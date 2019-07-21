@@ -9,7 +9,6 @@
 
 (use-package ess
   :ensure t
-  :ensure-system-package (R . "sudo pacman -S --noconfirm r")
   :defer t
   :mode (("\\.[rR]\\'" . R-mode)
          ("\\.Rd\\'" . Rd-mode) ; R documentation

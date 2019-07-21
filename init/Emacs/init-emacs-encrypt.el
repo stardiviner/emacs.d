@@ -15,7 +15,6 @@
 
 (use-package pinentry
   :ensure t
-  :ensure-system-package pinentry
   :init (pinentry-start))
 
 (use-package epa

@@ -65,7 +65,6 @@
 
 (use-package pinentry
   :ensure t
-  :ensure-system-package pinentry
   :config
   (pinentry-start))
 
@@ -80,6 +79,17 @@
 
 (require 'init-library)
 (require 'init-functions)
+
+
+;;; Systems
+
+(cl-case system-type
+  ('gnu/linux
+   (require 'init-linux))
+  ('darwin
+   (require 'init-macOS))
+  ('windows-nt
+   (require 'init-microsoft-windows)))
 
 
 ;;; Emacs
@@ -335,16 +345,6 @@
 
 (require 'init-data-science)
 
-
-;;; Systems
-
-(cl-case system-type
-  ('gnu/linux
-   (require 'init-linux))
-  ('darwin
-   (require 'init-macOS))
-  ('windows-nt
-   (require 'init-microsoft-windows)))
 
 (require 'init-log-tools)
 

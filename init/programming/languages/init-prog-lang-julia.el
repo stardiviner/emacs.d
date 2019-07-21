@@ -11,7 +11,6 @@
 
 (use-package julia-mode
   :ensure t
-  :ensure-system-package julia
   :defer t
   :commands (run-julia inferior-julia)
   :config (setq julia-indent-offset 2))

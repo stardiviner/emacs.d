@@ -27,7 +27,6 @@
 
 (use-package csharp-mode
   :ensure t
-  :ensure-system-package mono
   :defer t
   :mode ("\\.cs\\'" . csharp-mode)
   :config

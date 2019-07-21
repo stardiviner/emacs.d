@@ -48,7 +48,6 @@
 
 (use-package flyspell
   :ensure t
-  :ensure-system-package (ispell aspell)
   :defer t
   :custom (flyspell-use-meta-tab nil)
   :bind (:map text-checker-prefix

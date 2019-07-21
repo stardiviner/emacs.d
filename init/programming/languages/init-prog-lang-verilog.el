@@ -11,7 +11,7 @@
 
 (use-package verilog-mode
   :ensure t
-  :ensure-system-package iverilog)
+  :defer t)
 
 ;;; [ auto-complete-verilog ]
 
