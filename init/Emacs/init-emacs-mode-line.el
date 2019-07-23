@@ -30,11 +30,6 @@
               ;; Fix the laggy issue, by don't compact font caches during GC.
               inhibit-compacting-font-caches t))
 
-(use-package memento-mori ; Display reminder of mortality in mode-line.
-  :ensure t
-  :init (setq memento-mori-birth-date "1990-03-24")
-  :config (memento-mori-mode))
-
 
 (provide 'init-emacs-mode-line)
 
