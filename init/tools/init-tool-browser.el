@@ -81,6 +81,20 @@
   :defer t
   :commands (counsel-ffdata-firefox-bookmarks counsel-ffdata-firefox-history))
 
+;;; [ helm-chrome ] -- Helm interface for Chrome bookmarks.
+
+(use-package helm-chrome
+  :ensure t
+  :defer t
+  :commands (helm-chrome))
+
+;;; [ helm-chrome-control ] -- Control Chrome tabs with Helm (macOS only).
+
+(use-package helm-chrome-control
+  :ensure t
+  :defer t
+  :commands (helm-chrome-control))
+
 
 (provide 'init-tool-browser)
 
