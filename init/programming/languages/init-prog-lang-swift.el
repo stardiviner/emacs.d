@@ -32,6 +32,14 @@
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("swift" . "swift")))
 
+;;; [ swift-playground ] -- Emacs support for Swift playgrounds.
+
+(use-package swift-playground-mode
+  :ensure t
+  :defer t
+  :commands (swift-playground-run)
+  :hook (swift-mode-hook . swift-playground-global-mode))
+
 ;; [ company-sourcekit ]
 
 (use-package company-sourcekit
