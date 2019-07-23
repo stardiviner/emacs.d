@@ -49,6 +49,13 @@
   :defer t
   :commands (helm-xcdoc-search))
 
+;;; [ sysctl ] -- Manage sysctl through Emacs.
+
+(use-package sysctl
+  :ensure t
+  :defer t
+  :commands (sysctl))
+
 
 (provide 'init-macOS)
 
