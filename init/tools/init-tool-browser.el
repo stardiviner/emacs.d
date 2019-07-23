@@ -25,23 +25,17 @@
 ;; - `eww-browse-url' (EWW)
 ;; - `xwidget-webkit-browse-url'
 
-;;; set generic browser program
-(setq browse-url-generic-program (executable-find "firefox")) ; for `browse-url-generic'
+(cl-case system-type
+  ('gnu/linux
+   (setq browse-url-chrome-program (executable-find "google-chrome-unstable"))
+   (setq browse-url-firefox-program (executable-find "firefox")))
+  ('darwin
+   (setq browse-url-chrome-program "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+   (setq browse-url-firefox-program "/Applications/Firefox.app/Contents/MacOS/firefox")))
 
-;;; set default browser to generic browser
-;; (setq browse-url-browser-function 'browse-url-generic)
-
-;;; set default browser to "Firefox"
-(setq browse-url-browser-function 'browse-url-firefox)
-(setq browse-url-firefox-program (executable-find "firefox"))
-
-;;; set default browser to "Google Chrome"
-;; (setq browse-url-browser-function 'browse-url-chrome)
-;; (setq browse-url-chrome-program (executable-find "google-chrome-unstable"))
-
-;;; set default browser to "Conkeror"
-;; (setq browse-url-browser-function 'browse-url-conkeror)
-;; (setq browse-url-chrome-program (executable-find "conkeror"))
+;;; set generic browser program for `browse-url-generic'
+(setq browse-url-browser-function 'browse-url-chrome)
+(setq browse-url-generic-program browse-url-chrome-program)
 
 (require 'init-eww)
 ;; (require 'init-w3m)
