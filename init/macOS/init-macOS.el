@@ -39,12 +39,15 @@
 
 (use-package counsel-osx-app
   :ensure t
-  :defer t)
+  :defer t
+  :commands (counsel-osx-app))
 
 ;;; [ helm-xcdoc ] -- Search Xcode Document by docsetutil and eww with Helm interface.
 
 (use-package helm-xcdoc
-  :ensure t)
+  :ensure t
+  :defer t
+  :commands (helm-xcdoc-search))
 
 
 (provide 'init-macOS)
