@@ -12,11 +12,11 @@
 (use-package scheme
   :ensure t
   :defer t
+  :commands (run-scheme)
+  :bind (:map scheme-mode-map ("C-c C-s" . run-scheme))
   :init (setq scheme-program-name "guile")
   :config
   (add-hook 'scheme-mode-hook #'my-lisp-common-settings)
-
-  (define-key scheme-mode-map (kbd "C-c C-s") 'run-scheme)
   ;; auto run `run-scheme' for scheme buffer.
   (defun run-scheme-auto-create ()
     "Auto run `run-scheme' when not running."
@@ -27,7 +27,6 @@
         (run-scheme scheme-program-name))
       ;; (switch-to-buffer scheme-buffer)
       ))
-
   ;; (add-hook 'scheme-mode-hook 'run-scheme-auto-create)
 
   (add-to-list 'display-buffer-alist
