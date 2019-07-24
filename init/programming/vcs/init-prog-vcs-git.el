@@ -214,6 +214,16 @@
   :ensure t
   :defer t)
 
+;;; [ magit-reviewboard ] -- integrate the ReviewBoard review software into magit.
+
+;; (use-package magit-reviewboard
+;;   :ensure t
+;;   :commands (magit-reviewboard-mode magit-reviewboard-list)
+;;   :custom
+;;   (magit-reviewboard-base-uri
+;;    "https://reviews.reviewboard.org/api"
+;;    "Set Reviewboard api to point to official reviewboard server"))
+
 ;;; [ flower ] -- Emacs task tracker client. Integration with Github, Gitlab, Atlassian Jira and Slack etc.
 
 ;; (use-package flower

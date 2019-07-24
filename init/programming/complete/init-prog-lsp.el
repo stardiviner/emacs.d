@@ -19,9 +19,10 @@
   :hook ((js-mode css-mode web-mode) . lsp)
   :commands (lsp lsp-describe-session)
   :bind (:map lsp-mode-map ("C-c C-d" . lsp-describe-thing-at-point))
-  :init (setq lsp-auto-configure nil
-              lsp-auto-guess-root t
-              lsp-prefer-flymake nil)
+  :init ; (require 'lsp-clients)
+  (setq lsp-auto-configure nil
+        lsp-auto-guess-root t
+        lsp-prefer-flymake nil)
   :config
   ;; Support LSP in Org Babel with header argument `:file'.
   ;; https://github.com/emacs-lsp/lsp-mode/issues/377
@@ -69,7 +70,7 @@
   (define-key org-babel-map (kbd "M-f") 'my/babel-insert-lsp-file-header-argument)
   
   ;; load `lsp-clients' for auto configuration of language server clients.
-  :config (require 'lsp-clients)
+
   ;; manage lsp-mode popup buffers
   (add-to-list 'display-buffer-alist
                '("^\\*lsp-help\\*" (display-buffer-below-selected)))

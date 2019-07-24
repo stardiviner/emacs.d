@@ -36,6 +36,13 @@
   :commands (pinyin-search pinyin-search-backward)
   :bind (:map language-search-prefix ("c" . pinyin-search) ("C" . pinyin-search-backward)))
 
+;;; [ jieba.el ] -- 在Emacs中使用jieba中文分词.
+
+;; (leaf jieba
+;;   :straight (jieba :type git :host github :repo "cireu/jieba.el")
+;;   ;; :load-path "~/Code/Emacs/jieba.el/"
+;;   :commands (jieba-mode)
+;;   :init (jieba-mode))
 
 
 (provide 'init-language-chinese)

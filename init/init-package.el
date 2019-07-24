@@ -23,21 +23,11 @@
 (defvar elpa-marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
 (defvar elpa-org '("org"   . "http://orgmode.org/elpa/"))
 
-;;; Mirrors
-;; Emacs China ELPA
-;; (setq elpa-gnu '("gnu" . "https://elpa.emacs-china.org/gnu/"))
-;; (setq elpa-melpa '("melpa" . "https://elpa.emacs-china.org/melpa/"))
-;; TNUA ELPA
-(setq elpa-gnu '("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"))
-(setq elpa-melpa '("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))
-
-(setq-default package-archives nil)
-(add-to-list 'package-archives elpa-org t)
-(add-to-list 'package-archives elpa-melpa t)
-;; (add-to-list 'package-archives elpa-melpa-stable t)
-;; (add-to-list 'package-archives elpa-marmalade t)
-(add-to-list 'package-archives elpa-gnu t)
-;; (add-to-list 'package-archives elpa-china t)
+;;; ELPA Mirrors
+(setq-default package-archives
+              '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+                ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+                ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
 (let* ((elpa-archives-dir "~/.emacs.d/elpa/archives/")
        (elpa-gnu-archives-dir (concat elpa-archives-dir "gnu"))

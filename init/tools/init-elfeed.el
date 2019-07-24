@@ -51,10 +51,14 @@
           ;; Clojure
           ("http://insideclojure.org/feed.xml" Clojure)
           ("http://www.lispcast.com/feed" Clojure)
+          ("http://blog.jayfields.com/feeds/posts/default" Clojure Blog)
+          ("http://corfield.org/atom.xml" Clojure Blog) ; Sean Corfield
           ;; Blogs
           ("http://feed.williamlong.info/" Blog)
           ("http://www.ruanyifeng.com/blog/atom.xml" Blog)
           ("http://www.kingname.info/atom.xml" Blog)
+          ("https://manateelazycat.github.io/feed.xml" Blog)
+          ;; ("http://www.i5seo.com/" Blog)
           ;; Kali Linux
           ("http://www.kali.org/feed/" Kali Linux Subscribe)
           ;; Subscribe

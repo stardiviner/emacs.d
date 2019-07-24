@@ -60,6 +60,8 @@
           ))
   (setq org-agenda-scheduled-leaders '("Scheduled: " "%3d days | "))
 
+  (setq org-agenda-show-log t)
+
   ;; speedup Org Agenda
   (setq org-agenda-inhibit-startup nil
         org-agenda-dim-blocked-tasks nil ; don't dim blocked tasks: past deadline, etc

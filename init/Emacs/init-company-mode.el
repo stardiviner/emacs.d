@@ -191,7 +191,7 @@
   
   (setq company-box-backends-colors
         '((company-capf . (:candidate "LightSeaGreen"))
-          (company-keywords . (:candidate "tomato"))
+          (company-keywords . (:icon "SlateBlue" :candidate "SlateBlue"))
           (company-files . (:candidate "CornflowerBlue"))
           (company-yasnippet . (:icon "DarkCyan"
                                       :candidate "DarkCyan" :annotation "SteelBlue"
@@ -199,7 +199,7 @@
                                       ))
           (company-tempo . (:candidate "chocolate"))
           (company-dabbrev . (:candidate "black"))
-          (company-dabbrev-code . (:candidate "gray"))
+          (company-dabbrev-code . (:candidate "gray" :selected "gray"))
           ;; extra backends
           (company-elisp . (:icon "firebrick"))
           (sly-company . (:icon "RoyalBlue"))

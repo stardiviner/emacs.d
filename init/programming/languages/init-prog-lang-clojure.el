@@ -9,12 +9,12 @@
 
 ;;; [ clojure-mode ]
 
-(use-package clojure-mode
+(use-package clojure-mode ; [C-c C-r] prefix
   :ensure t
   :ensure subword
   :defer t
-  :mode (
-         ;; Boot files
+  :commands (clojure-add-arity)
+  :mode (;; Boot files
          ("\\.boot\\'" . clojure-mode) ; recognize .boot file
          (".* boot" . clojure-mode) ; recognize script file using shebang
          )
@@ -302,6 +302,13 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;; (use-package flycheck-clj-kondo
 ;;   :ensure t
 ;;   :after clojure-mode)
+
+;;; [ midje-mode ] -- Minor mode for running Midje tests in Emacs.
+
+(use-package midje-mode
+  :ensure t
+  :defer t
+  :commands (midje-mode))
 
 ;;; [ Emidje ] -- Test runner, report viewer and formatting tool for Midje within Emacs.
 

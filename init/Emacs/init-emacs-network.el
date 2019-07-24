@@ -48,10 +48,10 @@
 
 ;;; [ proxy-mode ] A global minor mode to toggle proxy inside of Emacs.
 
-(use-package proxy-mode
-  :ensure t
-  :defer t
-  :init (setq proxy-mode-socks-proxy '("Default server" "127.0.0.1" 1086 5)))
+;; (use-package proxy-mode
+;;   :ensure t
+;;   :defer t
+;;   :init (setq proxy-mode-socks-proxy '("Default server" "127.0.0.1" 1086 5)))
 
 
 (provide 'init-emacs-network)

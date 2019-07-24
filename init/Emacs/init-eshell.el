@@ -81,9 +81,8 @@ PWD is not in a git repo (or the git command is not found)."
                 "]"))))
 
   ;; Eshell prompt
-  ;; (require 'em-prompt)
   (defun my:eshell-prompt-function ()
-    (format "{%s} [%s]\n%s %s"
+    (format "{%s} [%s]\n%s "
             (propertize
              (getenv "USER")
              'face '(:foreground "sky blue"))
@@ -112,7 +111,8 @@ PWD is not in a git repo (or the git command is not found)."
              (if (= (user-uid) 0) " #" " $")
              'face '((:foreground "deep pink")))
             ;; set following cmd face
-            (propertize "" 'face '(:foreground "dark"))))
+            ;; (propertize "" 'face '(:foreground "dark"))
+            ))
   (setq eshell-prompt-function 'my:eshell-prompt-function)
 
   (setq eshell-prompt-regexp "^[^#$\n]* [#$]")

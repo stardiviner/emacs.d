@@ -145,6 +145,7 @@
 (use-package org-tempo
   :defer t)
 ;; (add-to-list 'org-structure-template-alist '("?" . "..."))
+;; (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 ;; `tempo-define-template'
 
 ;;; [ Emphasis ]
@@ -170,6 +171,9 @@
         ((raise -0.5))
         ((raise 0.5))))
 
+;;; treats angle brackets (<>) as parenthesis
+;; (modify-syntax-entry ?< ".")
+;; (modify-syntax-entry ?> ".")
 
 ;; (require 'skeleton)
 ;; (setq skeleton-pair t)

@@ -12,7 +12,7 @@
 (use-package engine-mode
   :ensure t
   :defer t
-  ;; :init (engine-mode t)
+  :init (engine-mode t)
   :config
   ;; general search engines
   (defengine google
