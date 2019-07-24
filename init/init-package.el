@@ -17,17 +17,18 @@
 
 (setq package-user-dir "~/.emacs.d/elpa")
 
-(defvar elpa-gnu '("gnu" . "https://elpa.gnu.org/packages/"))
-(defvar elpa-melpa '("melpa" . "http://melpa.org/packages/"))
-(defvar elpa-melpa-stable '("melpa-stable" . "http://stable.melpa.org/packages/"))
-(defvar elpa-marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
-(defvar elpa-org '("org"   . "http://orgmode.org/elpa/"))
-
 ;;; ELPA Mirrors
+;; (setq-default package-archives
+;; 	      '(("gnu" . "https://elpa.gnu.org/packages/")
+;; 		("melpa" . "http://melpa.org/packages/")
+;; 		("melpa-stable" . "http://stable.melpa.org/packages/")
+;; 		("marmalade" . "http://marmalade-repo.org/packages/")
+;; 		("org"   . "http://orgmode.org/elpa/")))
+
 (setq-default package-archives
-              '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-                ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-                ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+              '(("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+                ("org"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+                ("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
 (let* ((elpa-archives-dir "~/.emacs.d/elpa/archives/")
        (elpa-gnu-archives-dir (concat elpa-archives-dir "gnu"))
