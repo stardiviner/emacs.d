@@ -17,8 +17,6 @@
 
 (require 'color) ; for `color-lighten-name' and `color-darken-name'
 
-(load-theme 'adwaita)
-
 ;;; [ leuven-theme ]
 
 ;; (use-package leuven-theme
@@ -29,13 +27,11 @@
 
 ;;; [ one-themes ] -- One color scheme.
 
-(leaf one-themes
-  :doc "My customized one-themes custom theme."
-  ;; :straight (one-themes :type git :host github :repo "stardiviner/one-thems")
+(use-package one-themes
   :load-path "~/Code/Emacs/one-themes"
-  :require t
+  :no-require t
+  :init (require 'one-themes)
   :config (load-theme 'one-dark t))
-
 
 
 (provide 'init-emacs-theme)
