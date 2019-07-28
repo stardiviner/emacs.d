@@ -229,6 +229,10 @@
        :subprotocol "sqlite"
        :subname (file-truename sqlite-db-file))
       (ejc-connect connection-name)))
+
+  ;; press [q] to close ejc-sql result window.
+  (add-hook 'ejc-result-mode-hook
+            (lambda () (local-set-key (kbd "q") 'delete-window)))
   )
 
 ;;; [ icsql ] -- This library provides an Emacs SQL mode integration to the ciSQL program.
