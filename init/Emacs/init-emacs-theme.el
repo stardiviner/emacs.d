@@ -29,12 +29,13 @@
 
 ;;; [ one-themes ] -- One color scheme.
 
-(leaf one-themes
-  :doc "My customized one-themes custom theme."
-  ;; :straight (one-themes :type git :host github :repo "stardiviner/one-thems")
-  :load-path "~/Code/Emacs/one-themes"
-  :require t
-  :config (load-theme 'one-dark t))
+(if (file-exists-p "~/Code/Emacs/one-themes")
+    (use-package one-themes
+      :load-path "~/Code/Emacs/one-themes"
+      :config (load-theme 'one-dark t))
+  (use-package one-themes
+    :ensure t
+    :config (load-theme 'one-dark t)))
 
 
 
