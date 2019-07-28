@@ -130,6 +130,14 @@
   (pyvenv-workon "python3.7")
   (add-hook 'python-mode-hook #'pyvenv-mode))
 
+;;; [ poetry ] -- Python dependency management and packaging in Emacs.
+
+(use-package poetry
+  :ensure t
+  :defer t
+  :commands (poetry)
+  :hook (python-mode . poetry-tracking-mode))
+
 ;;; [ pygen ] -- Python code generation in Emacs with Elpy and python-mode.
 
 ;; (use-package pygen
