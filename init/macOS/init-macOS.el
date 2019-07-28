@@ -29,6 +29,20 @@
   :init (when (memq window-system '(mac ns x))
           (exec-path-from-shell-initialize)))
 
+;;; variable-pitch faces settings for Org Mode.
+(set-face-attribute 'variable-pitch nil
+                    :family "DejaVu Sans Mono"
+                    :height 120
+                    :weight 'normal :slant 'normal)
+(set-face-attribute 'fixed-pitch nil
+                    :family "Hack"
+                    :height 120
+                    :weight 'normal :slant 'normal)
+(set-face-attribute 'fixed-pitch-serif nil
+                    :family "Hack"
+                    :height 120
+                    :weight 'normal :slant 'italic)
+
 ;;; [ company-xcode ]
 
 (defun my-xcode-setup ()
