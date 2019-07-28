@@ -17,6 +17,9 @@
 (add-to-list 'display-buffer-alist
              '("^\\*SQL:.*\\*" (display-buffer-below-selected)))
 
+;;; enable () pairs auto insert in SQL buffer.
+(add-hook 'sql-mode-hook 'electric-pair-local-mode)
+
 ;;; for command `sql-connect'.
 (setq sql-connection-alist
       '((postgresql-test (sql-product 'postgres)
