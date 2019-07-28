@@ -116,10 +116,10 @@
 
 ;;; [ lsp-python-ms ] -- Emacs lsp-mode client for Microsoft's python language server.
 
-(use-package lsp-python-ms
-  :ensure t
-  :demand
-  :hook (python-mode . lsp-deferred))
+;; (use-package lsp-python-ms
+;;   :ensure t
+;;   :demand
+;;   :hook (python-mode . lsp-deferred))
 
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
 
