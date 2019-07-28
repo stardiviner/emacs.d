@@ -68,32 +68,35 @@
 ;; (unless (require 'org nil 'noerror)
 ;;   (package-install-file (concat user-emacs-directory "init/extensions/org.el")))
 
-(use-package org
-  :pin org
-  :ensure t
-  ;; :pin manual
-  ;; :load-path "~/Code/Emacs/org-mode/lisp/"
-  :defer t
-  :preface
-  ;; Org Mode modules -- modules that should always be loaded together with org.el.
-  ;; t: greedy load all modules.
-  ;; nil: disable all extra org-mode modules to speed-up Org-mode file opening.
-  (setq org-modules nil)
-  :mode (("\\.org\\'" . org-mode))
-  :init
-  ;; add source code version Org-mode Info into Emacs.
-  (with-eval-after-load 'info
-    (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/")
-    (info-initialize))
-  ;; load org before using some Org settings.
-  (require 'org)
-  (use-package org-plus-contrib
-    :pin org
-    :ensure t
-    ;; :pin manual
-    ;; :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+(if (not (file-exists-p "~/Code/Emacs/org-mode/lisp/"))
+    (use-package org
+      :pin org
+      :ensure t
+      :preface (setq org-modules nil)
+      :mode (("\\.org\\'" . org-mode)))
+
+  (use-package org
+    :pin manual
+    :load-path "~/Code/Emacs/org-mode/lisp/"
     :defer t
-    :no-require t))
+    :preface
+    ;; Org Mode modules -- modules that should always be loaded together with org.el.
+    ;; t: greedy load all modules.
+    ;; nil: disable all extra org-mode modules to speed-up Org-mode file opening.
+    (setq org-modules nil)
+    :mode (("\\.org\\'" . org-mode))
+    :init
+    ;; add source code version Org-mode Info into Emacs.
+    (with-eval-after-load 'info
+      (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/")
+      (info-initialize))
+    ;; load org before using some Org settings.
+    (require 'org)
+    (use-package org-plus-contrib
+      :pin manual
+      :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+      :defer t
+      :no-require t)))
 
 ;;; [ package-lint ] -- A linting library for elisp package authors.
 
