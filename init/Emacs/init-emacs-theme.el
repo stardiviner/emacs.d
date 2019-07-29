@@ -17,8 +17,6 @@
 
 (require 'color) ; for `color-lighten-name' and `color-darken-name'
 
-(load-theme 'adwaita)
-
 ;;; [ leuven-theme ]
 
 ;; (use-package leuven-theme
