@@ -42,6 +42,8 @@
   :config
   (setq python-shell-completion-native-enable nil)
 
+  (add-hook 'python-mode-hook #'electric-pair-local-mode)
+  
   (add-to-list 'display-buffer-alist
                '("^\\*Python\\*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
