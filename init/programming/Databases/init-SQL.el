@@ -164,7 +164,6 @@
 
 (use-package ejc-sql
   :ensure t
-  ;; :load-path "~/Code/Emacs/ejc-sql"
   :defer t
   :commands (ejc-connect ejc-connect-existing-repl ejc-connect-interactive ejc-sql-mode)
   :init (setq nrepl-sync-request-timeout 60
