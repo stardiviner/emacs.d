@@ -344,6 +344,13 @@ That's it.
 ;;   (add-to-list 'display-buffer-alist
 ;;                '("^\\*org-recoll-results\\*" (display-buffer-below-selected))))
 
+;;; [ org-ql ] -- An Org-mode query language, search command, and agenda-like view.
+
+(use-package org-ql
+  :ensure t
+  :defer t
+  :commands (org-ql-search))
+
 
 
 (provide 'init-org-search)
