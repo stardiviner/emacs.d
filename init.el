@@ -260,7 +260,7 @@
 ;; (require 'init-prog-lang-rust)
 ;; (require 'init-prog-lang-nim)
 ;; (require 'init-prog-lang-lua)
-;; (require 'init-prog-lang-swift)
+(require 'init-prog-lang-swift)
 (require 'init-prog-lang-java)
 ;; (require 'init-prog-lang-jvm-groovy)
 ;; (require 'init-prog-lang-jvm-kotlin)

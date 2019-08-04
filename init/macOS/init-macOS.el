@@ -29,25 +29,14 @@
   :init (when (memq window-system '(mac ns x))
           (exec-path-from-shell-initialize)))
 
-;;; variable-pitch faces settings for Org Mode.
-(set-face-attribute 'variable-pitch nil
-                    :family "DejaVu Sans Mono"
-                    :height 120
-                    :weight 'normal :slant 'normal)
-(set-face-attribute 'fixed-pitch nil
-                    :family "Hack"
-                    :height 120
-                    :weight 'normal :slant 'normal)
-(set-face-attribute 'fixed-pitch-serif nil
-                    :family "Hack"
-                    :height 120
-                    :weight 'normal :slant 'italic)
-
 ;;; [ company-xcode ]
 
-(defun my-xcode-setup ()
-  (require 'company-xcode)
-  (my-company-add-backend-locally 'company-xcode))
+(use-package company
+  :ensure t
+  :config
+  (defun my-xcode-setup ()
+    (require 'company-xcode)
+    (my-company-add-backend-locally 'company-xcode)))
 
 ;;; [ counsel-osx-app ]
 
@@ -62,6 +51,13 @@
   :ensure t
   :defer t
   :commands (helm-xcdoc-search))
+
+;;; [ dash-alfred ] -- Search Dash on-the-fly in Emacs.
+
+(use-package dash-alfred
+  :ensure t
+  :defer t
+  :commands (dash-alfred-helm dash-alfred-ivy))
 
 ;;; [ sysctl ] -- Manage sysctl through Emacs.
 

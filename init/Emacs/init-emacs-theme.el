@@ -27,14 +27,11 @@
 
 ;;; [ one-themes ] -- One color scheme.
 
-(if (file-exists-p "~/Code/Emacs/one-themes")
-    (use-package one-themes
-      :load-path "~/Code/Emacs/one-themes"
-      :config (load-theme 'one-dark t))
-  (use-package one-themes
-    :ensure t
-    :config (load-theme 'one-dark t)))
-
+(use-package one-themes
+  :load-path "~/Code/Emacs/one-themes"
+  :no-require t
+  :init (require 'one-themes)
+  :config (load-theme 'one-dark t))
 
 
 (provide 'init-emacs-theme)

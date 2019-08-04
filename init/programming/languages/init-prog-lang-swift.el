@@ -14,11 +14,16 @@
   :defer t
   :commands (run-swift)
   :config
-  (setq swift-mode:repl-executable "docker run --rm --privileged -it swift swift")
-  (defun swift-mode-docker-attach-repl (cmd &optional dont-switch keep-default)
-    (docker-container-attach "swift" nil)
-    (rename-buffer "*swift*"))
-  (advice-add 'run-swift :after #'swift-mode-docker-attach-repl))
+  (cl-case system-type
+    ('darwin
+     (setq swift-mode:repl-executable
+           (concat (when (executable-find "xcrun") "xcrun ") "swift")))
+    ('gnu/linux
+     (setq swift-mode:repl-executable "docker run --rm --privileged -it swift swift")
+     (defun swift-mode-docker-attach-repl (cmd &optional dont-switch keep-default)
+       (docker-container-attach "swift" nil)
+       (rename-buffer "*swift*"))
+     (advice-add 'run-swift :after #'swift-mode-docker-attach-repl))))
 
 ;; [ ob-swift ] -- org-babel functions for swift evaluation.
 
@@ -47,12 +52,6 @@
   :defer t
   :init (add-hook 'swift-mode-hook
                   (lambda () (my-company-add-backend-locally 'company-sourcekit)))
-  :config
-  (with-eval-after-load 'company-keywords
-    (add-to-list 'company-keywords-alist
-                 '(swift-mode
-                   "true" "false" "nil" "available" "column" "elseif" "else" "endif" "file" "function" "if" "line" "selector" "associatedtype" "class" "deinit" "enum" "extension" "fileprivate" "func" "import" "init" "inout" "internal" "let" "open" "operator" "private" "protocol" "public" "static" "struct" "subscript" "typealias" "var" "break" "case" "continue" "default" "defer" "do" "else" "fallthrough" "for" "guard" "if" "in" "repeat" "return" "switch" "where" "while" "as" "catch" "dynamicType" "is" "rethrows" "super" "self" "Self" "throws" "throw" "try" "Protocol" "Type" "and" "assignment" "associativity" "convenience" "didSet" "dynamic" "final" "get" "higherThan" "indirect" "infix" "lazy" "left" "lowerThan" "mutating" "none" "nonmutating" "optional" "override" "postfix" "precedence" "precedencegroup" "prefix" "required" "right" "set" "unowned" "weak" "willSet")))
-  
   (setq company-sourcekit-use-yasnippet t
         ;; sourcekit-sourcekitdaemon-executable
 
@@ -60,12 +59,18 @@
         ;; company-sourcekit-verbose t
         ;; sourcekit-verbose t
         )
+  :config
+  (with-eval-after-load 'company-keywords
+    (add-to-list 'company-keywords-alist
+                 '(swift-mode
+                   "true" "false" "nil" "available" "column" "elseif" "else" "endif" "file" "function" "if" "line" "selector" "associatedtype" "class" "deinit" "enum" "extension" "fileprivate" "func" "import" "init" "inout" "internal" "let" "open" "operator" "private" "protocol" "public" "static" "struct" "subscript" "typealias" "var" "break" "case" "continue" "default" "defer" "do" "else" "fallthrough" "for" "guard" "if" "in" "repeat" "return" "switch" "where" "while" "as" "catch" "dynamicType" "is" "rethrows" "super" "self" "Self" "throws" "throw" "try" "Protocol" "Type" "and" "assignment" "associativity" "convenience" "didSet" "dynamic" "final" "get" "higherThan" "indirect" "infix" "lazy" "left" "lowerThan" "mutating" "none" "nonmutating" "optional" "override" "postfix" "precedence" "precedencegroup" "prefix" "required" "right" "set" "unowned" "weak" "willSet")))
   )
 
 ;; [ flycheck-swift ] -- Flycheck extension for Apple's Swift.
 (use-package flycheck-swift
   :ensure t
-  :defer t)
+  :defer t
+  :hook (swift-mode-hook . flycheck-swift-setup))
 
 ;;; [ swift3-mode ] -- major-mode for Apple's Swift programming language.
 

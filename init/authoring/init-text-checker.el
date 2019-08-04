@@ -28,6 +28,8 @@
     (setq-default ispell-program-name "aspell")
     ;; --reverse :: fix `aspell' conflict bug with `ispell'.
     (setq-default ispell-extra-args '("--reverse" "--sug-mode=ultra" "--lang=en_US")))
+   ((executable-find "ispell")
+    (setq-default ispell-program-name "ispell"))
    (t
     (setq ispell-program-name nil)))
   :config
