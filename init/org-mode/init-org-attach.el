@@ -19,13 +19,6 @@
   ;; don't auto add tag "ATTACH"
   (setq org-attach-auto-tag nil))
 
-;;; New ID method based on timestamp
-;; If one chooses, it is now possible to create ID's based on timestamp
-;; (ISO8601) instead of UUID by changing org-id-method to ts.
-(use-package org-id
-  :load t
-  :init (setq org-id-method 'ts))
-
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
 (use-package org-screenshot
