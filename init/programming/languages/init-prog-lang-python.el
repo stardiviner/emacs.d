@@ -116,10 +116,10 @@
 
 ;;; [ lsp-python-ms ] -- Emacs lsp-mode client for Microsoft's python language server.
 
-(use-package lsp-python-ms
-  :ensure t
-  :demand
-  :hook (python-mode . lsp-deferred))
+;; (use-package lsp-python-ms
+;;   :ensure t
+;;   :demand
+;;   :hook (python-mode . lsp-deferred))
 
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
 
@@ -129,6 +129,14 @@
   :config
   (pyvenv-workon "python3.7")
   (add-hook 'python-mode-hook #'pyvenv-mode))
+
+;;; [ poetry ] -- Python dependency management and packaging in Emacs.
+
+(use-package poetry
+  :ensure t
+  :defer t
+  :commands (poetry)
+  :hook (python-mode . poetry-tracking-mode))
 
 ;;; [ pygen ] -- Python code generation in Emacs with Elpy and python-mode.
 

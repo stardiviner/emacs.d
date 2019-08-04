@@ -17,6 +17,9 @@
 (add-to-list 'display-buffer-alist
              '("^\\*SQL:.*\\*" (display-buffer-below-selected)))
 
+;;; enable () pairs auto insert in SQL buffer.
+(add-hook 'sql-mode-hook 'electric-pair-local-mode)
+
 ;;; for command `sql-connect'.
 (setq sql-connection-alist
       '((postgresql-test (sql-product 'postgres)
@@ -161,7 +164,6 @@
 
 (use-package ejc-sql
   :ensure t
-  ;; :load-path "~/Code/Emacs/ejc-sql"
   :defer t
   :commands (ejc-connect ejc-connect-existing-repl ejc-connect-interactive ejc-sql-mode)
   :init (setq nrepl-sync-request-timeout 60
@@ -229,6 +231,10 @@
        :subprotocol "sqlite"
        :subname (file-truename sqlite-db-file))
       (ejc-connect connection-name)))
+
+  ;; press [q] to close ejc-sql result window.
+  (add-hook 'ejc-result-mode-hook
+            (lambda () (local-set-key (kbd "q") 'delete-window)))
   )
 
 ;;; [ icsql ] -- This library provides an Emacs SQL mode integration to the ciSQL program.
