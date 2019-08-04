@@ -49,6 +49,13 @@
   :defer t
   :commands (helm-xcdoc-search))
 
+;;; [ dash-alfred ] -- Search Dash on-the-fly in Emacs.
+
+(use-package dash-alfred
+  :ensure t
+  :defer t
+  :commands (dash-alfred-helm dash-alfred-ivy))
+
 ;;; [ sysctl ] -- Manage sysctl through Emacs.
 
 (use-package sysctl
