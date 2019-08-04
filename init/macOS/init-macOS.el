@@ -31,9 +31,12 @@
 
 ;;; [ company-xcode ]
 
-(defun my-xcode-setup ()
-  (require 'company-xcode)
-  (my-company-add-backend-locally 'company-xcode))
+(use-package company
+  :ensure t
+  :config
+  (defun my-xcode-setup ()
+    (require 'company-xcode)
+    (my-company-add-backend-locally 'company-xcode)))
 
 ;;; [ counsel-osx-app ]
 
