@@ -6,5 +6,6 @@
 # --
 #+begin_src sh :async
 mvn org.apache.maven.plugins:maven-dependency-plugin:2.10:get \
-    -Dartifact=${1:${2:groupId}:${3:artifact}:${4:version}}
+    -Dartifact=${1:${2:groupId}:${3:artifact}:${4:version}} | \
+    tail -n 6 | cat
 #+end_src
