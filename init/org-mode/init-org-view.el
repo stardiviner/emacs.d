@@ -41,11 +41,11 @@
   :defer t
   :init (add-hook 'org-mode-hook #'org-bullets-mode)
   :config
-  ;; (setq org-bullets-bullet-list '("⊢" "⋮" "⋱" "⋮" "⋱"))
   (with-eval-after-load 'all-the-icons
     (setq-default org-bullets-bullet-list
                   `(;; disk -> folder -> file style
                     ,(all-the-icons-faicon "hdd-o")
+                    ;; ,(all-the-icons-faicon "cube")
                     ,(all-the-icons-faicon "folder-open-o")
                     ,(all-the-icons-faicon "folder-o")
                     ,(all-the-icons-faicon "inbox")
