@@ -128,9 +128,8 @@
 (use-package pyvenv
   :ensure t
   :defer t
-  :config
-  (pyvenv-workon "python3.7")
-  (add-hook 'python-mode-hook #'pyvenv-mode))
+  :init (add-hook 'python-mode-hook #'pyvenv-mode)
+  :config (pyvenv-workon "python3.7"))
 
 ;;; [ poetry ] -- Python dependency management and packaging in Emacs.
 

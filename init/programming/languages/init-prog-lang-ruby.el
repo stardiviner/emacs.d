@@ -24,9 +24,7 @@
   (setq ruby-use-smie t       ; use sexp navigation for Ruby
         ;; bellowing effect only when `ruby-use-smie' is `nil'.
         ruby-deep-indent-paren-style 'space)
-  :config
-  (add-hook 'ruby-mode-hook #'eldoc-mode)
-  )
+  :config (add-hook 'ruby-mode-hook #'eldoc-mode))
 
 
 ;;; [ ob-ruby ]
