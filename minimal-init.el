@@ -49,8 +49,7 @@
 
 (use-package pinentry
   :ensure t
-  :config
-  (pinentry-start))
+  :init (pinentry-start))
 
 (require 'color)
 
