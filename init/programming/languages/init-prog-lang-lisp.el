@@ -101,7 +101,7 @@
 ;;; [ hl-sexp ] -- highlight the current sexp.
 
 (leaf hl-sexp
-  :straight (hl-sexp :type git :host github :repo "stardiviner/hl-sexp")
+  :el-get (hl-sexp :url "https://github.com/stardiviner/hl-sexp.git")
   ;; don't enable `global-hl-sexp-mode' automatically.
   ;; :init (global-hl-sexp-mode -1)
   ;; :config
@@ -127,7 +127,7 @@
 ;;; [ rainbow-blocks-bg ] -- rainbow background highlighting of code blocks.
 
 (leaf rainbow-blocks-bg
-  :straight (rainbow-blocks-bg :type git :host github :repo "seanirby/rainbow-blocks-bg")
+  :el-get (rainbow-blocks-bg :url "https://github.com/seanirby/rainbow-blocks-bg.git")
   ;; :config (global-rainbow-blocks-bg-mode)
   ;; (add-hook 'clojure-mode-hook 'rainbow-blocks-bg-mode)
   )

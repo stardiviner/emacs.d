@@ -147,7 +147,7 @@ In ~%s~:
 
 (leaf org-protocol-capture-html
   :doc "Capture HTML from the browser selection into Emacs as org-mode content."
-  :straight (org-protocol-capture-html :type git :host github :repo "alphapapa/org-protocol-capture-html")
+  :el-get (org-protocol-capture-html :url "https://github.com/alphapapa/org-protocol-capture-html.git")
   :init (setq org-capture-templates (append
                                      '(("PH" "org-[p]rotocol-capture-[h]tml" entry
                                         (file "")

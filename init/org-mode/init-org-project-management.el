@@ -11,7 +11,7 @@
 ;;; [ org-gantt ] -- Generate Gantt chart for Org Mode headlines.
 
 (leaf org-gantt
-  :straight (org-gantt :type git :host github :repo "stardiviner/org-gantt" :files ("org-gantt.el")))
+  :el-get (org-gantt :url "https://github.com/stardiviner/org-gantt.git"))
 
 
 

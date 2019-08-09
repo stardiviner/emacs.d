@@ -22,7 +22,7 @@
 ;;; [ company-english-helper ] -- English helper base on Emacs company-mode.
 
 (leaf company-english-helper
-  :package t
+  :el-get (company-english-helper :url "https://github.com/manateelazycat/company-english-helper.git")
   :commands (toggle-company-english-helper)
   :init
   (defun my/company-english-helper-setup ()

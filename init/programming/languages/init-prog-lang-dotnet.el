@@ -86,8 +86,7 @@
 ;;; [ ob-csharp ] -- org-babel functions for csharp evaluation.
 
 (leaf ob-csharp
-  :straight (ob-csharp :type git :host github :repo "thomas-villagers/ob-csharp"
-                       :files ("src/ob-csharp.el"))
+  :el-get (ob-csharp :url "https://github.com/thomas-villagers/ob-csharp.git")
   :commands (org-babel-execute:csharp)
   :init (setq org-babel-csharp-compiler "mcs")
   :config

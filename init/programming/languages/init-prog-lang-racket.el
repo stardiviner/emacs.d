@@ -17,7 +17,7 @@
 ;;; [ ob-racket ]
 
 (leaf ob-racket
-  :straight (ob-racket :type git :host github :repo "DEADB17/ob-racket")
+  :el-get (ob-racket :url "https://github.com/DEADB17/ob-racket.git")
   :commands (org-babel-execute:racket)
   :config
   (add-to-list 'org-babel-load-languages '(racket . t))

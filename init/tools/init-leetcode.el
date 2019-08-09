@@ -12,7 +12,7 @@
 
 (leaf leetcode
   :package t
-  ;; :straight (leetcode :type git :host github :repo "kaiwk/leetcode.el")
+  ;; :el-get (leetcode :url "https://github.com/kaiwk/leetcode.el.git")
   :ensure request-deferred
   :commands (leetcode)
   :config (setq leetcode-account "stardiviner"

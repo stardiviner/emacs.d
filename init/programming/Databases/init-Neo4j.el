@@ -18,9 +18,9 @@
 
 ;;; [ ob-neo4j ] -- Execute Neo4j's Cypher query in Org Mode Babel source block.
 
-;; (leaf ob-neo4j
-;;   :straight (ob-neo4j :type git :host github :repo "MarkBorcherding/ob-neo4j")
-;;   :commands (org-babel-execute:neo4j))
+(leaf ob-neo4j
+  :el-get (ob-neo4j :url "https://github.com/MarkBorcherding/ob-neo4j.git")
+  :commands (org-babel-execute:neo4j))
 
 ;;; [ cypher-mode ] -- major mode for editing cypher scripts.
 

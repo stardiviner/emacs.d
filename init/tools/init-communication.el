@@ -9,7 +9,7 @@
 ;;; [ Matrix ] -- An open standard for decentralized persistent communication.
 
 ;; (leaf matrix-client
-;;   :straight (matrix-client-ng :type git :host github :repo "jgkamat/matrix-client-el")
+;;   :el-get (matrix-client-ng :url "https://github.com/jgkamat/matrix-client-el.git")
 ;;   :commands (matrix-client-connect matrix-client-disconnect)
 ;;   :bind (:matrix-client-mode-map
 ;;          ("C-c C-b" . matrix-client-switch-buffer))

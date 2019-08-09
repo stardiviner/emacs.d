@@ -39,8 +39,7 @@
 ;;; [ jieba.el ] -- 在Emacs中使用jieba中文分词.
 
 ;; (leaf jieba
-;;   :straight (jieba :type git :host github :repo "cireu/jieba.el")
-;;   ;; :load-path "~/Code/Emacs/jieba.el/"
+;;   :el-get (jieba :url "https://github.com/cireu/jieba.el.git")
 ;;   :commands (jieba-mode)
 ;;   :init (jieba-mode))
 

@@ -61,8 +61,7 @@
 
 (leaf org-password-manager
   ;; :ensure t
-  :straight (org-password-manager :type git :host github
-                                  :repo "stardiviner/org-password-manager")
+  :el-get (org-password-manager :url "https://github.com/stardiviner/org-password-manager.git")
   :bind (:org-password-prefix
          ("u" . org-password-manager-get-username)
          ("p" . org-password-manager-get-password)

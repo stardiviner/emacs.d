@@ -19,7 +19,7 @@
 ;;; [ Festival ] -- provides a simple interface into the festival speech synthesis program.
 
 (leaf festival
-  :straight (festival :type git :host github :repo "davep/festival.el")
+  :el-get (festival :url "https://github.com/davep/festival.el.git")
   :commands (festival-start festival-stop
                             festival-say
                             festival-read-file festival-read-buffer

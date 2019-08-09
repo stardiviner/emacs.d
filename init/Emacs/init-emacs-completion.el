@@ -19,6 +19,11 @@
 (require 'init-helm)
 (require 'init-ivy)
 
+
+(leaf snails ; A modern, easy-to-expand fuzzy search framework.
+  :require t
+  :el-get (snails :url "https://github.com/manateelazycat/snails.git" :features snails))
+
 
 
 (provide 'init-emacs-completion)

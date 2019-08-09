@@ -241,12 +241,8 @@ otherwise, they are appended."
 ;;; [ Aweshell ] -- An enhanced Eshell layer like on-my-zsh with many features.
 
 (leaf aweshell
-  :straight (aweshell :type git :host github :repo "manateelazycat/aweshell")
-  :commands (aweshell-new
-             aweshell-toggle
-             aweshell-next aweshell-prev
-             aweshell-sudo-toggle
-             aweshell-search-history)
+  :el-get (aweshell :url "https://github.com/manateelazycat/aweshell.git" :features aweshell)
+  :commands (aweshell-new aweshell-toggle aweshell-sudo-toggle)
   :bind ("C-x !" . aweshell-new) ; TODO: ("C-x !" . aweshell-toggle)
   :init (setq esh-autosuggest-use-company-map nil))
 

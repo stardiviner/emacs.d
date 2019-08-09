@@ -121,7 +121,7 @@
 ;;; [ guess-word ] -- Emacs guess word game for learning ESL. Emacs 背单词.
 
 (leaf guess-word
-  :straight (guess-word :type git :host github :repo "Qquanwei/emacs-guess-word-game")
+  :el-get (guess-word :url "https://github.com/Qquanwei/emacs-guess-word-game.git")
   :commands (guess-word))
 
 

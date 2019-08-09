@@ -14,7 +14,7 @@
 ;;; [ sdcv.el ]
 
 (leaf sdcv
-  :straight (sdcv :type git :host github :repo "manateelazycat/sdcv")
+  :el-get (sdcv :url "https://github.com/manateelazycat/sdcv.git")
   :ensure posframe
   :commands (sdcv-search-pointer sdcv-search-pointer+ sdcv-search-input sdcv-search-input+)
   :bind (:dictionary-prefix ("C-d" . sdcv-search-pointer+)
@@ -114,8 +114,7 @@
 ;;; [ insert-translated-name ] -- Insert translated string as variable, function name or sentence for comment.
 
 (leaf insert-translated-name
-  :package t
-  :require t
+  :el-get (insert-translated-name :url "https://github.com/manateelazycat/insert-translated-name.git")
   :commands (insert-translated-name-insert)
   :bind (:dictionary-prefix ("SPC" . insert-translated-name-insert))
   :config (set-face-attribute 'insert-translated-name-font-lock-mark-word nil
