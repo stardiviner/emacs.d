@@ -69,11 +69,15 @@
 ;;   (package-install-file (concat user-emacs-directory "init/extensions/org.el")))
 
 (if (not (file-exists-p "~/Code/Emacs/org-mode/lisp/"))
-    (use-package org
-      :pin org
-      :ensure t
-      :preface (setq org-modules nil)
-      :mode (("\\.org\\'" . org-mode)))
+    (progn
+      (use-package org
+       :pin org
+       :ensure t
+       :preface (setq org-modules nil)
+       :mode (("\\.org\\'" . org-mode)))
+     (use-package org-plus-contrib
+       :pin org
+       :ensure t))
 
   (use-package org
     :pin manual
