@@ -294,6 +294,22 @@
 ;;   :config
 ;;   (flycheck-jest-setup))
 
+;; -----------------------------------------------------------------------------
+
+(use-package typescript-mode
+  :ensure t
+  :defer t)
+
+(use-package ob-typescript
+  :ensure t
+  :defer t
+  :commands (org-babel-execute:typescript))
+
+(use-package lsp-typescript
+  :ensure t
+  :defer t
+  :init (add-hook 'typescript-mode-hook #'lsp))
+
 
 (provide 'init-prog-lang-javascript)
 
