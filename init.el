@@ -53,7 +53,6 @@
 
 ;;; [ package manager ]
 
-(load "~/.emacs.d/init/init-package.el")
 (require 'init-package)
 
 
