@@ -43,8 +43,6 @@
   ;; company-tabnine: A company-mode backend for TabNine, the all-language autocompleter.
   (use-package company-tabnine
     :ensure t
-    :defer t
-    :commands (company-tabnine-install-binary)
     ;; :init (add-to-list 'company-backends #'company-tabnine)
     ;; (company-tng-configure-default)
     :config
@@ -56,8 +54,7 @@
         (when (and company-message-func
                    (stringp (funcall company-message-func)))
           (unless (string-match "The free version of TabNine only indexes up to" (funcall company-message-func))
-            ad-do-it))))
-    )
+            ad-do-it)))))
 
   (setq-default company-backends
                 `((company-capf         ; `completion-at-point-functions'
