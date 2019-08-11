@@ -4,5 +4,5 @@
 # group: babel.install
 # --
 #+begin_src sh :async
-npm install -g $0
+npm install -g $0 | tail -n 4 | cat
 #+end_src
