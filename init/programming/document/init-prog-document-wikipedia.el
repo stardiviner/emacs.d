@@ -31,8 +31,7 @@
 ;;; [ kiwix ] -- Kiwix client for Emacs.
 
 (use-package kiwix
-  ;; :ensure t
-  :load-path "~/Code/Emacs/kiwix.el/"
+  :ensure t
   :after org
   :commands (kiwix-launch-server kiwix-at-point-interactive)
   :bind (:map document-prefix ("w" . kiwix-at-point-interactive))
