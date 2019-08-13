@@ -18,7 +18,7 @@
          ;; ("M-x" . helm-M-x)
          ;; ([remap switch-to-buffer] . helm-mini)
          ;; ([remap yank-pop] . helm-show-kill-ring)
-         ([remap org-goto] . helm-org-in-buffer-headings))
+         )
   :init ; (helm-mode 1) (helm-top-poll-mode 1)
   (setq helm-mode-line-string nil) ; use default mode-line instead of help string.
   :config

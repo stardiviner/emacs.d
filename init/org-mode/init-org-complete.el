@@ -32,6 +32,18 @@
 
 (add-hook 'org-mode-hook #'my/org-mode-completion-setting)
 
+
+;;; [ helm-org ] -- Helm for org headlines and keywords completion.
+
+(use-package helm-org
+  :ensure t
+  :defer t
+  :commands (helm-org-agenda-files-headings
+             helm-org-in-buffer-headings
+             helm-org-parent-headings
+             helm-org-capture-templates)
+  :bind (([remap org-goto] . helm-org-in-buffer-headings)))
+
 
 (provide 'init-org-complete)
 
