@@ -16,11 +16,17 @@
 ;;       jit-lock-defer-time 0.05)
 
 
-;;; [ Garbage Collection ]
+;;; [ Garbage Collection (GC) ]
 
 ;; (setq garbage-collection-messages nil)
 ;; (setq gc-cons-threshold (* 8 (expt 10 8))
 ;;       gc-cons-percentage 0.6)
+
+;;; [ GCMH: Garbage Collector Hack Magic ]
+
+(use-package gcmh
+  :ensure t
+  :config (gcmh-mode 1))
 
 ;; (setq file-name-handler-alist nil)
 
