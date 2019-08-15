@@ -25,6 +25,13 @@
 ;;   :ensure t
 ;;   :bind (:map markdown-mode-command-map ("g" . grip-mode)))
 
+;;; [ maple-preview ] -- Markdown, Org Mode or HTML realtime preview on Emacs.
+
+(leaf maple-preview
+  :el-get (maple-preview :url "https://github.com/honmaple/emacs-maple-preview.git" :features maple-preview)
+  :commands (maple-preview-mode)
+  :init (setq maple-preview:port 8083))
+
 
 (provide 'init-prog-lang-markdown)
 
