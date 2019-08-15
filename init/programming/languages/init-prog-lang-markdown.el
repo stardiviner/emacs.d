@@ -19,6 +19,12 @@
   :ensure t
   :commands (flymd-flyit))
 
+;;; [ grip-mode ] -- Instant Github-flavored Markdown/Org preview using grip (Github README Instant Preview).
+
+;; (use-package grip-mode
+;;   :ensure t
+;;   :bind (:map markdown-mode-command-map ("g" . grip-mode)))
+
 
 (provide 'init-prog-lang-markdown)
 
