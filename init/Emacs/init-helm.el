@@ -35,6 +35,12 @@
   (setq helm-input-idle-delay 0.1) ; fix Helm fast respond to input caused failed issue.
   (setq helm-org-headings-fontify t))
 
+;;; [ helm-fuz ] -- Integrate Helm and Fuz.
+
+(use-package helm-fuz
+  :ensure t
+  :init (helm-fuz-mode 1))
+
 
 (provide 'init-helm)
 
