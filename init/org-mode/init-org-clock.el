@@ -87,6 +87,13 @@
 ;; (add-hook 'org-clock-out-hook #'my/remove-org-clock-in-header-line)
 ;; (add-hook 'org-clock-cancel-hook #'my/remove-org-clock-in-header-line)
 
+;;; [ org-analyzer ] -- a tool that extracts time tracking data from org files.
+
+(use-package org-analyzer
+  :ensure t
+  :defer t
+  :commands (org-analyzer-start))
+
 
 (provide 'init-org-clock)
 
