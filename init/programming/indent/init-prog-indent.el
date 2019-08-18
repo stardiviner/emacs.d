@@ -99,7 +99,7 @@
   :defer t
   :delight aggressive-indent-mode
   :commands (aggressive-indent-mode)
-  :init ; (global-aggressive-indent-mode 1)
+  :init (global-aggressive-indent-mode 1)
   (setq aggressive-indent-sit-for-time 0.1)
   :config
   (add-to-list 'aggressive-indent-excluded-modes 'python-mode)
