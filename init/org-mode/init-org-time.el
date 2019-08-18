@@ -49,7 +49,7 @@ Accepts universal argument `ARG' for \\<C-c C-x r> & \\[org-time-interval]."
   :defer t
   :commands (org-pomodoro)
   :bind (:map Org-prefix ("p" . org-pomodoro))
-  :config
+  :init
   (setq org-pomodoro-play-sounds t
         org-pomodoro-start-sound-p t
         org-pomodoro-ticking-sound-p nil
@@ -60,13 +60,11 @@ Accepts universal argument `ARG' for \\<C-c C-x r> & \\[org-time-interval]."
         org-pomodoro-audio-player "/usr/bin/mplayer"
         org-pomodoro-format "Pomodoro: %s" ; mode-line string
         )
-
+  :config
   ;; start another pomodoro automatically upon a break end.
   (add-hook 'org-pomodoro-break-finished-hook
-            #'(lambda ()
-                (interactive)
-                (org-pomodoro '(16)) ; double prefix [C-u C-u]
-                ))
+             ; double prefix [C-u C-u]
+            #'(lambda () (interactive) (org-pomodoro '(16))))
   )
 
 

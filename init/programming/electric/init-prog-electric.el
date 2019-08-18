@@ -11,15 +11,13 @@
 
 ;; `electric-quote-replace-double'
 
-;;; [ show-paren-mode ]
+;;; [ show-paren-mode ] -- highlight matched parentheses.
 
 ;; (use-package paren
-;;   :config
-;;   (show-paren-mode 1) ; highlight matched parentheses
-;;   (setq show-paren-style 'parenthesis)
+;;   :init (show-paren-mode 1)
+;;   :config (setq show-paren-style 'parenthesis)
 ;;   (set-face-attribute 'show-paren-match nil
-;;                       :background "green yellow")
-;;   )
+;;                       :background "green yellow"))
 
 ;;; [ smartparens ] -- deals with parens pairs and tries to be smart about it.
 
