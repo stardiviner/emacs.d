@@ -24,9 +24,10 @@
 
 ;;; [ GCMH: Garbage Collector Hack Magic ]
 
-(use-package gcmh
-  :ensure t
-  :config (gcmh-mode 1))
+;; (use-package gcmh
+;;   :ensure t
+;;   :init (setq gcmh-high-cons-threshold #x20000000)
+;;   :config (gcmh-mode 1))
 
 ;; (setq file-name-handler-alist nil)
 
