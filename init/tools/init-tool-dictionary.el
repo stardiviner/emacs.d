@@ -61,9 +61,9 @@
               ("C-r" . google-translate-at-point-reverse)
               ("M-r" . google-translate-query-translate-reverse)
               ("C-b" . google-translate-buffer))
-  :preface (setq google-translate-base-url "http://translate.google.cn/translate_a/single"
-                 google-translate-listen-url "http://translate.google.cn/translate_tts"
-                 google-translate--tkk-url "http://translate.google.cn/")
+  :preface (setq google-translate-base-url "https://translate.google.cn/translate_a/single"
+                 google-translate-listen-url "https://translate.google.cn/translate_tts"
+                 google-translate--tkk-url "https://translate.google.cn/")
   :init (setq google-translate-show-phonetic t
               google-translate-pop-up-buffer-set-focus t
               ;; `google-translate-supported-languages'
