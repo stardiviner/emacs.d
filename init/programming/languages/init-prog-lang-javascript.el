@@ -192,6 +192,18 @@
 (use-package typescript-mode
   :ensure t
   :defer t)
+
+;;; [ ob-typescript ] -- org-babel functions for typescript evaluation.
+
+(use-package ob-typescript
+  :defer t
+  :commands (org-babel-execute:typescript)
+  :config
+  (add-to-list 'org-babel-load-languages '(typescript . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("typescript" . "ts"))
+  (add-to-list 'org-babel-default-header-args:typescript '(:results . "output")))
+
 ;;; [ lsp-javascript-typescript ] -- Javascript and Typescript support for lsp-mode using javascript-typescript-langserver.
 
 (use-package lsp-mode
