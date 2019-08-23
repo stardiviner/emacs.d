@@ -204,6 +204,15 @@
   (add-to-list 'org-babel-tangle-lang-exts '("typescript" . "ts"))
   (add-to-list 'org-babel-default-header-args:typescript '(:results . "output")))
 
+;;; [ tide ] -- Typescript Interactive Development Environment.
+
+(use-package tide
+  :ensure t
+  :defer t
+  :commands (tide-mode)
+  :init (add-hook 'typescript-mode-hook #'tide-setup)
+  (add-hook 'typescript-mode-hook #'tide-hl-identifier-mode))
+
 ;;; [ lsp-javascript-typescript ] -- Javascript and Typescript support for lsp-mode using javascript-typescript-langserver.
 
 (use-package lsp-mode
