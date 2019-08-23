@@ -187,6 +187,11 @@
 ;;   ;; (add-hook 'js3-mode-hook #'jscs-fix-run-before-save)
 ;;   )
 
+;;; [ typescript-mode ] -- Major mode for editing typescript.
+
+(use-package typescript-mode
+  :ensure t
+  :defer t)
 ;;; [ lsp-javascript-typescript ] -- Javascript and Typescript support for lsp-mode using javascript-typescript-langserver.
 
 (use-package lsp-mode
