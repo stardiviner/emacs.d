@@ -99,22 +99,24 @@
   :defer t
   :delight aggressive-indent-mode
   :commands (aggressive-indent-mode)
-  :init (global-aggressive-indent-mode 1)
-  (setq aggressive-indent-sit-for-time 0.1)
+  :custom (global-aggressive-indent-mode nil)
+  :init (setq aggressive-indent-sit-for-time 0.1)
+  
+  (defun my/aggressive-indent-enable ()
+    (unless (or (member major-mode aggressive-indent-excluded-modes)
+                (member major-mode aggressive-indent-dont-electric-modes))
+      (aggressive-indent-mode 1)))
+  (add-hook 'prog-mode-hook #'my/aggressive-indent-enable)
+
   :config
   (add-to-list 'aggressive-indent-excluded-modes 'python-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'snippet-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'cider-repl-mode)
 
   (add-to-list 'aggressive-indent-dont-electric-modes 'python-mode)
-
-  (defun my/aggressive-indent-enable ()
-    (unless (or (member major-mode aggressive-indent-excluded-modes)
-                (member major-mode aggressive-indent-dont-electric-modes))
-      (aggressive-indent-mode 1)))
-  (add-hook 'prog-mode-hook #'my/aggressive-indent-enable)
 
   ;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
   ;; **don't** want indentation to happen.  For instance, if you think it's
