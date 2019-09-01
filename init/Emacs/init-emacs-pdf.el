@@ -23,6 +23,14 @@
   ;; helpful accessibility shortcuts
   (define-key pdf-view-mode-map (kbd "q") 'kill-current-buffer)
 
+  ;; set the view mode colors to fit your color-theme.
+  (setq pdf-view-midnight-colors
+        (cons
+         (frame-parameter nil 'foreground-color)
+         (frame-parameter nil 'background-color)))
+  (if (eq (frame-parameter nil 'background-mode) 'dark)
+      (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode))
+  
   (add-hook 'pdf-view-mode-hook #'pdf-annot-minor-mode)
   ;; save after adding annotation comment
   (advice-add 'pdf-annot-edit-contents-commit :after 'save-buffer)
