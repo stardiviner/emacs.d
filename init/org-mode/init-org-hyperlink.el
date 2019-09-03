@@ -409,8 +409,11 @@ and append it."
 ;;; [ org-kindle ] -- Make Emacs bridge between Org Mode and Kindle.
 
 (use-package org-kindle
+  :ensure t
   :defer t
-  :commands (org-kindle-send-to-device org-kindle-sync-notes))
+  :commands (org-kindle-send-to-device org-kindle-sync-notes)
+  :init (add-to-list 'display-buffer-alist
+                     '("^\\*org-kindle:.*\\*" (display-buffer-below-selected))))
 
 
 
