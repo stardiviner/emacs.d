@@ -1,6 +1,6 @@
 ;;; init-emacs-annotate.el --- init for Emacs annotate.
 
-;;; Time-stamp: <2019-04-14 16:47:09 stardiviner>
+;;; Time-stamp: <2019-09-03 08:51:04 stardiviner>
 
 ;;; Commentary:
 
@@ -17,7 +17,13 @@
              annotate-annotate annotate-next-annotation annotate-previous-annotation
              annotate-clear-annotations annotate-integrate-annotations
              annotate-export-annotations annotate-save-annotations)
-  :init (annotate-mode)
+  :init
+  ;; (dolist (hook '(emacs-lisp-mode-hook
+  ;;                 lisp-mode-hook
+  ;;                 clojure-mode-hook
+  ;;                 python-mode-hook
+  ;;                 java-mode-hook))
+  ;;   (add-hook hook #'annotate-mode))
   (setq annotate-file (concat user-emacs-directory ".annotations")))
 
 
