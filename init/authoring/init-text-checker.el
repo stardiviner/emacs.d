@@ -67,7 +67,7 @@
 
   ;; programming code
   ;; flyspell-prog-mode : enable flyspell for comments in source code
-  ;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+  (add-hook 'prog-mode-hook #'flyspell-prog-mode)
 
   ;; Org-mode
   ;; (add-hook 'org-mode-hook
