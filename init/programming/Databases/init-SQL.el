@@ -199,7 +199,7 @@
    :host "localhost"
    :port "5432"
    :user "postgres"
-   :password "****"
+   :password (my/json-read-value my/account-file 'ejc-sql-postgresql)
    :dbname "test")
 
   (ejc-create-connection
@@ -210,7 +210,7 @@
    :host "localhost"
    :port "3306"
    :user "root"
-   :password "****"
+   :password (my/json-read-value my/account-file 'ejc-sql-mysql)
    :dbname "test")
 
   (ejc-create-connection
