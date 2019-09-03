@@ -104,8 +104,8 @@
   :el-get (hl-sexp :url "https://github.com/stardiviner/hl-sexp.git")
   :require t
   :commands (global-hl-sexp-mode hl-sexp-mode)
-  ;; don't enable `global-hl-sexp-mode' automatically.
-  :init (global-hl-sexp-mode 1)
+  ;; NOTE: don't enable `global-hl-sexp-mode' automatically to enabled in Org Mode.
+  :init (global-hl-sexp-mode -1)
   ;; :config
   ;; (set-face-attribute 'hl-sexp-face nil
   ;;                     :reverse-video nil :foreground nil
