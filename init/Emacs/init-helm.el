@@ -37,9 +37,9 @@
 
 ;;; [ helm-fuz ] -- Integrate Helm and Fuz.
 
-(use-package helm-fuz
-  :ensure t
-  :init (helm-fuz-mode 1))
+;; (use-package helm-fuz
+;;   :ensure t
+;;   :init (helm-fuz-mode 1))
 
 
 (provide 'init-helm)
