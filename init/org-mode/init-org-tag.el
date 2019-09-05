@@ -72,6 +72,10 @@
         (:startgrouptag)
         ("@Project" . ?P)
         (:grouptags) ("Agriculture") (:endgrouptag)
+
+        (:startgrouptag)
+        ("Love")
+        (:grouptags) ("陈晓影") ("芈兰") (:endgrouptag)
         ))
 
 (setq org-tag-faces

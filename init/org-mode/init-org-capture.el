@@ -33,7 +33,7 @@
         ;; Diary
         ("d" "Write [d]iary"
          entry (file+olp+datetree "~/Org/Diary/Diary.org")
-         "* %^{Diary Title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n%i\n\n"
+         "* %^{Diary Title} %^G\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n%i\n\n"
          ;; :time-prompt t
          :empty-lines-before 1
          :empty-lines-after 1
