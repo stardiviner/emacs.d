@@ -174,7 +174,8 @@
 
   (add-hook 'ejc-sql-mode-hook
             (lambda ()
-              (setq-local ac-delay 0.2)
+              (setq-local ac-auto-start 1)
+              (setq-local ac-delay 0.1)
               (company-mode -1)))
 
   (add-to-list 'display-buffer-alist
