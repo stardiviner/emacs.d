@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: export-html-video-tag
+# key: export-html-video-tag
+# group: html.export
+# --
+#+begin_export html
+<video class="video" width="640" height="360" preload="metadata" controls="controls"><source type="video/mp4" src="${1:Path/URL}" /><a href="$1">$1</a></video>
+#+end_export

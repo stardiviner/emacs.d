@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: view
+# key: view
+# group: view.create
+# --
+CREATE VIEW ${1:name} AS
+  SELECT $0
