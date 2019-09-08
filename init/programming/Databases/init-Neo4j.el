@@ -14,7 +14,8 @@
   :ensure t
   :defer t
   :commands (n4js-start)
-  :init (defalias 'run-neo4j 'n4js-start))
+  :init (defalias 'run-neo4j 'n4js-start)
+  (setq n4js-cli-program "/usr/share/neo4j/bin/cypher-shell"))
 
 ;;; [ ob-neo4j ] -- Execute Neo4j's Cypher query in Org Mode Babel source block.
 
