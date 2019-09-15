@@ -58,7 +58,7 @@
         ("@Lisp" . ?l) ("Clojure" . ?c)
         ("Python" . ?p) ("Ruby" . ?r) ("Shell" . ?s)
         ("JavaScript" . ?j)
-        ("C" . nil) ("Go" . ?g) ("Rust" . nil)
+        ("Java" . "?J") ("C" . nil) ("Go" . ?g) ("Rust" . nil)
         (:endgroup)
         (:endgrouptag)
         
@@ -96,6 +96,7 @@
         ("Python" :foreground "yellow" :weight bold)
         ("Ruby" :foreground "red" :weight bold)
         ("Shell" :foreground "sea green")
+        ("Java" :foreground "royal blue" :weight bold)
         ("C" :foreground "SaddleBrown" :weight bold)
         ("Go" :foreground "gold" :weight bold)
         ("Rust" :foreground "WhiteSmoke" :weight bold)
