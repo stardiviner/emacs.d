@@ -33,7 +33,11 @@
 ;;   :defer t
 ;;   :init (global-copy-file-on-save-mode))
 
-;;; [ heroku ]
+;;; [ AWS ]
+
+(require 'init-AWS)
+
+;;; [ Heroku ]
 
 (use-package heroku
   :ensure t
