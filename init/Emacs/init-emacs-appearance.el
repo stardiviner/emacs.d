@@ -171,7 +171,16 @@
   :config (add-to-list 'afp-fill-keys ?。) ; support for Chinese sentence end.
   (add-to-list 'afp-fill-comments-only-mode-list 'emacs-lisp-mode)
   (add-to-list 'afp-fill-comments-only-mode-list 'lisp-mode)
-  (add-to-list 'afp-fill-comments-only-mode-list 'clojure-mode))
+  (add-to-list 'afp-fill-comments-only-mode-list 'clojure-mode)
+  ;; disable `aggressive-fill-paragraph-mode' when in `iedit' (`set-rectangular-region-anchor').
+  (defun aggressive-fill-paragraph-mode-disable-in-iedit ()
+    "Disable `aggressive-fill-paragraph-mode' when in `iedit'."
+    (aggressive-fill-paragraph-mode -1)
+    (message "aggressive-fill-paragraph-mode disable now."))
+  
+  (advice-add 'set-rectangular-region-anchor :before
+              'aggressive-fill-paragraph-mode-disable-in-iedit)
+  )
 
 (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
 
