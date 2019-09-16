@@ -38,6 +38,14 @@
   (define-key view-mode-map (kbd "k") 'previous-line)
   (define-key view-mode-map (kbd "l") 'forward-char))
 
+;;; [ syslog-mode ] -- Emacs major-mode for viewing log files.
+
+;; (use-package syslog-mode
+;;   :ensure t
+;;   :defer t
+;;   :mode (("\\.log\\'" . logview-mode))
+;;   :commands (syslog-mode))
+
 ;;; [ lognav-mode ] -- Navigate Log Error Messages with [M-n/p].
 
 (use-package lognav-mode
