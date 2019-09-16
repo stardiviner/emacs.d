@@ -116,10 +116,11 @@
         org-agenda-skip-scheduled-if-done t
         org-agenda-skip-scheduled-delay-if-deadline 'post-deadline
         org-agenda-skip-scheduled-if-deadline-is-shown t
-        org-deadline-past-days 60 ; 10000
-        org-scheduled-past-days 60 ; 10000
-        ;; future scheduled items.
+        org-deadline-warning-days 14
         org-scheduled-delay-days 0 ; XXX: if change default 0, will invalid `org-habit'.
+        ;; ignore past expired schedule and deadline tasks
+        ;; org-deadline-past-days 60 ; 10000
+        ;; org-scheduled-past-days 60 ; 10000
         ;; XXX: org-agenda-ignore-properties '(effort appt stats category)
         org-agenda-tags-todo-honor-ignore-options t)
 
