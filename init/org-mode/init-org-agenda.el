@@ -468,6 +468,11 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 (org-notify-start (* 60 2))
 
+;;; [ org-super-agenda ] -- Supercharge your agenda.
+
+(use-package org-super-agenda
+  :ensure t
+  :defer t)
 
 ;;; [ org-collector ] -- collect properties into tables.
 ;; (require 'org-collector)
