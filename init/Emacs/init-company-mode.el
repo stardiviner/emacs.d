@@ -84,6 +84,10 @@
   ;; [ company-ispell ]
   ;; (setq company-ispell-dictionary "/usr/share/dict/words")
   ;; (add-to-list 'company-backend 'company-ispell)
+  ;; hide `company-ispell' echo message "Starting 'look' process".
+  (advice-add 'ispell-lookup-words :around
+              (lambda (orig &rest args)
+                (shut-up (apply orig args))))
   
   ;; keybindings
 
