@@ -11,6 +11,16 @@
   (define-prefix-command 'mc-prefix))
 (define-key editing-prefix (kbd "c") 'mc-prefix)
 
+
+;; disable `aggressive-fill-paragraph-mode' when in `rectangular-region-mode' (`set-rectangular-region-anchor').
+(defun iedit-disable-aggressive-fill-paragraph-mode ()
+  "Disable `aggressive-fill-paragraph-mode' when in `iedit'."
+  (aggressive-fill-paragraph-mode -1)
+  (message "aggressive-fill-paragraph-mode disable now."))
+
+(advice-add 'set-rectangular-region-anchor :before
+            'iedit-disable-aggressive-fill-paragraph-mode)
+
 ;;;_ [ iedit ] -- Edit multiple regions simultaneously in a buffer or a region
 
 (use-package iedit
