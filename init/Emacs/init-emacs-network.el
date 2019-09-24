@@ -53,6 +53,13 @@
 ;;   :defer t
 ;;   :init (setq proxy-mode-socks-proxy '("Default server" "127.0.0.1" 1086 5)))
 
+;;; [ with-proxy ] -- Evaluate expressions within Proxy.
+
+(use-package with-proxy
+  :ensure t
+  :defer t
+  :commands (with-proxy with-proxy-url with-proxy-shell))
+
 
 (provide 'init-emacs-network)
 
