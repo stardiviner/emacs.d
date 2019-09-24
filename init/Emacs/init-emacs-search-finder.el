@@ -12,9 +12,14 @@
 
 (define-key search-prefix (kbd "f") 'find-prefix)
 
-(use-package helm
+;; (use-package helm
+;;   :ensure t
+;;   :bind (:map find-prefix ("h" . helm-find)))
+
+(use-package helm-fd
   :ensure t
-  :bind (:map find-prefix ("h" . helm-find)))
+  :defer t
+  :bind (:map find-prefix ("h" . helm-fd)))
 
 ;;; [ fd-dired ] -- find-dired alternative using fd.
 
