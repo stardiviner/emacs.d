@@ -19,6 +19,7 @@
                    entry (file (lambda () (car org-contacts-files)))
                    "** %^{NAME}
 :PROPERTIES:
+:DATE: %^U
 :AVATAR: %^{Avatar}
 :NICK: %^{Nick}
 :NAME(Chinese): %^{Name(Chinese)}
