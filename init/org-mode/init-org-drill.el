@@ -10,7 +10,9 @@
 
 (use-package org-drill
   :ensure t
-  :commands (org-drill)
+  :ensure org-drill-table
+  :commands (org-drill
+             org-drill-table-generate org-drill-table-update org-drill-table-update-all)
   :init
   (setq org-drill-use-visible-cloze-face-p nil ; t will caused [] invalid headline fontify.
         org-drill-hide-item-headings-p nil
