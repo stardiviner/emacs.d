@@ -19,6 +19,7 @@
         org-drill-save-buffers-after-drill-sessions-p nil
         ;; org-drill-spaced-repetition-algorithm 'sm2
         )
+  (setq my-org-drill-words-file (concat org-directory "/Drills/Words.org"))
   
   :config
   ;; add org-drill topic property into default properties list.
@@ -40,8 +41,6 @@
 
   ;; record (GoldenDict) queried words to Org-mode drill files for memory.
   (require 'org-capture) ; load `org-capture-templates'
-
-  (setq my-org-drill-words-file (concat org-directory "/Drills/Words.org"))
 
   (setq org-capture-templates
         (append '(("w" "org-drill [w]ords"
@@ -65,7 +64,9 @@
                         nil
                         (list (expand-file-name my-org-drill-words-file)))))
       (not ; reverse word exist boolean
-       (cl-some (lambda (drill) (string-equal drill word)) drill-words))))
+       ;; Add `stem-english' support.
+       (cl-some (lambda (drill) (dolist (stem-word (stem-english word))
+                             (string-equal stem-word drill))) drill-words))))
 
   (defun my-org-drill-record-word ()
     "Record word to org-drill words file."
