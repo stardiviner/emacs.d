@@ -40,7 +40,7 @@
 
 
 ;;; set default Org-mode inline image background color based on color-theme background color.
-(defun org-display-inline-images--with-color-theme-background-color (args)
+(defun create-image-with-background-color (args)
   "Specify background color of Org-mode inline image through modify `ARGS'."
   (let* ((file (car args))
          (type (cadr args))
@@ -48,11 +48,10 @@
          (props (cdddr args)))
     ;; get this return result style from `create-image'
     (append (list file type data-p)
-            (list :background (face-background 'default))
+            (list :background (face-background 'default)) ; or :background "white".
             props)))
 
-(advice-add 'create-image :filter-args
-            #'org-display-inline-images--with-color-theme-background-color)
+(advice-add 'create-image :filter-args #'create-image-with-background-color)
 
 
 
