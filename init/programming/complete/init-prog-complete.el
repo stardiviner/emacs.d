@@ -8,6 +8,11 @@
 ;;; Code:
 
 
+;;; [ pcomplete ] --- Programmable, Context-Sensitive Completion Library
+
+;; (require 'pcomplete)
+
+
 (require 'init-auto-complete)
 (require 'init-company-mode)
 ;; (require 'init-jetbrains)
