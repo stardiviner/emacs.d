@@ -13,6 +13,8 @@
 ;;    add a completion command into it with mode locally.
 ;;    (add-hook 'completion-at-point-functions 'completion-function nil t)
 
+(setq completion-ignore-case t) ; case-insensitive, affect some company-mode backends.
+
 ;;; [ compdef ] -- A stupid Emacs completion definer for `pcomplete' and `company-mode'.
 
 (use-package compdef

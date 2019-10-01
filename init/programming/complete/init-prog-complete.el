@@ -10,7 +10,8 @@
 
 ;;; [ pcomplete ] --- Programmable, Context-Sensitive Completion Library
 
-;; (require 'pcomplete)
+(use-package pcomplete
+  :init (setq pcomplete-ignore-case t))
 
 
 (require 'init-auto-complete)
