@@ -14,8 +14,7 @@
   :defer t
   :config
   (add-hook 'systemd-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'systemd-company-backend)) :local t))
+            (lambda () (my-company-add-backend-locally 'systemd-company-backend)) :local t))
 
 ;;; [ daemons ] -- An Emacs UI for managing init system services like Systemd.
 

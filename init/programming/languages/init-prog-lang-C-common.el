@@ -110,9 +110,7 @@
 
       (make-local-variable 'company-backends)
       (add-to-list 'company-backends
-                   '(company-irony
-                     :with
-                     company-yasnippet))
+                   '(company-irony :with company-yasnippet))
       (add-to-list 'company-backends 'company-irony-c-headers))
 
     (hook-modes c-dialects-mode
