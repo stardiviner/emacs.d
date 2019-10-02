@@ -95,40 +95,39 @@
             (irony-mode 1)))
   :config
   ;; find the compile flag options automatically:
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 
-  (use-package company-irony
-    :ensure t
-    :ensure company-irony-c-headers
-    :init
-    (defun company-irony-add ()
-      ;; (optional) adds CC special commands to `company-begin-commands'
-      ;; in order to trigger completion at interesting places, such as
-      ;; after scope operator.
-      ;;     std::|
-      (company-irony-setup-begin-commands)
+(use-package company-irony
+  :ensure t
+  :ensure company-irony-c-headers
+  :init
+  (defun company-irony-add ()
+    ;; (optional) adds CC special commands to `company-begin-commands'
+    ;; in order to trigger completion at interesting places, such as
+    ;; after scope operator.
+    ;;     std::|
+    (company-irony-setup-begin-commands)
 
-      (make-local-variable 'company-backends)
-      (add-to-list 'company-backends
-                   '(company-irony :with company-yasnippet))
-      (add-to-list 'company-backends 'company-irony-c-headers))
+    (make-local-variable 'company-backends)
+    (add-to-list 'company-backends
+                 '(company-irony :with company-yasnippet))
+    (add-to-list 'company-backends 'company-irony-c-headers))
 
-    (hook-modes c-dialects-mode
-      (when (memq major-mode '(c-mode c++-mode objc-mode))
-        (company-irony-add))))
+  (hook-modes c-dialects-mode
+    (when (memq major-mode '(c-mode c++-mode objc-mode))
+      (company-irony-add))))
 
-  (use-package irony-eldoc
-    :ensure t
-    :defer t
-    :after irony
-    :init (add-hook 'irony-mode-hook #'irony-eldoc))
+(use-package irony-eldoc
+  :ensure t
+  :defer t
+  :after irony
+  :init (add-hook 'irony-mode-hook #'irony-eldoc))
 
-  (use-package flycheck-irony
-    :ensure t
-    :defer t
-    :after irony
-    :init (add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
-  )
+(use-package flycheck-irony
+  :ensure t
+  :defer t
+  :after irony
+  :init (add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
 
 ;;; [ cquery ] -- Low-latency language server supporting multi-million line C++ code-bases, powered by libclang.
 
