@@ -28,7 +28,7 @@
   :ensure t
   :defer t
   :commands flycheck-mode
-  :preface (setq flycheck-check-syntax-automatically '(save)
+  :preface (setq flycheck-check-syntax-automatically '(save idle-change new-line)
                  flycheck-global-modes '(not emacs-lisp-mode clojure-mode lisp-mode))
   ;; NOTE: ONLY enable `flycheck-mode' MANUALLY. automatically checking will
   ;; cause high CPU. especially big source code file.
