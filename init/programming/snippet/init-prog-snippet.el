@@ -72,6 +72,11 @@ $0`(yas-escape-text yas-selected-text)`"
                  (concat (projectile-project-root) ".snippets")))
   (add-hook 'projectile-find-file-hook #'yasnippet-project-local))
 
+;;; [ yasnippet-snippets ] -- Official snippet collection for the yasnippet package.
+
+(use-package yasnippet-snippets
+  :ensure t)
+
 ;;; [ ivy-yasnippet ] -- preview yasnippet snippets with Ivy.
 
 (use-package ivy-yasnippet
