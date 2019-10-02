@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: neo4j
+# key: ob-neo4j
+# group: babel.neo4j
+# --
+#+begin_src neo4j
+$0
+#+end_src

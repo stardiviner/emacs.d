@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: neo4j cypher
+# key: ob-neo4j-cypher
+# group: babel
+# --
+#+begin_src cypher
+$0
+#+end_src
