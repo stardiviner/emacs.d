@@ -43,7 +43,16 @@
 
 (use-package xcscope
   :ensure t
-  :init (cscope-setup))
+  :init (cscope-setup)
+  ;; re-define cscope-minor-mode keymap
+  (define-key cscope-minor-mode-keymap cscope-keymap-prefix nil)
+  (setq cscope-keymap-prefix (kbd "M-g t"))
+  (define-key cscope-minor-mode-keymap cscope-keymap-prefix cscope-command-map)
+  :config
+  (define-key cscope-list-entry-keymap (kbd "C-n") 'cscope-history-forward-file)
+  (define-key cscope-list-entry-keymap (kbd "C-p") 'cscope-history-backward-file)
+  (define-key cscope-list-entry-keymap (kbd "n") 'cscope-history-forward-line-current-result)
+  (define-key cscope-list-entry-keymap (kbd "p") 'cscope-history-backward-line-current-result))
 
 ;;; [ helm-cscope ] -- Helm interface for xcscope.el.
 
@@ -52,28 +61,10 @@
   :init (add-hook 'c-mode-common-hook 'helm-cscope-mode)
   :config (add-hook 'helm-cscope-mode-hook
                     (lambda ()
-                      (local-set-key (kbd "M-.") 'helm-cscope-find-global-definition)
+                      (local-set-key (kbd "M-.") 'helm-cscope-find-this-symbol)
+                      (local-set-key (kbd "M-s") 'helm-cscope-find-global-definition)
                       (local-set-key (kbd "M-@") 'helm-cscope-find-calling-this-function)
-                      (local-set-key (kbd "M-s") 'helm-cscope-find-this-symbol)
                       (local-set-key (kbd "M-,") 'helm-cscope-pop-mark))))
-
-
-(cond
- ((featurep 'rscope)
-  (define-key tags-prefix (kbd "s") 'rscope-find-this-symbol)
-  (define-key tags-prefix (kbd "=") 'rscope-all-symbol-assignments)
-  (define-key tags-prefix (kbd "d") 'rscope-find-global-definition)
-  (define-key tags-prefix (kbd "c") 'rscope-find-functions-calling-this-function)
-  (define-key tags-prefix (kbd "C") 'rscope-find-called-functions)
-  (define-key tags-prefix (kbd "t") 'rscope-find-this-text-string)
-  (define-key tags-prefix (kbd "i") 'rscope-find-files-including-file)
-  (define-key tags-prefix (kbd "h") 'rscope-find-calling-hierarchy))
-
- ;; [ cscope ]
- (t (define-key tags-prefix (kbd "c") 'cscope-find-this-symbol)))
-
-(define-key tags-prefix (kbd "n") 'cscope-history-backward-line-current-result)
-(define-key tags-prefix (kbd "N") 'cscope-history-forward-file-current-result)
 
 
 (provide 'init-cscope)
