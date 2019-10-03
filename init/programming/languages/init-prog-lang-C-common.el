@@ -85,6 +85,12 @@
   ;;              '(:results . "output"))
   )
 
+;;; [ semantic-mode ]
+
+(hook-modes c-dialects-mode
+  (when (memq major-mode '(c-mode c++-mode objc-mode))
+    (semantic-mode 1)))
+
 ;;; [ Irony-mode ] --- A C/C++ minor mode for Emacs powered by libclang.
 
 (use-package irony
