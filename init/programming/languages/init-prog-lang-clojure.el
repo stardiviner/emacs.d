@@ -32,7 +32,13 @@
   (add-hook 'clojure-mode-hook #'subword-mode)
 
   (setq clojure-align-forms-automatically t)
-  
+
+  ;; treat `foo-bar' or `:baz' as a symbol.
+  (add-hook 'clojure-mode-hook
+            (lambda ()
+              (dolist (c (string-to-list ":_-?!#*"))
+                (modify-syntax-entry c "w" clojure-mode-syntax-table))))
+
   (with-eval-after-load 'clojure-mode
     (font-lock-add-keywords
      'clojure-mode `(("(\\(fn\\)[\[[:space:]]" ; (fn
@@ -66,15 +72,14 @@
     ;;                                             (match-end 1) "⊿")
     ;;                             nil)))))
     )
-
-  (use-package clojure-mode-extra-font-locking
-    :ensure t)
-
-  (use-package subword
-    :ensure t
-    :config
-    (add-hook 'clojure-mode-hook 'subword-mode))
   )
+
+(use-package clojure-mode-extra-font-locking
+  :ensure t)
+
+(use-package subword
+  :ensure t
+  :init (add-hook 'clojure-mode-hook 'subword-mode))
 
 ;;; [ inf-clojure ] -- Run an external Clojure process in an Emacs buffer.
 
