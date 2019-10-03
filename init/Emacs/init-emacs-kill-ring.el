@@ -9,6 +9,8 @@
 
 ;;; Save existing clipboard text into kill ring before replacing it.
 (setq save-interprogram-paste-before-kill t) ; a little heavy for Emacs performance.
+(setq kill-ring-max 100)
+
 
 ;;; [ undo-tree ]
 
