@@ -27,6 +27,13 @@
 ;;                             festival-describe-function
 ;;                             festival-voice festival-spook))
 
+;;; [ read-aloud ] -- A simple Emacs interface to TTS (text-to-speech) engines.
+
+(use-package read-aloud
+  :ensure t
+  :init (setq read-aloud-engine "speech-dispatcher")
+  :commands (read-aloud-buf read-aloud-this read-aloud-stop read-aloud-change-engine))
+
 ;;; [ ekho ] -- Ekho (余音) is a free, open source and multilingual text-to-speech (TTS)
 
 ;; It supports Cantonese (Chinese dialect spoken in Hong Kong and part of
@@ -40,20 +47,13 @@
 
 (use-package say-what-im-doing
   :ensure t
+  :init (setq say-what-im-doing-shell-command (if (executable-find "mimic") "mimic" "espeak")
+              say-what-im-doing-shell-command-options
+              (if (equal say-what-im-doing-shell-command "mimic") "-t"))
+  :commands (say-what-im-doing-mode)
   :config
-  (setq say-what-im-doing-shell-command (if (executable-find "mimic")
-                                            "mimic"
-                                          "espeak")
-        say-what-im-doing-shell-command-options
-        (if (equal say-what-im-doing-shell-command "mimic")
-            "-t")
-        )
-  
   (add-to-list 'say-what-im-doing-common-commands 'move-beginning-of-line)
-  (add-to-list 'say-what-im-doing-common-commands 'move-end-of-line)
-
-  (say-what-im-doing-mode 1)
-  )
+  (add-to-list 'say-what-im-doing-common-commands 'move-end-of-line))
 
 
 ;;; [ eloud ] -- A lightweight, interactive screen reader.
@@ -61,19 +61,11 @@
 (use-package eloud
   :ensure t
   :init (setq eloud-espeak-path (cond
-				 ((string-equal system-type "gnu/linux")
-				  "/usr/bin/espeak")
-				 ((string-equal system-type "darwin")
-				  "/usr/local/bin/espeak")))
-  :config (eloud-mode 1))
-
-
-;;; [ read-aloud ] -- A simple Emacs interface to TTS (text-to-speech) engines.
-
-(use-package read-aloud
-  :ensure t
-  :config
-  (setq read-aloud-engine "speech-dispatcher"))
+                                 ((string-equal system-type "gnu/linux")
+                                  "/usr/bin/espeak")
+                                 ((string-equal system-type "darwin")
+                                  "/usr/local/bin/espeak")))
+  :commands (eloud-mode))
 
 
 (provide 'init-tool-speak)
