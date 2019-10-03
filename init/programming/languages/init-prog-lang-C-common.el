@@ -129,6 +129,10 @@
   :after irony
   :init (add-hook 'irony-mode-hook #'irony-eldoc))
 
+;;; [ Tags ]
+
+(require 'init-prog-tags)
+
 (use-package flycheck-irony
   :ensure t
   :defer t
