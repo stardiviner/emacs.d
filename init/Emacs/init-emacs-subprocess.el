@@ -45,7 +45,8 @@
 (use-package eaf
   :load-path "~/Code/Emacs/emacs-application-framework/"
   :defer t
-  :commands (eaf-open eaf-open-url eaf-file-open-in-dired))
+  :commands (eaf-open eaf-open-url eaf-file-open-in-dired)
+  :bind (:map eaf-mode-map ("q" . quit-window)))
 
 ;;; [ Threads ]
 
