@@ -18,14 +18,14 @@
 
 ;;; [ Festival ] -- provides a simple interface into the festival speech synthesis program.
 
-(leaf festival
-  :el-get (festival :url "https://github.com/davep/festival.el.git")
-  :commands (festival-start festival-stop
-                            festival-say
-                            festival-read-file festival-read-buffer
-                            festival-read-region festival-read-word
-                            festival-describe-function
-                            festival-voice festival-spook))
+;; (leaf festival
+;;   :el-get (festival :url "https://github.com/davep/festival.el.git")
+;;   :commands (festival-start festival-stop
+;;                             festival-say
+;;                             festival-read-file festival-read-buffer
+;;                             festival-read-region festival-read-word
+;;                             festival-describe-function
+;;                             festival-voice festival-spook))
 
 ;;; [ ekho ] -- Ekho (余音) is a free, open source and multilingual text-to-speech (TTS)
 
