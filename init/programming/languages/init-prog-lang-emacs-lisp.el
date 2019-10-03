@@ -105,19 +105,12 @@
 (use-package elisp-refs
   :ensure t
   :defer t
-  :init
-  (defun elisp-refs-keybindings-setup ()
-    (interactive)
-    (unless (boundp 'tags-prefix)
-      (define-prefix-command 'tags-prefix))
-    (local-set-key (kbd "M-g t") 'tags-prefix)
-    (define-key tags-prefix (kbd "s") 'elisp-refs-symbol)
-    (define-key tags-prefix (kbd "f") 'elisp-refs-function)
-    (define-key tags-prefix (kbd "m") 'elisp-refs-macro)
-    (define-key tags-prefix (kbd "v") 'elisp-refs-variable)
-    (define-key tags-prefix (kbd "S") 'elisp-refs-special))
-  (add-hook 'emacs-lisp-mode-hook #'elisp-refs-keybindings-setup))
-
+  :bind (:map emacs-lisp-mode-map
+              ("M-g t s" . elisp-refs-symbol)
+              ("M-g t f" . elisp-refs-function)
+              ("M-g t m" . elisp-refs-macro)
+              ("M-g t v" . elisp-refs-variable)
+              ("M-g t S" . elisp-refs-special)))
 
 ;;; [ suggest ] -- suggest elisp functions that give the output requested.
 

@@ -26,14 +26,18 @@
   :defer t
   :delight smartparens-mode
   :commands (smartparens-mode)
+  :init
+  ;; (smartparens-global-mode t)
+  ;; (show-smartparens-global-mode t)
+  (add-hook 'prog-mode-hook #'turn-on-smartparens-mode)
   :config
-  ;; `smartparens' is heavy in `org-self-insert-command'.
-  (add-to-list 'sp-ignore-modes-list 'org-mode)
+  (add-to-list 'sp-ignore-modes-list 'org-mode) ;`smartparens' is heavy in `org-self-insert-command'.
   (add-to-list 'sp-ignore-modes-list 'emacs-lisp-mode)
   (add-to-list 'sp-ignore-modes-list 'clojure-mode)
   (add-to-list 'sp-ignore-modes-list 'lisp-mode)
   (add-to-list 'sp-ignore-modes-list 'scheme-mode)
-  (add-to-list 'sp-ignore-modes-list 'python-mode)
+  (add-to-list 'sp-ignore-modes-list 'python-mode)  
+
   ;; (setq sp-navigate-consider-sgml-tags '(html-erb-mode
   ;;                                        web-mode
   ;;                                        nxml-mode sgml-mode
@@ -53,21 +57,18 @@
   (require 'smartparens-html)
 
   (sp-with-modes '(rhtml-mode)
-                 ;; (sp-local-pair "<" ">")
-                 (sp-local-pair "<%" "%>"))
+    ;; (sp-local-pair "<" ">")
+    (sp-local-pair "<%" "%>"))
 
   (sp-with-modes '(markdown-mode gfm-mode rst-mode)
-                 (sp-local-pair "*" "*" :bind "C-*")
-                 (sp-local-tag "2" "**" "**")
-                 (sp-local-tag "s" "```scheme" "```")
-                 (sp-local-tag "<"  "<_>" "</_>" :transform 'sp-match-sgml-tags))
+    (sp-local-pair "*" "*" :bind "C-*")
+    (sp-local-tag "2" "**" "**")
+    (sp-local-tag "s" "```scheme" "```")
+    (sp-local-tag "<"  "<_>" "</_>" :transform 'sp-match-sgml-tags))
 
   ;; (set-face-attribute 'sp-show-pair-match-face nil
   ;;                     :background "green yellow")
-
-  ;; (smartparens-global-mode t)
-  ;; (show-smartparens-global-mode t)
-  (add-hook 'prog-mode-hook #'turn-on-smartparens-mode))
+  )
 
 ;;; [ rainbow-identifiers ] -- highlight identifiers according to their names.
 
