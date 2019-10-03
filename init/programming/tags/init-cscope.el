@@ -7,11 +7,6 @@
 
 ;;; Code:
 
-(unless (boundp 'cscope-prefix)
-  (define-prefix-command 'cscope-prefix))
-(define-key tags-prefix (kbd "c") 'cscope-prefix)
-
-
 (defun cscope-build (dir)
   "My custom function to execute shell command: $ cscope -bR under `DIR'."
   (interactive "Dcscope build database directory: ")
@@ -34,7 +29,7 @@
           (message "cscope: database build %s : OK" dir))))
     cscope-buffer))
 
-(define-key cscope-prefix (kbd "b") 'cscope-build)
+(define-key tags-prefix (kbd "b") 'cscope-build)
 
 ;;; [ cscope ] -- An interface to Joe Steffen's "cscope" C browser.
 
@@ -65,20 +60,20 @@
 
 (cond
  ((featurep 'rscope)
-  (define-key cscope-prefix (kbd "s") 'rscope-find-this-symbol)
-  (define-key cscope-prefix (kbd "=") 'rscope-all-symbol-assignments)
-  (define-key cscope-prefix (kbd "d") 'rscope-find-global-definition)
-  (define-key cscope-prefix (kbd "c") 'rscope-find-functions-calling-this-function)
-  (define-key cscope-prefix (kbd "C") 'rscope-find-called-functions)
-  (define-key cscope-prefix (kbd "t") 'rscope-find-this-text-string)
-  (define-key cscope-prefix (kbd "i") 'rscope-find-files-including-file)
-  (define-key cscope-prefix (kbd "h") 'rscope-find-calling-hierarchy))
+  (define-key tags-prefix (kbd "s") 'rscope-find-this-symbol)
+  (define-key tags-prefix (kbd "=") 'rscope-all-symbol-assignments)
+  (define-key tags-prefix (kbd "d") 'rscope-find-global-definition)
+  (define-key tags-prefix (kbd "c") 'rscope-find-functions-calling-this-function)
+  (define-key tags-prefix (kbd "C") 'rscope-find-called-functions)
+  (define-key tags-prefix (kbd "t") 'rscope-find-this-text-string)
+  (define-key tags-prefix (kbd "i") 'rscope-find-files-including-file)
+  (define-key tags-prefix (kbd "h") 'rscope-find-calling-hierarchy))
 
  ;; [ cscope ]
- (t (define-key cscope-prefix (kbd "c") 'cscope-find-this-symbol)))
+ (t (define-key tags-prefix (kbd "c") 'cscope-find-this-symbol)))
 
-(define-key cscope-prefix (kbd "n") 'cscope-history-backward-line-current-result)
-(define-key cscope-prefix (kbd "N") 'cscope-history-forward-file-current-result)
+(define-key tags-prefix (kbd "n") 'cscope-history-backward-line-current-result)
+(define-key tags-prefix (kbd "N") 'cscope-history-forward-file-current-result)
 
 
 (provide 'init-cscope)
