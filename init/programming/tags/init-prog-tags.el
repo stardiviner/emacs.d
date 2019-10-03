@@ -67,8 +67,7 @@
       ;;                  (expand-file-name "/usr/share/lib/TAGS"))
       tags-revert-without-query t
       ;; tags-completion-table
-      tags-apropos-verbose t
-      )
+      tags-apropos-verbose t)
 
 ;;; Build Tags
 
@@ -77,7 +76,7 @@
 ;; (require 'init-etags)
 ;; (require 'init-gtags)
 ;; (require 'init-ctags)
-;; (require 'init-cscope)
+(require 'init-cscope)
 ;; (require 'init-rtags)
 
 
