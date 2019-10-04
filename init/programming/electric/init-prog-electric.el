@@ -25,11 +25,6 @@
   :ensure t
   :defer t
   :delight smartparens-mode
-  :commands (smartparens-mode)
-  :init
-  ;; (smartparens-global-mode t)
-  ;; (show-smartparens-global-mode t)
-  (add-hook 'prog-mode-hook #'turn-on-smartparens-mode)
   :config
   (add-to-list 'sp-ignore-modes-list 'org-mode) ;`smartparens' is heavy in `org-self-insert-command'.
   (add-to-list 'sp-ignore-modes-list 'emacs-lisp-mode)
@@ -68,6 +63,11 @@
 
   ;; (set-face-attribute 'sp-show-pair-match-face nil
   ;;                     :background "green yellow")
+
+  ;; NOTE: to make `sp-ignore-modes-list' work, put `smartparens-mode' at the end.
+  ;; (smartparens-global-mode t)
+  ;; (show-smartparens-global-mode t)
+  (add-hook 'prog-mode-hook #'turn-on-smartparens-mode)
   )
 
 ;;; [ rainbow-identifiers ] -- highlight identifiers according to their names.
