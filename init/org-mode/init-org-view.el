@@ -9,6 +9,8 @@
 
 ;; [ default view ]
 
+(setq org-startup-folded 'content)
+
 ;;; apply `variable-pitch-mode' on Org Mode.
 (add-hook 'org-mode-hook 'variable-pitch-mode)
 
