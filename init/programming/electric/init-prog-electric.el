@@ -65,9 +65,10 @@
   ;;                     :background "green yellow")
 
   ;; NOTE: to make `sp-ignore-modes-list' work, put `smartparens-mode' at the end.
-  ;; (smartparens-global-mode t)
-  ;; (show-smartparens-global-mode t)
-  (add-hook 'prog-mode-hook #'turn-on-smartparens-mode)
+  (smartparens-global-mode t)
+  (show-smartparens-global-mode t)
+  ;; (add-hook 'prog-mode-hook #'turn-on-smartparens-mode)
+  ;; (add-hook 'c-mode-common-hook 'smartparens-mode)
   )
 
 ;;; [ rainbow-identifiers ] -- highlight identifiers according to their names.
