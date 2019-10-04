@@ -117,7 +117,8 @@
     (make-local-variable 'company-backends)
     (add-to-list 'company-backends
                  '(company-irony :with company-yasnippet))
-    (add-to-list 'company-backends 'company-irony-c-headers))
+    (add-to-list 'company-backends 'company-irony-c-headers)
+    (setq-local company-minimum-prefix-length 1))
 
   (hook-modes c-dialects-mode
     (when (memq major-mode '(c-mode c++-mode objc-mode))
