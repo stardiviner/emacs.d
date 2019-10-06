@@ -9,9 +9,6 @@
 
 (require 'abbrev)
 
-(use-package delight
-  :delight abbrev-mode)
-
 ;;; setup my abbrevs file custom path.
 (setq abbrev-file-name "~/.emacs.d/abbrev_defs")
 (setq save-abbrevs 'silently) ; save abbrevs when files are saved, nil: stop asking.
@@ -33,7 +30,8 @@
 (define-key abbrev-map (kbd "/") 'exapnd-abbrev)
 (define-key abbrev-map (kbd "e") 'edit-abbrevs)
 (define-key abbrev-map (kbd "M-l") 'list-abbrevs)
-(define-key abbrev-map (kbd "i") 'inverse-add-abbrev)
+(define-key abbrev-map (kbd "i") 'inverse-add-mode-abbrev)
+(define-key abbrev-map (kbd "I") 'inverse-add-global-abbrev)
 
 (setq-default abbrev-mode t)            ; turn on abbrev mode globally.
 
