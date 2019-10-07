@@ -351,6 +351,11 @@ That's it.
   :defer t
   :commands (org-ql-search helm-org-ql))
 
+;;; [ org-sidebar ] -- Helpful sidebar for Org buffers.
+
+(use-package org-sidebar
+  :ensure t
+  :commands (org-sidebar org-sidebar-tree org-sidebar-ql))
 
 
 
