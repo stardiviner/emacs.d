@@ -46,7 +46,7 @@
   (add-to-list 'ispell-skip-region-alist '("#\\+begin_src" . "#\\+end_src"))
   (add-to-list 'ispell-skip-region-alist '("#\\+begin_example" . "#\\+end_example")))
 
-;;; [ Flyspell ] -- [M-$], [C-;]
+;;; [ Flyspell ] -- On-the-fly spell checker.
 
 (use-package flyspell
   :ensure t
@@ -70,27 +70,24 @@
   (add-hook 'prog-mode-hook #'flyspell-prog-mode)
 
   ;; Org-mode
-  ;; (add-hook 'org-mode-hook
-  ;;           (lambda ()
-  ;;             ;; ignore TeX commands
-  ;;             (setq-local ispell-parser 'tex)
-  ;;             (flyspell-mode 1)
-  ;;             ))
+  (add-hook 'org-mode-hook
+            (lambda ()
+              ;; ignore TeX commands
+              (setq-local ispell-parser 'tex)
+              (flyspell-mode 1)))
 
   ;; TeX
-  ;; (add-hook 'tex-mode-hook
-  ;;           (lambda ()
-  ;;             (setq ispell-parser 'tex)
-  ;;             (flyspell-mode 1)))
+  (add-hook 'tex-mode-hook
+            (lambda ()
+              (setq ispell-parser 'tex)
+              (flyspell-mode 1)))
 
   ;; text
   (dolist (hook
            '(
              ;; `text-mode' is parent mode of `org-mode' and `markdown-mode'.
              ;; text-mode-hook
-             markdown-mode-hook
-             ;; org-mode-hook
-             ))
+             markdown-mode-hook))
     (add-hook hook 'flyspell-mode))
 
   :config
