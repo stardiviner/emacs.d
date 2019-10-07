@@ -14,6 +14,7 @@
   :commands (mu4e)
   :bind (:map tools-prefix ("m" . mu4e))
   :init (setq mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
+  (setq mu4e-completing-read-function 'completing-read)
   ;; (setq mu4e-mu-home nil ; nil for default
   ;;       mu4e-mu-binary "/usr/sbin/mu"
   ;;       )
@@ -671,23 +672,12 @@
   ;;       smtpmail-smtp-server "smtp.gmail.com"
   ;;       smtpmail-smtp-service 587)
 
-  ;; Contacts
-  (add-hook
-   'mu4e-compose-mode-hook
-   (lambda ()
-     (setq-local completion-at-point-functions
-                 '(mu4e~compose-complete-contact
-                   mail-completion-at-point-function
-                   message-completion-function))))
-
   (defun my-mu4e-jump-to-index ()
     "User helper function to jump to index."
     (interactive)
     (if (not (mu4e-running-p))
         (mu4e)
       (mu4e-headers-search "maildir:/INBOX")))
-
-  (setq mu4e-completing-read-function 'completing-read)
 
   ;; [ mu4e-speedbar ]
 
@@ -698,12 +688,19 @@
   ;; Usage:
   ;; - <a o> in headers view & message view :: using the org-capture mechanism.
 
+  ;; Contacts
   (require 'init-org-contacts)
   (setq mu4e-org-contacts-file (car org-contacts-files))
   (add-to-list 'mu4e-headers-actions
                '("org-contact-add" . mu4e-action-add-org-contact) t)
   (add-to-list 'mu4e-view-actions
                '("org-contact-add" . mu4e-action-add-org-contact) t)
+  (add-hook 'mu4e-compose-mode-hook
+            (lambda ()
+              (setq-local completion-at-point-functions
+                          '(mu4e~compose-complete-contact
+                            mail-completion-at-point-function
+                            message-completion-function))))
   )
 
 ;;; [ mu4e-overview ] -- show overview of maildirs.
