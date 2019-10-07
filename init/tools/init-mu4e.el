@@ -714,7 +714,9 @@
   :commands (mu4e-overview)
   :bind (:map tools-prefix ("M-m" . mu4e-overview))
   ;; auto enable `mu4e-overview' when open `mu4e'.
-  :config (advice-add 'mu4e :after #'mu4e-overview))
+  :init (advice-add 'mu4e :after #'mu4e-overview)
+  :config (set-face-attribute 'mu4e-overview-unread nil
+                              :foreground "lime green"))
 
 ;; [ mu4e-alert ] -- Desktop notifications and modeline display for mu4e.
 
