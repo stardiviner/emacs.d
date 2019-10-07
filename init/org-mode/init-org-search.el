@@ -349,7 +349,8 @@ That's it.
 (use-package org-ql
   :ensure t
   :defer t
-  :commands (org-ql-search))
+  :commands (org-ql-search helm-org-ql))
+
 
 
 
