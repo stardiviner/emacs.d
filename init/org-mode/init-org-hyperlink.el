@@ -293,6 +293,10 @@ and append it."
                          :follow #'org-video-link-open
                          :complete #'org-file-complete-link)
 
+;; [[eshell:*et:.emacs.d*:cd /home/stardiviner/.emacs.d][cd /home/stardiviner/.emacs.d]]
+(require 'ol-eshell)
+
+
 ;;; [ Link abbreviations ]
 
 ;; NOTE: you can not contain chinese string in "link name". Org-mode does not
