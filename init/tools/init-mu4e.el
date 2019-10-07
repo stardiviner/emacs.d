@@ -672,13 +672,6 @@
   ;;       smtpmail-smtp-server "smtp.gmail.com"
   ;;       smtpmail-smtp-service 587)
 
-  (defun my-mu4e-jump-to-index ()
-    "User helper function to jump to index."
-    (interactive)
-    (if (not (mu4e-running-p))
-        (mu4e)
-      (mu4e-headers-search "maildir:/INBOX")))
-
   ;; [ mu4e-speedbar ]
 
   ;; (add-hook 'mu4e-main-mode-hook 'sr-speedbar-open)
@@ -710,10 +703,19 @@
   :defer t
   :commands (mu4e-overview)
   :bind (:map tools-prefix ("M-m" . mu4e-overview))
-  ;; auto enable `mu4e-overview' when open `mu4e'.
-  :init (advice-add 'mu4e :after #'mu4e-overview)
-  :config (set-face-attribute 'mu4e-overview-unread nil
-                              :foreground "lime green"))
+  :config
+  ;; auto enable `mu4e-overview' when open `mu4e'. This is working with `mu4e-overview-action' function.
+  (defun mu4e-enable-mu4e-overview (&optional args)
+    (if (not (mu4e-running-p)) (mu4e))
+    (sleep-for 3)
+    (mu4e-headers-search "maildir:/INBOX flag:unread")
+    ;; (delete-window (get-buffer-window " *mu4e-main*"))
+    (mu4e-overview))
+
+  (advice-add 'mu4e :after #'mu4e-enable-mu4e-overview)
+
+  (set-face-attribute 'mu4e-overview-unread nil
+                      :foreground "lime green"))
 
 ;; [ mu4e-alert ] -- Desktop notifications and modeline display for mu4e.
 
