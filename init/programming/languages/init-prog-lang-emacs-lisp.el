@@ -11,11 +11,7 @@
 (add-hook 'emacs-lisp-mode-hook #'my-lisp-common-settings)
 (add-hook 'inferior-emacs-lisp-mode-hook #'my-lisp-repl-common-settings)
 
-(defun my-emacs-lisp-setup ()
-  "My Emacs Lisp mode settings."
-  (interactive)
-  (eldoc-mode 1))
-(add-hook 'emacs-lisp-mode-hook 'my-emacs-lisp-setup)
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 
 ;; Recompile your elc when saving an elisp file.
 (add-hook 'after-save-hook
