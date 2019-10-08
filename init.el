@@ -251,7 +251,7 @@
 (require 'init-prog-lang-ruby)
 ;; (require 'init-prog-lang-perl)
 (require 'init-prog-lang-shell)
-;; (require 'init-prog-lang-C-common)
+(require 'init-prog-lang-C-common)
 (require 'init-prog-lang-dotnet)
 ;; (require 'init-prog-lang-D)
 ;; (require 'init-prog-lang-go)
