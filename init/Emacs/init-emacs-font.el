@@ -18,7 +18,17 @@
    (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)
    (set-face-attribute 'default nil
                        :family "DejaVu Sans Mono"
-                       :foundry "PfEd"))
+                       :foundry "PfEd")
+   ;; (set-frame-font (format "%s:pixelsize=%d" "Source Han Sans CN" 15) t)
+   ;; (set-face-attribute 'default nil
+   ;;                     :family "Source Han Sans"
+   ;;                     :foundry "PfEd")
+
+   ;; (set-frame-font (format "%s:pixelsize=%d" "Sarasa Gothic SC" 14) t)
+   ;; (set-face-attribute 'default nil
+   ;;                     :family "Sarasa Gothic SC"
+   ;;                     :foundry "PfEd")
+   )
   ('darwin
    (set-frame-font (format "%s:pixelsize=%d" "Fira Code" 12) t)
    (set-face-attribute 'default nil
@@ -38,10 +48,11 @@
                       charset
                       (cl-case system-type
                         ('gnu/linux
+                         (font-spec :family "Source Han Sans" :size 16)
+                         ;; (font-spec :family "Sarasa Gothic SC" :size 16)
                          ;; (font-spec :family "Noto Sans CJK SC" :size 13)
-                         ;; (font-spec :family "Source Han" :size 12)
                          ;; (font-spec :family "Hack" :size 12)
-                         (font-spec :family "WenQuanYi Micro Hei" :size 12)
+                         ;; (font-spec :family "WenQuanYi Micro Hei" :size 12)
                          ;; (font-spec :family "NSimSun" :size 14)
                          ;; (font-spec :family "BabelStone Han" :size 14)
                          ;; (font-spec :family "FZQingKeBenYueSongS-R-GB" :size 15) ; 方正清刻本悦宋简体
