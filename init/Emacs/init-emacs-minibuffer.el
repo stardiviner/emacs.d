@@ -44,6 +44,7 @@
 ;;; [ savehist ] -- save minibuffer history.
 
 (use-package savehist
+  :ensure t
   :defer t
   :init (setq savehist-autosave-interval (* 60 100))
   (savehist-mode 1))
