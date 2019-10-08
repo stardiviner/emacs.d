@@ -2,7 +2,77 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Chinese Credit.org"
+(("Scheme Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Scheme/Data/Scheme Packages/Scheme Packages.org")
+ (front-context-string . "#+TITLE: Scheme ")
+ (rear-context-string)
+ (position . 1))
+("Apparel.org"
+ (filename . "~/Org/Wiki/Apparel/Apparel.org")
+ (front-context-string . "#+TITLE: Apparel")
+ (rear-context-string)
+ (position . 1))
+("Public Opinion.org"
+ (filename . "~/Org/Wiki/Sociology/Public Opinion/Public Opinion.org")
+ (front-context-string . "#+TITLE: Public ")
+ (rear-context-string)
+ (position . 1))
+("GFW.org"
+ (filename . "~/Org/Wiki/Computer Technology/Internet Censorship/GFW/GFW.org")
+ (front-context-string . "#+TITLE: Great F")
+ (rear-context-string)
+ (position . 1))
+("Adobe Photoshop.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Adobe Photoshop/Adobe Photoshop.org")
+ (front-context-string . "#+TITLE: Adobe P")
+ (rear-context-string)
+ (position . 1))
+("China Local District.org"
+ (filename . "~/Org/Wiki/Countries/China/China Local District/China Local District.org")
+ (front-context-string . "#+TITLE: China L")
+ (rear-context-string)
+ (position . 1))
+("ejc-sql.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/ejc-sql.org")
+ (front-context-string . "*** Usage\n\n**** ")
+ (rear-context-string . "nnection-uri]]\n\n")
+ (position . 6565))
+("网店操作手册.org"
+ (filename . "~/Org/Wiki/Commercial Science/Marketing/Internet Marketing/E-Commerce/Data/Manuals/网店操作手册/网店操作手册.org")
+ (front-context-string . "#+TITLE: 网店操作手册\n")
+ (rear-context-string)
+ (position . 1))
+("Trade.org"
+ (filename . "~/Org/Wiki/Commercial Science/Trade/Trade.org")
+ (front-context-string . "#+TITLE: Trade (")
+ (rear-context-string)
+ (position . 1))
+("The Trading Manual.org"
+ (filename . "~/Org/Wiki/Commercial Science/Trade/Data/Manuals/The Trading Manual/The Trading Manual.org")
+ (front-context-string . "#+TITLE: The Tra")
+ (rear-context-string)
+ (position . 1))
+("Imperial Study.org"
+ (filename . "~/Org/Wiki/Imperial Study/Imperial Study.org")
+ (front-context-string . "#+TITLE: Imperia")
+ (rear-context-string)
+ (position . 1))
+("Sale.org"
+ (filename . "~/Org/Wiki/Commercial Science/Sale/Sale.org")
+ (front-context-string . "#+TITLE: Sale\n\n*")
+ (rear-context-string)
+ (position . 1))
+("Mini Program.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Technologies/Web Application/Mini Program/Mini Program.org")
+ (front-context-string . "#+TITLE: Mini Pr")
+ (rear-context-string)
+ (position . 1))
+("Arch Linux dotfiles.org"
+ (filename . "~/Org/dotfiles/Linux/Arch/Arch Linux dotfiles.org")
+ (front-context-string . "#+TITLE: Arch Li")
+ (rear-context-string)
+ (position . 1))
+("Chinese Credit.org"
  (filename . "~/Org/Wiki/Sociology/Censorship/Chinese Credit/Chinese Credit.org")
  (front-context-string . "#+TITLE: Chinese")
  (rear-context-string)
@@ -500,11 +570,6 @@
  (size . fit-width)
  (origin 0.0 . 0.35333707234997197)
  (handler . pdf-view-bookmark-jump-handler))
-("dotfiles.org"
- (filename . "~/Org/dotfiles/dotfiles.org")
- (front-context-string . "#+TITLE: my dotf")
- (rear-context-string)
- (position . 1))
 ("PDF-LAST-VIEWED: /home/stardiviner/Documents/learning/Emacs/Org-mode/proj1/file.pdf"
  (filename . "~/Documents/learning/Emacs/Org-mode/proj1/file.pdf")
  (position . 1)
@@ -1744,19 +1809,19 @@
  (position . 1))
 ("org-capture-last-stored-marker"
  (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** 文棨\n   :PROPER")
- (rear-context-string . "\n\n* Designer\n\n\n\n")
- (position . 155065))
+ (front-context-string . "** tianshu\n   :P")
+ (rear-context-string . "ward.\n   :END:\n\n")
+ (position . 148230))
 ("org-refile-last-stored"
- (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** 文棨\n   :PROPER")
- (rear-context-string . "\n\n* Designer\n\n\n\n")
- (position . 155065))
+ (filename . "~/Org/Projects/Programming Projects/Code.org")
+ (front-context-string . "** FEATURE eaf s")
+ (rear-context-string . "e026f35d8d2b]:\n\n")
+ (position . 570254))
 ("org-capture-last-stored"
  (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "* 文棨\n  :PROPERTI")
+ (front-context-string . "* tianshu\n  :PRO")
  (rear-context-string . "09:17]\n   :END:\n")
- (position . 194990))
+ (position . 207270))
 ("PDF-LAST-VIEWED: /tmp/mu-1000/b53469b1/3/test.pdf"
  (filename .
            #("/tmp/mu-1000/b53469b1/3/test.pdf" 0 32
