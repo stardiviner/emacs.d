@@ -18,6 +18,7 @@
 
 (setq org-tag-persistent-alist
       '(("noexport" . ?E)
+        ("private" . ?P)
         ("deprecated" . ?D)
         ("outdated" . ?O)))
 
@@ -71,7 +72,7 @@
         (:endgroup)
         
         (:startgrouptag)
-        ("@Project" . ?P)
+        ("@Project" . nil)
         (:grouptags) ("Agriculture") (:endgrouptag)
 
         ;; (:startgrouptag)
@@ -82,6 +83,7 @@
 (setq org-tag-faces
       '(("noexport" :foreground "DimGray" :weight bold :underline t :strike-through t)
         ("deprecated" :foreground "DimGray" :strike-through t)
+        ("private" :foreground "deep pink")
         ("fragment" :foreground "LightGray" :weight bold)
         ("computer" :foreground "green")
         ("@life" :foreground "black")
