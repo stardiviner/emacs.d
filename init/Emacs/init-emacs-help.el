@@ -28,8 +28,14 @@
   ;; (add-to-list 'Info-directory-list
   ;;              (expand-file-name "info/" user-emacs-directory))
   ;; let `[s]' search like =isearch= for incremental search.
-  (setq Info-isearch-search t)
-  )
+  (setq Info-isearch-search t))
+
+;;; [ info-rename-buffer ] -- Rename Info buffers to match manuals.
+
+(use-package info-rename-buffer
+  :ensure t
+  :defer t
+  :init (info-rename-buffer-mode))
 
 ;;; [ info-colors ] -- A modern adaption of the extra coloring provided by info+ package.
 
