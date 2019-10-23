@@ -23,6 +23,14 @@
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("kotlin" . "kt")))
 
+;;; [ flycheck-kotlin ] -- Support kotlin in flycheck.
+
+(use-package flycheck-kotlin
+  :ensure t
+  :defer t
+  :commands (flycheck-kotlin-setup)
+  :init (add-hook 'kotlin-mode-hook #'flycheck-kotlin-setup))
+
 
 (provide 'init-prog-lang-jvm-kotlin)
 
