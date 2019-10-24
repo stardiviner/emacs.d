@@ -121,28 +121,39 @@
     (define-key js2-mode-map (kbd "<C-return>") 'eir-eval-in-javascript))
   )
 
-;;; [ evalator ]
+;;; [ evalator ] -- Package for interactive transformation of data with helm.
 
 (use-package evalator
   :ensure t
+  :ensure evalator-clojure
   :defer t
-  :bind (:map eval-prefix
-              ("e" . evalator)
-              ("x" . evalator-explicit)
-              ("r" . evalator-resume)
-              ("i" . evalator-insert-equiv-expr))
+  :init
+  (unless (boundp 'evalator-prefix)
+    (define-prefix-command 'evalator-prefix))
+  (define-key eval-prefix (kbd "v") 'evalator-prefix)
+  (define-key evalator-prefix (kbd "e") 'evalator)
+  (define-key evalator-prefix (kbd "x") 'evalator-explicit)
+  (define-key evalator-prefix (kbd "r") 'evalator-resume)
+  (define-key evalator-prefix (kbd "i") 'evalator-insert-equiv-expr)
   :config
   ;; auto detect context
   (setq evalator-config-mode-context-alist nil)
   (add-to-list 'evalator-config-mode-context-alist
                '(ruby-mode . evalator-ruby-context))
   (add-to-list 'evalator-config-mode-context-alist
-               '(clojure-mode . evalator-clojure-context))
+               '(clojure-mode . evalator-clojure-context)))
 
-  (use-package evalator-clojure
-    :ensure t
-    :defer t)
-  )
+;;; [ play-code ] -- Play code with online playgrounds.
+
+(leaf play-code
+  :el-get (play-code :url "https://github.com/twlz0ne/play-code.el.git")
+  :commands (play-code-region play-code-buffer play-code-block)
+  :init (add-to-list 'display-buffer-alist
+                     '("^\\*play-code\\*" (display-buffer-below-selected)))
+  :init
+  (define-key eval-prefix (kbd "r") 'play-code-region)
+  (define-key eval-prefix (kbd "b") 'play-code-buffer)
+  (define-key eval-prefix (kbd "c") 'play-code-block))
 
 ;;; [ sesman ] -- Session manager for Emacs based IDEs.
 
