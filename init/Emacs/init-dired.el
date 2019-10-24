@@ -60,6 +60,16 @@
     :ensure t
     :defer t
     :bind (:map dired-mode-map ("#" . dired-toggle-sudo)))
+
+  ;; colorful Dired
+  (use-package diredfl
+    :ensure t
+    :init (diredfl-global-mode 1))
+
+  ;; Show git info in Dired.
+  (use-package dired-git-info
+    :ensure t
+    :bind (:map dired-mode-map (")" . dired-git-info-mode)))
   
   ;; allow rsync from dired buffers especially for large files.
   (use-package dired-rsync
