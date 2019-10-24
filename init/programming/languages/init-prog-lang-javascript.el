@@ -97,15 +97,6 @@
                    'xref-js2-xref-backend))
     (add-hook 'js2-mode-hook #'my/xref-js2-setup)))
 
-;;; [ js3-mode ]
-
-;; (use-package js3-mode
-;;   :ensure t
-;;   :defer t
-;;   :mode ("\\.js\\'" . js3-mode)
-;;   )
-
-
 ;;; [ flycheck checker ]
 
 ;; (defun js-mode-setup-flycheck-checkers ()
