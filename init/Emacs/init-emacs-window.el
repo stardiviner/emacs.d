@@ -95,11 +95,51 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
 
 ;;; [ golden-ratio ] -- Automatic resizing of Emacs windows to the golden ratio.
 
-;; (use-package golden-ratio
-;;   :ensure t
-;;   :defer t
-;;   :commands (golden-ratio-mode golden-ratio)
-;;   :init (golden-ratio-mode 1))
+(use-package golden-ratio
+  :ensure t
+  :defer t
+  :commands (golden-ratio-mode golden-ratio)
+  :init (golden-ratio-mode 1)
+  (setq golden-ratio-auto-scale nil
+        golden-ratio-recenter t)
+  :config
+  ;; Exclude following pattern buffers.
+  (setq golden-ratio-exclude-modes
+        (append golden-ratio-exclude-modes
+                '(ediff-mode
+                  calendar-mode calc-mode dired-mode
+                  speedbar-mode project-explorer-mode
+                  gnus-summary-mode gnus-article-mode
+                  mu4e-headers-mode mu4e-compose-mode
+                  restclient-mode)))
+
+  (setq golden-ratio-exclude-buffer-regexp '("\\`\\*.*?\\*\\'")) ; *...* buffers
+  (add-to-list 'golden-ratio-exclude-buffer-names "*rg*")
+  (add-to-list 'golden-ratio-exclude-buffer-names " *Org todo*")
+  (add-to-list 'golden-ratio-exclude-buffer-names " *Org tags*")
+  (add-to-list 'golden-ratio-exclude-buffer-names " *which-key*")
+
+  ;; for `popwin'.
+  ;; (setq golden-ratio-inhibit-functions '(pop-to-buffer))
+  ;; add `window-number' and `ace-window' commands to trigger list.
+  (setq golden-ratio-extra-commands
+        (append golden-ratio-extra-commands '(window-number-select ace-window)))
+
+  ;; disable in ediff session.
+  (add-hook 'ediff-before-setup-windows-hook #'(lambda () (golden-ratio-mode -1)))
+  (add-hook 'ediff-quit-hook #'(lambda () (golden-ratio-mode 1)))
+
+  ;; manually re-fit ratio.
+  ;; (global-set-key (kbd "C-C C-j") 'golden-ratio)
+
+  ;; fix golden-ratio conflict with eyebrowse.
+  (defun golden-ratio-eyebrowse-workaround--advice (orig-fun &rest args)
+    (golden-ratio-mode -1)
+    (apply orig-fun args)
+    (golden-ratio-mode 1))
+  (advice-add 'eyebrowse-last-window-config :around #'golden-ratio-eyebrowse-workaround--advice)
+  (advice-add 'eyebrowse-switch-to-window-config :around #'golden-ratio-eyebrowse-workaround--advice))
+
 
 ;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
 
