@@ -55,11 +55,12 @@
 
   (defvar org-babel-lsp-lang-list
     '("shell"
-      "python" "ipython" "ruby"
+      ;; "python" "ipython"
+      ;; "ruby"
       "js" "css"
       ;; "C" "C++"
-      "rust" "go"
-      "java"))
+      "rust" "go" "java"))
+  
   (dolist (lang org-babel-lsp-lang-list)
     (eval `(lsp-org-babel-enbale ,lang)))
 
