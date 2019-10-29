@@ -92,6 +92,16 @@
   ;;   :defer t)
   )
 
+;;; [ tramp-auto-auth ] -- TRAMP automatic authentication library.
+
+(use-package tramp-auto-auth
+  :ensure t
+  :defer t
+  :init (tramp-auto-auth-mode 1)
+  :config
+  (add-to-list 'tramp-auto-auth-alist '("root@localhost" . (:host "localhost" :user "root" :port "ssh")))
+  (add-to-list 'tramp-auto-auth-alist '("root@dark" . (:host "dark" :user "root" :port "ssh"))))
+
 ;;; [ counsel-tramp ] -- Tramp with Ivy/counsel interface.
 
 (use-package counsel-tramp
