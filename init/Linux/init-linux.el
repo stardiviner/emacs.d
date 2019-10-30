@@ -82,6 +82,10 @@
 ;;   (setq arch-packer-default-command "pacaur")
 ;;   )
 
+;;========================== [ nftables config files ] =========================
+
+(add-to-list 'auto-mode-alist '("\\.nft\\'" . conf-mode))
+
 
 (provide 'init-linux)
 
