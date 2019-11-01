@@ -170,11 +170,22 @@
   ;; sorting.
   ;; (setq company-transformers '(company-sort-by-backend-importance
   ;;                              company-sort-prefer-same-case-prefix))
+  
+  ;; [ company-mode in minibuffer `M-:' ]
+  (defun company-mode-minibuffer-setup ()
+    "Setup company-mode in minibuffer."
+    (company-mode 1)
+    (setq-local company-tooltip-limit 4)
+    (setq-local company-tooltip-minimum 1)
+    (if (fboundp 'company-box-mode)
+        (setq-local company-frontends '(company-box-frontend))
+      (setq-local company-frontends '(company-pseudo-tooltip-frontend))))
+  (add-hook 'eval-expression-minibuffer-setup-hook 'company-mode-minibuffer-setup)
+
+  
+  (add-to-list 'display-buffer-alist
+               '("^\\*company-documentation\\*" . (display-buffer-below-selected)))
   )
-
-
-(add-to-list 'display-buffer-alist
-             '("^\\*company-documentation\\*" . (display-buffer-below-selected)))
 
 ;;; [ company-quickhelp ] -- Popup documentation for completion candidates.
 
@@ -184,19 +195,6 @@
   :after company
   :defer t
   :config (define-key company-active-map (kbd "M-h") 'company-quickhelp--show))
-
-;;; [ company-mode in minibuffer `M-:' ]
-
-(defun company-mode-minibuffer-setup ()
-  "Setup company-mode in minibuffer."
-  (company-mode 1)
-  (setq-local company-tooltip-limit 4)
-  (setq-local company-tooltip-minimum 1)
-  (if (fboundp 'company-box-mode)
-      (setq-local company-frontends '(company-box-frontend))
-    (setq-local company-frontends '(company-pseudo-tooltip-frontend))))
-
-(add-hook 'eval-expression-minibuffer-setup-hook 'company-mode-minibuffer-setup)
 
 ;;; [ company-box ] -- A company front-end with icons.
 
