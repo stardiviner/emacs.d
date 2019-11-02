@@ -208,6 +208,7 @@
 
 (use-package lsp-mode
   :ensure t
+  :ensure lsp-javascript-typescript
   :hook ((js-mode js2-mode typescript-mode rjsx-mode) . lsp))
 
 ;;; [ tern + company-tern ] -- Tern-powered JavaScript integration.
