@@ -113,7 +113,10 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
                   mu4e-headers-mode mu4e-compose-mode
                   restclient-mode)))
 
-  (setq golden-ratio-exclude-buffer-regexp '("\\`\\*.*?\\*\\'")) ; *...* buffers
+  (setq golden-ratio-exclude-buffer-regexp
+        '("\\`\\*.*?\\*\\'" ; *...* buffers
+          "*\\.pdf" ; PDF files
+          ))
   (add-to-list 'golden-ratio-exclude-buffer-names "*rg*")
   (add-to-list 'golden-ratio-exclude-buffer-names " *Org todo*")
   (add-to-list 'golden-ratio-exclude-buffer-names " *Org tags*")
