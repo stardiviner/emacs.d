@@ -3,17 +3,17 @@
 # key: image-inline_multiple_raw
 # group: image
 # --
-#+NAME: image-list
+#+NAME: ${2:image-list-name}
 #+begin_src sh :results output table
-ls ${1:../../data/images/note_examples}
+ls ${1:/path/to/images/dir/}
 #+end_src
 
-#+begin_src ruby :var list=image-list :results output raw
-list.each do |image|
-  puts "#+ATTR_ORG: :width ${2:200/250/300/400/500/600}"
-  puts "#+ATTR_LATEX: :width ${2:$(/ (string-to-number yas-text) 100.0)}in"
-  puts "#+ATTR_HTML: :width $2px"
+#+begin_src ruby :var list=$2 :results output raw
+list.each do |file|
+  puts "#+ATTR_ORG: :width ${3:200/250/300/400/500/600}"
+  puts "#+ATTR_LATEX: :width ${3:$(/ (string-to-number yas-text) 100.0)}in"
+  puts "#+ATTR_HTML: :width $3px"
   # here image is an Array. you need to access element with image[0].
-  puts "[[file:$1/#{image[0]}]]\n\n\n"
+  puts "[[file:#{file[0]}]]\n\n"
 end
 #+end_src
