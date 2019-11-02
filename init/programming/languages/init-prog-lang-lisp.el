@@ -172,9 +172,10 @@
   "Common settings for all Lisp dialects."
   (interactive)
   (rainbow-delimiters-mode 1)
-  (with-eval-after-load 'smartparens
-    (if (fboundp 'smartparens-strict-mode)
-        (smartparens-strict-mode 1)))
+  ;; (with-eval-after-load 'smartparens
+  ;;   (if (fboundp 'smartparens-strict-mode)
+  ;;       (smartparens-strict-mode 1)))
+  (electric-pair-local-mode 1)
   (paredit-mode 1)
   (if (fboundp 'parinfer-mode)
       (parinfer-mode 1))
