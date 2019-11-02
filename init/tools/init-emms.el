@@ -18,9 +18,9 @@
   :ensure t
   :defer t
   :bind (:map emms-prefix ("e" . emms))
-  :init
-  (add-to-list 'display-buffer-alist
-               '("^\\*EMMS Playlist\\*" (display-buffer-below-selected)))
+  :init (add-to-list 'display-buffer-alist
+                     '("^\\*EMMS Playlist\\*" (display-buffer-below-selected)))
+  (setq emms-source-file-default-directory "~/Music/")
   :config
   (emms-all)
   ;; [ players ]
@@ -35,8 +35,6 @@
   ;; format
   (setq emms-browser-info-title-format "%i%T %t - %a"
         emms-browser-playlist-info-title-format emms-browser-info-title-format)
-
-  (setq emms-source-file-default-directory "~/Music/")
 
   ;; (setq emms-repeat-playlist nil) ; don't repeat the playlist after the last track.
   
