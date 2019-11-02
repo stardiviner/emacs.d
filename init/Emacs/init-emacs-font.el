@@ -18,17 +18,7 @@
    (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)
    (set-face-attribute 'default nil
                        :family "DejaVu Sans Mono"
-                       :foundry "PfEd")
-   ;; (set-frame-font (format "%s:pixelsize=%d" "Source Han Sans CN" 15) t)
-   ;; (set-face-attribute 'default nil
-   ;;                     :family "Source Han Sans"
-   ;;                     :foundry "PfEd")
-
-   ;; (set-frame-font (format "%s:pixelsize=%d" "Sarasa Gothic SC" 14) t)
-   ;; (set-face-attribute 'default nil
-   ;;                     :family "Sarasa Gothic SC"
-   ;;                     :foundry "PfEd")
-   )
+                       :foundry "PfEd"))
   ('darwin
    (set-frame-font (format "%s:pixelsize=%d" "Fira Code" 12) t)
    (set-face-attribute 'default nil
