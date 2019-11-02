@@ -20,7 +20,13 @@
               (emacs-lisp-byte-compile)))
           'append 'local)
 
-
+;;; [ sly-el-indent ] -- Use `sly-cl-indent' to indent Emacs Lisp.
+
+(leaf sly-el-indent
+  :el-get (sly-el-indent :url "https://github.com/cireu/sly-el-indent.git")
+  :commands (sly-el-indent-setup)
+  :init (add-hook 'emacs-lisp-hook #'sly-el-indent-setup))
+
 ;;; [ ob-emacs-lisp ]
 
 (use-package ob-emacs-lisp
