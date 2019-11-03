@@ -58,8 +58,8 @@
 
   (setq-default company-backends
                 `((company-capf         ; `completion-at-point-functions'
-                   ,(if (featurep 'company-tabnine)
-                        'company-tabnine)
+                   ,@(if (featurep 'company-tabnine)
+                         (list 'company-tabnine))
                    ;; :with company-semantic
                    ;; company-gtags company-etags
                    :separate company-yasnippet
