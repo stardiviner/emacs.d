@@ -47,6 +47,14 @@
                   json-mode-hook))
     (add-hook hook (lambda () (local-set-key (kbd "C-c C-j") 'helm-x-path-walker)))))
 
+;;; [ xml-format ] -- reformat xml using xmllint.
+
+(use-package xml-format
+  :ensure t
+  :after nxml-mode
+  :commands (xml-format-buffer xml-format-region)
+  :init (add-hook 'nxml-mode-hook #'xml-format-on-save-mode))
+
 
 (provide 'init-prog-lang-xml)
 
