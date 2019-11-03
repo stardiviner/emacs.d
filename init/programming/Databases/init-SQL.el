@@ -68,6 +68,12 @@
   (setq org-confirm-babel-evaluate
         (lambda (lang body) (string= lang "sql-mode"))))
 
+;;; [ sql-sqlline ] -- Adds SQLLine support to SQLi mode.
+
+(use-package sql-sqlline
+  :ensure t
+  :commands (sql-sqlline))
+
 ;;; [ sql-indent] -- Support for indenting code in SQL files.
 
 (use-package sql-indent
