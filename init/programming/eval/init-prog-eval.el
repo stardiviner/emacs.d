@@ -147,13 +147,10 @@
 
 (leaf play-code
   :el-get (play-code :url "https://github.com/twlz0ne/play-code.el.git")
-  :commands (play-code-region play-code-buffer play-code-block)
-  :init (add-to-list 'display-buffer-alist
-                     '("^\\*play-code\\*" (display-buffer-below-selected)))
-  :init
-  (define-key eval-prefix (kbd "r") 'play-code-region)
-  (define-key eval-prefix (kbd "b") 'play-code-buffer)
-  (define-key eval-prefix (kbd "c") 'play-code-block))
+  :commands (play-code)
+  :init (define-key eval-prefix (kbd "p") 'play-code)
+  (add-to-list 'display-buffer-alist
+               '("^\\*play-code\\*" (display-buffer-below-selected))))
 
 ;;; [ sesman ] -- Session manager for Emacs based IDEs.
 
