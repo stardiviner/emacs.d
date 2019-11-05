@@ -67,6 +67,10 @@ Optional for Org-mode file: `LINK'."
     (image-animate gif-image nil t)
     (local-set-key (kbd "q") 'kill-current-buffer)))
 
+(defun emms-play-file-for-org (file &optional link)
+  "An wrapper function on `emms-play-file'."
+  (emms-play-file file))
+
 (setq org-file-apps
       `(;; Web Pages
         ,(if (executable-find "firefox")
@@ -87,9 +91,7 @@ Optional for Org-mode file: `LINK'."
         ;; Image
         ;; ("\\.png\\'" . "sxiv %s")
         ;; ("\\.jp\(e\)?g" . "sxiv %s")
-        ;; ("\\.jpg\\'" . "sxiv %s")
-        ;; ("\\.jpeg\\'" . "sxiv %s")
-        ("\\.gif\\'" . "sxiv -a -f %s") ; "sxiv -a -f -- %s
+        ("\\.gif\\'" . "sxiv -a -f %s")
         ;; ("\\.gif\\'" . "gwenview %s")
         ;; ("\\.gif\\'" . my-func/open-and-play-gif-image)
         ;; ("\\.svg\\'" . "feh --magick-timeout 5 %s")
@@ -107,21 +109,25 @@ Optional for Org-mode file: `LINK'."
         ("\\.pptx\\'" . "libreoffice %s")
         ("\\.xlsx\\'" . "libreoffice %s")
         ;; Video
-        ("\\.mp4\\'" . "mplayer %s")
-        ("\\.mkv\\'" . "mplayer %s")
-        ("\\.mov\\'" . "mplayer %s")
-        ("\\.ogv\\'" . "mplayer %s")
-        ("\\.webm\\'" . "mplayer %s")
-        ("\\.flv\\'" . "mplayer %s")
-        ("\\.f4v\\'" . "mplayer %s")
-        ("\\.rmvb\\'" . "mplayer %s")
+        ("\\.mp4\\'" . emms-play-file-for-org)
+        ("\\.mkv\\'" . emms-play-file-for-org)
+        ("\\.mov\\'" . emms-play-file-for-org)
+        ("\\.ogv\\'" . emms-play-file-for-org)
+        ("\\.webm\\'" . emms-play-file-for-org)
+        ("\\.flv\\'" . emms-play-file-for-org)
+        ("\\.f4v\\'" . emms-play-file-for-org)
+        ("\\.rmvb\\'" . emms-play-file-for-org)
         ;; Audio
-        ("\\.mp3\\'" . "play %s")
-        ("\\.ogg\\'" . "mplayer %s")
-        ("\\.wav\\'" . "mplayer %s")
+        ("\\.mp3\\'" . emms-play-file-for-org)
+        ("\\.ogg\\'" . emms-play-file-for-org)
+        ("\\.wav\\'" . emms-play-file-for-org)
         ("\\.midi\\'" . "timidity %s")
         (auto-mode . emacs)
-        (t . emacs)))
+        (remote . emacs)
+        (system . mailcap)
+        (t . mailcap)
+        ;; (t . emacs)
+        ))
 
 (add-to-list 'org-file-apps '("\\.swf\\'" . "gnash %s"))
 (add-to-list 'org-file-apps '("\\.jar\\'" . "java -jar %s"))
