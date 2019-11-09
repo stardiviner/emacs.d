@@ -275,7 +275,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
           ("Hack" ,(list (all-the-icons-material "security")) nil nil :ascent center)
           ("Crack" ,(list (all-the-icons-faicon "user-secret" :height 1.1)) nil nil :ascent center)
           ("Security" ,(list (all-the-icons-material "security")) nil nil :ascent center)
-          ;; ("Anonymous"  "~/.emacs.d/resources/icon/Anonymous.xpm" nil nil :ascent center)
+          ;; ("Anonymous"  ,(expand-file-name "resources/icon/Anonymous.xpm" user-emacs-directory) nil nil :ascent center)
           ("Daily" ,(list (all-the-icons-faicon "calendar-check-o")) nil nil :ascent center)
           ("Learning" ,(list (all-the-icons-material "library_books")) nil nil :ascent center)
           ("University" ,(list (all-the-icons-faicon "university" :height 0.9)) nil nil :ascent center)
@@ -328,7 +328,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
           ("GitHub" ,(list (all-the-icons-faicon "github")) nil nil :ascent center)
           ("Bitbucket" ,(list (all-the-icons-faicon "bitbucket")) nil nil :ascent center)
           ("Bitcoin" ,(list (all-the-icons-faicon "btc")) nil nil :ascent center)
-          ;; ("GFW" "~/.emacs.d/resources/icon/GFW.xpm" nil nil :ascent center)
+          ;; ("GFW" ,(expand-file-name "resources/icon/GFW.xpm" user-emacs-directory) nil nil :ascent center)
 
           ;; <Design>
           ("Design" ,(list (all-the-icons-faicon "paint-brush")) nil nil :ascent center)

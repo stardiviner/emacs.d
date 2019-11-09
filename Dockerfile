@@ -19,7 +19,7 @@ RUN pacman -Syu --noconfirm && \
   pygmentize \
   mu
 
-RUN git clone git@github.com:stardiviner/emacs.d.git ~/.emacs.d/
+RUN git clone git@github.com:stardiviner/emacs.d.git ~/.config/emacs/
 
 # run Emacs
 CMD ["export LC_CTYPE=zh_CN.UTF-8 && emacs"]

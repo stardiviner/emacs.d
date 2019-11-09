@@ -26,7 +26,7 @@
 
 ;; (setq backup-directory-alist
 ;;       '(("." . ".emacs_backups")) ; save backups in $(pwd)/.emacs_backups/filename.bak
-;;       ;; `(("." . ,(expand-file-name "~/.emacs.d/.backups")))
+;;       ;; `(("." . ,(expand-file-name (expand-file-name ".backups" user-emacs-directory))))
 ;;       ;; `((".*" . ,temporary-file-directory)) ; put all under directory /tmp.
 ;;       )
 
@@ -50,7 +50,7 @@
 ;; periodly save, otherwise lost data when accidently power-off.
 
 ;; (setq auto-save-default t
-;;       auto-save-list-file-prefix (concat user-emacs-directory "auto-save-list/.saves-")
+;;       auto-save-list-file-prefix (expand-file-name "auto-save-list/.saves-" user-emacs-directory)
 ;;       auto-save-interval (* 60 10)
 ;;       ;; delete-auto-save-files nil ; don't delete auto-save file when a buffer is saved or killed.
 ;;       )

@@ -14,7 +14,7 @@
   ;; set to "internal" Emacs Web Wowser
   ;; (setq browse-url-browser-function 'eww-browse-url)
 
-  (setq eww-bookmarks-directory "~/.emacs.d/eww/bookmarks/"
+  (setq eww-bookmarks-directory (expand-file-name "eww/bookmarks/" user-emacs-directory)
         eww-download-directory "~/Downloads/"
         eww-form-checkbox-symbol "[ ]"
         eww-form-checkbox-selected-symbol "[X]"

@@ -39,7 +39,7 @@
 
 (add-to-list 'load-path (expand-file-name "init" user-emacs-directory))
 ;; recursively load init files.
-(let ((default-directory "~/.emacs.d/init/"))
+(let ((default-directory (expand-file-name "init" user-emacs-directory)))
   (setq load-path
         (append
          (let ((load-path (copy-sequence load-path))) ; shadow

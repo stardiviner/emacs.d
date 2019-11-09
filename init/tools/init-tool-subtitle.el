@@ -9,13 +9,10 @@
 
 ;;; [ Simple Emacs-based Subtitle Editor (SESE) ]
 
-;; (load "~/.emacs.d/init/extensions/sese.el")
-(autoload 'sese-mode "sese" "Subtitle Editor major mode" t)
-
-(setq auto-mode-alist
-      (cons '("\\.sese\\'" . sese-mode) auto-mode-alist))
-
-
+;; (load (expand-file-name "init/extensions/sese.el" user-emacs-directory))
+;; (autoload 'sese-mode "sese" "Subtitle Editor major mode" t)
+;; (setq auto-mode-alist
+;;       (cons '("\\.sese\\'" . sese-mode) auto-mode-alist))
 
 (provide 'init-tool-subtitle)
 

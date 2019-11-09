@@ -230,7 +230,7 @@ otherwise, they are appended."
 ;;; [ ob-eshell ]
 
 ;; (use-package ob-eshell
-;;   :load-path "~/.emacs.d/init/extensions/ob-eshell.el"
+;;   :load-path (lambda () (expand-file-name "init/extensions/ob-eshell.el" user-emacs-directory))
 ;;   :defer t
 ;;   :commands (org-babel-execute:eshell)
 ;;   :config

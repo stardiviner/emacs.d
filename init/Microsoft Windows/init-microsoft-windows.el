@@ -42,7 +42,7 @@
   (setq powershell-location-of-exe "/usr/bin/pwsh"))
 
 (use-package ob-powershell
-  :load-path "~/.emacs.d/init/extensions/ob-powershell.el"
+  :load-path (lambda () (expand-file-name "init/extensions/ob-powershell.el" user-emacs-directory))
   :defer t
   :commands (org-babel-execute:powershell)
   :init (setq org-babel-powershell-command "pwsh")

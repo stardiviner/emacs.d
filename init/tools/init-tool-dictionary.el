@@ -141,7 +141,7 @@
 ;;; [ helm-baidu-fanyi-suggest ]
 
 (use-package helm-baidu-fanyi-suggest
-  :load-path "~/.emacs.d/init/extension/"
+  :load-path (lambda () (expand-file-name "init/extension/" user-emacs-directory))
   :defer t
   :commands (helm-baidu-fanyi-suggest))
 

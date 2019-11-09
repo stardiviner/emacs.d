@@ -13,7 +13,7 @@
 ;;   :ensure t
 ;;   :commands (irfc-visit)
 ;;   :bind (:map document-prefix ("r" . irfc-visit))
-;;   :init (setq irfc-directory (concat user-emacs-directory "documentations/RFC"))
+;;   :init (setq irfc-directory (expand-file-name "documentations/RFC" user-emacs-directory))
 ;;   (setq irfc-assoc-mode t)        ; RFC documents are associated with `irfc-mode'.
 ;;   (setq irfc-highlight-requirement-keywords t
 ;;         irfc-requirement-keywords '("MUST" "MUST NOT" "REQUIRED"
@@ -30,7 +30,7 @@
   :defer t
   :commands (rfc-mode-browse rfc-mode-read)
   :bind (:map document-prefix ("r" . rfc-mode-browse))
-  :init (setq rfc-mode-directory "~/.emacs.d/documentations/RFC/"))
+  :init (setq rfc-mode-directory (expand-file-name "documentations/RFC/" user-emacs-directory)))
 
 
 (provide 'init-prog-document-rfc)

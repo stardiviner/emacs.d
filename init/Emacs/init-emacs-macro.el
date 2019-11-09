@@ -10,7 +10,7 @@
 ;;; [ Macro ] -- [C-x C-k]
 
 ;; file to save macros:
-(load-file "~/.emacs.d/init/macros/macros")
+(load-file (expand-file-name "init/macros/macros" user-emacs-directory))
 
 (define-key kmacro-keymap (kbd "s") 'kmacro-start-macro)
 (define-key kmacro-keymap (kbd "e") 'kmacro-end-macro)

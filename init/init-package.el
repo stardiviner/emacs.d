@@ -15,7 +15,7 @@
 
 (setq package-menu-async t)
 
-(setq package-user-dir "~/.emacs.d/elpa")
+(setq package-user-dir (expand-file-name "elpa" user-emacs-directory))
 
 ;;; ELPA Mirrors
 ;; (setq-default package-archives
@@ -30,7 +30,7 @@
                 ("org"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
                 ("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
-(let* ((elpa-archives-dir "~/.emacs.d/elpa/archives/")
+(let* ((elpa-archives-dir (expand-file-name "elpa/archives/" user-emacs-directory))
        (elpa-gnu-archives-dir (concat elpa-archives-dir "gnu"))
        (elpa-melpa-archives-dir (concat elpa-archives-dir "melpa"))
        (elpa-org-archives-dir (concat elpa-archives-dir "org")))
@@ -64,9 +64,9 @@
 (setq use-package-verbose t ; 'debug: any evaluation errors report to `*use-package*` buffer.
       use-package-always-ensure nil)
 
-;; detect whether ~/.emacs.d/elpa/org-9.1.9/ exist?
+;; detect whether ~/.config/emacs/elpa/org-9.1.9/ exist?
 ;; (unless (require 'org nil 'noerror)
-;;   (package-install-file (concat user-emacs-directory "init/extensions/org.el")))
+;;   (package-install-file (expand-file-name "init/extensions/org.el" user-emacs-directory)))
 
 (if (not (file-exists-p "~/Code/Emacs/org-mode/lisp/"))
     (progn

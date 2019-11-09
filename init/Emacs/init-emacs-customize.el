@@ -9,7 +9,7 @@
 
 ;; Customize Saving
 
-(setq custom-file "~/.emacs.d/customize.el")
+(setq custom-file (expand-file-name "customize.el" user-emacs-directory))
 
 (if (file-exists-p custom-file)
     (load custom-file)

@@ -36,8 +36,8 @@
               )
   :config
   (setq bts:preferred-selection-method 'default
-        bts:project-cache-file "~/.emacs.d/.bts/project"
-        bts:query-cache-file "~/.emacs.d/.bts/query"
+        bts:project-cache-file (expand-file-name ".bts/project" user-emacs-directory)
+        bts:query-cache-file (expand-file-name ".bts/query" user-emacs-directory)
         bts:ticket-fetch-check-interval 3 ; seconds
         bts:ticket-multi-view-preferred t
         ;; widget label

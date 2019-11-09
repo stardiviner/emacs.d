@@ -14,7 +14,7 @@
 #+end_src
 
 #+RESULTS: ob-image-dir
-: /home/stardiviner/.emacs.d/Org-mode/Library of Babel/data/images/
+: /home/stardiviner/.config/emacs/Org-mode/Library of Babel/data/images/
 
 **** post-processing source block results ANSI escape sequence
 

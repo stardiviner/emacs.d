@@ -81,7 +81,7 @@
 ;;   :config
 ;;   (defun setup-librime ()
 ;;     (interactive)
-;;     (liberime-start "/usr/share/rime-data" "~/.emacs.d/rime/")
+;;     (liberime-start "/usr/share/rime-data" (expand-file-name "rime/" user-emacs-directory))
 ;;     ;; (liberime-get-schema-list)
 ;;     (liberime-select-schema "luna_pinyin_simp")
 ;;     ;; (liberime-get-schema-list)

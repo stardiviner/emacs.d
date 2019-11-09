@@ -1549,14 +1549,6 @@
  (front-context-string . "#+TITLE: Social ")
  (rear-context-string)
  (position . 1))
-("PDF-LAST-VIEWED: /home/stardiviner/.emacs.d/Org-mode/ob-clojure/kk.pdf"
- (filename . "~/.emacs.d/Org-mode/ob-clojure/kk.pdf")
- (position . 1)
- (page . 1)
- (slice)
- (size . fit-width)
- (origin 0.0 . 0.0)
- (handler . pdf-view-bookmark-jump-handler))
 ("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/data/68/e71eb4-5da4-4920-92b8-2422cb75e7e1/clj-for-datascience.pdf"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/data/68/e71eb4-5da4-4920-92b8-2422cb75e7e1/clj-for-datascience.pdf")
  (position . 1)
@@ -2963,7 +2955,7 @@
  (position . 1))
 (#("Library of Babel.org" 0 1
    (idx 457))
- (filename . "~/.emacs.d/Org-mode/Library of Babel/Library of Babel.org")
+ (filename . "~/.config/emacs/Org-mode/Library of Babel/Library of Babel.org")
  (front-context-string . "#+TITLE: Library")
  (rear-context-string)
  (position . 1))

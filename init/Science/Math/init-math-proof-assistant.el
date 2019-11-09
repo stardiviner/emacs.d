@@ -11,12 +11,12 @@
 
 (use-package proof-general
   :ensure t
-  ;; :load-path "~/.emacs.d/site-lisp/ProofGeneral/generic"
+  ;; :load-path (lambda () (expand-file-name "site-lisp/ProofGeneral/generic" user-emacs-directory))
   :defer t
   ;; :preface
   ;; (setq proof-splash-enable nil)
   :init
-  (load-file "~/.emacs.d/site-lisp/ProofGeneral/generic/proof-site.el")
+  (load-file (expand-file-name "site-lisp/ProofGeneral/generic/proof-site.el" user-emacs-directory))
   (require 'proof-site nil t)
   (proof-ready-for-assistant 'coq)
   (require 'proof-config)
@@ -26,7 +26,7 @@
   )
 
 ;; (use-package coq
-;;   :load-path "~/.emacs.d/site-lisp/ProofGeneral/coq"
+;;   :load-path (lambda () (expand-file-name "site-lisp/ProofGeneral/coq" user-emacs-directory))
 ;;   :defer t
 ;;   :commands (run-coq)
 ;;   :init

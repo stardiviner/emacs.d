@@ -27,7 +27,7 @@
 (add-to-list 'load-path (expand-file-name "init" user-emacs-directory))
 
 ;; recursively load init files.
-(let ((default-directory "~/.emacs.d/init/"))
+(let ((default-directory (expand-file-name "init" user-emacs-directory)))
   (setq load-path
         (append
          (let ((load-path (copy-sequence load-path))) ; shadow
@@ -39,7 +39,7 @@
 (setq load-prefer-newer t)
 
 ;;; [ package.el ]
-(load "~/.emacs.d/init/init-package.el")
+(load (expand-file-name "init/init-package.el" user-emacs-directory))
 (require 'init-package)
 
 

@@ -17,7 +17,7 @@
   :init (yas-global-mode 1)
   :config
   (setq yas-snippet-dirs
-        '("~/.emacs.d/snippets" ; personal snippets directory
+        `(,(expand-file-name "snippets" user-emacs-directory) ; personal snippets directory
           ))
 
   ;; indent
@@ -94,7 +94,7 @@ $0`(yas-escape-text yas-selected-text)`"
               ("C-c & e" . aya-expand)
               ("C-c & o" . aya-open-line)
               ("C-c & s" . aya-persist-snippet))
-  :init (setq aya-persist-snippets-dir "~/.emacs.d/snippets"))
+  :init (setq aya-persist-snippets-dir (expand-file-name "snippets" user-emacs-directory)))
 
 ;;; [ org-sync-snippets ] -- simple extension to export snippets to org-mode and vice versa.
 
@@ -103,7 +103,7 @@ $0`(yas-escape-text yas-selected-text)`"
   :defer t
   :after org ; to fix variable `org-directory' is not customized to "~/Org" issue.
   :commands (org-sync-snippets-snippets-to-org org-sync-snippets-org-to-snippets)
-  :init (setq org-sync-snippets-snippets-dir (concat user-emacs-directory "snippets/")
+  :init (setq org-sync-snippets-snippets-dir (expand-file-name "snippets/" user-emacs-directory)
               org-sync-snippets-org-snippets-file
               (concat (file-name-as-directory org-directory)
                       "Programming Code/Code Snippets/yasnippets.org"))

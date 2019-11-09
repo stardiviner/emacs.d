@@ -68,7 +68,7 @@
         ;; store & restore bm session.
         bm-restore-repository-on-load t
         ;; this could affect Emacs increasing running usage Persistence
-        bm-repository-file "~/.emacs.d/.bm-repository"
+        bm-repository-file (expand-file-name ".bm-repository" user-emacs-directory)
         bm-repository-size 100))
 
 

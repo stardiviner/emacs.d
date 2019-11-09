@@ -15,7 +15,7 @@
   :commands (elfeed elfeed-update)
   :bind (:map tools-prefix ("R" . elfeed)
               :map elfeed-search-mode-map ("g" . elfeed-update))
-  :init (setq elfeed-db-directory "~/.emacs.d/.elfeed")
+  :init (setq elfeed-db-directory (expand-file-name ".elfeed" user-emacs-directory))
   ;; (setq elfeed-log-level 'debug)
   (setq elfeed-search-date-format '("%Y-%m-%d" 10 :right))
   (setq elfeed-feeds
@@ -154,7 +154,7 @@
 ;;   :defer t
 ;;   :after elfeed
 ;;   :commands (elfeed-org)
-;;   :init (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed/elfeed.org"))
+;;   :init (setq rmh-elfeed-org-files (list (expand-file-name "elfeed/elfeed.org" user-emacs-directory)))
 ;;   :config (elfeed-org))
 
 

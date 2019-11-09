@@ -24,7 +24,7 @@
 ;; (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id
 ;;       org-id-track-globally t
 ;;       org-id-locations-file (convert-standard-filename
-;; 				                     (concat user-emacs-directory ".org-id-locations")))
+;; 				                     (expand-file-name ".org-id-locations" user-emacs-directory)))
 
 ;;; use :CUSTOM_ID: property for org headlines linking.
 (defun org-store-link-set-headline-custom-id (arg &optional interactive?)
@@ -299,7 +299,7 @@ and append it."
                          :follow #'org-video-link-open
                          :complete #'org-file-complete-link)
 
-;; [[eshell:*et:.emacs.d*:cd /home/stardiviner/.emacs.d][cd /home/stardiviner/.emacs.d]]
+;; [[eshell:*et:.config/emacs*:cd /home/stardiviner/.config/emacs][cd /home/stardiviner/.config/emacs]]
 (require 'ol-eshell)
 
 
