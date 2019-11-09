@@ -86,6 +86,13 @@
 
 (add-to-list 'auto-mode-alist '("\\.nft\\'" . conf-mode))
 
+;;; [ bluetooth ] -- A Major mode for Bluetooth devices.
+
+(use-package bluetooth
+  :ensure t
+  :defer t
+  :commands (bluetooth-list-devices))
+
 
 (provide 'init-linux)
 
