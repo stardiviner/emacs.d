@@ -9,7 +9,7 @@
 
 ;; Learn about display actions, see [[info:elisp#Display Action Functions]].
 
-;; `display-buffer' actions:
+;; `display-buffer' actions, reference `display-buffer--action-function-custom-type'.
 ;;
 ;; - (display-buffer-same-window)
 ;; - (display-buffer-in-side-window) :: like which-key popup window upon bottom minibuffer.
@@ -18,6 +18,15 @@
 ;; - (display-buffer-reuse-window (window-height . 0.3))
 ;; - (display-buffer-reuse-window display-buffer-same-window)
 ;; - (display-buffer-in-side-window ((side . bottom) (window-height . 4)))
+
+;; (add-to-list 'display-buffer-alist
+;;              '("^ \\*undo-tree\\*"
+;;                display-buffer-reuse-window display-buffer-in-side-window
+;;                (reusable-frames . visible)
+;;                (side . right)
+;;                (slot . 1)
+;;                (window-width . 0.5)))
+
 (add-to-list 'display-buffer-alist
              '("^\\*Warnings\\*" (display-buffer-below-selected)))
 (add-to-list 'display-buffer-alist
@@ -114,8 +123,8 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
                   restclient-mode)))
 
   (setq golden-ratio-exclude-buffer-regexp
-        '("\\`\\*.*?\\*\\'" ; *...* buffers
-          "*\\.pdf" ; PDF files
+        '("\\`\\*.*?\\*\\'" ; "*...*" buffers
+          "\\` \\*.*?\\*\\'" ; " *...*" buffers
           ))
   (add-to-list 'golden-ratio-exclude-buffer-names "*rg*")
   (add-to-list 'golden-ratio-exclude-buffer-names " *Org todo*")
