@@ -400,6 +400,39 @@
 ;;   :defer t
 ;;   :commands (playground-checkout playground-checkout-with-options))
 
+;;; [ splash ]
+
+(defun my/fancy-startup-screen ()
+  "My custom `fancy-startup-screen'."
+  (interactive)
+  (let ((splash-buffer (get-buffer-create "*GNU Emacs*")))
+    (with-current-buffer splash-buffer
+      (let ((inhibit-read-only t))
+        (erase-buffer)
+        (setq default-directory command-line-default-directory)
+        (make-local-variable 'startup-screen-inhibit-startup-screen)
+        (if pure-space-overflow
+            (insert pure-space-overflow-message))
+        (fancy-splash-head)
+        (dolist (text fancy-startup-text)
+          (apply #'fancy-splash-insert text)
+          (insert "\n"))
+        (skip-chars-backward "\n")
+        (delete-region (point) (point-max))
+        (insert "\n"))
+      (setq tab-width 22
+            buffer-read-only t)
+      (set-buffer-modified-p nil)
+      (if (and view-read-only (not view-mode))
+          (view-mode-enter nil 'kill-buffer))
+      (goto-char (point-min))
+      (forward-line))
+    (progn
+      (split-window-below)
+      (switch-to-buffer splash-buffer))))
+
+(add-hook 'after-init-hook #'my/fancy-startup-screen)
+
 ;; Use a hook so the message doesn't get clobbered by other messages.
 (add-hook 'emacs-startup-hook
           (lambda ()
