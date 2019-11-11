@@ -47,7 +47,7 @@
       '(
         ;; Status: Getting Things Done
         (sequence "TODO(t@/!)" "NEXT(n!)"
-                  "URGENT(u@/!)" "INPROGRESS(g@/!)" "LATER(l!)" "SOMEDAY(S@/!)"
+                  "URGENT(u@/!)" "INPROGRESS(g@/!)" "DELAYED(z@/!)" "LATER(l!)" "SOMEDAY(S@/!)"
                   "|" "DONE(d@/!)" "FAILED(x@/!)" "CANCELLED(k@/!)")
         ;; Clock
         (sequence "STARTED(!)" "|" "DONE(d@/!)")
@@ -84,6 +84,11 @@
   :group 'org-faces)
 (defface org-todo-keyword-next-face
   '((t :foreground "yellow" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org NEXT keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-urgent-face
+  '((t :foreground "orange red" :family "Comic Sans MS"
        :weight bold :box '(:color "dim gray" :line-width -1)))
   "Face for Org NEXT keyword."
   :group 'org-faces)
@@ -181,9 +186,12 @@
         ("REPEAT" . org-todo-keyword-repeat-face)
         ("HABIT" . org-todo-keyword-habit-face)
         ("NEXT" . org-todo-keyword-next-face)
-        ("SOMEDAY" . org-todo-keyword-someday-face)
+        ("STARTED" . org-todo-keyword-inprogress-face)
         ("INPROGRESS" . org-todo-keyword-inprogress-face)
+        ("URGENT" . org-todo-keyword-urgent-face)
+        ("DELAYED" . org-todo-keyword-urgent-face)
         ("LATER" . org-todo-keyword-later-face)
+        ("SOMEDAY" . org-todo-keyword-someday-face)
         ("DONE" . org-todo-keyword-done-face)
         ("FAILED" . org-todo-keyword-failed-face)
         ("CANCELLED" . org-todo-keyword-cancelled-face)
@@ -202,6 +210,7 @@
         ("WORK" . org-todo-keyword-work-face)
         ("JOB" . org-todo-keyword-work-face)
         ("BUSINESS" . org-todo-keyword-work-face)
+        ("MEETING" . org-todo-keyword-work-face)
         ;; learn
         ("LEARN" . org-todo-keyword-learn-face)
         ))
