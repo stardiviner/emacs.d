@@ -19,7 +19,7 @@
   :init (global-company-mode 1)
   (setq company-minimum-prefix-length 3
         ;; decrease this delay when you can type code continuously fast.
-        company-idle-delay 0.5
+        company-idle-delay 0
         company-tooltip-idle-delay 0 ; 0.5
         company-echo-delay 0 ; remove annoying blink
         ;; determine which characters trigger auto-completion the selected candidate.
