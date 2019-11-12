@@ -211,8 +211,7 @@
 ;;; [ forge ] -- Work with Git forges, such as Github and Gitlab, from the comfort of Magit and the rest of Emacs.
 
 (use-package forge
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; [ magit-reviewboard ] -- integrate the ReviewBoard review software into magit.
 
