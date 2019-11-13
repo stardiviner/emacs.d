@@ -262,6 +262,9 @@
   ;; don't keep message buffers around
   (setq message-kill-buffer-on-exit t)
 
+  ;; disable `super-save' in `mu4e-compose-mode'.
+  (add-hook 'mu4e-compose-mode-hook #'(lambda ()) (super-save-stop))
+
   ;;  [ Reply ]
   ;; don't include self (that is, any member of `mu4e-user-mail-address-list') in
   ;; replies.
