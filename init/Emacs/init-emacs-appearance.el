@@ -171,7 +171,8 @@
   :config (add-to-list 'afp-fill-keys ?。) ; support for Chinese sentence end.
   (add-to-list 'afp-fill-comments-only-mode-list 'emacs-lisp-mode)
   (add-to-list 'afp-fill-comments-only-mode-list 'lisp-mode)
-  (add-to-list 'afp-fill-comments-only-mode-list 'clojure-mode))
+  (add-to-list 'afp-fill-comments-only-mode-list 'clojure-mode)
+  (add-to-list 'afp-fill-comments-only-mode-list 'mu4e-compose-mode))
 
 (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
 
