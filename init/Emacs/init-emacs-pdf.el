@@ -13,6 +13,7 @@
   :ensure t
   :defer t
   :commands (pdf-tools-install-noverify pdf-view-mode)
+  :preface (pdf-loader-install)
   :init (pdf-tools-install-noverify) ; (pdf-tools-install)
   (setq pdf-view-use-scaling t ; open PDFs scaled to fit page.
         pdf-view-use-unicode-ligther nil ; speed-up pdf-tools by don't try to find unicode.
