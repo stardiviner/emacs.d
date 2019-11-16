@@ -33,6 +33,11 @@
   :ensure t
   :defer t)
 
+;;; [ hexl-isearch ] -- Let isearch search the binary instead of the hexl buffer.
+
+(with-eval-after-load 'hexl-mode
+  (load (expand-file-name "init/extensions/hexl-isearch.el" user-emacs-directory)))
+
 
 (provide 'init-tool-hex)
 
