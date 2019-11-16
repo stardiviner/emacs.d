@@ -10,7 +10,16 @@
 ;;; [ hexl ] -- hexlify and dehexlify binary file content.
 
 (use-package hexl
+  :defer t
   :commands (hexl-mode hexl-find-file hexlify-buffer))
+
+;;; [ nhexl-mode ] -- Minor mode to edit files via hex-dump format.
+
+(use-package nhexl-mode
+  :ensure t
+  :defer t
+  :commands (nhexl-mode)
+  :hook (hexl-mode . nhexl-mode))
 
 ;;; [ hexview-mode ]
 
