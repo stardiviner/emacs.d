@@ -193,15 +193,6 @@
                '("^\\*company-documentation\\*" . (display-buffer-below-selected)))
   )
 
-;;; [ company-quickhelp ] -- Popup documentation for completion candidates.
-
-(use-package company-quickhelp
-  :if (not (featurep 'company-box))
-  :ensure t
-  :after company
-  :defer t
-  :config (define-key company-active-map (kbd "M-h") 'company-quickhelp--show))
-
 ;;; [ company-box ] -- A company front-end with icons.
 
 ;; NOTE: Use `company-box' because it has better doc popup display then `popup'
@@ -219,8 +210,7 @@
   :init (setq company-box-doc-enable nil ; disable auto `company-box-doc' timer.
               company-box-show-single-candidate t ; for still can use doc popup keybinding.
               company-box-doc-delay 0.5
-              company-box-icons-alist 'company-box-icons-all-the-icons
-              )
+              company-box-icons-alist 'company-box-icons-all-the-icons)
   :config
   (setq company-box-backends-colors
         '((company-capf . (:candidate "LightSeaGreen"))
@@ -250,6 +240,20 @@
           (company-edbi . (:icon "DarkGreen"))
           (company-restclient . (:icon "DarkTurquoise"))))
   )
+
+
+;;; [ company-quickhelp ] -- Popup documentation for completion candidates.
+
+(use-package company-quickhelp
+  :if (not (featurep 'company-box))
+  :ensure t
+  :after company
+  :init
+  (setq company-quickhelp-use-propertized-text nil
+        company-quickhelp-delay 0.01)
+  (unless company-box-mode
+    (add-hook 'company-mode-hook #'company-quickhelp-mode)
+    (define-key company-active-map (kbd "M-h") 'company-quickhelp-manual-begin)))
 
 
 (provide 'init-company-mode)
