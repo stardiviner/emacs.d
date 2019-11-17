@@ -34,6 +34,8 @@
 (global-set-key (kbd "M-]") 'forward-sentence)
 (global-set-key (kbd "M-[") 'backward-sentence)
 
+;;; echo keystrokes in echo-area in seconds.
+(setq-default echo-keystrokes 0.1)
 
 ;;; [ which-key ] -- Display available keybindings in popup.
 
