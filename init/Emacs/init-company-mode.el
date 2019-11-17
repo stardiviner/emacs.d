@@ -62,7 +62,9 @@
 
   (setq-default company-backends
                 `((company-capf         ; `completion-at-point-functions'
-                   ,@(if (featurep 'company-tabnine)
+                   ,@(if (and (featurep 'company-tabnine)
+                              (or (derived-mode-p 'c-mode)
+                                  (derived-mode-p 'c++-mode)))
                          (list 'company-tabnine))
                    ;; :with company-semantic
                    ;; company-gtags company-etags
