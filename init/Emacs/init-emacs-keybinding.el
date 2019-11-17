@@ -45,7 +45,8 @@
   :delight which-key-mode
   :commands (which-key-mode)
   :bind ("C-h C-h" . which-key-show-top-level)
-  :init (which-key-mode 1))
+  :init (which-key-mode 1)
+  (setq which-key-side-window-location '(bottom right)))
 
 
 ;;; [ hydra ] -- tie related commands into a family of short bindings with a common prefix - a Hydra.
