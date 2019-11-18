@@ -71,17 +71,25 @@ Optional for Org-mode file: `LINK'."
   "An wrapper function on `emms-play-file'."
   (emms-play-file file))
 
+(defun eaf-open-pdf-for-org (file &optional link)
+  "An wrapper function on `eaf-open'."
+  (eaf-open file))
+
 (setq org-file-apps
       `(;; Web Pages
         ,(if (executable-find "firefox")
              `("\.x?html?\\'" . "firefox %s")
            `("\.x?html?\\'" . "google-chrome-unstable %s"))
         ;; PDF (disable this because I use package `org-pdfview'.
+        ;; use `pdf-tools'
         ;; ("\\.pdf\\'" . auto-mode)
         ;; ("\\.pdf::\\([[:digit:]]+\\)\\'" . auto-mode)
         ;; disable this, to use `doc-view' from `pdf-tools' for PDF.
+        ;; use Okular
         ;; ("\\.pdf\\'" . "okular %s")
         ;; ("\\.pdf::\\([[:digit:]]+\\)\\'" . "okular -p %1 %s")
+        ;; use `emacs-application-framework'
+        ("\\.pdf\\'" . eaf-open-pdf-for-org)
         ;; CHM
         ("\\.chm\\'" . "kchmviewer %s")
         ;; EBooks
