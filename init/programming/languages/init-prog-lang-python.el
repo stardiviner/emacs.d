@@ -127,7 +127,7 @@
 
 (use-package pyvenv
   :ensure t
-  :init (pyvenv-workon "python3.7")
+  :init (pyvenv-workon (car (last (split-string (getenv "VIRTUAL_ENV") "/"))))
   (add-hook 'python-mode-hook #'pyvenv-mode))
 
 ;;; [ poetry ] -- Python dependency management and packaging in Emacs.
