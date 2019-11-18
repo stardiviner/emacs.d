@@ -10,11 +10,7 @@
 ;;; [ systemd-mode ] -- Emacs major mode for editing systemd units.
 
 (use-package systemd
-  :ensure t
-  :defer t
-  :config
-  (add-hook 'systemd-mode-hook
-            (lambda () (my-company-add-backend-locally 'systemd-company-backend)) :local t))
+  :ensure t)
 
 ;;; [ daemons ] -- An Emacs UI for managing init system services like Systemd.
 
