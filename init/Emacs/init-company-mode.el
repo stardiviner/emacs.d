@@ -241,20 +241,6 @@
           (company-restclient . (:icon "DarkTurquoise"))))
   )
 
-
-;;; [ company-quickhelp ] -- Popup documentation for completion candidates.
-
-(use-package company-quickhelp
-  :if (not (featurep 'company-box))
-  :ensure t
-  :after company
-  :init
-  (setq company-quickhelp-use-propertized-text nil
-        company-quickhelp-delay 0.01)
-  (unless company-box-mode
-    (add-hook 'company-mode-hook #'company-quickhelp-mode)
-    (define-key company-active-map (kbd "M-h") 'company-quickhelp-manual-begin)))
-
 
 (provide 'init-company-mode)
 
