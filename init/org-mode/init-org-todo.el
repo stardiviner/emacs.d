@@ -47,7 +47,7 @@
       '(
         ;; Status: Getting Things Done
         (sequence "TODO(t@/!)" "NEXT(n!)"
-                  "URGENT(u@/!)" "INPROGRESS(g@/!)" "DELAYED(z@/!)" "LATER(l!)" "SOMEDAY(S@/!)"
+                  "INPROGRESS(g@/!)" "DELAYED(z@/!)" "LATER(l!)" "SOMEDAY(S@/!)"
                   "|" "DONE(d@/!)" "FAILED(x@/!)" "CANCELLED(k@/!)")
         ;; Clock
         (sequence "STARTED(!)" "|" "DONE(d@/!)")
@@ -188,7 +188,6 @@
         ("NEXT" . org-todo-keyword-next-face)
         ("STARTED" . org-todo-keyword-inprogress-face)
         ("INPROGRESS" . org-todo-keyword-inprogress-face)
-        ("URGENT" . org-todo-keyword-urgent-face)
         ("DELAYED" . org-todo-keyword-urgent-face)
         ("LATER" . org-todo-keyword-later-face)
         ("SOMEDAY" . org-todo-keyword-someday-face)
