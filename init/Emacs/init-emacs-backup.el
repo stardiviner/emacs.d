@@ -68,18 +68,30 @@
 
 ;;; [ super-save ] -- Auto-save buffers, based on your activity, Save Emacs buffers when they lose focus.
 
-(use-package super-save
-  :ensure t
-  :defer t
-  :init (setq auto-save-default nil ; turn off Emacs built-in `auto-save-mode'.
-              super-save-auto-save-when-idle t
-              super-save-remote-files nil)
-  (super-save-mode 1)
-  :config
-  ;; add integration with ace-window
-  (add-to-list 'super-save-triggers 'ace-window)
-  ;; save on find-file
-  (add-to-list 'super-save-hook-triggers 'find-file-hook))
+;; (use-package super-save
+;;   :ensure t
+;;   :defer t
+;;   :init (setq auto-save-default nil ; turn off Emacs built-in `auto-save-mode'.
+;;               super-save-auto-save-when-idle t
+;;               super-save-remote-files nil)
+;;   (super-save-mode 1)
+;;   :config
+;;   ;; add integration with ace-window
+;;   (add-to-list 'super-save-triggers 'ace-window)
+;;   ;; save on find-file
+;;   (add-to-list 'super-save-hook-triggers 'find-file-hook)
+;;   (setq super-save-exclude `(
+;;                              ,(rx "*\\.pdf")
+;;                              ;; mu4e compose buffer
+;;                              ,(rx "*draft*")
+;;                              ,(rx bol
+;;                                   (eval (expand-file-name "Mails/Drafts/cur/*" "~"))
+;;                                   eol)))
+;;
+;;   ;; workarounds for some modes.
+;;   ;; disable `super-save' in `mu4e-compose-mode'.
+;;   (add-hook 'mu4e-compose-mode-hook #'(lambda ()) (if (fboundp 'super-save-stop) (super-save-stop)))
+;;   )
 
 
 (provide 'init-emacs-backup)
