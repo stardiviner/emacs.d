@@ -60,6 +60,11 @@
         ;; mu4e-update-interval 1800
         mu4e-hide-index-messages t)
 
+  ;; Auto Update Database [C-c C-u]
+  (setq mu4e-index-update-in-background t
+        mu4e-update-interval (* 60 10)
+        mu4e-display-update-status-in-modeline t)
+
   ;; Send Mail
 
   ;; SMTP
