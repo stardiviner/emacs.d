@@ -17,7 +17,7 @@
 
 ;;; prefix: [M-;], `prog-comment-prefix'
 
-(define-key prog-comment-prefix (kbd "c") 'comment-dwim)
+(define-key prog-comment-prefix (kbd "M-;") 'comment-dwim)
 ;; or with [C-u N]
 (global-set-key (kbd "C-x C-;") 'comment-line)
 (define-key prog-comment-prefix (kbd "r") 'comment-or-uncomment-region)
