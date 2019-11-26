@@ -45,7 +45,14 @@
 (use-package eaf
   :load-path "~/Code/Emacs/emacs-application-framework/"
   :defer t
-  :commands (eaf-open eaf-open-url eaf-file-open-in-dired)
+  :commands (eaf-open
+             eaf-open-url eaf-open-browser eaf-open-qutebrowser
+             eaf-file-open-in-dired
+             eaf-file-sender-qrcode eaf-file-sender-qrcode-in-dired
+             eaf-file-receiver-qrcode eaf-file-sender-qrcode-in-dired
+             eaf-file-transfer-airshare
+             eaf-open-camera
+             eaf-open-terminal)
   :bind (:map eaf-mode-map ("q" . quit-window)))
 
 ;;; [ Threads ]
