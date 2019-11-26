@@ -23,7 +23,8 @@
           ("http://blog.stackoverflow.com/feed/" Programming StackOverflow)
           ("http://programmers.blogoverflow.com/feed/" Programming StackOverflow)
           ;; Emacs
-          ("http://planet.emacsen.org/atom.xml" Emacs)
+          ("https://planet.emacslife.com/atom.xml" Emacs)
+          ("https://sachachua.com/blog/feed/atom/" Emacs)
           ;; Web
           ("https://blog.mozilla.org/feed/" Mozilla)
           ("http://hacks.mozilla.org/feed/" Mozilla)
@@ -58,12 +59,16 @@
           ("http://www.ruanyifeng.com/blog/atom.xml" Blog)
           ("http://www.kingname.info/atom.xml" Blog)
           ("https://manateelazycat.github.io/feed.xml" Blog)
+          ("https://geekplux.com/atom.xml" Blog)
           ;; ("http://www.i5seo.com/" Blog)
+          ("https://nalaginrut.com/feed/atom" Blog) ; Samson's Machete "穆垒"
           ;; Kali Linux
           ("http://www.kali.org/feed/" Kali Linux Subscribe)
           ;; Subscribe
           ("https://github.com/blog/all.atom" GitHub SubScribe)
           ("http://www.salttiger.com/feed/" Ebook)
+          ;; Movie
+          ;; ("https://www.douban.com/feed/review/movie/" Movie)
           ))
   :config
   ;; (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
