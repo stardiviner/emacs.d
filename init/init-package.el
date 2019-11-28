@@ -71,14 +71,18 @@
 (if (not (file-exists-p "~/Code/Emacs/org-mode/lisp/"))
     (progn
       (use-package org
-       :pin org
-       :ensure t
-       :preface (setq org-modules nil)
-       :mode (("\\.org\\'" . org-mode)))
-     (use-package org-plus-contrib
-       :pin org
-       :ensure t))
+        :pin org
+        :ensure t
+        :preface (setq org-modules nil)
+        :mode (("\\.org\\'" . org-mode)))
+      (use-package org-plus-contrib
+        :pin org
+        :ensure t))
 
+  ;; disable Emacs built-in Org Mode
+  (delete (format "/usr/local/share/emacs/%s/lisp/org" emacs-version) load-path)
+  (delete "/usr/share/emacs/site-lisp/org/" load-path)
+  
   (use-package org
     :pin manual
     :load-path "~/Code/Emacs/org-mode/lisp/"
