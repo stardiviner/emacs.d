@@ -102,55 +102,7 @@
     (interactive)
     (elfeed-db-save)
     (quit-window))
-  (define-key elfeed-search-mode-map (kbd "q") 'elfeed-quit)
-  
-  ;; different face colors for different kinds of content (videos, podcast, comics)
-  ;; Mapping of tags to faces in the Elfeed entry listing.
-  (defface elfeed-unread-tag
-    '((t :foreground "light grey"))
-    "Mark elfeed tag unread."
-    :group 'elfeed)
-  (defface elfeed-read-tag
-    '((t :foreground "#444444"
-         :background "#222222"))
-    "Mark elfeed tag read"
-    :group 'elfeed)
-  (defface elfeed-star-tag
-    '((t :foreground "deep pink"
-         :background "#222222"))
-    "Mark elfeed tag star"
-    :group 'elfeed)
-  (defface elfeed-podcast-tag
-    '((t :foreground "dark magenta"))
-    "Mark elfeed podcast tag"
-    :group 'elfeed)
-  (defface elfeed-programming-tag
-    '((t :foreground "yellow green"))
-    "Mark elfeed Programming tag"
-    :group 'elfeed)
-  (defface elfeed-linux-tag
-    '((t :foreground "tomato"))
-    "Mark elfeed Linux tag"
-    :group 'elfeed)
-  (defface elfeed-emacs-tag
-    '((t :foreground "SteelBlue"))
-    "Mark elfeed Emacs tag"
-    :group 'elfeed)
-  (defface elfeed-arch-tag
-    '((t :foreground "light cyan"))
-    "Mark elfeed Arch tag"
-    :group 'elfeed)
-  
-  (setq elfeed-search-face-alist
-        '((unread elfeed-unread-tag)
-          (read elfeed-read-tag)
-          (star elfeed-star-tag)
-          (Podcast elfeed-podcast-tag)
-          (Emacs elfeed-emacs-tag)
-          (Linux elfeed-linux-tag)
-          (Arch elfeed-arch-tag)
-          (Programming elfeed-programming-tag)))
-  )
+  (define-key elfeed-search-mode-map (kbd "q") 'elfeed-quit))
 
 ;;; [ elfeed-org ] -- Configure the Elfeed RSS reader with an Org Mode file.
 
