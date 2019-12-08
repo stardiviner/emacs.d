@@ -58,7 +58,9 @@ column.  Place the point after the comment box."
               ("o" . hl-todo-occur)
               ("t" . hl-todo-insert-keyword))
   :init (add-hook 'prog-mode-hook #'hl-todo-mode)
+  (add-hook 'org-mode-hook #'hl-todo-mode)
   :config
+  (add-to-list 'hl-todo-keyword-faces '("DEBUG" . "#ff8c00"))
   (add-to-list 'hl-todo-keyword-faces '("PERFORMANCE" . "#5f7f5f"))
   (add-to-list 'hl-todo-activate-in-modes 'conf-mode 'append))
 
