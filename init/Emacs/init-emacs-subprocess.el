@@ -14,8 +14,7 @@
   :defer t
   :config
   (setq prodigy-completion-system 'ivy
-        prodigy-kill-process-buffer-on-stop nil
-        )
+        prodigy-kill-process-buffer-on-stop nil)
 
   ;; user defined services.
   ;; (prodigy-define-service
@@ -35,10 +34,10 @@
   :defer t
   :commands (bpr-spawn bpr-open-last-buffer)
   :config
-  (setq bpr-colorize-output t)
-  (setq bpr-process-mode #'comint-mode)
-  ;; (setq bpr-on-completion #'FUNC)
-  )
+  (setq bpr-colorize-output t
+        bpr-process-mode #'comint-mode
+        ;; bpr-on-completion #'FUNC
+        ))
 
 ;;; [ emacs-application-framework (eaf) ]
 

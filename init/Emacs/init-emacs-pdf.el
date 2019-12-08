@@ -24,7 +24,7 @@
   ;; helpful accessibility shortcuts
   (define-key pdf-view-mode-map (kbd "q") 'kill-current-buffer)
 
-  ;; set the view mode colors to fit your color-theme.
+  ;; set the view mode colors to fit your color-theme for `pdf-view-midnight-minor-mode'.
   (setq pdf-view-midnight-colors
         (cons
          (frame-parameter nil 'foreground-color)

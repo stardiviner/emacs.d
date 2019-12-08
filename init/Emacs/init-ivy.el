@@ -73,6 +73,7 @@
          ("C-x RET v" . counsel-set-variable) ; [C-x RET v]
          ("C-x RET u" . counsel-unicode-char) ; [C-x RET u]
          ([remap switch-to-buffer] . ivy-switch-buffer) ; [C-x b]
+         ;; ([remap switch-to-buffer] . counsel-buffer-or-recentf) ; [C-x b]
          ("M-t" . counsel-git) ; [M-t]
          ("C-c v g g" . counsel-git-grep)
          ([remap grep] . counsel-grep) ; [C-s g]

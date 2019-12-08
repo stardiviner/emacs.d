@@ -93,6 +93,11 @@
         '(time-up priority-down deadline-up ts-up habit-down category-keep))
 
   ;; Time Grid
+  ;; (setq org-agenda-time-grid '((daily today require-timed)
+  ;;                              (800 900 1000 1100 1200
+  ;;                                   1300 1400 1500 1600 1700 1800 1900 2000)
+  ;;                              "......" "----------------"))
+
   (setq org-agenda-timegrid-use-ampm t)
 
   ;; specify different color for days

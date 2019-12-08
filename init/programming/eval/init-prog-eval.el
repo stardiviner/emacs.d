@@ -32,8 +32,7 @@
     ;; for *scratch*
     (define-key lisp-interaction-mode-map (kbd "<C-return>") 'eir-eval-in-ielm)
     ;; for Info Pages
-    (define-key Info-mode-map (kbd "<C-return>") 'eir-eval-in-ielm)
-    )
+    (define-key Info-mode-map (kbd "<C-return>") 'eir-eval-in-ielm))
 
   ;; Common Lisp
   ;; SLIME support
@@ -56,8 +55,7 @@
   ;; cider support
   (with-eval-after-load 'cider
     (require 'eval-in-repl-cider)
-    (define-key clojure-mode-map (kbd "<C-return>") 'eir-eval-in-cider)
-    )
+    (define-key clojure-mode-map (kbd "<C-return>") 'eir-eval-in-cider))
 
   ;; racket-mode support (for Racket; if not using Geiser)
   ;; (require 'racket-mode) ; if not done elsewhere
@@ -112,8 +110,7 @@
   ;; Shell support
   (require 'eval-in-repl-shell)
   (add-hook 'sh-mode-hook
-            '(lambda ()
-               (define-key sh-mode-map (kbd "<C-return>") 'eir-eval-in-shell)))
+            '(lambda () (define-key sh-mode-map (kbd "<C-return>") 'eir-eval-in-shell)))
 
   ;; JavaScript support
   (with-eval-after-load 'js2-mode

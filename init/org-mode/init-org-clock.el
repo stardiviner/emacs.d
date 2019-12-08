@@ -43,7 +43,7 @@
       ;; org-agenda-start-with-clockreport-mode t
       org-clock-goto-may-find-recent-task t
       ;; org-clock-total-time-cell-format "*%s*"
-      org-clock-idle-time nil             ; t
+      org-clock-idle-time nil ; 5
       ;; org-clock-auto-clock-resolution 'when-no-clock-is-running
       ;; org-clock-resolve-expert t
       org-clock-history-length 20 ; keep a long clocking tasks history for easy re-select history task to clock.
