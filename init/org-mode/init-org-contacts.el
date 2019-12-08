@@ -52,7 +52,7 @@
 :School(nursery-school):
 :SKILLS: %^{Skills|Programming|Economy}
 :Programming-Skills: %^{Programming Skills|Emacs|Web|Computer System|Cloud Computation}
-:Programming-Languages: %^{Programming Languages|Lisp|Common Lisp|Clojure|Emacs Lisp|Java|C/C++|Python|Ruby|PHP}
+:Programming-Languages: %^{Programming Languages|LISP|Common Lisp|Clojure|Emacs Lisp|Java|C/C++|Python|Ruby|PHP}
 :Occupation: %^{Occupation|Programmer|Freelancer|Businessman|Servant|Arter}
 :Hobbies: %^{Hobbies|Reading|Music|Movie|Travel}
 :Family:
