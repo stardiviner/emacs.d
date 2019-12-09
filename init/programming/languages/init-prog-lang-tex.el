@@ -7,30 +7,39 @@
 
 ;;; Code:
 
-;;; [ TeX-mode ]
-
-;;; Use `xetex' engine for better TeX compilation for Chinese.
-;; `TeX-engine-alist', `TeX-engine-in-engine-alist'
-(setq-default TeX-engine 'xetex)
-(with-eval-after-load 'tex-mode
-  ;; "latexmk -shell-escape -bibtex -xelatex -g -f %f"
-  (add-to-list 'tex-compile-commands '("xelatex %f" t "%r.pdf")))
-(setq-default LaTeX-command  "latex -shell-escape")
-
-;;; [ LaTeX-mode ]
-
-
 ;;; [ AUCTeX ] -- Integrated environment for *TeX*.
 
-(use-package auctex
+(use-package auctex ; TeX-mode, LaTeX-mode
   :ensure t
   :no-require t
-  :commands (TeX-latex-mode)
+  :load (tex latex)
   :config
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq-default TeX-master nil)
+
+  (setq-default LaTeX-command  "latex -shell-escape --synctex=1")
+
+  ;; Use `xetex' engine for better TeX compilation for Chinese.
+  ;; `TeX-engine-alist', `TeX-engine-in-engine-alist'
+  (setq-default TeX-engine 'xetex)
+  (with-eval-after-load 'tex-mode
+    ;; "latexmk -shell-escape -bibtex -xelatex -g -f %f"
+    (add-to-list 'tex-compile-commands '("xelatex %f" t "%r.pdf"))
+    (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
+    (setq TeX-command "xelatex"))
+
+  (setq TeX-show-compilation t)
+
+  ;; [ SyncTeX ] -- Sync (forward and inverse search) PDF with TeX/LaTeX.
+  (setq TeX-source-correlate-mode t)
+  (setq TeX-source-correlate-method '((dvi . source-specials) (pdf . synctex))) ; default
+  (setq TeX-source-correlate-start-server t)
+
   ;; macros
   (defun latex-font-lock-add-macros ()
     (font-latex-add-keywords '(("citep" "*[[{")) 'reference)
-	  (font-latex-add-keywords '(("citet" "*[[{")) 'reference))
+    (font-latex-add-keywords '(("citet" "*[[{")) 'reference))
   (add-hook 'LaTeX-mode-hook #'latex-font-lock-add-macros)
 
   ;; [ Preview ] -- [C-c C-p C-p]
@@ -43,10 +52,13 @@
   (setq preview-scale-function 1.7)
   
   ;; view generated PDF with `pdf-tools'. (this is built-in now.)
+  (require 'tex)
   (unless (assoc "PDF Tools" TeX-view-program-list-builtin)
     (add-to-list 'TeX-view-program-list-builtin '("PDF Tools" TeX-pdf-tools-sync-view)))
   (unless (equalp "PDF Tools" (car (cdr (assoc 'output-pdf TeX-view-program-selection))))
+    ;; (add-to-list 'TeX-view-program-selection '(output-pdf "mupdf"))
     (add-to-list 'TeX-view-program-selection '(output-pdf "PDF Tools")))
+  (add-hook 'pdf-view-mode-hook #'auto-revert-mode) ; auto refresh PDF file when re-compiled TeX/LaTeX.
   
   ;; (setq-default TeX-PDF-mode t) ; enable by default since AUCTeX 11.88
   ;; [C-c C-g] switch between LaTeX source code and PDF positions.
@@ -54,8 +66,6 @@
   (TeX-source-correlate-mode t)
   ;; update PDF buffers after successful LaTeX runs.
   (add-hook 'TeX-after-TeX-LaTeX-command-finished-hook #'TeX-revert-document-buffer)
-
-  ;; (setq TeX-source-correlate-method)
 
   ;; auto close dollars
   (setq TeX-electric-math (cons "$" "$"))
@@ -86,7 +96,10 @@ character(s), in which case it deletes the space(s) first."
     (aggressive-indent-mode)
     ;; fold: hide some boilerplate
     (TeX-fold-mode)
+    (outline-minor-mode)
+    (outline-hide-body) ; outline only show section headers at opening file.
     ;; electric
+    (electric-pair-local-mode) ; enable auto insert pair for $.
     (rainbow-delimiters-mode)
     (if (featurep 'smartparens)
         (smartparens-mode))
@@ -109,28 +122,17 @@ character(s), in which case it deletes the space(s) first."
             LaTeX-section-section
             LaTeX-section-label))
     ;; Math
-    ;; (LaTeX-math-mode)
-    )
+    (LaTeX-math-mode 1))
 
-  (dolist (hook '(tex-mode-hook
-                  TeX-mode-hook
-                  latex-mode-hook
-                  LaTeX-mode-hook ; from AUCTeX
-                  ))
-    (add-hook hook #'my:tex-mode-setup))
-
-  ;; Big faces for sections, chapters, etc.
-  (set-face-attribute 'font-latex-sectioning-1-face nil
-                      :height 1.5 :bold t)
-  (set-face-attribute 'font-latex-sectioning-2-face nil
-                      :height 1.2 :bold t)
-  (set-face-attribute 'font-latex-sectioning-3-face nil
-                      :height 1.2 :bold nil))
+  (dolist (hook '(TeX-mode-hook
+                  LaTeX-mode-hook))
+    (add-hook hook #'my:tex-mode-setup)))
 
 (use-package company-auctex
   :ensure t
+  :ensure company-math
   :defer t
-  :config
+  :init
   (defun my:company-auctex-setup ()
     ;; complete
     (make-local-variable 'company-backends)
@@ -149,10 +151,6 @@ character(s), in which case it deletes the space(s) first."
   (dolist (hook '(tex-mode-hook TeX-mode-hook latex-mode-hook LaTeX-mode-hook))
     (add-hook hook #'my:company-auctex-setup)))
 
-(use-package company-math
-  :ensure t
-  :defer t)
-
 ;;; [ RefTeX ] -- a specialized package for support of labels, references.
 
 (use-package reftex
@@ -161,20 +159,8 @@ character(s), in which case it deletes the space(s) first."
   :init
   (setq reftex-cite-prompt-optional-args t) ; prompt for empty optional arguments in cite.
   ;; enable RefTeX in AUCTeX (LaTeX-mode)
-  (add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
-  (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
+  (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   (add-hook 'LaTeX-mode-hook #'reftex-mode))
-
-
-;;; [ SyncTeX ] -- navigate from the source document to the typeset material and vice versa.
-
-;; (defun my/SyncTeX-setup ()
-;;   (setq TeX-PDF-mode t)
-;;   (setq TeX-source-correlate-method 'synctex)
-;;   (setq TeX-source-correlate-start-server t))
-
-;; (add-hook 'LaTeX-mode-hook #'my/SyncTeX-setup)
-
 
 ;;; [ CDLaTeX ] -- Fast input methods for LaTeX environments and math.
 
@@ -186,9 +172,7 @@ character(s), in which case it deletes the space(s) first."
 ;;   ;; enable in Org-mode
 ;;   (add-hook 'org-mode-hook #'org-cdlatex-mode)
 ;;   (add-to-list 'display-buffer-alist
-;;                '("^\\*CDLaTeX Help\\*" (display-buffer-below-selected)))
-;;   )
-
+;;                '("^\\*CDLaTeX Help\\*" (display-buffer-below-selected))))
 
 ;;; [ magic-latex-buffer ] -- magical syntax highlighting for LaTeX-mode buffers.
 
