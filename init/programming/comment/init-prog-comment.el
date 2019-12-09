@@ -56,7 +56,7 @@ column.  Place the point after the comment box."
               ("n" . hl-todo-next)
               ("p" . hl-todo-previous)
               ("o" . hl-todo-occur)
-              ("t" . hl-todo-insert-keyword))
+              ("t" . hl-todo-insert))
   :init (add-hook 'prog-mode-hook #'hl-todo-mode)
   (add-hook 'org-mode-hook #'hl-todo-mode)
   :config
