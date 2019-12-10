@@ -15,16 +15,6 @@
 
 (setq completion-ignore-case t) ; case-insensitive, affect some company-mode backends.
 
-;;; [ compdef ] -- A stupid Emacs completion definer for `pcomplete' and `company-mode'.
-
-(use-package compdef
-  :ensure t
-  :defer t
-  :init (compdef
-         :modes #'org-mode
-         :company '(company-files company-yasnippet company-dabbrev company-capf)
-         :capf #'pcomplete-completions-at-point))
-
 
 
 (provide 'init-emacs-completion)
