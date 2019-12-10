@@ -24,10 +24,10 @@
           ("http://programmers.blogoverflow.com/feed/" Programming StackOverflow)
           ;; Emacs
           ("https://planet.emacslife.com/atom.xml" Emacs)
-          ("https://sachachua.com/blog/feed/atom/" Emacs)
+          ("https://sachachua.com/blog/feed/atom/" Blog Emacs)
           ;; Web
           ("https://blog.mozilla.org/feed/" Mozilla)
-          ("http://hacks.mozilla.org/feed/" Mozilla)
+          ("http://hacks.mozilla.org/feed/" Mozilla Web)
           ;; Linux
           ;; ("https://www.linux.com/rss/feeds.php" Linux)
           ;; ("http://lwn.net/headlines/newrss" Linux)
@@ -43,23 +43,25 @@
           ;; ("http://slashdot.org/index.rss" Geek)
           ;; ("http://news.ycombinator.com/rss" HackerNews Programmer)
           ;; ("http://reddit.com/.rss" Reddit)
-          ("http://blog.jobbole.com/feed/" Jobbole Subscribe)
-          ;; ("http://feeds.howtogeek.com/HowToGeek" Linux Geek)
-          ("http://fullcirclemagazine.org/feed" Linux Geek)
+          ("http://blog.jobbole.com/feed/" Programming Subscribe)
+          ;; ("http://feeds.howtogeek.com/HowToGeek" Geek)
+          ("http://fullcirclemagazine.org/feed" Linux)
           ;; Podcasts
           ;; Common Lisp
-          ("http://planet.lisp.org/rss20.xml" Lisp)
+          ("http://planet.lisp.org/rss20.xml" LISP)
           ;; Clojure
           ("http://insideclojure.org/feed.xml" Clojure)
           ("http://www.lispcast.com/feed" Clojure)
           ("http://blog.jayfields.com/feeds/posts/default" Clojure Blog)
           ("http://corfield.org/atom.xml" Clojure Blog) ; Sean Corfield
-          ;; Blogs
-          ("http://feed.williamlong.info/" Blog)
+          ;; Programmer Blogs
+          ("http://feed.williamlong.info/" Blog News)
           ("http://www.ruanyifeng.com/blog/atom.xml" Blog)
           ("http://www.kingname.info/atom.xml" Blog)
           ("https://manateelazycat.github.io/feed.xml" Blog)
           ("https://geekplux.com/atom.xml" Blog)
+          ("https://overreacted.io/rss.xml" Blog)
+          ("http://kuanyui.github.io/atom.xml" Blog)
           ;; ("http://www.i5seo.com/" Blog)
           ("https://nalaginrut.com/feed/atom" Blog) ; Samson's Machete "穆垒"
           ;; Kali Linux
