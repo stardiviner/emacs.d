@@ -17,7 +17,8 @@
   ;; auto commit when Org file is in git repository.
   (setq org-attach-commit t)
   ;; don't auto add tag "ATTACH"
-  (setq org-attach-auto-tag nil))
+  (setq org-attach-auto-tag nil)
+  (add-to-list 'org-default-properties "DIR"))
 
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
