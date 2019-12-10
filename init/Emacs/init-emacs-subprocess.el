@@ -43,6 +43,7 @@
 
 (use-package eaf
   :load-path "~/Code/Emacs/emacs-application-framework/"
+  :custom (eaf-find-alternate-file-in-dired t)
   :defer t
   :commands (eaf-open
              eaf-open-url eaf-open-browser eaf-open-qutebrowser
@@ -52,7 +53,9 @@
              eaf-file-transfer-airshare
              eaf-open-camera
              eaf-open-terminal)
-  :bind (:map eaf-mode-map ("q" . quit-window)))
+  :bind (:map eaf-mode-map ("q" . quit-window)) ; FIXME new `eaf-bind-key' invalid this `eaf-mode-map'.
+  :config (eaf-setq eaf-camera-save-path "~")
+  (eaf-bind-key take_photo "j" eaf-camera-keybinding))
 
 ;;; [ Threads ]
 
