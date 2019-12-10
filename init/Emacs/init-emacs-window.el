@@ -107,6 +107,7 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
 
 (use-package golden-ratio
   :ensure t
+  :if (< (frame-width) 200) ; enable `golden-ratio' only in small screen.
   :defer t
   :commands (golden-ratio-mode golden-ratio)
   :init (golden-ratio-mode 1)
