@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: babel-install-nuget
+# key: babel-install-nuget
+# group: babel.install
+# --
+**** NuGet
+
+#+begin_src sh :async
+nuget install ${1:<package>}
+#+end_src

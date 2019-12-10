@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: emacs-org-version-info-for-mailing-list
+# key: emacs-org-version-info-for-mailing-list
+# group: babel.inline.org-version
+# --
+Emacs and Org Mode versions:
+
+- Emacs: src_emacs-lisp{emacs-version}
+- Org: src_emacs-lisp{org-version}
+- GNU/Linux: src_sh{uname -r}

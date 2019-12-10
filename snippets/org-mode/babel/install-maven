@@ -4,6 +4,6 @@
 # group: babel.install
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
-#+begin_src sh
+#+begin_src sh :async
 mvn install -Dartifact=${1:${2:groupId}:${3:artifactId}:${4:version}}
 #+end_src
