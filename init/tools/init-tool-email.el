@@ -84,6 +84,27 @@
 ;; use org mode for eml files (useful for thunderbird plugin like "external editor").
 (add-to-list 'auto-mode-alist '("\\.eml\\'" . org-mode))
 
+;;; [ org-msg ] -- Org Mode to send and reply to Email in HTML.
+
+(use-package org-msg
+  :ensure t
+  :defer t
+  :commands (org-msg-mode)
+  :init
+  (setq org-msg-options "html-postamble:nil H:5 num:nil ^:{} toc:nil"
+        org-msg-startup "hidestars indent inlineimages"
+        org-msg-greeting-fmt "\nHi *%s*,\n\n"
+        org-msg-greeting-name-limit 3
+        org-msg-signature "
+
+ Regards,
+
+ #+begin_signature
+ -- *Jeremy* \\\\
+ /One Emacs to rule them all/
+ #+end_signature")
+  (org-msg-mode))
+
 
 
 (provide 'init-tool-email)
