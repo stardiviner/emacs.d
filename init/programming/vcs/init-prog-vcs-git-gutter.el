@@ -136,6 +136,15 @@
 ;;   :ensure t
 ;;   :init (global-line-reminder-mode t))
 
+;;; [ vc-msg ] -- Show commit message of current line in Emacs.
+
+(use-package  vc-msg
+  :ensure t
+  :defer t
+  :commands (vc-msg-show)
+  :bind (:map git-gutter-prefix ("b" . vc-msg-show))
+  :init (setq vc-msg-git-show-commit-function 'magit-show-commit))
+
 
 
 (provide 'init-prog-vcs-git-gutter)
