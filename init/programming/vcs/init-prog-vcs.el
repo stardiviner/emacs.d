@@ -15,7 +15,6 @@
 
 (require 'init-prog-vcs-git)
 
-(require 'init-prog-vcs-git-gutter)
 (require 'init-prog-vcs-git-github)
 ;; (require 'init-prog-vcs-git-gitlab)
 
