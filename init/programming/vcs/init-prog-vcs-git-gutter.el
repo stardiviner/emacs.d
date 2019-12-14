@@ -7,9 +7,9 @@
 
 ;;; Code:
 
-(unless (boundp 'git-gutter-prefix)
-  (define-prefix-command 'git-gutter-prefix))
-(global-set-key (kbd "M-g g") 'git-gutter-prefix)
+(unless (boundp 'git-quick-prefix)
+  (define-prefix-command 'git-quick-prefix))
+(global-set-key (kbd "M-g g") 'git-quick-prefix)
 
 ;;; [ git-gutter ] -- Port of Sublime Text plugin GitGutter.
 
@@ -72,7 +72,7 @@
     (unless (and (buffer-file-name) (file-remote-p (buffer-file-name)))
       (git-gutter+-turn-on)))
   (add-hook 'prog-mode-hook #'my/git-gutter+-turn-on)
-  :bind (:map git-gutter-prefix
+  :bind (:map git-quick-prefix
               ("t" . git-gutter+-mode) ; Turn on/off in the current buffer
               ("T" . global-git-gutter+-mode) ; Turn on/off globally
               ;; jump between hunks
@@ -106,8 +106,7 @@
               ("m s" . git-gutter+-stage-hunks)
               ("m c" . git-gutter+-commit)
               ("m C" . git-gutter+-stage-and-commit)
-              ("m u" . git-gutter:update-all-windows)
-              )
+              ("m u" . git-gutter:update-all-windows))
   :config
   (add-to-list 'display-buffer-alist
                '("\\*git-gutter+-diff\\*" . (display-buffer-below-selected)))
@@ -122,7 +121,7 @@
 ;;   :init
 ;;   (add-hook 'prog-mode-hook 'diff-hl-mode)
 ;;   (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
-;;   :bind (:map git-gutter-prefix
+;;   :bind (:map git-quick-prefix
 ;;               ("M-n" . diff-hl-next-hunk)
 ;;               ("M-p" . diff-hl-previous-hunk)
 ;;               ("M-=" . diff-hl-diff-goto-hunk))
@@ -142,7 +141,7 @@
   :ensure t
   :defer t
   :commands (vc-msg-show)
-  :bind (:map git-gutter-prefix ("b" . vc-msg-show))
+  :bind (:map git-quick-prefix ("b" . vc-msg-show))
   :init (setq vc-msg-git-show-commit-function 'magit-show-commit))
 
 
