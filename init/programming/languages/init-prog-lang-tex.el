@@ -151,17 +151,6 @@ character(s), in which case it deletes the space(s) first."
   (dolist (hook '(tex-mode-hook TeX-mode-hook latex-mode-hook LaTeX-mode-hook))
     (add-hook hook #'my:company-auctex-setup)))
 
-;;; [ RefTeX ] -- a specialized package for support of labels, references.
-
-(use-package reftex
-  :ensure t
-  :defer t
-  :init
-  (setq reftex-cite-prompt-optional-args t) ; prompt for empty optional arguments in cite.
-  ;; enable RefTeX in AUCTeX (LaTeX-mode)
-  (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-  (add-hook 'LaTeX-mode-hook #'reftex-mode))
-
 ;;; [ CDLaTeX ] -- Fast input methods for LaTeX environments and math.
 
 ;; (use-package cdlatex
@@ -195,7 +184,7 @@ character(s), in which case it deletes the space(s) first."
 
 ;;; [ latex-preview-pane ] -- Makes LaTeX editing less painful by providing a updatable preview pane.
 
-(use-package latex-preview-pane
+(use-package latex-preview-pane                                                 
   :ensure t
   :defer t
   :init (setq-default shell-escape-mode "-shell-escape")
@@ -206,6 +195,39 @@ character(s), in which case it deletes the space(s) first."
 
 ;; (use-package px
 ;;   :ensure t)
+
+;;==================== [ RefTeX ] ======================================================
+
+;;; [ RefTeX ] -- a specialized package for support of labels, references.
+
+(use-package reftex
+  :ensure t
+  :defer t
+  :commands (reftex-mode reftex-label reftex-citation)
+  :init
+  (setq reftex-cite-prompt-optional-args t) ; prompt for empty optional arguments in cite.
+  ;; Activate nice interface between RefTeX and AUCTeX
+  (setq reftex-plug-into-AUCTeX t)
+  ;; enable RefTeX in AUCTeX (LaTeX-mode)
+  (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+  (add-hook 'LaTeX-mode-hook #'reftex-mode))
+
+;;==================== [ Bibliography ] ================================================
+
+(use-package helm-bibtex
+  :if (featurep 'helm)
+  :ensure t
+  :defer t
+  :commands (helm-bibtex helm-bibtex-with-local-bibliography))
+
+(use-package ivy-bibtex
+  :if (featurep 'ivy)
+  :ensure t
+  :defer t
+  :commands (ivy-bibtex ivy-bibtex-with-local-bibliography)
+  :init (setq bibtex-completion-pdf-symbol "⌘"
+              bibtex-completion-notes-symbol "✎"
+              bibtex-completion-additional-search-fields '(keywords)))
 
 
 (provide 'init-prog-lang-tex)
