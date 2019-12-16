@@ -26,6 +26,8 @@
 (add-to-list 'org-default-properties "COMMIT")
 (add-to-list 'org-default-properties "CONFIG")
 (add-to-list 'org-default-properties "Translation-Chinese")
+(add-to-list 'org-default-properties "Programming-Language")
+(add-to-list 'org-default-properties "PAPER")
 
 
 (provide 'init-org-property)
