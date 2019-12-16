@@ -53,9 +53,8 @@
              eaf-file-transfer-airshare
              eaf-open-camera
              eaf-open-terminal)
-  :bind (:map eaf-mode-map ("q" . quit-window)) ; FIXME new `eaf-bind-key' invalid this `eaf-mode-map'.
   :config (eaf-setq eaf-camera-save-path "~")
-  (eaf-bind-key take_photo "j" eaf-camera-keybinding))
+  (setf (alist-get "q" eaf-pdf-viewer-keybinding) 'quit-window))
 
 ;;; [ Threads ]
 
