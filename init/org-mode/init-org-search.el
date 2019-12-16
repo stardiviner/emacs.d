@@ -355,7 +355,7 @@ That's it.
 
 (use-package org-sidebar
   :ensure t
-  :commands (org-sidebar org-sidebar-tree org-sidebar-ql))
+  :commands (org-sidebar-toggle org-sidebar-tree-toggle org-sidebar-ql))
 
 
 
