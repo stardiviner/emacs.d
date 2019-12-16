@@ -3,6 +3,6 @@
 # key: babel-tangle-sudo
 # group: babel.tangle
 # --
-#+begin_src ${1:conf} :tangle "/sudo::${2:/path/to/admin-file}"
+#+begin_src ${1:conf} :tangle "/sudo:root@localhost:${2:/path/to/admin-file}"
 $0
 #+end_src

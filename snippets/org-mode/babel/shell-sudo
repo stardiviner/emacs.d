@@ -3,6 +3,6 @@
 # key: babel-shell-sudo
 # group: babel
 # --
-#+begin_src sh :dir /sudo::
+#+begin_src sh :dir /sudo:root@localhost:
 sudo $0
 #+end_src
