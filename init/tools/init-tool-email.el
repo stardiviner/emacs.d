@@ -86,24 +86,29 @@
 
 ;;; [ org-msg ] -- Org Mode to send and reply to Email in HTML.
 
-(use-package org-msg
-  :ensure t
-  :defer t
-  :commands (org-msg-mode)
-  :init
-  (setq org-msg-options "html-postamble:nil H:5 num:nil ^:{} toc:nil"
-        org-msg-startup "hidestars indent inlineimages"
-        org-msg-greeting-fmt "\nHi *%s*,\n\n"
-        org-msg-greeting-name-limit 3
-        org-msg-signature "
-
- Regards,
-
- #+begin_signature
- -- *Jeremy* \\\\
- /One Emacs to rule them all/
- #+end_signature")
-  (org-msg-mode))
+;; (use-package org-msg
+;;   :ensure t
+;;   :defer t
+;;   :commands (org-msg-mode)
+;;   :init
+;;   (setq org-msg-options "html-postamble:nil H:5 num:nil ^:{} toc:nil"
+;;         org-msg-startup "hidestars indent inlineimages"
+;;         org-msg-greeting-fmt "\nHi *%s*,\n\n"
+;;         org-msg-greeting-name-limit 3
+;;         org-msg-signature "
+;;
+;; Regards,
+;;
+;; #+begin_signature
+;; -- [ stardiviner ]
+;;
+;; /One Emacs to rule them all/
+;;
+;; Blog: https://stardiviner.github.io/
+;; IRC(freenode): stardiviner, Matrix: stardiviner
+;; GPG: F09F650D7D674819892591401B5DF1C95AE89AC3
+;; #+end_signature")
+;;   (org-msg-mode))
 
 
 
