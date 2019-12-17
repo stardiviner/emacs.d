@@ -16,9 +16,9 @@
         '("lof" "lot" "aux" "idx" "out" "toc" "nav" "snm" "vrb"
           "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl"))
 
-;;; Preview Org-mode LaTeX fragments between $\LaTeX{}$
-  (setq org-startup-with-latex-preview nil)
-  (setq org-highlight-latex-and-related nil)
+  ;; Preview Org-mode LaTeX fragments between $\LaTeX{}$
+  (setq org-startup-with-latex-preview t)
+  (setq org-highlight-latex-and-related '(native latex script))
 
   ;; (setq org-preview-latex-default-process 'dvipng)    ; faster but don't support Chinese by default.
   ;; (setq org-preview-latex-default-process 'imagemagick)  ; slower but support Chinese by default.
@@ -54,8 +54,7 @@
   (setq org-format-latex-options
         (plist-put org-format-latex-options :html-scale 2.0)) ; adjust HTML exporting LaTeX image size.
 
-  (setq org-latex-prefer-user-labels t)
-  )
+  (setq org-latex-prefer-user-labels t))
 
 ;;; [ webkit-katex-render ] -- An instant Latex Previewer for Emacs.
 
