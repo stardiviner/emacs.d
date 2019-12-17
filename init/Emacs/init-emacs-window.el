@@ -110,9 +110,8 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
   :if (< (frame-width) 200) ; enable `golden-ratio' only in small screen.
   :defer t
   :commands (golden-ratio-mode golden-ratio)
-  :init (golden-ratio-mode 1)
-  (setq golden-ratio-auto-scale nil
-        golden-ratio-recenter t)
+  :init (setq golden-ratio-auto-scale nil
+              golden-ratio-recenter t)
   :config
   ;; Exclude following pattern buffers.
   (setq golden-ratio-exclude-modes
@@ -152,7 +151,9 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
     (apply orig-fun args)
     (golden-ratio-mode 1))
   (advice-add 'eyebrowse-last-window-config :around #'golden-ratio-eyebrowse-workaround--advice)
-  (advice-add 'eyebrowse-switch-to-window-config :around #'golden-ratio-eyebrowse-workaround--advice))
+  (advice-add 'eyebrowse-switch-to-window-config :around #'golden-ratio-eyebrowse-workaround--advice)
+
+  (golden-ratio-mode 1))
 
 
 ;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
