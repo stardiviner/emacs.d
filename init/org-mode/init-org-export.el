@@ -52,6 +52,7 @@
               org-html-html5-fancy t
               org-html-use-infojs t ; 'when-configured
               org-html-htmlize-output-type 'inline-css ; make HTML self-containing
+              org-html-wrap-src-lines t ; wrap individual lines into <code> element.
               ))
 
 ;;; Exporting JavaScript babel code block into <script> tag in HTML export.
