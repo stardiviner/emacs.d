@@ -239,7 +239,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   :ensure t
   :defer t
   :after org-agenda
-  :init
+  :config
   (setq org-agenda-category-icon-alist
         `(("Diary" ,(list (all-the-icons-faicon "file-text-o")) nil nil :ascent center)
           ("Todo" ,(list (all-the-icons-faicon "check-square-o" :height 1.2)) nil nil :ascent center)
@@ -473,9 +473,9 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;;; [ org-super-agenda ] -- Supercharge your agenda.
 
-(use-package org-super-agenda
-  :ensure t
-  :defer t)
+;; (use-package org-super-agenda
+;;   :ensure t
+;;   :defer t)
 
 ;;; [ org-collector ] -- collect properties into tables.
 ;; (require 'org-collector)

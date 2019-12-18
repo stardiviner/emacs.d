@@ -45,7 +45,7 @@
 (require 'init-org-protocol)
 (require 'init-org-extensions)
 (require 'init-org-programming)
-(require 'init-org-mindmap)
+;; (require 'init-org-mindmap)
 (require 'init-org-presentation)
 (require 'init-org-contacts)
 (require 'init-org-password)

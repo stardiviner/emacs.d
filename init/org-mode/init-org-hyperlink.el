@@ -306,7 +306,7 @@ and append it."
                          :complete #'org-file-complete-link)
 
 ;; [[eshell:*et:.config/emacs*:cd /home/stardiviner/.config/emacs][cd /home/stardiviner/.config/emacs]]
-(require 'ol-eshell)
+;; (require 'ol-eshell)
 
 
 ;;; [ Link abbreviations ]

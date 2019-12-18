@@ -21,18 +21,18 @@
 
 ;;; [ company-english-helper ] -- English helper base on Emacs company-mode.
 
-(leaf company-english-helper
-  :el-get (company-english-helper :url "https://github.com/manateelazycat/company-english-helper.git")
-  :commands (toggle-company-english-helper)
-  :init
-  (defun my/company-english-helper-setup ()
-    (if (local-variable-if-set-p 'company-backends)
-        (add-to-list 'company-backends 'company-english-helper-search)
-      (add-to-list (make-local-variable 'company-backends) 'company-english-helper-search)))
-  (dolist (hook '(org-mode-hook
-                  git-commit-mode-hook
-                  rcirc-mode-hook))
-    (add-hook hook #'my/company-english-helper-setup)))
+;; (leaf company-english-helper
+;;   :el-get (company-english-helper :url "https://github.com/manateelazycat/company-english-helper.git")
+;;   :commands (toggle-company-english-helper)
+;;   :config
+;;   (defun my/company-english-helper-setup ()
+;;     (if (local-variable-if-set-p 'company-backends)
+;;         (add-to-list 'company-backends 'company-english-helper-search)
+;;       (add-to-list (make-local-variable 'company-backends) 'company-english-helper-search)))
+;;   (dolist (hook '(org-mode-hook
+;;                   git-commit-mode-hook
+;;                   rcirc-mode-hook))
+;;     (add-hook hook #'my/company-english-helper-setup)))
 
 
 (provide 'init-language-english)

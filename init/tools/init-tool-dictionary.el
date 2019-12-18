@@ -75,11 +75,11 @@
   :ensure t
   :defer t
   :commands (baidu-translate-zh-mark baidu-translate-zh-whole-buffer)
-  :init (setq baidu-translate-appid
-              (my/json-read-value my/account-file 'baidu-translate-appid)
-              baidu-translate-security
-              (my/json-read-value my/account-file 'baidu-translate-security))
   :config
+  (setq baidu-translate-appid
+        (my/json-read-value my/account-file 'baidu-translate-appid)
+        baidu-translate-security
+        (my/json-read-value my/account-file 'baidu-translate-security))
   (add-to-list 'display-buffer-alist
                '("^\\*baidu-translate\\*" .
                  (display-buffer-reuse-window display-buffer-below-selected))))

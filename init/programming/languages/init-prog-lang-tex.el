@@ -184,12 +184,12 @@ character(s), in which case it deletes the space(s) first."
 
 ;;; [ latex-preview-pane ] -- Makes LaTeX editing less painful by providing a updatable preview pane.
 
-(use-package latex-preview-pane                                                 
-  :ensure t
-  :defer t
-  :init (setq-default shell-escape-mode "-shell-escape")
-  (setq preview-orientation 'right)
-  (latex-preview-pane-enable))
+;; (use-package latex-preview-pane
+;;   :ensure t
+;;   :defer t
+;;   :init (setq-default shell-escape-mode "-shell-escape")
+;;   (setq preview-orientation 'right)
+;;   (latex-preview-pane-enable))
 
 ;;; [ px ] -- Provides functions to preview LaTeX codes like $x^2$ in any buffer/mode.
 

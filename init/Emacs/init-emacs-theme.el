@@ -15,7 +15,7 @@
 
 (global-font-lock-mode t)
 
-(require 'color) ; for `color-lighten-name' and `color-darken-name'
+;; (require 'color) ; for `color-lighten-name' and `color-darken-name'
 
 ;;; [ leuven-theme ]
 

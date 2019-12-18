@@ -9,19 +9,10 @@
 
 ;;; [ vc ]
 
-(require 'vc)
-
-(setq vc-handled-backends '(Git))
-;; (setq vc-follow-symlinks 'ask)
-
-(add-to-list 'display-buffer-alist
-             '("\\*vc-diff\\*" . (display-buffer-below-selected)))
-
-
-;;; Git
-
-(require 'vc-git)
-
+(use-package vc
+  :init (setq vc-handled-backends '(Git))
+  (add-to-list 'display-buffer-alist
+               '("\\*vc-diff\\*" . (display-buffer-below-selected))))
 
 
 (provide 'init-emacs-vcs)
