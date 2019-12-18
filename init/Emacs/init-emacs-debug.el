@@ -8,18 +8,18 @@
 ;;; [ debug ] -- Emacs built-in debugger.
 
 ;; for Emacs startup freeze debug.
-;; (setq debug-on-quit t)
-;; (add-hook 'after-init-hook #'(lambda () (setq debug-on-quit nil)))
-;; (setq debug-on-error t)
-;; (add-hook 'after-init-hook #'(lambda () (setq debug-on-error nil)))
+(setq debug-on-quit t)
+(add-hook 'after-init-hook #'(lambda () (setq debug-on-quit nil)))
+(setq debug-on-error t)
+(add-hook 'after-init-hook #'(lambda () (setq debug-on-error nil)))
 
 ;;; [ Edebug ] -- Edebug is a source level debugger.
 
-;; (use-package edebug
-;;   :bind (:map emacs-lisp-mode-map ("C-c d e" . edebug-mode))
-;;   :init (setq edebug-trace t)
-;;   (add-to-list 'display-buffer-alist
-;;                '("^\\*edebug-trace\\*" (display-buffer-below-selected))))
+(use-package edebug
+  ;; :bind (:map emacs-lisp-mode-map ("C-c d e" . edebug-mode))
+  :init (setq edebug-trace t)
+  (add-to-list 'display-buffer-alist
+               '("^\\*edebug-trace\\*" (display-buffer-below-selected))))
 
 ;;; [ edebug-x ] -- Extensions for Edebug.
 
