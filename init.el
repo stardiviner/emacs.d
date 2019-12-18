@@ -60,7 +60,7 @@
 
 (require 'init-emacs-debug)
 (require 'init-emacs-profiler)
-;; (require 'init-emacs-benchmark)
+(require 'init-emacs-benchmark)
 
 (use-package pinentry
   :ensure t

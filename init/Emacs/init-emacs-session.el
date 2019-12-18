@@ -13,6 +13,7 @@
 ;;; [ desktop ] -- save partial status of Emacs when killed for persistence.
 
 (use-package desktop
+  :if (not (featurep 'esup))
   :ensure t
   :config
   (setq desktop-files-not-to-save "\\(^/[^/:]*:\\|(ftp)$\\|^/tmp/\\)")
