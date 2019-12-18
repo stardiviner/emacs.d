@@ -552,8 +552,7 @@ The function is suitable for `erc-after-connect'."
               "\\).")))
         (ffap-next t t))))
 
-  (define-key erc-mode-map (kbd "C-c u") 'browse-last-url-in-brower)
-  )
+  (define-key erc-mode-map (kbd "C-c u") 'browse-last-url-in-brower))
 
 
 (provide 'init-erc)

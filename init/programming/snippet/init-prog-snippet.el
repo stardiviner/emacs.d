@@ -16,9 +16,8 @@
          ("\\.yasnippet$" . snippet-mode))
   :init (yas-global-mode 1)
   :config
-  (setq yas-snippet-dirs
-        `(,(expand-file-name "snippets" user-emacs-directory) ; personal snippets directory
-          ))
+  ;; add personal snippets directory to snippets collection list.
+  (add-to-list 'yas-snippet-dirs `,(expand-file-name "snippets" user-emacs-directory))
 
   ;; indent
   (setq yas-indent-line 'auto) ; 'auto, 'fixed
@@ -79,7 +78,7 @@ $0`(yas-escape-text yas-selected-text)`"
 
 ;;; [ ivy-yasnippet ] -- preview yasnippet snippets with Ivy.
 
-(use-package ivy-yasnippet
+(use-package ivy-yasnippet ; [C-c \]
   :ensure t
   :defer t
   :bind (:map yas-minor-mode-map ([remap yas-insert-snippet] . ivy-yasnippet)))

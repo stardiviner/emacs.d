@@ -231,8 +231,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
   (add-hook 'org-agenda-finalize-hook #'org-agenda-time-grid-colorful-spacing)
 
-  (define-key org-agenda-mode-map (kbd "M-s") 'org-search-view)
-  )
+  (define-key org-agenda-mode-map (kbd "M-s") 'org-search-view))
 
 
 ;;; display icon for Org Agenda category
@@ -240,7 +239,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   :ensure t
   :defer t
   :after org-agenda
-  :config
+  :init
   (setq org-agenda-category-icon-alist
         `(("Diary" ,(list (all-the-icons-faicon "file-text-o")) nil nil :ascent center)
           ("Todo" ,(list (all-the-icons-faicon "check-square-o" :height 1.2)) nil nil :ascent center)
@@ -442,10 +441,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;;; [ org-notify ]
 
-(require 'org-notify)
-
-(setq org-notify-audible nil)
-
 ;; ---------------------------------------------------------
 ;; List of possible parameters:
 ;;
@@ -466,12 +461,15 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;;   :audible   Overwrite the value of `org-notify-audible' for this action.
 ;; ---------------------------------------------------------
 
-(org-notify-add 'default
-                '(:time "1h" :period "1h" :duration 8
-                        :actions (-ding -notify/window)
-                        :audible t))
-
-(org-notify-start (* 60 2))
+(use-package org-notify
+  :init (setq org-notify-audible nil)
+  :config
+  (org-notify-add 'default
+                  '(:time "1h" :period "1h" :duration 8
+                          :actions (-ding -notify/window)
+                          :audible t))
+  ;; NOTE: org-notify dbus cause KDE/Plasma high system resources.
+  (org-notify-start (* 60 2)))
 
 ;;; [ org-super-agenda ] -- Supercharge your agenda.
 

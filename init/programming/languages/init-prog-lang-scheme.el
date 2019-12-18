@@ -32,8 +32,7 @@
   (add-to-list 'display-buffer-alist
                '("\\* Guile REPL \\*" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("\\* Racket REPL \\*" . (display-buffer-below-selected)))
-  )
+               '("\\* Racket REPL \\*" . (display-buffer-below-selected))))
 
 ;;; [ geiser ] -- Scheme completion.
 

@@ -26,9 +26,8 @@
 
   ;; set the view mode colors to fit your color-theme for `pdf-view-midnight-minor-mode'.
   (setq pdf-view-midnight-colors
-        (cons
-         (frame-parameter nil 'foreground-color)
-         (frame-parameter nil 'background-color)))
+        (cons (frame-parameter nil 'foreground-color)
+              (frame-parameter nil 'background-color)))
   (if (eq (frame-parameter nil 'background-mode) 'dark)
       (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode))
   
@@ -52,8 +51,7 @@
   (add-to-list 'display-buffer-alist
                '("\\*Outline .*pdf\\*" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("\\*PDF-Occur\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
-  )
+               '("\\*PDF-Occur\\*" . (display-buffer-reuse-window display-buffer-below-selected))))
 
 ;;; [ pdf-view-restore ] -- support for opening last known pdf position in pdf-view-mode.
 
@@ -70,13 +68,13 @@
   :defer t
   :after org
   :commands (org-pdfview-open
-             org-pdfview-export org-pdfview-complete-link org-pdfview-store-link)
-  :init
-  (org-link-set-parameters "pdfview"
-                           :follow #'org-pdfview-open
-                           :export #'org-pdfview-export
-                           :complete #'org-pdfview-complete-link
-                           :store #'org-pdfview-store-link)
+             org-pdfview-export
+             org-pdfview-complete-link org-pdfview-store-link)
+  :init (org-link-set-parameters "pdfview"
+                                 :follow #'org-pdfview-open
+                                 :export #'org-pdfview-export
+                                 :complete #'org-pdfview-complete-link
+                                 :store #'org-pdfview-store-link)
   ;; change Org-mode default open PDF file function.
   ;; If you want, you can also configure the org-mode default open PDF file function.
   (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdfview-open link))))
