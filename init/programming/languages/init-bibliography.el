@@ -73,6 +73,20 @@
 ;; (use-package bibretrieve
 ;;   :ensure t)
 
+(use-package helm-bibtex
+  :if (featurep 'helm)
+  :ensure t
+  :defer t
+  :commands (helm-bibtex helm-bibtex-with-local-bibliography))
+
+;; (use-package ivy-bibtex
+;;   :if (featurep 'ivy)
+;;   :ensure t
+;;   :defer t
+;;   :commands (ivy-bibtex ivy-bibtex-with-local-bibliography)
+;;   :init (setq bibtex-completion-pdf-symbol "⌘"
+;;               bibtex-completion-notes-symbol "✎"
+;;               bibtex-completion-additional-search-fields '(keywords)))
 
 
 (provide 'init-bibliography)
