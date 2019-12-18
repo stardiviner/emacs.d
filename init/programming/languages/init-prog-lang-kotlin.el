@@ -1,4 +1,4 @@
-;;; init-prog-lang-jvm-kotlin.el --- init for Kotlin
+;;; init-prog-lang-kotlin.el --- init for Kotlin
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -32,6 +32,6 @@
   :init (add-hook 'kotlin-mode-hook #'flycheck-kotlin-setup))
 
 
-(provide 'init-prog-lang-jvm-kotlin)
+(provide 'init-prog-lang-kotlin)
 
-;;; init-prog-lang-jvm-kotlin.el ends here
+;;; init-prog-lang-kotlin.el ends here
