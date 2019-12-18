@@ -32,14 +32,6 @@
 
 (setq recenter-positions '(top middle bottom))
 
-;;; [ idle-scroll ] -- idle scroll buffer one line every second.
-
-(use-package idle-scroll
-  :ensure t
-  :defer t
-  :commands (idle-scroll-mode)
-  :bind (:map tools-prefix ("M-r" . idle-scroll-mode)))
-
 ;;; [ movement ]
 
 (setq track-eol t) ; always track end of line when moving at end of line.

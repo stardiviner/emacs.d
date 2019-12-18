@@ -7,6 +7,14 @@
 
 ;;; Code:
 
+;;; [ idle-scroll ] -- idle scroll buffer one line every second.
+
+(use-package idle-scroll
+  :ensure t
+  :defer t
+  :commands (idle-scroll-mode)
+  :bind (:map tools-prefix ("M-r" . idle-scroll-mode)))
+
 ;;; [ novel reading mode ]
 
 (defun novel-read-mode ()
