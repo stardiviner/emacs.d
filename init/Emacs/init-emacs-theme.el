@@ -17,6 +17,25 @@
 
 ;; (require 'color) ; for `color-lighten-name' and `color-darken-name'
 
+;;; [ custom theme ]
+
+(defcustom load-theme-before-hook nil
+  "Functions to run before load theme."
+  :type 'hook)
+
+(defcustom load-theme-after-hook nil
+  "Functions to run after load theme."
+  :type 'hook)
+
+(defun load-theme-hook-wrapper (origin-func theme &rest args)
+  "A wrapper of hooks around `load-theme'."
+  (mapc #'disable-theme custom-enabled-themes)
+  (run-hook-with-args 'load-theme-before-hook theme)
+  (apply origin-func theme args)
+  (run-hook-with-args 'load-theme-after-hook theme))
+
+(advice-add 'load-theme :around #'load-theme-hook-wrapper)
+
 ;;; [ leuven-theme ]
 
 (use-package leuven-theme
