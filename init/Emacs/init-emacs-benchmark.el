@@ -7,9 +7,12 @@
 
 ;;; Code:
 
+(defvar my/emacs-benchmark-toggle nil)
+
 ;;; [ benchmark-init.el ] -- Benchmark your Emacs initialization
 
 (use-package benchmark-init
+  :if my/emacs-benchmark-toggle
   :ensure t
   :commands (benchmark-init/show-durations-tree
              benchmark-init/show-durations-tabulated)
@@ -20,7 +23,9 @@
 ;;; [ esup ] -- the Emacs StartUp Profiler
 
 (use-package esup
-  :ensure t)
+  :if my/emacs-benchmark-toggle
+  :ensure t
+  :commands (esup))
 
 
 (provide 'init-emacs-benchmark)
