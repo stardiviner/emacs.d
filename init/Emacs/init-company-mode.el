@@ -182,16 +182,11 @@
     "Setup company-mode in minibuffer."
     (company-mode 1)
     (setq-local company-tooltip-limit 4)
-    (setq-local company-tooltip-minimum 1)
-    (if (fboundp 'company-box-mode)
-        (setq-local company-frontends '(company-box-frontend))
-      (setq-local company-frontends '(company-pseudo-tooltip-frontend))))
+    (setq-local company-tooltip-minimum 1))
   (add-hook 'eval-expression-minibuffer-setup-hook 'company-mode-minibuffer-setup)
-
   
   (add-to-list 'display-buffer-alist
-               '("^\\*company-documentation\\*" . (display-buffer-below-selected)))
-  )
+               '("^\\*company-documentation\\*" . (display-buffer-below-selected))))
 
 ;;; [ company-box ] -- A company front-end with icons.
 
