@@ -29,17 +29,6 @@
   :commands (edebug-x-mode)
   ;; :init (setq edebug-x-stop-point-overlay t)
   :config
-  (set-face-attribute 'hi-edebug-x-stop nil
-                      :reverse-video nil :foreground nil :overline nil
-                      :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('light "orange")
-                                    ('dark "DarkMagenta")))
-  (set-face-attribute 'hi-edebug-x-debug-line nil
-                      :reverse-video nil :foreground nil :underline nil
-                      :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('light "pink")
-                                    ('dark "DarkSlateGray")))
-
   (add-to-list 'display-buffer-alist
                '("^\\*Instrumented Functions\\*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
