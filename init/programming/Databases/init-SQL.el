@@ -180,11 +180,10 @@
 
   (defun my/ejc-sql-settings ()
     (setq-local ac-auto-start 1)
-    (setq-local ac-delay 0.1)
+    (setq-local ac-delay 0)
     (setq-local ac-auto-show-menu t)
     (company-mode -1)
     (flyspell-mode -1))
-  
   (add-hook 'ejc-sql-mode-hook #'my/ejc-sql-settings)
 
   (add-to-list 'display-buffer-alist
