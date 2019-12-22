@@ -81,9 +81,9 @@
 
 ;;; [ parinfer ] -- Simpler Lisp editing.
 
-(use-package parinfer
-  :ensure t
-  :init (parinfer-mode 1))
+;; (use-package parinfer
+;;   :ensure t
+;;   :init (parinfer-mode 1))
 
 ;;; [ rainbow-delimiters ] -- rainbow color parenthesis
 
