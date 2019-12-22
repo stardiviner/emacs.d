@@ -37,7 +37,11 @@
 (add-hook 'lisp-interaction-mode-hook #'my-lisp-repl-common-settings)
 (add-hook 'common-lisp-mode-hook #'my-lisp-common-settings)
 
-
+;;; [ cl-font-lock ] -- Pretty Common Lisp font locking.
+
+(use-package cl-font-lock
+  :ensure t)
+
 ;;; [ ob-lisp ]
 
 (use-package ob-lisp
@@ -54,14 +58,12 @@
   ;;              '(:results . "output pp"))
   )
 
-
 ;;; [ SBCL ]
 
 (use-package lisp-mode
   ;; the SBCL configuration file is in Common Lisp
   :mode ("\\.sbclrc\\'" . lisp-mode))
 
-
 ;;; [ Quick Lisp ]
 
 ;;; Common Lisp support depends on SLIME being installed with Quicklisp
@@ -81,7 +83,6 @@
     :docstring "Quickdocs")
   (define-key lisp-mode-map (kbd "C-h d q") 'engine/search-quickdocs))
 
-
 ;; (require 'init-slime)
 (require 'init-sly)
 
