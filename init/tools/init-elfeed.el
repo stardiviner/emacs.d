@@ -104,7 +104,14 @@
     (interactive)
     (elfeed-db-save)
     (quit-window))
-  (define-key elfeed-search-mode-map (kbd "q") 'elfeed-quit))
+  (define-key elfeed-search-mode-map (kbd "q") 'elfeed-quit)
+
+  ;; automatically update elfeed
+  (defun elfeed-auto-update ()
+    (if (get-buffer "*elfeed-search*")
+        (with-current-buffer "*elfeed-search*"
+          (elfeed-update))))
+  (run-with-timer 60 (* 60 60 3) 'elfeed-auto-update))
 
 ;;; [ elfeed-org ] -- Configure the Elfeed RSS reader with an Org Mode file.
 
