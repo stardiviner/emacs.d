@@ -111,6 +111,7 @@
   (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'snippet-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'cider-repl-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'csharp-mode)
 
   (add-to-list 'aggressive-indent-dont-electric-modes 'python-mode)
   (global-aggressive-indent-mode 1)
