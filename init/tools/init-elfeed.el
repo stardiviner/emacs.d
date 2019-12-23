@@ -111,7 +111,46 @@
     (if (get-buffer "*elfeed-search*")
         (with-current-buffer "*elfeed-search*"
           (elfeed-update))))
-  (run-with-timer 60 (* 60 60 3) 'elfeed-auto-update))
+  (run-with-timer 60 (* 60 60 3) 'elfeed-auto-update)
+
+  ;; support Org Mode Capture template
+  (defun my/org-capture-elfeed-title ()
+    (with-current-buffer "*elfeed-entry*"
+      (elfeed-entry-title elfeed-show-entry)))
+  (defun my/org-capture-elfeed-date ()
+    (with-current-buffer "*elfeed-entry*"
+      (format-time-string
+       "[%Y-%m-%d %a %H:%M]"
+       (seconds-to-time (elfeed-entry-date elfeed-show-entry)))))
+  (defun my/org-capture-elfeed-source ()
+    (with-current-buffer "*elfeed-entry*"
+      (let ((feed (elfeed-entry-feed elfeed-show-entry)))
+        (elfeed-feed-title feed))))
+  (defun my/org-capture-elfeed-content ()
+    (with-current-buffer "*elfeed-entry*"
+      (let* ((content (elfeed-deref (elfeed-entry-content elfeed-show-entry)))
+             (type (elfeed-entry-content-type elfeed-show-entry))
+             (feed (elfeed-entry-feed elfeed-show-entry))
+             (base-url (and feed (elfeed-compute-base (elfeed-feed-url feed)))))
+        (if content
+            (if (eq type 'html)
+                (org-web-tools--html-to-org-with-pandoc content)
+              (insert content))))))
+
+  (add-to-list 'org-capture-templates
+               '("R" "Capture elfeed [R]SS feed content to Org buffer"
+                 entry (file "")
+                 "* %(my/org-capture-elfeed-title)
+:PROPERTIES:
+:SOURCE: %(my/org-capture-elfeed-source)
+:DATE(original): %(my/org-capture-elfeed-date)
+:DATE: %u
+:END:
+
+%(my/org-capture-elfeed-content)"
+                 :empty-lines 1
+                 :jump-to-captured t)))
+
 
 ;;; [ elfeed-org ] -- Configure the Elfeed RSS reader with an Org Mode file.
 
