@@ -115,7 +115,7 @@
   :ensure t
   :defer t
   :after flyspell
-  :bind (:map flyspell-mode-map ("C-." . flyspell-correct-word-generic)))
+  :bind (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper)))
 
 
 
