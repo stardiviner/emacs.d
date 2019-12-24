@@ -43,6 +43,14 @@
 
 (require 'init-eshell)
 
+;;; [ helm-switch-shell ] -- Helm source for easily switching between (e)shells.
+
+(use-package helm-switch-shell
+  :ensure t
+  :defer t
+  :commands (helm-switch-shell)
+  :bind ("<f12>" . helm-switch-shell))
+
 
 
 (provide 'init-emacs-shell)
