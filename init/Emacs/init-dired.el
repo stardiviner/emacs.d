@@ -132,6 +132,11 @@
     :defer t
     :init (add-hook 'dired-mode-hook #'all-the-icons-dired-mode))
 
+  ;; Insert subdirectories in a tree-like fashion.
+  (use-package dired-subtree
+    :defer t
+    :bind (:map dired-mode-map ("TAB" . dired-subtree-cycle)))
+
   ;; Edit Filename At Point in an Emacs' dired buffer
   (use-package dired-efap
     :ensure t
