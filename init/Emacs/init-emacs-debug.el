@@ -37,7 +37,8 @@
 
 (leaf edebug-inline-result
   :el-get (edebug-inline-result :url "https://github.com/stardiviner/edebug-inline-result.git")
-  :commands (edebug-inline-result-show))
+  :commands (global-edebug-inline-result-mode edebug-inline-result-mode)
+  :init (global-edebug-inline-result-mode))
 
 ;;; [ bug-hunter ] -- Hunt down errors in elisp files.
 
