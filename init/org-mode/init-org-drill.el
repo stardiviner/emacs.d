@@ -21,7 +21,6 @@
         )
   (setq my-org-drill-words-file (concat org-directory "/Drills/Words.org"))
   
-  :config
   ;; add org-drill topic property into default properties list.
   (add-to-list 'org-default-properties "DRILL_CARD_TYPE")
   (setq org-tag-alist
