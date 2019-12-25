@@ -17,9 +17,8 @@
 
 (use-package edebug
   ;; :bind (:map emacs-lisp-mode-map ("C-c d e" . edebug-mode))
-  :init (setq edebug-trace t)
-  (add-to-list 'display-buffer-alist
-               '("^\\*edebug-trace\\*" (display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist
+                     '("^\\*edebug-trace\\*" (display-buffer-below-selected))))
 
 ;;; [ edebug-x ] -- Extensions for Edebug.
 

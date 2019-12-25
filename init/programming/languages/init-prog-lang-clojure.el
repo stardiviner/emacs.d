@@ -121,6 +121,12 @@
                '("^\\*cider-.*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
                '("^\\*nrepl-.*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
+
+  ;; [ helm-cider ] -- Helm interface to CIDER.
+  (use-package helm-cider
+    :ensure t
+    :init (add-hook 'cider-mode-hook #'helm-cider-mode))
+
   :config
   ;; Clojure
   ;; (setq cider-default-repl-command 'clojure-cli)
@@ -212,11 +218,6 @@ Optional argument NS, if not provided, defaults to
          handler
          nil
          (cider--nrepl-pprint-request-plist (cider--pretty-print-width))))))
-
-  ;; [ helm-cider ] -- Helm interface to CIDER.
-  (use-package helm-cider
-    :ensure t
-    :init (add-hook 'cider-mode-hook #'helm-cider-mode))
 
   ;; bind keybindings to some not-bind wrapping functions in clojure-mode locally.
   (add-hook 'clojure-mode-hook

@@ -45,14 +45,7 @@
   :load-path "~/Code/Emacs/emacs-application-framework/"
   :custom (eaf-find-alternate-file-in-dired t)
   :defer t
-  :commands (eaf-open
-             eaf-open-url eaf-open-browser eaf-open-qutebrowser
-             eaf-file-open-in-dired
-             eaf-file-sender-qrcode eaf-file-sender-qrcode-in-dired
-             eaf-file-receiver-qrcode eaf-file-sender-qrcode-in-dired
-             eaf-file-transfer-airshare
-             eaf-open-camera
-             eaf-open-terminal)
+  :commands (eaf-open)
   :config (eaf-setq eaf-camera-save-path "~")
   (setf (alist-get "q" eaf-pdf-viewer-keybinding) 'quit-window))
 

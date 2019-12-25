@@ -85,8 +85,7 @@ For pasting source code in Email."
                 ))
       (setq buffer-file-name
             (concat (file-name-sans-extension (buffer-file-name)) (format ".%s" ext)))))
-  (advice-add 'yagist-anonymous-file-name :before #'yagist-anonymous-file-name-for-org-babel)
-  )
+  (advice-add 'yagist-anonymous-file-name :before #'yagist-anonymous-file-name-for-org-babel))
 
 ;;; [ carbon.now.sh ] -- a service that creates beautiful images of your code.
 

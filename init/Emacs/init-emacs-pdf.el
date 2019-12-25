@@ -15,12 +15,13 @@
   :commands (pdf-tools-install-noverify pdf-view-mode)
   :preface (pdf-loader-install)
   :init (pdf-tools-install-noverify) ; (pdf-tools-install)
-  (setq pdf-view-use-scaling t ; open PDFs scaled to fit page.
-        pdf-view-use-unicode-ligther nil ; speed-up pdf-tools by don't try to find unicode.
-        )
   :mode ("\\.pdf\\'" . pdf-view-mode)
   :magic ("%PDF" . pdf-view-mode) ; for PDF binary header byte.
   :config
+  (setq pdf-view-use-scaling t ; open PDF scaled to fit page.
+        ;; speed-up pdf-tools by don't try to find unicode.
+        pdf-view-use-unicode-ligther nil)
+  
   ;; helpful accessibility shortcuts
   (define-key pdf-view-mode-map (kbd "q") 'kill-current-buffer)
 
@@ -28,6 +29,7 @@
   (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
   (defun my/pdf-view-midnight-colors-reset (theme)
     "Reset pdf-view midnight colors to fit color themes."
+    (interactive)
     (setq pdf-view-midnight-colors
           (cons (frame-parameter nil 'foreground-color)
                 (frame-parameter nil 'background-color))))

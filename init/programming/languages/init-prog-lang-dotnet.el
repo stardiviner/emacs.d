@@ -80,8 +80,7 @@
   (add-to-list 'display-buffer-alist
                '("^\\* OmniSharp : Usages \\*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("^\\* OmniSharp : Implementations \\*" (display-buffer-below-selected)))
-  )
+               '("^\\* OmniSharp : Implementations \\*" (display-buffer-below-selected))))
 
 ;;; [ ob-csharp ] -- org-babel functions for csharp evaluation.
 

@@ -411,6 +411,7 @@
 
   (setq org-mu4e-link-query-in-headers-mode t)
 
+  ;; use #=begin_export html ... #+end_export
   ;; (setq org-mu4e-convert-to-html t)
 
   ;; - `org-mu4e-open' :: open the mu4e message (for paths starting with 'msgid:')

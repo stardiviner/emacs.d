@@ -37,11 +37,10 @@
            (intern-pre (intern (format "lsp--%s" (symbol-name edit-pre)))))
       `(progn
          (defun ,intern-pre (info)
-           (let ((lsp-file (or (->> info caddr (alist-get :file))
-                               buffer-file-name
-                               (unless (member ,lang org-babel-lsp-explicit-lang-list)
-                                 (concat (org-babel-temp-file (format "lsp-%s-" ,lang))
-                                         (cdr (assoc ,lang org-babel-tangle-lang-exts)))))))
+           (let* ((lsp-file (or (->> info caddr (alist-get :file))
+                                (unless (member ,lang org-babel-lsp-explicit-lang-list)
+                                  (concat (org-babel-temp-file (format "lsp-%s-" ,lang))
+                                          (cdr (assoc ,lang org-babel-tangle-lang-exts)))))))
              (setq-local buffer-file-name lsp-file)
              (setq-local lsp-buffer-uri (lsp--path-to-uri lsp-file))
              (lsp)))
