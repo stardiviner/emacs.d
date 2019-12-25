@@ -17,8 +17,8 @@
           "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl"))
 
   ;; Preview Org-mode LaTeX fragments between $\LaTeX{}$
-  (setq org-startup-with-latex-preview t)
-  (setq org-highlight-latex-and-related '(native latex script))
+  (setq org-startup-with-latex-preview nil)
+  ;; (setq org-highlight-latex-and-related '(native latex)) ; will contact to www.plantuml.com server.
 
   ;; (setq org-preview-latex-default-process 'dvipng)    ; faster but don't support Chinese by default.
   ;; (setq org-preview-latex-default-process 'imagemagick)  ; slower but support Chinese by default.
