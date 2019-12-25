@@ -2,9 +2,109 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Scheme Packages.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Scheme/Data/Scheme Packages/Scheme Packages.org")
+(("strace.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/strace.org")
+ (front-context-string . "*** Usage\n\n- ~st")
+ (rear-context-string . " Configuration\n\n")
+ (position . 20255))
+("WebAssembly.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/WebAssembly/WebAssembly.org")
+ (front-context-string . "#+TITLE: WebAsse")
+ (rear-context-string)
+ (position . 1))
+("Search Engine Optimization.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Search/Search Engine Optimization/Search Engine Optimization.org")
+ (front-context-string . "#+TITLE: Search ")
+ (rear-context-string)
+ (position . 1))
+("Internet Underground Businesses.org"
+ (filename . "~/Org/Wiki/Internet/Internet Underground Businesses/Internet Underground Businesses.org")
+ (front-context-string . "#+TITLE: Interne")
+ (rear-context-string)
+ (position . 1))
+("My Common Lisp Programming Paradigms.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/LISP/Common Lisp/My Common Lisp Programming Paradigms/My Common Lisp Programming Paradigms.org")
+ (front-context-string . "#+TITLE: My Comm")
+ (rear-context-string)
+ (position . 1))
+("My Common Lisp Examples.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/LISP/Common Lisp/Data/Manuals/My Common Lisp Examples.org")
+ (front-context-string . "#+TITLE: My Comm")
+ (rear-context-string)
+ (position . 1))
+("My Common Lisp Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/LISP/Common Lisp/Data/Manuals/My Common Lisp Syntax Reference.org")
+ (front-context-string . "#+TITLE: My Comm")
+ (rear-context-string)
+ (position . 1))
+("My LISP Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/LISP/Data/Manuals/My LISP Syntax Reference/My LISP Syntax Reference.org")
+ (front-context-string . "#+TITLE: My Lisp")
+ (rear-context-string)
+ (position . 1))
+("Racket.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/LISP/Racket/Racket.org")
+ (front-context-string . "#+TITLE: Racket\n")
+ (rear-context-string)
+ (position . 1))
+("Scheme.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/LISP/Scheme/Scheme.org")
  (front-context-string . "#+TITLE: Scheme ")
+ (rear-context-string)
+ (position . 1))
+("Common Lisp.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/LISP/Common Lisp/Common Lisp.org")
+ (front-context-string . "#+TITLE: Common ")
+ (rear-context-string)
+ (position . 1))
+("LISP.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/LISP/LISP.org")
+ (front-context-string . "#+TITLE: LISP\n\n*")
+ (rear-context-string)
+ (position . 1))
+("Chinese Medicine.org"
+ (filename . "~/Org/Wiki/Medicine/Chinese Medicine/Chinese Medicine.org")
+ (front-context-string . "#+TITLE: Chinese")
+ (rear-context-string)
+ (position . 1))
+("Edebug.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/Edebug.org")
+ (front-context-string . "#+TITLE: Edebug\n")
+ (rear-context-string)
+ (position . 1))
+("Manjaro.org"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Linux Distributions/Manjaro/Manjaro.org")
+ (front-context-string . "#+TITLE: Manjaro")
+ (rear-context-string)
+ (position . 1))
+("OCaml.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/OCaml/OCaml.org")
+ (front-context-string . "#+TITLE: OCaml P")
+ (rear-context-string)
+ (position . 1))
+("gnuplot.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/gnuplot/gnuplot.org")
+ (front-context-string . "#+TITLE: gnuplot")
+ (rear-context-string)
+ (position . 1))
+("Node.js.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/JavaScript Packages/Node.js/Node.js.org")
+ (front-context-string . "#+TITLE: Node.js")
+ (rear-context-string)
+ (position . 1))
+("Adobe After Effects.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Adobe After Effects/Adobe After Effects.org")
+ (front-context-string . "#+TITLE: Adobe A")
+ (rear-context-string)
+ (position . 1))
+("C Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C/Data/C Packages/C Packages.org")
+ (front-context-string . "#+TITLE: C Packa")
+ (rear-context-string)
+ (position . 1))
+("Adobe Premiere.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Adobe Premiere/Adobe Premiere.org")
+ (front-context-string . "#+TITLE: Adobe P")
  (rear-context-string)
  (position . 1))
 ("Apparel.org"
@@ -1801,19 +1901,19 @@
  (position . 1))
 ("org-capture-last-stored-marker"
  (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** tianshu\n   :P")
- (rear-context-string . "ward.\n   :END:\n\n")
- (position . 148230))
+ (front-context-string . "** Thomas Heller")
+ (rear-context-string . "17:52]\n   :END:\n")
+ (position . 157493))
 ("org-refile-last-stored"
- (filename . "~/Org/Projects/Programming Projects/Code.org")
- (front-context-string . "** FEATURE eaf s")
- (rear-context-string . "e026f35d8d2b]:\n\n")
- (position . 570254))
-("org-capture-last-stored"
  (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "* tianshu\n  :PRO")
- (rear-context-string . "09:17]\n   :END:\n")
- (position . 207270))
+ (front-context-string . "** Thomas Heller")
+ (rear-context-string . "17:52]\n   :END:\n")
+ (position . 157493))
+("org-capture-last-stored"
+ (filename . "~/Org/Drills/Words.org")
+ (front-context-string . "* sanction      ")
+ (rear-context-string . "颂歌]\n- vt: [歌颂]\n\n")
+ (position . 121634))
 ("PDF-LAST-VIEWED: /tmp/mu-1000/b53469b1/3/test.pdf"
  (filename .
            #("/tmp/mu-1000/b53469b1/3/test.pdf" 0 32
@@ -1893,11 +1993,6 @@
  (front-context-string . "#+TITLE: How to ")
  (rear-context-string)
  (position . 1))
-("My Lisp Syntax Reference.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Data/Manuals/My Lisp Syntax Reference/My Lisp Syntax Reference.org")
- (front-context-string . "#+TITLE: My Lisp")
- (rear-context-string)
- (position . 1))
 ("REST.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Technologies/HTTP/REST/REST.org")
  (front-context-string . "#+TITLE: REST\n\n*")
@@ -1958,11 +2053,6 @@
  (front-context-string . "#+TITLE: My HTML")
  (rear-context-string)
  (position . 1))
-("My Common Lisp Examples.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Common Lisp/Data/Manuals/My Common Lisp Examples.org")
- (front-context-string . "#+TITLE: My Comm")
- (rear-context-string)
- (position . 1))
 (#("My Clothes Manual.org" 0 1
    (idx 11))
  (filename . "~/Org/Wiki/Clothes/Data/Manuals/My Clothes Manual/My Clothes Manual.org")
@@ -1985,12 +2075,6 @@
    (idx 17))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Technologies/Web Scraping/Web Scraping.org")
  (front-context-string . "#+TITLE: Web Scr")
- (rear-context-string)
- (position . 1))
-(#("My Common Lisp Syntax Reference.org" 0 1
-   (idx 24))
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Common Lisp/Data/Manuals/My Common Lisp Syntax Reference.org")
- (front-context-string . "#+TITLE: My Comm")
  (rear-context-string)
  (position . 1))
 (#("My CSS Style Examples.org" 0 1
@@ -2191,12 +2275,6 @@
  (front-context-string . "#+TITLE: My Linu")
  (rear-context-string)
  (position . 1))
-(#("quicklisp.org" 0 1
-   (idx 153))
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Common Lisp/Data/Common Lisp Packages/quicklisp.org")
- (front-context-string . "#+TITLE: QuickLi")
- (rear-context-string)
- (position . 1))
 (#("My GIMP Reference.org" 0 1
    (idx 156))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/GIMP/Data/Manuals/My GIMP Reference/My GIMP Reference.org")
@@ -2290,9 +2368,9 @@
 (#("GDB.org" 0 1
    (idx 182))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/GDB.org")
- (front-context-string . "#+TITLE: GDB\n\n* ")
- (rear-context-string)
- (position . 1))
+ (front-context-string . "**** workflow\n\n*")
+ (rear-context-string . "ion\n\n*** Usage\n\n")
+ (position . 912))
 (#("Machine Learning.org" 0 1
    (idx 183))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Artificial Intelligence/Machine Learning/Machine Learning.org")
@@ -2321,12 +2399,6 @@
    (idx 190))
  (filename . "~/Org/Wiki/Government/Policy/Policy.org")
  (front-context-string . "#+TITLE: Policy\n")
- (rear-context-string)
- (position . 1))
-(#("Scheme.org" 0 1
-   (idx 192))
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Scheme/Scheme.org")
- (front-context-string . "#+TITLE: Scheme ")
  (rear-context-string)
  (position . 1))
 (#("Chrome Extensions.org" 0 1
@@ -2833,12 +2905,6 @@
  (front-context-string . "#+TITLE: Perl Pr")
  (rear-context-string)
  (position . 1))
-(#("Common Lisp Packages.org" 0 1
-   (idx 408))
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Common Lisp/Data/Common Lisp Packages/Common Lisp Packages.org")
- (front-context-string . "#+TITLE: Common ")
- (rear-context-string)
- (position . 1))
 (#("Python Packages.org" 0 1
    (idx 410))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Python/Data/Python Packages/Python Packages.org")
@@ -3053,12 +3119,6 @@
    (idx 489))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Emacs Lisp.org")
  (front-context-string . "* Intro\n\n\n** Fea")
- (rear-context-string)
- (position . 1))
-(#("Common Lisp.org" 0 1
-   (idx 492))
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Common Lisp/Common Lisp.org")
- (front-context-string . "#+TITLE: Common ")
  (rear-context-string)
  (position . 1))
 (#("My ClojureScript Examples.org" 0 1
@@ -3467,12 +3527,6 @@
    (idx 604))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/Data/TeX Macro Packages/TeX Macro Packages.org")
  (front-context-string . "#+TITLE: TeX Mac")
- (rear-context-string)
- (position . 1))
-(#("Lisp.org" 0 1
-   (idx 605))
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Lisp.org")
- (front-context-string . "#+TITLE: Lisp\n\n*")
  (rear-context-string)
  (position . 1))
 (#("Commands.org" 0 1
