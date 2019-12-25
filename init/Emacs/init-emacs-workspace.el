@@ -44,6 +44,18 @@
 ;;   ;; :bind-keymap ("C-c w" . spacebar-command-map)
 ;;   :config (spacebar-mode))
 
+;;; [ tab-bar ] -- frame-local tabs with named persistent window configurations.
+
+;; (use-package tab-bar
+;;   :commands (tab-bar-mode)
+;;   :custom ((tab-bar-select-tab-modifiers '(control))
+;;            (tab-bar-tab-hints t)))
+
+;;; [ tab-line ] -- window-local tabs with window buffers.
+
+(use-package tab-line
+  :commands (global-tab-line-mode tab-line-mode))
+
 
 (provide 'init-emacs-workspace)
 
