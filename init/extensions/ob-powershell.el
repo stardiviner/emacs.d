@@ -12,7 +12,7 @@
 ;;; Code:
 (require 'ob)
 (require 'ob-core)
-(eval-when-compile (require 'cl))
+(eval-when-compile (require 'cl-lib))
 
 (defcustom org-babel-powershell-command "powershell"
   "The command to run PowerShell src block code."
