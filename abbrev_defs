@@ -163,9 +163,7 @@
 
 (define-abbrev-table 'flymake-diagnostics-buffer-mode-abbrev-table '())
 
-(define-abbrev-table 'fortran-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'fortran-mode-abbrev-table '())
 
 (define-abbrev-table 'ftp-mode-abbrev-table '())
 
@@ -205,7 +203,16 @@
 
 (define-abbrev-table 'git-gutter+-commit-mode-abbrev-table '())
 
-(define-abbrev-table 'global-abbrev-table '())
+(define-abbrev-table 'global-abbrev-table
+  '(
+    ("myemail" "numbchild@gmail.com" nil 0)
+    ("mygmail" "numbchild@gmail.com" nil 0)
+    ("mygmailformat" "numbchild[@]{gmail}.com" nil 0)
+    ("myhomepage" "http://stardiviner.github.io" nil 0)
+    ("mynick" "stardiviner" nil 0)
+    ("myqq" "348284894" nil 0)
+    ("mytwitter" "@numbchild" nil 0)
+   ))
 
 (define-abbrev-table 'gnus-article-edit-mode-abbrev-table '())
 
