@@ -59,7 +59,10 @@
               ("C-c C-t b" . omnisharp-unit-test-buffer)
               ("C-c C-t l" . omnisharp-unit-test-last))
   :init (setq omnisharp-server-executable-path
-              (expand-file-name "~/Code/.NET/omnisharp-roslyn/run"))
+              (let ((omnisharp-run-source (expand-file-name "~/Code/.NET/omnisharp-roslyn/run")) ; source code compiled
+                    (omnisharp-run-binary (expand-file-name "~/Code/.NET/omnisharp-linux-x86/run"))) ; pre-compiled binary
+                (if (file-exists-p omnisharp-run-source)
+                    omnisharp-run-source omnisharp-run-binary)))
   (setq omnisharp-company-begin-after-member-access t
         omnisharp-company-do-template-completion t
         omnisharp-company-template-use-yasnippet t
