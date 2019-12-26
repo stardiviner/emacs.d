@@ -301,9 +301,28 @@ and append it."
                     (expand-file-name (org-link-unescape path)))
      :name "org-video-link")))
 
+(defun org-video-complete-link (&optional arg)
+  "Create a video link using completion."
+  (let ((file (read-file-name "Video: "))
+        (pwd (file-name-as-directory (expand-file-name ".")))
+        (pwd1 (file-name-as-directory (abbreviate-file-name
+                                       (expand-file-name ".")))))
+    (cond ((equal arg '(16))
+           (concat "video:"
+                   (abbreviate-file-name (expand-file-name file))))
+          ((string-match
+            (concat "^" (regexp-quote pwd1) "\\(.+\\)") file)
+           (concat "video:" (match-string 1 file)))
+          ((string-match
+            (concat "^" (regexp-quote pwd) "\\(.+\\)")
+            (expand-file-name file))
+           (concat "video:"
+                   (match-string 1 (expand-file-name file))))
+          (t (concat "video:" file)))))
+
 (org-link-set-parameters "video"
                          :follow #'org-video-link-open
-                         :complete #'org-file-complete-link)
+                         :complete #'org-video-complete-link)
 
 ;; [[eshell:*et:.config/emacs*:cd /home/stardiviner/.config/emacs][cd /home/stardiviner/.config/emacs]]
 ;; (require 'ol-eshell)
