@@ -404,7 +404,9 @@ and append it."
 (defun org-image-link-edit ()
   "Open the image at point for editing."
   (interactive)
-  (let ((context (org-element-context)))
+  (let* ((context (org-element-context))
+         (type (plist-get (cadr context) :type))
+         (path (plist-get (cadr context) :path)))
     (if (not (eq (car-safe context) 'link))
         (user-error "Not on a link")
       (async-start-process
@@ -412,7 +414,9 @@ and append it."
        org-image-link-edit-cmd
        (lambda (p)
          (message (format "%s" p)))
-       (org-link-unescape (plist-get (cadr context) :path))))))
+       (pcase type
+         ("file" (org-link-unescape path))
+         ("attachment" (org-attach-expand path)))))))
 
 (define-key Org-prefix (kbd "E") 'org-image-link-edit)
 
