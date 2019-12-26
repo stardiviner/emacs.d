@@ -27,8 +27,7 @@
           (company-capf :with company-yasnippet
                         :separate company-tempo
                         :separate company-dabbrev-code)
-          (company-keywords :with company-abbrev)
-          company-ispell)))
+          (company-keywords :with company-abbrev))))
 
 (add-hook 'org-mode-hook #'my/org-mode-completion-setting)
 
