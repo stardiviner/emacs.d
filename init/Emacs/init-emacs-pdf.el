@@ -67,25 +67,6 @@
   :after pdf-tools
   :init (add-hook 'pdf-view-mode-hook 'pdf-view-restore-mode))
 
-;;; [ org-pdfview ] -- org-link support for pdf-view-mode
-
-(use-package org-pdfview
-  :ensure t
-  :defer t
-  :after org
-  :commands (org-pdfview-open
-             org-pdfview-export
-             org-pdfview-complete-link org-pdfview-store-link)
-  :init (org-link-set-parameters "pdfview"
-                                 :follow #'org-pdfview-open
-                                 :export #'org-pdfview-export
-                                 :complete #'org-pdfview-complete-link
-                                 :store #'org-pdfview-store-link)
-  ;; change Org-mode default open PDF file function.
-  ;; If you want, you can also configure the org-mode default open PDF file function.
-  (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdfview-open link))))
-  (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . (lambda (file link) (org-pdfview-open link)))))
-
 ;; [ org-noter ] -- Emacs document annotator, using Org-mode.
 
 (use-package org-noter
@@ -95,6 +76,14 @@
   :preface (unless (boundp 'Org-prefix) (define-prefix-command 'Org-prefix))
   :bind (:map Org-prefix ("n" . org-noter))
   :init (setq org-noter-auto-save-last-location t))
+
+;;; [ org-pdftools ] -- A custom org link type for pdf-tools.
+
+(leaf org-pdftools
+  ;; :el-get (org-pdftools :url "https://github.com/fuxialexander/org-pdftools.git")
+  :load-path "~/Code/Emacs/org-pdftools"
+  :require t
+  :config (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdftools-open link)))))
 
 ;; [ pdf-tools-org ] -- integrate pdf-tools annotations to exporting/importing with Org Mode.
 
