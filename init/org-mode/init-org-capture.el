@@ -111,8 +111,10 @@ In ~%s~:
 
 ;; Refile targets include this file and any file contributing to the
 ;; agenda - up to 5 levels deep
-(setq org-refile-targets '((nil :maxlevel . 3)
-                           (org-agenda-files :maxlevel . 2))
+(setq org-refile-targets '((nil :maxlevel . 3) ; current buffer headlies
+                           (org-agenda-files :maxlevel . 2) ; agenda files headlines
+                           (org-buffer-list :maxlevel . 2)  ; all opened Org buffer files headlines
+                           )
       org-refile-use-outline-path t
       org-outline-path-complete-in-steps nil
       ;; org-refile-target-verify-function nil
