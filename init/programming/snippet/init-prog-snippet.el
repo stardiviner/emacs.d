@@ -73,8 +73,8 @@ $0`(yas-escape-text yas-selected-text)`"
 
 ;;; [ yasnippet-snippets ] -- Official snippet collection for the yasnippet package.
 
-(use-package yasnippet-snippets
-  :ensure t)
+;; (use-package yasnippet-snippets
+;;   :ensure t)
 
 ;;; [ ivy-yasnippet ] -- preview yasnippet snippets with Ivy.
 
