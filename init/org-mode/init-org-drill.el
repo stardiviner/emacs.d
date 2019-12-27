@@ -65,8 +65,9 @@
       (not ; reverse word exist boolean
        ;; Add `stem-english' support.
        (cl-some (lambda (drill) (dolist (stem-word (stem-english word))
-                             (string-equal stem-word drill))) drill-words))))
-
+                             (string-equal stem-word drill)))
+                drill-words))))
+  
   (defun my-org-drill-record-word ()
     "Record word to org-drill words file."
     (interactive)
