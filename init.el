@@ -167,7 +167,7 @@
 ;;; Tools
 (unless (boundp 'tools-prefix)
   (define-prefix-command 'tools-prefix))
-(global-set-key (kbd "C-c t") 'tools-prefix)
+(global-set-key (kbd "C-x t") 'tools-prefix)
 
 (require 'init-tool-calendar)
 (require 'init-tool-dictionary)
@@ -321,7 +321,7 @@
 
 (unless (boundp 'prog-tools-prefix)
   (define-prefix-command 'prog-tools-prefix))
-(global-set-key (kbd "C-c C-t") 'prog-tools-prefix)
+(global-set-key (kbd "C-c t") 'prog-tools-prefix)
 
 (require 'init-DevOps)
 ;; (require 'init-elasticsearch)
