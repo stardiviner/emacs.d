@@ -67,7 +67,7 @@
 
   ;; programming code
   ;; flyspell-prog-mode : enable flyspell for comments in source code
-  (add-hook 'prog-mode-hook #'flyspell-prog-mode)
+  ;; (add-hook 'prog-mode-hook #'flyspell-prog-mode) ; cause little performance issue on code completing.
 
   ;; Org-mode
   (add-hook 'org-mode-hook
@@ -84,8 +84,7 @@
 
   ;; text
   (dolist (hook
-           '(
-             ;; `text-mode' is parent mode of `org-mode' and `markdown-mode'.
+           '(;; `text-mode' is parent mode of `org-mode' and `markdown-mode'.
              ;; text-mode-hook
              markdown-mode-hook))
     (add-hook hook 'flyspell-mode))
@@ -111,7 +110,7 @@
 
 ;;; [ flyspell-correct ] -- correcting words with flyspell via custom interface.
 
-(use-package flyspell-correct ; [C-.]
+(use-package flyspell-correct
   :ensure t
   :defer t
   :after flyspell
