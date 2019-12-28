@@ -61,6 +61,54 @@
   ;;   :hook (after-init . hydra-posframe-enable))
   )
 
+;;; [ hydra-posframe ] -- Display Hydra diagnostics at point.
+
+(use-package hydra-posframe
+  :ensure t
+  :init (hydra-posframe-enable))
+
+;;; [ pretty-hydra ] -- A macro for creating nice-looking Hydras.
+
+(use-package pretty-hydra
+  :ensure t)
+
+;;; [ major-mode-hydra ] -- Major mode keybindings managed by Hydra.
+
+(use-package major-mode-hydra
+  :ensure t
+  :bind ("S-SPC" . major-mode-hydra) ; [Shift-SPACE]
+  :config
+  (major-mode-hydra-define emacs-lisp-mode nil
+    ("Eval"
+     (("b" eval-buffer "buffer")
+      ("e" eval-defun "defun")
+      ("r" eval-region "region"))
+     "REPL"
+     (("I" ielm "ielm"))
+     "Test"
+     (("t" ert "prompt")
+      ("T" (ert t) "all")
+      ("F" (ert :failed) "failed"))
+     "Doc"
+     (("d" describe-foo-at-point "thing-at-pt")
+      ("f" describe-function "function")
+      ("v" describe-variable "variable")
+      ("i" info-lookup-symbol "info lookup"))))
+
+  (major-mode-hydra-define clojure-mode
+    (:title "Clojure Mode" :color pink :separator "-")
+    ("Load"
+     (("k" cider-load-buffer "buffer" :exit nil)
+      ("l" cider-load-file "file" :color red))))
+
+  (major-mode-hydra-define go-mode
+    (:title "Go Commands")
+    ("Doc"
+     (("d" godoc-at-point "doc at point"))
+     "Imports"
+     (("ia" go-import-add "add")
+      ("ir" go-remove-unused-imports "cleanup")))))
+
 ;;; [ emaps ] -- Emaps provides utilities for working with keymaps and keybindings in Emacs.
 
 (use-package emaps
