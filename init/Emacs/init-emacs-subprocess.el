@@ -44,8 +44,6 @@
 (use-package eaf
   :load-path "~/Code/Emacs/emacs-application-framework/"
   :custom (eaf-find-alternate-file-in-dired t)
-  :defer t
-  :commands (eaf-open)
   :config (eaf-setq eaf-camera-save-path "~")
   (setf (alist-get "q" eaf-pdf-viewer-keybinding) 'quit-window))
 
