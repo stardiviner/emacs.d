@@ -58,16 +58,13 @@
 
   (defun my-org-drill-word-exist-p (word)
     "Check word exist in Words.org file?"
-    (let ((drill-words (org-map-entries
-                        (lambda () (nth 4 (org-heading-components)))
-                        nil
-                        (list (expand-file-name my-org-drill-words-file)))))
-      (not ; reverse word exist boolean
-       ;; Add `stem-english' support.
-       (cl-some (lambda (drill) (dolist (stem-word (stem-english word))
-                             (string-equal stem-word drill)))
-                drill-words))))
-  
+    (let ((drill-words (reverse
+                        (org-map-entries
+                         (lambda () (nth 4 (org-heading-components)))
+                         nil
+                         (list (expand-file-name my-org-drill-words-file))))))
+      (cl-some (lambda (drill) (string-equal (car (stem-english word)) drill)) drill-words)))
+
   (defun my-org-drill-record-word ()
     "Record word to org-drill words file."
     (interactive)
@@ -77,20 +74,20 @@
                   (if (region-active-p)
                       (buffer-substring-no-properties (mark) (point))
                     (thing-at-point 'word))))))
-      (unless (not (and (my-org-drill-word-exist-p word)
-                        (yes-or-no-p (format "org-drill record this word (%s): " word))))
-        ;; copy original source sentence for `org-capture' template `%c'.
-        (save-mark-and-excursion
-          (ignore-errors (er/mark-sentence))
-          (kill-ring-save (region-beginning) (region-end))
-          (if (region-active-p) (deactivate-mark)))
-        ;; region select word for `org-capture' template "`%i'".
-        (unless (region-active-p) (er/mark-word))
-        ;; call org-capture template programmatically.
-        (org-capture nil "w")
-        ;; disable region selection.
-        ;; FIXME: the current buffer is CAPTURE buffer.
-        (if (region-active-p) (deactivate-mark)))))
+      (unless (my-org-drill-word-exist-p word)
+        (when (yes-or-no-p (format "org-drill record this word (%s): " word))
+          ;; copy original source sentence for `org-capture' template `%c'.
+          (save-mark-and-excursion
+            (ignore-errors (er/mark-sentence))
+            (kill-ring-save (region-beginning) (region-end))
+            (if (region-active-p) (deactivate-mark)))
+          ;; region select word for `org-capture' template "`%i'".
+          (unless (region-active-p) (er/mark-word))
+          ;; call org-capture template programmatically.
+          (org-capture nil "w")
+          ;; disable region selection.
+          ;; FIXME: the current buffer is CAPTURE buffer.
+          (if (region-active-p) (deactivate-mark))))))  
 
   (autoload 'goldendict-dwim "goldendict")
   (advice-add 'goldendict-dwim :after #'my-org-drill-record-word)
