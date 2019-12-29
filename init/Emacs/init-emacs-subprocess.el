@@ -47,7 +47,9 @@
   :config (eaf-setq eaf-camera-save-path "~")
   (setf (alist-get "q" eaf-pdf-viewer-keybinding) 'quit-window)
   ;; use EAF as default web browser for Emacs.
-  (setq browse-url-browser-function 'eaf-open-browser))
+  (setq browse-url-browser-function 'eaf-open-browser)
+  (with-eval-after-load 'desktop
+   (add-to-list 'desktop-modes-not-to-save 'eaf-mode)))
 
 ;;; [ Threads ]
 
