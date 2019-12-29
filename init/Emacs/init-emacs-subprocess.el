@@ -45,7 +45,9 @@
   :load-path "~/Code/Emacs/emacs-application-framework/"
   :custom (eaf-find-alternate-file-in-dired t)
   :config (eaf-setq eaf-camera-save-path "~")
-  (setf (alist-get "q" eaf-pdf-viewer-keybinding) 'quit-window))
+  (setf (alist-get "q" eaf-pdf-viewer-keybinding) 'quit-window)
+  ;; use EAF as default web browser for Emacs.
+  (setq browse-url-browser-function 'eaf-open-browser))
 
 ;;; [ Threads ]
 
