@@ -455,6 +455,11 @@ and append it."
   :init (add-to-list 'display-buffer-alist
                      '("^\\*org-kindle:.*\\*" (display-buffer-below-selected))))
 
+;;; [ org-screen ] -- Integrate Org Mode with screen.
+
+(use-package org-screen
+  :commands (org-screen))
+
 
 
 (provide 'init-org-hyperlink)
