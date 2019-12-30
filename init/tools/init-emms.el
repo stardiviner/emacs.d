@@ -48,6 +48,14 @@
   (setq emms-info-mp3info-coding-system '(utf-8 gbk)
         emms-cache-file-coding-system 'utf-8)
 
+  ;; [ EMMS mode-line ]
+  (defun my/emms-mode-line-info ()
+    (let* ((track (emms-playlist-current-selected-track))
+           ;; (description (emms-track-description (emms-playlist-current-selected-track)))
+           (title (file-name-nondirectory (cdr (assoc 'name track)))))
+      (format emms-mode-line-format title)))
+  (setq emms-mode-line-mode-line-function 'my/emms-mode-line-info)
+  
   ;; [ Streams: Radio, Podcasts ]
 
   ;; Switch to the radio buffer
