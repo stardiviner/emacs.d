@@ -394,6 +394,7 @@ and append it."
         ("lispdoc" . "http://lispdoc.com/?q=%s")
         ;; Clojure
         ;; Java
+        ("Maven" . "https://search.maven.org/search?q=%s")
         ("Java JSR" . "https://jcp.org/en/jsr/detail?id=%s") ; Java Specification Requests
         ("Java JEP" . "https://openjdk.java.net/jeps/%s") ; JEP
         ;; Python
