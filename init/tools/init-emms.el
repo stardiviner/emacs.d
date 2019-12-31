@@ -53,7 +53,10 @@
     (let* ((track (emms-playlist-current-selected-track))
            ;; (description (emms-track-description (emms-playlist-current-selected-track)))
            (title (file-name-nondirectory (cdr (assoc 'name track)))))
-      (format emms-mode-line-format title)))
+      (format emms-mode-line-format
+              (s-truncate
+               (/ (/ (frame-width) 2) 4)
+               title))))
   (setq emms-mode-line-mode-line-function 'my/emms-mode-line-info)
   
   ;; [ Streams: Radio, Podcasts ]
