@@ -289,6 +289,7 @@
 (require 'init-prog-lang-reStructuredText)
 (require 'init-prog-lang-AsciiDoc)
 (require 'init-prog-lang-yaml)
+(require 'init-prog-lang-toml)
 ;; (require 'init-prog-lang-prolog)
 ;; (require 'init-prog-lang-ocaml)
 ;; (require 'init-prog-lang-verilog)
