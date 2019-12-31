@@ -252,6 +252,11 @@
               (indium-eval
                (format "window.dispatchEvent(new CustomEvent('patch', {detail: {url: '%s'}}))" url)))))
 
+;;; [ npm-mode ] -- minor mode for working with npm projects.
+
+(use-package npm-mode
+  :ensure t)
+
 ;;; [ jsx-mode ] -- The XML inside of JavaScript.
 
 ;; (use-package jsx-mode
