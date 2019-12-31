@@ -116,13 +116,9 @@
 
 ;;; [ nvm ] -- Manage Node versions within Emacs.
 
-;; (use-package nvm
-;;   :ensure t
-;;   :defer t
-;;   :config
-;;   ;; FIXME: VERSION should be a number.
-;;   ;; (nvm-use "system")
-;;   )
+(use-package nvm
+  :ensure t
+  :init (nvm-use "11.14.0"))
 
 ;; [ js-comint ] -- a lightweight comint integration.
 
