@@ -290,6 +290,8 @@ and append it."
   "Specify the program for openning video: link."
   :type 'string)
 
+(defvar org-video-link-extension-list '("avi" "rmvb" "ogg" "mp4" "mkv"))
+
 (defun org-video-link-open (uri)
   "Open video file `URI' with video player."
   (let* ((list (split-string uri "::"))
@@ -303,7 +305,11 @@ and append it."
 
 (defun org-video-complete-link (&optional arg)
   "Create a video link using completion."
-  (let ((file (read-file-name "Video: "))
+  (let ((file (read-file-name "Video: " nil nil nil nil
+                              #'(lambda (file)
+                                  (seq-contains-p
+                                   org-video-link-extension-list
+                                   (file-name-extension file)))))
         (pwd (file-name-as-directory (expand-file-name ".")))
         (pwd1 (file-name-as-directory (abbreviate-file-name
                                        (expand-file-name ".")))))
