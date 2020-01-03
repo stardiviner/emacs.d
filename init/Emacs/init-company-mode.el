@@ -236,17 +236,6 @@
           (company-restclient . (:icon "DarkTurquoise"))))
   )
 
-;;; [ company-posframe ] -- Use a posframe as company candidate menu.
-
-(use-package company-posframe
-  :if (not (featurep 'company-box))
-  :ensure t
-  :commands (company-posframe-mode)
-  :config (company-posframe-mode 1)
-  ;;; The below code let desktop.el not record the company-posframe-mode
-  (require 'desktop) ; this line is needed.
-  (push '(company-posframe-mode . nil) desktop-minor-mode-table))
-
 
 (provide 'init-company-mode)
 
