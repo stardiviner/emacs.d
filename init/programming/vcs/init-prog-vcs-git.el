@@ -40,8 +40,7 @@
 
 (use-package git-commit ; edit Git commit messages.
   :ensure t
-  :defer t
-  :init
+  :config
   ;; `company-dabbrev' in git commit buffer.
   ;; https://github.com/company-mode/company-mode/issues/704
   (defun my:company-dabbrev-ignore-except-magit-diff (buffer)
@@ -211,7 +210,8 @@
 ;;; [ forge ] -- Work with Git forges, such as Github and Gitlab, from the comfort of Magit and the rest of Emacs.
 
 (use-package forge
-  :ensure t)
+  :ensure t
+  :after magit)
 
 ;;; [ magit-reviewboard ] -- integrate the ReviewBoard review software into magit.
 
@@ -300,12 +300,7 @@
   :defer t
   :delight git-gutter+-mode
   :preface (setq git-gutter+-disabled-modes '(asm-mode image-mode))
-  :init
-  (autoload 'git-gutter+-turn-on "git-gutter+")
-  (defun my/git-gutter+-turn-on ()
-    (unless (and (buffer-file-name) (file-remote-p (buffer-file-name)))
-      (git-gutter+-turn-on)))
-  (add-hook 'prog-mode-hook #'my/git-gutter+-turn-on)
+  :commands (global-git-gutter+-mode git-gutter+-turn-on)
   :bind (:map git-quick-prefix
               ("t" . git-gutter+-mode) ; Turn on/off in the current buffer
               ("T" . global-git-gutter+-mode) ; Turn on/off globally
@@ -341,10 +336,15 @@
               ("m c" . git-gutter+-commit)
               ("m C" . git-gutter+-stage-and-commit)
               ("m u" . git-gutter:update-all-windows))
-  :config
+  :init
   (add-to-list 'display-buffer-alist
                '("\\*git-gutter+-diff\\*" . (display-buffer-below-selected)))
-  )
+  (defun git-gutter+-turn-on--around-advice (orig-func &rest args)
+    (unless (and (buffer-file-name)
+                 (file-remote-p (buffer-file-name)))
+      (apply orig-func args)))
+  (advice-add 'git-gutter+-turn-on :around #'git-gutter+-turn-on--around-advice)
+  (add-hook 'prog-mode-hook #'git-gutter+-turn-on))
 
 ;;; [ diff-hl ] -- highlighting uncommitted changes with continuous fringe vertical block.
 

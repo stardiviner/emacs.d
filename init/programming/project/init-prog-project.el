@@ -17,13 +17,12 @@
   :ensure t
   :delight projectile-mode
   :commands (projectile-mode)
+  :bind-keymap ("C-c p" . projectile-command-map)
   :init (projectile-mode 1)
   (setq projectile-completion-system 'ivy
         projectile-use-git-grep t)
   ;; testing
-  (setq projectile-create-missing-test-files t)
-  (with-eval-after-load 'projectile
-    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)))
+  (setq projectile-create-missing-test-files t))
 
 ;;; [ projectile-variable ] -- store project local variables.
 

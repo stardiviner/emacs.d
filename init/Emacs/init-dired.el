@@ -18,12 +18,10 @@
          ("k" . dired-previous-line)
          ("g" . dired-do-redisplay)
          ("F" . find-name-dired))
-  :init
-  ;; auto refresh dired when file changes
-  (setq dired-auto-revert-buffer t)
+  :init (setq dired-auto-revert-buffer t) ; auto refresh dired when file changes
+  :config
   (add-hook 'dired-mode-hook #'turn-on-auto-revert-mode)
   
-  :config
   (setq dired-create-destination-dirs 'ask)
 
   ;; Another thing that did annoy me was the fact that when I traverse the

@@ -11,8 +11,9 @@
 
 (use-package auctex ; TeX-mode, LaTeX-mode
   :ensure t
+  :defer t
   :no-require t
-  :load (tex latex)
+  :requires (tex latex)
   :config
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)

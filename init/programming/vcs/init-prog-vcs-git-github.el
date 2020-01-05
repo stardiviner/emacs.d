@@ -17,27 +17,28 @@
 
 (use-package ghub+
   :ensure t
-  :commands ghubp-get-notifications)
+  :defer t
+  :commands (ghubp-get-notifications))
 
 ;;; [ magithub ] -- Magit interfaces for GitHub.
 
 (use-package magithub
   :ensure t
   :after magit
-  :init (unless (boundp 'git-gutter-prefix)
-          (define-prefix-command 'git-gutter-prefix))
+  :preface (unless (boundp 'git-gutter-prefix)
+             (define-prefix-command 'git-gutter-prefix))
   :bind (:map prog-vcs-prefix ("n" . magithub-dashboard)
               :map git-gutter-prefix
               ("f" . magithub-browse-file)
               ("F" . magithub-browse)
               ("M-c" . magithub-commit-browse) ; [w] on any commit section.
               ("M-b" . magithub-browse-file-blame))
-  :config
-  (magithub-feature-autoinject t)
+  :init
   (add-to-list 'display-buffer-alist
                '("^\\*magithub-dash\\*" (display-buffer-same-window)))
   (add-to-list 'display-buffer-alist
-               '("^\\*magithub:.*\\*" (display-buffer-same-window))))
+               '("^\\*magithub:.*\\*" (display-buffer-same-window)))
+  :config (magithub-feature-autoinject t))
 
 
 

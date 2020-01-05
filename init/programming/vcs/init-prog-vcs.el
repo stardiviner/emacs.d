@@ -12,6 +12,11 @@
   (define-prefix-command 'prog-vcs-prefix))
 (global-set-key (kbd "C-c v") 'prog-vcs-prefix)
 
+;;; [ vc ]
+
+(setq vc-handled-backends '(Git))
+(add-to-list 'display-buffer-alist
+             '("\\*vc-diff\\*" . (display-buffer-below-selected)))
 
 (require 'init-prog-vcs-git)
 

@@ -28,8 +28,7 @@
   ;; revert windows on exit (needs winner mode)
   (winner-mode 1)
   ;; (add-hook 'ediff-before-setup-windows-hook #'winner-mode)
-  (add-hook 'ediff-after-quit-hook-internal 'winner-undo)
-  )
+  (add-hook 'ediff-after-quit-hook-internal 'winner-undo))
 
 ;;; [ diffview ] -- render a unified diff to side-by-side format.
 

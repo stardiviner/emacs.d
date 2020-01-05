@@ -10,7 +10,9 @@
 ;;; [ kotlin-mode ]
 
 (use-package kotlin-mode
-  :ensure t)
+  :ensure t
+  :defer t
+  :mode "\\.kt\\'")
 
 ;;; [ ob-kotlin ]
 
@@ -28,6 +30,7 @@
 (use-package flycheck-kotlin
   :ensure t
   :defer t
+  :after kotlin-mode
   :commands (flycheck-kotlin-setup)
   :init (add-hook 'kotlin-mode-hook #'flycheck-kotlin-setup))
 

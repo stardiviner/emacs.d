@@ -8,30 +8,27 @@
 
 ;;; [ JavaScript ]
 
-(require 'js)
-
-(setq js-indent-level 2
-      js-expr-indent-offset 0
-      js-paren-indent-offset 0
-      ;; js-square-indent-offset 0
-      ;; js-curly-indent-offset 0
-      ;; js-switch-indent-offset 0
-      js-flat-functions nil)
-
-;; (add-to-list 'js-enabled-frameworks 'reat)
-
-;;; helper keybindings
-
-;; [C-o] to open a new line upper between {}.
-(defun my/open-new-line-upper ()
-  "[C-o] to open a new line upper."
-  (interactive)
-  (previous-line)
-  (end-of-line)
-  (newline-and-indent))
-(define-key js-mode-map  (kbd "C-o") 'my/open-new-line-upper)
-(with-eval-after-load "js2-mode"
-  (define-key js2-mode-map (kbd "C-o") 'my/open-new-line-upper))
+(use-package js
+  :defer t
+  :init
+  (setq js-indent-level 2
+        js-expr-indent-offset 0
+        js-paren-indent-offset 0
+        ;; js-square-indent-offset 0
+        ;; js-curly-indent-offset 0
+        ;; js-switch-indent-offset 0
+        js-flat-functions nil)
+  :config
+  ;; [C-o] to open a new line upper between {}.
+  (defun my/open-new-line-upper ()
+    "[C-o] to open a new line upper."
+    (interactive)
+    (previous-line)
+    (end-of-line)
+    (newline-and-indent))
+  (define-key js-mode-map  (kbd "C-o") 'my/open-new-line-upper)
+  (with-eval-after-load "js2-mode"
+    (define-key js2-mode-map (kbd "C-o") 'my/open-new-line-upper)))
 
 ;;; [ ob-js ]
 
@@ -67,8 +64,6 @@
   :ensure t
   :defer t
   :mode ("\\.js\\'" . js2-mode)
-  :init (add-hook 'js-mode-hook #'js2-minor-mode)
-  (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
   :config
   (setq js2-mode-show-parse-errors nil ; highlight text with red face `js2-error'.
         js2-mode-show-strict-warnings t ; highlight warning in underline.
@@ -78,14 +73,16 @@
         ;; externs
         js2-include-browser-externs t
         js2-include-node-externs t)
+
+  (add-hook 'js-mode-hook #'js2-minor-mode)
+  (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
   
   ;; [ js2-refactor ] -- A JavaScript refactoring library for Emacs.
   (use-package js2-refactor
     :ensure t
     :init (add-hook 'js2-mode-hook #'js2-refactor-mode)
     (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
-    :config
-    (js2r-add-keybindings-with-prefix "M-RET"))
+    :config (js2r-add-keybindings-with-prefix "M-RET"))
 
   ;; [ xref-js2 ] -- Jump to references/definitions using ag & js2-mode's AST in Emacs.
   (use-package xref-js2
@@ -118,7 +115,7 @@
 
 (use-package nvm
   :ensure t
-  :init (nvm-use "11.14.0"))
+  :init (nvm-use "v13.5.0"))
 
 ;; [ js-comint ] -- a lightweight comint integration.
 
@@ -133,11 +130,8 @@
   (setenv "NODE_NO_READLINE" "1")
   (setq js-comint-program-command "node")
   (setq js-comint-program-arguments '("--interactive"))
+  (if (featurep 'nvm) (js-do-use-nvm))
   :config
-  ;; integrate with nvm.
-  (if (featurep 'nvm)
-      (js-do-use-nvm))
-
   (defun my/js-comint-setup-keybindings ()
     "Add some custom keybindings for js-comint."
     (local-set-key (kbd "C-c C-s") 'run-js)
@@ -153,9 +147,7 @@
 ;; (use-package nodejs-repl
 ;;   :ensure t
 ;;   :defer t
-;;   :init
-;;   (setenv "NODE_NO_READLINE" "1")
-;;   )
+;;   :init (setenv "NODE_NO_READLINE" "1"))
 
 ;;; [ jscs (JavaScript Code Style) ]
 
@@ -173,39 +165,6 @@
 ;;   ;; (add-hook 'js2-mode-hook #'jscs-fix-run-before-save)
 ;;   ;; (add-hook 'js3-mode-hook #'jscs-fix-run-before-save)
 ;;   )
-
-;;; [ typescript-mode ] -- Major mode for editing typescript.
-
-(use-package typescript-mode
-  :ensure t
-  :defer t)
-
-;;; [ ob-typescript ] -- org-babel functions for typescript evaluation.
-
-(use-package ob-typescript
-  :defer t
-  :commands (org-babel-execute:typescript)
-  :config
-  (add-to-list 'org-babel-load-languages '(typescript . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  (add-to-list 'org-babel-tangle-lang-exts '("typescript" . "ts"))
-  (add-to-list 'org-babel-default-header-args:typescript '(:results . "output")))
-
-;;; [ tide ] -- Typescript Interactive Development Environment.
-
-(use-package tide
-  :ensure t
-  :defer t
-  :commands (tide-mode)
-  :init (add-hook 'typescript-mode-hook #'tide-setup)
-  (add-hook 'typescript-mode-hook #'tide-hl-identifier-mode))
-
-;;; [ lsp-javascript-typescript ] -- Javascript and Typescript support for lsp-mode using javascript-typescript-langserver.
-
-(use-package lsp-mode
-  :ensure t
-  :ensure lsp-javascript-typescript
-  :hook ((js-mode js2-mode typescript-mode rjsx-mode) . lsp))
 
 ;;; [ tern + company-tern ] -- Tern-powered JavaScript integration.
 
@@ -248,10 +207,20 @@
               (indium-eval
                (format "window.dispatchEvent(new CustomEvent('patch', {detail: {url: '%s'}}))" url)))))
 
+;;; [ lsp-javascript-typescript ] -- Javascript and Typescript support for lsp-mode using javascript-typescript-langserver.
+
+(use-package lsp-mode
+  :ensure t
+  :ensure lsp-javascript-typescript
+  :hook ((js-mode js2-mode rjsx-mode) . lsp))
+
 ;;; [ npm-mode ] -- minor mode for working with npm projects.
 
 (use-package npm-mode
-  :ensure t)
+  :ensure t
+  :defer t
+  :commands (npm-global-mode npm-mode)
+  :init (npm-global-mode 1))
 
 ;;; [ jsx-mode ] -- The XML inside of JavaScript.
 
@@ -313,21 +282,42 @@
 ;;   :config
 ;;   (flycheck-jest-setup))
 
-;; -----------------------------------------------------------------------------
+;;==============================================================================
+
+;;; [ typescript-mode ] -- Major mode for editing typescript.
 
 (use-package typescript-mode
   :ensure t
   :defer t)
 
-(use-package ob-typescript
-  :ensure t
-  :defer t
-  :commands (org-babel-execute:typescript))
+;;; [ ob-typescript ] -- org-babel functions for typescript evaluation.
 
-(use-package lsp-typescript
+(use-package ob-typescript
+  :defer t
+  :commands (org-babel-execute:typescript)
+  :config
+  (add-to-list 'org-babel-load-languages '(typescript . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("typescript" . "ts"))
+  (add-to-list 'org-babel-default-header-args:typescript '(:results . "output")))
+
+;;; [ tide ] -- Typescript Interactive Development Environment.
+
+(use-package tide
   :ensure t
   :defer t
-  :init (add-hook 'typescript-mode-hook #'lsp))
+  :after typescript-mode
+  :commands (tide-mode)
+  :init 
+  (add-hook 'typescript-mode-hook #'tide-setup)
+  (add-hook 'typescript-mode-hook #'tide-hl-identifier-mode))
+
+;;; [ lsp-javascript-typescript ] -- Javascript and Typescript support for lsp-mode using javascript-typescript-langserver.
+
+(use-package lsp-mode
+  :ensure t
+  :ensure lsp-javascript-typescript
+  :hook ((typescript-mode) . lsp))
 
 
 (provide 'init-prog-lang-javascript)

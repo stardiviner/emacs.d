@@ -19,7 +19,6 @@
          (".* boot" . clojure-mode) ; recognize script file using shebang
          )
   :config
-  (setq cider-repl-display-help-banner nil) ; inhibit CIDER REPL help banner.
   (autoload 'my-lisp-common-settings "init-prog-lang-lisp.el")
   (add-hook 'clojure-mode-hook #'my-lisp-common-settings)
   
@@ -27,6 +26,7 @@
   (add-hook 'cider-repl-mode-hook #'my-lisp-repl-common-settings)
 
   ;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
+
   ;; `subword-mode' is quite useful since we often have to deal with Java class
   ;; and method names.
   (add-hook 'clojure-mode-hook #'subword-mode)
@@ -34,10 +34,10 @@
   (setq clojure-align-forms-automatically t)
 
   ;; treat `foo-bar' or `:baz' as a symbol.
-  (add-hook 'clojure-mode-hook
-            (lambda ()
-              (dolist (c (string-to-list ":_-?!#*"))
-                (modify-syntax-entry c "w" clojure-mode-syntax-table))))
+  ;; (add-hook 'clojure-mode-hook
+  ;;           (lambda ()
+  ;;             (dolist (c (string-to-list ":_-?!#*"))
+  ;;               (modify-syntax-entry c "w" clojure-mode-syntax-table))))
 
   (with-eval-after-load 'clojure-mode
     (font-lock-add-keywords
@@ -72,10 +72,14 @@
     ;;                                             (match-end 1) "⊿")
     ;;                             nil)))))
     )
+
+  ;; make the [M-;] and `banner-comment' works correct.
+  (add-hook 'clojure-mode-hook (lambda () (setq-local comment-start ";;")))
   )
 
 (use-package clojure-mode-extra-font-locking
-  :ensure t)
+  :ensure t
+  :after clojure-mode)
 
 (use-package subword
   :ensure t
@@ -83,25 +87,26 @@
 
 ;;; [ inf-clojure ] -- Run an external Clojure process in an Emacs buffer.
 
-(use-package inf-clojure
-  :ensure t
-  :defer t
-  :commands (inf-clojure)
-  ;; :init (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
-  :config
-  ;; fix `inf-clojure-minor-mode' conflict wiith `cider-imode' in Clojure buffer of `ob-clojure'.
-  ;; (defun inf-clojure-disable-clojure (&optional arg)
-  ;;   (cider-mode -1)
-  ;;   (inf-clojure-minor-mode 1))
-  ;; (advice-add 'org-edit-special :after 'inf-clojure-disable-clojure)
-  ;; (add-hook 'inf-clojure-mode-hook #'subword-mode)
-  
-  ;; FIXME: it caused auto add newlines.
-  ;; (add-hook 'inf-clojure-mode-hook #'eldoc-mode)
-  ;; manage inf-clojure popup buffers.
-  (add-to-list 'display-buffer-alist
-               '("^\\*inf-clojure*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
-  )
+;; (use-package inf-clojure
+;;   :ensure t
+;;   :defer t
+;;   :commands (inf-clojure)
+;;   :init
+;;   (add-to-list 'display-buffer-alist
+;;                '("^\\*inf-clojure*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
+;;   ;; :init (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
+;;   :config
+;;   ;; fix `inf-clojure-minor-mode' conflict wiith `cider-imode' in Clojure buffer of `ob-clojure'.
+;;   ;; (defun inf-clojure-disable-clojure (&optional arg)
+;;   ;;   (cider-mode -1)
+;;   ;;   (inf-clojure-minor-mode 1))
+;;   ;; (advice-add 'org-edit-special :after 'inf-clojure-disable-clojure)
+;;   ;; (add-hook 'inf-clojure-mode-hook #'subword-mode)
+;;
+;;   ;; FIXME: it caused auto add newlines.
+;;   ;; (add-hook 'inf-clojure-mode-hook #'eldoc-mode)
+;;   ;; manage inf-clojure popup buffers.
+;;   )
 
 ;;; [ CIDER ] -- CIDER is a Clojure IDE and REPL for Emacs
 
@@ -110,23 +115,12 @@
   :defer t
   :commands (cider-jack-in)
   :after clojure-mode
-  :hook (clojure-mode . cider-mode)
-  :bind (:map cider-doc-map
-              ("c" . helm-cider-cheatsheet)
-              ("C-c" . helm-cider-cheatsheet))
-  :init (add-hook 'clojure-mode-hook #'cider-mode)
+  :init
   ;; manage CIDER popup buffers.
-  (setq cider-repl-pop-to-buffer-on-connect nil)
   (add-to-list 'display-buffer-alist
                '("^\\*cider-.*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
                '("^\\*nrepl-.*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
-
-  ;; [ helm-cider ] -- Helm interface to CIDER.
-  (use-package helm-cider
-    :ensure t
-    :init (add-hook 'cider-mode-hook #'helm-cider-mode))
-
   :config
   ;; Clojure
   ;; (setq cider-default-repl-command 'clojure-cli)
@@ -138,20 +132,15 @@
   ;; $ docker run --name clojure -p :7788 -it clojure:tools-deps clj
   ;; (setq cider-known-endpoints '(("docker-clojure" "127.0.0.1" "7888")))
   
-  (setq
-   ;; resources
-   ;; cider-prefer-local-resources t
-   ;; font-lock
-   cider-font-lock-dynamically '(macro core deprecated function)
-   ;; indentation
-   cider-dynamic-indentation nil
-   ;; REPL
-   cider-repl-result-prefix ";; => "
-   )
+  (setq cider-font-lock-dynamically '(macro core deprecated function)
+        ;; cider-prefer-local-resources t
+        ;; cider-dynamic-indentation nil
+        cider-repl-result-prefix ";; => "
+        cider-result-overlay-position 'at-eol)
 
   ;; Enlighten faces
   ;; `cider-enlighten-mode' will extremely slow down Clojure/CIDER evaluation.
-  ;; (add-hook 'cider-mode-hook #'cider-enlighten-mode)
+  (add-hook 'cider-mode-hook #'cider-enlighten-mode)
 
   ;; auto completion with company-mode support
   ;; `cider-complete-at-point' in `completion-at-point-functions'
@@ -170,6 +159,8 @@
   ;; (add-hook 'cider-repl-mode-hook #'cider-repl-require-repl-utils) ; require common functions like doc, source, etc.
   (setq cider-eldoc-display-for-symbol-at-point t
         cider-eldoc-display-context-dependent-info t)
+
+  ;; (setq cider-jump-to-pop-to-buffer-actions '((display-buffer-reuse-window (window-height . 0.3))))
 
   (add-hook 'cider-repl-mode-hook #'subword-mode)
   
@@ -218,6 +209,7 @@ Optional argument NS, if not provided, defaults to
          handler
          nil
          (cider--nrepl-pprint-request-plist (cider--pretty-print-width))))))
+  (define-key cider-inspect-prefix (kbd "m") 'cider-metadata)
 
   ;; bind keybindings to some not-bind wrapping functions in clojure-mode locally.
   (add-hook 'clojure-mode-hook
@@ -258,30 +250,24 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   ;;               ) t)
   )
 
-;;; [ debux.el ] -- Integrate Clojure/ClojureScript debugger "Debux" into Emacs.
+;; [ helm-cider ] -- Helm interface to CIDER.
 
-;; TODO: https://github.com/philoskim/debux
-;; (use-package debux
-;;   :load-path "~/Code/Emacs/debux/"
-;;   ;; :config
-;;   )
+(use-package helm-cider
+  :ensure t
+  :after cider
+  :bind (:map cider-doc-map
+              ("c" . helm-cider-cheatsheet)
+              ("C-c" . helm-cider-cheatsheet))
+  :init (add-hook 'cider-mode-hook #'helm-cider-mode))
 
-;;; [ flycheck-clojure, squiggly-clojure ] --
-
-;; (use-package flycheck-clojure
-;;   :ensure t
-;;   :defer t
-;;   :after flycheck
-;;   :init (flycheck-clojure-setup))
-
-;;; [ clj-refactor ]
+;;; [ clj-refactor ] -- A collection of commands for refactoring Clojure code.
 
 (use-package clj-refactor
   :ensure t
-  ;; :pin "melpa-unstable" ; fix clj-refactor not compatible with CIDER issue.
   :defer t
   :delight clj-refactor-mode
   :init (setq cljr-suppress-middleware-warnings t)
+  :config
   (defun my:clj-refactor-setup ()
     (clj-refactor-mode 1)
     ;; (cljr-add-keybindings-with-prefix "C-c C-m")
@@ -300,8 +286,23 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
     (remove-hook 'find-file-hook #'cljr--ensure-no-dashes-in-filename))
   
   (add-to-list 'display-buffer-alist
-               '("^\\*cljr-*\\*" . (display-buffer-below-selected)))
-  )
+               '("^\\*cljr-*\\*" . (display-buffer-below-selected))))
+
+;;; [ debux.el ] -- Integrate Clojure/ClojureScript debugger "Debux" into Emacs.
+
+;; TODO: https://github.com/philoskim/debux
+;; (use-package debux
+;;   :load-path "~/Code/Emacs/debux/"
+;;   ;; :config
+;;   )
+
+;;; [ flycheck-clojure, squiggly-clojure ] --
+
+;; (use-package flycheck-clojure
+;;   :ensure t
+;;   :defer t
+;;   :after flycheck
+;;   :init (flycheck-clojure-setup))
 
 ;;; [ flycheck-clj-kondo ] -- Emacs integration for clj-kondo via flycheck.
 
@@ -346,7 +347,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;;   :ensure t
 ;;   :defer t)
 
-;;; [ ob-clojure ]
+;;; [ ob-clojure ] -- org-babel support for Clojure
 
 (use-package ob-clojure
   :defer t
@@ -392,8 +393,7 @@ With value selected from a list of available sessions."
                           (let ((sesman-system 'CIDER))
                             (sesman--all-system-sessions sesman-system 'sort)))))))))
 
-  (define-key org-babel-map (kbd "M-j") 'ob-clojure-specify-session)
-  )
+  (define-key org-babel-map (kbd "M-j") 'ob-clojure-specify-session))
 
 ;;; [ ob-clojurescript ] -- org-babel support for ClojureScript
 
@@ -410,9 +410,7 @@ With value selected from a list of available sessions."
 ;; (use-package typed-clojure-mode
 ;;   :ensure t
 ;;   :defer t
-;;   :init
-;;   (add-hook 'clojure-mode-hook 'typed-clojure-mode)
-;;   )
+;;   :init (add-hook 'clojure-mode-hook 'typed-clojure-mode))
 
 ;;; [ Java Docs ]
 
@@ -430,7 +428,7 @@ With value selected from a list of available sessions."
 (use-package elein
   :ensure t
   :defer t
-  :init
+  :config
   (defun elein-lein-try ()
     (interactive)
     (with-current-buffer "*scratch*"
@@ -438,12 +436,17 @@ With value selected from a list of available sessions."
                   (concat "lein try "
                           (read-string "dependencies: " "org.clojure/clojure 1.9.0")))
       (command-execute 'inferior-lisp))
-    (rename-buffer "*elein-lein-try*"))
-  )
+    (rename-buffer "*elein-lein-try*")))
 
 ;;; [ clomacs ] -- Clomacs simplifies call Clojure code from Emacs lisp.
 
 (use-package clomacs
+  :ensure t
+  :defer t)
+
+;;; [ parseclj ] -- EDN reader and Clojure Parser for Emacs Lisp
+
+(use-package parseclj
   :ensure t
   :defer t)
 
@@ -472,31 +475,24 @@ opening 4clojure questions"
     (let ((result (4clojure-check-answers)))
       (unless (string-match "failed." result)
         (4clojure-next-question))))
-  (define-key clojure-mode-map (kbd "C-c C-c") 'my/4clojure-check-and-proceed)
-  )
+  (define-key clojure-mode-map (kbd "C-c C-c") 'my/4clojure-check-and-proceed))
 
 ;;; [ YeSQL Ghosts ] -- Display ghostly YeSQL defqueries inline, in Emacs.
 
-(use-package yesql-ghosts
-  :ensure t
-  :defer t
-  :init (setq yesql-ghosts-show-ghosts-automatically t
-              yesql-ghosts-show-descriptions t)
-  :config (add-hook 'cider-mode-hook 'yesql-ghosts-auto-show-ghosts))
+;; (use-package yesql-ghosts
+;;   :ensure t
+;;   :defer t
+;;   :init (setq yesql-ghosts-show-ghosts-automatically t
+;;               yesql-ghosts-show-descriptions t)
+;;   :config (add-hook 'cider-mode-hook 'yesql-ghosts-auto-show-ghosts))
 
 ;;; [ HugSQL Ghosts ] -- Display ghostly HugSQL defqueries inline, in Emacs.
 
-(use-package hugsql-ghosts
-  :ensure t
-  :defer t
-  :init (setq hugsql-ghosts-newline-before-docstrings t)
-  :config (add-hook 'cider-mode-hook 'hugsql-ghosts-install-hook))
-
-;;; [ parseclj ] -- EDN reader and Clojure Parser for Emacs Lisp
-
-(use-package parseclj
-  :ensure t
-  :defer t)
+;; (use-package hugsql-ghosts
+;;   :ensure t
+;;   :defer t
+;;   :init (setq hugsql-ghosts-newline-before-docstrings t)
+;;   :config (add-hook 'cider-mode-hook 'hugsql-ghosts-install-hook))
 
 (with-eval-after-load 'org
   (add-to-list 'org-default-properties "clojars")

@@ -15,9 +15,9 @@
 
 ;; Recompile your elc when saving an elisp file.
 (add-hook 'after-save-hook
-          (lambda ()
-            (when (file-exists-p (byte-compile-dest-file buffer-file-name))
-              (emacs-lisp-byte-compile)))
+          #'(lambda ()
+              (when (file-exists-p (byte-compile-dest-file buffer-file-name))
+                (emacs-lisp-byte-compile)))
           'append 'local)
 
 ;;; [ sly-el-indent ] -- Use `sly-cl-indent' to indent Emacs Lisp.
@@ -74,24 +74,15 @@
   :ensure t
   :defer t
   :commands (macrostep-expand)
-  :init
-  (setq macrostep-expand-in-separate-buffer nil
-        macrostep-expand-compiler-macros t))
-
+  :init (setq macrostep-expand-in-separate-buffer nil
+              macrostep-expand-compiler-macros t))
 
 ;;; [ elmacro ] -- display keyboard macros or latest interactive commands as emacs lisp.
 
 (use-package elmacro
   :ensure t
   :defer t
-  :init
-  (setq elmacro-concatenate-multiple-inserts t
-        elmacro-objects-to-convert '(frame window buffer)
-        ;; elmacro-unwanted-commands-regexp "^\\(ido\\|smex\\)"
-        ;; elmacro-additional-recorded-functions
-        ;; '(copy-file copy-directory rename-file delete-file make-directory)
-        )
-  )
+  :init (elmacro-mode 1))
 
 ;;; [ elisp-def ] -- Find Emacs Lisp definitions.
 

@@ -72,6 +72,7 @@
 (use-package hydra
   :ensure t
   :ensure ace-window
+  :defer t
   :config
   ;; `hydra-frame-window' is designed from `ace-window' and
   ;; matches aw-dispatch-alist with a few extra

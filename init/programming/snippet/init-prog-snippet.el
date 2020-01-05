@@ -14,7 +14,6 @@
   ;; auto set major mode: snippet-mode.
   :mode (("\\.snippet$" . snippet-mode)
          ("\\.yasnippet$" . snippet-mode))
-  :init (yas-global-mode 1)
   :config
   ;; add personal snippets directory to snippets collection list.
   (add-to-list 'yas-snippet-dirs `,(expand-file-name "snippets" user-emacs-directory))
@@ -69,7 +68,9 @@ $0`(yas-escape-text yas-selected-text)`"
     (make-local-variable 'yas-snippet-dirs)
     (add-to-list 'yas-snippet-dirs
                  (concat (projectile-project-root) ".snippets")))
-  (add-hook 'projectile-find-file-hook #'yasnippet-project-local))
+  (add-hook 'projectile-find-file-hook #'yasnippet-project-local)
+
+  (yas-global-mode 1))
 
 ;;; [ yasnippet-snippets ] -- Official snippet collection for the yasnippet package.
 

@@ -14,7 +14,7 @@
   :ensure t
   :defer t
   :commands (reformatter-define)
-  :init
+  :config
   (reformatter-define json-format
     :program "jq"
     :args '("--indent" "4"))

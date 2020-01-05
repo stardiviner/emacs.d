@@ -13,12 +13,11 @@
   :defer t
   :custom (eyebrowse-keymap-prefix (kbd "C-x w"))
   :init (eyebrowse-mode t)
-  :config
   (setq eyebrowse-new-workspace t
         eyebrowse-close-window-config-prompt t
         ;; it has very often invoked by `posn-at-point' affect performance.
         eyebrowse-mode-line-style nil)
-
+  :config
   ;; Fix side-window issue.
   ;; also save side and slot windows configuration.
   (add-to-list 'window-persistent-parameters '(window-side . writable))
@@ -27,7 +26,6 @@
   (advice-add 'eyebrowse-create-window-config :after
               (lambda () (interactive)
                 (command-execute 'eyebrowse-rename-window-config))))
-
 
 ;;; [ persp-mode ] -- windows/buffers sets shared among frames + save/load.
 
@@ -53,8 +51,8 @@
 
 ;;; [ tab-line ] -- window-local tabs with window buffers.
 
-(use-package tab-line
-  :commands (global-tab-line-mode tab-line-mode))
+;; (use-package tab-line
+;;   :commands (global-tab-line-mode tab-line-mode))
 
 
 (provide 'init-emacs-workspace)

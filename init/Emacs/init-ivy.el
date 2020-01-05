@@ -14,39 +14,12 @@
   :ensure ivy-hydra ; [C-o], [M-o]
   :defer t
   :delight ivy-mode
-  :init (ivy-mode 1)
+  :init
   (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
         ivy-virtual-abbreviate 'full ; use 'full to fix bookmarks uniquify issue.
-        ivy-height 7
-        ;; ivy-fixed-height-minibuffer t
-        ivy-display-style 'fancy
-        ivy-initial-inputs-alist nil ; remove initial ^ input.
-        ;; ivy-extra-directories '() ; remove . and .. directory.
-        )
-  :config
-  (set-face-attribute 'ivy-current-match nil ; selection
-                      :background nil :foreground nil
-                      :weight 'normal
-                      :box t)
-  (set-face-attribute 'ivy-minibuffer-match-highlight nil ; highlighting the match under the cursor
-                      :background "light gray" :foreground "black"
-                      :weight 'normal)
-  (set-face-attribute 'ivy-minibuffer-match-face-1 nil ; the text between multiple matches
-                      :foreground (face-attribute 'default :foreground)
-                      :overline "dim gray"
-                      ;; :strike-through nil
-                      :weight 'normal)
-  (set-face-attribute 'ivy-minibuffer-match-face-2 nil ; only one match
-                      :foreground (face-attribute 'default :foreground)
-                      :underline "red"
-                      :weight 'normal)
-  (set-face-attribute 'ivy-minibuffer-match-face-3 nil ; the first match in multiple matches
-                      :background " " :underline "orange"
-                      :weight 'normal)
-  (set-face-attribute 'ivy-minibuffer-match-face-4 nil ; the second match in multiple matches
-                      :background " " :underline "yellow"
-                      :weight 'normal)
-  )
+        ivy-fixed-height-minibuffer t
+        ivy-height 7)
+  :config (ivy-mode 1))
 
 ;;; [ ivy-rich ] -- More friendly display transformer for ivy.
 
@@ -93,7 +66,7 @@
   (define-key search-prefix (kbd "M-g") 'counsel-grep)
   (define-key search-prefix (kbd "M-r") 'counsel-rg) ; [C-u] prompt for dir support
   :init (setq counsel-mode-override-describe-bindings t)
-  (counsel-mode 1))
+  :config (counsel-mode 1))
 
 ;;; [ ivy-posframe ] -- Using posframe to show Ivy.
 

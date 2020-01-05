@@ -14,9 +14,9 @@
   :defer t
   :commands (pdf-tools-install-noverify pdf-view-mode)
   :preface (pdf-loader-install)
-  :init (pdf-tools-install-noverify) ; (pdf-tools-install)
-  :mode ("\\.pdf\\'" . pdf-view-mode)
+  :mode  ("\\.pdf\\'" . pdf-view-mode)
   :magic ("%PDF" . pdf-view-mode) ; for PDF binary header byte.
+  ;; :init  (pdf-tools-install-noverify) ; (pdf-tools-install)
   :config
   (setq pdf-view-use-scaling t ; open PDF scaled to fit page.
         ;; speed-up pdf-tools by don't try to find unicode.
@@ -82,8 +82,9 @@
 (leaf org-pdftools
   ;; :el-get (org-pdftools :url "https://github.com/fuxialexander/org-pdftools.git")
   :load-path "~/Code/Emacs/org-pdftools"
-  :require t
-  :config (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdftools-open link)))))
+  :init
+  (with-eval-after-load 'org
+    (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdftools-open link))))))
 
 ;; [ pdf-tools-org ] -- integrate pdf-tools annotations to exporting/importing with Org Mode.
 
