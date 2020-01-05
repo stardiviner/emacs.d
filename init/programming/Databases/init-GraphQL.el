@@ -19,6 +19,14 @@
   :ensure t
   :defer t)
 
+;;; [ ob-graphql ] -- Org-Babel execution backend for GraphQL source blocks.
+
+(use-package ob-graphql
+  :ensure t
+  :config
+  (add-to-list 'org-babel-load-languages '(graphql . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
+
 
 (provide 'init-GraphQL)
 
