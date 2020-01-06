@@ -84,27 +84,6 @@
   :defer t
   :init (elmacro-mode 1))
 
-;;; [ elisp-def ] -- Find Emacs Lisp definitions.
-
-(use-package elisp-def
-  :ensure t
-  :defer t
-  :delight elisp-def-mode
-  :init (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
-          (add-hook hook #'elisp-def-mode)))
-
-;;; [ elisp-refs ] -- semantic code search for emacs lisp.
-
-(use-package elisp-refs
-  :ensure t
-  :defer t
-  :bind (:map emacs-lisp-mode-map
-              ("M-g t s" . elisp-refs-symbol)
-              ("M-g t f" . elisp-refs-function)
-              ("M-g t m" . elisp-refs-macro)
-              ("M-g t v" . elisp-refs-variable)
-              ("M-g t S" . elisp-refs-special)))
-
 ;;; [ suggest ] -- suggest elisp functions that give the output requested.
 
 (use-package suggest
