@@ -16,7 +16,8 @@
   (setq-local c-basic-offset 4)
   (setq-local tab-width 4)
   (setq-local standard-indent 4)
-  (electric-pair-local-mode 1))
+  (electric-pair-local-mode 1)
+  (setq-local completion-ignore-case t))
 
 (add-hook 'java-mode-hook #'my/java-mode-setup)
 

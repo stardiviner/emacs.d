@@ -19,6 +19,10 @@
   ;; If you need a terminal emulator rather than just a shell, consider [M-x term]
   ;; instead.
   :config
+  ;; fix ignore case caused slow performance on shell commands completion by company-mode.
+  (add-hook 'sh-mode-hook
+            #'(lambda () (setq-local completion-ignore-case nil)))
+  
   ;; for auto nifty command substitution [!!] and ^a^b.
   (define-key shell-mode-map (kbd "SPC") 'comint-magic-space)
 

@@ -77,6 +77,7 @@
   (add-hook 'csharp-mode-hook 'omnisharp-mode)
   :config
   (defun my-omnisharp-setup ()
+    (setq-local completion-ignore-case t)
     (my-company-add-backend-locally 'company-omnisharp))
   (add-hook 'omnisharp-mode-hook 'my-omnisharp-setup)
 
