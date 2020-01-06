@@ -32,7 +32,7 @@
       ;; 'mode-line, 'frame-title, 'both, nil.
       ;; org-clock-clocked-in-display 'both ; 'frame-title will make window frame border resize.
       ;; org-clock-mode-line-entry t
-      org-clock-mode-line-total 'auto
+      org-clock-mode-line-total 'current
       ;; org-clock-clocktable-language-setup
       ;; org-clock-leftover-time
       ;; org-clock-task-overrun
