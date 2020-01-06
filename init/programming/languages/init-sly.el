@@ -42,6 +42,16 @@
   (define-key sly-prefix-map (kbd "M-h") 'sly-documentation-lookup)
   (define-key sly-mrepl-mode-map (kbd "C-c C-k") 'sly-mrepl-clear-recent-output)
 
+  ;; Common Lisp HyperSpec (CLHS)
+  ;; (offline archive)
+  (setq common-lisp-hyperspec-root
+        (concat "file://" (expand-file-name (concat user-emacs-directory "documentations/HyperSpec/HyperSpec/"))))
+  ;; use advice to set Emacs default browser to EWW locally on SLY commands.
+  (defun hyperspec-lookup--eww-browser (orig-func &rest args)
+    (let ((browse-url-browser-function 'eww-browse-url))
+      (apply orig-func args)))
+  (advice-add 'hyperspec-lookup :around #'hyperspec-lookup--eww-browser)
+
   (add-to-list 'display-buffer-alist
                '("^\\*sly-mrepl.*\\*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
