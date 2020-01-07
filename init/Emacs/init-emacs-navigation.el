@@ -81,7 +81,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
   :ensure t
   :after org
   :bind (("C-'" . ace-jump-mode) :map org-mode-map ("C-'" . ace-jump-mode))
-  :init
+  :init (setq ace-jump-mode-scope 'window)
   ;; fix `org-reload' reload `org' to override my upper keybinding.
   (add-hook 'after-init-hook
             #'(lambda () (with-eval-after-load "org"
