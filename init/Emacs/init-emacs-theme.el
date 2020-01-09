@@ -16,6 +16,7 @@
 (global-font-lock-mode t)
 
 (autoload 'color-lighten-name "color.el")
+(autoload 'color-darken-name "color.el")
 
 ;;; [ custom theme ]
 
