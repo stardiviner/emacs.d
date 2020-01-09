@@ -35,14 +35,14 @@
 
 ;;; [ AWS ]
 
-(require 'init-AWS)
+;; (require 'init-AWS)
 
 ;;; [ Heroku ]
 
-(use-package heroku
-  :ensure t
-  :defer t
-  :commands (heroku-run))
+;; (use-package heroku
+;;   :ensure t
+;;   :defer t
+;;   :commands (heroku-run))
 
 
 (provide 'init-DevOps)

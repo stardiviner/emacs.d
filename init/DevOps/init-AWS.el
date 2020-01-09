@@ -1,6 +1,6 @@
 ;;; init-AWS.el --- init file for Amazon AWS
 
-;;; Time-stamp: <2019-12-30 12:30:18 stardiviner>
+;;; Time-stamp: <2020-01-09 22:29:40 stardiviner>
 
 ;;; Commentary:
 
@@ -10,10 +10,10 @@
 
 ;;; [ awscli-capf ] -- Completion at point function for AWS CLI commands and parameters.
 
-;; (use-package awscli-capf
-;;   :ensure t
-;;   :commands (awscli-capf-add)
-;;   :hook (shell-mode . awscli-capf-add))
+(use-package awscli-capf
+  :ensure t
+  :commands (awscli-capf-add)
+  :hook (shell-mode . awscli-capf-add))
 
 ;;; [ helm-aws ] -- 
 
