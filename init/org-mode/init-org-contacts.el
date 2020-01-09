@@ -24,41 +24,22 @@
 :NICK: %^{Nick}
 :NAME(Chinese): %^{Name(Chinese)}
 :NAME(English): %^{Name(English)}
-:BIRTHDAY:
 :GENDER: %^{Gender|Transgender|Male|Female}
-:Sexual: %^{Sexual|Heterosexual|Bisexual|Homosexual}
 :RELATIONSHIP: %^{Relationship|Internet|Meet|Friend|Good Friend|Boy Friend|Girl Friend|Workmate|Classmate|Schoolmate}
 :FIRST-MEET: %^U  %^{How is the first-time meet? when? where? how?}
-:Thought: %^{Thought|open|conservative}
 :MOBILE: %^{Mobile Phone}
 :EMAIL: %^{Email}
-:BLOG: %^{Blog}
-:WeChat: %^{WeChat}
-:QQ:
-:Facebook: %^{Facebook}
 :GitHub: %^{GitHub}
 :ADDRESS(home): %^{address(home)}
-:ADDRESS(work): %^{address(work)}
 :ADDRESS(live): %^{address(live)}
-:CHARACTER:
-:FEELING:
-:World-Views:
 :LANGUAGES: %^{Languages|Chinese|Chinese, English|English|Japanese|Korean}
 :EDUCATION: %^{Education}
 :School(university):
-:School(high-school):
-:School(junior-high-school):
-:School(primary-school):
-:School(nursery-school):
 :SKILLS: %^{Skills|Programming|Economy}
 :Programming-Skills: %^{Programming Skills|Emacs|Web|Computer System|Cloud Computation}
 :Programming-Languages: %^{Programming Languages|LISP|Common Lisp|Clojure|Emacs Lisp|Java|C/C++|Python|Ruby|PHP}
 :Occupation: %^{Occupation|Programmer|Freelancer|Businessman|Servant|Arter}
 :Hobbies: %^{Hobbies|Reading|Music|Movie|Travel}
-:Family:
-:Father:
-:Mother:
-:Financial-Condition:
 :END:"
                    :empty-lines 0
                    :jump-to-captured t
