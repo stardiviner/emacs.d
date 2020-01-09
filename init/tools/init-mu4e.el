@@ -12,8 +12,8 @@
   :load-path "~/Code/Emacs/mu/mu4e/" ; compile from source code
   :defer t
   :commands (mu4e)
-  :bind (:map tools-prefix ("m" . mu4e))
-  :init (setq mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
+  :init (define-key tools-prefix (kbd "m") 'mu4e)
+  (setq mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
   (setq mu4e-completing-read-function 'completing-read)
   ;; (setq mu4e-mu-home nil ; nil for default
   ;;       mu4e-mu-binary "/usr/sbin/mu"
