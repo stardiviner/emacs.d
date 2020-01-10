@@ -26,6 +26,7 @@
   (define-key pdf-view-mode-map (kbd "q") 'kill-current-buffer)
 
   ;; set the view mode colors to fit your color-theme for `pdf-view-midnight-minor-mode'.
+  (add-hook 'pdf-view-mode-hook #'auto-revert-mode)
   (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
   (defun my/pdf-view-midnight-colors-reset (theme)
     "Reset pdf-view midnight colors to fit color themes."
