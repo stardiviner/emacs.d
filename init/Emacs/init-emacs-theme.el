@@ -41,9 +41,6 @@
 
 (use-package leuven-theme
   :load-path "~/Code/Emacs/leuven-theme/"
-  :no-require t
-  :defer t
-  :init (require 'leuven-theme)
   ;; :config (load-theme 'leuven t)
   )
 
@@ -51,9 +48,6 @@
 
 (use-package one-themes
   :load-path "~/Code/Emacs/one-themes"
-  :no-require t
-  :defer t
-  :init (require 'one-themes)
   ;; :config (load-theme 'one-dark t)
   )
 
