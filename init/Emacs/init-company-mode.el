@@ -205,7 +205,17 @@
   :init (setq company-box-doc-enable nil ; disable auto `company-box-doc' timer.
               company-box-show-single-candidate t ; for still can use doc popup keybinding.
               company-box-doc-delay 0.5
-              company-box-icons-alist 'company-box-icons-all-the-icons))
+              company-box-icons-alist 'company-box-icons-all-the-icons)
+  :config
+  ;; fix company-box not scrolling issue.
+  (advice-add 'company-next-page :after #'company-box--change-line)
+  (advice-add 'company-previous-page :after #'company-box--change-line)
+  (advice-add 'company-search-candidates :after #'company-box--change-line)
+  (advice-add 'company-filter-candidates :after #'company-box--change-line)
+  (advice-add 'company-search-repeat-forward :after #'company-box--change-line)
+  (advice-add 'company-search-repeat-backward :after #'company-box--change-line)
+  ;; (advice-add 'company-select-next :after #'company-box--change-line)
+  (advice-add 'company-box-doc-manually :after #'company-box--change-line))
 
 
 (provide 'init-company-mode)
