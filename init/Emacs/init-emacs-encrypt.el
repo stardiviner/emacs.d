@@ -37,6 +37,8 @@
   (setq epa-file-cache-passphrase-for-symmetric-encryption t
         epa-file-inhibit-auto-save t)
   (epa-file-enable)
+  ;; Decrypt to load session at Emacs startup beginning to avoid pause prompt.
+  (my/json-read-value my/account-file 'ejc-sql-postgresql)
   :config
   (add-to-list 'display-buffer-alist '("^\\*Keys\\*" (display-buffer-below-selected))))
 
