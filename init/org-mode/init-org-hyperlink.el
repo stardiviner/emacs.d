@@ -113,6 +113,9 @@ Optional for Org-mode file: `LINK'."
         ("\\.odp\\'" . "libreoffice %s") ; Presentation
         ("\\.odf\\'" . "libreoffice %s") ; Database / Formula
         ;; Windows Office
+        ("\\.doc\\'" . "libreoffice %s")
+        ("\\.ppt\\'" . "libreoffice %s")
+        ("\\.xls\\'" . "libreoffice %s")
         ("\\.docx\\'" . "libreoffice %s")
         ("\\.pptx\\'" . "libreoffice %s")
         ("\\.xlsx\\'" . "libreoffice %s")
