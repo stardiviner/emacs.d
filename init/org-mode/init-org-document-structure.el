@@ -218,10 +218,10 @@
 
 ;;; [ org-make-toc ] -- Automatic tables of contents for Org files.
 
-(use-package org-make-toc
-  :ensure t
-  :defer t
-  :commands (org-make-toc))
+;; (use-package org-make-toc
+;;   :ensure t
+;;   :defer t
+;;   :commands (org-make-toc))
 
 ;;; [ Dynamic Blocks ] -- [C-c C-x x]
 
