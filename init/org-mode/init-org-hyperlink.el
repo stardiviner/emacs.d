@@ -80,16 +80,10 @@ Optional for Org-mode file: `LINK'."
         ,(if (executable-find "firefox")
              `("\.x?html?\\'" . "firefox %s")
            `("\.x?html?\\'" . "google-chrome-unstable %s"))
-        ;; PDF (disable this because I use package `org-pdfview'.
-        ;; use `pdf-tools'
-        ("\\.pdf\\'" . auto-mode)
-        ;; ("\\.pdf::\\([[:digit:]]+\\)\\'" . auto-mode)
-        ;; disable this, to use `doc-view' from `pdf-tools' for PDF.
+        ;; PDF
         ;; use Okular
         ;; ("\\.pdf\\'" . "okular %s")
         ;; ("\\.pdf::\\([[:digit:]]+\\)\\'" . "okular -p %1 %s")
-        ;; use `emacs-application-framework'
-        ;; ("\\.pdf\\'" . eaf-open-pdf-for-org)
         ;; CHM
         ("\\.chm\\'" . "kchmviewer %s")
         ;; EBooks
