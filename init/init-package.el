@@ -64,10 +64,6 @@
 (setq use-package-verbose t ; 'debug: any evaluation errors report to `*use-package*` buffer.
       use-package-always-ensure nil)
 
-;; detect whether ~/.config/emacs/elpa/org-9.1.9/ exist?
-;; (unless (require 'org nil 'noerror)
-;;   (package-install-file (expand-file-name "init/extensions/org.el" user-emacs-directory)))
-
 (if (not (file-exists-p "~/Code/Emacs/org-mode/lisp/"))
     (progn
       (use-package org
