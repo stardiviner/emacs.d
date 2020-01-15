@@ -41,15 +41,13 @@
 
 (use-package leuven-theme
   :load-path "~/Code/Emacs/leuven-theme/"
-  ;; :config (load-theme 'leuven t)
-  )
+  :config (load-theme 'leuven t))
 
 ;;; [ one-themes ] -- One color scheme.
 
 (use-package one-themes
   :load-path "~/Code/Emacs/one-themes"
-  ;; :config (load-theme 'one-dark t)
-  )
+  :config (load-theme 'one-dark t))
 
 (use-package circadian
   :ensure t
