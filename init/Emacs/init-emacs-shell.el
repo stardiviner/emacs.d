@@ -40,8 +40,7 @@
     (interactive "MAsync sudo command (root): ")
     (with-temp-buffer
       (cd "/sudo::/")
-      (async-shell-command command)))
-  )
+      (async-shell-command command))))
 
 ;;; [ Eshell ]
 

@@ -119,7 +119,7 @@
       org-agenda-columns-add-appointments-to-effort-sum t
       org-agenda-columns-compute-summary-properties t)
 
-;;; Statistics [1/4]
+;;; progress cookie: checkboxes statistics [1/4], [20%]
 
 (setq org-hierarchical-todo-statistics nil
       org-checkbox-hierarchical-statistics nil)

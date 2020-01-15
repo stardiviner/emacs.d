@@ -11,6 +11,7 @@
 
 ;; `display-buffer' actions, reference `display-buffer--action-function-custom-type'.
 ;;
+;; - (display-buffer-below-selected)
 ;; - (display-buffer-same-window)
 ;; - (display-buffer-in-side-window) :: like which-key popup window upon bottom minibuffer.
 ;; - (display-buffer-no-window)

@@ -27,7 +27,7 @@
 
 ;;; [ help-at-pt ] -- local help through the keyboard.
 
-(setq help-at-pt-display-when-idle t)
+;; (setq help-at-pt-display-when-idle t)
 
 ;;; [ eldoc-eval ] -- Enable eldoc support when minibuffer is in use.
 

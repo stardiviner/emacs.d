@@ -78,6 +78,15 @@
   :bind (:map Org-prefix ("n" . org-noter))
   :init (setq org-noter-auto-save-last-location t))
 
+;; [ paperless ] -- Emacs assisted PDF document filing.
+
+;; (use-package paperless
+;;   :ensure t
+;;   :defer t
+;;   :commands (paperless)
+;;   :init (setq paperless-capture-directory "~/Downloads"
+;;               paperless-root-directory "~/Org"))
+
 ;;; [ org-pdftools ] -- A custom org link type for pdf-tools.
 
 (leaf org-pdftools
@@ -98,15 +107,6 @@
     (when (eq major-mode 'pdf-view-mode)
       (pdf-tools-org-export-to-org)))
   (add-hook 'after-save-hook #'my/pdf-tools-org-setup))
-
-;; [ paperless ] -- Emacs assisted PDF document filing.
-
-;; (use-package paperless
-;;   :ensure t
-;;   :defer t
-;;   :commands (paperless)
-;;   :init (setq paperless-capture-directory "~/Downloads"
-;;               paperless-root-directory "~/Org"))
 
 ;;; [ pdfgrep ] -- Grep PDF for searching PDF.
 

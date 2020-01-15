@@ -11,13 +11,12 @@
 
 (require 'org-attach)
 
+;; store link auto with `org-store-link' using `file:' link type or `attachment:' link type.
+(setq org-attach-store-link-p 'attached)
+(setq org-attach-dir-relative t)
 ;; don't auto add tag "ATTACH"
 (setq org-attach-auto-tag nil)
 (setq org-attach-archive-delete 'query)
-(setq org-attach-store-link-p 'attached) ; add link to `org-store-link'.
-;; auto commit when Org file is in git repository.
-(setq org-attach-commit t)
-(setq org-attach-dir-relative t)
 ;; attach property using ":DIR:". This new behavior will ask for directory
 ;; path if no :DIR: property specified, the input path will be automatically
 ;; created if does not exist.
