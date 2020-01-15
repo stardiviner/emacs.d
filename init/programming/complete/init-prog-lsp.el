@@ -117,7 +117,7 @@
   :commands (dap-debug)
   :config
   (dap-mode t)
-  (dap-ui-mode t))
+  (dap-ui-controls-mode t))
 
 ;;; [ helm-lsp ] -- LSP helm integration.
 
