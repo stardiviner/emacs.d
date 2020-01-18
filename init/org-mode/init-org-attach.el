@@ -12,8 +12,9 @@
 (require 'org-attach)
 
 ;; store link auto with `org-store-link' using `file:' link type or `attachment:' link type.
-(setq org-attach-store-link-p 'attached)
-(setq org-attach-dir-relative t)
+;; use `file:' to avoid `attachment:' problems especially on exporters.
+(setq org-attach-store-link-p t)
+;; (setq org-attach-dir-relative nil)
 ;; don't auto add tag "ATTACH"
 (setq org-attach-auto-tag nil)
 (setq org-attach-archive-delete 'query)
@@ -21,6 +22,7 @@
 ;; path if no :DIR: property specified, the input path will be automatically
 ;; created if does not exist.
 (setq org-attach-preferred-new-method 'ask)
+;; (setq org-attach-use-inheritance t)
 
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
