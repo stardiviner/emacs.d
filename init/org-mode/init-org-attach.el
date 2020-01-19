@@ -22,7 +22,9 @@
 ;; path if no :DIR: property specified, the input path will be automatically
 ;; created if does not exist.
 (setq org-attach-preferred-new-method 'ask)
+(add-to-list 'org-default-properties "DIR")
 ;; (setq org-attach-use-inheritance t)
+(add-to-list 'org-default-properties "ATTACH_DIR_INHERIT")
 
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
