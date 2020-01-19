@@ -89,18 +89,18 @@
     ;; nil: disable all extra org-mode modules to speed-up Org-mode file opening.
     (setq org-modules nil)
     :mode (("\\.org\\'" . org-mode))
-    :init
-    ;; add source code version Org-mode Info into Emacs.
-    (with-eval-after-load 'info
-      (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/")
-      (info-initialize))
-    ;; load org before using some Org settings.
-    (require 'org)
-    (use-package org-plus-contrib
-      :pin manual
-      :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-      :defer t
-      :no-require t)))
+    ;; load org before org-mode init files settings.
+    :init (require 'org))
+  (use-package org-plus-contrib
+    :pin manual
+    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :defer t
+    :no-require t)
+  ;; add source code version Org-mode Info into Emacs.
+  (if (file-exists-p "~/Code/Emacs/org-mode/doc/org")
+      (with-eval-after-load 'info
+        (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/")
+        (info-initialize))))
 
 ;;; [ package-lint ] -- A linting library for elisp package authors.
 
