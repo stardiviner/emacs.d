@@ -26,8 +26,7 @@
     ('org-latex-pdf-process
      (add-to-list 'org-latex-pdf-process setting))
     ('org-latex-minted-options
-     (add-to-list 'org-latex-minted-options setting))
-    ))
+     (add-to-list 'org-latex-minted-options setting))))
 
 (defun org-latex-exp-conf-enable ()
   "Enable org-latex-exp-conf."
@@ -171,16 +170,14 @@ rulesepcolor= \\color{ red!20!green!20!blue!20}"
   (org-latex-exp-conf-append 'org-format-latex-header
                              "\\usepackage{graphicx}")
 
-  (message "`org-latex-exp-conf-mode' enabled.")
-  )
+  (message "`org-latex-exp-conf-mode' enabled."))
 
 (defun org-latex-exp-conf-disable ()
   "Disable org-latex-exp-conf."
   ;; revert variables to default value.
   (setq-local org-format-latex-header (default-value 'org-format-latex-header))
   (setq-local org-latex-packages-alist (default-value 'org-latex-packages-alist))
-  (message "`org-latex-exp-conf-mode' disabled.")
-  )
+  (message "`org-latex-exp-conf-mode' disabled."))
 
 (defvar org-latex-exp-conf-mode-map
   (let ((map (make-sparse-keymap)))
