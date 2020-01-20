@@ -78,18 +78,7 @@
   :ensure t
   :defer t
   :delight rainbow-delimiters-mode
-  ;; :config
-  ;; 1. global
-  ;; (global-rainbow-delimiters-mode)
-  ;; 2.. enable in all programming-related modes
-  ;; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-  ;; 3. enable in specific modes
-  ;; (dolist (hook '(ruby-mode-hook
-  ;;                 enh-ruby-mode-hook
-  ;;                 ))
-  ;;   (add-hook hook 'rainbow-delimiters-mode-enable))
-  )
-
+  :init (rainbow-delimiters-mode 1))
 
 ;;; [ hl-sexp ] -- highlight the current sexp.
 
@@ -98,20 +87,7 @@
   :require t
   :commands (global-hl-sexp-mode hl-sexp-mode)
   ;; NOTE: don't enable `global-hl-sexp-mode' automatically to enabled in Org Mode.
-  :init (global-hl-sexp-mode -1)
-  ;; :config
-  ;; (set-face-attribute 'hl-sexp-face nil
-  ;;                     :reverse-video nil :foreground nil
-  ;;                     :background (cl-case (alist-get 'background-mode (frame-parameters))
-  ;;                                   ('light
-  ;;                                    (color-darken-name "gainsboro" 0)
-  ;;                                    ;; (color-darken-name (face-background 'default) 8)
-  ;;                                    )
-  ;;                                   ('dark
-  ;;                                    (color-darken-name "SlateGray" 26)
-  ;;                                    ;; (color-lighten-name (face-background 'default) 6)
-  ;;                                    )))
-  )
+  :init (global-hl-sexp-mode -1))
 
 ;;; [ rainbow-blocks ] -- block syntax highlighting for lisp code.
 
