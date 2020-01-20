@@ -72,13 +72,6 @@
                     (re-search-backward (rx ",@")
                                         (line-beginning-position) t)))))))
 
-
-;;; [ paxedit ] -- Structured, Context-Driven, LISP Editing and Refactoring.
-
-;; (use-package paxedit
-;;   :ensure t
-;;   :defer t)
-
 ;;; [ rainbow-delimiters ] -- rainbow color parenthesis
 
 (use-package rainbow-delimiters
