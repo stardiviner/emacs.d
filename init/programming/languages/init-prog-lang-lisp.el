@@ -89,12 +89,6 @@
   ;; NOTE: don't enable `global-hl-sexp-mode' automatically to enabled in Org Mode.
   :init (global-hl-sexp-mode -1))
 
-;;; [ rainbow-blocks ] -- block syntax highlighting for lisp code.
-
-;; (use-package rainbow-blocks
-;;   :ensure t
-;;   :config (global-rainbow-blocks-mode))
-
 ;;; [ rainbow-blocks-bg ] -- rainbow background highlighting of code blocks.
 
 (leaf rainbow-blocks-bg
