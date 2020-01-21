@@ -31,19 +31,16 @@
           ;; Linux
           ;; ("https://www.linux.com/rss/feeds.php" Linux)
           ;; ("http://lwn.net/headlines/newrss" Linux)
-          ("http://linux.cn/rss.xml" Linux)
+          ;; ("http://linux.cn/rss.xml" Linux)
           ;; Arch Linux
           ("http://www.archlinux.org/feeds/news/" Arch Linux)
-          ("http://archlinux.me/feed/" Arch Linux)
-          ;; ("http://planet.archlinux.org/atom.xml" Arch)
           ;; DevOps
           ;; ("https://www.digitalocean.com/community/tutorials/feed" DigitalOcean Linux)
           ;; Geek News
           ("http://www.solidot.org/index.rss" Solidot News)
-          ;; ("http://slashdot.org/index.rss" Geek)
-          ;; ("http://news.ycombinator.com/rss" HackerNews Programmer)
-          ;; ("http://reddit.com/.rss" Reddit)
-          ("http://blog.jobbole.com/feed/" Programming Subscribe)
+          ;; ("http://slashdot.org/index.rss" Slashdot News)
+          ;; ("http://news.ycombinator.com/rss" HackerNews Programmer News)
+          ;; ("http://reddit.com/.rss" Reddit News)
           ;; ("http://feeds.howtogeek.com/HowToGeek" Geek)
           ("http://fullcirclemagazine.org/feed" Linux)
           ;; Podcasts
@@ -57,20 +54,17 @@
           ;; Programmer Blogs
           ("http://feed.williamlong.info/" Blog News)
           ("http://www.ruanyifeng.com/blog/atom.xml" Blog)
-          ("http://www.kingname.info/atom.xml" Blog)
           ("https://manateelazycat.github.io/feed.xml" Blog)
-          ("https://geekplux.com/atom.xml" Blog)
           ("https://overreacted.io/rss.xml" Blog)
-          ("http://kuanyui.github.io/atom.xml" Blog)
-          ;; ("http://www.i5seo.com/" Blog)
           ("https://nalaginrut.com/feed/atom" Blog) ; Samson's Machete "穆垒"
+          ("https://www.byvoid.com/zht/feed" Blog)
           ;; Kali Linux
           ("http://www.kali.org/feed/" Kali Linux Subscribe)
           ;; Subscribe
           ("https://github.com/blog/all.atom" GitHub SubScribe)
           ("http://www.salttiger.com/feed/" Ebook)
-          ;; Movie
-          ;; ("https://www.douban.com/feed/review/movie/" Movie)
+          ;; Podcasts
+          ("https://feeds.pacific-content.com/commandlineheroes" Programming)
           ))
   :config
   ;; (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
