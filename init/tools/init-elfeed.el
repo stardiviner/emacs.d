@@ -100,13 +100,6 @@
     (quit-window))
   (define-key elfeed-search-mode-map (kbd "q") 'elfeed-quit)
 
-  ;; automatically update elfeed
-  (defun elfeed-auto-update ()
-    (if (get-buffer "*elfeed-search*")
-        (with-current-buffer "*elfeed-search*"
-          (elfeed-update))))
-  (run-with-timer 60 (* 60 60 3) 'elfeed-auto-update)
-
   ;; support Org Mode Capture template
   (defun my/org-capture-elfeed-title ()
     (with-current-buffer "*elfeed-entry*"
