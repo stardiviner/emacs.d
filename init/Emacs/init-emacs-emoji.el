@@ -11,31 +11,23 @@
 
 (use-package emojify
   :ensure t
-  :init
-  (setq emojify-emojis-dir (concat user-emacs-directory "emojis")
-        emojify-program-contexts '(comments string code)
-        emojify-display-style 'image
-        ;; emojify-point-entered-behaviour
-        emojify-reveal-on-isearch t
-        emojify-show-help t
-        )
-  :config
-  ;; (add-to-list 'emojify-inhibit-major-modes ')
-  (global-emojify-mode 1))
+  :init (setq emojify-emojis-dir (concat user-emacs-directory "emojis")
+              ;; emojify-program-contexts '(comments string)
+              emojify-display-style 'unicode)
+  :config (global-emojify-mode 1)
+  (emojify-mode-line-mode))
 
 ;;; [ company-emoji ] -- company-mode backend providing completion for emoji. 🆒💦
 
 (use-package company-emoji
   :ensure t
-  :config
+  :init
   (dolist (hook '(org-mode-hook
                   markdown-mode-hook
                   tex-mode-hook
                   latex-mode-hook))
     (add-hook hook
-              (lambda ()
-                (my-company-add-backend-locally 'company-emoji))))
-  )
+              (lambda () (my-company-add-backend-locally 'company-emoji)))))
 
 
 ;;; ----------------------------------------------------------------------------
