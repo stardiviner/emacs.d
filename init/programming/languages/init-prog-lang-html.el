@@ -68,8 +68,8 @@
 
 ;;; [ ob-browser-chrome ] -- Export Org HTML SRC blocks as PNG files using Chrome in "headless" mode.
 
-(leaf ob-html-chrome
-  :el-get (ob-html-chrome :url "https://github.com/stardiviner/ob-html-chrome.git")
+(use-package ob-html-chrome
+  :quelpa (ob-html-chrome :fetcher github :repo "stardiviner/ob-html-chrome")
   :commands (org-babel-execute:html-chrome)
   :init (setq org-babel-html-chrome-chrome-executable
               (executable-find "google-chrome-unstable")))

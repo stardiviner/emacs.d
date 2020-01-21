@@ -82,20 +82,19 @@
 
 ;;; [ hl-sexp ] -- highlight the current sexp.
 
-(leaf hl-sexp
-  :el-get (hl-sexp :url "https://github.com/stardiviner/hl-sexp.git")
-  :require t
+(use-package hl-sexp
+  :quelpa (hl-sexp :fetcher github :repo "stardiviner/hl-sexp")
   :commands (global-hl-sexp-mode hl-sexp-mode)
   ;; NOTE: don't enable `global-hl-sexp-mode' automatically to enabled in Org Mode.
   :init (global-hl-sexp-mode -1))
 
 ;;; [ rainbow-blocks-bg ] -- rainbow background highlighting of code blocks.
 
-(leaf rainbow-blocks-bg
-  :el-get (rainbow-blocks-bg :url "https://github.com/seanirby/rainbow-blocks-bg.git")
-  ;; :config (global-rainbow-blocks-bg-mode)
-  ;; (add-hook 'clojure-mode-hook 'rainbow-blocks-bg-mode)
-  )
+;; (use-package rainbow-blocks-bg
+;;   :quelpa (rainbow-blocks-bg :fetcher github :repo "seanirby/rainbow-blocks-bg")
+;;   :no-require t
+;;   :commands (rainbow-blocks-bg)
+;;   :config (add-hook 'clojure-mode-hook 'rainbow-blocks-bg-mode))
 
 ;;; [ eval-sexp-fu ] -- highlighting the sexps during evaluation in action.
 

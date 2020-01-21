@@ -21,8 +21,8 @@
 
 ;;; [ company-english-helper ] -- English helper base on Emacs company-mode.
 
-;; (leaf company-english-helper
-;;   :el-get (company-english-helper :url "https://github.com/manateelazycat/company-english-helper.git")
+;; (use-package company-english-helper
+;;   :quelpa (company-english-helper :fetcher github :repo "manateelazycat/company-english-helper")
 ;;   :commands (toggle-company-english-helper)
 ;;   :config
 ;;   (defun my/company-english-helper-setup ()

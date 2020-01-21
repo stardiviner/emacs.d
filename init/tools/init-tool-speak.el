@@ -18,8 +18,8 @@
 
 ;;; [ Festival ] -- provides a simple interface into the festival speech synthesis program.
 
-;; (leaf festival
-;;   :el-get (festival :url "https://github.com/davep/festival.el.git")
+;; (use-package festival
+;;   :quelpa (festival :fetcher github :repo "davep/festival.el")
 ;;   :commands (festival-start festival-stop
 ;;                             festival-say
 ;;                             festival-read-file festival-read-buffer

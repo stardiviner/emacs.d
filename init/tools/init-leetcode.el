@@ -10,16 +10,15 @@
 
 ;;; [ leetcode.el ] -- An Emacs LeetCode client.
 
-(leaf leetcode
-  :package t
-  ;; :el-get (leetcode :url "https://github.com/kaiwk/leetcode.el.git")
-  :ensure request-deferred
-  :commands (leetcode)
-  :config
-  (setq leetcode-account "stardiviner"
-        leetcode-password (my/json-read-value my/account-file 'leetcode)
-        ;; `clojure' is not supported by LeetCode yet.
-        leetcode-prefer-language "python3"))
+;; (use-package leetcode
+;;   :quelpa (leetcode :fetcher github :repo "kaiwk/leetcode.el")
+;;   :ensure request-deferred
+;;   :commands (leetcode)
+;;   :config
+;;   (setq leetcode-account "stardiviner"
+;;         leetcode-password (my/json-read-value my/account-file 'leetcode)
+;;         ;; `clojure' is not supported by LeetCode yet.
+;;         leetcode-prefer-language "python3"))
 
 
 

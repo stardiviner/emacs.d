@@ -16,8 +16,8 @@
 
 ;;; [ ob-racket ]
 
-(leaf ob-racket
-  :el-get (ob-racket :url "https://github.com/DEADB17/ob-racket.git")
+(use-package ob-racket
+  :quelpa (ob-racket :fetcher github :repo "DEADB17/ob-racket")
   :commands (org-babel-execute:racket)
   :config
   (add-to-list 'org-babel-load-languages '(racket . t))

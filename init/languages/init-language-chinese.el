@@ -38,8 +38,8 @@
 
 ;;; [ jieba.el ] -- 在Emacs中使用jieba中文分词.
 
-;; (leaf jieba
-;;   :el-get (jieba :url "https://github.com/cireu/jieba.el.git")
+;; (use-package jieba
+;;   :quelpa (jieba :fetcher github :repo "cireu/jieba.el")
 ;;   :commands (jieba-mode)
 ;;   :init (jieba-mode))
 

@@ -27,8 +27,8 @@
 
 ;;; [ maple-preview ] -- Markdown, Org Mode or HTML realtime preview on Emacs.
 
-;; (leaf maple-preview
-;;   :el-get (maple-preview :url "https://github.com/honmaple/emacs-maple-preview.git" :features maple-preview)
+;; (use-package maple-preview
+;;   :quelpa (maple-preview :fetcher github :repo "honmaple/emacs-maple-preview")
 ;;   :commands (maple-preview-mode)
 ;;   :init (setq maple-preview:port 8083))
 

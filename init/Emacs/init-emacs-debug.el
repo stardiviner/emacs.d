@@ -35,8 +35,8 @@
 
 ;;; [ edebug-inline-result ] -- Show Edebug result inline.
 
-(leaf edebug-inline-result
-  :el-get (edebug-inline-result :url "https://github.com/stardiviner/edebug-inline-result.git")
+(use-package edebug-inline-result
+  :quelpa (edebug-inline-result :fetcher github :repo "stardiviner/edebug-inline-result")
   :commands (global-edebug-inline-result-mode edebug-inline-result-mode)
   :init (global-edebug-inline-result-mode))
 

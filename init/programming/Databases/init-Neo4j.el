@@ -1,6 +1,6 @@
 ;;; init-Neo4j.el --- init for Neo4j.
 
-;;; Time-stamp: <2019-08-09 08:49:45 stardiviner>
+;;; Time-stamp: <2020-01-21 12:54:18 stardiviner>
 
 ;;; Commentary:
 
@@ -19,19 +19,20 @@
 
 ;;; [ ob-neo4j ] -- Execute Neo4j's Cypher query in Org Mode Babel source block.
 
-(leaf ob-neo4j
-  :el-get (ob-neo4j :url "https://github.com/MarkBorcherding/ob-neo4j.git")
-  :commands (org-babel-execute:neo4j)
-  :config
-  (add-to-list 'org-babel-load-languages '(neo4j . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  ;; (add-to-list 'org-babel-tangle-lang-exts '("neo4j" . "neo4j"))
-  (add-to-list 'org-babel-default-header-args:cypher
-               '(:eval . "yes"))
-  (add-to-list 'org-babel-default-header-args:cypher
-               '(:noweb . "yes"))
-  (add-to-list 'org-babel-default-header-args:cypher
-               '(:results . "output")))
+;;; FIXME PACKAGE-DESC error when installing
+;; (use-package ob-neo4j
+;;   :quelpa (ob-neo4j :fetcher github :repo "MarkBorcherding/ob-neo4j")
+;;   :commands (org-babel-execute:neo4j)
+;;   :config
+;;   (add-to-list 'org-babel-load-languages '(neo4j . t))
+;;   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+;;   ;; (add-to-list 'org-babel-tangle-lang-exts '("neo4j" . "neo4j"))
+;;   (add-to-list 'org-babel-default-header-args:cypher
+;;                '(:eval . "yes"))
+;;   (add-to-list 'org-babel-default-header-args:cypher
+;;                '(:noweb . "yes"))
+;;   (add-to-list 'org-babel-default-header-args:cypher
+;;                '(:results . "output")))
 
 ;;; [ cypher-mode ] -- major mode for editing cypher scripts.
 

@@ -59,10 +59,10 @@
 
 ;;; [ org-password-manager ]
 
-(leaf org-password-manager
+(use-package org-password-manager
   ;; :ensure t
-  :el-get (org-password-manager :url "https://github.com/stardiviner/org-password-manager.git")
-  :bind (:org-password-prefix
+  :quelpa (org-password-manager :fetcher github :repo "stardiviner/org-password-manager")
+  :bind (:map org-password-prefix
          ("u" . org-password-manager-get-username)
          ("p" . org-password-manager-get-password)
          ("P" . org-password-manager-get-property-value)

@@ -89,12 +89,12 @@
 
 ;;; [ org-pdftools ] -- A custom org link type for pdf-tools.
 
-(leaf org-pdftools
-  ;; :el-get (org-pdftools :url "https://github.com/fuxialexander/org-pdftools.git")
-  :load-path "~/Code/Emacs/org-pdftools"
-  :init
-  (with-eval-after-load 'org
-    (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdftools-open link))))))
+;; (use-package org-pdftools
+;;   ;; :quelpa (org-pdftools :fetcher github :repo "fuxialexander/org-pdftools")
+;;   :load-path "~/Code/Emacs/org-pdftools"
+;;   :init
+;;   (with-eval-after-load 'org
+;;     (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdftools-open link))))))
 
 ;; [ pdf-tools-org ] -- integrate pdf-tools annotations to exporting/importing with Org Mode.
 

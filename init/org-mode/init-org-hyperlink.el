@@ -259,9 +259,9 @@ and append it."
 
 ;;; `track:' for OSM Maps
 ;; [[track:((9.707032442092896%2052.37033874553582)(9.711474180221558%2052.375238282987))data/images/org-osm-link.svg][Open this link will generate svg, png image for track link on map]]
-(leaf org-osm-link
-  :el-get (org-osm-link :url "https://github.com/emacsattic/org-osm-link.git")
-  :pre-setq (osm-do-cache . t))
+(use-package org-osm-link
+  :quelpa (org-osm-link :fetcher github :repo "emacsattic/org-osm-link")
+  :init (setq osm-do-cache t))
 
 ;;; `geo:'
 ;; [geo:37.786971,-122.399677;u=35]
@@ -446,8 +446,8 @@ and append it."
 
 ;;; [ org-quick-peek ] -- Quick inline peeks at agenda items and linked nodes in Org-mode.
 
-(leaf org-quick-peek
-  :el-get (org-quick-peek :url "https://github.com/alphapapa/org-quick-peek.git"))
+;; (use-package org-quick-peek
+;;   :quelpa (org-quick-peek :fetcher github :repo "alphapapa/org-quick-peek"))
 
 ;;; [ org-kindle ] -- Make Emacs bridge between Org Mode and Kindle.
 

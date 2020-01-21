@@ -10,8 +10,8 @@
 
 ;;; [ org-gantt ] -- Generate Gantt chart for Org Mode headlines.
 
-(leaf org-gantt
-  :el-get (org-gantt :url "https://github.com/stardiviner/org-gantt.git"))
+(use-package org-gantt
+  :quelpa (org-gantt :fetcher github :repo "stardiviner/org-gantt"))
 
 
 

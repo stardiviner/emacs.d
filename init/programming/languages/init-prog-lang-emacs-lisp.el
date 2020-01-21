@@ -22,8 +22,8 @@
 
 ;;; [ sly-el-indent ] -- Use `sly-cl-indent' to indent Emacs Lisp.
 
-(leaf sly-el-indent
-  :el-get (sly-el-indent :url "https://github.com/cireu/sly-el-indent.git")
+(use-package sly-el-indent
+  :quelpa (sly-el-indent :fetcher github :repo "cireu/sly-el-indent")
   :commands (sly-el-indent-setup)
   :init (add-hook 'emacs-lisp-hook #'sly-el-indent-setup))
 
