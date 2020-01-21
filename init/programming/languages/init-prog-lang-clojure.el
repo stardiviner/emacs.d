@@ -139,8 +139,14 @@
         cider-result-overlay-position 'at-eol)
 
   ;; Enlighten faces
-  ;; `cider-enlighten-mode' will extremely slow down Clojure/CIDER evaluation.
-  (add-hook 'cider-mode-hook #'cider-enlighten-mode)
+  ;; NOTE `cider-enlighten-mode' will extremely slow down Clojure/CIDER evaluation.
+  (defun my/cider-enlighten-mode-enable ()
+    "Enable `cider-enlighten-mode' only when in real Clojure
+    source code file instead of virtual temprary buffer like Org
+    Babel opened buffers."
+    (unless (buffer-file-name)
+      (cider-enlighten-mode)))
+  (add-hook 'cider-mode-hook #'my/cider-enlighten-mode-enable)
 
   ;; auto completion with company-mode support
   ;; `cider-complete-at-point' in `completion-at-point-functions'
