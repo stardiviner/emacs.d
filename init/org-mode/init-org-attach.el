@@ -13,7 +13,7 @@
 
 ;; store link auto with `org-store-link' using `file:' link type or `attachment:' link type.
 ;; use `file:' to avoid `attachment:' problems especially on exporters.
-(setq org-attach-store-link-p t)
+(setq org-attach-store-link-p 'file)
 ;; (setq org-attach-dir-relative nil)
 ;; don't auto add tag "ATTACH"
 (setq org-attach-auto-tag nil)
