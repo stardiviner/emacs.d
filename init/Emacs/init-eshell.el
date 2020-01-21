@@ -205,8 +205,7 @@ otherwise, they are appended."
     (unless args (error "Usage: imgcat FILE ..."))
     (dolist (img (eshell-flatten-list args))
       (eshell-printn
-       (propertize " " 'display (create-image img)))))
-  )
+       (propertize " " 'display (create-image img))))))
 
 ;;; [ eshell-toggle ] -- Show/hide eshell at the bottom of active window with directory of its buffer.
 
@@ -215,7 +214,7 @@ otherwise, they are appended."
   :defer t
   :commands (eshell-toggle)
   :bind ("C-x !" . eshell-toggle)
-  :custom (eshell-toggle-use-projectile-root t))
+  :custom (eshell-toggle-use-projectile-root nil))
 
 ;;; [ eshell-bookmark ] -- Integrate bookmarks with EShell.
 
