@@ -74,9 +74,7 @@
                    :separate company-keywords
                    :separate company-abbrev)
                   company-dabbrev-code
-                  company-files
-                  ;; company-ispell
-                  ))
+                  company-files))
   
   :config
   (defun my-company-add-backend-locally (backend)

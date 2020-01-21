@@ -27,7 +27,7 @@
                   tex-mode-hook
                   latex-mode-hook))
     (add-hook hook
-              (lambda () (my-company-add-backend-locally 'company-emoji)))))
+              (lambda () (add-to-list 'company-backends 'company-emoji 'append)))))
 
 
 ;;; ----------------------------------------------------------------------------
