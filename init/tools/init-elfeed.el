@@ -15,9 +15,12 @@
   :commands (elfeed elfeed-update)
   :bind (:map tools-prefix ("R" . elfeed)
               :map elfeed-search-mode-map ("g" . elfeed-update))
-  :init (setq elfeed-db-directory (expand-file-name ".elfeed" user-emacs-directory))
-  ;; (setq elfeed-log-level 'debug)
-  (setq elfeed-search-date-format '("%Y-%m-%d" 10 :right))
+  :init ; (setq elfeed-log-level 'debug)
+  (setq elfeed-db-directory (expand-file-name ".elfeed" user-emacs-directory))
+  :config
+  ;; auto update after entering elfeed.
+  (advice-add 'elfeed :after #'elfeed-update)
+
   (setq elfeed-feeds
         '(;; Programming
           ;; ("http://blog.stackoverflow.com/feed/" Programming StackOverflow)
@@ -66,19 +69,13 @@
           ;; Podcasts
           ("https://feeds.pacific-content.com/commandlineheroes" Programming)
           ))
-  :config
+  
   ;; (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
-  ;; (setq elfeed-initial-tags '(unread))
-  ;; "@1-week-ago +unread", "@6-months-ago +unread"
-  ;; (setq-default elfeed-search-filter "@1-week-ago +unread")
 
   (defalias 'elfeed-search-toggle-all-star ; [m], [*]
     (elfeed-expose #'elfeed-search-toggle-all 'star)
     "Toggle the `star' tag to all selected entries.")
   (define-key elfeed-search-mode-map (kbd "m") 'elfeed-search-toggle-all-star)
-
-  ;; auto update after entering elfeed.
-  (advice-add 'elfeed :after 'elfeed-update)
   
   (defun elfeed-quit ()
     (interactive)
