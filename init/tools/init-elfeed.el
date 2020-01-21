@@ -20,8 +20,8 @@
   (setq elfeed-search-date-format '("%Y-%m-%d" 10 :right))
   (setq elfeed-feeds
         '(;; Programming
-          ("http://blog.stackoverflow.com/feed/" Programming StackOverflow)
-          ("http://programmers.blogoverflow.com/feed/" Programming StackOverflow)
+          ;; ("http://blog.stackoverflow.com/feed/" Programming StackOverflow)
+          ;; ("http://programmers.blogoverflow.com/feed/" Programming StackOverflow)
           ;; Emacs
           ("https://planet.emacslife.com/atom.xml" Emacs)
           ("https://sachachua.com/blog/feed/atom/" Blog Emacs)
@@ -72,23 +72,9 @@
   ;; "@1-week-ago +unread", "@6-months-ago +unread"
   ;; (setq-default elfeed-search-filter "@1-week-ago +unread")
 
-  ;; filtering
-  (defun elfeed-show-all ()
-    (interactive)
-    (let ((elfeed-search-filter " "))
-      (elfeed-search-live-filter)))
-  (define-key elfeed-search-mode-map (kbd "A") 'elfeed-show-all)
-
-  (advice-add 'elfeed-search-untag-all-unread :after ; [r]
-              (lambda () (forward-line) (elfeed-search-tag-all 'read)))
-  (advice-add 'elfeed-search-show-entry :before ; [Enter]
-              (lambda (entry) (elfeed-search-tag-all 'read)))
-  (advice-add 'elfeed-search-tag-all-unread :before ; [u]
-              (lambda () (elfeed-search-untag-all 'read)))
   (defalias 'elfeed-search-toggle-all-star ; [m], [*]
     (elfeed-expose #'elfeed-search-toggle-all 'star)
     "Toggle the `star' tag to all selected entries.")
-  (define-key elfeed-search-mode-map (kbd "*") 'elfeed-search-toggle-all-star)
   (define-key elfeed-search-mode-map (kbd "m") 'elfeed-search-toggle-all-star)
 
   ;; auto update after entering elfeed.
