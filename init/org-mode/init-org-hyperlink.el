@@ -10,12 +10,8 @@
 ;;; Check out variable `org-link-parameters'.
 
 (setq org-indirect-buffer-display 'current-window
-      ;; org-display-internal-link-with-indirect-buffer t ; [C-u] to open in indirect buffer window.
-      org-keep-stored-link-after-insertion t ; keep stored link in entire session.
-      ;; You can fully-qualify links on a link-by-link basis by passing one
-      ;; universal argument [C-u].
-      org-link-file-path-type 'adaptive ; default 'adaptive, 'relative
-      )
+      org-link-use-indirect-buffer-for-internals t
+      org-link-keep-stored-after-insertion t)
 
 (define-key org-mode-map (kbd "M-,") 'org-mark-ring-goto)
 
@@ -45,18 +41,8 @@
 
 (add-hook 'org-follow-link-hook #'sound-tick)
 
-;;; org-file-apps no longer accepts S-expressions as commands
-;;
-;; The variable now accepts functions of two arguments instead of plain
-;; S-expressions. Replacing a S-expresion with an appropriate function is
-;; straightforward. For example:
-;;
-;; ("pdf" . (foo))
-;; becomes:
-;; ("pdf" . (lambda (file link) (foo)))
-
 ;;; Open and play GIF image in Emacs buffer.
-(defun my-func/open-and-play-gif-image (file &optional link)
+(defun my/open-and-play-gif-image (file &optional link)
   "Open and play GIF image `FILE' in Emacs buffer.
 Optional for Org-mode file: `LINK'."
   (let ((gif-image (create-image file))
@@ -70,10 +56,6 @@ Optional for Org-mode file: `LINK'."
 (defun emms-play-file-for-org (file &optional link)
   "An wrapper function on `emms-play-file'."
   (emms-play-file file))
-
-(defun eaf-open-pdf-for-org (file &optional link)
-  "An wrapper function on `eaf-open'."
-  (eaf-open file))
 
 (setq org-file-apps
       `(;; Web Pages
@@ -95,7 +77,7 @@ Optional for Org-mode file: `LINK'."
         ;; ("\\.jp\(e\)?g" . "sxiv %s")
         ("\\.gif\\'" . "sxiv -a -f %s")
         ;; ("\\.gif\\'" . "gwenview %s")
-        ;; ("\\.gif\\'" . my-func/open-and-play-gif-image)
+        ;; ("\\.gif\\'" . my/open-and-play-gif-image)
         ;; ("\\.svg\\'" . "feh --magick-timeout 5 %s")
         ;; ("\\.svg\\'" . "display %s") ; Emacs built-in support display svg
         ;; Mind Maps
@@ -247,8 +229,7 @@ and append it."
             "@"
             (read-from-minibuffer "date:" "{2017-06-24}")
             "::"
-            (read-from-minibuffer "line:" "1")))
-  )
+            (read-from-minibuffer "line:" "1"))))
 
 ;;; [ orgit ] -- support for Org links to Magit buffers.
 

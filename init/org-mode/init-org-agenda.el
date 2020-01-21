@@ -402,8 +402,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;;         ))
 
 
-
-
 ;;;; [ org-review ] -- Track when you have done a review in org mode.
 
 ;; (use-package org-review

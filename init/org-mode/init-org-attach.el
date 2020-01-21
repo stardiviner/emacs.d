@@ -28,14 +28,14 @@
 
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
-(use-package org-screenshot
-  :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-  :pin manual
-  :defer t
-  :commands (org-screenshot-take)
-  :init (setq org-screenshot-image-directory "data/images")
-  (add-hook 'org-mode-hook
-            #'(lambda () (local-set-key (kbd "C-c o M-s") 'org-screenshot-take))))
+;; (use-package org-screenshot
+;;   :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+;;   :pin manual
+;;   :defer t
+;;   :commands (org-screenshot-take)
+;;   :init (setq org-screenshot-image-directory "data/images")
+;;   (add-hook 'org-mode-hook
+;;             #'(lambda () (local-set-key (kbd "C-c o M-s") 'org-screenshot-take))))
 
 ;;; [ org-attach-screenshot ] -- screenshots integrated with org attachment dirs.
 
@@ -46,6 +46,14 @@
 ;;   :init
 ;;   (setq org-attach-screenshot-command-line "import %f") ; "scrot -c -d 5 -s %f"
 ;;   :config (setq org-attach-screenshot-relative-links t))
+
+;;; [ org-attach-embedded-images ] --
+
+;; This module provides command `org-attach-embedded-images-in-subtree' to save such
+;; images as attachments and insert org links to them. Each image is named with its sha1
+;; sum.
+;;
+;; (require 'org-attach-embedded-images)
 
 ;;; [ org-download ] -- drag and drop images to Emacs org-mode.
 
@@ -112,14 +120,6 @@
   (setq org-board-default-browser 'eww) ; press [&] in eww to open in external browser.
   (add-to-list 'display-buffer-alist
                '("org-board-wget-call" (display-buffer-below-selected))))
-
-;;; [ org-attach-embedded-images ] --
-
-;; This module provides command `org-attach-embedded-images-in-subtree' to save such
-;; images as attachments and insert org links to them. Each image is named with its sha1
-;; sum.
-;;
-;; (require 'org-attach-embedded-images)
 
 
 (provide 'init-org-attach)

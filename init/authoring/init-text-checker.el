@@ -62,51 +62,26 @@
               ("n" . flyspell-goto-next-error)
               ("c" . flyspell-correct-word-before-point))
   :init
-  ;; global
-  ;; (flyspell-mode 1)
+  (setq flyspell-default-dictionary "en"
+        ;; flyspell-after-incorrect-word-string "✗"
+        flyspell-consider-dash-as-word-delimiter-flag t
+        flyspell-issue-message-flag nil)
 
   ;; programming code
   ;; flyspell-prog-mode : enable flyspell for comments in source code
   ;; (add-hook 'prog-mode-hook #'flyspell-prog-mode) ; cause little performance issue on code completing.
 
-  ;; Org-mode
-  (add-hook 'org-mode-hook
-            (lambda ()
-              ;; ignore TeX commands
-              (setq-local ispell-parser 'tex)
-              (flyspell-mode 1)))
-
   ;; TeX
   (add-hook 'tex-mode-hook
-            (lambda ()
-              (setq ispell-parser 'tex)
-              (flyspell-mode 1)))
+            (lambda () (setq ispell-parser 'tex) (flyspell-mode 1)))
 
   ;; text
   (dolist (hook
            '(;; `text-mode' is parent mode of `org-mode' and `markdown-mode'.
              ;; text-mode-hook
+             ;; org-mode-hook
              markdown-mode-hook))
-    (add-hook hook 'flyspell-mode))
-
-  :config
-  (setq flyspell-default-dictionary "en"
-        flyspell-default-delayed-commands '(self-insert-command)
-        flyspell-delayed-commands '(self-insert-command)
-        flyspell-default-deplacement-commands '(next-line previous-line scroll-up scroll-down)
-        flyspell-deplacement-commands '(next-line previous-line scroll-up scroll-down)
-        flyspell-consider-dash-as-word-delimiter-flag t
-        flyspell-after-incorrect-word-string "✗"
-        ;; save correct wrong words into global abbrev table.
-        ;; flyspell-abbrev-p t
-        ;; flyspell-use-global-abbrev-table-p t
-        )
-
-  ;; performance
-  ;; I highly suggest setting ‘flyspell-issue-message-flag’ to nil, as printing
-  ;; messages for every word (when checking the entire buffer) causes an enormous
-  ;; slowdown.
-  (setq flyspell-issue-message-flag nil))
+    (add-hook hook 'flyspell-mode)))
 
 ;;; [ flyspell-correct ] -- correcting words with flyspell via custom interface.
 

@@ -32,7 +32,7 @@
 
 ;;; don't evaluate babel when exporting. For helper functions like
 ;;; `my:org-convert-region-to-html' etc.
-;; (setq org-export-babel-evaluate nil)
+(setq org-export-use-babel nil)
 
 ;;; Manage org-babel popup buffers with `display-buffer-alist'.
 (add-to-list 'display-buffer-alist
@@ -57,15 +57,11 @@
 (setq org-babel-noweb-error-all-langs t)
 
 ;; babel src block editing
-(setq org-src-fontify-natively t
-      ;; nil: preserve org indent, t: preserve export indent.
-      org-src-preserve-indentation nil
-      ;; 0: fix `diff' babel syntax highlighting invalid issue.
-      org-edit-src-content-indentation 0
-      org-src-window-setup `,(if (< (frame-width) 200)
+(setq org-src-window-setup `,(if (< (frame-width) 200)
                                  'current-window
                                'split-window-right)
-      org-src-ask-before-returning-to-edit-buffer nil)
+      ;; 0: fix `diff' babel syntax highlighting invalid issue.
+      org-edit-src-content-indentation 0)
 
 ;;; default loading babel language.
 (setq org-babel-load-languages '((org . t)))
@@ -94,11 +90,7 @@
 (add-to-list 'org-babel-tangle-lang-exts '("latex" . "tex"))
 (add-to-list 'org-babel-tangle-lang-exts '("awk" . "awk"))
 
-;; this will cause target file like config file which is used by programs to errors.
-;; (setq org-babel-tangle-use-relative-file-links t)
-
-;; (setq org-babel-pre-tangle-hook '(save-buffer)
-;;       org-babel-post-tangle-hook)
+;;; [ org-tanglesync ] -- sync external changes back into an org-mode source block.
 
 
 ;;; [ Library of Babel ]
@@ -107,8 +99,6 @@
 (with-eval-after-load 'org
   (org-babel-lob-ingest
    (concat user-emacs-directory "Org-mode/Library of Babel/Library of Babel.org")))
-
-;; (setq org-babel-default-lob-header-args)
 
 ;;; [ Literate dotfiles management with Org-mode ]
 
@@ -194,11 +184,8 @@ but `delete-file' is ignored."
 ;;   :bind (:map org-mode-map
 ;;               ("C-<return>" . ober-eval-in-repl)
 ;;               ("C-c C-<return>" . ober-eval-block-in-repl))
-;;   :config
-;;   (with-eval-after-load "eval-in-repl"
-;;     (setq eir-jump-after-eval nil))
-;;   )
-
+;;   :config (with-eval-after-load "eval-in-repl"
+;;             (setq eir-jump-after-eval nil)))
 
 ;;; [ org-radiobutton ] -- Get the checked item from a check list to be used for
 ;;; Org-mode Literate Programming variable.

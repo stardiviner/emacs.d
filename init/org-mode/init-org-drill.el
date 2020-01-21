@@ -91,9 +91,7 @@
 
   (autoload 'goldendict-dwim "goldendict")
   (advice-add 'goldendict-dwim :after #'my-org-drill-record-word)
-
-  (define-key Org-prefix (kbd "C-w") 'my-org-drill-record-word)
-  )
+  (define-key Org-prefix (kbd "C-w") 'my-org-drill-record-word))
 
 
 (use-package stem-english
@@ -117,6 +115,7 @@
 (use-package pamparam
   :ensure t
   :defer t
+  :commands (hydra-pamparam/body)
   :bind (:map Org-prefix ("M-w" . hydra-pamparam/body)))
 
 ;;; [ guess-word ] -- Emacs guess word game for learning ESL. Emacs 背单词.

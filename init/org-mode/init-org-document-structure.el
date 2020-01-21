@@ -7,23 +7,10 @@
 
 ;;; Code:
 
-;;; Editing
-
-(setq org-catch-invisible-edits 'smart)
-
-;;; Navigation
-
-(setq org-special-ctrl-a/e t
-      org-special-ctrl-o t)
-
-;;; [ headlines ]
-
+(setq org-special-ctrl-a/e t)
 (setq org-fontify-whole-heading-line t)
 (setq org-fontify-done-headline t)
-
-(setq org-ctrl-k-protect-subtree t)
-
-;; (add-hook 'org-mode-hook #'eldoc-mode)
+(setq org-hide-emphasis-markers t)
 
 ;;; [ Org faces ]
 
@@ -95,11 +82,12 @@
                          :background "gray"
                          :box '(:color "dark gray" :line-width -1)))))
 
-;; * Plain Lists::
+;;; List
 
-(setq org-list-allow-alphabetical t)
+(setq org-hierarchical-todo-statistics nil
+      org-checkbox-hierarchical-statistics nil)
 
-;;; [ column view ]
+;; * Column View::
 
 ;; (setq org-columns-default-format
 ;;       "%25ITEM %TODO %3PRIORITY %TAGS %6effort(EFFORT){:}")
@@ -114,25 +102,11 @@
       ;; - %ITEMSTAMP_IA :: Timestamp
       ;; - %Effort(Effort){:} :: Effort
       ;; - %CLOCKSUM :: Clock Sum
-      
-      ;; org-global-properties
-      org-agenda-columns-add-appointments-to-effort-sum t
-      org-agenda-columns-compute-summary-properties t)
+      )
 
-;;; progress cookie: checkboxes statistics [1/4], [20%]
-
-(setq org-hierarchical-todo-statistics nil
-      org-checkbox-hierarchical-statistics nil)
-
-;;; TODO: does this work?
-;; will be combined with constant `org-global-properties-fixed'
-;; (add-to-list 'org-global-properties '("Effort" . "0:30"))
-;; (add-to-list 'org-global-properties '("Title" . nil))
-;; (add-to-list 'org-global-properties '("Author" . "stardiviner"))
-
-;; * Blocks::                      Folding blocks
-
-(setq org-fontify-quote-and-verse-blocks t)
+;; This will be combined with constant `org-global-properties-fixed'
+(add-to-list 'org-global-properties '("Effort" . "0:30 0:45 1:00 1:30 2:00"))
+(add-to-list 'org-global-properties '("AUTHOR" . "stardiviner"))
 
 ;; * Footnotes::                   How footnotes are defined in Org's syntax
 
@@ -150,48 +124,7 @@
 ;; (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 ;; `tempo-define-template'
 
-;;; [ Emphasis ]
-
-(setq org-hide-emphasis-markers t
-      org-hide-macro-markers t)
-
 ;;; [ Entities ]
-
-;; \pi will display as π
-(setq org-highlight-latex-and-related '(entities)
-      org-pretty-entities t
-      org-use-sub-superscripts "{}"
-      org-pretty-entities-include-sub-superscripts t)
-
-(setq org-script-display
-      '(((raise -0.3)
-         (height 0.7)
-         (:foreground "yellow"))
-        ((raise 0.3)
-         (height 0.7)
-         (:foreground "yellow"))
-        ((raise -0.5))
-        ((raise 0.5))))
-
-;;; treats angle brackets (<>) as parenthesis
-;; (modify-syntax-entry ?< ".")
-;; (modify-syntax-entry ?> ".")
-
-;; (require 'skeleton)
-;; (setq skeleton-pair t)
-;; Like help you to input a pair of ==, ~~, **, and ++ in Org Mode.
-;; (define-key org-mode-map (kbd "~") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "=") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "*") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "/") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "_") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "+") 'skeleton-pair-insert-maybe)
-;;
-;; (define-key org-mode-map (kbd "[") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "{") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "(") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "\"") 'skeleton-pair-insert-maybe)
-;; (define-key org-mode-map (kbd "'") 'skeleton-pair-insert-maybe)
 
 (defun org-insert-entity-with-ivy ()
   "Insert an org-entity using Ivy."
@@ -222,9 +155,6 @@
 ;;   :ensure t
 ;;   :defer t
 ;;   :commands (org-make-toc))
-
-;;; [ Dynamic Blocks ] -- [C-c C-x x]
-
 
 ;;; [ orgtbl-aggregate ] -- create an aggregated Org table from another one.
 

@@ -10,30 +10,10 @@
 (use-package ox-latex
   :defer t
   :init
-  ;; let org-mode auto delete those auxiliary files after compile and exporting.
-  (setq org-latex-remove-logfiles t)
-  (setq org-latex-logfiles-extensions
-        '("lof" "lot" "aux" "idx" "out" "toc" "nav" "snm" "vrb"
-          "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl"))
-
-  ;; Preview Org-mode LaTeX fragments between $\LaTeX{}$
-  (setq org-startup-with-latex-preview nil)
-  ;; (setq org-highlight-latex-and-related '(native latex)) ; will contact to www.plantuml.com server.
-
-  ;; (setq org-preview-latex-default-process 'dvipng)    ; faster but don't support Chinese by default.
-  ;; (setq org-preview-latex-default-process 'imagemagick)  ; slower but support Chinese by default.
-  (setq org-preview-latex-default-process 'dvisvgm) ; generate SVG for better image.
-
-  (setq org-latex-create-formula-image-program 'dvisvgm)
-;;; FIXME:
-  ;; (setq org-latex-pdf-process (my-org-latex-pdf-process-format))
-  ;; (defun my-org-latex-pdf-process-format (&optional texfile snippet caller-info)
-  ;;   (princ (format "The caller's info: %s" caller-info))
-  ;;   (cond
-  ;;    (snippet '("latex -interaction nonstopmode -output-directory %o %f"))
-  ;;    (t '("%latex -interaction nonstopmode -output-directory %o %f"
-  ;;         "%latex -interaction nonstopmode -output-directory %o %f"
-  ;;         "%latex -interaction nonstopmode -output-directory %o %f"))))
+  ;; - 'divpng :: faster but don't support Chinese by default.
+  ;; - 'imagemagick :: slower but support Chinese by default.
+  ;; - 'dvisvgm ::  ; generate SVG for better image.
+  (setq org-preview-latex-default-process 'dvisvgm)
 
   ;; (setq org-preview-latex-default-process 'dvisvgm-xetex)
   ;; (add-to-list 'org-preview-latex-process-alist
@@ -62,8 +42,7 @@
 ;;   ;; :ensure t
 ;;   :load-path "~/Code/Emacs/webkit-katex-render/"
 ;;   :init (add-hook 'org-mode-hook #'webkit-katex-render-mode)
-;;   ;; (add-hook 'TeX-mode-hook #'webkit-katex-render-mode)
-;;   )
+;;   (add-hook 'TeX-mode-hook #'webkit-katex-render-mode))
 
 ;;; [ LaTeX -> HTML ]
 
@@ -120,7 +99,6 @@
   :delight org-edit-latex-mode
   :preface (setq org-edit-latex-create-master nil)
   :init (add-hook 'org-mode-hook #'org-edit-latex-mode))
-
 
 ;;; [ ob-latex ] -- Babel Functions for LaTeX.
 

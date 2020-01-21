@@ -7,27 +7,10 @@
 
 ;;; Code:
 
-;; [ default view ]
-
-(setq org-startup-folded t)
-
 ;;; apply `variable-pitch-mode' on Org Mode.
 (add-hook 'org-mode-hook 'variable-pitch-mode)
 
 (setq org-ellipsis "  ")
-
-;;; TODO: whether remove this extra setting which not supported by Org-mode built-in.
-;; include ' in org-verbatim face highlight.
-;; (setcar (nthcdr 2 org-emphasis-regexp-components) " \t\r\n,\"")
-;; (org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
-
-;; [ indent ]
-
-;;; NOTE: org-indent is heavy.
-;; (require 'org-indent)
-;; (setq org-startup-indented t
-;;       org-hide-leading-stars t)
-;; (setq org-adapt-indentation nil)
 
 ;;; [ org-num ] -- Dynamic Headlines Numbering.
 

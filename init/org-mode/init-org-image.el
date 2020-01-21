@@ -9,19 +9,7 @@
 
 ;;; [ inline images ]
 
-;; PERFORMANCE: disable starup preview inline image to improve org-mode pferformance.
-;; #+STARTUP: noinlineimages
-(setq org-startup-with-inline-images nil)
-
-;;; manually specify inline image size.
-;; you need to use:
-;; - #+ATTR_ORG: :width 400
-;; - #+ATTR_LATEX: :width 5in
-;; - #+ATTR_HTML: :width 200px
-(use-package org
-  :init
-  ;; inline image scale width.
-  (setq org-image-actual-width nil))
+(setq org-image-actual-width nil)
 
 ;;; smartly set inline image size based on Emacs window width
 ;; (defcustom org-inline-image-width-percent-in-window 80

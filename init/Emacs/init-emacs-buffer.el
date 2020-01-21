@@ -11,10 +11,8 @@
 (use-package autorevert
   :defer t
   :delight auto-revert-mode
-  :init (setq global-auto-revert-non-file-buffers nil
-              auto-revert-verbose nil
-              auto-revert-use-notify t)
-  :config (global-auto-revert-mode -1))
+  :init (setq auto-revert-interval 30)
+  (global-auto-revert-mode -1))
 
 ;;; [ ibuffer ]
 

@@ -90,7 +90,7 @@
   
   ;; Performance
   ;; (setq magit-refresh-status-buffer nil)
-  (setq auto-revert-buffer-list-filter 'magit-auto-revert-repository-buffer-p)
+  ;; (setq auto-revert-buffer-list-filter 'magit-auto-revert-repository-buffer-p)
 
   (setq magit-clone-default-directory (expand-file-name "~/Code"))
   (setq magit-repository-directories

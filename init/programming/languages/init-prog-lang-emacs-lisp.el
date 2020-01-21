@@ -79,10 +79,10 @@
 
 ;;; [ elmacro ] -- display keyboard macros or latest interactive commands as emacs lisp.
 
-(use-package elmacro
-  :ensure t
-  :defer t
-  :init (elmacro-mode 1))
+;; (use-package elmacro
+;;   :ensure t
+;;   :defer t
+;;   :init (elmacro-mode 1))
 
 ;;; [ suggest ] -- suggest elisp functions that give the output requested.
 

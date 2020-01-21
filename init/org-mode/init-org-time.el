@@ -58,14 +58,12 @@ Accepts universal argument `ARG' for \\<C-c C-x r> & \\[org-time-interval]."
         ;; org-pomodoro-start-sound-args "-volume 0.3"
         ;; org-pomodoro-long-break-sound-args "-volume 0.3"
         org-pomodoro-audio-player "/usr/bin/mplayer"
-        org-pomodoro-format "Pomodoro: %s" ; mode-line string
-        )
+        org-pomodoro-format "Pomodoro: %s")
   :config
   ;; start another pomodoro automatically upon a break end.
   (add-hook 'org-pomodoro-break-finished-hook
-             ; double prefix [C-u C-u]
-            #'(lambda () (interactive) (org-pomodoro '(16))))
-  )
+            ;; double prefix [C-u C-u]
+            #'(lambda () (interactive) (org-pomodoro '(16)))))
 
 
 (provide 'init-org-time)

@@ -10,11 +10,7 @@
 
 ;;; Tags
 
-;; suitable tag position length for 12' inch screen size split window.
-;; 11.2' screen size use -65
-(setq org-tags-column -65)
-;; (setq org-tags-column (- (- (/ (/ (display-pixel-width) 2) 10) 3)))
-
+(setq org-auto-align-tags nil)
 
 (setq org-tag-persistent-alist
       '(("noexport" . ?E)
@@ -106,8 +102,7 @@
         ("C" :foreground "SaddleBrown" :weight bold)
         ("Go" :foreground "gold" :weight bold)
         ("Rust" :foreground "WhiteSmoke" :weight bold)
-        ("JavaScript" :foreground "yellow" :weight bold)
-        ))
+        ("JavaScript" :foreground "yellow" :weight bold)))
 
 ;; ;;; `org-archive-tag', `org-archived'
 ;; (defconst org-deprecated-tag "deprecated"

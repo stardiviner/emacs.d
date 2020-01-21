@@ -24,7 +24,8 @@
 ;; [ org-plot ] -- Plotting Tables in Org-mode.
 
 (use-package org-plot
-  :defer t)
+  :defer t
+  :commands (org-plot/gnuplot))
 
 ;;; Org Table translator functions.
 (add-to-list 'org-default-properties "ORGTBL") ; for Org-mode Table translator functions.
@@ -41,13 +42,15 @@
 
 (use-package orgtbl-ascii-plot
   :ensure t
-  :defer t)
+  :defer t
+  :commands (orgtbl-ascii-plot))
 
 ;;; [ orgtbl-join ] -- join two Org-mode tables.
 
 (use-package orgtbl-join
   :ensure t
-  :defer t)
+  :defer t
+  :commands (orgtbl-join orgtbl-to-joined-table org-insert-dblock:join))
 
 ;;; import .xlsx, .csv file into Org.
 (defun org-table-import-xlsx-to-csv-org ()
@@ -71,13 +74,15 @@
 
 (use-package org-transform-tree-table
   :ensure t
-  :defer t)
+  :defer t
+  :commands (org-transform-tree-table/toggle))
 
 ;;; [ mysql-to-org-mode ] -- Minor mode for emacs to output the results of mysql queries to org tables.
 
 (use-package mysql-to-org
   :ensure t
-  :defer t)
+  :defer t
+  :commands (mysql-to-org-eval mysql-to-org-eval-string-at-point mysql-to-org-mode))
 
 
 

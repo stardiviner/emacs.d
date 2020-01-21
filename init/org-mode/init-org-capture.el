@@ -11,8 +11,7 @@
 
 (require 'org-capture)
 
-(setq org-default-notes-file
-      (concat org-directory "/Tasks/Tasks.org"))
+(setq org-default-notes-file (concat org-directory "/Tasks/Tasks.org"))
 
 (setq org-capture-templates
       '(("c" "[c]apture"
@@ -142,9 +141,7 @@ In ~%s~:
                  entry (file ,(concat org-directory "/Tasks/Tasks.org"))
                  "* %? [[%:link][%:description]] \nCaptured On: %U"
                  :prepend t
-                 :empty-lines 1
-                 )
-                )
+                 :empty-lines 1))
               org-capture-templates))
 
 (use-package org-protocol-capture-html

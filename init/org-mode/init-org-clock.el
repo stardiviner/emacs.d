@@ -12,54 +12,27 @@
 (require 'org-timer)
 
 (setq org-timer-default-timer 25)       ; Pomodoro time management technique.
-(setq org-timer-display 'mode-line)
-
 
 ;;; [ Clock ]
 
+;;; Persistent clock
 (setq org-clock-persist t ; nil, t, 'clock, 'history
       org-clock-persist-query-save t
       org-clock-persist-query-resume nil ; don't ask, resume by default when Emacs restart.
-      org-clock-persist-file (expand-file-name "org-clock-save.el" user-emacs-directory)
-      org-clock-in-resume t    ; resume when clock in.
-      org-clock-continuously nil ; don't continue on last clock out.
-      org-clock-in-switch-to-state nil ; "STARTED"
-      org-clock-out-when-done t         ; clock will stop when task marked DONE.
-      org-clock-into-drawer t  ; Save clock data and notes in the :LOGBOOK: drawer
-      org-clock-out-remove-zero-time-clocks t ; Removes clocked tasks with 0:00 duration
-      org-clock-sound (expand-file-name
-                       "resources/audio/Ingress/Speech/speech_hacking.wav" user-emacs-directory)
-      ;; 'mode-line, 'frame-title, 'both, nil.
-      ;; org-clock-clocked-in-display 'both ; 'frame-title will make window frame border resize.
-      ;; org-clock-mode-line-entry t
-      org-clock-mode-line-total 'current
-      ;; org-clock-clocktable-language-setup
-      ;; org-clock-leftover-time
-      ;; org-clock-task-overrun
-      ;; org-clock-task-overrun-text
-      ;; org-clock-clocktable-default-properties '(:maxlevel 2 :scope file)
-      org-clock-report-include-clocking-task t
-      ;; org-agenda-clockreport-mode
-      ;; org-agenda-start-with-clockreport-mode t
-      org-clock-goto-may-find-recent-task t
-      ;; org-clock-total-time-cell-format "*%s*"
-      org-clock-idle-time nil ; 5
-      ;; org-clock-auto-clock-resolution 'when-no-clock-is-running
-      ;; org-clock-resolve-expert t
-      org-clock-history-length 20 ; keep a long clocking tasks history for easy re-select history task to clock.
-      )
-
-;;; `org-clock-display'
-;; (setq org-clock-display-default-range 'thisyear) 'untilnow,
-
-
+      org-clock-persist-file (expand-file-name "org-clock-save.el" user-emacs-directory))
 ;;; To save the clock history across Emacs sessions, use
 (if (file-exists-p org-clock-persist-file)
     ;; (setq org-clock-persist 'history)
     (org-clock-persistence-insinuate)
   (shell-command (concat "touch " org-clock-persist-file)))
 
-;; (add-hook 'org-clock-out-hook 'org-clock-remove-empty-clock-drawer) ; `org-clock-out-remove-zero-time-clocks'
+(setq org-clock-in-resume t    ; resume when clock in.
+      org-clock-sound (expand-file-name
+                       "resources/audio/Ingress/Speech/speech_hacking.wav" user-emacs-directory)
+      org-clock-mode-line-total 'current
+      ;; org-agenda-start-with-clockreport-mode t
+      org-clock-idle-time nil ; 5
+      org-clock-history-length 20)
 
 (define-key org-clock-mode-line-map [header-line mouse-2] 'org-clock-goto)
 (define-key org-clock-mode-line-map [header-line mouse-1] 'org-clock-menu)

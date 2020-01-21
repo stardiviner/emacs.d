@@ -17,22 +17,14 @@
 (setq org-track-ordered-property-with-tag t)
 (add-to-list 'org-default-properties "ORDERED")
 
-;;; time repeat
-(setq org-todo-repeat-to-state nil ; or "REPEAT". Leave the todo state as it is, like "HABIT".
-      org-agenda-prefer-last-repeat nil
-      org-log-repeat 'time)
-
-
 ;;; [ Log ]
 
 (setq org-log-into-drawer t
       org-log-note-clock-out t
       org-log-done 'time
       org-log-done-with-time t
-      org-log-redeadline 'time
-      org-log-reschedule 'time
-      org-log-refile 'time
-      org-log-repeat 'time)
+      org-log-repeat 'note
+      org-log-refile 'time)
 
 ;;; [ Effort ]
 
@@ -44,8 +36,7 @@
 ;; `(d@)` need add note declaration
 ;; `(d@/!)` add timestamp and note
 (setq org-todo-keywords
-      '(
-        ;; Status: Getting Things Done
+      '(;; Status: Getting Things Done
         (sequence "TODO(t@/!)" "NEXT(n!)"
                   "INPROGRESS(g@/!)" "DELAYED(z@/!)" "LATER(l!)" "SOMEDAY(S@/!)"
                   "|" "DONE(d@/!)" "FAILED(x@/!)" "CANCELLED(k@/!)")
@@ -218,15 +209,10 @@
 ;;; [ Habit ]
 
 (use-package org-habit
-  :defer t
-  :init (setq org-habit-show-habits t      ; show habits in agenda.
-              org-habit-show-all-today nil   ; show all habits' consistency graph in today
-              org-habit-show-habits-only-for-today t
-              org-habit-graph-column 70
-              org-habit-preceding-days 14
-              org-habit-following-days 7
-              org-habit-today-glyph ?>
-              org-habit-completed-glyph ?✔)
+  :config
+  (setq org-habit-graph-column 70
+        org-habit-today-glyph ?>
+        org-habit-completed-glyph ?✔)
 
   ;; set task to habit
   (defun org-habit-apply ()
@@ -287,13 +273,6 @@
 (add-to-list 'org-todo-keyword-faces
              '("PROJECT" . org-todo-keyword-work-face))
 
-
-;;; [ inline task ]
-
-(use-package org-inlinetask
-  :defer t
-  :init (setq org-inlinetask-default-state "TODO"
-              org-inlinetask-show-first-star nil))
 
 ;;; [ Task Dependencies ]
 

@@ -263,8 +263,7 @@
       (helm-org-rifle-directories
        (list my-bookmarks-reference-dir))))
 
-  (define-key reference-prefix (kbd "C-b") 'rifle-bookmarks-ref)
-  )
+  (define-key reference-prefix (kbd "C-b") 'rifle-bookmarks-ref))
 
 ;; search multiple words in files.
 (use-package rg

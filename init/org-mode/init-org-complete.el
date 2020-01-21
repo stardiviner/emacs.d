@@ -16,7 +16,7 @@
 
   (setq-local company-minimum-prefix-length 3)
   (setq-local company-idle-delay 0.3)
-  (setq-local company-tooltip-idle-delay 0.1)
+  (setq-local company-tooltip-idle-delay 0)
 
   (make-local-variable 'company-auto-complete-chars)
   (setq company-auto-complete-chars '(?\( ?. ?#))

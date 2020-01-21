@@ -64,8 +64,7 @@
 
   (dolist (hook '(message-mode-hook
                   mu4e-compose-mode-hook))
-    (add-hook hook 'org-contacts-setup-completion-at-point))
-  )
+    (add-hook hook 'org-contacts-setup-completion-at-point)))
 
 (use-package helm-org-rifle
   :ensure t
