@@ -160,13 +160,14 @@
 
 (use-package ox-pandoc
   :ensure t
-  :defer t)
+  :defer t
+  :commands (org-pandoc-export-to-epub3-and-open))
 
 ;;; [ htmlize ] -- deprecated htmlize implementation.
 
-(use-package htmlize
-  :ensure t
-  :defer t)
+;; (use-package htmlize
+;;   :ensure t
+;;   :defer t)
 
 ;;; [ htmlfontify ] -- try to replace `htmlize'.
 
