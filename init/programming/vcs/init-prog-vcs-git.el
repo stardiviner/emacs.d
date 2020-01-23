@@ -101,12 +101,9 @@
   ;; let magit status buffer display in current window.
   (setq magit-display-buffer-function 'display-buffer)
   ;; show gravatar in Magit revision.
-  (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
+  ;; (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
   
   :config
-  ;; Git WIP (work in progress) in Magit
-  (add-to-list 'magit-no-confirm 'safe-with-wip)
-
   ;; manage popup buffers.
   (add-to-list 'display-buffer-alist
                '("\\`magit:.*\\'" (display-buffer-reuse-window display-buffer-same-window)))
@@ -172,17 +169,15 @@
 
 ;; (use-package magit-stgit
 ;;   :ensure t
-;;   :config
-;;   (add-hook 'magit-mode-hook 'magit-stgit-mode)
-;;   )
+;;   :defer t
+;;   :init (add-hook 'magit-mode-hook 'magit-stgit-mode))
 
 ;;; [ magit-topgit ] -- TopGit extension for Magit.
 
 ;; (use-package magit-topgit
 ;;   :ensure t
-;;   :config
-;;   (add-hook 'magit-mode-hook 'magit-topgit-mode)
-;;   )
+;;   :defer t
+;;   :init (add-hook 'magit-mode-hook 'magit-topgit-mode))
 
 ;;; [ pcmpl-git ] -- Complete both git commands and their options and arguments.
 
