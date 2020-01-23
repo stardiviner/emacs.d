@@ -50,7 +50,11 @@
   ;; use EAF as default web browser for Emacs.
   (setq browse-url-browser-function 'eaf-open-browser)
   (with-eval-after-load 'desktop
-    (add-to-list 'desktop-modes-not-to-save 'eaf-mode)))
+    (add-to-list 'desktop-modes-not-to-save 'eaf-mode))
+  (defun eaf-open-pdf-for-org (file &optional link)
+    "An wrapper function on `eaf-open'."
+    (eaf-open file))
+  (add-to-list 'org-file-apps '("\\.pdf\\'" . eaf-open-pdf-for-org)))
 
 ;;; [ Threads ]
 
