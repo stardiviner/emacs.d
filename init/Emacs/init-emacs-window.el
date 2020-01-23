@@ -13,6 +13,7 @@
 ;;
 ;; - (display-buffer-below-selected)
 ;; - (display-buffer-same-window)
+;; - (display-buffer-at-bottom)
 ;; - (display-buffer-in-side-window) :: like which-key popup window upon bottom minibuffer.
 ;; - (display-buffer-no-window)
 ;; - (display-buffer-in-child-frame) :: don't use it!!!
@@ -41,6 +42,8 @@
              '("^\\*Process List\\*" (display-buffer-below-selected)))
 (add-to-list 'display-buffer-alist
              '("^\\*Animation\\*" (display-buffer-below-selected)))
+;; (add-to-list 'display-buffer-alist
+;;              '("^\\*Org Src" . (display-buffer-at-bottom)))
 
 ;;; [ winner ] -- Restore old window configurations.
 
