@@ -9,9 +9,8 @@
 
 ;;; [ Electric ]
 
-;; (electric-indent-mode t)
-
-;; (add-hook 'prog-mode-hook #'electric-pair-local-mode)
+(add-hook 'prog-mode-hook #'electric-indent-local-mode)
+(add-hook 'prog-mode-hook #'electric-pair-local-mode)
 
 
 
