@@ -42,13 +42,6 @@
               )
   :config (recentf-mode))
 
-;;; [ midnight ] -- run something every midnight, e.g., kill old buffers.
-
-;; (use-package midnight
-;;   :defer t
-;;   :commands (midnight-mode)
-;;   :init (midnight-mode))
-
 ;;; [ frog-jump-buffer ] -- The fastest buffer-jumping Emacs lisp package around.
 
 (use-package frog-jump-buffer
