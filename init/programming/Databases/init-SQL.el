@@ -179,9 +179,10 @@
     (add-to-list 'ob-async-no-async-languages-alist "sql"))
 
   (defun my/ejc-sql-settings ()
-    (setq-local ac-auto-start 1)
+    (setq-local ac-auto-start 2)
     (setq-local ac-delay 0)
     (setq-local ac-auto-show-menu t)
+    (setq-local ac-use-quick-help nil)
     (company-mode -1)
     (flyspell-mode -1))
   (add-hook 'ejc-sql-mode-hook #'my/ejc-sql-settings)
@@ -196,6 +197,16 @@
     (ejc-ac-setup))
   (add-hook 'sql-mode-hook #'my-ejc-sql-ac-setup)
 
+  ;; enable `ejc-sql' in `sql-interactive-mode'.
+  (defun ejc-sql-interactive-mode-setup ()
+    "Setup ejc-sql completion in `sql-interactive-mode'."
+    (interactive)
+    (call-interactively 'ejc-connect)
+    (ejc-sql-mode)
+    (auto-complete-mode 1)
+    (ejc-ac-setup))
+  (add-hook 'sql-interactive-mode #'ejc-sql-interactive-mode-setup)
+  
   ;; (advice-add 'ejc-connect :before
   ;;             #'(lambda (connection-name)
   ;;                 (switch-to-buffer-other-window (format "*ejc-sql %s*" connection-name))))
