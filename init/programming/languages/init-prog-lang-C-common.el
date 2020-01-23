@@ -47,7 +47,7 @@
   ;; (c-toggle-auto-hungry-state 1)
   ;; (c-toggle-auto-newline 1)
   ;; (c-toggle-hungry-state 1)
-  (electric-indent-mode 1)
+  (electric-indent-local-mode 1)
   (electric-pair-local-mode 1)
   (local-set-key (kbd "C-h d") 'manual-entry))
 
