@@ -331,6 +331,7 @@
 
 (require 'init-prog-framework-web)
 ;; (require 'init-prog-web-browser)
+(require 'init-RESTful)
 ;; (require 'init-prog-framework-ruby-on-rails)
 ;; (require 'init-prog-framework-android)
 (require 'init-prog-framework-arduino)

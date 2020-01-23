@@ -202,10 +202,6 @@
   :delight web-mode-edit-element-minor-mode
   :hook (web-mode-hook . web-mode-edit-element-minor-mode))
 
-;;; [ RESTful ]
-
-(require 'init-RESTful)
-
 
 (provide 'init-prog-framework-web)
 
