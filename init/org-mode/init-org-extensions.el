@@ -31,6 +31,11 @@
   (define-key org-mode-map (kbd "C-c C-r") 'org-encrypt-entry)
   (define-key org-mode-map (kbd "C-c M-r") 'org-decrypt-entry))
 
+;;; [ org-invoice ] -- Help manage client invoices in Org Mode.
+
+(autoload 'org-invoice-report "org-invoice")
+(autoload 'org-dblock-write:invoice "org-invoice")
+
 
 
 (provide 'init-org-extensions)
