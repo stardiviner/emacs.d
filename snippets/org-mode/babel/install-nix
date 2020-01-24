@@ -4,6 +4,8 @@
 # group: babel.install
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
+**** Nix(OS)
+
 #+begin_src sh :async
-nix-env -i fd
+nix-env -iA $0
 #+end_src
