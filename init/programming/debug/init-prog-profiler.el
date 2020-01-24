@@ -1,4 +1,4 @@
-;;; init-prog-debug-profiler.el --- init for profiler
+;;; init-prog-profiler.el --- init for profiler
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -16,6 +16,6 @@
 
 
 
-(provide 'init-prog-debug-profiler)
+(provide 'init-prog-profiler)
 
-;;; init-prog-debug-profiler.el ends here
+;;; init-prog-profiler.el ends here
