@@ -102,7 +102,7 @@
 (require 'init-emacs-theme)
 (require 'init-emacs-appearance)
 (require 'init-emacs-prettify)
-(require 'init-emacs-emoji)
+;; (require 'init-emacs-emoji)
 (require 'init-emacs-mode-line)
 (require 'init-emacs-popup)
 (require 'init-emacs-completion)

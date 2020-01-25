@@ -14,8 +14,7 @@
   :init (setq emojify-emojis-dir (concat user-emacs-directory "emojis")
               ;; emojify-program-contexts '(comments string)
               emojify-display-style 'unicode)
-  :config (global-emojify-mode 1)
-  (emojify-mode-line-mode))
+  :config (global-emojify-mode 1))
 
 ;;; [ company-emoji ] -- company-mode backend providing completion for emoji. 🆒💦
 
