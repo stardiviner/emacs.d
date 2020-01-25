@@ -17,22 +17,28 @@
 
 (setq password-cache-expiry nil) ; don't expire password cache.
 
-;;; [ auth-source ]
+;;; [ auth-source ] -- Emacs built-in authentication sources for Gnus and Emacs.
 
-(add-to-list 'auth-sources (concat user-emacs-directory "secrets/.authinfo.gpg"))
-;; Auth Source debugging
-;; (setq auth-source-debug t)
+(use-package auth-source
+  :ensure dash
+  :demand
+  :no-require t
+  :config
+  (autoload '-filter "dash")
+  (setq auth-sources (-filter #'file-exists-p
+                              `(,(concat user-emacs-directory "secrets/.authinfo.gpg")
+                                "~/.authinfo.gpg" "~/.authinfo" "~/.netrc")))
 
-(defun my:auth-source-get (query-key query-value get-key)
-  "Get :secret of QUERY matched auth-source entries.
+  (defun my:auth-source-get (query-key query-value get-key)
+    "Get :secret of QUERY matched auth-source entries.
 Usage: (my:auth-source-get :host \"api.heroku.com\" :user)"
-  (pcase get-key
-    (:secret
-     (car (aref (aref (plist-get (car (auth-source-search query-key query-value)) :secret) 2) 0)))
-    (:user
-     (plist-get (car (auth-source-search query-key query-value)) :user))
-    (:host
-     (plist-get (car (auth-source-search query-key query-value)) :host))))
+    (pcase get-key
+      (:secret
+       (car (aref (aref (plist-get (car (auth-source-search query-key query-value)) :secret) 2) 0)))
+      (:user
+       (plist-get (car (auth-source-search query-key query-value)) :user))
+      (:host
+       (plist-get (car (auth-source-search query-key query-value)) :host)))))
 
 ;;; [ Secrets ] -- presenting password entries retrieved by Security Service from freedesktop.org.
 
