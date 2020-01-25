@@ -15,7 +15,7 @@
 ;; the value is in 1/10pt, so 100 will give you 10pt, etc
 (cl-case system-type
   ('gnu/linux
-   (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)
+   (set-frame-font (format "%s:pixelsize=%d" "Noto Sans Mono" 12) t) ; "DejaVu Sans Mono"
    (set-face-attribute 'default nil
                        :family "DejaVu Sans Mono"
                        :foundry "PfEd"))
@@ -38,9 +38,9 @@
                       charset
                       (cl-case system-type
                         ('gnu/linux
-                         (font-spec :family "Source Han Sans" :size 16)
+                         ;; (font-spec :family "Source Han Sans" :size 16)
                          ;; (font-spec :family "Sarasa Gothic SC" :size 16)
-                         ;; (font-spec :family "Noto Sans CJK SC" :size 13)
+                         (font-spec :family "Noto Sans CJK SC" :size 16)
                          ;; (font-spec :family "Hack" :size 12)
                          ;; (font-spec :family "WenQuanYi Micro Hei" :size 12)
                          ;; (font-spec :family "NSimSun" :size 14)
