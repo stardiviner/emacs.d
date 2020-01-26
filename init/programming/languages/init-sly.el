@@ -14,17 +14,16 @@
   :defer t
   :commands (sly sly-mode)
   :preface (setq sly-default-lisp 'sbcl)
-  :init (mapc
-         (lambda (hook) (add-hook hook #'sly-mode))
-         '(lisp-mode-hook lisp-interaction-mode-hook sly-mrepl-mode-hook))
-  
-  ;; Connecting to SLY automatically
-  (setq sly-auto-start 'always)
+  :init ; (setq sly-auto-start 'always)
   :config
   ;; setup the `sly-contribs' before starting SLY via [M-x sly].
   (setq sly-contribs `(sly-fancy sly-scratch sly-mrepl sly-autodoc))
   (sly-setup sly-contribs)
   ;; (sly-enable-contrib)
+
+  (mapc
+   (lambda (hook) (add-hook hook #'sly-mode))
+   '(lisp-mode-hook lisp-interaction-mode-hook sly-mrepl-mode-hook))
   
   (defun my-sly-setup ()
     ;; Autodoc (like `eldoc')

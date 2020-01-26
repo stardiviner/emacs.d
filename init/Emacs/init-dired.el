@@ -62,7 +62,7 @@
   ;; colorful Dired
   (use-package diredfl
     :ensure t
-    :init (diredfl-global-mode 1))
+    :config (diredfl-global-mode 1))
 
   ;; Show git info in Dired.
   (use-package dired-git-info

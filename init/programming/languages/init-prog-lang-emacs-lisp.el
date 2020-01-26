@@ -11,8 +11,6 @@
 (add-hook 'emacs-lisp-mode-hook #'my-lisp-common-settings)
 (add-hook 'inferior-emacs-lisp-mode-hook #'my-lisp-repl-common-settings)
 
-(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-
 ;; Recompile your elc when saving an elisp file.
 ;; (add-hook 'after-save-hook
 ;;           #'(lambda ()
@@ -37,13 +35,12 @@
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("emacs-lisp" . "el"))
 
+  ;; (add-to-list 'org-babel-default-header-args:emacs-lisp
+  ;;              '(:lexical . "yes"))
   (add-to-list 'org-babel-default-header-args:emacs-lisp
                '(:results . "value"))
   (add-to-list 'org-babel-default-header-args:emacs-lisp
-               '(:noweb . "yes"))
-  ;; (add-to-list 'org-babel-default-header-args:emacs-lisp
-  ;;              '(:lexical . "yes"))
-  )
+               '(:noweb . "yes")))
 
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
 

@@ -34,6 +34,14 @@
 ;;; `my:org-convert-region-to-html' etc.
 (setq org-export-use-babel nil)
 
+
+;; babel src block editing
+(setq org-src-window-setup `,(if (< (frame-width) 200)
+                                 'plain
+                               'split-window-right)
+      ;; 0: fix `diff' babel syntax highlighting invalid issue.
+      org-edit-src-content-indentation 0)
+
 ;;; Manage org-babel popup buffers with `display-buffer-alist'.
 (add-to-list 'display-buffer-alist
              '("^\\*Org- Src.*\\*" (display-buffer-below-selected)))
@@ -55,13 +63,6 @@
 ;;; [ noweb ]
 ;; Raise errors when noweb references don't resolve.
 (setq org-babel-noweb-error-all-langs t)
-
-;; babel src block editing
-(setq org-src-window-setup `,(if (< (frame-width) 200)
-                                 'current-window
-                               'split-window-right)
-      ;; 0: fix `diff' babel syntax highlighting invalid issue.
-      org-edit-src-content-indentation 0)
 
 ;;; default loading babel language.
 (setq org-babel-load-languages '((org . t)))

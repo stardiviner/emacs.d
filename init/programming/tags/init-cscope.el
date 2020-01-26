@@ -43,12 +43,15 @@
 
 (use-package xcscope
   :ensure t
-  :init (cscope-setup)
+  :defer t
+  :hook ((c-mode . cscope-setup)
+         (c++-mode . cscope-setup))
+  :config
   ;; re-define cscope-minor-mode keymap
   (define-key cscope-minor-mode-keymap cscope-keymap-prefix nil)
   (setq cscope-keymap-prefix (kbd "M-g t"))
   (define-key cscope-minor-mode-keymap cscope-keymap-prefix cscope-command-map)
-  :config
+
   (define-key cscope-list-entry-keymap (kbd "C-n") 'cscope-history-forward-file)
   (define-key cscope-list-entry-keymap (kbd "C-p") 'cscope-history-backward-file)
   (define-key cscope-list-entry-keymap (kbd "n") 'cscope-history-forward-line-current-result)
@@ -58,7 +61,8 @@
 
 (use-package helm-cscope
   :ensure t
-  :init (add-hook 'c-mode-common-hook 'helm-cscope-mode)
+  :hook ((c-mode . helm-cscope-mode)
+         (c++-mode . helm-cscope-mode))
   :config (add-hook 'helm-cscope-mode-hook
                     (lambda ()
                       (local-set-key (kbd "M-.") 'helm-cscope-find-this-symbol)

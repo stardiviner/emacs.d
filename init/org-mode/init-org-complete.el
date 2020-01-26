@@ -35,7 +35,7 @@
 
 (use-package helm-org
   :ensure t
-  :after helm
+  :after org
   :commands (helm-org-agenda-files-headings
              helm-org-in-buffer-headings
              helm-org-parent-headings

@@ -142,13 +142,12 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
   ;; add `window-number' and `ace-window' commands to trigger list.
   (setq golden-ratio-extra-commands
         (append golden-ratio-extra-commands '(window-number-select ace-window)))
+  ;; manually re-fit ratio.
+  ;; (global-set-key (kbd "C-C C-j") 'golden-ratio)
 
   ;; disable in ediff session.
   (add-hook 'ediff-before-setup-windows-hook #'(lambda () (golden-ratio-mode -1)))
   (add-hook 'ediff-quit-hook #'(lambda () (golden-ratio-mode 1)))
-
-  ;; manually re-fit ratio.
-  ;; (global-set-key (kbd "C-C C-j") 'golden-ratio)
 
   ;; fix golden-ratio conflict with eyebrowse.
   (defun golden-ratio-eyebrowse-workaround--advice (orig-fun &rest args)

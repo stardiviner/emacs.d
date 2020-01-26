@@ -106,6 +106,7 @@
 ;;; [ Habit ]
 
 (use-package org-habit
+  :after org
   :config
   (setq org-habit-graph-column 70
         org-habit-today-glyph ?>
@@ -181,6 +182,7 @@
 
 (use-package org-edna
   :ensure t
+  :after org
   :init (org-edna-load))
 
 

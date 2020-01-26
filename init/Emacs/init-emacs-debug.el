@@ -37,8 +37,9 @@
 
 (use-package edebug-inline-result
   :quelpa (edebug-inline-result :fetcher github :repo "stardiviner/edebug-inline-result")
+  :after edebug
   :commands (global-edebug-inline-result-mode edebug-inline-result-mode)
-  :init (global-edebug-inline-result-mode))
+  :init (add-hook 'edebug-mode-hook #'edebug-inline-result-mode))
 
 ;;; [ bug-hunter ] -- Hunt down errors in elisp files.
 

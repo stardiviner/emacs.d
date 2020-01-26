@@ -200,11 +200,12 @@
   :defer t
   :commands (company-box-mode)
   :hook (company-mode . company-box-mode)
-  :init (setq company-box-doc-enable nil ; disable auto `company-box-doc' timer.
-              company-box-show-single-candidate t ; for still can use doc popup keybinding.
-              company-box-doc-delay 0.5
-              company-box-icons-alist 'company-box-icons-all-the-icons)
   :config
+  (setq company-box-doc-enable nil ; disable auto `company-box-doc' timer.
+        company-box-show-single-candidate t ; for still can use doc popup keybinding.
+        company-box-doc-delay 0.5
+        company-box-icons-alist 'company-box-icons-all-the-icons)
+  
   ;; fix company-box not scrolling issue.
   (advice-add 'company-next-page :after #'company-box--change-line)
   (advice-add 'company-previous-page :after #'company-box--change-line)
@@ -235,8 +236,7 @@
     (unless (frame-live-p (company-box-doc--get-frame))
       (set-frame-parameter nil 'company-box-doc-frame nil)))
   (with-eval-after-load 'circadian
-    (add-hook 'circadian-after-load-theme-hook #'company-box-child-frame-reset))
-  )
+    (add-hook 'circadian-after-load-theme-hook #'company-box-child-frame-reset)))
 
 
 (provide 'init-company-mode)

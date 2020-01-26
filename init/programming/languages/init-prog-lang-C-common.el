@@ -98,9 +98,9 @@
 (use-package irony
   :ensure t
   :defer t
-  :init (hook-modes c-dialects-mode
-          (when (memq major-mode '(c-mode c++-mode objc-mode))
-            (irony-mode 1)))
+  :hook ((c-mode . irony-mode)
+         (c++-mode . irony-mode)
+         (objc-mode . irony-mode))
   :config
   ;; find the compile flag options automatically:
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
@@ -108,17 +108,17 @@
 (use-package company-irony
   :ensure t
   :ensure company-irony-c-headers
+  :after irony
   :init (setq company-irony-ignore-case t)
+  :config
   (defun company-irony-add ()
     ;; (optional) adds CC special commands to `company-begin-commands'
     ;; in order to trigger completion at interesting places, such as
     ;; after scope operator.
     ;;     std::|
     (company-irony-setup-begin-commands)
-
     (make-local-variable 'company-backends)
-    (add-to-list 'company-backends
-                 '(company-irony :with company-yasnippet))
+    (my-company-add-backend-locally 'company-irony)
     (add-to-list 'company-backends 'company-irony-c-headers)
     (setq-local company-minimum-prefix-length 1))
 

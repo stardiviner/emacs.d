@@ -245,12 +245,14 @@ and append it."
 
 ;;; `track:' for OSM Maps
 ;; [[track:((9.707032442092896%2052.37033874553582)(9.711474180221558%2052.375238282987))data/images/org-osm-link.svg][Open this link will generate svg, png image for track link on map]]
-(use-package org-osm-link
-  :quelpa (org-osm-link :fetcher github :repo "emacsattic/org-osm-link")
-  :init (setq osm-do-cache t))
+
+;; (use-package org-osm-link
+;;   :quelpa (org-osm-link :fetcher github :repo "emacsattic/org-osm-link")
+;;   :init (setq osm-do-cache t))
 
 ;;; `geo:'
 ;; [geo:37.786971,-122.399677;u=35]
+
 (defcustom org-geo-link-application-command "gnome-maps"
   "Specify the program name for openning geo: link."
   :type 'string)
@@ -269,6 +271,7 @@ and append it."
 
 
 ;;; [[video:/path/to/file.mp4::00:13:20]]
+
 (defcustom org-video-link-open-command "mplayer"
   "Specify the program for openning video: link."
   :type 'string)

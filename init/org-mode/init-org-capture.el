@@ -144,13 +144,13 @@ In ~%s~:
                  :empty-lines 1))
               org-capture-templates))
 
-(use-package org-protocol-capture-html
-  :quelpa (org-protocol-capture-html :fetcher github :repo "alphapapa/org-protocol-capture-html")
-  :init (setq org-capture-templates (append
-                                     '(("PH" "org-[p]rotocol-capture-[h]tml" entry
-                                        (file "")
-                                        "* %a :website:\n\n%U %?\n\n%:initial"))
-                                     org-capture-templates)))
+;; (use-package org-protocol-capture-html
+;;   :quelpa (org-protocol-capture-html :fetcher github :repo "alphapapa/org-protocol-capture-html")
+;;   :config (setq org-capture-templates (append
+;;                                        '(("PH" "org-[p]rotocol-capture-[h]tml" entry
+;;                                           (file "")
+;;                                           "* %a :website:\n\n%U %?\n\n%:initial"))
+;;                                        org-capture-templates)))
 
 
 (provide 'init-org-capture)

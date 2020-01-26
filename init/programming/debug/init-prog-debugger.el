@@ -25,7 +25,8 @@
 ;;; [ realgud-lldb ] -- realgud front-end to lldb.
 
 (use-package realgud-lldb
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-prog-debugger)

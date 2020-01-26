@@ -10,6 +10,7 @@
 ;;; [ org-crypt ] -- public key encryption for Org entries
 
 (use-package org-crypt
+  :after org
   :commands (org-crypt-use-before-save-magic)
   :init
   ;; You can change the tag to any complex tag matching string by

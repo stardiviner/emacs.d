@@ -119,7 +119,11 @@
 ;;; [ quelpa ]
 
 (use-package quelpa-use-package
-  :ensure t)
+  :ensure t
+  :demand t
+  :commands (quelpa-upgrade quelpa-self-upgrade)
+  :init (setq quelpa-checkout-melpa-p nil
+  	      quelpa-update-melpa-p nil))
 
 
 

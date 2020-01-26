@@ -40,6 +40,7 @@
 
 (use-package git-commit ; edit Git commit messages.
   :ensure t
+  :defer t
   :config
   ;; `company-dabbrev' in git commit buffer.
   ;; https://github.com/company-mode/company-mode/issues/704
@@ -206,6 +207,7 @@
 
 (use-package forge
   :ensure t
+  :defer t
   :after magit)
 
 ;;; [ magit-reviewboard ] -- integrate the ReviewBoard review software into magit.
@@ -296,6 +298,7 @@
   :delight git-gutter+-mode
   :preface (setq git-gutter+-disabled-modes '(asm-mode image-mode))
   :commands (global-git-gutter+-mode git-gutter+-turn-on)
+  :hook (prog-mode . git-gutter+-turn-on)
   :bind (:map git-quick-prefix
               ("t" . git-gutter+-mode) ; Turn on/off in the current buffer
               ("T" . global-git-gutter+-mode) ; Turn on/off globally
@@ -331,15 +334,14 @@
               ("m c" . git-gutter+-commit)
               ("m C" . git-gutter+-stage-and-commit)
               ("m u" . git-gutter:update-all-windows))
-  :init
+  :config
   (add-to-list 'display-buffer-alist
                '("\\*git-gutter+-diff\\*" . (display-buffer-below-selected)))
   (defun git-gutter+-turn-on--around-advice (orig-func &rest args)
     (unless (and (buffer-file-name)
                  (file-remote-p (buffer-file-name)))
       (apply orig-func args)))
-  (advice-add 'git-gutter+-turn-on :around #'git-gutter+-turn-on--around-advice)
-  (add-hook 'prog-mode-hook #'git-gutter+-turn-on))
+  (advice-add 'git-gutter+-turn-on :around #'git-gutter+-turn-on--around-advice))
 
 ;;; [ diff-hl ] -- highlighting uncommitted changes with continuous fringe vertical block.
 

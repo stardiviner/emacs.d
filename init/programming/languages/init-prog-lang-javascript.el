@@ -123,15 +123,13 @@
   :ensure t
   :defer t
   :commands (run-js)
-  :init
-  (add-to-list 'display-buffer-alist
-               '("^\\*JavaScript REPL\\*" (display-buffer-below-selected)))
+  :config
   ;; if use node.js, we need nice output
   (setenv "NODE_NO_READLINE" "1")
   (setq js-comint-program-command "node")
   (setq js-comint-program-arguments '("--interactive"))
   (if (featurep 'nvm) (js-do-use-nvm))
-  :config
+
   (defun my/js-comint-setup-keybindings ()
     "Add some custom keybindings for js-comint."
     (local-set-key (kbd "C-c C-s") 'run-js)
@@ -140,7 +138,9 @@
     (local-set-key (kbd "C-c C-c") 'js-send-region)
     (local-set-key (kbd "C-c C-b") 'js-send-buffer)
     (local-set-key (kbd "C-c M-b") 'js-send-buffer-and-go))
-  (add-hook 'js2-mode-hook #'my/js-comint-setup-keybindings))
+  (add-hook 'js2-mode-hook #'my/js-comint-setup-keybindings)
+  (add-to-list 'display-buffer-alist
+               '("^\\*JavaScript REPL\\*" (display-buffer-below-selected))))
 
 ;;; [ nodejs-repl ] -- Run Node.js REPL and communicate the process.
 
@@ -218,6 +218,7 @@
 
 (use-package npm-mode
   :ensure t
+  :defer t
   :init (add-hook 'js2-mode-hook #'npm-mode))
 
 ;;; [ jsx-mode ] -- The XML inside of JavaScript.

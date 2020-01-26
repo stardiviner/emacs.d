@@ -83,6 +83,7 @@
 
 (use-package subword
   :ensure t
+  :defer t
   :init (add-hook 'clojure-mode-hook 'subword-mode))
 
 ;;; [ inf-clojure ] -- Run an external Clojure process in an Emacs buffer.

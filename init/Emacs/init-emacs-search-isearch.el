@@ -30,10 +30,7 @@
   (setq-default case-fold-search t
                 case-replace t)
   ;; default mode to use when starting isearch.
-  (setq search-default-mode 'char-fold-to-regexp ; if you deal with multi-lingual stuff.
-        ;; replace-char-fold t ; for command `query-replace'
-        )
-  )
+  (setq search-default-mode 'char-fold-to-regexp))
 
 ;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.
 
@@ -48,25 +45,25 @@
          ("M-s" . vr/isearch-backward)
          ("r" . vr/query-replace)
          ("R" . vr/replace))
-  :init
+  :config
   ;; if you use `multiple-cursors' interface, this is for you:
   (with-eval-after-load 'multiple-cursors
-    (define-key search-prefix (kbd "m") 'vr/mc-mark))
-  ;; `vr/select-mc-mark', `vr/select-replace' etc.
-  )
+    ;; `vr/select-mc-mark', `vr/select-replace' etc.
+    (define-key search-prefix (kbd "m") 'vr/mc-mark)))
 
 ;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
 
 (use-package visual-regexp-steroids
   :ensure t
-  :defer t)
-
+  :defer t
+  :after visual-regexp)
 
 ;;; [ anzu ] -- Emacs Port of anzu.vim.
 
 (use-package anzu
   :ensure t
   :defer t
+  :after isearch
   :bind (("M-%" . anzu-query-replace-regexp) ; anzu-query-replace
          ("C-M-%" . anzu-query-replace-regexp))
   :init
@@ -77,10 +74,8 @@
         anzu-cons-mode-line-p nil
         anzu-deactivate-region nil
         anzu-use-migemo (and (featurep 'migemo) t)
-        anzu-replace-to-string-separator " ⇨ "
-        )
-  :config
-  (global-anzu-mode 1))
+        anzu-replace-to-string-separator " ⇨ ")
+  :config (global-anzu-mode 1))
 
 ;;; [ Swpier ] -- gives you an overview as you search for a regex.
 
