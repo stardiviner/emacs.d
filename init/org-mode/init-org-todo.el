@@ -59,151 +59,48 @@
         ))
 
 (defface org-todo-keyword-todo-face
-  '((t :foreground "orange" :family "Comic Sans MS"
+  '((t :foreground "orange"
        :weight bold :box '(:color "dim gray" :line-width -1)))
   "Face for Org TODO keyword."
   :group 'org-faces)
-(defface org-todo-keyword-repeat-face
-  '((t :foreground "dark gray" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org REPEAT keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-habit-face
-  '((t :foreground "cyan" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org HABIT keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-next-face
-  '((t :foreground "yellow" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org NEXT keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-urgent-face
-  '((t :foreground "orange red" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org NEXT keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-inprogress-face
-  '((t :foreground "cyan" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org INPROGRESS keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-someday-face
-  '((t :foreground "gray" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org SOMEDAY keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-later-face
-  '((t :foreground "dim gray" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org LATER keyword."
-  :group 'org-faces)
 (defface org-todo-keyword-done-face
-  '((t :foreground "black" :family "Comic Sans MS"
-       :strike-through t :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org DONE keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-failed-face
-  '((t :foreground "#444444" :family "Comic Sans MS"
-       :strike-through "dark red" :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org FAILED keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-cancelled-face
-  '((t :foreground "black" :family "Comic Sans MS"
-       :strike-through t :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org CANCELLED keyword."
-  :group 'org-faces)
-
-(defface org-todo-keyword-code-face
-  '((t :foreground "DodgerBlue" :family "Comic Sans MS"
+  '((t :foreground "black"
        :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org CODE keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-bug-face
-  '((t :foreground "dark red" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org BUG keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-issue-face
-  '((t :foreground "blue" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org ISSUE keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-error-face
-  '((t :foreground "red" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org ERROR keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-feature-face
-  '((t :foreground "cyan" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org FEATURE keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-pull-request-face
-  '((t :foreground "yellow" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org Pull-Request keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-review-face
-  '((t :foreground "yellow" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org REVIEW keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-security-face
-  '((t :foreground "red" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org REVIEW keyword."
-  :group 'org-faces)
-
-(defface org-todo-keyword-sex-face
-  '((t :foreground "deep pink" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org SEX keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-work-face
-  '((t :foreground "cornflower blue" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org WORK keyword."
-  :group 'org-faces)
-(defface org-todo-keyword-learn-face
-  '((t :foreground "green yellow" :family "Comic Sans MS"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
-  "Face for Org LEARN keyword."
+  "Face for Org TODO keyword."
   :group 'org-faces)
 
 (setq org-todo-keyword-faces
       '(;;; todo keywords
         ("TODO" . org-todo-keyword-todo-face)
-        ("REPEAT" . org-todo-keyword-repeat-face)
-        ("HABIT" . org-todo-keyword-habit-face)
-        ("NEXT" . org-todo-keyword-next-face)
-        ("STARTED" . org-todo-keyword-inprogress-face)
-        ("INPROGRESS" . org-todo-keyword-inprogress-face)
-        ("DELAYED" . org-todo-keyword-urgent-face)
-        ("LATER" . org-todo-keyword-later-face)
-        ("SOMEDAY" . org-todo-keyword-someday-face)
+        ("REPEAT" . org-todo-keyword-todo-face)
+        ("HABIT" . org-todo-keyword-todo-face)
+        ("NEXT" . org-todo-keyword-todo-face)
+        ("STARTED" . org-todo-keyword-todo-face)
+        ("INPROGRESS" . org-todo-keyword-todo-face)
+        ("DELAYED" . org-todo-keyword-todo-face)
+        ("LATER" . org-todo-keyword-todo-face)
+        ("SOMEDAY" . org-todo-keyword-todo-face)
         ("DONE" . org-todo-keyword-done-face)
-        ("FAILED" . org-todo-keyword-failed-face)
-        ("CANCELLED" . org-todo-keyword-cancelled-face)
+        ("FAILED" . org-todo-keyword-done-face)
+        ("CANCELLED" . org-todo-keyword-done-face)
         ;; code programming
-        ("CODE" . org-todo-keyword-code-face)
-        ("BUG" . org-todo-keyword-bug-face)
-        ("ISSUE" . org-todo-keyword-issue-face)
-        ("ERROR" . org-todo-keyword-error-face)
-        ("FEATURE" . org-todo-keyword-feature-face)
-        ("Pull-Request" . org-todo-keyword-pull-request-face)
-        ("REVIEW" . org-todo-keyword-review-face)
-        ("SECURITY" . org-todo-keyword-security-face)
+        ("CODE" . org-todo-keyword-todo-face)
+        ("BUG" . org-todo-keyword-todo-face)
+        ("ISSUE" . org-todo-keyword-todo-face)
+        ("ERROR" . org-todo-keyword-todo-face)
+        ("FEATURE" . org-todo-keyword-todo-face)
+        ("Pull-Request" . org-todo-keyword-todo-face)
+        ("REVIEW" . org-todo-keyword-todo-face)
+        ("SECURITY" . org-todo-keyword-todo-face)
         ;; life
-        ("SEX" . org-todo-keyword-sex-face)
+        ("SEX" . org-todo-keyword-todo-face)
         ;; work
-        ("WORK" . org-todo-keyword-work-face)
-        ("JOB" . org-todo-keyword-work-face)
-        ("BUSINESS" . org-todo-keyword-work-face)
-        ("MEETING" . org-todo-keyword-work-face)
+        ("WORK" . org-todo-keyword-todo-face)
+        ("JOB" . org-todo-keyword-todo-face)
+        ("BUSINESS" . org-todo-keyword-todo-face)
+        ("MEETING" . org-todo-keyword-todo-face)
         ;; learn
-        ("LEARN" . org-todo-keyword-learn-face)
-        ))
+        ("LEARN" . org-todo-keyword-todo-face)))
 
 
 ;;; [ Habit ]
@@ -271,7 +168,7 @@
 (add-to-list 'org-todo-keywords
              '(type "PROJECT(P@/!)" "|" "DONE(d@/!)"))
 (add-to-list 'org-todo-keyword-faces
-             '("PROJECT" . org-todo-keyword-work-face))
+             '("PROJECT" . org-todo-keyword-todo-face))
 
 
 ;;; [ Task Dependencies ]
@@ -284,7 +181,6 @@
 
 (use-package org-edna
   :ensure t
-  :defer t
   :init (org-edna-load))
 
 
