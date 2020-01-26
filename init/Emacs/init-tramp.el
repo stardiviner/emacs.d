@@ -11,8 +11,17 @@
 
 (use-package tramp
   :ensure t
-  :defer t
-  :init
+  :config
+  ;; Shell `/ssh:' etc methods
+  (use-package tramp-sh
+    :init (add-to-list 'tramp-remote-path "~/bin"))
+  
+  ;; `/sudoedit:' method
+  (require 'tramp-sudoedit)
+
+  ;; Android `/adb:' method
+  (use-package tramp-adb)
+
   ;; <default method>
   (setq tramp-default-method "ssh")
   ;; speed-up tramp.
@@ -28,13 +37,7 @@
   (with-eval-after-load 'tramp-cache
     (setq tramp-persistency-file-name (concat user-emacs-directory "tramp")))
   
-  ;; (add-to-list 'tramp-default-method-alist
-  ;;              '("\\`\\(127\\.0\\.0\\.1\\|::1\\|dark\\|localhost6?\\)\\'"
-  ;;                "\\`root\\'"
-  ;;                "su"))
   (add-to-list 'tramp-default-method-alist '(nil "%" "smb"))
-  
-  ;; (add-to-list 'tramp-methods `(,))
 
   ;; <default user>
   ;; NOTE: this cause `ob-shell' :dir /sudo:: error.
@@ -78,33 +81,21 @@
           (and (normal-backup-enable-predicate name)
                (not (let ((method (file-remote-p name 'method)))
                       (when (stringp method)
-                        (member method '("su" "sudo"))))))))
-  
-  ;; [ sh ] -- Tramp access functions for (s)sh-like connections.
-  (use-package tramp-sh
-    :defer t
-    :init (add-to-list 'tramp-remote-path "~/bin"))
-  
-  ;; [ sudo in Tramp ]
-
-  ;; [ Android adb ]
-  ;; (use-package tramp-adb
-  ;;   :defer t)
-  )
+                        (member method '("su" "sudo")))))))))
 
 ;;; [ tramp-auto-auth ] -- TRAMP automatic authentication library.
 
 (use-package tramp-auto-auth
   :ensure t
-  :defer t
-  :init (tramp-auto-auth-mode 1)
   :config
   (add-to-list 'tramp-auto-auth-alist '("root@localhost" . (:host "localhost" :user "root" :port "ssh")))
-  (add-to-list 'tramp-auto-auth-alist '("root@dark" . (:host "dark" :user "root" :port "ssh"))))
+  (add-to-list 'tramp-auto-auth-alist '("root@dark" . (:host "dark" :user "root" :port "ssh")))
+  (tramp-auto-auth-mode 1))
 
 ;;; [ counsel-tramp ] -- Tramp with Ivy/counsel interface.
 
 (use-package counsel-tramp
+  :if (featurep 'counsel)
   :ensure t
   :defer t
   :commands (counsel-tramp)
@@ -112,14 +103,11 @@
 
 ;;; [ helm-tramp ] -- Tramp with Helm interface.
 
-;; (use-package helm-tramp
-;;   :ensure t
-;;   :defer t
-;;   :config
-;;   (defalias 'exit-tramp 'tramp-cleanup-all-buffers)
-;;   (with-eval-after-load 'helm-config
-;;     (define-key helm-command-map (kbd "M-t") 'helm-tramp))
-;;   )
+(use-package helm-tramp
+  :if (featurep 'helm)
+  :ensure t
+  :after helm
+  :commands (helm-tramp))
 
 
 
