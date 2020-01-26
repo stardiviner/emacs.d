@@ -24,9 +24,8 @@
   (make-local-variable 'company-backends)
   (setq company-backends
         '((company-capf :with company-yasnippet
-                        :separate company-tempo
-                        :separate company-dabbrev-code)
-          (company-keywords :with company-abbrev)
+                        :separate company-tempo)
+          company-keywords
           company-files)))
 
 (add-hook 'org-mode-hook #'my/org-mode-completion-setting)
@@ -36,19 +35,18 @@
 
 (use-package helm-org
   :ensure t
-  :defer t
   :after helm
   :commands (helm-org-agenda-files-headings
              helm-org-in-buffer-headings
              helm-org-parent-headings
              helm-org-capture-templates)
-  :bind (([remap org-goto] . helm-org-in-buffer-headings))
+  :bind (([remap org-goto] . helm-org-in-buffer-headings)) ; [C-c C-j]
   :config
   (with-eval-after-load 'helm-mode
-   (add-to-list 'helm-completing-read-handlers-alist
-                '(org-capture . helm-org-completing-read-tags))
-   (add-to-list 'helm-completing-read-handlers-alist
-                '(org-set-tags . helm-org-completing-read-tags))))
+    (add-to-list 'helm-completing-read-handlers-alist
+                 '(org-capture . helm-org-completing-read-tags))
+    (add-to-list 'helm-completing-read-handlers-alist
+                 '(org-set-tags . helm-org-completing-read-tags))))
 
 
 (provide 'init-org-complete)

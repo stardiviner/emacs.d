@@ -11,8 +11,7 @@
 
 (use-package sudo-edit
   :ensure t
-  :bind ("C-x C-r" . sudo-edit)
-  )
+  :bind ("C-x C-r" . sudo-edit))
 
 
 (provide 'init-emacs-edit-sudo)

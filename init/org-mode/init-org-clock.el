@@ -47,6 +47,7 @@
 (use-package counsel-org-clock
   :ensure t
   :defer t
+  :commands (counsel-org-clock-history counsel-org-clock-context)
   :bind (:map org-clock-prefix
               ("C-i" . counsel-org-clock-history)
               ("C-c" . counsel-org-clock-context)))

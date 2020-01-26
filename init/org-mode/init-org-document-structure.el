@@ -12,76 +12,6 @@
 (setq org-fontify-done-headline t)
 (setq org-hide-emphasis-markers t)
 
-;;; [ Org faces ]
-
-(with-eval-after-load 'org-faces
-  (set-face-attribute 'org-document-title nil
-                      :family "Comic Sans MS"
-                      :height 170)
-  (set-face-attribute 'org-level-1 nil
-                      :inherit 'variable-pitch
-                      :family "Comic Sans MS"
-                      :weight 'bold :height 130
-                      :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('light
-                                     (color-darken-name (face-background 'default) 5))
-                                    ('dark
-                                     (color-lighten-name (face-background 'default) 3))))
-  (set-face-attribute 'org-level-2 nil
-                      :inherit 'org-level-1
-                      :family "DejaVu Sans Mono"
-                      :height 130)
-  (set-face-attribute 'org-level-3 nil
-                      :inherit 'org-level-2
-                      :height 130)
-  (set-face-attribute 'org-level-4 nil
-                      :inherit 'org-level-3
-                      :family "DejaVu Sans"
-                      :weight 'normal)
-  (set-face-attribute 'org-level-5 nil
-                      :inherit 'org-level-4)
-  (set-face-attribute 'org-level-6 nil
-                      :inherit 'org-level-5)
-  (set-face-attribute 'org-level-7 nil
-                      :inherit 'org-level-6)
-  (set-face-attribute 'org-headline-done nil
-                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('light
-                                     (color-darken-name (face-background 'default) 20))
-                                    ('dark
-                                     (color-lighten-name (face-background 'default) 20))))
-  (set-face-attribute 'org-agenda-done nil
-                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('light
-                                     (color-darken-name (face-background 'default) 20))
-                                    ('dark
-                                     (color-lighten-name (face-background 'default) 20))))
-  (set-face-attribute 'org-code nil
-                      :inherit 'fixed-pitch)
-  (set-face-attribute 'org-verbatim nil
-                      :inherit 'fixed-pitch)
-  (set-face-attribute 'org-block nil
-                      :inherit 'fixed-pitch)
-  (set-face-attribute 'org-table nil
-                      :inherit 'fixed-pitch
-                      :height 1.0))
-
-;;; [ priority ]
-
-(setq org-priority-faces
-      '((?A .
-            (:foreground "#222222"
-                         :background "orchid"
-                         :box '(:color "dark gray" :line-width -1)))
-        (?B .
-            (:foreground "dark gray"
-                         :background "dark slate blue"
-                         :box '(:color "dark gray" :line-width -1)))
-        (?C .
-            (:foreground "dim gray"
-                         :background "gray"
-                         :box '(:color "dark gray" :line-width -1)))))
-
 ;;; List
 
 (setq org-hierarchical-todo-statistics nil
@@ -118,8 +48,7 @@
 
 ;;; [ Structure Templates ] --  ; expand snippet <[s]
 
-(use-package org-tempo
-  :defer t)
+;; (require 'org-tempo)
 ;; (add-to-list 'org-structure-template-alist '("?" . "..."))
 ;; (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 ;; `tempo-define-template'

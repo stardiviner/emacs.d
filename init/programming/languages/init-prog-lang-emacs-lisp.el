@@ -14,18 +14,18 @@
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 
 ;; Recompile your elc when saving an elisp file.
-(add-hook 'after-save-hook
-          #'(lambda ()
-              (when (file-exists-p (byte-compile-dest-file buffer-file-name))
-                (emacs-lisp-byte-compile)))
-          'append 'local)
+;; (add-hook 'after-save-hook
+;;           #'(lambda ()
+;;               (when (file-exists-p (byte-compile-dest-file buffer-file-name))
+;;                 (emacs-lisp-byte-compile)))
+;;           'append 'local)
 
 ;;; [ sly-el-indent ] -- Use `sly-cl-indent' to indent Emacs Lisp.
 
-(use-package sly-el-indent
-  :quelpa (sly-el-indent :fetcher github :repo "cireu/sly-el-indent")
-  :commands (sly-el-indent-setup)
-  :init (add-hook 'emacs-lisp-hook #'sly-el-indent-setup))
+;; (use-package sly-el-indent
+;;   :quelpa (sly-el-indent :fetcher github :repo "cireu/sly-el-indent")
+;;   :commands (sly-el-indent-setup)
+;;   :init (add-hook 'emacs-lisp-hook #'sly-el-indent-setup))
 
 ;;; [ ob-emacs-lisp ]
 

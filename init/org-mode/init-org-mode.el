@@ -19,7 +19,6 @@
 
 (require 'init-org-document-structure)
 (require 'init-org-view)
-
 (require 'init-org-keybindings)
 (require 'init-org-complete)
 (require 'init-org-table)

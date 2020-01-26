@@ -218,16 +218,13 @@
 
 (use-package npm-mode
   :ensure t
-  :defer t
-  :commands (npm-global-mode npm-mode)
-  :init (npm-global-mode 1))
+  :init (add-hook 'js2-mode-hook #'npm-mode))
 
 ;;; [ jsx-mode ] -- The XML inside of JavaScript.
 
 ;; (use-package jsx-mode
 ;;   :ensure t
-;;   :mode ("\\.jsx\\'" . jsx-mode)
-;;   )
+;;   :mode ("\\.jsx\\'" . jsx-mode))
 
 ;;; [ js-doc ] -- Insert JsDoc style comment easily.
 

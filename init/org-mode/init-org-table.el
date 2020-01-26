@@ -12,14 +12,14 @@
 
 ;;; [ org-table-sticky-header ] -- Sticky header for org-mode tables.
 
-(use-package org-table-sticky-header
-  :ensure t
-  :defer t
-  :init (add-hook 'org-mode-hook 'org-table-sticky-header-mode)
-  :config (set-face-attribute 'org-table-sticky-header-face nil
-                              :inherit 'default
-                              :foreground "black" :background "orange"
-                              :underline "black"))
+;; (use-package org-table-sticky-header
+;;   :ensure t
+;;   :defer t
+;;   :init (add-hook 'org-mode-hook 'org-table-sticky-header-mode)
+;;   :config (set-face-attribute 'org-table-sticky-header-face nil
+;;                               :inherit 'default
+;;                               :foreground "black" :background "orange"
+;;                               :underline "black"))
 
 ;; [ org-plot ] -- Plotting Tables in Org-mode.
 

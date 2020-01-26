@@ -12,7 +12,6 @@
 ;;; setup my abbrevs file custom path.
 (setq abbrev-file-name (expand-file-name "abbrev_defs" user-emacs-directory))
 (setq save-abbrevs 'silently) ; save abbrevs when files are saved, nil: stop asking.
-(setq-default abbrev-mode t)
 ;; reads the abbreviations file on startup quietly.
 (if (file-exists-p abbrev-file-name)
     (quietly-read-abbrev-file))
@@ -33,8 +32,7 @@
 (define-key abbrev-map (kbd "i") 'inverse-add-mode-abbrev)
 (define-key abbrev-map (kbd "I") 'inverse-add-global-abbrev)
 
-(setq-default abbrev-mode t)            ; turn on abbrev mode globally.
-
+;; (add-hook 'org-mode-hook #'abbrev-mode)
 
 ;;; [ dabbrev ] -- Dynamic Abbrevs [M-/]
 
