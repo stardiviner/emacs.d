@@ -126,7 +126,7 @@
 (require 'init-emacs-file)
 (require 'init-emacs-color)
 (require 'init-emacs-image)
-(require 'init-emacs-pdf)
+;; (require 'init-emacs-pdf)
 (require 'init-emacs-ebook)
 (require 'init-dired)
 (require 'init-emacs-modes)
