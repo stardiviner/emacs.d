@@ -80,8 +80,10 @@
   (defun elfeed-quit ()
     (interactive)
     (elfeed-db-save)
-    (quit-window))
+    (with-current-buffer "*elfeed-search*"
+      (kill-buffer)))
   (define-key elfeed-search-mode-map (kbd "q") 'elfeed-quit)
+  (add-hook 'kill-emacs-hook #'elfeed-quit)
 
   ;; support Org Mode Capture template
   (defun my/org-capture-elfeed-title ()
