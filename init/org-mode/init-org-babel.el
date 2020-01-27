@@ -142,15 +142,15 @@ but `delete-file' is ignored."
   (org-redisplay-inline-images))
 (advice-add 'org-babel-execute-src-block :after #'my/org-redisplay-inline-images)
 
-;;; interactive completing named src blocks. [C-c C-v C-q]
-(defun my/org-babel-insert-named-src-block (&optional template)
+;;; interactively insert noweb of completing named src blocks. [C-c C-v M-q]
+(defun my/org-babel-insert-noweb-of-named-src-block (&optional template)
   (interactive)
   (let ((src-block
 	       (completing-read "Enter src block name[or TAB or ENTER]: "
                           (org-babel-src-block-names))))
     (unless (string-equal "" src-block)
 	    (insert (format "<<%s>>" src-block)))))
-(define-key org-babel-map (kbd "M-q") 'my/org-babel-insert-named-src-block)
+(define-key org-babel-map (kbd "M-q") 'my/org-babel-insert-noweb-of-named-src-block)
 
 (defun my/org-babel-insert-src-block-call (&optional template)
   "Interactively insert a named src block call with `TEMPLATE'."
@@ -164,10 +164,12 @@ but `delete-file' is ignored."
 
 ;;; [ helm-lib-babel ] -- inserting a #+CALL: reference to an source block name.
 
+;;; interactively insert #+CALL of completing named src blocks. [C-c C-v M-i]
 (use-package helm-lib-babel
   :ensure t
   :defer t
-  :bind (:map org-babel-map ("M-i" . helm-lib-babel-insert)))
+  :init (defalias 'my/org-babel-insert-call-of-named-src-block 'helm-lib-babel-insert)
+  :bind (:map org-babel-map ("M-i" . my/org-babel-insert-call-of-named-src-block)))
 
 ;;; [ ob-async ] -- asynchronous execution of org-babel src blocks for *any* languages.
 
