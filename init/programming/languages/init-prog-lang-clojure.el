@@ -11,13 +11,9 @@
 
 (use-package clojure-mode ; [C-c C-r] prefix
   :ensure t
-  :ensure subword
   :defer t
   :commands (clojure-add-arity)
-  :mode (;; Boot files
-         ("\\.boot\\'" . clojure-mode) ; recognize .boot file
-         (".* boot" . clojure-mode) ; recognize script file using shebang
-         )
+  :init (setq clojure-align-forms-automatically t)
   :config
   (autoload 'my-lisp-common-settings "init-prog-lang-lisp.el")
   (add-hook 'clojure-mode-hook #'my-lisp-common-settings)
@@ -26,12 +22,6 @@
   (add-hook 'cider-repl-mode-hook #'my-lisp-repl-common-settings)
 
   ;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
-
-  ;; `subword-mode' is quite useful since we often have to deal with Java class
-  ;; and method names.
-  (add-hook 'clojure-mode-hook #'subword-mode)
-
-  (setq clojure-align-forms-automatically t)
 
   ;; treat `foo-bar' or `:baz' as a symbol.
   ;; (add-hook 'clojure-mode-hook
@@ -74,13 +64,15 @@
     )
 
   ;; make the [M-;] and `banner-comment' works correct.
-  (add-hook 'clojure-mode-hook (lambda () (setq-local comment-start ";;")))
-  )
+  (add-hook 'clojure-mode-hook (lambda () (setq-local comment-start ";;"))))
 
 (use-package clojure-mode-extra-font-locking
   :ensure t
+  :defer t
   :after clojure-mode)
 
+;; `subword-mode' is quite useful since we often have to deal with Java class
+;; and method names.
 (use-package subword
   :ensure t
   :defer t
@@ -272,6 +264,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 (use-package clj-refactor
   :ensure t
   :defer t
+  :after clojure-mode
   :delight clj-refactor-mode
   :init (setq cljr-suppress-middleware-warnings t)
   :config
@@ -322,6 +315,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 (use-package midje-mode
   :ensure t
   :defer t
+  :after clojure-mode
   :commands (midje-mode))
 
 ;;; [ Emidje ] -- Test runner, report viewer and formatting tool for Midje within Emacs.
@@ -358,6 +352,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 (use-package ob-clojure
   :defer t
+  :after clojure-mode
   :commands (org-babel-execute:clojure)
   :init (setq org-babel-clojure-backend 'cider)
   :config
