@@ -54,7 +54,8 @@
   (defun eaf-open-pdf-for-org (file &optional link)
     "An wrapper function on `eaf-open'."
     (eaf-open file))
-  (add-to-list 'org-file-apps '("\\.pdf\\'" . eaf-open-pdf-for-org)))
+  (with-eval-after-load 'org
+    (add-to-list 'org-file-apps '("\\.pdf\\'" . eaf-open-pdf-for-org))))
 
 ;;; [ Threads ]
 

@@ -49,6 +49,8 @@
   :load-path "~/Code/Emacs/one-themes"
   :config (load-theme 'one-dark t))
 
+;;; [ circadian ] -- Theme-switching based on daytime.
+
 (use-package circadian
   :ensure t
   :config
