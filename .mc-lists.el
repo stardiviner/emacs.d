@@ -7,6 +7,7 @@
         artist-forward-char
         backward-sexp
         c-electric-delete-forward
+        cljr-slash
         counsel-M-x
         counsel-yank-pop
         fill-paragraph
@@ -22,6 +23,7 @@
         lispy-quotes
         my/fill-or-unfill
         my/org-insert-key
+        open-rectangle
         org-beginning-of-line
         org-ctrl-c-ctrl-c
         org-ctrl-c-star
@@ -42,6 +44,7 @@
         org-shiftleft
         org-shiftright
         org-shifttab
+        org-toggle-checkbox
         org-yank
         outshine-self-insert-command
         paredit-backward
@@ -57,6 +60,7 @@
         paredit-semicolon
         paredit-splice-sexp-killing-backward
         paredit-wrap-round
+        pcre-query-replace-regexp
         picture-backward-clear-column
         picture-clear-column
         scroll-other-window
@@ -145,4 +149,6 @@
         jump-to-mark
         lispy-cursor-down
         org-ctrl-c-ret
+        org-edit-special
+        org-table-blank-field
         ))
