@@ -118,3 +118,5 @@ pyim/
 /forge-database.sqlite
 /elfeed/
 /transient/
+/elpy/
+/documentations/HyperSpec/
