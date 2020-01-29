@@ -2,7 +2,52 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("strace.org"
+(("emacs-application-framework.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/emacs-application-framework.org")
+ (front-context-string . "** Wiki\n\n*** Ins")
+ (rear-context-string . "rk/README.md]]\n\n")
+ (position . 8037))
+("Handicraft.org"
+ (filename . "~/Org/Wiki/Handicraft/Handicraft.org")
+ (front-context-string . "#+TITLE: Handicr")
+ (rear-context-string)
+ (position . 1))
+("Swift Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Swift/Data/Swift Packages/Swift Packages.org")
+ (front-context-string . "#+TITLE: Swift P")
+ (rear-context-string)
+ (position . 1))
+("Visual Studio Code Extensions.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Visual Studio Code/Data/Visual Studio Code Extensions/Visual Studio Code Extensions.org")
+ (front-context-string . "#+TITLE: Visual ")
+ (rear-context-string)
+ (position . 1))
+("Artificial Intelligence Algorithms.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Artificial Intelligence/Data/Manuals/Artificial Intelligence Algorithms/Artificial Intelligence Algorithms.org")
+ (front-context-string . "#+TITLE: Artific")
+ (rear-context-string)
+ (position . 1))
+("clj.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/clj.org")
+ (front-context-string . "* Intro\n\n** Abou")
+ (rear-context-string)
+ (position . 1))
+("Cryptocurrency.org"
+ (filename . "~/Org/Wiki/Economy/Currency/Digital Currency/Cryptocurrency/Cryptocurrency.org")
+ (front-context-string . "#+TITLE: Cryptoc")
+ (rear-context-string)
+ (position . 1))
+("Common Lisp Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/LISP/Common Lisp/Data/Common Lisp Packages/Common Lisp Packages.org")
+ (front-context-string . "#+TITLE: Common ")
+ (rear-context-string)
+ (position . 1))
+("Operation.org"
+ (filename . "~/Org/Wiki/Commercial Science/Operation/Operation.org")
+ (front-context-string . "#+TITLE: Operati")
+ (rear-context-string)
+ (position . 1))
+("strace.org"
  (filename . "~/Org/Wiki/Computer Technology/Softwares/strace.org")
  (front-context-string . "*** Usage\n\n- ~st")
  (rear-context-string . " Configuration\n\n")
@@ -1410,21 +1455,6 @@
  (size . fit-width)
  (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
-("My Cooking Manual.org"
- (filename . "~/Org/Wiki/Chef/Recipes/Data/Manuals/My Cooking Manual/My Cooking Manual.org")
- (front-context-string . "#+TITLE: My Cook")
- (rear-context-string)
- (position . 1))
-("My Recipes Reference.org"
- (filename . "~/Org/Wiki/Chef/Recipes/Data/Manuals/My Recipes Reference/My Recipes Reference.org")
- (front-context-string . "#+TITLE: My Reci")
- (rear-context-string)
- (position . 1))
-("Recipes.org"
- (filename . "~/Org/Wiki/Chef/Recipes/Recipes.org")
- (front-context-string . "#+TITLE: Recipes")
- (rear-context-string)
- (position . 1))
 ("Digital Currency.org"
  (filename . "~/Org/Wiki/Economy/Currency/Digital Currency/Digital Currency.org")
  (front-context-string . "#+TITLE: Digital")
@@ -1900,20 +1930,20 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored-marker"
- (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** Thomas Heller")
- (rear-context-string . "17:52]\n   :END:\n")
- (position . 157493))
+ (filename . "~/Org/Projects/Programming Projects/Code.org")
+ (front-context-string . "** ISSUE The Org")
+ (rear-context-string . "rties drawer]]\n\n")
+ (position . 182446))
 ("org-refile-last-stored"
- (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** Thomas Heller")
- (rear-context-string . "17:52]\n   :END:\n")
- (position . 157493))
+ (filename . "~/Org/Wiki/Countries/China/Chinese Censorship/Chinese Censorship.org")
+ (front-context-string . "*** 北京网络行业协会组织讨论")
+ (rear-context-string . "ued photo ID”。\n\n")
+ (position . 87423))
 ("org-capture-last-stored"
- (filename . "~/Org/Drills/Words.org")
- (front-context-string . "* sanction      ")
- (rear-context-string . "颂歌]\n- vt: [歌颂]\n\n")
- (position . 121634))
+ (filename . "~/Org/Diary/Diary.org")
+ (front-context-string . "**** 其实就是老爸设计做事思")
+ (rear-context-string . "0-01-20 Monday\n\n")
+ (position . 76157))
 ("PDF-LAST-VIEWED: /tmp/mu-1000/b53469b1/3/test.pdf"
  (filename .
            #("/tmp/mu-1000/b53469b1/3/test.pdf" 0 32
@@ -2381,18 +2411,6 @@
    (idx 184))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Linux Distributions/Arch Linux/Arch Linux.org")
  (front-context-string . "#+TITLE: Arch Li")
- (rear-context-string)
- (position . 1))
-(#("Ethereum.org" 0 1
-   (idx 185))
- (filename . "~/Org/Wiki/Economy/Currency/Digital Currency/Digital Currency Variants/Ethereum/Ethereum.org")
- (front-context-string . "#+TITLE: Ethereu")
- (rear-context-string)
- (position . 1))
-(#("Bitcoin.org" 0 1
-   (idx 186))
- (filename . "~/Org/Wiki/Economy/Currency/Digital Currency/Digital Currency Variants/Bitcoin/Bitcoin.org")
- (front-context-string . "#+TITLE: Bitcoin")
  (rear-context-string)
  (position . 1))
 (#("Policy.org" 0 1
@@ -2993,12 +3011,6 @@
    (idx 447))
  (filename . "~/Org/Wiki/Politics/Politics.org")
  (front-context-string . "#+TITLE: Politic")
- (rear-context-string)
- (position . 1))
-(#("Conky.org" 0 1
-   (idx 448))
- (filename . "~/Org/Wiki/Computer Technology/Softwares/Conky/Conky.org")
- (front-context-string . "* Intro\n\n\n** Fea")
  (rear-context-string)
  (position . 1))
 (#("Functional Programming.org" 0 1
