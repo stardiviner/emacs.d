@@ -10,16 +10,8 @@
 (add-to-list 'display-buffer-alist
              '("\^\\*Org Table Edit Field\\*" (display-buffer-reuse-window display-buffer-below-selected)))
 
-;;; [ org-table-sticky-header ] -- Sticky header for org-mode tables.
-
-;; (use-package org-table-sticky-header
-;;   :ensure t
-;;   :defer t
-;;   :init (add-hook 'org-mode-hook 'org-table-sticky-header-mode)
-;;   :config (set-face-attribute 'org-table-sticky-header-face nil
-;;                               :inherit 'default
-;;                               :foreground "black" :background "orange"
-;;                               :underline "black"))
+;;; display table header when invisible.
+(add-hook 'org-mode-hook #'org-table-electric-header-mode)
 
 ;; [ org-plot ] -- Plotting Tables in Org-mode.
 
