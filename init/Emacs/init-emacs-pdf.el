@@ -33,7 +33,15 @@
     (interactive)
     (setq pdf-view-midnight-colors
           (cons (frame-parameter nil 'foreground-color)
-                (frame-parameter nil 'background-color))))
+                (frame-parameter nil 'background-color)))
+    ;; programatically refresh (auto revert buffer) PDF buffers.
+    (mapc
+     (lambda (buffer)
+       (if-let ((filename (buffer-file-name buffer)))
+           (if (string-equal (file-name-extension filename) "pdf")
+               (with-current-buffer buffer
+                 (revert-buffer nil 'noconfirm)))))
+     (buffer-list)))
   (add-hook 'load-theme-after-hook #'my/pdf-view-midnight-colors-reset)
   (if (featurep 'circadian)
       (add-hook 'circadian-after-load-theme-hook #'my/pdf-view-midnight-colors-reset))
