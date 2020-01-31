@@ -113,7 +113,6 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
 (use-package golden-ratio
   :ensure t
   :if (< (frame-width) 200) ; enable `golden-ratio' only in small screen.
-  :defer t
   :commands (golden-ratio-mode golden-ratio)
   :init (setq golden-ratio-auto-scale nil
               golden-ratio-recenter t)
@@ -126,6 +125,7 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
                   speedbar-mode project-explorer-mode
                   gnus-summary-mode gnus-article-mode
                   mu4e-headers-mode mu4e-compose-mode
+                  help-mode
                   restclient-mode)))
 
   (setq golden-ratio-exclude-buffer-regexp
@@ -135,15 +135,13 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
   (add-to-list 'golden-ratio-exclude-buffer-names "*rg*")
   (add-to-list 'golden-ratio-exclude-buffer-names " *Org todo*")
   (add-to-list 'golden-ratio-exclude-buffer-names " *Org tags*")
-  (add-to-list 'golden-ratio-exclude-buffer-names " *which-key*") ; `which-key-buffer-name'
+  (add-to-list 'golden-ratio-exclude-buffer-names " *Org Attach*")
 
   ;; for `popwin'.
   ;; (setq golden-ratio-inhibit-functions '(pop-to-buffer))
   ;; add `window-number' and `ace-window' commands to trigger list.
   (setq golden-ratio-extra-commands
         (append golden-ratio-extra-commands '(window-number-select ace-window)))
-  ;; manually re-fit ratio.
-  ;; (global-set-key (kbd "C-C C-j") 'golden-ratio)
 
   ;; disable in ediff session.
   (add-hook 'ediff-before-setup-windows-hook #'(lambda () (golden-ratio-mode -1)))
@@ -157,7 +155,9 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
   (advice-add 'eyebrowse-last-window-config :around #'golden-ratio-eyebrowse-workaround--advice)
   (advice-add 'eyebrowse-switch-to-window-config :around #'golden-ratio-eyebrowse-workaround--advice)
 
-  (golden-ratio-mode 1))
+  ;; (golden-ratio-mode 1)
+  ;; manually re-fit ratio when `golden-ratio-mode' not enabled.
+  (if (null golden-ratio-mode) (global-set-key (kbd "C-C C-j") 'golden-ratio)))
 
 
 ;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
