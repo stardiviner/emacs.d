@@ -210,9 +210,11 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   (defun org-agenda-log-mode-colorize-block ()
     "Set different line spacing based on clock time duration."
     (save-excursion
-      ;; (list "#aa557f" "DarkGreen" "DarkSlateGray" "DarkSlateBlue") ; dark theme
-      ;; (list "#F6B1C3" "#FFFF9D" "#BEEB9F" "#ADD5F7") ; white theme
-      (let* ((colors (list "#aa557f" "DarkGreen" "DarkSlateGray" "DarkSlateBlue"))
+      (let* ((colors (cl-case (alist-get 'background-mode (frame-parameters))
+		                   ('light
+		                    (list "#F6B1C3" "#FFFF9D" "#BEEB9F" "#ADD5F7"))
+		                   ('dark
+		                    (list "#aa557f" "DarkGreen" "DarkSlateGray" "DarkSlateBlue"))))
              pos
              duration)
         (nconc colors colors)
