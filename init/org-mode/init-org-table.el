@@ -11,7 +11,8 @@
              '("\^\\*Org Table Edit Field\\*" (display-buffer-reuse-window display-buffer-below-selected)))
 
 ;;; display table header when invisible.
-(add-hook 'org-mode-hook #'org-table-electric-header-mode)
+;;; Activate `org-table-electric-header-mode' by default?
+(setq org-table-electric-header-p t)
 
 ;; [ org-plot ] -- Plotting Tables in Org-mode.
 
