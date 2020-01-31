@@ -204,11 +204,11 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                  tags "fragment"
                  ((org-agenda-overriding-header "Fragment Tasks"))))
 
-  ;; Show Org Agenda tasks with heigh spacing based on clock time.
+  ;; Show Org Agenda tasks with heigh spacing based on clock time with `org-agenda-log-mode'.
   ;; https://emacs-china.org/t/org-agenda/8679
   ;; work with org-agenda dispatcher [c] "Today Clocked Tasks" to view today's clocked tasks.
-  (defun org-agenda-time-grid-colorful-spacing ()
-    "Set different line spacing w.r.t. time duration."
+  (defun org-agenda-log-mode-colorize-block ()
+    "Set different line spacing based on clock time duration."
     (save-excursion
       ;; (list "#aa557f" "DarkGreen" "DarkSlateGray" "DarkSlateBlue") ; dark theme
       ;; (list "#F6B1C3" "#FFFF9D" "#BEEB9F" "#ADD5F7") ; white theme
@@ -229,7 +229,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
               (overlay-put ov 'line-height line-height)
               (overlay-put ov 'line-spacing (1- line-height))))))))
 
-  (add-hook 'org-agenda-finalize-hook #'org-agenda-time-grid-colorful-spacing)
+  (add-hook 'org-agenda-finalize-hook #'org-agenda-log-mode-colorize-block)
 
   (define-key org-agenda-mode-map (kbd "M-s") 'org-search-view))
 
