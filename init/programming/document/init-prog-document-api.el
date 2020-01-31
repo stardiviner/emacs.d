@@ -121,7 +121,12 @@
   (add-hook 'java-mode-hook 'helm-dash-buffer-local-java-docsets)
   ;; SQL
   (defun helm-dash-buffer-local-sql-docsets ()
-    (setq-local dash-docs-docsets '("SQLite" "MySQL" "PostgreSQL")))
+    (cl-case sql-product
+      ('ansi (setq-local dash-docs-docsets '("SQLite" "PostgreSQL" "MySQL")))
+      ('sqlite (setq-local dash-docs-docsets '("SQLite")))
+      ('postgres (setq-local dash-docs-docsets '("PostgreSQL")))
+      ('mariadb (setq-local dash-docs-docsets '("MySQL")))
+      ('mysql (setq-local dash-docs-docsets '("MySQL")))))
   (add-hook 'sql-mode-hook 'helm-dash-buffer-local-sql-docsets)
   (add-hook 'sql-interactive-mode-hook 'helm-dash-buffer-local-sql-docsets)
   ;; Redis
