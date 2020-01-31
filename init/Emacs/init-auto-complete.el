@@ -92,18 +92,13 @@
   (define-key ac-completing-map [C-down] 'ac-quick-help-scroll-down)
   (define-key ac-completing-map [C-up] 'ac-quick-help-scroll-up)
 
-  ;; buffer help
-  (define-key ac-mode-map (kbd "C-c h") 'ac-last-quick-help)
-  (define-key ac-mode-map (kbd "C-c H") 'ac-last-help)
-
   ;; set default auto-complete source
   (setq-default ac-sources
                 '(ac-source-yasnippet
                   ac-source-abbrev
                   ;; ac-source-dabbrev
                   ;; ac-source-dictionary
-                  ac-source-words-in-same-mode-buffers))
-  )
+                  ac-source-words-in-same-mode-buffers)))
 
 
 ;;; [ ac-capf ] -- auto-complete source of completion-at-point
