@@ -120,6 +120,12 @@ Optional for Org-mode file: `LINK'."
 ;; System wise: xdg-open, kde-open, gnome-open.
 (setcdr (assq 'system org-file-apps-gnu) "xdg-open %s")
 
+;;; Open .pdf file link with EAF.
+(defun eaf-open-pdf-for-org (file &optional link)
+  "An wrapper function on `eaf-open'."
+  (eaf-open file))
+(with-eval-after-load 'org
+  (add-to-list 'org-file-apps '("\\.pdf\\'" . eaf-open-pdf-for-org)))
 
 ;;; Links are now customizable
 ;;
