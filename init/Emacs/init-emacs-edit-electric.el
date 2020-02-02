@@ -7,10 +7,17 @@
 
 ;;; Code:
 
-;;; [ Electric ]
+;;; [ electric-indent-mode ]
 
 (add-hook 'prog-mode-hook #'electric-indent-local-mode)
+
+;;; [ electric-pair-mode ]
+
 (add-hook 'prog-mode-hook #'electric-pair-local-mode)
+
+(setq electric-pair-preserve-balance t
+      electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit ; 'ignore
+      electric-pair-skip-self t)
 
 
 
