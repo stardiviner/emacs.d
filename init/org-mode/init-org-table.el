@@ -12,7 +12,7 @@
 
 ;;; display table header when invisible.
 ;;; Activate `org-table-electric-header-mode' by default?
-(setq org-table-electric-header-p t)
+(setq org-table-header-line-p t)
 
 ;; [ org-plot ] -- Plotting Tables in Org-mode.
 
