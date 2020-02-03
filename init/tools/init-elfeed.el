@@ -80,8 +80,9 @@
   (defun elfeed-quit ()
     (interactive)
     (elfeed-db-save)
-    (with-current-buffer "*elfeed-search*"
-      (kill-buffer)))
+    (if (get-buffer "*elfeed-search*")
+        (with-current-buffer "*elfeed-search*"
+          (kill-buffer))))
   (define-key elfeed-search-mode-map (kbd "q") 'elfeed-quit)
   (add-hook 'kill-emacs-hook #'elfeed-quit)
 
