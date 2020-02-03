@@ -20,8 +20,7 @@
   ;; enable slime-mode for setup to support SLIME.
   (dolist (hook '(lisp-mode-hook
                   lisp-interaction-mode-hook
-                  slime-repl-mode-hook
-                  ))
+                  slime-repl-mode-hook))
     (add-hook hook 'slime-mode))
 
   ;; auto start SLIME unless it's already running.
@@ -34,8 +33,7 @@
           (save-excursion (slime)))
       ;; (cond (slime-mode (slime--on))
       ;;       (t (slime--off)))
-      )
-    )
+      ))
   
   ;; (add-hook 'lisp-mode-hook 'my-slime-auto-start)
 
@@ -81,8 +79,7 @@
   (add-hook 'common-lisp-mode-hook
             (lambda ()
               (local-set-key (kbd "C-h d") 'document-prefix)
-              (define-key document-prefix (kbd "d") 'slime-documentation)
-              ))
+              (define-key document-prefix (kbd "d") 'slime-documentation)))
   
   ;; notify user after SLIME connected
   (add-hook 'slime-connected-hook
@@ -98,8 +95,7 @@
           (slime-mode 1)
           (eldoc-mode 1)
           (paredit-mode 1)
-          (my-company-add-backend-locally 'company-slime)
-          )))
+          (my-company-add-backend-locally 'company-slime))))
 
   ;; (add-hook 'comint-mode-hook #'slime-sbcl-inferior-lisp-buffer-setup)
   (add-hook 'slime-repl-mode-hook #'slime-sbcl-inferior-lisp-buffer-setup)
@@ -138,8 +134,7 @@
                "^Documentation:\\|"
                "Example:\\|"
                "^Source file:\\|"
-               ".LISP$"
-               )
+               ".LISP$")
        'hi-blue-b)))
 
   (advice-add 'slime-show-description :after 'slime-description-fontify)
@@ -154,8 +149,7 @@
     (setq slime-company-after-completion 'slime-company-just-one-space
           slime-company-completion 'fuzzy
           slime-company-complete-in-comments-and-strings t
-          slime-company-major-modes '(lisp-mode slime-repl-mode scheme-mode)
-          )
+          slime-company-major-modes '(lisp-mode slime-repl-mode scheme-mode))
 
     (defun my-slime-company-maybe-enable ()
       (when (slime-company-active-p)
@@ -164,9 +158,7 @@
           (setq slime-company-completion 'simple))))
     
     (dolist (hook '(slime-mode-hook slime-repl-mode-hook sldb-mode-hook))
-      (add-hook hook 'my-slime-company-maybe-enable))
-    )
-  )
+      (add-hook hook 'my-slime-company-maybe-enable))))
 
 
 ;;; Improve usability of slime-apropos: slime-apropos-minor-mode

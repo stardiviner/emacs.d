@@ -142,8 +142,7 @@
   (if (fboundp 'parinfer-mode)
       (parinfer-mode 1))
   (if (fboundp 'hl-sexp-mode)
-      (hl-sexp-mode 1))
-  (eldoc-mode 1))
+      (hl-sexp-mode 1)))
 
 (defun my-lisp-repl-common-settings ()
   "Common settings for all Lisp dialects REPL."

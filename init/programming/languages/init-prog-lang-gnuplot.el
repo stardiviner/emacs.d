@@ -17,6 +17,7 @@
 
 (use-package gnuplot-mode
   :ensure t
+  :preface (define-derived-mode gnuplot-mode prog-mode "Gnuplot")
   :mode (("\\.gp\\'" . gnuplot-mode)
          ("\\.plt\\'" . gnuplot-mode)
          ("\\.gnuplot\\'" . gnuplot-mode))
@@ -50,18 +51,15 @@
               'gnuplot-context-completion-at-point nil t)
     
     ;; Setup Eldoc
-    (eldoc-mode 1)
     (set (make-local-variable 'eldoc-documentation-function)
          'gnuplot-eldoc-function)
     (eldoc-add-command 'completion-at-point)     ; Check for eldoc after completion
     (when (fboundp 'comint-dynamic-complete)
-      (eldoc-add-command 'comint-dynamic-complete))
-    )
+      (eldoc-add-command 'comint-dynamic-complete)))
   (add-hook 'gnuplot-mode-hook #'my-gnuplot-mode-settings)
 
   ;; auto enable `gnuplot-inline-display-mode' in gnuplot comint process buffer.
-  (add-hook 'gnuplot-comint-mode-hook 'gnuplot-inline-display-mode)
-  )
+  (add-hook 'gnuplot-comint-mode-hook 'gnuplot-inline-display-mode))
 
 
 ;;; [ ob-gnuplot ]

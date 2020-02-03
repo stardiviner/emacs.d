@@ -59,7 +59,9 @@
   :defer t
   :delight ace-window-mode
   :bind ("C-x C-j" . ace-window)
-  :init (setq aw-background nil))
+  :init (setq aw-background nil)
+  :config (with-eval-after-load 'eldoc ; refresh eldoc after ace-window selecting window.
+            (eldoc-add-command 'ace-window)))
 
 ;;; manipulate windows
 

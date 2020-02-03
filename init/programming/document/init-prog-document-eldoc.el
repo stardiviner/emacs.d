@@ -12,9 +12,6 @@
 (use-package eldoc
   :ensure t
   :diminish eldoc-mode
-  :preface (setq global-eldoc-mode nil)
-  :init (global-eldoc-mode -1) ; disable default enabled global-eldoc-mode.
-  (add-hook 'prog-mode-hook #'eldoc-mode)
   :config
   ;; ElDoc with most `paredit' command.
   ;; whenever the listed commands are used, ElDoc will automatically refresh the minibuffer.

@@ -29,7 +29,7 @@
 
 (use-package racer
   :ensure t
-  :hook ((rust-mode . racer-mode) (racer-mode . eldoc-mode))
+  :hook (rust-mode . racer-mode)
   :config
   (define-key racer-mode-map (kbd "C-c C-d C-d") 'racer-describe)
   (add-to-list 'display-buffer-alist

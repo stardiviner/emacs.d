@@ -50,8 +50,7 @@
           (minibuffer . t)
           )
         ;; window-id-offset 0
-        )
-  )
+        ))
 
 
 (provide 'init-tool-screencast)
