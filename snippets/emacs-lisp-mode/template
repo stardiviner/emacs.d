@@ -2,9 +2,9 @@
 # name: template
 # key: template
 # --
-;;; ${1:$$(file-name-base)}.el --- $2
+;;; ${1:$$(file-name-base)}.el --- $2 -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <>
+;;; Time-stamp: <2020-02-02 17:37:34 stardiviner>
 
 ;;; Commentary:
 
