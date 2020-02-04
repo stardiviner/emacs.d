@@ -13,7 +13,8 @@
 ;;   :ensure t
 ;;   :init (global-undo-tree-mode 1)
 ;;   (setq undo-tree-visualizer-diff t
-;;         undo-tree-visualizer-relative-timestamps t)
+;;         undo-tree-visualizer-relative-timestamps t
+;;         undo-tree-enable-undo-in-region t)
 ;;   (add-to-list 'display-buffer-alist
 ;;                '("^ \\*undo-tree\\*"
 ;;                  display-buffer-reuse-window display-buffer-in-side-window
