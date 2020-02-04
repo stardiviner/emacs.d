@@ -9,15 +9,19 @@
 
 ;;; [ electric-indent-mode ]
 
-(add-hook 'prog-mode-hook #'electric-indent-local-mode)
+;; (electric-indent-mode) ; globally
+(add-hook 'prog-mode-hook #'electric-indent-local-mode) ; mode locally
 
 ;;; [ electric-pair-mode ]
 
-(add-hook 'prog-mode-hook #'electric-pair-local-mode)
+;; (electric-pair-mode) ; globally
+(add-hook 'prog-mode-hook #'electric-pair-local-mode) ; mode locally
 
 (setq electric-pair-preserve-balance t
       electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit ; 'ignore
       electric-pair-skip-self t)
+
+;;; [ electric-layout-mode ]
 
 
 

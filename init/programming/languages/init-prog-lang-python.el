@@ -21,6 +21,16 @@
   ;; auto interactive insert skeleton
   (setq python-skeleton-autoinsert nil)
   ;; (setq python-shell-completion-native-enable nil) ; `python-shell-completion-native-toggle'
+
+  ;; (defun python-mode-electric-layout-setting ()
+  ;;   "auto insert newline after specific characters."
+  ;;   (setq-local electric-layout-rules
+  ;;               '((?: . (lambda ()           ; FIXME this cause `eldoc-overlay-mode' aggressive repeating error.
+  ;;                         (and (zerop (car (syntax-ppss)))
+  ;;                              (python-info-statement-starts-block-p)
+  ;;                              'after))))))
+  ;; (add-hook 'python-mode-hook #'electric-layout-local-mode)
+  ;; (add-hook 'python-mode-hook #'python-mode-electric-layout-setting)
   )
 
 

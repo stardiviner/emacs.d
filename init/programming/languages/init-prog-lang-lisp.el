@@ -15,9 +15,7 @@
 
 ;; (use-package lisp-extra-font-lock
 ;;   :ensure t
-;;   :config
-;;   (lisp-extra-font-lock-global-mode 1)
-;;   )
+;;   :config (lisp-extra-font-lock-global-mode 1))
 
 ;;; [ Par Edit (paredit) ] -- performing structured editing of S-expression data.
 
@@ -134,10 +132,14 @@
   "Common settings for all Lisp dialects."
   (interactive)
   (rainbow-delimiters-mode 1)
+
   ;; (with-eval-after-load 'smartparens
   ;;   (if (fboundp 'smartparens-strict-mode)
   ;;       (smartparens-strict-mode 1)))
+
   (electric-pair-local-mode 1)
+  (add-to-list 'electric-pair-pairs '(?\` . ?\'))
+  
   (paredit-mode 1)
   (if (fboundp 'parinfer-mode)
       (parinfer-mode 1))

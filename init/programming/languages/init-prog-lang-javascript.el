@@ -17,18 +17,7 @@
         ;; js-square-indent-offset 0
         ;; js-curly-indent-offset 0
         ;; js-switch-indent-offset 0
-        js-flat-functions nil)
-  :config
-  ;; [C-o] to open a new line upper between {}.
-  (defun my/open-new-line-upper ()
-    "[C-o] to open a new line upper."
-    (interactive)
-    (previous-line)
-    (end-of-line)
-    (newline-and-indent))
-  (define-key js-mode-map  (kbd "C-o") 'my/open-new-line-upper)
-  (with-eval-after-load "js2-mode"
-    (define-key js2-mode-map (kbd "C-o") 'my/open-new-line-upper)))
+        js-flat-functions nil))
 
 ;;; [ ob-js ]
 
@@ -92,7 +81,13 @@
       (define-key js2-mode-map (kbd "M-.") nil)
       (add-to-list (make-local-variable 'xref-backend-functions)
                    'xref-js2-xref-backend))
-    (add-hook 'js2-mode-hook #'my/xref-js2-setup)))
+    (add-hook 'js2-mode-hook #'my/xref-js2-setup))
+
+  (defun js-mode-electric-layout-setting ()
+    "auto insert newline after specific characters."
+    (setq-local electric-layout-rules '((?\; . after))))
+  (add-hook 'js-mode-hook #'electric-layout-local-mode)
+  (add-hook 'js-mode-hook #'js-mode-electric-layout-setting))
 
 ;;; [ flycheck checker ]
 

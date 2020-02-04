@@ -16,10 +16,19 @@
   (setq-local c-basic-offset 4)
   (setq-local tab-width 4)
   (setq-local standard-indent 4)
-  (electric-pair-local-mode 1)
   (setq-local completion-ignore-case t))
 
 (add-hook 'java-mode-hook #'my/java-mode-setup)
+
+(add-hook 'java-mode-hook #'electric-pair-local-mode)
+
+(defun java-mode-electric-layout-setting ()
+  "auto insert newline after specific characters."
+  (setq-local electric-layout-rules '((?\; . after)))
+  (add-to-list 'electric-layout-rules '( ?\{ .  after))
+  (add-to-list 'electric-layout-rules '( ?\} .  before)))
+(add-hook 'java-mode-hook #'electric-layout-local-mode)
+(add-hook 'java-mode-hook #'java-mode-electric-layout-setting)
 
 ;;; [ ob-java ]
 

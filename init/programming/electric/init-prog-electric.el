@@ -7,9 +7,11 @@
 
 ;;; Code:
 
-;;; [ electric ]
+;;; [ electric-indent-mode ]
 
-;; `electric-quote-replace-double'
+;;; [ electric-pair-mode ]
+
+;;; [ electric-layout-mode ]
 
 ;;; [ show-paren-mode ] -- highlight matched parentheses.
 

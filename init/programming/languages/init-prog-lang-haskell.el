@@ -107,7 +107,13 @@
       (bury-buffer)))
 
   ;; (add-hook 'haskell-mode-hook 'my-haskell-interactive-start)
-  )
+
+  ;; auto newline after insert specific characters.
+  (defun haskell-mode-electric-layout-setting ()
+    (add-to-list 'electric-layout-rules
+                 '((?\{) (?\} . around))))
+  (add-hook 'haskell-mode-hook #'electric-layout-local-mode)
+  (add-hook 'haskell-mode-hook #'haskell-mode-electric-layout-setting))
 
 
 ;;; [ hindent ] -- Haskell indent.

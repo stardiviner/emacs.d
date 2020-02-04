@@ -55,6 +55,19 @@
                                 (awk-mode . "awk")
                                 (other . "gnu")))
 
+;;; auto insert newline in c-mode
+;; (add-hook 'c-mode-hook #'c-toggle-auto-newline)
+
+(require 'cc-mode) ; load for `c-mode-base-map'
+(define-key c-mode-base-map ";" nil) ; fix ";" not work for `electric-layout-local-mode' issue.
+(defun c-mode-electric-layout-setting ()
+  "auto insert newline after specific characters."
+  (setq-local electric-layout-rules '((?\; . after)))
+  (add-to-list 'electric-layout-rules '( ?\{ .  after))
+  (add-to-list 'electric-layout-rules '( ?\} .  before)))
+(add-hook 'c-mode-hook #'electric-layout-local-mode)
+(add-hook 'c-mode-hook #'c-mode-electric-layout-setting)
+
 (defun my/c-mode-common-header-switch ()
   "Open header file at point."
   (local-set-key (kbd "C-c C-o") 'ff-find-other-file))

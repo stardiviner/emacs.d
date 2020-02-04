@@ -186,7 +186,15 @@
                 )))))
     
     )
-  )
+
+  ;; auto newline after inserting specific characters.
+  (defun web-mode-electric-layout-setting ()
+    (add-to-list 'electric-layout-rules
+                 '((?\{ . around) (?\} . around)))
+    (add-to-list 'electric-layout-rules
+                 '((?\[ . around) (?\] . around))))
+  (add-hook 'web-mode-hook #'electric-layout-local-mode)
+  (add-hook 'web-mode-hook #'web-mode-electric-layout-setting))
 
 ;; [ web-completion-data ] -- dependency for `ac-html', `company-web'
 
