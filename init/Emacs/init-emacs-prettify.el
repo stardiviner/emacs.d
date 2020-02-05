@@ -62,8 +62,8 @@
 
 ;;; for Fira Code font
 ;;; https://github.com/tonsky/FiraCode/wiki/Emacs-instructions#using-font-lock-keywords
-(require 'fira-code-mode)
-(fira-code-mode 1)
+;; (require 'fira-code-mode)
+;; (add-hook 'prog-mode-hook #'fira-code-mode)
 
 
 (provide 'init-emacs-prettify)
