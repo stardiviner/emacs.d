@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("emacs-application-framework.org"
+(("Home Assistant.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Home Assistant/Home Assistant.org")
+ (front-context-string . "#+TITLE: Home As")
+ (rear-context-string)
+ (position . 1))
+("emacs-application-framework.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/emacs-application-framework.org")
  (front-context-string . "** Wiki\n\n*** Ins")
  (rear-context-string . "rk/README.md]]\n\n")
@@ -1931,19 +1936,19 @@
  (position . 1))
 ("org-capture-last-stored-marker"
  (filename . "~/Org/Projects/Programming Projects/Code.org")
- (front-context-string . "** ISSUE The Org")
- (rear-context-string . "rties drawer]]\n\n")
- (position . 182446))
+ (front-context-string . "** BUG [#A] eldo")
+ (rear-context-string . "\n#+end_example\n\n")
+ (position . 125590))
 ("org-refile-last-stored"
- (filename . "~/Org/Wiki/Countries/China/Chinese Censorship/Chinese Censorship.org")
- (front-context-string . "*** 北京网络行业协会组织讨论")
- (rear-context-string . "ued photo ID”。\n\n")
- (position . 87423))
+ (filename . "~/Org/Projects/Programming Projects/Code.org")
+ (front-context-string . "** BUG [#A] eldo")
+ (rear-context-string . "\n#+end_example\n\n")
+ (position . 125590))
 ("org-capture-last-stored"
- (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 其实就是老爸设计做事思")
- (rear-context-string . "0-01-20 Monday\n\n")
- (position . 76157))
+ (filename . "~/Org/Tasks/Tasks.org")
+ (front-context-string . "* BUG [#A] eldoc")
+ (rear-context-string . " mobile number\n\n")
+ (position . 2246))
 ("PDF-LAST-VIEWED: /tmp/mu-1000/b53469b1/3/test.pdf"
  (filename .
            #("/tmp/mu-1000/b53469b1/3/test.pdf" 0 32
