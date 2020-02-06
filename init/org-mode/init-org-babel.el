@@ -37,7 +37,7 @@
 
 ;; babel src block editing
 (setq org-src-window-setup `,(if (< (frame-width) 200)
-                                 'plain
+                                 'current-window
                                'split-window-right)
       ;; 0: fix `diff' babel syntax highlighting invalid issue.
       org-edit-src-content-indentation 0)
