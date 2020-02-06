@@ -11,6 +11,8 @@
 (use-package ox
   :defer t
   :init (setq org-export-with-clocks t
+              org-export-with-drawers t
+              org-export-with-properties t
               org-export-with-planning t
               ;; don't raise error exception when handling broken link to interrupt exporting process.
               org-export-with-broken-links 'mark)
