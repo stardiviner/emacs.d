@@ -59,13 +59,11 @@
         ))
 
 (defface org-todo-keyword-todo-face
-  '((t :foreground "orange"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
+  '((t :foreground "orange" :weight bold))
   "Face for Org TODO keyword."
   :group 'org-faces)
 (defface org-todo-keyword-done-face
-  '((t :foreground "black"
-       :weight bold :box '(:color "dim gray" :line-width -1)))
+  '((t :foreground "black" :weight bold))
   "Face for Org TODO keyword."
   :group 'org-faces)
 
