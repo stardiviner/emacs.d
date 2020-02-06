@@ -16,21 +16,12 @@
   :ensure t
   :ensure edit-server-htmlize
   :if window-system
-  :defer t
   :init
   (unless (server-running-p)
     (server-start))
   (add-hook 'after-init-hook 'edit-server-start t)
   :config
-  (setq edit-server-new-frame t)
-
   (add-hook 'edit-server-edit-mode-hook #'flyspell-mode)
-
-  ;; set `emacsclient' and `edit-server' new frame transparency.
-  (add-to-list 'edit-server-new-frame-alist (cons 'alpha (list 85 70)))
-  (add-hook 'edit-server-edit-mode-hook
-            (lambda ()
-              (set-frame-parameter (selected-frame) 'alpha (list 85 70))))
 
   (setq edit-server-default-major-mode 'markdown-mode)
   (setq edit-server-url-major-mode-alist
@@ -48,15 +39,17 @@
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=clojure" . clojure-mode)
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=ruby" . ruby-mode)
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=julia" . julia-mode)
-          ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=python" . python-mode)
-          ))
-  )
+          ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=python" . python-mode)))
+  
+  ;; set `emacsclient' and `edit-server' new frame transparency.
+  (add-to-list 'edit-server-new-frame-alist (cons 'alpha (list 85 70)))
+  (add-hook 'edit-server-edit-mode-hook
+            (lambda () (set-frame-parameter (selected-frame) 'alpha (list 85 70)))))
 
 ;;; [ atomic-chrome ] -- with websocket improvement on `edit-server'.
 
 (use-package atomic-chrome
   :ensure t
-  :defer t
   :bind (:map atomic-chrome-edit-mode-map ("C-x #" . atomic-chrome-close-current-buffer))
   :init (atomic-chrome-start-server)
   (setq atomic-chrome-default-major-mode 'markdown-mode)
@@ -72,14 +65,13 @@
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=clojure" . clojure-mode)
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=ruby" . ruby-mode)
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=julia" . julia-mode)
-          ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=python" . python-mode)
-          )))
+          ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=python" . python-mode)))
+  (add-hook 'atomic-chrome-edit-mode-hook #'flyspell-mode))
 
 ;;; [ with-editor ]
 
 (use-package with-editor
   :ensure t
-  :defer t
   :init
   (add-hook 'shell-mode-hook  'with-editor-export-editor)
   (add-hook 'term-mode-hook   'with-editor-export-editor)
