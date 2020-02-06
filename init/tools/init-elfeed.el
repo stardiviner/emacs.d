@@ -107,7 +107,11 @@
              (base-url (and feed (elfeed-compute-base (elfeed-feed-url feed)))))
         (if content
             (if (eq type 'html)
-                (org-web-tools--html-to-org-with-pandoc content)
+                (progn
+                  (unless (fboundp 'org-web-tools--html-to-org-with-pandoc)
+                    (require 'org-web-tools))
+                  (let ((org-web-tools-pandoc-sleep-time 5))
+                    (org-web-tools--html-to-org-with-pandoc content)))
               (insert content))))))
 
   (add-to-list 'org-capture-templates
