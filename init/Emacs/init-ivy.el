@@ -14,12 +14,12 @@
   :ensure ivy-hydra ; [C-o], [M-o]
   :defer t
   :delight ivy-mode
-  :init
-  (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
-        ivy-virtual-abbreviate 'full ; use 'full to fix bookmarks uniquify issue.
-        ivy-fixed-height-minibuffer t
-        ivy-height 7)
-  :config (ivy-mode 1))
+  :init (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
+              ivy-virtual-abbreviate 'full ; use 'full to fix bookmarks uniquify issue.
+              ivy-fixed-height-minibuffer t
+              ivy-height 7)
+  :config (ivy-mode 1)
+  (add-hook 'ivy-mode-hook (lambda () (setq ivy-initial-inputs-alist nil))))
 
 ;;; [ ivy-rich ] -- More friendly display transformer for ivy.
 
