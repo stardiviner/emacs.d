@@ -64,17 +64,15 @@
 
 (use-package pinentry
   :ensure t
-  :config
-  (pinentry-start))
+  :config (pinentry-start))
 
 
 ;;; my custom functions
 
 (use-package dash
   :ensure t
-  :config
-  (with-eval-after-load "dash"
-    (dash-enable-font-lock)))
+  :config (with-eval-after-load "dash"
+            (dash-enable-font-lock)))
 
 (require 'init-library)
 (require 'init-functions)
