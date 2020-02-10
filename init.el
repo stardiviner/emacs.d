@@ -144,6 +144,17 @@
 (require 'init-emacs-customize)
 (require 'init-emacs-accessibility)
 
+
+;;; for HiDPI Retina screen display
+(let* ((geometry (assq 'geometry (car (display-monitor-attributes-list))))
+       (geometry-height (car (reverse geometry)))
+       (geometry-width (cadr (reverse geometry))))
+  (when (and (= geometry-height 1600) (= geometry-width 2560))
+    (require 'init-HiDPI)
+    (defun reset-HiDPI (theme)
+      (load-library "init-HiDPI"))
+    (add-hook 'load-theme-after-hook #'reset-HiDPI)))
+
 
 ;;; hypertextual information management system
 
