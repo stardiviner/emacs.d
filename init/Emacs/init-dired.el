@@ -157,6 +157,19 @@
   ;;   :init (mis-config-default)
   ;;   :config (setq mis-recipes-directory
   ;;                 (concat user-emacs-directory "init/extensions/make-it-so-recipes/")))
+
+  ;; `dired-hide-details-mode'
+  ;; (setq dired-hide-details-hide-information-lines t)
+
+  ;; [ dired-git-info ] -- Show Git info in Dired.
+  (use-package dired-git-info
+    :ensure t
+    :hook (dired . dired-git-info-mode))
+  
+  ;; [ dired-git ] -- Git integration for Dired.
+  ;; (use-package dired-git
+  ;;   :ensure t
+  ;;   :hook (dired . dired-git-mode))
   )
 
 
