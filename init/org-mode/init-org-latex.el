@@ -47,17 +47,19 @@
 ;;; [ LaTeX -> HTML ]
 
 ;;; set LaTeX export to HTML style.
-(setq org-format-latex-options
-      (plist-put org-format-latex-options :foreground 'default))
-(setq org-format-latex-options
-      (plist-put org-format-latex-options :background 'default))
-(setq org-format-latex-options
-      (plist-put org-format-latex-options :matchers '("begin" "$1" "$" "$$" "\\(" "\\[")))
-(setq org-format-latex-options
-      (plist-put org-format-latex-options :html-foreground "Black"))
-(setq org-format-latex-options
-      (plist-put org-format-latex-options :html-background "Transparent"))
-
+(defun org-latex-preview-background-reset (theme)
+  (setq org-format-latex-options
+        (plist-put org-format-latex-options :foreground (face-attribute 'default :foreground)))
+  (setq org-format-latex-options
+        (plist-put org-format-latex-options :background (face-attribute 'default :background)))
+  (setq org-format-latex-options
+        (plist-put org-format-latex-options :matchers '("begin" "$1" "$" "$$" "\\(" "\\[")))
+  (setq org-format-latex-options
+        (plist-put org-format-latex-options :html-foreground "Black"))
+  (setq org-format-latex-options
+        (plist-put org-format-latex-options :html-background "Transparent")))
+;; (org-latex-preview-background-reset nil)
+(add-hook 'load-theme-after-hook #'org-latex-preview-background-reset)
 
 ;;; [ Math ]
 
