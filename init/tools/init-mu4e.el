@@ -612,7 +612,9 @@
           ("date:today..now"               "Today's messages"        ?d)
           ("date:1w..now"                  "This week's messages"    ?w)
           ("maildir:/Emacs/help"           "Emacs mailbox"           ?e)
-          ("maildir:/Emacs/Org-mode"       "Org-mode mailbox"        ?o)
+          ("maildir:/Emacs/Org-mode"       "Org Mode mailbox"        ?o)
+          ("maildir:/Clojure"              "Clojure mailbox"         ?c)
+          ("maildir:/ClojureScript"        "ClojureScript mailbox"   ?C)
           ("size:5M..500M"                 "Big messages"            ?B)
           ))
 
