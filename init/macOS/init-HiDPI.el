@@ -1,6 +1,6 @@
 ;;; init-HiDPI.el ---  -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-02-11 19:27:58 stardiviner>
+;;; Time-stamp: <2020-02-12 02:31:09 stardiviner>
 
 ;;; Commentary:
 
@@ -14,6 +14,12 @@
 (set-face-attribute 'default nil
                     :family "DejaVu Sans Mono"
                     :font "DejaVu Sans Mono 9")
+
+(when (display-graphic-p)
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font)
+                      charset
+                      (font-spec :family "Noto Sans CJK SC" :size 28))))
 
 ;; (setq org-image-actual-width t)
 
