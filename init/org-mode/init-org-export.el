@@ -148,9 +148,7 @@
 ;;; [ ox-pandoc ] -- another org-mode exporter via pandoc.
 
 (use-package ox-pandoc
-  :ensure t
-  :defer t
-  :commands (org-pandoc-export-to-epub3-and-open))
+  :ensure t)
 
 ;;; [ htmlize ] -- deprecated htmlize implementation.
 
