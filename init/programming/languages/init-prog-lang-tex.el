@@ -153,15 +153,13 @@ character(s), in which case it deletes the space(s) first."
 
 ;;; [ CDLaTeX ] -- Fast input methods for LaTeX environments and math.
 
-;; (use-package cdlatex
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (add-hook 'LaTeX-mode-hook #'cdlatex-mode)
-;;   ;; enable in Org-mode
-;;   (add-hook 'org-mode-hook #'org-cdlatex-mode)
-;;   (add-to-list 'display-buffer-alist
-;;                '("^\\*CDLaTeX Help\\*" (display-buffer-below-selected))))
+(use-package cdlatex
+  :ensure t
+  :defer t
+  :hook ((LaTeX-mode . cdlatex-mode)
+         (org-mode . org-cdlatex-mode))
+  :config (add-to-list 'display-buffer-alist
+                       '("^\\*CDLaTeX Help\\*" (display-buffer-below-selected))))
 
 ;;; [ magic-latex-buffer ] -- magical syntax highlighting for LaTeX-mode buffers.
 
