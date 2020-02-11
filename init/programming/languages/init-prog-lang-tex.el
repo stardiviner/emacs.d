@@ -11,7 +11,6 @@
 
 (use-package auctex ; TeX-mode, LaTeX-mode
   :ensure t
-  :defer t
   :no-require t
   :requires (tex latex)
   :config
