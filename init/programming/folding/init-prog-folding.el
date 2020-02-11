@@ -11,6 +11,8 @@
   (define-prefix-command 'prog-fold-prefix))
 (global-set-key (kbd "C-c SPC") 'prog-fold-prefix)
 
+;;; [ outline ] -- Emacs built-in outline mode. [C-c @] prefix of `outline-minor-mode'.
+
 ;;; [ hideshow ] -- minor mode to selectively hide/show code and comment blocks.
 
 ;; (use-package hideshow

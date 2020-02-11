@@ -220,7 +220,7 @@
 (require 'init-prog-comment)
 (require 'init-prog-electric)
 (require 'init-prog-indent)
-;; (require 'init-prog-folding)
+(require 'init-prog-folding)
 (require 'init-prog-complete)
 (require 'init-prog-sense)
 ;; (require 'init-prog-parser)
