@@ -126,7 +126,12 @@ character(s), in which case it deletes the space(s) first."
 
   (dolist (hook '(TeX-mode-hook
                   LaTeX-mode-hook))
-    (add-hook hook #'my:tex-mode-setup)))
+    (add-hook hook #'my:tex-mode-setup))
+
+  ;; TeX engine compile output buffer
+  (add-to-list 'display-buffer-alist
+               '("^\\*.* output\\*" (display-buffer-below-selected)))
+  )
 
 (use-package company-auctex
   :ensure t
