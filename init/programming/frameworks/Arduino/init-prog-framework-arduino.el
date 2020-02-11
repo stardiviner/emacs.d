@@ -10,10 +10,7 @@
 ;;; [ arduino-mode ]
 
 (use-package arduino-mode
-  :ensure t
-  :defer t
-  :commands (arduino-mode flycheck-arduino-setup)
-  :config (add-hook 'arduino-mode-hook #'flycheck-arduino-setup))
+  :ensure t)
 
 ;;; [ ob-arduino ]
 
