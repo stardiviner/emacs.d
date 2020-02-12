@@ -4,6 +4,6 @@
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
 ${1:#+NAME: ${2:src block name}
-}#+begin_src sql :engine postgresql :exports results :cmdline -h ${3:HOST} -p ${4:port}-U ${5:username} -d ${6:password}
+}#+begin_src sql :engine postgres :exports results :cmdline -h ${3:HOST} -p ${4:port}-U ${5:username} -d ${6:password}
 $0
 #+end_src

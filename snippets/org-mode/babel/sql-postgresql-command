@@ -6,6 +6,6 @@
 # --
 ${1:#+NAME: ${2:src block name}
 }#+headers: :cmdline -h ${3:localhost} -p ${4:5432} -U ${5:username} -w${6: -d ${7:dbname}}
-#+begin_src sql :engine postgresql
+#+begin_src sql :engine postgres
 $0
 #+end_src
