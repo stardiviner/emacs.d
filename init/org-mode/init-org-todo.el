@@ -52,6 +52,8 @@
         (type "WORK(w@/!)" "MEETING(m@/!)" "JOB(j@/!)" "BUSINESS(B@/!)" "|" "DONE(d@/!)")
         ;; Learn
         (type "LEARN(N!)" "REVIEW(R!)" "|" "DONE(d@/!)")
+        ;; Idea
+        (type "IDEA(I@/!)" "|" "DONE(d@/!)")
         ;; Life
         (type "SEX(X@/!)" "|" "DONE(d@/!)")
         ;; org-trello
@@ -98,7 +100,10 @@
         ("BUSINESS" . org-todo-keyword-todo-face)
         ("MEETING" . org-todo-keyword-todo-face)
         ;; learn
-        ("LEARN" . org-todo-keyword-todo-face)))
+        ("LEARN" . org-todo-keyword-todo-face)
+        ;; idea & project
+        ("IDEA" . org-todo-keyword-todo-face)
+        ("PROJECT" . org-todo-keyword-todo-face)))
 
 
 ;;; [ Habit ]
