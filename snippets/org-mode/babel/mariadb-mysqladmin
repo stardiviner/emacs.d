@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: mariadb-mysqladmin
+# key: mariadb-mysqladmin
+# group: babel.mariadb.mysqladmin
+# --
+#+begin_src sh :dir /sudo::
+mysqladmin -u root --password='324324' ${1:sub-command}
+#+end_src

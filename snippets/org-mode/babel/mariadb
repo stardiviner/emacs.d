@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: mariadb
+# key: mariadb
+# group: babel.mariadb
+# --
+#+NAME: ${1}
+#+headers: :cmdline -h ${2:localhost} -u ${3:root} -p${4:324324}
+#+begin_src sql :engine mysql
+$0
+#+end_src
