@@ -35,6 +35,7 @@
   :commands (org-latex-exp-conf-mode))
 
 ;;; [ ox-html ]
+
 (use-package ox-html
   :defer t
   :init (setq org-html-doctype "html5"

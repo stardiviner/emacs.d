@@ -7,12 +7,12 @@
 
 ;;; Code:
 
-;;; [ arduino-mode ]
+;;; [ arduino-mode ] -- major mode for Arduino.
 
 (use-package arduino-mode
   :ensure t)
 
-;;; [ ob-arduino ]
+;;; [ ob-arduino ] -- Org Mode Babel support for Arduino.
 
 (use-package org-plus-contrib
   :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
@@ -27,7 +27,7 @@
     (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
     (add-to-list 'org-babel-tangle-lang-exts '("arduino" . "ino"))))
 
-;;; [ company-arduino ]
+;;; [ company-arduino ] -- code completion support for arduino-mode.
 
 (use-package company-arduino
   ;; :ensure t
