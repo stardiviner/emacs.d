@@ -139,11 +139,16 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
   (add-to-list 'golden-ratio-exclude-buffer-names " *Org tags*")
   (add-to-list 'golden-ratio-exclude-buffer-names " *Org Attach*")
 
-  ;; for `popwin'.
-  ;; (setq golden-ratio-inhibit-functions '(pop-to-buffer))
-  ;; add `window-number' and `ace-window' commands to trigger list.
-  (setq golden-ratio-extra-commands
-        (append golden-ratio-extra-commands '(window-number-select ace-window)))
+  ;; add extra commands to golden-ratio trigggers list.
+  (if (featurep 'popwin) ; support for `popwin'
+      (setq golden-ratio-inhibit-functions '(pop-to-buffer)))
+  (if (featurep 'window-number) ; support for `window-number'
+      (add-to-list 'golden-ratio-extra-commands 'window-number-select))
+  (if (featurep 'ace-window) ; support for `ace-window'
+      (add-to-list 'golden-ratio-extra-commands 'ace-window))
+  (if (featurep 'org-noter) ; support for `org-noter'
+      (add-to-list 'golden-ratio-extra-commands 'org-noter-sync-current-page-or-chapter)
+    (add-to-list 'golden-ratio-extra-commands 'org-noter-sync-current-note))
 
   ;; disable in ediff session.
   (add-hook 'ediff-before-setup-windows-hook #'(lambda () (golden-ratio-mode -1)))
