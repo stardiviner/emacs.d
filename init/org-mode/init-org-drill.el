@@ -52,8 +52,7 @@
 - : [%?]
 
 %c
-"
-                   :empty-lines 1))
+"))
                 org-capture-templates))
 
   (defun my-org-drill-word-exist-p (word)
