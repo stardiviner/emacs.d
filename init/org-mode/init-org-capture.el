@@ -20,13 +20,15 @@
          ;; NOTE The `org-todo-keywords-for-agenda' variable is fullfilled with value AFTER generated Agenda.
          "* %(completing-read \"Todo keyword: \" org-todo-keywords-for-agenda nil t) %^{Capture} [/] \n:PROPERTIES:\n:TIME: %U\n:END: \n%i\n%a\n\n%?"
          ;; :time-prompt t
+         :empty-lines-before 1
          :empty-lines-after 1)
 
         ;; Tasks
         ("t" "Add a [t]ime scheduled task into Tasks"
          entry (file "~/Org/Tasks/Computer Todos.org")
          "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
-         :clock-in t :clock-resume t :clock-keep t)
+         :clock-in t :clock-resume t :clock-keep t
+         :empty-lines 1)
 
         ;; Diary
         ("d" "Write [d]iary"
@@ -41,6 +43,7 @@
         ("u" "Add an [U]RL to bookmarks database"
          entry (file "~/Org/Bookmarks/Bookmarks.org")
          "* [[%^C][%^{link description}]]\n:PROPERTIES:\n:URL: %^C\n:DATE: %t\n:END: \n\n%?\n\n"
+         :empty-lines 1
          :jump-to-captured t)
 
         ;; org-passwords
@@ -132,11 +135,14 @@ In ~%s~:
                 ("PP" "Protocol"
                  entry (file ,(concat org-directory "/Tasks/Tasks.org"))
                  "* %^{Title}\nSource: %u, %c\n #+begin_quote\n%i\n#+end_quote\n\n\n%?"
-                 :prepend t)
+                 :prepend t
+                 :empty-lines 1
+                 )
                 ("PL" "Protocol Link"
                  entry (file ,(concat org-directory "/Tasks/Tasks.org"))
                  "* %? [[%:link][%:description]] \nCaptured On: %U"
-                 :prepend t))
+                 :prepend t
+                 :empty-lines 1))
               org-capture-templates))
 
 ;; (use-package org-protocol-capture-html

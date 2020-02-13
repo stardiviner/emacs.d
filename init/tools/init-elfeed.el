@@ -125,7 +125,7 @@
 :END:
 
 %(my/org-capture-elfeed-content)"
-                 :empty-lines 0
+                 :empty-lines 1
                  :jump-to-captured t)))
 
 
