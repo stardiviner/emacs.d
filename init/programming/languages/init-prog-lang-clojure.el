@@ -397,16 +397,6 @@ With value selected from a list of available sessions."
 
   (define-key org-babel-map (kbd "M-j") 'ob-clojure-specify-session))
 
-;;; [ ob-clojurescript ] -- org-babel support for ClojureScript
-
-(use-package ob-clojurescript
-  :ensure t
-  :defer t
-  :commands (org-babel-execute:clojurescript)
-  :config
-  (add-to-list 'org-babel-load-languages '(clojurescript . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
-
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
 
 ;; (use-package typed-clojure-mode
