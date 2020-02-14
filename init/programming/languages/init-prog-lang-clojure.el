@@ -115,11 +115,6 @@
   (add-to-list 'display-buffer-alist
                '("^\\*nrepl-.*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
   :config
-  ;; Clojure
-  ;; (setq cider-default-repl-command 'clojure-cli)
-  ;; ClojureScript
-  (setq cider-default-cljs-repl 'shadow)
-
   ;; Frequently used connections
   ;; TODO: need to know how to run Docker container REPL with specific port.
   ;; $ docker run --name clojure -p :7788 -it clojure:tools-deps clj
