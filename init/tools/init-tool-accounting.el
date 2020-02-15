@@ -7,25 +7,20 @@
 
 ;;; Code:
 
-
 (unless (boundp 'accounting-prefix)
   (define-prefix-command 'accounting-prefix))
-(define-key tools-prefix (kbd "A") 'accounting-prefix)
-
+(define-key tools-prefix (kbd "a") 'accounting-prefix)
 
 (use-package ledger-mode
   :ensure t
   :defer t
-  :mode ("\\.ledger\\'" . ledger-mode)
-  :config
-  (use-package flycheck-ledger
-    :ensure t
-    :config
-    (add-hook 'ledger-mode-hook
-              (lambda ()
-                (flycheck-mode 1)
-                (flycheck-select-checker 'ledger))))
-  )
+  :mode ("\\.ledger\\'" . ledger-mode))
+
+(use-package flycheck-ledger
+  :ensure t
+  :defer t
+  :hook (ledger-mode . flycheck-mode)
+  :config (add-hook 'ledger-mode-hook (lambda () (flycheck-select-checker 'ledger))))
 
 ;; [ ob-ledger ]
 
@@ -103,8 +98,7 @@
                   ("lao" "[O]nline Accounts" plain
                    (file (lambda () (concat org-directory "/Accounting/my.ledger")))
                    "%(org-read-date) %^{Event}\n assets:online-account:%^{ZhiFuBao}  %^{Amount}\n%?"
-                   :empty-lines-before 1)
-                  )
+                   :empty-lines-before 1))
                 org-capture-templates)))
 
 ;;; [ hledger-mode ] -- Major mode for editing hledger.
@@ -131,8 +125,7 @@
 ;;   (require 'ob-hledger)
 ;;   (add-to-list 'org-babel-load-languages '(hledger . t))
 ;;   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-;;   (add-to-list 'org-babel-tangle-lang-exts '("hledger" . "hledger"))
-;;   )
+;;   (add-to-list 'org-babel-tangle-lang-exts '("hledger" . "hledger")))
 
 
 
