@@ -197,7 +197,7 @@
 (require 'init-tool-feeds)
 (require 'init-tool-contacts)
 ;; (require 'init-tool-password-manager)
-;; (require 'init-tool-accounting)
+(require 'init-tool-accounting)
 (require 'init-tool-paste)
 (require 'init-tool-irc)
 ;; (require 'init-communication)
