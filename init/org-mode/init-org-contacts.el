@@ -10,9 +10,7 @@
 ;;; [ org-contacts ] -- Contacts management in Org-mode.
 
 (use-package org-contacts
-  :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-  :defer t
-  :commands (org-contacts-setup-completion-at-point) ; autoload for mu4e contacts completion
+  ;; :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
   :init (setq org-contacts-files (list (concat org-directory "/Contacts/Contacts.org")))
   
   ;; Create agenda view for contacts matching NAME.
@@ -56,9 +54,23 @@
   (setq org-contacts-matcher
         "NAME<>\"\"|EMAIL<>\"\"|Mailing-List<>\"\"|ALIAS<>\"\"|RELATIONSHIP<>\"\"|PHONE<>\"\"|ADDRESS<>\"\"|BIRTHDAY<>\"\"|PROGRAMMING-SKILLS<>\"\"|SKILLS<>\"\"|EDUCATION<>\"\"|JOBS<>\"\"|NOTE"
         )
-  
-  ;; (add-to-list 'org-property-set-functions-alist
-  ;;              '(".*" . org-completing-read))
+
+  ;; [C-c C-x p] add "EMAIL" property complete with `mu4e~contacts' source.
+  (when (and (featurep 'mu4e) (not (null mu4e~contacts)))
+    (defun org-property-email-complete (prompt &rest args)
+      (if (bound-and-true-p mu4e~contacts) ; `mu4e~contacts' is initialized after started `mu4e'.
+          (if-let ((contact (completing-read prompt mu4e~contacts))
+                   (has-name? (string-match-p "<.*>" contact))) ; detect special org-contacts candidate which only has email without name.
+              ;; extract email from org-contacts candidate if have name.
+              (let* ((match-start (1+ (string-match "<.*>" contact)))
+                     (length (1- (length contact)))
+                     (email (substring contact match-start length))
+                     (name (substring-no-properties contact 0 (- match-start 2))))
+                (kill-new name)
+                email)
+            contact) ; the contact value is the email when no name.
+        (user-error "`mu4e~contacts' is available after mu4e initialized.")))
+    (add-to-list 'org-property-set-functions-alist '("EMAIL" . org-property-email-complete)))
 
   ;; avatar
   (setq org-contacts-icon-use-gravatar nil
