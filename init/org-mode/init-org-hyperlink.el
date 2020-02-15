@@ -166,6 +166,59 @@ Optional for Org-mode file: `LINK'."
 ;; `mail-user-agent'
 ;; (setq browse-url-mailto-function 'browse-url-mail)
 
+(when (featurep 'org-contacts)
+  (defun ol-mailto-org-contacts-complete ()
+    ;; this completion code is from `org-contacts.el'
+    (let ((completion-list (cl-loop for contact in (org-contacts-filter)
+                                    ;; The contact name is always the car of the assoc-list
+                                    ;; returned by `org-contacts-filter'.
+                                    for contact-name = (car contact)
+
+                                    ;; Build the list of the email addresses which has
+                                    ;; been expired
+                                    for ignore-list = (org-contacts-split-property
+                                                       (or (cdr (assoc-string org-contacts-ignore-property
+                                                                              (nth 2 contact))) ""))
+                                    ;; Build the list of the user email addresses.
+                                    for email-list = (org-contacts-remove-ignored-property-values
+                                                      ignore-list
+                                                      (org-contacts-split-property
+                                                       (or (cdr (assoc-string org-contacts-email-property
+                                                                              (nth 2 contact))) "")))
+                                    ;; If the user has email addresses…
+                                    if email-list
+                                    ;; … append a list of USER <EMAIL>.
+                                    nconc (cl-loop for email in email-list
+                                                   collect (org-contacts-format-email contact-name (org-contacts-strip-link email))))))
+      (let* ((contact (completing-read "org-contacts: " completion-list))
+             (match-start (1+ (string-match "<.*>" contact)))
+             (length (1- (length contact)))
+             (email (substring contact match-start length))
+             (name (substring-no-properties contact 0 (- match-start 2)))
+             (description (concat (format "Send mail to %s" name)))
+             (link (concat "mailto:" email)))
+        (kill-new description) ; copy contact name to kill-ring for later insert into link description.
+        link)))
+
+  (defun ol-mailto-org-contacts-store ()
+    (let* ((contact (ol-mailto-org-contacts-complete))
+           (match-start (1+ (string-match "<.*>" contact)))
+           (length (1- (length contact)))
+           (email (substring contact match-start length))
+           (link (concat "mailto:" email))
+           (description (format "Send mail to %s" email)))
+      (org-link-store-props
+       :type "mailto"
+       :link link
+       :description description)))
+
+  (defun ol-mailto-org-contacts-follow (email)
+    (browse-url (concat "mailto" ":" email)))
+
+  (org-link-set-parameters "mailto"
+                           :store 'ol-mailto-org-contacts-store
+                           :follow 'ol-mailto-org-contacts-follow
+                           :complete 'ol-mailto-org-contacts-complete))
 
 ;; IRC: `irc:'
 (use-package ol-irc
