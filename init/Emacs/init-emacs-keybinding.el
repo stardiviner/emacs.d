@@ -53,24 +53,20 @@
 
 (use-package hydra
   :ensure t
-  :defer t
-  ;; :init
-  ;; (use-package hydra-posframe ; a hydra extension which shows hydra hints on posframe.
-  ;;   :ensure t
-  ;;   :defer t
-  ;;   :hook (after-init . hydra-posframe-enable))
-  )
+  :defer t)
 
-;;; [ hydra-posframe ] -- Display Hydra diagnostics at point.
+;;; [ hydra-posframe ] -- Display Hydra diagnostics at point in posframe.
 
-(use-package hydra-posframe
-  :ensure t
-  :init (hydra-posframe-enable))
+;; (use-package hydra-posframe
+;;   :ensure t
+;;   :defer t
+;;   :hook (after-init . hydra-posframe-enable))
 
 ;;; [ pretty-hydra ] -- A macro for creating nice-looking Hydras.
 
 (use-package pretty-hydra
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ emaps ] -- Emaps provides utilities for working with keymaps and keybindings in Emacs.
 
