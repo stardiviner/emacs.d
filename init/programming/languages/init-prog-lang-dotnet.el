@@ -7,12 +7,18 @@
 
 ;;; Code:
 
-;;; [ dotnet ] -- Interact with dotnet CLI tool.
+;;; [ .NET ] -- Interact with dotnet CLI tool.
 
 (use-package dotnet ; dotnet-mode keymap prefix [C-c C-n]
   :ensure t
   :defer t
-  :commands (dotnet-new dotnet-add-package dotnet-test dotnet-run dotnet-build dotnet-publish)
+  :commands (dotnet-add-package
+             dotnet-new
+             dotnet-run dotnet-run-with-args
+             dotnet-build
+             dotnet-publish
+             dotnet-test dotnet-test-rerun
+             dotnet-sln-new dotnet-sln-add dotnet-sln-remove dotnet-sln-list)
   :config
   (add-to-list 'display-buffer-alist
                '("^\\*dotnet\\*" (display-buffer-below-selected))))
