@@ -108,6 +108,19 @@
 ;;   (with-eval-after-load 'org
 ;;     (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdftools-open link))))))
 
+;;; [ org-pdfview ] --
+
+(use-package org-pdfview
+  :ensure t
+  :config
+  (org-link-set-parameters "pdfview"
+                           :follow #'org-pdfview-open
+                           :export #'org-pdfview-export
+                           :complete #'org-pdfview-complete-link
+                           :store #'org-pdfview-store-link)
+  (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdfview-open link))))
+  (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . (lambda (file link) (org-pdfview-open link)))))
+
 ;; [ pdf-tools-org ] -- integrate pdf-tools annotations to exporting/importing with Org Mode.
 
 (use-package pdf-tools-org
