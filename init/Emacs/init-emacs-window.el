@@ -114,11 +114,11 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
 
 (use-package golden-ratio
   :ensure t
-  :if (< (frame-width) 200) ; enable `golden-ratio' only in small screen.
-  :commands (golden-ratio-mode golden-ratio)
-  :init (setq golden-ratio-auto-scale nil
-              golden-ratio-recenter t)
+  ;; :if (< (frame-width) 200) ; enable `golden-ratio' only in small screen.
   :config
+  (setq golden-ratio-auto-scale nil
+        golden-ratio-recenter t)
+  
   ;; Exclude following pattern buffers.
   (setq golden-ratio-exclude-modes
         (append golden-ratio-exclude-modes
@@ -140,15 +140,12 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
   (add-to-list 'golden-ratio-exclude-buffer-names " *Org Attach*")
 
   ;; add extra commands to golden-ratio trigggers list.
-  (if (featurep 'popwin) ; support for `popwin'
-      (setq golden-ratio-inhibit-functions '(pop-to-buffer)))
-  (if (featurep 'window-number) ; support for `window-number'
-      (add-to-list 'golden-ratio-extra-commands 'window-number-select))
-  (if (featurep 'ace-window) ; support for `ace-window'
-      (add-to-list 'golden-ratio-extra-commands 'ace-window))
-  (if (featurep 'org-noter) ; support for `org-noter'
-      (add-to-list 'golden-ratio-extra-commands 'org-noter-sync-current-page-or-chapter)
-    (add-to-list 'golden-ratio-extra-commands 'org-noter-sync-current-note))
+  ;; (add-to-list 'golden-ratio-inhibit-functions 'pop-to-buffer) ; support for `popwin'
+  
+  (add-to-list 'golden-ratio-extra-commands 'window-number-select) ; support for `window-number'
+  (add-to-list 'golden-ratio-extra-commands 'ace-window) ; support for `ace-window'
+  (add-to-list 'golden-ratio-extra-commands 'org-noter-sync-current-page-or-chapter) ; support for `org-noter'
+  (add-to-list 'golden-ratio-extra-commands 'org-noter-sync-current-note) ; support for `org-noter'
 
   ;; disable in ediff session.
   (add-hook 'ediff-before-setup-windows-hook #'(lambda () (golden-ratio-mode -1)))
@@ -161,10 +158,8 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
     (golden-ratio-mode 1))
   (advice-add 'eyebrowse-last-window-config :around #'golden-ratio-eyebrowse-workaround--advice)
   (advice-add 'eyebrowse-switch-to-window-config :around #'golden-ratio-eyebrowse-workaround--advice)
-
-  ;; (golden-ratio-mode 1)
-  ;; manually re-fit ratio when `golden-ratio-mode' not enabled.
-  (if (null golden-ratio-mode) (global-set-key (kbd "C-C C-j") 'golden-ratio)))
+  
+  (golden-ratio-mode 1))
 
 
 ;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
