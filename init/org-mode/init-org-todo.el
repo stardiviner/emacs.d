@@ -49,15 +49,17 @@
         ;; Code
         (sequence "CODE(c@/!)" "BUG(b@/!)" "ISSUE(i@/!)" "ERROR(e@/!)" "FEATURE(f@/!)" "Pull-Request(p@/!)" "SECURITY(s@/!)" "|" "DONE(d@/!)")
         ;; Work
-        (type "WORK(w@/!)" "MEETING(m@/!)" "JOB(j@/!)" "BUSINESS(B@/!)" "|" "DONE(d@/!)")
+        (type "WORK(w@/!)" "MEETING(m@/!)" "JOB(j@/!)" "BUSINESS(@/!)" "|" "DONE(d@/!)")
         ;; Learn
         (type "LEARN(N!)" "REVIEW(R!)" "|" "DONE(d@/!)")
         ;; Idea
         (type "IDEA(I@/!)" "|" "DONE(d@/!)")
         ;; Life
         (type "SEX(X@/!)" "|" "DONE(d@/!)")
-        ;; org-trello
+        ;; `org-trello'
         ;; (type "TODO" "INPROGRESS" "|" "DONE")
+        ;; Taobao
+        (type "BUY(B@/!)" "SELL(L@/!)" "|" "DONE(d@/!)")
         ))
 
 (defface org-todo-keyword-todo-face
