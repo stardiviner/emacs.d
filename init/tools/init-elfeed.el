@@ -26,48 +26,48 @@
           ;; ("http://blog.stackoverflow.com/feed/" Programming StackOverflow)
           ;; ("http://programmers.blogoverflow.com/feed/" Programming StackOverflow)
           ;; Emacs
-          ("https://planet.emacslife.com/atom.xml" Emacs)
-          ("https://sachachua.com/blog/feed/atom/" Blog Emacs)
+          ("https://planet.emacslife.com/atom.xml" Emacs) ; EmacsLife Planet
+          ("https://sachachua.com/blog/feed/atom/" Blog Emacs) ; Sacha Chua Blog
           ;; Web
-          ("https://blog.mozilla.org/feed/" Mozilla)
-          ("http://hacks.mozilla.org/feed/" Mozilla Web)
+          ("https://blog.mozilla.org/feed/" Mozilla) ; Mozilla Blog
+          ("http://hacks.mozilla.org/feed/" Mozilla Web) ; Mozilla Hacks
           ;; Linux
           ;; ("https://www.linux.com/rss/feeds.php" Linux)
           ;; ("http://lwn.net/headlines/newrss" Linux)
           ;; ("http://linux.cn/rss.xml" Linux)
           ;; Arch Linux
-          ("http://www.archlinux.org/feeds/news/" Arch Linux)
+          ("http://www.archlinux.org/feeds/news/" Arch Linux) ; Arch Linux RSS
           ;; DevOps
           ;; ("https://www.digitalocean.com/community/tutorials/feed" DigitalOcean Linux)
           ;; Geek News
-          ("http://www.solidot.org/index.rss" Solidot News)
+          ("http://www.solidot.org/index.rss" Solidot News) ; Solidot
           ;; ("http://slashdot.org/index.rss" Slashdot News)
           ;; ("http://news.ycombinator.com/rss" HackerNews Programmer News)
           ;; ("http://reddit.com/.rss" Reddit News)
           ;; ("http://feeds.howtogeek.com/HowToGeek" Geek)
-          ("http://fullcirclemagazine.org/feed" Linux)
+          ("http://fullcirclemagazine.org/feed" Linux) ; Full Circle Magazine
           ;; Podcasts
           ;; Common Lisp
-          ("http://planet.lisp.org/rss20.xml" LISP)
+          ("http://planet.lisp.org/rss20.xml" LISP) ; Lisp Planet
           ;; Clojure
-          ("http://insideclojure.org/feed.xml" Clojure)
-          ("http://www.lispcast.com/feed" Clojure)
+          ("http://insideclojure.org/feed.xml" Clojure) ; Inside Clojure
+          ("http://www.lispcast.com/feed" Clojure) ; LispCast
           ("http://blog.jayfields.com/feeds/posts/default" Clojure Blog)
-          ("http://corfield.org/atom.xml" Clojure Blog) ; Sean Corfield
+          ("http://corfield.org/atom.xml" Clojure Blog) ; Sean Corfield Blog
           ;; Programmer Blogs
-          ("http://feed.williamlong.info/" Blog News)
-          ("http://www.ruanyifeng.com/blog/atom.xml" Blog)
-          ("https://manateelazycat.github.io/feed.xml" Blog)
+          ("http://feed.williamlong.info/" Blog News) ; 月光博客
+          ("http://www.ruanyifeng.com/blog/atom.xml" Blog) ; 阮一峰
+          ("https://manateelazycat.github.io/feed.xml" Blog) ; manateelazycat 懒猫 王勇
           ("https://overreacted.io/rss.xml" Blog)
           ("https://nalaginrut.com/feed/atom" Blog) ; Samson's Machete "穆垒"
           ("https://www.byvoid.com/zht/feed" Blog)
           ;; Kali Linux
-          ("http://www.kali.org/feed/" Kali Linux Subscribe)
+          ("http://www.kali.org/feed/" Kali Linux Subscribe) ; Kali Linux Blog
           ;; Subscribe
-          ("https://github.com/blog/all.atom" GitHub SubScribe)
-          ("http://www.salttiger.com/feed/" Ebook)
+          ("https://github.com/blog/all.atom" GitHub SubScribe) ; GitHub Blog
+          ("http://www.salttiger.com/feed/" Ebook) ; Salttiger
           ;; Podcasts
-          ("https://feeds.pacific-content.com/commandlineheroes" Programming)
+          ("https://feeds.pacific-content.com/commandlineheroes" Programming) ; Command-line Heros podcast
           ))
   
   ;; (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
