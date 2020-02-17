@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: postgresql-psql
+# name: PostgreSQL psql
 # key: postgresql-psql
 # group: babel.postgresql.psql
 # --

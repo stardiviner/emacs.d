@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: hg-clone
+# name: hg clone
 # key: hg-clone
 # group: hg.clone
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
