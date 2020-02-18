@@ -56,25 +56,9 @@
 
 ;;; [ poet-theme ] -- A theme well suited for modes using variable pitch: particularly org-mode and markdown-mode.
 
-(use-package poet-theme
-  :ensure t
-  :defer t
-  :config
-  (with-eval-after-load 'olivetti
-    (add-hook 'olivetti-mode-hook
-              (lambda ()
-                (load-theme 'poet)
-                (variable-pitch-mode 1) ; only in Org-mode instead of global!!!
-                (set-face-attribute 'default nil :height 130)
-                (set-face-attribute 'fixed-pitch nil :family "Fira Code")
-                (set-face-attribute 'variable-pitch nil :family "Georgia"))))
-  ;; TODO: how to disable upper settings after disable `olivetti-mode'?
-  (defun poet-theme-disable ()
-    (interactive)
-    (set-face-attribute 'default nil :height 100)
-    ;; reset custom-theme.
-    (disable-theme 'poet))
-  )
+;; (use-package poet-theme
+;;   :ensure t
+;;   :config (load-theme 'poet t))
 
 
 (provide 'init-authoring)
