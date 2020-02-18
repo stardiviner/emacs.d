@@ -28,6 +28,7 @@
 (setq-default package-archives
               '(("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
                 ("org"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+                ("marmalade" . "http://marmalade-repo.org/packages/")
                 ("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
 (let* ((elpa-archives-dir (expand-file-name "elpa/archives/" user-emacs-directory))
