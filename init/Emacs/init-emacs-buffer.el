@@ -22,6 +22,10 @@
   :bind ("C-x C-b" . ibuffer)
   :init (setq buffers-menu-max-size nil))
 
+(use-package all-the-icons-ibuffer
+  :ensure t
+  :init (all-the-icons-ibuffer-mode))
+
 ;;; [uniquify] -- meaningful names for buffers with the same name
 
 (use-package uniquify
