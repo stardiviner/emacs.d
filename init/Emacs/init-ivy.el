@@ -117,6 +117,12 @@
 ;;   (setq ivy-posframe-border-width 1)
 ;;   (set-face-attribute 'internal-border nil :background "gray50"))
 
+;;; [ all-the-icons-ivy-rich ] -- Better experience with icons for Ivy.
+
+(use-package all-the-icons-ivy-rich
+  :ensure t
+  :init (all-the-icons-ivy-rich-mode 1))
+
 
 (provide 'init-ivy)
 
