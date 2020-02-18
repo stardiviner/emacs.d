@@ -17,7 +17,16 @@
 (use-package daemons
   :ensure t
   :defer t
-  :commands (daemons))
+  :commands (daemons)
+  :config
+  (add-to-list 'display-buffer-alist
+               '("^\\*daemons.*\\*" (display-buffer-below-selected))))
+
+;;; [ helm-systemd ] -- Helm's systemd interface.
+
+(use-package helm-systemd
+  :ensure t
+  :commands (helm-systemd))
 
 ;;; [ nginx-mode ]
 
