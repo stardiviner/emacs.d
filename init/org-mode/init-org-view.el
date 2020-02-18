@@ -19,10 +19,9 @@
 
 ;;; [ org-num ] -- Dynamic Headlines Numbering.
 
-;; (use-package org-num
-;;   :init (setq org-num-skip-footnotes t
-;;               org-num-skip-unnumbered t)
-;;   (add-hook 'org-mode-hook #'org-num-mode))
+(setq org-startup-numeroted nil ; use "#+startup: num" file locally instead.
+      org-num-skip-footnotes t
+      org-num-skip-unnumbered t)
 
 ;;; [ org-bullets ]
 
