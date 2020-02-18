@@ -40,19 +40,6 @@
 ;;   :ensure t
 ;;   :init (wc-mode nil))
 
-;;; [ writegood-mode ] -- polish up poor writing on the fly (weasel words, passive voice, duplicates).
-
-;; (use-package writegood-mode
-;;   :ensure t
-;;   :init
-;;   (mapc
-;;    (lambda (hook)
-;;      (add-hook hook #'writegood-mode))
-;;    '(org-mode-hook markdown-mode-hook text-mode-hook))
-;;   ;; :config
-;;   ;; (add-to-list 'writegood-weasel-words "test")
-;;   )
-
 ;;; [ writeroom-mode ] -- distraction-free writing for Emacs.
 
 (use-package writeroom-mode
