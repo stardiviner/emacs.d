@@ -26,6 +26,12 @@
   :ensure t
   :init (all-the-icons-ibuffer-mode))
 
+;;; [ sbuffer ] -- Like ibuffer, but using magit-section.
+
+(use-package sbuffer
+  :quelpa (sbuffer :fetcher github :repo "alphapapa/sbuffer.el")
+  :commands (sbuffer))
+
 ;;; [uniquify] -- meaningful names for buffers with the same name
 
 (use-package uniquify
