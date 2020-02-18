@@ -188,7 +188,7 @@
 (use-package org-edna
   :ensure t
   :after org
-  :init (org-edna-load))
+  :init (org-edna-mode 1))
 
 
 
