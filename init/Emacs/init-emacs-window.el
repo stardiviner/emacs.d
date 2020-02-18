@@ -147,6 +147,15 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
   (add-to-list 'golden-ratio-extra-commands 'org-noter-sync-current-page-or-chapter) ; support for `org-noter'
   (add-to-list 'golden-ratio-extra-commands 'org-noter-sync-current-note) ; support for `org-noter'
 
+  ;; exclude calendar buffers
+  (add-to-list 'golden-ratio-exclude-modes 'calendar-mode)
+  (add-to-list 'golden-ratio-exclude-buffer-names calendar-buffer)
+  (add-to-list 'golden-ratio-exclude-buffer-names holiday-buffer)
+  (add-to-list 'golden-ratio-exclude-buffer-names diary-fancy-buffer)
+  (add-to-list 'golden-ratio-exclude-buffer-names calendar-other-calendars-buffer)
+  (add-to-list 'golden-ratio-exclude-buffer-names lunar-phases-buffer)
+  (add-to-list 'golden-ratio-exclude-buffer-names solar-sunrises-buffer)
+  
   ;; disable in ediff session.
   (add-hook 'ediff-before-setup-windows-hook #'(lambda () (golden-ratio-mode -1)))
   (add-hook 'ediff-quit-hook #'(lambda () (golden-ratio-mode 1)))
