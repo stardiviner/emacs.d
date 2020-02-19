@@ -7,49 +7,22 @@
 
 ;;; Code:
 
-;;; [ python-mode ] --- Python's flying circus support for Emacs
-
-(use-package python-mode
-  :ensure t
-  :defer t
-  :commands (py-shell ; `py-python-shell-mode'
-             python python3 python2 ipython jpython)
-  :preface (setq python-indent-guess-indent-offset nil)
-  :init
-  ;; auto interactive insert skeleton
-  (setq python-skeleton-autoinsert nil)
-  ;; (setq python-shell-completion-native-enable nil) ; `python-shell-completion-native-toggle'
-
-  ;; (defun python-mode-electric-layout-setting ()
-  ;;   "auto insert newline after specific characters."
-  ;;   (setq-local electric-layout-rules
-  ;;               '((?: . (lambda ()           ; FIXME this cause `eldoc-overlay-mode' aggressive repeating error.
-  ;;                         (and (zerop (car (syntax-ppss)))
-  ;;                              (python-info-statement-starts-block-p)
-  ;;                              'after))))))
-  ;; (add-hook 'python-mode-hook #'electric-layout-local-mode)
-  ;; (add-hook 'python-mode-hook #'python-mode-electric-layout-setting)
-  )
-
-
-;;; [ Inferior Python ]
+;;; [ python ] -- (built-in) Python's flying circus support for Emacs.
 
 (use-package python
   :ensure t
   :defer t
-  :commands (run-python)
+  :commands (run-python python-mode)
   :bind (:map python-mode-map ("C-c C-s" . run-python))
-  :init
-  (setq python-shell-interpreter "python")
+  :init (setq python-shell-interpreter "python")
   (cl-case python-shell-interpreter
     ("python"
      (setq python-shell-interpreter-args "-i"))
     ("ipython"
      (setq python-shell-interpreter-args "--simple-prompt --pprint")
      (setenv "IPY_TEST_SIMPLE_PROMPT" "1")))
-  :config
   (setq python-shell-completion-native-enable nil)
-
+  :config
   (add-hook 'python-mode-hook #'electric-pair-local-mode)
   
   (add-to-list 'display-buffer-alist
@@ -58,7 +31,6 @@
                '("^\\*Python Doc\\*" (display-buffer-below-selected)))
   (add-hook 'python-mode-hook #'flymake-mode-off 'append))
 
-
 ;;; [ ob-python ]
 
 (use-package ob-python
@@ -79,13 +51,12 @@
   ;;              '(:session . "*Python*"))
   )
 
-
 ;;; [ elpy ] -- Emacs Python Development Environment.
 
 (use-package elpy
   :ensure t
   :defer t
-  :after python-mode
+  :after python
   :hook (python-mode . elpy-enable)
   :init (defun my-elpy-company-setup ()
           ;; don't use `elpy-company-backend', `company-capf' works correctly.
@@ -112,7 +83,7 @@
 ;;   :ensure t
 ;;   :ensure company-anaconda
 ;;   :defer t
-;;   :after python-mode
+;;   :after python
 ;;   :hook (python-mode . anaconda-mode))
 
 ;;; [ lsp-python ] -- Python support for lsp-mode with pyls.
@@ -162,9 +133,7 @@
 ;; (use-package cinspect
 ;;   :ensure t
 ;;   :defer t
-;;   :init
-;;   (add-hook 'python-mode-hook 'cinspect)
-;;   )
+;;   :init (add-hook 'python-mode-hook 'cinspect))
 
 
 (provide 'init-prog-lang-python)
