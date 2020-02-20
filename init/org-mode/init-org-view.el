@@ -12,6 +12,9 @@
 
 ;; (setq org-ellipsis "  ")
 
+(setq org-pretty-entities t ; for `org-toggle-pretty-entities'
+      org-use-sub-superscripts '{})
+
 ;;; indent
 
 (setq org-adapt-indentation 'headline-data)
