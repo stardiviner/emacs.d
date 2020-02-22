@@ -45,7 +45,8 @@
 (use-package writeroom-mode
   :ensure t
   :defer t
-  :commands (writeroom-mode global-writeroom-mode))
+  :commands (writeroom-mode global-writeroom-mode)
+  :init (setq writeroom-restore-window-config t))
 
 ;;; [ olivetti ] -- Olivetti is a simple Emacs minor mode for a nice writing environment.
 
