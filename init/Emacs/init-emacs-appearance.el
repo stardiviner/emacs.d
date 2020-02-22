@@ -103,7 +103,9 @@
 ;;; [ current line & column ]
 
 ;; highlight current line
-(global-hl-line-mode 1)
+(use-package hl-line
+  :ensure nil
+  :hook (after-init . global-hl-line-mode))
 
 ;;; [ point & cursor ]
 
@@ -191,12 +193,13 @@
 
 ;;; trailing whitespace
 
-;; (require 'whitespace)
-;; (setq whitespace-line-column 80) ; limit line length
-;; (setq whitespace-style '(face lines-tail))
-;; (add-hook 'prog-mode-hook 'whitespace-mode)
-;; (global-whitespace-mode +1)
-
+(use-package whitespace
+  :ensure nil
+  :hook ((prog-mode markdown-mode conf-mode) . whitespace-mode)
+  :config
+  (setq whitespace-style '(face trailing)) ; '(face lines-trail)
+  (setq whitespace-line-column 80) ; highlight beyond limit line length
+  )
 
 ;;; [ all-the-icons ] -- A utility package to collect various Icon Fonts and propertize them within Emacs.
 

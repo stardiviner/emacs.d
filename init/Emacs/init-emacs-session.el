@@ -28,8 +28,10 @@
 ;;; [ saveplace ] -- save visited files' point positions.
 
 (use-package saveplace
+  :ensure nil
   :defer 1
-  :commands (save-place-mode))
+  :commands (save-place-mode)
+  :hook (after-init . save-place-mode))
 
 ;;; open mostly used files
 ;; (defun my/open-frequent-used-files ()

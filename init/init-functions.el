@@ -31,7 +31,6 @@
 
 ;;; It is same as:
 ;; (defun my-non-special-mode-setup ()
-;;   (setq show-trailing-whitespace t)
 ;;   ...)
 ;; (dolist (hook '(prog-mode-hook text-mode-hook css-mode-hook ...))
 ;;   (add-hook hook 'my-non-special-mode-setup))

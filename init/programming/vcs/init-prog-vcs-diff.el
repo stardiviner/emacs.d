@@ -20,15 +20,12 @@
   :ensure t
   :defer t
   :init (setq ediff-use-faces t)
+  :hook (ediff-quit . winner-undo)
   :config
   ;; change default ediff style: don't start another frame
   (setq ediff-window-setup-function 'ediff-setup-windows-plain) ; 'ediff-setup-windows-default
   ;; put windows side by side
-  (setq ediff-split-window-function 'split-window-horizontally)
-  ;; revert windows on exit (needs winner mode)
-  (winner-mode 1)
-  ;; (add-hook 'ediff-before-setup-windows-hook #'winner-mode)
-  (add-hook 'ediff-after-quit-hook-internal 'winner-undo))
+  (setq ediff-split-window-function 'split-window-horizontally))
 
 ;;; [ diffview ] -- render a unified diff to side-by-side format.
 
