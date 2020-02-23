@@ -700,8 +700,7 @@
               (setq-local completion-at-point-functions
                           '(mu4e~compose-complete-contact
                             mail-completion-at-point-function
-                            message-completion-function))))
-  )
+                            message-completion-function)))))
 
 ;;; [ mu4e-overview ] -- show overview of maildirs.
 
@@ -739,9 +738,7 @@
 ;;          "flag:unread"
 ;;          " AND NOT flag:trashed"
 ;;          ;; " AND NOT maildir:"
-;;          "AND references: t"
-;;          ))
-;;   )
+;;          "AND references: t")))
 
 
 
