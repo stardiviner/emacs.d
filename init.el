@@ -184,6 +184,7 @@
 ;; (require 'init-tool-speak)
 (require 'init-tool-calculator)
 ;; (require 'init-tool-keyboard)
+(require 'init-SSH)
 ;; (require 'init-tool-tmux)
 ;; (require 'init-tool-hex)
 (require 'init-tool-file)
