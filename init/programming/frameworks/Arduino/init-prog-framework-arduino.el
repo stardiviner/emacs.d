@@ -42,14 +42,22 @@
   :commands (company-arduino-turn-on)
   :init
   ;; Turn-on irony-mode on arduino-mode (on .ino file).
+  (with-eval-after-load 'irony
+    (add-to-list 'irony-supported-major-modes 'arduino-mode))
   (add-hook 'arduino-mode-hook #'irony-mode)
   (add-hook 'arduino-mode-hook #'company-arduino-turn-on)
-  :config
-  ;; temporary workaround for Arduino v17 new libraries location.
-  (add-hook 'arduino-mode-hook
-            (lambda ()
-              (setq company-arduino-includes-dirs '("~/Arduino/libraries/"))
-              (my-company-add-backend-locally 'company-c-headers))))
+  
+  (defun my/company-arduino-setup ()
+    (my-company-add-backend-locally 'company-irony)
+
+    ;; (setq-local irony-arduino-includes-options)
+    
+    ;; temporary workaround for Arduino v17 new libraries location.
+    ;; (setq-local company-arduino-includes-dirs '())
+    ;; (add-to-list 'company-arduino-includes-dirs '("~/Arduino/libraries/"))
+    ;; (add-to-list 'company-backends 'company-c-headers)
+    )
+  (add-hook 'arduino-mode-hook #'my/company-arduino-setup))
 
 
 (provide 'init-prog-framework-arduino)
