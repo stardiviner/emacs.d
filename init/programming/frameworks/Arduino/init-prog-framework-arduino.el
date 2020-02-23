@@ -10,7 +10,9 @@
 ;;; [ arduino-mode ] -- major mode for Arduino.
 
 (use-package arduino-mode
-  :ensure t)
+  :ensure t
+  :requires (flycheck-arduino)
+  :hook (arduino-mode . flycheck-arduino-setup))
 
 ;;; [ ob-arduino ] -- Org Mode Babel support for Arduino.
 
