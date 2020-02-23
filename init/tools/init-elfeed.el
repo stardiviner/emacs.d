@@ -36,7 +36,7 @@
           ;; ("http://lwn.net/headlines/newrss" Linux)
           ;; ("http://linux.cn/rss.xml" Linux)
           ;; Arch Linux
-          ("http://www.archlinux.org/feeds/news/" Arch Linux) ; Arch Linux RSS
+          ("https://archlinux.org/feeds/planet" Arch Linux) ; Arch Linux RSS
           ;; DevOps
           ;; ("https://www.digitalocean.com/community/tutorials/feed" DigitalOcean Linux)
           ;; Geek News
