@@ -20,7 +20,8 @@
 ;;; [ eldoc-overlay ]  -- display eldoc with contextual documentation overlay.
 
 (use-package eldoc-overlay
-  :ensure t)
+  :ensure t
+  :init (eldoc-overlay-mode 1))
 
 ;;; [ help-at-pt ] -- local help through the keyboard.
 
