@@ -1,6 +1,6 @@
 ;;; init-HiDPI.el ---  -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-02-12 02:31:09 stardiviner>
+;;; Time-stamp: <2020-02-17 11:52:49 stardiviner>
 
 ;;; Commentary:
 
@@ -21,7 +21,7 @@
                       charset
                       (font-spec :family "Noto Sans CJK SC" :size 28))))
 
-;; (setq org-image-actual-width t)
+(add-hook 'org-mode-hook (lambda () (setq org-image-actual-width t)))
 
 ;; increase TeX/LaTeX preview scale size.
 ;; (setq preview-scale-function 4)
