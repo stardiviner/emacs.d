@@ -130,10 +130,10 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
                   help-mode
                   restclient-mode)))
 
-  (setq golden-ratio-exclude-buffer-regexp
-        '("\\`\\*.*?\\*\\'" ; "*...*" buffers
-          "\\` \\*.*?\\*\\'" ; " *...*" buffers
-          ))
+  ;; (setq golden-ratio-exclude-buffer-regexp
+  ;;       '("\\`\\*.*?\\*\\'" ; "*...*" buffers
+  ;;         "\\` \\*.*?\\*\\'" ; " *...*" buffers
+  ;;         ))
   (add-to-list 'golden-ratio-exclude-buffer-names "*rg*")
   (add-to-list 'golden-ratio-exclude-buffer-names " *Org todo*")
   (add-to-list 'golden-ratio-exclude-buffer-names " *Org tags*")
