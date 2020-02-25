@@ -116,6 +116,14 @@
   :bind (:map restclient-mode-map ("C-c C-d" . hc)
               :map ob-http-mode-map ("C-c C-d" . hc)))
 
+;;; [ walkman ] -- Write HTTP requests in Org mode and replay them at will using cURL.
+
+(use-package walkman
+  :ensure t
+  :init (walkman-setup)
+  :config (add-to-list 'display-buffer-alist
+                       '("^\\*walkman\\*" (display-buffer-below-selected))))
+
 
 
 (provide 'init-RESTful)
