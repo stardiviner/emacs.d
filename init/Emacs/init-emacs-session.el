@@ -13,17 +13,18 @@
 ;;; [ desktop ] -- save partial status of Emacs when killed for persistence.
 
 (use-package desktop
-  :if (not (or (featurep 'esup)
-               my/emacs-benchmark-toggle))
-  :ensure t
+  :ensure nil
+  :if (not (or (featurep 'esup) my/emacs-benchmark-toggle))
   :config
+  (let ((my/desktop-dir (concat user-emacs-directory ".desktop-save")))
+    (unless (file-exists-p my/desktop-dir)
+      (make-directory my/desktop-dir))
+    (add-to-list 'desktop-path my/desktop-dir)
+    (setq desktop-dirname my/desktop-dir))
+  (desktop-revert)
+  (desktop-save-mode 1)
   (setq desktop-files-not-to-save "\\(^/[^/:]*:\\|(ftp)$\\|^/tmp/\\)")
-  (let ((desktop-dir (concat user-emacs-directory ".desktop-save")))
-    (unless (file-exists-p desktop-dir)
-      (make-directory desktop-dir))
-    (add-to-list 'desktop-path desktop-dir))
-  (setq desktop-auto-save-timeout (* 60 10))
-  (add-hook 'after-init-hook #'desktop-save-mode))
+  (setq desktop-auto-save-timeout (* 60 10)))
 
 ;;; [ saveplace ] -- save visited files' point positions.
 
