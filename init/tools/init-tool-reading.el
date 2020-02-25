@@ -56,29 +56,32 @@ Author: xah"
         spray-margin-top 2 ; Character margin at top of buffer. Characters are as big as spray text characters.
         spray-margin-left 4
         spray-ramp 2 ; Initial words before ramping up to full speed.
-        spray-save-point t
-        )
+        spray-save-point t)
 
   (set-face-attribute 'spray-base-face nil
                       :inherit 'default
                       :foreground "black"
                       :background "white"
-                      :family "DejaVu Sans"
-                      )
+                      :family "DejaVu Sans")
   (set-face-attribute 'spray-accent-face nil
                       :inherit 'spray-base-face
-                      :foreground "red"
-                      )
-  )
+                      :foreground "red"))
 
 ;;; [ greader ] -- gnamù reader, a reader with Espeak TTS.
 
 (use-package greader
   :ensure t
   :commands (greader-mode)
-  :bind (:map tools-prefix ("r" . greader-mode))
+  :bind (:map tools-prefix ("s" . greader-mode))
   ;; disable show shell command process output to minibuffer.
   :init (setq greader-filter-enabled nil))
+
+;;; [ amread-mode ] -- a minor mode helping user speed-reading. Similar with Spritz (speed read).
+
+(use-package amread-mode
+  :ensure t
+  :bind (:map tools-prefix ("r" . amread-mode))
+  :commands (amread-mode))
 
 
 (provide 'init-tool-reading)
