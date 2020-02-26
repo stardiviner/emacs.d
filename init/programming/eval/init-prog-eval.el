@@ -142,12 +142,15 @@
 
 ;;; [ play-code ] -- Play code with online playgrounds.
 
-;; (use-package play-code
-;;   :quelpa (play-code :fetcher github :repo "twlz0ne/play-code.el")
-;;   :commands (play-code)
-;;   :init (define-key eval-prefix (kbd "p") 'play-code)
-;;   (add-to-list 'display-buffer-alist
-;;                '("^\\*play-code\\*" (display-buffer-below-selected))))
+(use-package playonline
+  :quelpa (playonline :fetcher github :repo "twlz0ne/playonline.el")
+  :commands (playonline)
+  :init (define-key eval-prefix (kbd "o") 'playonline)
+  (add-to-list 'display-buffer-alist
+               '("^\\*playonline\\*" (display-buffer-below-selected)))
+  (use-package ob-playonline
+    :quelpa (ob-playonline :fetcher github :repo "twlz0ne/ob-playonline")
+    :demand t))
 
 ;;; [ sesman ] -- Session manager for Emacs based IDEs.
 
