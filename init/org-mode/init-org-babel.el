@@ -9,6 +9,7 @@
 
 (setq org-confirm-babel-evaluate nil)
 (setq org-babel-hash-show-time t) ; header argument: :cache yes.
+(setq org-src-tab-acts-natively nil)
 
 (add-to-list 'display-buffer-alist
              '("^\\*Org-Babel Results\\*" .
