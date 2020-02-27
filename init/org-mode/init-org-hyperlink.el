@@ -120,12 +120,13 @@ Optional for Org-mode file: `LINK'."
 ;; System wise: xdg-open, kde-open, gnome-open.
 (setcdr (assq 'system org-file-apps-gnu) "xdg-open %s")
 
-;;; Open .pdf file link with EAF.
-(defun eaf-open-pdf-for-org (file &optional link)
+;;; Open .pdf, .epub file link with EAF.
+(defun eaf-open-for-org (file &optional link)
   "An wrapper function on `eaf-open'."
   (eaf-open file))
 (with-eval-after-load 'org
-  (add-to-list 'org-file-apps '("\\.pdf\\'" . eaf-open-pdf-for-org)))
+  (add-to-list 'org-file-apps '("\\.pdf\\'" . eaf-open-for-org))
+  (add-to-list 'org-file-apps '("\\.epub\\'" . eaf-open-for-org)))
 
 ;;; Links are now customizable
 ;;
@@ -230,7 +231,6 @@ Optional for Org-mode file: `LINK'."
 ;;; Telnet:
 ;;  telnet://ptt.cc
 (org-link-set-parameters "telnet" :follow #'telnet)
-
 
 ;; RSS
 (defun org-rss-link-open (uri)
