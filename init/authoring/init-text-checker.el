@@ -91,6 +91,16 @@
   :after flyspell
   :bind (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper)))
 
+;;; [ flycheck-grammarly ] -- Grammarly support for Flycheck.
+
+;; (use-package flycheck-grammarly
+;;   :ensure t
+;;   :config
+;;   (add-hook 'mu4e-compose-mode-hook
+;;             (lambda ()
+;;               (flycheck-mode 1)
+;;               ;; NOTE this `flycheck-grammarly' causes suspend in `mu4e-compose-mode' buffer editing.
+;;               (setq-local flycheck-checker 'grammarly-checker))))
 
 
 (provide 'init-text-checker)
