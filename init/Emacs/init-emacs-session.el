@@ -21,7 +21,6 @@
       (make-directory my/desktop-dir))
     (add-to-list 'desktop-path my/desktop-dir)
     (setq desktop-dirname my/desktop-dir))
-  (desktop-revert)
   (desktop-save-mode 1)
   (setq desktop-files-not-to-save "\\(^/[^/:]*:\\|(ftp)$\\|^/tmp/\\)")
   (setq desktop-auto-save-timeout (* 60 10)))
