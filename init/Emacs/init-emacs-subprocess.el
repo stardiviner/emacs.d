@@ -49,10 +49,25 @@
   (setf (alist-get "q" eaf-pdf-viewer-keybinding) 'quit-window)
   ;; use EAF as default web browser for Emacs.
   (setq browse-url-browser-function 'eaf-open-browser)
-  (with-eval-after-load 'desktop
-    (add-to-list 'desktop-modes-not-to-save 'eaf-mode))
   ;; let `eaf-open-browser' support HiDPI screen
-  (eaf-setq eaf-browser-default-zoom  "2"))
+  (eaf-setq eaf-browser-default-zoom  "2")
+  ;; set EAF web browser proxy
+  (defvar eaf-proxy-enabled nil)
+  (defun eaf-proxy-toggle ()
+    "Toggle EAF proxy."
+    (interactive)
+    (if eaf-proxy-enabled
+        (progn
+          (eaf-setq eaf-proxy-type nil)
+          (eaf-setq eaf-proxy-host nil)
+          (eaf-setq eaf-proxy-port nil))
+      (progn
+        (eaf-setq eaf-proxy-type "socks5")
+        (eaf-setq eaf-proxy-host "127.0.0.1")
+        (eaf-setq eaf-proxy-port "1086"))))
+  ;; exclude EAF buffers from `desktop-save-mode'.
+  (with-eval-after-load 'desktop
+    (add-to-list 'desktop-modes-not-to-save 'eaf-mode)))
 
 ;;; [ Threads ]
 
