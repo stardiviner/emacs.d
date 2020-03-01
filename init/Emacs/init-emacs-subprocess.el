@@ -50,7 +50,9 @@
   ;; use EAF as default web browser for Emacs.
   (setq browse-url-browser-function 'eaf-open-browser)
   (with-eval-after-load 'desktop
-    (add-to-list 'desktop-modes-not-to-save 'eaf-mode)))
+    (add-to-list 'desktop-modes-not-to-save 'eaf-mode))
+  ;; let `eaf-open-browser' support HiDPI screen
+  (eaf-setq eaf-browser-default-zoom  "2"))
 
 ;;; [ Threads ]
 

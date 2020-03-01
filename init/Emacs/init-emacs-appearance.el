@@ -165,12 +165,6 @@
 (add-hook 'prog-mode-hook
           #'(lambda () (setq-local comment-auto-fill-only-comments t)))
 
-(use-package virtual-auto-fill
-  :if (not (featurep 'golden-ratio)) ; NOTE: This not suitable with `golden-ratio'.
-  :ensure t
-  :hook ((org-mode . virtual-auto-fill-mode)
-         (markdown-mode . virtual-auto-fill-mode)))
-
 (use-package aggressive-fill-paragraph
   :ensure t
   :defer t)
