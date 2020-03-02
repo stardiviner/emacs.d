@@ -125,8 +125,18 @@ Optional for Org-mode file: `LINK'."
   "An wrapper function on `eaf-open'."
   (eaf-open file))
 (with-eval-after-load 'org
+  ;; documents
   (add-to-list 'org-file-apps '("\\.pdf\\'" . eaf-open-for-org))
-  (add-to-list 'org-file-apps '("\\.epub\\'" . eaf-open-for-org)))
+  (add-to-list 'org-file-apps '("\\.epub\\'" . eaf-open-for-org))
+  ;; videos
+  (add-to-list 'org-file-apps '("\\.mp4\\'" . eaf-open-for-org))
+  (add-to-list 'org-file-apps '("\\.mkv\\'" . eaf-open-for-org))
+  (add-to-list 'org-file-apps '("\\.mov\\'" . eaf-open-for-org))
+  (add-to-list 'org-file-apps '("\\.ogv\\'" . eaf-open-for-org))
+  (add-to-list 'org-file-apps '("\\.webm\\'" . eaf-open-for-org))
+  (add-to-list 'org-file-apps '("\\.flv\\'" . eaf-open-for-org))
+  (add-to-list 'org-file-apps '("\\.f4v\\'" . eaf-open-for-org))
+  (add-to-list 'org-file-apps '("\\.rmvb\\'" . eaf-open-for-org)))
 
 ;;; Links are now customizable
 ;;
