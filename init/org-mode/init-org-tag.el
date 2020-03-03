@@ -18,6 +18,14 @@
         ("deprecated" . ?D)
         ("outdated" . ?O)))
 
+;; auto add tag "LOG" for [C-c C-z] add log note.
+(add-to-list 'org-tag-persistent-alist '("LOG" . ?z))
+(defun my/org-add-note--auto-add-tag ()
+  "Auto add tag 'NOTE' when add note log."
+  (org-back-to-heading)
+  (org-set-tags '("LOG")))
+(advice-add 'org-add-note :after #'my/org-add-note--auto-add-tag)
+
 (setq org-tag-alist
       '((:startgroup) ("Org" . ?o) ("Idea" . ?i) (:endgroup)
         ;; Task
@@ -79,6 +87,7 @@
 (setq org-tag-faces
       '(("noexport" :foreground "DimGray" :weight bold :underline t :strike-through t)
         ("deprecated" :foreground "DimGray" :strike-through t)
+        ("LOG" :foreground "DeepSkyBlue")
         ("private" :foreground "deep pink")
         ("fragment" :foreground "LightGray" :weight bold)
         ("computer" :foreground "green")
