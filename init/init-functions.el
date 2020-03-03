@@ -115,13 +115,10 @@ by creating or altering keymaps stored in buffer-local
 
 
 ;;; [ Network ]
-(defun my:internet-network-available? ()
+
+(defun my/internet-network-available-p ()
   "Detect Internet network available?"
-  (eq (length
-       (with-temp-buffer
-         (url-retrieve-synchronously "https://www.baidu.com")
-         (buffer-string)))
-      0))
+  (if (network-lookup-address-info "baidu.com") t nil))
 
 ;;; read in encrypted JSON file key-value pairs.
 
