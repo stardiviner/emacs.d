@@ -26,6 +26,13 @@
                   :separate company-ispell)))
   (add-hook 'change-log-mode-hook #'my:change-log-mode-setup))
 
+;;; [ magit-patch-changelog ] -- Generate a patch according to emacs-devel CONTRIBUTE guidelines.
+
+(use-package magit-patch-changelog
+  :ensure t
+  :after magit
+  :demand t)
+
 
 
 (provide 'init-prog-vcs-changelog)
