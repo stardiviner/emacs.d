@@ -1,6 +1,6 @@
 ;;; init-HiDPI.el ---  -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-02-25 14:56:38 stardiviner>
+;;; Time-stamp: <2020-03-03 14:32:44 stardiviner>
 
 ;;; Commentary:
 
@@ -21,11 +21,14 @@
                       charset
                       (font-spec :family "Noto Sans CJK SC" :size 28))))
 
+;;; Override Org customized settings
+;;; avoid small Org inline image size
 (add-hook 'org-mode-hook (lambda () (setq org-image-actual-width t)))
+;; increase AUCTeX: TeX/LaTeX preview scale size.
 (add-hook 'latex-mode-hook (lambda () (setq preview-scale-function 4.0)))
-
-;; increase TeX/LaTeX preview scale size.
-;; (setq preview-scale-function 4)
+;;; avoid small LaTeX preview inline image in Org
+(add-hook 'latex-mode-hook (lambda () (setq org-format-latex-options
+                                       (plist-put org-format-latex-options :scale 3.0))))
 
 
 
