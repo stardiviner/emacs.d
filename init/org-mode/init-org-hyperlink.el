@@ -128,6 +128,8 @@ Optional for Org-mode file: `LINK'."
   ;; documents
   (add-to-list 'org-file-apps '("\\.pdf\\'" . eaf-open-for-org))
   (add-to-list 'org-file-apps '("\\.epub\\'" . eaf-open-for-org))
+  ;; images
+  (add-to-list 'org-file-apps '("\\.gif\\'" . eaf-open-for-org))
   ;; videos
   (add-to-list 'org-file-apps '("\\.mp4\\'" . eaf-open-for-org))
   (add-to-list 'org-file-apps '("\\.mkv\\'" . eaf-open-for-org))

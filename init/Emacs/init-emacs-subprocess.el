@@ -47,6 +47,8 @@
   :config
   (eaf-setq eaf-camera-save-path "~")
   (setf (alist-get "q" eaf-pdf-viewer-keybinding) 'quit-window)
+  (setf (alist-get "q" eaf-image-viewer-keybinding) 'quit-window)
+  (setf (alist-get "q" eaf-video-player-keybinding) 'quit-window)
   ;; use EAF as default web browser for Emacs.
   (setq browse-url-browser-function 'eaf-open-browser)
   ;; let `eaf-open-browser' support HiDPI screen
