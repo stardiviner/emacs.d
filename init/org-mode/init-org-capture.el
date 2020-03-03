@@ -21,7 +21,8 @@
          "* %(completing-read \"Todo keyword: \" org-todo-keywords-for-agenda nil t) %^{Capture} [/] \n:PROPERTIES:\n:TIME: %U\n:END: \n%i\n%a\n\n%?"
          ;; :time-prompt t
          :empty-lines-before 1
-         :empty-lines-after 1)
+         :empty-lines-after 1
+         :jump-to-captured t)
 
         ;; Tasks
         ("t" "Add a [t]ime scheduled task into Tasks"
