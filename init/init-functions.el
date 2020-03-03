@@ -59,9 +59,7 @@ by creating or altering keymaps stored in buffer-local
    (minor-mode-key-binding key)
    (local-key-binding key)
    (global-key-binding key)
-   (overlay-key-binding key)
-   )
-  )
+   (overlay-key-binding key)))
 
 (defun overlay-key-binding (key)
   "Look up KEY in which key-map."

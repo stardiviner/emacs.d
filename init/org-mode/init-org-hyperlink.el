@@ -237,8 +237,7 @@ Optional for Org-mode file: `LINK'."
 (use-package ol-irc
   :defer t
   :init (setq org-irc-client 'erc)
-  ;; (if (and (featurep 'erc)) (require 'init-erc))
-  )
+  :config (if (and (featurep 'erc)) (require 'init-erc)))
 
 ;;; Telnet:
 ;;  telnet://ptt.cc

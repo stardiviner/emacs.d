@@ -98,14 +98,12 @@
                 :map image-dired-minor-mode-map
                 ("C-t D" . image-dired-show-all-from-dir)
                 ("C-t s" . image-dired-slideshow-start))
-    :init
-    (setq image-dired-track-movement nil) ; suppress unknown cursor movements.
+    :init (setq image-dired-track-movement nil) ; suppress unknown cursor movements.
     (add-to-list 'display-buffer-alist
                  '("^\\*image-dired\\*" (display-buffer-same-window)))
     (add-to-list 'display-buffer-alist
                  '("^\\*image-dired-display-image\\*" (display-buffer-same-window)))
-    :config
-    (image-diredx-async-mode 1) (image-diredx-adjust-mode 1))
+    :config (image-diredx-async-mode 1) (image-diredx-adjust-mode 1))
 
   ;; [ wdired ] -- rename files editing their names in dired buffers.
   (require 'wdired)

@@ -115,8 +115,7 @@
   ;; JavaScript support
   (with-eval-after-load 'js2-mode
     (require 'eval-in-repl-javascript)
-    (define-key js2-mode-map (kbd "<C-return>") 'eir-eval-in-javascript))
-  )
+    (define-key js2-mode-map (kbd "<C-return>") 'eir-eval-in-javascript)))
 
 ;;; [ evalator ] -- Package for interactive transformation of data with helm.
 
