@@ -1,6 +1,6 @@
 ;;; init-HiDPI.el ---  -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-03-03 14:32:44 stardiviner>
+;;; Time-stamp: <2020-03-05 13:15:25 stardiviner>
 
 ;;; Commentary:
 
@@ -13,13 +13,29 @@
 
 (set-face-attribute 'default nil
                     :family "DejaVu Sans Mono"
-                    :font "DejaVu Sans Mono 9")
+                    :font "DejaVu Sans Mono 8"
+                    :height 90)
 
 (when (display-graphic-p)
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font)
                       charset
                       (font-spec :family "Noto Sans CJK SC" :size 28))))
+
+;;; [ variable-pitch-mode ]
+
+(set-face-attribute 'variable-pitch nil
+                    :family "DejaVu Sans Mono"
+                    :height 80
+                    :weight 'normal :slant 'normal)
+(set-face-attribute 'fixed-pitch nil
+                    :family "DejaVu Sans Mono"
+                    :height 80
+                    :weight 'normal :slant 'normal)
+(set-face-attribute 'fixed-pitch-serif nil
+                    :family "DejaVu Serif"
+                    :height 80
+                    :weight 'normal :slant 'italic)
 
 ;;; Override Org customized settings
 ;;; avoid small Org inline image size
