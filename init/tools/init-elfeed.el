@@ -21,12 +21,17 @@
   ;; auto update after entering elfeed.
   (advice-add 'elfeed :after #'elfeed-update)
 
+  ;; specify proxy for elfeed backend cURL.
+  (setq elfeed-curl-extra-arguments '("--proxy" "socks5h://127.0.0.1:1086"))
+
   (setq elfeed-feeds
         '(;; Programming
           ;; ("http://blog.stackoverflow.com/feed/" Programming StackOverflow)
           ;; ("http://programmers.blogoverflow.com/feed/" Programming StackOverflow)
           ;; Emacs
           ("https://planet.emacslife.com/atom.xml" Emacs) ; EmacsLife Planet
+          ("https://www.reddit.com/r/emacs/.rss" Emacs Reddit) ; Reddit r/Emacs
+          ("https://www.reddit.com/r/orgmode/.rss" Emacs Org-mode Reddit) ; Reddit r/Org-mode
           ("https://sachachua.com/blog/feed/atom/" Blog Emacs) ; Sacha Chua Blog
           ;; Web
           ("https://blog.mozilla.org/feed/" Mozilla) ; Mozilla Blog
@@ -52,6 +57,7 @@
           ;; Clojure
           ("http://insideclojure.org/feed.xml" Clojure) ; Inside Clojure
           ("http://www.lispcast.com/feed" Clojure) ; LispCast
+          ("https://www.reddit.com/r/Clojure/.rss" Clojure Reddit) ; subreddit "r/Clojure"
           ("http://blog.jayfields.com/feeds/posts/default" Clojure Blog)
           ("http://corfield.org/atom.xml" Clojure Blog) ; Sean Corfield Blog
           ;; Programmer Blogs
@@ -61,6 +67,7 @@
           ("https://overreacted.io/rss.xml" Blog)
           ("https://nalaginrut.com/feed/atom" Blog) ; Samson's Machete "穆垒"
           ("https://www.byvoid.com/zht/feed" Blog)
+          ("https://shibumi.dev/posts/index.xml" Blog) ; shibumi
           ;; Kali Linux
           ("http://www.kali.org/feed/" Kali Linux Subscribe) ; Kali Linux Blog
           ;; Subscribe
