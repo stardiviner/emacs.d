@@ -140,6 +140,39 @@ Optional for Org-mode file: `LINK'."
   (add-to-list 'org-file-apps '("\\.f4v\\'" . eaf-open-for-org))
   (add-to-list 'org-file-apps '("\\.rmvb\\'" . eaf-open-for-org)))
 
+;;; Open video file links by selecting video player interactively.
+(defun my/org-open-video-file (file &optional link)
+  "A wrapper function to open video file link with an interactive selection of video players."
+  (let ((player (completing-read "Video Player: "
+                                 (list "mpv"
+                                       "EAF"
+                                       "SMPlayer"
+                                       "MPlayer")))
+        (name (file-name-base file)))
+    (pcase player
+      ("mpv" (start-process
+              (format "mpv %s" name)
+              (format "*mpv %s*" name)
+              "mpv" file))
+      ("EAF" (eaf-open file))
+      ("SMPlayer" (start-process
+                   (format "smplayer %s" name)
+                   (format "*smplayer %s*" name)
+                   "smplayer" file))
+      ("MPlayer" (start-process
+                  (format "mplayer %s" name)
+                  (format "*mplayer %s*" name)
+                  "mplayer" file)))))
+(with-eval-after-load 'org
+  (add-to-list 'org-file-apps '("\\.mp4\\'" . my/org-open-video-file))
+  (add-to-list 'org-file-apps '("\\.mkv\\'" . my/org-open-video-file))
+  (add-to-list 'org-file-apps '("\\.mov\\'" . my/org-open-video-file))
+  (add-to-list 'org-file-apps '("\\.ogv\\'" . my/org-open-video-file))
+  (add-to-list 'org-file-apps '("\\.webm\\'" . my/org-open-video-file))
+  (add-to-list 'org-file-apps '("\\.flv\\'" . my/org-open-video-file))
+  (add-to-list 'org-file-apps '("\\.f4v\\'" . my/org-open-video-file))
+  (add-to-list 'org-file-apps '("\\.rmvb\\'" . my/org-open-video-file)))
+
 ;;; Links are now customizable
 ;;
 ;; Links can now have custom colors, tooltips, keymaps, display behavior, etc.
