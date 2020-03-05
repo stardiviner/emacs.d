@@ -26,6 +26,12 @@
   (org-set-tags '("LOG")))
 (advice-add 'org-add-note :after #'my/org-add-note--auto-add-tag)
 
+;;; for Org Book reading journal. Mark an headline as a book
+(add-to-list 'org-tag-persistent-alist '("book" . nil))
+(add-to-list 'org-default-properties "AUTHOR")
+(add-to-list 'org-default-properties "PUBLISH_DATE")
+(add-to-list 'org-default-properties "PRESS")
+
 (setq org-tag-alist
       '((:startgroup) ("Org" . ?o) ("Idea" . ?i) (:endgroup)
         ;; Task
@@ -89,6 +95,7 @@
         ("deprecated" :foreground "DimGray" :strike-through t)
         ("LOG" :foreground "DeepSkyBlue")
         ("private" :foreground "deep pink")
+        ("book" :foreground "deep pink")
         ("fragment" :foreground "LightGray" :weight bold)
         ("computer" :foreground "green")
         ("life" :foreground "black")
