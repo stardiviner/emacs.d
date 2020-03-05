@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: for
+# key: for
+# group: syntax
+# --
+for ${1:iterate_var} in ${2:collection}:
+    $0

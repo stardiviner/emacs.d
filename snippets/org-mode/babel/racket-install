@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: racket-install
-# key: babel-racket-install
+# name: racket raco install
+# key: babel-racket-raco-install
 # group: babel.racket
 # --
 #+begin_src sh :async
