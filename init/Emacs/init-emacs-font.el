@@ -77,11 +77,11 @@
                          )))))
 
 ;;; Text Scale
-(cl-case system-type
-  ('gnu/linux
-   (setq face-font-rescale-alist '(("WenQuanYi Micro Hei" . 1.3))))
-  ('darwin
-   (setq face-font-rescale-alist '(("Kaiti SC" . 1.0)))))
+;; (cl-case system-type
+;;   ('gnu/linux
+;;    (setq face-font-rescale-alist '(("WenQuanYi Micro Hei" . 1.3))))
+;;   ('darwin
+;;    (setq face-font-rescale-alist '(("Kaiti SC" . 1.0)))))
 
 
 (provide 'init-emacs-font)
