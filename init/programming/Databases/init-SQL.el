@@ -80,14 +80,7 @@
   :ensure t
   :commands (sqlind-minor-mode sqlind-show-syntax-of-line)
   :init (dolist (hook '(sql-mode-hook edbi:sql-mode-hook))
-          (add-hook hook #'sqlind-minor-mode))
-  :config
-  ;; change align and indentation offset rules
-  (setq my-sql-indentation-offsets-alist
-        `((nested-statement-continuation sqlind-use-anchor-indentation 1) ; indent clauses in parentheses
-          ,@sqlind-default-indentation-offsets-alist))
-  (add-hook 'sqlind-minor-mode-hook
-            (lambda () (setq sqlind-indentation-offsets-alist my-sql-indentation-offsets-alist))))
+          (add-hook hook #'sqlind-minor-mode)))
 
 
 ;;; [ sqlup-mode ] -- An Emacs minor mode to upcase SQL keyword and functions.
