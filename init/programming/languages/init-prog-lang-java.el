@@ -97,13 +97,10 @@
 ;;   )
 
 
-;;; [ gradle-mode ] -- Gradle integration with Emacs' compile.
+;;; [ gradle-mode ] -- Gradle integration with Emacs' `compile'.
 
-;; (use-package gradle-mode
-;;   :ensure t
-;;   :config
-;;   (add-hook 'java-mode-hook #'gradle-mode)
-;;   )
+(use-package gradle-mode
+  :ensure t)
 
 ;;; [ sdkman ] -- Software Development Kit
 
