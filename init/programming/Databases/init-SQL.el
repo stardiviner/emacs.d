@@ -186,6 +186,8 @@
     (flyspell-mode -1))
   (add-hook 'ejc-sql-mode-hook #'my/ejc-sql-settings)
 
+  (add-hook 'ejc-sql-minor-mode-hook #'ejc-eldoc-setup)
+
   (add-to-list 'display-buffer-alist
                '("^\\*ejc-sql-output\\*" (display-buffer-below-selected)))
   
