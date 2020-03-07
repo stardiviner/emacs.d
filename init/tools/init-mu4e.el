@@ -50,7 +50,9 @@
                                  ("/Lisp/"          . ?l)
                                  ("/Clojure"        . ?c)
                                  ("/ClojureScript"  . ?C)
-                                 ("/JavaScript"     . ?j)))
+                                 ("/JavaScript"     . ?j)
+                                 ("/SQL/PostgreSQL/general" . ?p)
+                                 ("/SQL/PostgreSQL/general-zh" . ?P)))
 
   ;; Get Mail, Update -- [U]
   ;; program to get mail; alternatives are 'fetchmail', 'getmail'
@@ -606,17 +608,18 @@
   (setq mu4e-bookmarks
         '(("flag:unread AND contact:/.*stardiviner/ OR contact:/.*numbchild@gmail.com/"   "My participated Threads" ?t)
           ("flag:replied"                  "Replied messages"        ?r)
-          ("flag:passed"                   "Passed  messages"        ?p)
+          ("flag:passed"                   "Passed  messages"        ?d)
           ("flag:flagged"                  "Flagged messages"        ?f)
           ("date:today..now flag:new"      "Today's new messages"    ?n)
           ("date:today..now"               "Today's messages"        ?d)
           ("date:1w..now"                  "This week's messages"    ?w)
+          ("size:5M..500M"                 "Big messages"            ?B)
           ("maildir:/Emacs/help"           "Emacs mailbox"           ?e)
           ("maildir:/Emacs/Org-mode"       "Org Mode mailbox"        ?o)
           ("maildir:/Clojure"              "Clojure mailbox"         ?c)
           ("maildir:/ClojureScript"        "ClojureScript mailbox"   ?C)
-          ("size:5M..500M"                 "Big messages"            ?B)
-          ))
+          ("/SQL/PostgreSQL/general"       "PostgreSQL general"      ?p)
+          ("/SQL/PostgreSQL/general-zh"    "PostgreSQL general zh"   ?P)))
 
   (setq mu4e-index-cleanup nil ; don't do a full cleanup check
         mu4e-index-lazy-check t ; don't consider up-to-date dirs
