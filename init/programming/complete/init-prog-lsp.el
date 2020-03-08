@@ -57,9 +57,9 @@
     '("shell"
       ;; "python" "ipython"
       ;; "ruby"
-      "js" "css"
+      "js" "css" "html"
       ;; "C" "C++"
-      "rust" "go" "java"))
+      "java" "rust" "go" "kotlin"))
   
   (dolist (lang org-babel-lsp-lang-list)
     (eval `(lsp-org-babel-enbale ,lang)))
