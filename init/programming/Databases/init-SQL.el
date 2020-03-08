@@ -35,39 +35,6 @@
                     (sql-password "324324")
                     (sql-database "test"))))
 
-;;; [ ob-sql ]
-
-(use-package ob-sql
-  :defer t
-  :commands (org-babel-execute:sql)
-  :config
-  (add-to-list 'org-babel-load-languages '(sql . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  (add-to-list 'org-babel-tangle-lang-exts '("sql" . "sql"))
-  (add-to-list 'org-src-lang-modes (cons "SQL" 'sql))
-  ;; (add-to-list 'org-babel-default-header-args:sql
-  ;;              '(:results . "table"))
-  )
-
-;;; [ ob-sql-mode ] -- SQL code blocks evaluated by sql-mode.
-
-(use-package ob-sql-mode
-  ;; :ensure t
-  :load-path "~/Code/Emacs/ob-sql-mode"
-  :defer t
-  :commands (org-babel-execute:sql-mode)
-  :config
-  (add-to-list 'org-babel-load-languages '(sql-mode . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  ;; (add-to-list 'org-babel-tangle-lang-exts '("sql-mode" . "sql"))
-
-  ;; (add-to-list 'org-babel-default-header-args:sql-mode '(:product . "sqlite"))
-  ;; (add-to-list 'org-babel-default-header-args:sql-mode '(:session . "ob-sql-mode"))
-
-  ;; security guard
-  (setq org-confirm-babel-evaluate
-        (lambda (lang body) (string= lang "sql-mode"))))
-
 ;;; [ sql-sqlline ] -- Adds SQLLine support to SQLi mode.
 
 (use-package sql-sqlline
@@ -111,59 +78,38 @@
 ;;   :init (add-hook 'sql-mode-hook 'sqlformat-mode)
 ;;   (setq sqlformat-mode-format-on-save t))
 
-;;; [ edbi ]
+;;; [ ob-sql ]
 
-;; (use-package edbi
-;;   :ensure t
-;;   :defer t
-;;   :commands (edbi:open-db-viewer)
-;;   :config
-;;   (setq edbi:completion-tool 'auto-complete) ; none
-;;
-;;   (add-hook 'edbi:sql-mode-hook
-;;             (lambda ()
-;;               (define-key edbi:sql-mode-map (kbd "C-c C-q")
-;;                 'edbi:dbview-query-editor-quit-command)
-;;               (sqlup-mode 1)
-;;               ;; for `edbi:completion-tool'
-;;               (add-hook 'completion-at-point-functions
-;;                         'edbi:completion-at-point-function nil t)
-;;               (company-mode 1)
-;;               (auto-complete-mode -1)
-;;               ))
-;;
-;;   ;; [ edbi-minor-mode ] -- use edbi with regular SQL files.
-;;   (use-package edbi-minor-mode
-;;     :ensure t
-;;     :init (add-hook 'sql-mode-hook (lambda () (edbi-minor-mode))))
-;;
-;;   ;; [ edbi-sqlite ] -- edbi helper application
-;;   (use-package edbi-sqlite
-;;     :ensure t
-;;     :commands (edbi-sqlite))
-;;
-;;   ;; [ edbi-database-url ] -- run edbi with database url.
-;;   (use-package edbi-database-url
-;;     :ensure t
-;;     :commands (edbi-database-url))
-;;
-;;   ;; [ company-edbi ]
-;;   (use-package company-edbi
-;;     :ensure t
-;;     :init
-;;     (dolist (hook '(sql-mode-hook
-;;                     sql-interactive-mode-hook
-;;                     edbi:sql-mode-hook))
-;;       (add-hook hook (lambda () (my-company-add-backend-locally 'company-edbi)))))
-;;   )
+(use-package ob-sql
+  :defer t
+  :commands (org-babel-execute:sql)
+  :config
+  (add-to-list 'org-babel-load-languages '(sql . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("sql" . "sql"))
+  (add-to-list 'org-src-lang-modes (cons "SQL" 'sql))
+  ;; (add-to-list 'org-babel-default-header-args:sql
+  ;;              '(:results . "table"))
+  )
 
-;;; [ EmacSQL ] -- high-level SQL database front-end.
+;;; [ ob-sql-mode ] -- SQL code blocks evaluated by sql-mode.
 
-;; (use-package emacsql
-;;   :ensure t
-;;   :defer t)
+(use-package ob-sql-mode
+  ;; :ensure t
+  :load-path "~/Code/Emacs/ob-sql-mode"
+  :defer t
+  :commands (org-babel-execute:sql-mode)
+  :config
+  (add-to-list 'org-babel-load-languages '(sql-mode . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  ;; (add-to-list 'org-babel-tangle-lang-exts '("sql-mode" . "sql"))
 
-;;; [ db-sql ] -- Connect to SQL server using tramp syntax.
+  ;; (add-to-list 'org-babel-default-header-args:sql-mode '(:product . "sqlite"))
+  ;; (add-to-list 'org-babel-default-header-args:sql-mode '(:session . "ob-sql-mode"))
+
+  ;; security guard
+  (setq org-confirm-babel-evaluate
+        (lambda (lang body) (string= lang "sql-mode"))))
 
 ;;; [ ejc-sql ] -- Emacs SQL client uses Clojure JDBC.
 
@@ -260,10 +206,64 @@
 
 ;;; [ icsql ] -- This library provides an Emacs SQL mode integration to the ciSQL program.
 
-(use-package icsql
-  :ensure t
-  :commands icsql
-  :init (setq icsql-connections '()))
+;; (use-package icsql
+;;   :ensure t
+;;   :commands (icsql)
+;;   :init (setq icsql-connections '()))
+
+;;; [ edbi ]
+
+;; (use-package edbi
+;;   :ensure t
+;;   :defer t
+;;   :commands (edbi:open-db-viewer)
+;;   :config
+;;   (setq edbi:completion-tool 'auto-complete) ; none
+;;
+;;   (add-hook 'edbi:sql-mode-hook
+;;             (lambda ()
+;;               (define-key edbi:sql-mode-map (kbd "C-c C-q")
+;;                 'edbi:dbview-query-editor-quit-command)
+;;               (sqlup-mode 1)
+;;               ;; for `edbi:completion-tool'
+;;               (add-hook 'completion-at-point-functions
+;;                         'edbi:completion-at-point-function nil t)
+;;               (company-mode 1)
+;;               (auto-complete-mode -1)
+;;               ))
+;;
+;;   ;; [ edbi-minor-mode ] -- use edbi with regular SQL files.
+;;   (use-package edbi-minor-mode
+;;     :ensure t
+;;     :init (add-hook 'sql-mode-hook (lambda () (edbi-minor-mode))))
+;;
+;;   ;; [ edbi-sqlite ] -- edbi helper application
+;;   (use-package edbi-sqlite
+;;     :ensure t
+;;     :commands (edbi-sqlite))
+;;
+;;   ;; [ edbi-database-url ] -- run edbi with database url.
+;;   (use-package edbi-database-url
+;;     :ensure t
+;;     :commands (edbi-database-url))
+;;
+;;   ;; [ company-edbi ]
+;;   (use-package company-edbi
+;;     :ensure t
+;;     :init
+;;     (dolist (hook '(sql-mode-hook
+;;                     sql-interactive-mode-hook
+;;                     edbi:sql-mode-hook))
+;;       (add-hook hook (lambda () (my-company-add-backend-locally 'company-edbi)))))
+;;   )
+
+;;; [ EmacSQL ] -- high-level SQL database front-end.
+
+;; (use-package emacsql
+;;   :ensure t
+;;   :defer t)
+
+;;; [ db-sql ] -- Connect to SQL server using tramp syntax.
 
 
 (provide 'init-SQL)
