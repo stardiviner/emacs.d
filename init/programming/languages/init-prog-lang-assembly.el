@@ -17,11 +17,8 @@
     ;; you can use `comment-dwim' (M-;) for this kind of behaviour anyway
     (local-unset-key (vector asm-comment-char))
     ;; asm-mode sets it locally to nil, to "stay closer to the old TAB behaviour".
-    (setq-local tab-always-indent (default-value 'tab-always-indent))
-    )
-
-  (add-hook 'asm-mode-hook #'my-asm-mode-settings)
-  )
+    (setq-local tab-always-indent (default-value 'tab-always-indent)))
+  (add-hook 'asm-mode-hook #'my-asm-mode-settings))
 
 
 ;;; [ nasm-mode ] -- NASM x86 assembly major mode.
@@ -43,8 +40,7 @@
   (define-key iasm-mode-map (kbd "C-c C-d") 'iasm-disasm)
   (define-key iasm-mode-map (kbd "C-c d") 'iasm-goto-disasm-buffer)
   (define-key iasm-mode-map (kbd "C-c C-l") 'iasm-ldd)
-  (define-key iasm-mode-map (kbd "C-c l") 'iasm-disasm-link-buffer)
-  )
+  (define-key iasm-mode-map (kbd "C-c l") 'iasm-disasm-link-buffer))
 
 
 ;;; [ gas-mode ]
@@ -63,8 +59,7 @@
 (use-package mips-mode
   :ensure t
   :defer t
-  :mode "\\.mips$"
-  )
+  :mode "\\.mips$")
 
 
 ;;; [ x86-lookup ] -- jump to x86 instruction documentation.
@@ -78,8 +73,7 @@
                         "documentations/Assembly/NASM/"
                         "Intel 64 and IA-32 Architectures Software Developers Manuals: combined volumes 2A, 2B, 2C, and 2D: Instruction set reference, A-Z.pdf"))
   (setq x86-lookup-browse-pdf-function 'x86-lookup-browse-pdf-okular)
-  (define-key asm-mode-map (kbd "C-h d d") #'x86-lookup)
-  )
+  (define-key asm-mode-map (kbd "C-h d d") #'x86-lookup))
 
 
 (provide 'init-prog-lang-assembly)
