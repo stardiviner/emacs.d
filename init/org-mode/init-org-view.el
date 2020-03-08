@@ -15,6 +15,8 @@
 (setq org-pretty-entities t ; for `org-toggle-pretty-entities'
       org-use-sub-superscripts '{})
 
+(setq org-fontify-quote-and-verse-blocks t)
+
 ;;; indent
 
 (setq org-adapt-indentation 'headline-data)
