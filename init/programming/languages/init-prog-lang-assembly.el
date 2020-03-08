@@ -27,6 +27,11 @@
   :ensure t
   :defer t)
 
+;;; [ masm-mode ] -- Major mode for editing MASM assembly programs.
+
+(use-package masm-mode
+  :ensure t
+  :defer t)
 
 ;;; [ fasm-mode ]
 
