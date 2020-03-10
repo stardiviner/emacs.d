@@ -428,8 +428,7 @@ With value selected from a list of available sessions."
 ;;; [ clomacs ] -- Clomacs simplifies call Clojure code from Emacs lisp.
 
 (use-package clomacs
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; [ parseclj ] -- EDN reader and Clojure Parser for Emacs Lisp
 
