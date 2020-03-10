@@ -34,6 +34,18 @@
   :commands (flycheck-kotlin-setup)
   :init (add-hook 'kotlin-mode-hook #'flycheck-kotlin-setup))
 
+;;; [ lsp-kotlin ]
+
+(use-package lsp-mode
+  :ensure t
+  :hook (kotlin-mode . lsp)
+  :init (with-eval-after-load 'lsp-clients
+          (let ((kotlin-ls-executable (expand-file-name
+                                       (concat "~/Code/Kotlin/kotlin-language-server/"
+                                               "server/build/install/server/bin/kotlin-language-server"))))
+            (setq lsp-kotlin-language-server-path kotlin-ls-executable)
+            (add-to-list 'exec-path (file-name-directory kotlin-ls-executable)))))
+
 
 (provide 'init-prog-lang-kotlin)
 
