@@ -21,10 +21,14 @@
   :bind (:map lsp-mode-map ("C-c C-d" . lsp-describe-thing-at-point))
   :load (lsp-clients) ; load `lsp-clients' for auto configuration of language server clients.
   :init
-  (setq lsp-auto-configure nil
-        lsp-auto-guess-root t
-        lsp-prefer-flymake nil)
-  
+  ;; speed-up lsp-mode performance
+  (setq lsp-log-io nil ; for for debug
+        lsp-enable-folding nil
+        lsp-diagnostic-package :none ; no real-time syntax check
+        ;; lsp-enable-snippet nil ; handle yasnippet by myself
+        lsp-enable-symbol-highlighting nil
+        lsp-enable-links nil)
+
   ;; Support LSP in Org Babel with header argument `:file'.
   ;; https://github.com/emacs-lsp/lsp-mode/issues/377
   (defvar org-babel-lsp-explicit-lang-list
@@ -60,7 +64,7 @@
       "js" "css" "html"
       ;; "C" "C++"
       "java" "rust" "go" "kotlin"))
-  
+
   (dolist (lang org-babel-lsp-lang-list)
     (eval `(lsp-org-babel-enbale ,lang)))
 
@@ -73,7 +77,9 @@
   ;; manage lsp-mode popup buffers
   (add-to-list 'display-buffer-alist
                '("^\\*lsp-help\\*" (display-buffer-below-selected)))
-  )
+  :config
+  ;; don't scan 3rd party javascript libraries
+  (push "[/\\\\][^/\\\\]*\\.\\(json\\|html\\|jade\\)$" lsp-file-watch-ignored))
 
 ;; [ lsp-ui ] -- UI modules for lsp-mode.
 
