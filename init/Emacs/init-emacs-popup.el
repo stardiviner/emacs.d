@@ -63,7 +63,8 @@
 
 (use-package posframe
   :ensure t
-  :defer t)
+  :defer t
+  :init (setq posframe-mouse-banish t))
 
 
 (provide 'init-emacs-popup)
