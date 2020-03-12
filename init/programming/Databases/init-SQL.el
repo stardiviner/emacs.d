@@ -81,8 +81,6 @@
 ;;; [ ob-sql ]
 
 (use-package ob-sql
-  :defer t
-  :commands (org-babel-execute:sql)
   :config
   (add-to-list 'org-babel-load-languages '(sql . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
