@@ -82,7 +82,10 @@
 
 \\(my-company-add-backend-locally 'company-robe\\)"
     (make-local-variable 'company-backends)
-    (unless (eq (car (car company-backends)) backend)
+    (unless (eq (if (listp (car company-backends))
+                    (car (car company-backends))
+                  (car company-backends))
+                backend)
       (setq-local company-backends
                   (cons (cons backend (cons ':with (car company-backends)))
                         (cdr company-backends)))))
