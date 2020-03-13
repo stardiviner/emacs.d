@@ -10,14 +10,8 @@
 
 (use-package js
   :defer t
-  :init
-  (setq js-indent-level 2
-        js-expr-indent-offset 0
-        js-paren-indent-offset 0
-        ;; js-square-indent-offset 0
-        ;; js-curly-indent-offset 0
-        ;; js-switch-indent-offset 0
-        js-flat-functions nil))
+  :mode (("\\.js" . js-mode)
+         ("\\.jsx\\'" . js-jsx-mode)))
 
 ;;; [ ob-js ]
 
@@ -46,48 +40,6 @@
        ("skewer-mode" "\"*skewer-repl*\"")
        ("indium" "\"*JS REPL*\""))))
   (define-key org-babel-map (kbd "J") 'ob-js-insert-session-header-arg))
-
-;;; [ js2-mode ]
-
-(use-package js2-mode
-  :ensure t
-  :defer t
-  :mode ("\\.js\\'" . js2-mode)
-  :config
-  (setq js2-mode-show-parse-errors nil ; highlight text with red face `js2-error'.
-        js2-mode-show-strict-warnings t ; highlight warning in underline.
-        ;; supress missing semicolon warnings
-        js2-strict-missing-semi-warning nil
-        js2-missing-semi-one-line-override t
-        ;; externs
-        js2-include-browser-externs t
-        js2-include-node-externs t)
-
-  (add-hook 'js-mode-hook #'js2-minor-mode)
-  (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
-  
-  ;; [ js2-refactor ] -- A JavaScript refactoring library for Emacs.
-  (use-package js2-refactor
-    :ensure t
-    :init (add-hook 'js2-mode-hook #'js2-refactor-mode)
-    (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
-    :config (js2r-add-keybindings-with-prefix "M-RET"))
-
-  ;; [ xref-js2 ] -- Jump to references/definitions using ag & js2-mode's AST in Emacs.
-  (use-package xref-js2
-    :ensure t
-    :init
-    (defun my/xref-js2-setup ()
-      (define-key js2-mode-map (kbd "M-.") nil)
-      (add-to-list (make-local-variable 'xref-backend-functions)
-                   'xref-js2-xref-backend))
-    (add-hook 'js2-mode-hook #'my/xref-js2-setup))
-
-  (defun js-mode-electric-layout-setting ()
-    "auto insert newline after specific characters."
-    (setq-local electric-layout-rules '((?\; . after))))
-  (add-hook 'js-mode-hook #'electric-layout-local-mode)
-  (add-hook 'js-mode-hook #'js-mode-electric-layout-setting))
 
 ;;; [ flycheck checker ]
 
