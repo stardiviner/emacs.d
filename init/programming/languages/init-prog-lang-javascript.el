@@ -32,7 +32,9 @@
 - `Indium'
 "
     (interactive (list (completing-read "ob-js session: "
-                                        '("js-comint" "skewer-mode" "indium"))))
+                                        `(,(when (featurep 'js-comint) "js-comint")
+                                          ,(when (featurep 'skewer-mode) "skewer-mode")
+                                          ,(when (featurep 'indium) "indium")))))
     (org-babel-insert-header-arg
      "session"
      (pcase session
