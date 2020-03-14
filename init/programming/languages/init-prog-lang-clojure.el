@@ -153,7 +153,10 @@
   ;; (add-hook 'cider-repl-mode-hook #'cider-repl-require-repl-utils) ; require common functions like doc, source, etc.
   (setq cider-eldoc-display-for-symbol-at-point t
         cider-eldoc-display-context-dependent-info t)
-
+  
+  ;; [M-.] jump to symbol definition]
+  (add-to-list 'cider-jdk-src-paths '"/usr/lib/jvm/default/src.zip" :append)
+  
   ;; (setq cider-jump-to-pop-to-buffer-actions '((display-buffer-reuse-window (window-height . 0.3))))
 
   (add-hook 'cider-repl-mode-hook #'subword-mode)
