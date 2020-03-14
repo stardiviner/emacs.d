@@ -46,10 +46,7 @@
   (add-to-list 'org-babel-default-header-args:python
                '(:noweb . "yes"))
   (add-to-list 'org-babel-default-header-args:python
-               '(:results . "output"))
-  ;; (add-to-list 'org-babel-default-header-args:python
-  ;;              '(:session . "*Python*"))
-  )
+               '(:results . "output")))
 
 ;;; [ elpy ] -- Emacs Python Development Environment.
 
