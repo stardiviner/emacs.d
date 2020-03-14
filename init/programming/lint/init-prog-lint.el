@@ -43,8 +43,15 @@
   ;; To make Flycheck use the current `load-path'.
   ;; Don't error about "free variable" without (require ??).
   (setq flycheck-emacs-lisp-load-path 'inherit)
+  ;; (add-to-list 'display-buffer-alist
+  ;;              '("^\\*Flycheck errors\\*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("^\\*Flycheck errors\\*" (display-buffer-below-selected)))
+               `(,(rx bos "*Flycheck errors*" eos)
+                 (display-buffer-reuse-window
+                  display-buffer-in-side-window)
+                 (side            . bottom)
+                 (reusable-frames . visible)
+                 (window-height   . 0.15)))
   (add-to-list 'display-buffer-alist
                '("^\\*Flycheck checker\\*" (display-buffer-below-selected)))
   ;; checker `proselint' for `org-mode', `markdown-mode', `gfm-mode'.

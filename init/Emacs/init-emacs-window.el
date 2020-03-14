@@ -29,6 +29,14 @@
 ;;                (slot . 1)
 ;;                (window-width . 0.5)
 ;;                (window-height . 0.15)))
+;;
+;; (add-to-list 'display-buffer-alist
+;;              `(,(rx bos "*Flycheck errors*" eos)
+;;                (display-buffer-reuse-window
+;;                 display-buffer-in-side-window)
+;;                (side            . bottom)
+;;                (reusable-frames . visible)
+;;                (window-height   . 0.15)))
 
 (add-to-list 'display-buffer-alist
              '("^\\*Warnings\\*" (display-buffer-below-selected)))
