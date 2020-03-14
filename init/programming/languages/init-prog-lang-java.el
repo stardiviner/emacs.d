@@ -58,7 +58,11 @@
           (add-to-list 'aggressive-indent-excluded-modes 'java-mode)))
 
 (use-package dap-java
-  :after 'lsp-java)
+  :after 'lsp-java
+  :bind (:map dap-mode-map
+              ("<f7>" . dap-step-in)
+              ("<f8>" . dap-next)
+              ("<f9>" . dap-continue)))
 
 ;;; [ lsp-javacomp ] -- Emacs Language Server client backed by JavaComp.
 
