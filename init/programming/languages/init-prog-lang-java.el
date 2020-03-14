@@ -47,17 +47,13 @@
 
 (use-package lsp-java
   :ensure t
-  :hook (java-mode . lsp)
+  :hook ((java-mode . lsp)
+         (java-mode . dap-mode)
+         (java-mode . dap-ui-mode))
   ;; `aggressive-indent-mode' caused long suspend with lots of requests.
   :init (with-eval-after-load 'aggressive-indent
-          (add-to-list 'aggressive-indent-excluded-modes 'java-mode)))
-
-(use-package dap-java
-  :after 'lsp-java
-  :bind (:map dap-mode-map
-              ("<f7>" . dap-step-in)
-              ("<f8>" . dap-next)
-              ("<f9>" . dap-continue)))
+          (add-to-list 'aggressive-indent-excluded-modes 'java-mode))
+  :config (require 'dap-java))
 
 ;;; [ gradle-mode ] -- Gradle integration with Emacs' `compile'.
 

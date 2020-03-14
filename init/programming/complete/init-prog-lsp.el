@@ -119,10 +119,12 @@
   :ensure posframe ; fix void `posframe-hide' in `dap-ui-controls-mode'
   :after lsp
   :commands (dap-debug)
-  :config
-  (dap-mode t)
-  (require 'posframe)
-  (dap-ui-controls-mode t))
+  :bind (:map dap-mode-map
+              ("<f5>" . dap-debug)
+              ("<f7>" . dap-step-in)
+              ("<M-f7>" . dap-step-out)
+              ("<f8>" . dap-next)
+              ("<f9>" . dap-continue)))
 
 ;;; [ helm-lsp ] -- LSP helm integration.
 

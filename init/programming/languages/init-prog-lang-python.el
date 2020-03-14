@@ -85,12 +85,13 @@
 
 ;;; [ lsp-python ] -- Python support for lsp-mode with pyls.
 
-;; (use-package lsp-mode
-;;   :ensure t
-;;   :defer t
-;;   :hook (python-mode . lsp)
-;;   :init (with-eval-after-load 'lsp-clients
-;;           (add-to-list 'lsp-clients-python-library-directories "/usr/local/")))
+(use-package lsp-mode
+  :ensure t
+  :after lsp
+  :hook ((python-mode . lsp)
+         (python-mode . dap-mode)
+         (python-mode . dap-ui-mode))
+  :config (require 'dap-python))
 
 ;;; [ lsp-python-ms ] -- Emacs lsp-mode client for Microsoft's python language server.
 
