@@ -191,13 +191,9 @@
 
 ;;; [ company-box ] -- A company front-end with icons.
 
-;; NOTE: Use `company-box' because it has better doc popup display then `popup'
-;; and `company-quickhelp'.
-;;
-;; NOTE: `company-box' does not support [M-s] to search candidates.
-
 (use-package company-box
-  :ensure t
+  ;; :ensure t
+  :quelpa (company-box :fetcher github :repo "stardiviner/company-box" :files (:defaults "images"))
   :ensure all-the-icons
   :after (company all-the-icons)
   :defer t
