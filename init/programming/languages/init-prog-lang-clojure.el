@@ -418,6 +418,9 @@ With value selected from a list of available sessions."
 (use-package elein
   :ensure t
   :defer t
+  :init (let ((user-bin-path (expand-file-name "~/bin"))) ; add "lein" bin into exec-path.
+          (when (file-exists-p user-bin-path)
+            (add-to-list 'exec-path user-bin-path)))
   :config
   (defun elein-lein-try ()
     (interactive)
