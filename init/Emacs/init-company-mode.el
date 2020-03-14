@@ -204,8 +204,8 @@
   :commands (company-box-mode)
   :hook (company-mode . company-box-mode)
   :config
-  (setq company-box-doc-enable nil ; disable auto `company-box-doc' timer.
-        company-box-show-single-candidate t ; for still can use doc popup keybinding.
+  (setq company-box-show-single-candidate t ; for still can use doc popup keybinding.
+        ;; company-box-doc-enable nil ; disable auto `company-box-doc' timer.
         company-box-doc-delay 0.5
         company-box-icons-alist 'company-box-icons-images)
   
