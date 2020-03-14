@@ -92,29 +92,31 @@
 
 ;;; [ ob-sql-mode ] -- SQL code blocks evaluated by sql-mode.
 
-(use-package ob-sql-mode
-  ;; :ensure t
-  :load-path "~/Code/Emacs/ob-sql-mode"
-  :defer t
-  :commands (org-babel-execute:sql-mode)
-  :config
-  (add-to-list 'org-babel-load-languages '(sql-mode . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  ;; (add-to-list 'org-babel-tangle-lang-exts '("sql-mode" . "sql"))
-
-  ;; (add-to-list 'org-babel-default-header-args:sql-mode '(:product . "sqlite"))
-  ;; (add-to-list 'org-babel-default-header-args:sql-mode '(:session . "ob-sql-mode"))
-
-  ;; security guard
-  (setq org-confirm-babel-evaluate
-        (lambda (lang body) (string= lang "sql-mode"))))
+;; (use-package ob-sql-mode
+;;   ;; :ensure t
+;;   :load-path "~/Code/Emacs/ob-sql-mode"
+;;   :defer t
+;;   :commands (org-babel-execute:sql-mode)
+;;   :config
+;;   (add-to-list 'org-babel-load-languages '(sql-mode . t))
+;;   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+;;   ;; (add-to-list 'org-babel-tangle-lang-exts '("sql-mode" . "sql"))
+;;
+;;   ;; (add-to-list 'org-babel-default-header-args:sql-mode '(:product . "sqlite"))
+;;   ;; (add-to-list 'org-babel-default-header-args:sql-mode '(:session . "ob-sql-mode"))
+;;
+;;   ;; security guard
+;;   (setq org-confirm-babel-evaluate
+;;         (lambda (lang body) (string= lang "sql-mode"))))
 
 ;;; [ ejc-sql ] -- Emacs SQL client uses Clojure JDBC.
 
 (use-package ejc-sql
   :ensure t
   :defer t
-  :commands (ejc-connect ejc-connect-existing-repl ejc-connect-interactive ejc-sql-mode)
+  :commands (ejc-connect
+             ejc-connect-existing-repl ejc-connect-interactive ejc-sql-mode
+             ejc-get-temp-editor-buffer)
   :init (setq nrepl-sync-request-timeout 60
               ejc-connection-validate-timeout 60)
   :config
@@ -198,9 +200,7 @@
       (ejc-connect connection-name)))
 
   ;; press [q] to close ejc-sql result window.
-  (add-hook 'ejc-result-mode-hook
-            (lambda () (local-set-key (kbd "q") 'delete-window)))
-  )
+  (add-hook 'ejc-result-mode-hook (lambda () (local-set-key (kbd "q") 'delete-window))))
 
 ;;; [ icsql ] -- This library provides an Emacs SQL mode integration to the ciSQL program.
 

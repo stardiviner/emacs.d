@@ -98,9 +98,7 @@
               lsp-ui-doc-include-signature t
               lsp-ui-doc-position 'at-point
               lsp-ui-sideline-show-hover nil)
-  (if (featurep 'xwidget-internal) (setq lsp-ui-doc-use-webkit t))
-  ;; (add-to-list 'lsp-ui-doc-frame-parameters )
-  )
+  (if (featurep 'xwidget-internal) (setq lsp-ui-doc-use-webkit t)))
 
 ;; [ company-lsp ] -- company-mode completion backend for lsp-mode.
 
