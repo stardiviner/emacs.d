@@ -31,6 +31,12 @@
   :ensure t
   :commands (alarm-clock-set alarm-clock-list-view))
 
+;;; [ egg-timer ] -- Commonly used intervals for setting timers while working.
+
+(use-package egg-timer
+  :ensure t
+  :commands (egg-timer-schedule))
+
 
 (provide 'init-tool-clock)
 
