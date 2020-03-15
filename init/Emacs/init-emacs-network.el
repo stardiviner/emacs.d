@@ -59,7 +59,9 @@
 (use-package with-proxy
   :ensure t
   :defer t
-  :commands (with-proxy with-proxy-url with-proxy-shell))
+  :commands (with-proxy with-proxy-url with-proxy-shell)
+  ;; Privoxy
+  :config (setq with-proxy-http-server "127.0.0.1:8118"))
 
 
 (provide 'init-emacs-network)
