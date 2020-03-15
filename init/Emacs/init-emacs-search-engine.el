@@ -14,6 +14,12 @@
   :defer t
   :init (engine-mode t)
   :config
+  (when (featurep 'eaf)
+    (with-eval-after-load 'eaf
+      (defun eaf-browse-url (url &optional arguments)
+        "Open EAF browser application given a URL and ARGUMENTS."
+        (eaf-open (eaf-wrap-url url) "browser" arguments))
+      (setq engine/browser-function 'eaf-browse-url)))
   ;; general search engines
   (defengine google
     "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
@@ -68,7 +74,7 @@
     :keybinding "T")
 
   ;; Maps
-  
+
   ;; Programming
 
   ;; Programming Languages
@@ -77,7 +83,7 @@
     "https://www.ctan.org/search/?phrase=%s"
     :docstring "TeX/LaTeX CTAN"
     :keybinding "t")
-  
+
   ;; Docs: API
   (defengine APIs
     "http://apis.io/?search=%s"
@@ -146,7 +152,7 @@
   (defengine javascript-doc
     "https://developer.mozilla.org/en-US/search?q=%s"
     :docstring "Mozilla Developer - JavaScript Doc")
-  
+
   ;; code
   (defengine github
     "https://github.com/search?ref=simplesearch&q=%s"
@@ -162,7 +168,7 @@
     "https://wiki.archlinux.org/index.php/Special:Search?search=%s&fulltext=Search"
     :docstring "Archlinux Wiki"
     :keybinding "l")
-  
+
   ;; Q&A
   (defengine stack-overflow
     "https://stackoverflow.com/search?q=%s"
