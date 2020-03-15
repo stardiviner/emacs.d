@@ -31,7 +31,9 @@
   ;;; [ all-the-icons-ivy-rich ] -- Better experience with icons for Ivy.
   (use-package all-the-icons-ivy-rich
     :ensure t
-    :init (all-the-icons-ivy-rich-mode 1)))
+    :init (all-the-icons-ivy-rich-mode 1)
+    ;; fix extra spaces between icon and text issue
+    :config (setq all-the-icons-ivy-rich-icon-size 0.9)))
 
 ;;; [ counsel ]
 
