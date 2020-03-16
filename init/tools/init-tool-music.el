@@ -16,6 +16,12 @@
 
 (require 'init-emms)
 
+;;; [ mingus ] -- MPD Interface.
+
+(use-package mingus
+  :ensure t
+  :commands (mingus))
+
 ;;; [ PulseAudio ]
 
 ;; (use-package pulseaudio-control
