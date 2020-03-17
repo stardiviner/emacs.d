@@ -18,7 +18,9 @@
   :defer t
   :hook ((js-mode css-mode web-mode) . lsp)
   :commands (lsp lsp-describe-session)
-  :bind (:map lsp-mode-map ("C-c C-d" . lsp-describe-thing-at-point))
+  :bind (:map lsp-mode-map
+              ("C-c C-d" . lsp-describe-thing-at-point)
+              ("M-RET"   . lsp-execute-code-action))
   :load (lsp-clients) ; load `lsp-clients' for auto configuration of language server clients.
   :init
   ;; speed-up lsp-mode performance
@@ -97,7 +99,8 @@
               lsp-ui-doc-header nil
               lsp-ui-doc-include-signature t
               lsp-ui-doc-position 'at-point
-              lsp-ui-sideline-show-hover nil)
+              lsp-ui-sideline-show-hover nil
+              lsp-ui-sideline-enable nil)
   (if (featurep 'xwidget-internal) (setq lsp-ui-doc-use-webkit t)))
 
 ;; [ company-lsp ] -- company-mode completion backend for lsp-mode.
