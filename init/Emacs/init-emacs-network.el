@@ -19,9 +19,9 @@
 ;;; [ Proxy ]
 
 ;; (setq url-proxy-services
-;;       '(;; shadowsocks
-;;         ("http"  . "127.0.0.1:1086")
-;;         ("https" . "127.0.0.1:1086")
+;;       '(;; Privoxy
+;;         ("http"  . "127.0.0.1:8118")
+;;         ("https" . "127.0.0.1:8118")
 ;;         ;; ("ftp"   . "b.qypac.net:57008")
 ;;         ;; don't proxy for localhost, avoid robe server (For Ruby) can't response.
 ;;         ("no_proxy" . "^\\(localhost\\|192.168.*\\|10.*\\)")
@@ -29,7 +29,7 @@
 ;;         ;; ("no_proxy" . "^.*\\(baidu\\|sina)\\.com")
 ;;         ))
 
-;; (setq url-using-proxy "http://b.qypac.net:57008")
+;; (setq url-using-proxy "http://127.0.0.1:8118")
 
 ;;; AUTHORITY
 ;; (setq url-http-proxy-basic-auth-storage
