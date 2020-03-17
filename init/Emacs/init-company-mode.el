@@ -212,8 +212,9 @@
   :config
   (setq company-box-show-single-candidate t ; for still can use doc popup keybinding.
         ;; company-box-doc-enable nil ; disable auto `company-box-doc' timer.
-        company-box-doc-delay 0.5
-        company-box-icons-alist 'company-box-icons-images)
+        company-box-doc-delay 0.3
+        company-box-icons-alist 'company-box-icons-images
+        company-box-icons-image-size 25)
   
   ;; fix company-box not scrolling issue.
   (advice-add 'company-next-page :after #'company-box--change-line)
