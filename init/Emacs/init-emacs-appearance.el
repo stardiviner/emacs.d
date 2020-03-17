@@ -322,6 +322,16 @@
                '(slack-message-buffer-mode all-the-icons-faicon "slack" :v-adjust 0.0 :face all-the-icons-purple))
   )
 
+;;; [ beacon ] -- Highlight the cursor whenever the window scrolls.
+
+(use-package beacon
+  :ensure t
+  :defer t
+  :init
+  (setq beacon-blink-when-focused t
+        beacon-color "light sky blue")
+  (beacon-mode 1))
+
 
 
 (provide 'init-emacs-appearance)

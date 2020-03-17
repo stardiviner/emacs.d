@@ -70,6 +70,14 @@ $0`(yas-escape-text yas-selected-text)`"
                  (concat (projectile-project-root) ".snippets")))
   (add-hook 'projectile-find-file-hook #'yasnippet-project-local)
 
+  ;; beacon animation when snippet exit hook
+  (when (featurep 'beacon)
+    (defun my/yas-exit-animation ()
+      (let ((beacon-size 20)
+            (beacon-color "deep pink"))
+        (beacon-blink)))
+    (add-hook 'yas-after-exit-snippet-hook #'my/yas-exit-animation))
+
   (yas-global-mode 1))
 
 ;;; [ yasnippet-snippets ] -- Official snippet collection for the yasnippet package.
