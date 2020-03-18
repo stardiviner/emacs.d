@@ -45,6 +45,7 @@
   :load-path "~/Code/Emacs/emacs-application-framework/"
   :custom (eaf-find-alternate-file-in-dired t)
   :config
+  (define-key dired-mode-map (kbd "M-RET") 'eaf-open-this-from-dired)
   (eaf-setq eaf-camera-save-path "~")
   (setf (alist-get "q" eaf-pdf-viewer-keybinding) 'quit-window)
   (setf (alist-get "q" eaf-image-viewer-keybinding) 'quit-window)
