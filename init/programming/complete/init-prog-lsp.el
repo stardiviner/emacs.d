@@ -103,18 +103,6 @@
               lsp-ui-sideline-enable nil)
   (if (featurep 'xwidget-internal) (setq lsp-ui-doc-use-webkit t)))
 
-;; [ company-lsp ] -- company-mode completion backend for lsp-mode.
-
-(use-package company-lsp
-  :ensure t
-  :defer t
-  :after lsp
-  :commands company-lsp
-  :init
-  (defun my:company-lsp-enable ()
-    (my-company-add-backend-locally 'company-lsp))
-  (add-hook 'lsp-mode-hook #'my:company-lsp-enable))
-
 ;;; [ dap-mode ] -- Debug Adapter Protocol mode for lsp-mode.
 
 (use-package dap-mode
