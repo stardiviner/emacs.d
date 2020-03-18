@@ -87,7 +87,7 @@
                   (car company-backends))
                 backend)
       (setq-local company-backends
-                  (cons (cons backend (cons ':with (car company-backends)))
+                  (cons (list backend ':with (car company-backends))
                         (cdr company-backends)))))
 
   ;; [ company-ispell ]
