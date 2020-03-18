@@ -17,8 +17,9 @@
 (add-to-list 'display-buffer-alist
              '("^\\*SQL:.*\\*" (display-buffer-below-selected)))
 
+(add-hook 'sql-mode-hook #'sql-indent-enable)
 ;;; enable () pairs auto insert in SQL buffer.
-(add-hook 'sql-mode-hook 'electric-pair-local-mode)
+(add-hook 'sql-mode-hook #'electric-pair-local-mode)
 
 ;;; for command `sql-connect'.
 (setq sql-connection-alist
@@ -132,7 +133,7 @@
     (flyspell-mode -1))
   (add-hook 'ejc-sql-mode-hook #'my/ejc-sql-settings)
 
-  (add-hook 'ejc-sql-minor-mode-hook #'ejc-eldoc-setup)
+  (add-hook 'ejc-sql-mode-hook #'ejc-eldoc-setup)
 
   (add-to-list 'display-buffer-alist
                '("^\\*ejc-sql-output\\*" (display-buffer-below-selected)))
@@ -153,10 +154,6 @@
     (auto-complete-mode 1)
     (ejc-ac-setup))
   (add-hook 'sql-interactive-mode #'ejc-sql-interactive-mode-setup)
-  
-  ;; (advice-add 'ejc-connect :before
-  ;;             #'(lambda (connection-name)
-  ;;                 (switch-to-buffer-other-window (format "*ejc-sql %s*" connection-name))))
   
   (ejc-create-connection
    "PostgreSQL-db-postgres"
