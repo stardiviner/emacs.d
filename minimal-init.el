@@ -61,11 +61,8 @@
 
 ;;; add your customizations from here
 
-(leaf one-themes
-  :doc "My customized one-themes custom theme."
-  ;; :straight (one-themes :type git :host github :repo "stardiviner/one-thems")
+(use-package one-themes
   :load-path "~/Code/Emacs/one-themes"
-  :require t
   :config (load-theme 'one-dark t))
 
 (use-package ace-window
