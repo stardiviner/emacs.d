@@ -9,8 +9,10 @@
 
 ;;; [ image-mode ]
 
+(setq image-use-external-converter t)
+
 (with-eval-after-load 'image-mode
- (define-key image-mode-map (kbd "q") 'kill-current-buffer))
+  (define-key image-mode-map (kbd "q") 'kill-current-buffer))
 
 ;;; [ auto-image-file-mode ]
 
