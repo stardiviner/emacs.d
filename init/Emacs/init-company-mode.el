@@ -162,16 +162,6 @@
   ;; (setq-default yas-key-syntaxes (list "w_" "w_." "w_.()"
   ;;                                      #'yas-try-key-from-whitespace))
 
-  ;; Enable yasnippet but disable it inline. (disable after dot "." character)
-  (defun my/company-yasnippet-disable-inline (fun command &optional arg &rest _ignore)
-    "Enable yasnippet but disable it inline."
-    (if (eq command 'prefix)
-        (when-let ((prefix (funcall fun 'prefix)))
-          (unless (memq (char-before (- (point) (length prefix))) '(?. ?> ?\())
-            prefix))
-      (funcall fun command arg)))
-  (advice-add #'company-yasnippet :around #'my/company-yasnippet-disable-inline)
-  
   ;; [ company-abbrev / company-dabbrev ]
   (setq company-dabbrev-other-buffers t)
 
