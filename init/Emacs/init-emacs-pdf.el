@@ -76,9 +76,9 @@
 
 (use-package pdf-view-restore
   :ensure t
-  :defer t
-  :after pdf-tools
-  :init (add-hook 'pdf-view-mode-hook 'pdf-view-restore-mode))
+  :demand t
+  :commands (pdf-view-restore)
+  :hook ((pdf-view-mode . pdf-view-restore-mode)))
 
 ;; [ org-noter ] -- Emacs document annotator, using Org-mode.
 
