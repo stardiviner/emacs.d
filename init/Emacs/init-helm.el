@@ -11,14 +11,11 @@
 
 (use-package helm
   :ensure t
-  :defer t
-  :commands (helm-mode)
-  :bind (
-         ;; ([remap execute-extended-command] . helm-M-x)
-         ;; ("M-x" . helm-M-x)
-         ;; ([remap switch-to-buffer] . helm-mini)
-         ;; ([remap yank-pop] . helm-show-kill-ring)
-         )
+  ;; :bind (([remap execute-extended-command] . helm-M-x)
+  ;;        ("M-x" . helm-M-x)
+  ;;        ([remap switch-to-buffer] . helm-mini)
+  ;;        ([remap yank-pop] . helm-show-kill-ring)
+  ;;        ([remap yas-insert-snippet] . helm-yas-complete))
   :init ; (helm-mode 1) (helm-top-poll-mode 1)
   (setq helm-mode-line-string nil) ; use default mode-line instead of help string.
   :config
