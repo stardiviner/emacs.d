@@ -19,7 +19,7 @@
 
 ;;; indent
 
-(setq org-adapt-indentation 'headline-data)
+;; (setq org-adapt-indentation 'headline-data)
 ;; (setq org-startup-indented t) ; enable `org-indent-mode' at startup.
 
 ;;; [ org-num ] -- Dynamic Headlines Numbering.
