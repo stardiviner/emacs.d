@@ -31,6 +31,9 @@
         lsp-enable-symbol-highlighting nil
         lsp-enable-links nil)
 
+  ;; `which-key' integration
+  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+
   ;; Support LSP in Org Babel with header argument `:file'.
   ;; https://github.com/emacs-lsp/lsp-mode/issues/377
   (defvar org-babel-lsp-explicit-lang-list
