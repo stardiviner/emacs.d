@@ -2,7 +2,82 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Home Assistant.org"
+(("AJAX.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Technologies/AJAX/AJAX.org")
+ (front-context-string . "#+TITLE: AJAX\n\n*")
+ (rear-context-string)
+ (position . 1))
+("Big Data.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Data Science/Big Data/Big Data.org")
+ (front-context-string . "#+TITLE: Big Dat")
+ (rear-context-string)
+ (position . 1))
+("Vue.js.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/JavaScript Packages/Vue.js/Vue.js.org")
+ (front-context-string . "* Intro\n\n\n\n** Wi")
+ (rear-context-string)
+ (position . 1))
+("My Set Up Shop Manual.org"
+ (filename . "~/Org/Wiki/Commercial Science/Set Up Shop/Data/Manuals/My Set Up Shop Manual/My Set Up Shop Manual.org")
+ (front-context-string . "#+TITLE: My Set ")
+ (rear-context-string)
+ (position . 1))
+("Racket Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/LISP/Racket/Data/Racket Packages/Racket Packages.org")
+ (front-context-string . "#+TITLE: Racket ")
+ (rear-context-string)
+ (position . 1))
+("GitHub.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/GitHub.org")
+ (front-context-string . "#+TITLE: GitHub\n")
+ (rear-context-string)
+ (position . 1))
+("TypeScript.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/TypeScript/TypeScript.org")
+ (front-context-string . "#+TITLE: TypeScr")
+ (rear-context-string)
+ (position . 1))
+("Electronics.org"
+ (filename . "~/Org/Wiki/Electronics/Electronics.org")
+ (front-context-string . "#+TITLE: Electro")
+ (rear-context-string)
+ (position . 1))
+("Recipes.org"
+ (filename . "~/Org/Wiki/Cooking/Recipes/Recipes.org")
+ (front-context-string . "#+TITLE: Recipes")
+ (rear-context-string)
+ (position . 1))
+("Cooking.org"
+ (filename . "~/Org/Wiki/Cooking/Cooking.org")
+ (front-context-string . "#+TITLE: Cooking")
+ (rear-context-string)
+ (position . 1))
+("Home.org"
+ (filename . "~/Org/Wiki/Architecture/Home/Home.org")
+ (front-context-string . "#+TITLE: Home (家")
+ (rear-context-string)
+ (position . 1))
+("Healthcare.org"
+ (filename . "~/Org/Wiki/Healthcare/Healthcare.org")
+ (front-context-string . "#+TITLE: Healthc")
+ (rear-context-string)
+ (position . 1))
+("Freelancer.org"
+ (filename . "~/Org/Wiki/Career/Freelancer/Freelancer.org")
+ (front-context-string . "#+TITLE: Freelan")
+ (rear-context-string)
+ (position . 1))
+("My Emacs Lisp Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Data/Manuals/My Emacs Lisp Language Syntax Reference/My Emacs Lisp Language Syntax Reference.org")
+ (front-context-string . "#+TITLE: My Emac")
+ (rear-context-string)
+ (position . 1))
+("Business.org"
+ (filename . "~/Org/Wiki/Commercial Science/Business/Business.org")
+ (front-context-string . "#+TITLE: Busines")
+ (rear-context-string)
+ (position . 1))
+("Home Assistant.org"
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Home Assistant/Home Assistant.org")
  (front-context-string . "#+TITLE: Home As")
  (rear-context-string)
@@ -753,11 +828,6 @@
  (front-context-string . "#+TITLE: Brain S")
  (rear-context-string)
  (position . 1))
-("Freelancer.org"
- (filename . "~/Org/Wiki/Job/Freelancer/Freelancer.org")
- (front-context-string . "#+TITLE: Freelan")
- (rear-context-string)
- (position . 1))
 ("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Literature/Novels/Data/Novel Books/命若琴弦 - 史铁生.pdf"
  (filename . "~/Org/Wiki/Literature/Novels/Data/Novel Books/命若琴弦 - 史铁生.pdf")
  (position . 1)
@@ -971,11 +1041,6 @@
 ("Neo4j.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/NoSQL/Neo4j/Neo4j.org")
  (front-context-string . "#+TITLE: Neo4j\n\n")
- (rear-context-string)
- (position . 1))
-("Health.org"
- (filename . "~/Org/Wiki/Health/Health.org")
- (front-context-string . "#+TITLE: Health\n")
  (rear-context-string)
  (position . 1))
 ("Water Army.org"
@@ -1935,20 +2000,20 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored-marker"
- (filename . "~/Org/Projects/Programming Projects/Code.org")
- (front-context-string . "** BUG [#A] eldo")
- (rear-context-string . "\n#+end_example\n\n")
- (position . 125590))
+ (filename . "~/Org/Wiki/Education/Education.org")
+ (front-context-string . "*** 中国教授的网络授课经历\n")
+ (rear-context-string . "科文组织总干事阿祖莱如是说。\n\n")
+ (position . 9852))
 ("org-refile-last-stored"
- (filename . "~/Org/Projects/Programming Projects/Code.org")
- (front-context-string . "** BUG [#A] eldo")
- (rear-context-string . "\n#+end_example\n\n")
- (position . 125590))
+ (filename . "~/Org/Wiki/Education/Education.org")
+ (front-context-string . "*** 中国教授的网络授课经历\n")
+ (rear-context-string . "科文组织总干事阿祖莱如是说。\n\n")
+ (position . 9852))
 ("org-capture-last-stored"
  (filename . "~/Org/Tasks/Tasks.org")
- (front-context-string . "* BUG [#A] eldoc")
- (rear-context-string . " mobile number\n\n")
- (position . 2246))
+ (front-context-string . "* 中国教授的网络授课经历\n:P")
+ (rear-context-string . "4:33]\n   :END:\n\n")
+ (position . 392))
 ("PDF-LAST-VIEWED: /tmp/mu-1000/b53469b1/3/test.pdf"
  (filename .
            #("/tmp/mu-1000/b53469b1/3/test.pdf" 0 32
@@ -2206,12 +2271,6 @@
    (idx 76))
  (filename . "~/Org/Wiki/Computer Technology/Data/Manuals/My Computer Technology Glossary/My Computer Technology Glossary.org")
  (front-context-string . "#+TITLE: My Comp")
- (rear-context-string)
- (position . 1))
-(#("shadowsocks.org" 0 1
-   (idx 86))
- (filename . "~/Org/Wiki/Computer Technology/Softwares/shadowsocks.org")
- (front-context-string . "#+TITLE: shadows")
  (rear-context-string)
  (position . 1))
 (#("SSH.org" 0 1
@@ -3084,12 +3143,6 @@
  (front-context-string . "\n\n* Command\n\n** ")
  (rear-context-string . "cs Lisp Examples")
  (position . 32))
-(#("My Emacs Lisp Syntax Reference.org" 0 1
-   (idx 478))
- (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Data/Manuals/My Emacs Lisp Syntax Reference/My Emacs Lisp Syntax Reference.org")
- (front-context-string . "#+TITLE: My Emac")
- (rear-context-string)
- (position . 1))
 (#("Redis.org" 0 1
    (idx 479))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/NoSQL/Redis/Redis.org")
