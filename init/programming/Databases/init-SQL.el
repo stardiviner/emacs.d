@@ -11,6 +11,12 @@
 
 (require 'sql)
 
+;;; add "postgres" as alias of "postgresql".
+;;; Basically copy the `postgres' entry in `sql-product-alist' and add it as `postgresql'.
+(let ((pg (cdr (assq 'postgres sql-product-alist))))  ; Make a copy of the postgres plist
+  (add-to-list 'sql-product-alist                     ; Add as a new entry under postgresql
+               (cons 'postgresql (plist-put pg :name "PostgreSQL"))))
+
 ;;; fix MySQL/MariaDB prompt incompatible.
 (sql-set-product-feature 'mysql :prompt-regexp "^\\(MariaDB\\|MySQL\\) \\[[_a-zA-Z]*\\]> ")
 
