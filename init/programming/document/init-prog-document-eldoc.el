@@ -21,7 +21,7 @@
 
 (use-package eldoc-overlay
   :ensure t
-  :init (eldoc-overlay-mode 1))
+  :init (global-eldoc-overlay-mode 1))
 
 ;;; [ help-at-pt ] -- local help through the keyboard.
 
