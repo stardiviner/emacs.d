@@ -83,12 +83,6 @@ Author: xah"
   :bind (:map tools-prefix ("r" . amread-mode))
   :commands (amread-mode))
 
-;;; [ auto-scroll-mode ] -- Auto scroll buffer lines without hand touching.
-
-(use-package auto-scroll-mode
-  :ensure t
-  :bind (:map tools-prefix ("SPC" . auto-scroll-mode)))
-
 (provide 'init-tool-reading)
 
 ;;; init-tool-reading.el ends here
