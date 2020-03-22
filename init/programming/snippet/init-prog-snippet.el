@@ -33,8 +33,6 @@
   (setq yas-triggers-in-field t) ; allow stacked expansions (snippets inside field).
   (setq yas-snippet-revival t) ; re-activate snippet field after undo/redo.
 
-  ;; (setq yas-key-syntaxes '("w" "w_" "w_." "w_.()" yas-try-key-from-whitespace))
-
   ;; for `yas-choose-value'.
   ;; (setq yas-prompt-functions )
 
@@ -60,6 +58,7 @@ $0`(yas-escape-text yas-selected-text)`"
   
   ;; (define-key yas-minor-mode-map [tab] 'yas-expand)
   ;; (define-key yas-minor-mode-map (kbd "TAB") 'indent-for-tab-command)
+
   (define-key yas-minor-mode-map (kbd "C-c \\") 'yas-insert-snippet)
   
   ;; project local snippets
