@@ -1,6 +1,6 @@
 ;;; init-HiDPI.el ---  -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-03-05 13:15:25 stardiviner>
+;;; Time-stamp: <2020-03-20 23:30:38 stardiviner>
 
 ;;; Commentary:
 
@@ -26,15 +26,15 @@
 
 (set-face-attribute 'variable-pitch nil
                     :family "DejaVu Sans Mono"
-                    :height 80
+                    :height 100
                     :weight 'normal :slant 'normal)
 (set-face-attribute 'fixed-pitch nil
                     :family "DejaVu Sans Mono"
-                    :height 80
+                    :height 100
                     :weight 'normal :slant 'normal)
 (set-face-attribute 'fixed-pitch-serif nil
                     :family "DejaVu Serif"
-                    :height 80
+                    :height 100
                     :weight 'normal :slant 'italic)
 
 ;;; Override Org customized settings
