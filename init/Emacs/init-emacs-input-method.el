@@ -89,6 +89,21 @@
 ;;   ;; work with pyim
 ;;   (add-hook 'pyim-load-hook 'setup-liberime))
 
+;;; [ emacs-rime ] -- RIME ㄓ in Emacs using librime.
+
+(use-package rime
+  :quelpa (rime :fetcher github :repo "DogLooksGood/emacs-rime" :files ("rime.el" "Makefile" "lib.c"))
+  :init (setq rime-user-data-dir "~/.config/fcitx/rime")
+  :config
+  (setq rime-posframe-properties
+        (list :background-color "#333333"
+              :foreground-color "#dcdccc"
+              :font "WenQuanYi Micro Hei Mono-14"
+              :internal-border-width 10))
+  (setq default-input-method "rime"
+        rime-show-candidate 'popup
+        rime-cursor "˰"))
+
 
 
 (provide 'init-emacs-input-method)
