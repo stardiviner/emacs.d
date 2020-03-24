@@ -61,10 +61,8 @@
 (use-package org-mime
   :ensure t
   :defer t
-  :bind (:map Org-prefix
-              ("m" . org-mime-org-buffer-htmlize)
-              :map message-mode-map
-              ("C-c M-o" . org-mime-htmlize))
+  :bind (:map Org-prefix ("M" . org-mime-org-buffer-htmlize)
+              :map message-mode-map ("C-c M-o" . org-mime-htmlize))
   :config
   (add-hook 'org-mime-html-hook
             (lambda ()
