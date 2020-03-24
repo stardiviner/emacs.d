@@ -170,6 +170,11 @@
   :defer t
   :init (add-hook 'js2-mode-hook #'npm-mode))
 
+;;; [ npm ] -- NPM client for Emacs.
+
+(use-package npm
+  :ensure t)
+
 ;;; [ jsx-mode ] -- The XML inside of JavaScript.
 
 ;; (use-package jsx-mode
