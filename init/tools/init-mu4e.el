@@ -51,8 +51,7 @@
                                  ("/Clojure"        . ?c)
                                  ("/ClojureScript"  . ?C)
                                  ("/JavaScript"     . ?j)
-                                 ("/SQL/PostgreSQL/general" . ?p)
-                                 ("/SQL/PostgreSQL/general-zh" . ?P)))
+                                 ("/SQL/PostgreSQL/general" . ?p)))
 
   ;; Get Mail, Update -- [U]
   ;; program to get mail; alternatives are 'fetchmail', 'getmail'
@@ -618,8 +617,7 @@
           ("maildir:/Emacs/Org-mode"       "Org Mode mailbox"        ?o)
           ("maildir:/Clojure"              "Clojure mailbox"         ?c)
           ("maildir:/ClojureScript"        "ClojureScript mailbox"   ?C)
-          ("/SQL/PostgreSQL/general"       "PostgreSQL general"      ?p)
-          ("/SQL/PostgreSQL/general-zh"    "PostgreSQL general zh"   ?P)))
+          ("/SQL/PostgreSQL/general"       "PostgreSQL general"      ?p)))
 
   (setq mu4e-index-cleanup nil ; don't do a full cleanup check
         mu4e-index-lazy-check t ; don't consider up-to-date dirs
