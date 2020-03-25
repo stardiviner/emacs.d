@@ -42,6 +42,14 @@
       (cd "/sudo::/")
       (async-shell-command command))))
 
+;;; [ native-complete ] -- Completion in shell buffers using native mechanisms.
+
+(use-package native-complete
+  :ensure t
+  :ensure company-native-complete
+  :init (with-eval-after-load 'shell
+          (native-complete-setup-bash)))
+
 ;;; [ Eshell ]
 
 (require 'init-eshell)
