@@ -71,38 +71,21 @@
 ;;   ;;                 pyim-probe-punctuation-after-punctuation))
 ;;   )
 
-;;; pyim support Rime with librime.
-
-;; (use-package librime
-;;   ;; :load-path "/usr/lib/librime.so"
-;;   :load-path "~/Code/Emacs/librime/build/liberime.so"
-;;   :defer t
-;;   :after pyim
-;;   :config
-;;   (defun setup-librime ()
-;;     (interactive)
-;;     (liberime-start "/usr/share/rime-data" (expand-file-name "rime/" user-emacs-directory))
-;;     ;; (liberime-get-schema-list)
-;;     (liberime-select-schema "luna_pinyin_simp")
-;;     ;; (liberime-get-schema-list)
-;;     (setq pyim-default-scheme 'rime))
-;;   ;; work with pyim
-;;   (add-hook 'pyim-load-hook 'setup-liberime))
-
 ;;; [ emacs-rime ] -- RIME ㄓ in Emacs using librime.
 
 (use-package rime
-  :quelpa (rime :fetcher github :repo "DogLooksGood/emacs-rime" :files ("rime.el" "Makefile" "lib.c"))
+  :quelpa ((rime :fetcher github :repo "DogLooksGood/emacs-rime" :files ("rime.el" "Makefile" "lib.c")) :upgrade t)
   :init (setq rime-user-data-dir "~/.config/fcitx/rime")
   :config
   (setq rime-posframe-properties
         (list :background-color "#333333"
               :foreground-color "#dcdccc"
-              :font "WenQuanYi Micro Hei Mono-14"
               :internal-border-width 10))
   (setq default-input-method "rime"
-        rime-show-candidate 'popup
-        rime-cursor "˰"))
+        rime-show-candidate 'posframe
+        rime-cursor "˰")
+  (if (eq rime-show-candidate 'posframe)
+      (setq rime-posframe-style 'vertical)))
 
 
 
