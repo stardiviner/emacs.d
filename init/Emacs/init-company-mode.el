@@ -83,12 +83,11 @@
 \\(my-company-add-backend-locally 'company-robe\\)"
     (make-local-variable 'company-backends)
     (unless (eq (if (listp (car company-backends))
-                    (car (car company-backends))
+                    (caar company-backends)
                   (car company-backends))
                 backend)
-      (setq-local company-backends
-                  (cons (list backend ':with (car company-backends))
-                        (cdr company-backends)))))
+      (setf (car company-backends)
+            (cons backend (cons ':with (car company-backends))))))
 
   ;; [ company-ispell ]
   ;; hide `company-ispell' echo message "Starting 'look' process".
