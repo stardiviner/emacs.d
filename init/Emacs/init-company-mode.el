@@ -202,29 +202,7 @@
         ;; company-box-doc-enable nil ; disable auto `company-box-doc' timer.
         company-box-doc-delay 0.5
         company-box-icons-alist 'company-box-icons-images
-        company-box-icons-image-size 25)
-  
-  ;; reset company-box child frame
-  (defun company-box-doc--get-frame ()
-    (frame-parameter nil 'company-box-doc-frame))
-  (defun company-box-child-frame-reset ()
-    "Delete old child-frame, then `company-box' create new child-frame."
-    (interactive)
-    ;; delete all frames except current frame.
-    (mapc (lambda (frame)
-            (unless (equal frame (selected-frame))
-              (delete-frame frame)))
-          (frame-list))
-    (if (frame-live-p (company-box--get-frame))
-        (delete-frame (company-box--get-frame)))
-    (unless (frame-live-p (company-box--get-frame))
-      (company-box--set-frame (company-box--make-frame)))
-    (if (company-box-doc--get-frame)
-        (delete-frame (company-box-doc--get-frame)))
-    (unless (frame-live-p (company-box-doc--get-frame))
-      (set-frame-parameter nil 'company-box-doc-frame nil)))
-  (with-eval-after-load 'circadian
-    (add-hook 'circadian-after-load-theme-hook #'company-box-child-frame-reset)))
+        company-box-icons-image-size 25))
 
 
 (provide 'init-company-mode)
