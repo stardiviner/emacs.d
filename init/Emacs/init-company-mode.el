@@ -204,16 +204,6 @@
         company-box-icons-alist 'company-box-icons-images
         company-box-icons-image-size 25)
   
-  ;; fix company-box not scrolling issue.
-  (advice-add 'company-next-page :after #'company-box--change-line)
-  (advice-add 'company-previous-page :after #'company-box--change-line)
-  (advice-add 'company-search-candidates :after #'company-box--change-line)
-  (advice-add 'company-filter-candidates :after #'company-box--change-line)
-  (advice-add 'company-search-repeat-forward :after #'company-box--change-line)
-  (advice-add 'company-search-repeat-backward :after #'company-box--change-line)
-  ;; (advice-add 'company-select-next :after #'company-box--change-line)
-  (advice-add 'company-box-doc-manually :after #'company-box--change-line)
-
   ;; reset company-box child frame
   (defun company-box-doc--get-frame ()
     (frame-parameter nil 'company-box-doc-frame))
