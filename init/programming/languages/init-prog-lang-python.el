@@ -55,24 +55,26 @@
   :defer t
   :after python
   :hook (python-mode . elpy-enable)
-  :init (defun my-elpy-company-setup ()
-          ;; don't use `elpy-company-backend', `company-capf' works correctly.
-          (my-company-add-backend-locally 'elpy-company-backend))
-  (add-hook 'elpy-mode-hook #'my-elpy-company-setup)
   :bind (:map python-mode-map
               ("C-h d d" . elpy-doc)
               ("M-," . pop-tag-mark))
-  :init (setq elpy-rpc-backend "jedi"
-              elpy-modules '(elpy-module-sane-defaults
-                             ;; elpy-module-company
-                             elpy-module-eldoc
-                             ;; elpy-module-flymake
-                             ;; elpy-module-highlight-indentation
-                             elpy-module-pyvenv
-                             elpy-module-yasnippet
-                             ;; elpy-module-django
-                             )
-              elpy-company-post-completion-function 'elpy-company-post-complete-parens))
+  :init
+  (defun my-elpy-company-setup ()
+    (defalias 'company-elpy 'elpy-company-backend)
+    (my-company-add-backend-locally 'company-elpy))
+  (add-hook 'elpy-mode-hook #'my-elpy-company-setup)
+  
+  (setq elpy-rpc-backend "jedi"
+        elpy-modules '(elpy-module-sane-defaults
+                       ;; elpy-module-company
+                       elpy-module-eldoc
+                       ;; elpy-module-flymake
+                       ;; elpy-module-highlight-indentation
+                       elpy-module-pyvenv
+                       elpy-module-yasnippet
+                       ;; elpy-module-django
+                       )
+        elpy-company-post-completion-function 'elpy-company-post-complete-parens))
 
 ;;; [ anaconda-mode ] -- Code navigation, documentation lookup and completion for Python.
 
