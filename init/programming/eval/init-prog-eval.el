@@ -142,7 +142,7 @@
 ;;; [ play-code ] -- Play code with online playgrounds.
 
 ;; (use-package playonline
-;;   :quelpa (playonline :fetcher github :repo "twlz0ne/playonline.el")
+;;   :ensure t
 ;;   :commands (playonline)
 ;;   :init (define-key eval-prefix (kbd "o") 'playonline)
 ;;   (add-to-list 'display-buffer-alist
