@@ -126,6 +126,11 @@
   :ensure t
   :commands (helm-lsp-workspace-symbol helm-lsp-global-workspace-symbol))
 
+;;; [ lsp-docker ] -- lsp-mode uses lsp-docker to run language servers using in Docker containers.
+
+(use-package lsp-docker
+  :ensure t)
+
 
 (provide 'init-prog-lsp)
 
