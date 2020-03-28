@@ -10,14 +10,13 @@
 ;;; [ org-contacts ] -- Contacts management in Org-mode.
 
 (use-package org-contacts
-  ;; :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+  :commands (org-contacts org-contacts-anniversaries)
   :init (setq org-contacts-files (list (concat org-directory "/Contacts/Contacts.org")))
-  
   ;; Create agenda view for contacts matching NAME.
   (unless (boundp 'Org-prefix)
     (define-prefix-command 'Org-prefix))
   (define-key Org-prefix (kbd "M-c") 'org-contacts)
-
+  :config
   (setq org-capture-templates
         (append '(("C" "[C]ontact"
                    entry (file (lambda () (car org-contacts-files)))
@@ -50,7 +49,7 @@
                    )
                   )
                 org-capture-templates))
-  :config
+
   (setq org-contacts-matcher
         "NAME<>\"\"|EMAIL<>\"\"|Mailing-List<>\"\"|ALIAS<>\"\"|RELATIONSHIP<>\"\"|PHONE<>\"\"|ADDRESS<>\"\"|BIRTHDAY<>\"\"|PROGRAMMING-SKILLS<>\"\"|SKILLS<>\"\"|EDUCATION<>\"\"|JOBS<>\"\"|NOTE"
         )
@@ -75,6 +74,8 @@
   ;; avatar
   (setq org-contacts-icon-use-gravatar nil
         org-contacts-icon-property "AVATAR")
+  (setq org-contacts-birthday-property "BIRTHDAY"
+        org-contacts-birthday-format "Birthday: %h (%Y)")
   
   (dolist (hook '(message-mode-hook
                   mu4e-compose-mode-hook))
