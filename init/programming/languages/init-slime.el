@@ -158,7 +158,7 @@
           (setq slime-company-completion 'simple))))
     
     (dolist (hook '(slime-mode-hook slime-repl-mode-hook sldb-mode-hook))
-      (add-hook hook 'my-slime-company-maybe-enable))))
+      (add-hook hook 'my-slime-company-maybe-enable nil 'local))))
 
 
 ;;; Improve usability of slime-apropos: slime-apropos-minor-mode

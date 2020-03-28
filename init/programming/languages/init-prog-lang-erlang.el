@@ -20,10 +20,9 @@
   :ensure t
   :defer t
   :init
-  (add-hook 'erlang-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-erlang)))
-  )
+  (defun my/company-erlang-setup ()
+    (my-company-add-backend-locally 'company-erlang))
+  (add-hook 'erlang-mode-hook #'my/company-erlang-setup))
 
 ;;; [ edts ] -- Erlang Development Tool Suite
 
@@ -44,6 +43,7 @@
 ;;   )
 
 ;; [ distel-completion-lib ] -- Erlang/distel completion backend for both auto-complete and company-mode.
+
 (use-package distel-completion-lib
   :ensure t
   :init
@@ -51,13 +51,10 @@
   (use-package company-distel
     :ensure t
     :init
-    (add-hook 'erlang-mode-hook
-              (lambda ()
-                (my-company-add-backend-locally 'company-distel)))
-    :config
-    (setq company-distel-popup-help t)
-    )
-  )
+    (defun my/company-distel-setup ()
+      (my-company-add-backend-locally 'company-distel))
+    (add-hook 'erlang-mode-hook #'my/company-distel-setup)
+    :config (setq company-distel-popup-help t)))
 
 
 (provide 'init-prog-lang-erlang)

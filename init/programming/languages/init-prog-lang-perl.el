@@ -43,12 +43,11 @@
 ;;   (use-package company-plsense
 ;;     :ensure t
 ;;     :init
+;;     (defun my/company-plsense-setup ()
+;;       (my-company-add-backend-locally 'company-plsense))
 ;;     (dolist (hook '(perl-mode-hook
 ;;                     cperl-mode-hook))
-;;       (add-hook hook
-;;                 (lambda () (my-company-add-backend-locally 'company-plsense))))
-;;     )
-;;   )
+;;       (add-hook hook #'my/company-plsense-setup))))
 
 
 (provide 'init-prog-lang-perl)

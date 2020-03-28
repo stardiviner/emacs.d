@@ -25,7 +25,10 @@
 (use-package company-ansible
   :ensure t
   :defer t
-  :init (add-hook 'yaml-mode-hook (lambda () (my-company-add-backend-locally 'company-ansible))))
+  :init
+  (defun my/company-ansible-setup ()
+    (my-company-add-backend-locally 'company-ansible))
+  (add-hook 'yaml-mode-hook #'my/company-ansible-setup))
 
 
 (provide 'init-ansible)

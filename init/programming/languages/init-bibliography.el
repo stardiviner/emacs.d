@@ -48,8 +48,9 @@
   :ensure t
   :defer t
   :init (setq company-bibtex-bibliography '("~/Org/Bibliography/index.bib"))
-  (add-hook 'org-mode-hook
-            (lambda () (my-company-add-backend-locally 'company-bibtex))))
+  (defun my/company-bibtex-setup ()
+    (my-company-add-backend-locally 'company-bibtex))
+  (add-hook 'org-mode-hook 'my/company-bibtex-setup))
 
 ;;; [ ebib ] -- a BibTeX database manager.
 

@@ -121,7 +121,11 @@
   :ensure t
   :defer t
   :ensure tern
-  :hook (js2-mode-hook . (lambda () (tern-mode 1) (my-company-add-backend-locally 'company-tern))))
+  :init
+  (defun my/company-tern-setup ()
+    (tern-mode 1)
+    (my-company-add-backend-locally 'company-tern))
+  (add-hook 'js2-mode-hook #'my/company-tern-setup))
 
 ;;; [ skewer-mode ] -- Live interactive web development in Emacs.
 

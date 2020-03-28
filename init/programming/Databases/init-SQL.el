@@ -252,10 +252,12 @@
 ;;   (use-package company-edbi
 ;;     :ensure t
 ;;     :init
+;;     (defun my/company-edbi-setup ()
+;;       (my-company-add-backend-locally 'company-edbi))
 ;;     (dolist (hook '(sql-mode-hook
 ;;                     sql-interactive-mode-hook
 ;;                     edbi:sql-mode-hook))
-;;       (add-hook hook (lambda () (my-company-add-backend-locally 'company-edbi)))))
+;;       (add-hook hook #'my/company-edbi-setup)))
 ;;   )
 
 ;;; [ EmacSQL ] -- high-level SQL database front-end.

@@ -46,8 +46,9 @@
   :init (add-hook 'scheme-mode-hook #'geiser-mode)
   :config
   ;; company-backend
-  (add-hook 'scheme-mode-hook
-            (lambda () (my-company-add-backend-locally 'geiser-company-backend)))
+  (defun my/geiser-company-setup ()
+    (my-company-add-backend-locally 'geiser-company-backend))
+  (add-hook 'scheme-mode-hook #'my/geiser-company-setup)
   ;; auto start geiser inferior buffer process `run-geiser'.
   (defun my-run-geiser-auto ()
     (interactive)

@@ -29,8 +29,9 @@
   (setq circe-format-say "{nick:-10s} {body}") ; align nick names and messages.
   (define-key circe-mode-map (kbd "C-c SPC") 'tracking-next-buffer)
   ;; words completion
-  (add-hook 'circe-channel-mode-hook
-            (lambda () (my-company-add-backend-locally 'company-ispell)))
+  (defun my/circe-company-setup ()
+    (my-company-add-backend-locally 'company-ispell))
+  (add-hook 'circe-channel-mode-hook #'my/circe-company-setup)
   ;; spelling checking
   (setq lui-flyspell-p t
         lui-flyspell-alist '(("#hamburg" "german8")

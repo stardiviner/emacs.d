@@ -50,21 +50,16 @@
 (use-package company-sourcekit
   :ensure t
   :defer t
-  :init (add-hook 'swift-mode-hook
-                  (lambda () (my-company-add-backend-locally 'company-sourcekit)))
-  (setq company-sourcekit-use-yasnippet t
-        ;; sourcekit-sourcekitdaemon-executable
-
-        ;; for DEBUG:
-        ;; company-sourcekit-verbose t
-        ;; sourcekit-verbose t
-        )
+  :init ; (setq sourcekit-sourcekitdaemon-executable "")
+  (defun my/company-sourcekit-setup ()
+    (my-company-add-backend-locally 'company-sourcekit))
+  (add-hook 'swift-mode-hook #'my/company-sourcekit-setup)
   :config
+  (setq company-sourcekit-use-yasnippet t)
   (with-eval-after-load 'company-keywords
     (add-to-list 'company-keywords-alist
                  '(swift-mode
-                   "true" "false" "nil" "available" "column" "elseif" "else" "endif" "file" "function" "if" "line" "selector" "associatedtype" "class" "deinit" "enum" "extension" "fileprivate" "func" "import" "init" "inout" "internal" "let" "open" "operator" "private" "protocol" "public" "static" "struct" "subscript" "typealias" "var" "break" "case" "continue" "default" "defer" "do" "else" "fallthrough" "for" "guard" "if" "in" "repeat" "return" "switch" "where" "while" "as" "catch" "dynamicType" "is" "rethrows" "super" "self" "Self" "throws" "throw" "try" "Protocol" "Type" "and" "assignment" "associativity" "convenience" "didSet" "dynamic" "final" "get" "higherThan" "indirect" "infix" "lazy" "left" "lowerThan" "mutating" "none" "nonmutating" "optional" "override" "postfix" "precedence" "precedencegroup" "prefix" "required" "right" "set" "unowned" "weak" "willSet")))
-  )
+                   "true" "false" "nil" "available" "column" "elseif" "else" "endif" "file" "function" "if" "line" "selector" "associatedtype" "class" "deinit" "enum" "extension" "fileprivate" "func" "import" "init" "inout" "internal" "let" "open" "operator" "private" "protocol" "public" "static" "struct" "subscript" "typealias" "var" "break" "case" "continue" "default" "defer" "do" "else" "fallthrough" "for" "guard" "if" "in" "repeat" "return" "switch" "where" "while" "as" "catch" "dynamicType" "is" "rethrows" "super" "self" "Self" "throws" "throw" "try" "Protocol" "Type" "and" "assignment" "associativity" "convenience" "didSet" "dynamic" "final" "get" "higherThan" "indirect" "infix" "lazy" "left" "lowerThan" "mutating" "none" "nonmutating" "optional" "override" "postfix" "precedence" "precedencegroup" "prefix" "required" "right" "set" "unowned" "weak" "willSet"))))
 
 ;; [ flycheck-swift ] -- Flycheck extension for Apple's Swift.
 (use-package flycheck-swift

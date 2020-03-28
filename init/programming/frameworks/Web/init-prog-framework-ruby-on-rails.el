@@ -55,7 +55,7 @@
                             (unless robe-mode (robe-mode))
                           (if robe-mode (robe-mode -1)))))))
 
-  (defun my-projectile-rails-setup ()
+  (defun my/projectile-rails-setup ()
     (my-company-add-backend-locally 'company-robe)
 
     ;; optimize Rails company-robe completion.
@@ -69,10 +69,9 @@
       (browse-url "http://127.0.0.1:3000"))
 
     (define-key projectile-rails-mode-run-map (kbd "O")
-      'rails-open-browser-development)
-    )
+      'rails-open-browser-development))
   
-  (add-hook 'projectile-rails-mode-hook 'my-projectile-rails-setup)
+  (add-hook 'projectile-rails-mode-hook 'my/projectile-rails-setup)
   )
 
 

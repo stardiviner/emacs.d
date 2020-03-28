@@ -124,7 +124,7 @@
   :after irony
   :init (setq company-irony-ignore-case t)
   :config
-  (defun company-irony-add ()
+  (defun my/company-irony-setup ()
     ;; (optional) adds CC special commands to `company-begin-commands'
     ;; in order to trigger completion at interesting places, such as
     ;; after scope operator.
@@ -135,9 +135,10 @@
     (add-to-list 'company-backends 'company-irony-c-headers)
     (setq-local company-minimum-prefix-length 1))
 
-  (hook-modes c-dialects-mode
-    (when (memq major-mode '(c-mode c++-mode objc-mode))
-      (company-irony-add))))
+  (dolist (hook '(c-mode-hook
+                  c++-mode-hook
+                  objc-mode-hook))
+    (add-hook hook #'my/company-irony-setup)))
 
 (use-package irony-eldoc
   :ensure t

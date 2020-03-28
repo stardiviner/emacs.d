@@ -59,10 +59,10 @@
               ("C-h d d" . elpy-doc)
               ("M-," . pop-tag-mark))
   :init
-  (defun my-elpy-company-setup ()
+  (defun my/elpy-company-setup ()
     (defalias 'company-elpy 'elpy-company-backend)
     (my-company-add-backend-locally 'company-elpy))
-  (add-hook 'elpy-mode-hook #'my-elpy-company-setup)
+  (add-hook 'elpy-mode-hook #'my/elpy-company-setup)
   
   (setq elpy-rpc-backend "jedi"
         elpy-modules '(elpy-module-sane-defaults

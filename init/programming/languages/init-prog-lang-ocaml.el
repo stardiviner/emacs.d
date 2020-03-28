@@ -41,15 +41,13 @@
   :ensure t
   :defer t
   :init
+  (defun my/merlin-mode-setup ()
+    (merlin-mode 1)
+    (my-company-add-backend-locally 'merlin-company-backend)
+    (define-key tuareg-mode-map (kbd "C-c C-s") 'tuareg-run-metaocaml))
   (dolist (hook '(tuareg-mode-hook
-                  caml-mode-hook
-                  ))
-    (add-hook hook (lambda ()
-                     (merlin-mode 1)
-                     (my-company-add-backend-locally 'merlin-company-backend)
-                     (define-key tuareg-mode-map (kbd "C-c C-s")
-                       'tuareg-run-metaocaml)
-                     )))
+                  caml-mode-hook))
+    (add-hook hook #'my/merlin-mode-setup))
   
   :config
   ;; Use opam switch to lookup ocamlmerlin binary

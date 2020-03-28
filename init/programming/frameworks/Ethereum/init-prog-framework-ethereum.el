@@ -17,11 +17,10 @@
 (use-package company-solidity
   :ensure t
   :defer t
-  :config
-  (defun my-company-solidity-setup ()
+  :init
+  (defun my/company-solidity-setup ()
     (my-company-add-backend-locally 'company-solidity))
-  (add-hook 'solidity-mode-hook #'my-company-solidity-setup)
-  )
+  (add-hook 'solidity-mode-hook #'my/company-solidity-setup))
 
 
 

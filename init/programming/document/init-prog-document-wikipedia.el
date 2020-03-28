@@ -24,9 +24,10 @@
 
 ;;; [ oddmuse ] --
 
-(defun my-oddmuse-setup ()
-  (require 'company-oddmuse)
-  (my-company-add-backend-locally 'company-oddmuse))
+;; (defun my/oddmuse-setup ()
+;;   (require 'company-oddmuse)
+;;   (my-company-add-backend-locally 'company-oddmuse))
+;; (add-hook 'mediawiki-mode-hook #'my/oddmuse-setup)
 
 ;;; [ kiwix ] -- Kiwix client for Emacs.
 

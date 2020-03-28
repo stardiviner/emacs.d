@@ -43,16 +43,12 @@
 (use-package company-rtags
   :ensure t
   :config
-  (defun my-rtags-settings ()
-    (interactive)
-    (my-company-add-backend-locally 'company-rtags)
-    )
-  
+  (defun my/company-rtags-setup ()
+    (my-company-add-backend-locally 'company-rtags))
   (dolist (hook '(c-mode-hook
                   c++-mode-hook
                   objc-mode-hook))
-    (add-hook hook 'my-rtags-settings))
-  )
+    (add-hook hook #'my/company-rtags-setup)))
 
 ;;; [ flycheck-rtags ] -- RTags Flycheck integration.
 

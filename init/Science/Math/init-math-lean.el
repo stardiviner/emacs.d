@@ -18,11 +18,10 @@
 
 (use-package company-lean
   :ensure t
-  :config
-  ;; (add-hook 'lean-mode-hook
-  ;;           (lambda ()
-  ;;             (my-company-add-backend-locally 'company-lean)))
-  )
+  :init
+  (defun my/company-lean-setup ()
+    (my-company-add-backend-locally 'company-lean))
+  (add-hook 'lean-mode-hook #'my/company-lean-setup))
 
 ;;; [ helm-lean ]
 

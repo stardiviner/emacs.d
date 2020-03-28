@@ -55,8 +55,9 @@
                '("^\\*ielm\\*" (display-buffer-below-selected)))
   :config
   (add-hook 'ielm-mode-hook #'my-lisp-repl-common-settings)
-  (add-hook 'ielm-mode-hook
-            (lambda () (my-company-add-backend-locally 'company-elisp))))
+  (defun my/ielm-company-setup ()
+    (my-company-add-backend-locally 'company-elisp))
+  (add-hook 'ielm-mode-hook #'my/ielm-company-setup))
 
 ;;; [ eros ] -- Evaluation Result OverlayS for Emacs Lisp.
 

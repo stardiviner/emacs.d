@@ -11,26 +11,17 @@
 
 (use-package dart-mode
   :ensure t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.dart\\'" . dart-mode))
-  :config
-  (setq dart-font-lock-extra-types t
-        dart-enable-analysis-server t
-        ;; dart-analysis-server-snapshot-path
-        )
-  )
-
+  :config (setq dart-font-lock-extra-types t
+                dart-enable-analysis-server t))
 
 ;;; [ company-dart ]
 
-;; (use-package company-dart
-;;   :ensure t
-;;   :init
-;;   (add-hook 'dart-mode-hook
-;;             (lambda ()
-;;               (my-company-add-backend-locally 'company-dart)
-;;               ))
-;;   )
+(use-package company-dart
+  :ensure t
+  :init
+  (defun my/company-dart-setup ()
+    (my-company-add-backend-locally 'company-dart))
+  (add-hook 'dart-mode-hook #'my/company-dart-setup))
 
 
 (provide 'init-prog-lang-dart)

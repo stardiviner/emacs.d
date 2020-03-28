@@ -15,10 +15,10 @@
   :defer t
   :mode (("CMakeLists\\.txt\\'" . cmake-mode)
          ("\\.cmake\\'" . cmake-mode))
-  :config (add-hook 'cmake-mode-hook
-                    #'(lambda ()
-                        (require 'company-cmake)
-                        (my-company-add-backend-locally 'company-cmake))))
+  :init
+  (defun my/company-cmake-setup ()
+    (my-company-add-backend-locally 'company-cmake))
+  (add-hook 'cmake-mode-hook #'my/company-cmake-setup))
 
 ;;; [ eldoc-cmake ] -- Eldoc support for CMake.
 

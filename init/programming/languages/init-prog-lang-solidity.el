@@ -17,8 +17,9 @@
     :ensure t
     :init
     ;; `company-solidity' is in `solidity-mode'
-    (add-hook 'solidity-mode-hook
-              (lambda () (my-company-add-backend-locally 'company-solidity)))))
+    (defun my/company-solidity-setup ()
+      (my-company-add-backend-locally 'company-solidity))
+    (add-hook 'solidity-mode-hook #'my/company-solidity-setup)))
 
 ;;; [ solidity-flycheck ] -- Flycheck integration for solidity emacs mode.
 

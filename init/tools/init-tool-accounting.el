@@ -121,13 +121,12 @@
 ;;   :config
 ;;   (setq hledger-jfile (expand-file-name (concat org-directory "/Accounting/hledger.journal")))
 ;;
-;;   (add-hook 'hledger-mode-hook
-;;             (lambda ()
-;;               ;; for company-mode
-;;               (my-company-add-backend-locally 'hledger-company)
-;;               ;; for auto-complete
-;;               (setq-local ac-sources '(hledger-ac-source))
-;;               ))
+;;   (defun my/hledger-mode-setup ()
+;;     ;; for company-mode
+;;     (my-company-add-backend-locally 'hledger-company)
+;;     ;; for auto-complete
+;;     (setq-local ac-sources '(hledger-ac-source)))
+;;   (add-hook 'hledger-mode-hook #'my/hledger-mode-setup)
 ;;
 ;;   ;; [ ob-hledger ]
 ;;   (require 'ob-hledger)

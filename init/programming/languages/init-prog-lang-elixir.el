@@ -15,14 +15,13 @@
   ;; if you use smartparens you can piggyback on some of its functionality for
   ;; dealing with Ruby's do .. end blocks. A sample configuration would be:
   (sp-with-modes '(elixir-mode)
-    (sp-local-pair "fn" "end"
-                   :when '(("SPC" "RET"))
-                   :actions '(insert navigate))
-    (sp-local-pair "do" "end"
-                   :when '(("SPC" "RET"))
-                   :post-handlers '(sp-ruby-def-post-handler)
-                   :actions '(insert navigate)))
-  )
+                 (sp-local-pair "fn" "end"
+                                :when '(("SPC" "RET"))
+                                :actions '(insert navigate))
+                 (sp-local-pair "do" "end"
+                                :when '(("SPC" "RET"))
+                                :post-handlers '(sp-ruby-def-post-handler)
+                                :actions '(insert navigate))))
 
 
 ;;; [ alchemist ] -- Elixir Tooling Integration into Emacs
@@ -30,16 +29,14 @@
 (use-package alchemist
   :ensure t
   :init
-  (add-hook 'elixir-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'alchemist-company)
-              ))
+  (defun my/alchemist-company-setup ()
+    (my-company-add-backend-locally 'alchemist-company))
+  (add-hook 'elixir-mode-hook #'my/alchemist-company-setup)
 
   :config
   (setq alchemist-key-command-prefix (kbd "C-c ,")) ; default: (kbd "C-c a")
   ;; run the whole test suite with `alchemist-mix-test' after saving a buffer.
-  (setq alchemist-hooks-test-on-save nil)
-  )
+  (setq alchemist-hooks-test-on-save nil))
 
 
 ;;; [ ob-elixir ]

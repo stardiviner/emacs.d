@@ -60,8 +60,10 @@
   :ensure t
   :defer t
   :after lua-mode
-  :init (add-hook 'lua-mode-hook
-                  (lambda () (my-company-add-backend-locally 'company-lua))))
+  :init
+  (defun my/company-lua-setup ()
+    (my-company-add-backend-locally 'company-lua))
+  (add-hook 'lua-mode-hook #'my/company-lua-setup))
 
 
 (provide 'init-prog-lang-lua)

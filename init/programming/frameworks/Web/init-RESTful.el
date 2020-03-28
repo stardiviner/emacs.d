@@ -59,8 +59,10 @@
   (use-package company-restclient
     :ensure t
     :defer t
-    :init (add-hook 'restclient-mode-hook
-                    (lambda () (my-company-add-backend-locally 'company-restclient))))
+    :init
+    (defun my/company-restclient-setup ()
+      (my-company-add-backend-locally 'company-restclient))
+    (add-hook 'restclient-mode-hook #'my/company-restclient-setup))
 
   ;; [ restclient-test ] -- Run tests with restclient.el
   (use-package restclient-test
@@ -95,9 +97,7 @@
   :ensure t
   :defer t
   :commands (httprepl)
-  :config
-  (add-hook 'httprepl-mode-hook
-            (lambda () (my-company-add-backend-locally 'company-restclient))))
+  :config (add-hook 'httprepl-mode-hook #'my/company-restclient-setup nil 'local))
 
 
 ;;; [ know-your-http-well ]
