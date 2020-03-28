@@ -80,14 +80,15 @@
   (defun my-company-add-backend-locally (backend)
     "Add a backend in my custom way.
 
-\\(my-company-add-backend-locally 'company-robe\\)"
-    (make-local-variable 'company-backends)
+(add-hook 'major-mode-hook
+            #'(lambda (my-company-add-backend-locally 'company-backend)))"
     (unless (eq (if (listp (car company-backends))
                     (caar company-backends)
                   (car company-backends))
                 backend)
-      (setf (car company-backends)
-            (cons backend (cons ':with (car company-backends))))))
+      (setq-local company-backends
+                  (list (cons backend (cons ':with (car company-backends)))
+                        (cdr company-backends)))))
 
   ;; [ company-ispell ]
   ;; hide `company-ispell' echo message "Starting 'look' process".
