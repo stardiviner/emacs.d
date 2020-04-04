@@ -94,17 +94,17 @@
   :after lsp
   :commands lsp-ui-mode
   :hook (lsp-mode . lsp-ui-mode)
+  :custom ((lsp-ui-doc-enable nil)
+           (lsp-ui-doc-header nil)
+           (lsp-ui-doc-include-signature t)
+           (lsp-ui-doc-position 'at-point)
+           (lsp-ui-sideline-show-hover nil)
+           (lsp-ui-sideline-enable nil))
   :bind (:map lsp-ui-mode-map
               ([remap xref-find-definitions] . lsp-ui-peek-find-definitions) ; [M-.]
               ([remap xref-find-references] . lsp-ui-peek-find-references)   ; [M-?]
               ("C-c C-j" . lsp-ui-imenu))
-  :init (setq lsp-ui-doc-enable nil
-              lsp-ui-doc-header nil
-              lsp-ui-doc-include-signature t
-              lsp-ui-doc-position 'at-point
-              lsp-ui-sideline-show-hover nil
-              lsp-ui-sideline-enable nil)
-  (if (featurep 'xwidget-internal) (setq lsp-ui-doc-use-webkit t)))
+  :preface (if (featurep 'xwidget-internal) (setq lsp-ui-doc-use-webkit t)))
 
 ;;; [ dap-mode ] -- Debug Adapter Protocol mode for lsp-mode.
 
