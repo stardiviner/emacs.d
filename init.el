@@ -141,6 +141,7 @@
 ;; (require 'init-emacs-xwidget)
 (require 'init-emacs-customize)
 (require 'init-emacs-accessibility)
+(require 'init-eaf)
 
 
 ;;; for HiDPI Retina screen display
