@@ -57,9 +57,14 @@
           ;; Clojure
           ("http://insideclojure.org/feed.xml" Clojure) ; Inside Clojure
           ("http://www.lispcast.com/feed" Clojure) ; LispCast
+          ("https://feeds.therepl.net/therepl" Clojure) ; The REPL
           ("https://www.reddit.com/r/Clojure/.rss" Clojure Reddit) ; subreddit "r/Clojure"
+          ("https://stackoverflow.com/feeds/tag?tagnames=clojure&sort=newest" Clojure) ; StackOverflow Clojure feed
           ("http://blog.jayfields.com/feeds/posts/default" Clojure Blog)
           ("http://corfield.org/atom.xml" Clojure Blog) ; Sean Corfield Blog
+          ("https://www.spacjer.com/feed.xml" Clojure Blog) ; Rafal Spacjer Blog
+          ;; PostgreSQL
+          ("https://planet.postgresql.org/rss20.xml" PostgreSQL) ; Planet PostgreSQL
           ;; Programmer Blogs
           ("http://feed.williamlong.info/" Blog News) ; 月光博客
           ("http://www.ruanyifeng.com/blog/atom.xml" Blog) ; 阮一峰
