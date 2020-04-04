@@ -483,7 +483,9 @@
   ;; mu4e normally prefers the plain-text version for messages that consist of
   ;; both a plain-text and html (rich-text) versions of the body-text. You change
   ;; this by setting mu4e-view-prefer-html to t.
-  (setq mu4e-view-prefer-html t)
+  (setq mu4e-view-prefer-html nil)
+  (add-to-list 'mu4e-view-actions
+               '("Browser HTML Message" . mu4e-action-view-in-browser) t)
 
   ;; Attachments [C-u] + [e]
   ;;
