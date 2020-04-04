@@ -135,10 +135,7 @@ Optional for Org-mode file: `LINK'."
   (add-to-list 'org-file-apps '("\\.mkv\\'" . eaf-open-for-org))
   (add-to-list 'org-file-apps '("\\.mov\\'" . eaf-open-for-org))
   (add-to-list 'org-file-apps '("\\.ogv\\'" . eaf-open-for-org))
-  (add-to-list 'org-file-apps '("\\.webm\\'" . eaf-open-for-org))
-  (add-to-list 'org-file-apps '("\\.flv\\'" . eaf-open-for-org))
-  (add-to-list 'org-file-apps '("\\.f4v\\'" . eaf-open-for-org))
-  (add-to-list 'org-file-apps '("\\.rmvb\\'" . eaf-open-for-org)))
+  (add-to-list 'org-file-apps '("\\.webm\\'" . eaf-open-for-org)))
 
 ;;; Open video file links by selecting video player interactively.
 (defun my/org-open-video-file (file &optional link)
@@ -168,10 +165,7 @@ Optional for Org-mode file: `LINK'."
   (add-to-list 'org-file-apps '("\\.mkv\\'" . my/org-open-video-file))
   (add-to-list 'org-file-apps '("\\.mov\\'" . my/org-open-video-file))
   (add-to-list 'org-file-apps '("\\.ogv\\'" . my/org-open-video-file))
-  (add-to-list 'org-file-apps '("\\.webm\\'" . my/org-open-video-file))
-  (add-to-list 'org-file-apps '("\\.flv\\'" . my/org-open-video-file))
-  (add-to-list 'org-file-apps '("\\.f4v\\'" . my/org-open-video-file))
-  (add-to-list 'org-file-apps '("\\.rmvb\\'" . my/org-open-video-file)))
+  (add-to-list 'org-file-apps '("\\.webm\\'" . my/org-open-video-file)))
 
 ;;; Links are now customizable
 ;;
