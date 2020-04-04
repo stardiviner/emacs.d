@@ -9,14 +9,12 @@
 ;;; [ LilyPond ]
 
 (use-package lilypond-mode
-  :preface
-  (autoload 'LilyPond-mode "lilypond-mode" "LilyPond Editing Mode" t)
+  :preface (autoload 'LilyPond-mode "lilypond-mode" "LilyPond Editing Mode" t)
   :mode (("\\.ly$" . LilyPond-mode)
          ("\\.ily$" . LilyPond-mode))
   :init (add-hook 'LilyPond-mode-hook (lambda () (turn-on-font-lock)))
   (add-to-list 'display-buffer-alist
-               '("\\*lilypond\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
-  )
+               '("\\*lilypond\\*" . (display-buffer-reuse-window display-buffer-below-selected))))
 
 ;;; [ ob-lilypond ]
 

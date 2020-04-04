@@ -22,10 +22,8 @@
         company-idle-delay 0.2
         company-tooltip-idle-delay 0 ; 0.5
         company-echo-delay 0 ; remove annoying blink
-        ;; determine which characters trigger auto-completion the selected candidate.
-        company-auto-complete nil ; nil: don't auto select the first candidate when input `company-auto-complete-chars'.
-        ;; '(?_ ?\( ?w ?. ?\" ?$ ?\' ?/ ?| ?! ?#)
-        company-auto-complete-chars '(?\  ?\) ?. ?#)
+        company-auto-complete nil
+        company-auto-complete-chars '(?\  ?\) ?. ?#) ; '(?_ ?\( ?w ?. ?\" ?$ ?\' ?/ ?| ?! ?#)
         ;; company-require-match 'company-explicit-action-p ; 'never
         company-tooltip-align-annotations t ; align annotations to the right tooltip border.
         company-tooltip-flip-when-above nil
@@ -192,7 +190,8 @@
 
 (use-package company-box
   ;; :ensure t
-  :quelpa (company-box :fetcher github :repo "stardiviner/company-box" :files (:defaults "images"))
+  ;; :quelpa (company-box :fetcher github :repo "stardiviner/company-box" :files (:defaults "images"))
+  :load-path "~/Code/Emacs/company-box"
   :ensure all-the-icons
   :after (company all-the-icons)
   :defer t

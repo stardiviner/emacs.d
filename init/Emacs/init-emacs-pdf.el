@@ -102,8 +102,8 @@
 ;;; [ org-pdftools ] -- A custom org link type for pdf-tools.
 
 ;; (use-package org-pdftools
-;;   ;; :quelpa (org-pdftools :fetcher github :repo "fuxialexander/org-pdftools")
-;;   :load-path "~/Code/Emacs/org-pdftools"
+;;   :ensure t
+;;   ;; :load-path "~/Code/Emacs/org-pdftools"
 ;;   :init
 ;;   (with-eval-after-load 'org
 ;;     (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdftools-open link))))))

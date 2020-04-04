@@ -74,7 +74,7 @@
 ;;; [ emacs-rime ] -- RIME ㄓ in Emacs using librime.
 
 (use-package rime
-  :quelpa ((rime :fetcher github :repo "DogLooksGood/emacs-rime" :files ("rime.el" "Makefile" "lib.c")) :upgrade t)
+  :quelpa ((rime :fetcher github :repo "DogLooksGood/emacs-rime" :files ("rime.el" "Makefile" "lib.c")) :upgrade nil)
   :init (setq rime-user-data-dir "~/.config/fcitx/rime")
   :config
   (setq rime-posframe-properties
