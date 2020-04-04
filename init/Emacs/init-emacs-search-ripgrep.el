@@ -34,6 +34,8 @@
               ("s s" . rg-project)
               ("s a" . projectile-ag))
   :init (rg-enable-default-bindings)
+  ;; (add-to-list 'exec-path (or (getenv "CARGO_HOME") (expand-file-name "~/.cargo/bin/")))
+  ;; (setq rg-executable (executable-find "rga"))
   (setq rg-group-result t)
   (if (null rg-command-line-flags)
       (setq rg-command-line-flags '("-j 4"))
