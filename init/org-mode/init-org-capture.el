@@ -114,7 +114,7 @@ In ~%s~:
 ;; agenda - up to 5 levels deep
 (setq org-refile-targets '((nil :maxlevel . 3) ; current buffer headlies
                            (org-agenda-files :maxlevel . 2) ; agenda files headlines
-                           (org-buffer-list :maxlevel . 3)  ; all opened Org buffer files headlines
+                           (org-buffer-list :maxlevel . 2)  ; all opened Org buffer files headlines
                            )
       org-refile-use-outline-path t
       org-outline-path-complete-in-steps nil
