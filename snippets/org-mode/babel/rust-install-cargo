@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel install Rust Cargo
+# key: babel-install-rust-cargo
+# group: babel.install.rust
+# --
+#+begin_src sh :async
+cargo install $0
+#+end_src
