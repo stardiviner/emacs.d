@@ -10,7 +10,7 @@
 
 (use-package js
   :defer t
-  :mode (("\\.js" . js-mode)
+  :mode (("\\.js\\'" . js-mode)
          ("\\.jsx\\'" . js-jsx-mode)))
 
 ;;; [ ob-js ]
