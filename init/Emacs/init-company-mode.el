@@ -85,8 +85,8 @@
                   (car company-backends))
                 backend)
       (setq-local company-backends
-                  (list (cons backend (cons ':with (car company-backends)))
-                        (cdr company-backends)))))
+                  `((,backend :with ,(car company-backends))
+                    ,(cdr company-backends)))))
 
   ;; [ company-ispell ]
   ;; hide `company-ispell' echo message "Starting 'look' process".
