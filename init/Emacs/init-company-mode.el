@@ -201,45 +201,46 @@
   (setq company-box-show-single-candidate t ; for still can use doc popup keybinding.
         ;; company-box-doc-enable nil ; disable auto `company-box-doc' timer.
         company-box-doc-delay 0.5
-        ;; company-box-icons-alist 'company-box-icons-images
         company-box-icons-image-size 25)
 
-  ;; set icon colors
-  (setq company-box-icons-alist 'company-box-icons-all-the-icons
-        company-box-icons-all-the-icons
-        (let ((all-the-icons-scale-factor 1.0))
-          `((Unknown       . ,(all-the-icons-material "stars"                    :face 'all-the-icons-silver))
-            (Text          . ,(all-the-icons-material "text_fields"              :face 'all-the-icons-green))
-            (Method        . ,(all-the-icons-material "functions"                :face 'all-the-icons-pink))
-            (Function      . ,(all-the-icons-material "functions"                :face 'all-the-icons-pink))
-            (Constructor   . ,(all-the-icons-material "functions"                :face 'all-the-icons-orange))
-            (Field         . ,(all-the-icons-material "functions"                :face 'all-the-icons-purple-alt))
-            (Variable      . ,(all-the-icons-material "adjust"                   :face 'all-the-icons-lblue))
-            (Class         . ,(all-the-icons-material "class"                    :face 'all-the-icons-red))
-            (Interface     . ,(all-the-icons-material "settings_input_component" :face 'all-the-icons-lred))
-            (Module        . ,(all-the-icons-material "view_module"              :face 'all-the-icons-dcyan))
-            (Property      . ,(all-the-icons-material "settings"                 :face 'all-the-icons-purple))
-            (Unit          . ,(all-the-icons-material "straighten"               :face 'all-the-icons-maroon))
-            (Value         . ,(all-the-icons-material "filter_1"                 :face 'all-the-icons-dpink))
-            (Enum          . ,(all-the-icons-material "plus_one"                 :face 'all-the-icons-blue))
-            (Keyword       . ,(all-the-icons-material "filter_center_focus"      :face 'all-the-icons-cyan-alt))
-            (Snippet       . ,(all-the-icons-material "short_text"               :face 'all-the-icons-cyan))
-            (Color         . ,(all-the-icons-material "color_lens"               :face 'all-the-icons-dblue))
-            (File          . ,(all-the-icons-material "insert_drive_file"        :face 'all-the-icons-dpurple))
-            (Reference     . ,(all-the-icons-material "collections_bookmark"     :face 'all-the-icons-lcyan))
-            (Folder        . ,(all-the-icons-material "folder"                   :face 'all-the-icons-lsilver))
-            (EnumMember    . ,(all-the-icons-material "people"                   :face 'all-the-icons-lblue))
-            (Constant      . ,(all-the-icons-material "pause_circle_filled"      :face 'all-the-icons-dyellow))
-            (Struct        . ,(all-the-icons-material "streetview"               :face 'all-the-icons-lyellow))
-            (Event         . ,(all-the-icons-material "event"                    :face 'all-the-icons-lyellow))
-            (Operator      . ,(all-the-icons-material "control_point"            :face 'all-the-icons-lred))
-            (TypeParameter . ,(all-the-icons-material "class"                    :face 'all-the-icons-lgreen))
-            (Template      . ,(all-the-icons-material "radio_button_checked"     :face 'all-the-icons-dpurple))
-            
-            (ElispFunction . ,(all-the-icons-material "functions"                :face 'all-the-icons-cyan-alt))
-            (ElispVariable . ,(all-the-icons-material "check_circle"             :face 'all-the-icons-blue-alt))
-            (ElispFeature  . ,(all-the-icons-material "stars"                    :face 'all-the-icons-lpurple))
-            (ElispFace     . ,(all-the-icons-material "format_paint"             :face 'all-the-icons-purple)))))
+  ;; Use VSCode-like images
+  (setq company-box-icons-alist 'company-box-icons-images)
+  ;; or use all-the-icons
+  ;; (setq company-box-icons-alist 'company-box-icons-all-the-icons
+  ;;       company-box-icons-all-the-icons
+  ;;       (let ((all-the-icons-scale-factor 1.0))
+  ;;         `((Unknown       . ,(all-the-icons-material "stars"                    :face 'all-the-icons-silver))
+  ;;           (Text          . ,(all-the-icons-material "text_fields"              :face 'all-the-icons-green))
+  ;;           (Method        . ,(all-the-icons-material "functions"                :face 'all-the-icons-pink))
+  ;;           (Function      . ,(all-the-icons-material "functions"                :face 'all-the-icons-pink))
+  ;;           (Constructor   . ,(all-the-icons-material "functions"                :face 'all-the-icons-orange))
+  ;;           (Field         . ,(all-the-icons-material "functions"                :face 'all-the-icons-purple-alt))
+  ;;           (Variable      . ,(all-the-icons-material "adjust"                   :face 'all-the-icons-lblue))
+  ;;           (Class         . ,(all-the-icons-material "class"                    :face 'all-the-icons-red))
+  ;;           (Interface     . ,(all-the-icons-material "settings_input_component" :face 'all-the-icons-lred))
+  ;;           (Module        . ,(all-the-icons-material "view_module"              :face 'all-the-icons-dcyan))
+  ;;           (Property      . ,(all-the-icons-material "settings"                 :face 'all-the-icons-purple))
+  ;;           (Unit          . ,(all-the-icons-material "straighten"               :face 'all-the-icons-maroon))
+  ;;           (Value         . ,(all-the-icons-material "filter_1"                 :face 'all-the-icons-dpink))
+  ;;           (Enum          . ,(all-the-icons-material "plus_one"                 :face 'all-the-icons-blue))
+  ;;           (Keyword       . ,(all-the-icons-material "filter_center_focus"      :face 'all-the-icons-cyan-alt))
+  ;;           (Snippet       . ,(all-the-icons-material "short_text"               :face 'all-the-icons-cyan))
+  ;;           (Color         . ,(all-the-icons-material "color_lens"               :face 'all-the-icons-dblue))
+  ;;           (File          . ,(all-the-icons-material "insert_drive_file"        :face 'all-the-icons-dpurple))
+  ;;           (Reference     . ,(all-the-icons-material "collections_bookmark"     :face 'all-the-icons-lcyan))
+  ;;           (Folder        . ,(all-the-icons-material "folder"                   :face 'all-the-icons-lsilver))
+  ;;           (EnumMember    . ,(all-the-icons-material "people"                   :face 'all-the-icons-lblue))
+  ;;           (Constant      . ,(all-the-icons-material "pause_circle_filled"      :face 'all-the-icons-dyellow))
+  ;;           (Struct        . ,(all-the-icons-material "streetview"               :face 'all-the-icons-lyellow))
+  ;;           (Event         . ,(all-the-icons-material "event"                    :face 'all-the-icons-lyellow))
+  ;;           (Operator      . ,(all-the-icons-material "control_point"            :face 'all-the-icons-lred))
+  ;;           (TypeParameter . ,(all-the-icons-material "class"                    :face 'all-the-icons-lgreen))
+  ;;           (Template      . ,(all-the-icons-material "radio_button_checked"     :face 'all-the-icons-dpurple))
+  
+  ;;           (ElispFunction . ,(all-the-icons-material "functions"                :face 'all-the-icons-cyan-alt))
+  ;;           (ElispVariable . ,(all-the-icons-material "check_circle"             :face 'all-the-icons-blue-alt))
+  ;;           (ElispFeature  . ,(all-the-icons-material "stars"                    :face 'all-the-icons-lpurple))
+  ;;           (ElispFace     . ,(all-the-icons-material "format_paint"             :face 'all-the-icons-purple)))))
   )
 
 
