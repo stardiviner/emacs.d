@@ -16,7 +16,7 @@
   (unless (boundp 'Org-prefix)
     (define-prefix-command 'Org-prefix))
   (define-key Org-prefix (kbd "M-c") 'org-contacts)
-  :config
+
   (setq org-capture-templates
         (append '(("C" "[C]ontact"
                    entry (file (lambda () (car org-contacts-files)))
@@ -53,7 +53,18 @@
   (setq org-contacts-matcher
         "NAME<>\"\"|EMAIL<>\"\"|Mailing-List<>\"\"|ALIAS<>\"\"|RELATIONSHIP<>\"\"|PHONE<>\"\"|ADDRESS<>\"\"|BIRTHDAY<>\"\"|PROGRAMMING-SKILLS<>\"\"|SKILLS<>\"\"|EDUCATION<>\"\"|JOBS<>\"\"|NOTE"
         )
-
+  
+  ;; avatar
+  (setq org-contacts-icon-use-gravatar nil
+        org-contacts-icon-property "AVATAR")
+  (setq org-contacts-birthday-property "BIRTHDAY"
+        org-contacts-birthday-format "Birthday: %h (%Y)")
+  
+  (dolist (hook '(message-mode-hook
+                  mu4e-compose-mode-hook))
+    (add-hook hook 'org-contacts-setup-completion-at-point))
+  
+  :config
   ;; [C-c C-x p] add "EMAIL" property complete with `mu4e~contacts' source.
   (when (and (featurep 'mu4e) (not (null mu4e~contacts)))
     (defun org-property-email-complete (prompt &rest args)
@@ -69,17 +80,7 @@
                 email)
             contact) ; the contact value is the email when no name.
         (user-error "`mu4e~contacts' is available after mu4e initialized.")))
-    (add-to-list 'org-property-set-functions-alist '("EMAIL" . org-property-email-complete)))
-
-  ;; avatar
-  (setq org-contacts-icon-use-gravatar nil
-        org-contacts-icon-property "AVATAR")
-  (setq org-contacts-birthday-property "BIRTHDAY"
-        org-contacts-birthday-format "Birthday: %h (%Y)")
-  
-  (dolist (hook '(message-mode-hook
-                  mu4e-compose-mode-hook))
-    (add-hook hook 'org-contacts-setup-completion-at-point)))
+    (add-to-list 'org-property-set-functions-alist '("EMAIL" . org-property-email-complete))))
 
 (use-package helm-org-rifle
   :ensure t
