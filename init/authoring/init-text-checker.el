@@ -102,6 +102,18 @@
 ;;               ;; NOTE this `flycheck-grammarly' causes suspend in `mu4e-compose-mode' buffer editing.
 ;;               (setq-local flycheck-checker 'grammarly-checker))))
 
+;;; [ spell-fu ] -- Fast lightweight highlighting of misspelled words.
+
+;; (use-package spell-fu
+;;   :quelpa (spell-fu :fetcher gitlab :repo "ideasman42/emacs-spell-fu")
+;;   :init
+;;   (defun my/spell-fu-setup-for-org ()
+;;     (setq spell-fu-faces-exclude '(org-meta-line org-link org-code))
+;;     (spell-fu-mode))
+;;   (add-hook 'org-mode-hook #'my/spell-fu-setup-for-org)
+;;   (add-hook 'markdown-mode-hook #'spell-fu-mode)
+;;   (add-hook 'clojure-mode-hook #'spell-fu-mode))
+
 
 (provide 'init-text-checker)
 
