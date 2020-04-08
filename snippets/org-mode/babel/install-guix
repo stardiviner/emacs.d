@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: babel-install-guix
+# key: babel-install-guix
+# group: babel.install
+# --
+**** Guix
+
+#+begin_src sh :async
+guix install $0
+#+end_src
