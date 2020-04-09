@@ -41,6 +41,14 @@
 
 (advice-add 'create-image :filter-args #'create-image-with-background-color)
 
+;;; insert Org inline image without description automatically detect link image extension.
+(defun my/org-insert-link-as-inline-image (orig-func link &optional description)
+  (if (member (file-name-extension link) image-file-name-extensions)
+      (setq description nil))
+  (funcall orig-func link description))
+
+(advice-add 'org-link-make-string :around #'my/org-insert-link-as-inline-image)
+
 
 
 (provide 'init-org-image)
