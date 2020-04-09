@@ -17,6 +17,9 @@
    ((featurep 'cocoa)
     (setq emacs-font-name "Monaco"))
    ((string-equal system-type "gnu/linux")
+    ;; "DejaVu Sans Mono", "Fira Code", "Hack", "Source Code Pro", "Noto Sans Mono", "Sarasa Gothic SC", "Sarasa Mono SC",
+    ;; "Comic Neue", "Comic Sans MS", "FZSuXinShiLiuKaiS-R-GB",
+    ;; "ETBembo", "ETBookOT", "Gabriola"
     (setq emacs-font-name "DejaVu Sans Mono")))
   (when (display-grayscale-p)
     (set-frame-font (format "%s-%s" (eval emacs-font-name) (eval emacs-font-size)))
