@@ -1,6 +1,6 @@
 ;;; init-HiDPI.el ---  -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-03-20 23:30:38 stardiviner>
+;;; Time-stamp: <2020-04-09 15:37:19 stardiviner>
 
 ;;; Commentary:
 
@@ -8,21 +8,6 @@
 
 ;;; Code:
 
-;;; [ variable-pitch-mode ]
-
-(set-face-attribute 'variable-pitch nil
-                    :family "DejaVu Sans Mono"
-                    :height 100
-                    :weight 'normal :slant 'normal)
-(set-face-attribute 'fixed-pitch nil
-                    :family "DejaVu Sans Mono"
-                    :height 100
-                    :weight 'normal :slant 'normal)
-(set-face-attribute 'fixed-pitch-serif nil
-                    :family "DejaVu Serif"
-                    :height 100
-                    :weight 'normal :slant 'italic)
-
 ;;; Override Org customized settings
 ;;; avoid small Org inline image size
 (add-hook 'org-mode-hook (lambda () (setq org-image-actual-width t)))
