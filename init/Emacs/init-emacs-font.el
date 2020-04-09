@@ -11,15 +11,25 @@
 
 ;;; Code:
 
-(cl-case system-type
-  ('gnu/linux
-   (set-frame-font (format "%s:pixelsize=%d" "Sarasa Mono SC" 12) t)
-   (set-face-attribute 'default nil
-                       :family "Sarasa Mono SC"
-                       :font "Sarasa Mono SC"
-                       :height 100))
-  ('darwin
-   (set-frame-font (format "%s:pixelsize=%d" "Fira Code" 12) t)))
+(let ((emacs-font-size 9)
+      emacs-font-name)
+  (cond
+   ((featurep 'cocoa)
+    (setq emacs-font-name "Monaco"))
+   ((string-equal system-type "gnu/linux")
+    (setq emacs-font-name "DejaVu Sans Mono")))
+  (when (display-grayscale-p)
+    (set-frame-font (format "%s-%s" (eval emacs-font-name) (eval emacs-font-size)))
+    (set-fontset-font (frame-parameter nil 'font) 'unicode (eval emacs-font-name))))
+
+(with-eval-after-load 'org
+  (defun org-buffer-face-mode-variable ()
+    (interactive)
+    (make-face 'width-font-face)
+    (set-face-attribute 'width-font-face nil :font "Sarasa Mono SC 10")
+    (setq buffer-face-mode-face 'width-font-face)
+    (buffer-face-mode))
+  (add-hook 'org-mode-hook 'org-buffer-face-mode-variable))
 
 
 ;; set Unicode characters font
