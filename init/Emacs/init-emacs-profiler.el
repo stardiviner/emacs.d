@@ -1,6 +1,6 @@
 ;;; init-emacs-profiler.el --- init profilers for Emacs.
 
-;;; Time-stamp: <2019-01-16 17:28:11 stardiviner>
+;;; Time-stamp: <2020-04-09 23:39:14 stardiviner>
 
 ;;; Commentary:
 
@@ -10,15 +10,10 @@
 
 ;;; [ profiler ] -- Emacs buolt-in profiler.
 
-;; (require 'profiler)
-;;
-;; (setq profiler-report-cpu-line-format '((75 left)
-;;                                         (24 right ((19 right)
-;;                                                    (5 right))))
-;;       profiler-report-memory-line-format '((80 left)
-;;                                            (19 right
-;;                                                ((14 right profiler-format-number)
-;;                                                 (5 right)))))
+(setq profiler-report-cpu-line-format '((120 left)
+                                        (24 right ((19 right) (5 right))))
+      profiler-report-memory-line-format '((120 left)
+                                           (19 right ((14 right profiler-format-number) (5 right)))))
 
 ;;; [ elp ] -- Emacs Lisp profiler.
 
