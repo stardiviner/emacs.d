@@ -8,20 +8,6 @@
 
 ;;; Code:
 
-;;; set font
-;; (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 22) t)
-
-(set-face-attribute 'default nil
-                    :family "DejaVu Sans Mono"
-                    :font "DejaVu Sans Mono 8"
-                    :height 90)
-
-(when (display-graphic-p)
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font)
-                      charset
-                      (font-spec :family "Noto Sans CJK SC" :size 28))))
-
 ;;; [ variable-pitch-mode ]
 
 (set-face-attribute 'variable-pitch nil
