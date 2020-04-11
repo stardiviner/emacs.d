@@ -15,7 +15,7 @@
   :init (setq dash-docs-docsets-path (expand-file-name "~/.docsets")
               dash-docs-min-length 3
               ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
-              dash-docs-browser-func 'browse-url-generic
+              dash-docs-browser-func 'eww-browse-url
               dash-docs-candidate-format "%d  %n  (%t)"
               dash-docs-enable-debugging nil)
   ;; (setq dash-docs-common-docsets ; it will DUPLICATE with major mode docsets.
