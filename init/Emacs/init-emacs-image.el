@@ -16,10 +16,7 @@
 
 ;;; [ auto-image-file-mode ]
 
-;; (setq image-file-name-extensions
-;;       '("png" "jpeg" "jpg" "gif"
-;;         "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm" "pnm"
-;;         "svg"))
+(add-to-list 'image-file-name-extensions "webp" 'append)
 
 ;; auto display image
 ;; (auto-image-file-mode t) ; NOTE: this will open image file with "actual size" instead of fit window width.
