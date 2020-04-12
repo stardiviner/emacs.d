@@ -198,9 +198,9 @@
   :commands (company-box-mode)
   :hook (company-mode . company-box-mode)
   :config
-  (setq company-box-show-single-candidate t ; for still can use doc popup keybinding.
+  (setq company-box-doc-delay 0.5
+        ;; company-box-show-single-candidate t ; for still can use doc popup keybinding.
         ;; company-box-doc-enable nil ; disable auto `company-box-doc' timer.
-        company-box-doc-delay 0.5
         company-box-icons-image-size 25)
 
   ;; Use VSCode-like images
