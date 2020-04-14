@@ -10,6 +10,7 @@
 ;;; [ org-contacts ] -- Contacts management in Org-mode.
 
 (use-package org-contacts
+  :demand t
   :commands (org-contacts org-contacts-anniversaries)
   :init (setq org-contacts-files (list (concat org-directory "/Contacts/Contacts.org")))
   ;; Create agenda view for contacts matching NAME.
