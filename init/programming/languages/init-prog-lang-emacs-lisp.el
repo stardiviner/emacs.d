@@ -110,6 +110,12 @@
   ;; syntax highlighting of dash functions.
   :init (eval-after-load 'dash '(dash-enable-font-lock)))
 
+;;; [ elisp-depmap ] -- A library to generate a dependency map for elisp projects.
+
+(use-package elisp-depmap
+  :ensure t
+  :commands (elisp-depmap-graphviz-digraph elisp-depmap-graphviz elisp-depmap-makesummarytable))
+
 
 (provide 'init-prog-lang-emacs-lisp)
 
