@@ -11,6 +11,19 @@
   (define-prefix-command 'audio-prefix))
 (define-key tools-prefix (kbd "C-a") 'audio-prefix)
 
+(defun sox-record-sound ()
+  "Record sound with SoX command in Emacs."
+  (interactive)
+  (let ((kill-buffer-query-functions nil)
+        (buffer (shell "*SoX recording*")))
+    (comint-simple-send buffer "sox -t alsa default ~/sox-recording.wav")
+    (sit-for 2))
+  (message "Recording sound to file '~/sox-recording.wav' in background."))
+
+(add-to-list 'display-buffer-alist
+             '("^\\*SoX recording\\*" (display-buffer-below-selected)))
+
+(define-key audio-prefix (kbd "r") 'sox-record-sound)
 
 ;;; [ ecasound ] -- command-line multitrack audio processor.
 
