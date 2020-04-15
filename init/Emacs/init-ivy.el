@@ -23,17 +23,17 @@
 
 ;;; [ ivy-rich ] -- More friendly display transformer for ivy.
 
-(use-package ivy-rich
-  :ensure t
-  :defer t
-  :commands (ivy-rich-mode)
-  :init (ivy-rich-mode 1)
-  ;;; [ all-the-icons-ivy-rich ] -- Better experience with icons for Ivy.
-  (use-package all-the-icons-ivy-rich
-    :ensure t
-    :init (all-the-icons-ivy-rich-mode 1)
-    ;; fix extra spaces between icon and text issue
-    :config (setq all-the-icons-ivy-rich-icon-size 0.9)))
+;; (use-package ivy-rich
+;;   :ensure t
+;;   :defer t
+;;   :commands (ivy-rich-mode)
+;;   :init (ivy-rich-mode 1)
+;;   ;;; [ all-the-icons-ivy-rich ] -- Better experience with icons for Ivy.
+;;   (use-package all-the-icons-ivy-rich
+;;     :ensure t
+;;     :init (all-the-icons-ivy-rich-mode 1)
+;;     ;; fix extra spaces between icon and text issue
+;;     :config (setq all-the-icons-ivy-rich-icon-size 0.9)))
 
 ;;; [ counsel ]
 
@@ -75,10 +75,10 @@
 
 ;;; [ ivy-posframe ] -- Using posframe to show Ivy.
 
-(use-package ivy-posframe
-  :ensure t
-  :after ivy
-  :hook (after-init . ivy-posframe-mode))
+;; (use-package ivy-posframe
+;;   :ensure t
+;;   :after ivy
+;;   :hook (after-init . ivy-posframe-mode))
 
 
 (provide 'init-ivy)

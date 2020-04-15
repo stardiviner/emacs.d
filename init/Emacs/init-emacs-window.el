@@ -126,7 +126,7 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
   :config
   (setq golden-ratio-auto-scale nil
         golden-ratio-recenter t)
-  
+
   ;; Exclude following pattern buffers.
   (setq golden-ratio-exclude-modes
         (append golden-ratio-exclude-modes
@@ -149,7 +149,14 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
 
   ;; add extra commands to golden-ratio trigggers list.
   ;; (add-to-list 'golden-ratio-inhibit-functions 'pop-to-buffer) ; support for `popwin'
-  
+
+  ;; for `which-key'
+  ;; FIXME this make `golden-ratio' does not work.
+  ;; (with-eval-after-load 'which-key
+  ;;   (add-to-list 'golden-ratio-exclude-buffer-names which-key-buffer-name)
+  ;;   (add-to-list 'golden-ratio-inhibit-functions 'which-key--start-timer)
+  ;;   (add-to-list 'golden-ratio-inhibit-functions 'which-key--update))
+
   (add-to-list 'golden-ratio-extra-commands 'window-number-select) ; support for `window-number'
   (add-to-list 'golden-ratio-extra-commands 'ace-window) ; support for `ace-window'
   (add-to-list 'golden-ratio-extra-commands 'org-noter-sync-current-page-or-chapter) ; support for `org-noter'
@@ -163,7 +170,7 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
   (add-to-list 'golden-ratio-exclude-buffer-names calendar-other-calendars-buffer)
   (add-to-list 'golden-ratio-exclude-buffer-names lunar-phases-buffer)
   (add-to-list 'golden-ratio-exclude-buffer-names solar-sunrises-buffer)
-  
+
   ;; disable in ediff session.
   (add-hook 'ediff-before-setup-windows-hook #'(lambda () (golden-ratio-mode -1)))
   (add-hook 'ediff-quit-hook #'(lambda () (golden-ratio-mode 1)))
@@ -175,7 +182,7 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
     (golden-ratio-mode 1))
   (advice-add 'eyebrowse-last-window-config :around #'golden-ratio-eyebrowse-workaround--advice)
   (advice-add 'eyebrowse-switch-to-window-config :around #'golden-ratio-eyebrowse-workaround--advice)
-  
+
   (golden-ratio-mode 1))
 
 
