@@ -133,6 +133,7 @@
 (require 'init-emacs-highlight)
 (require 'init-emacs-regex)
 (require 'init-emacs-overlay)
+(require 'init-emacs-terminal)
 (require 'init-emacs-shell)
 (require 'init-emacs-comint)
 (require 'init-emacs-subprocess)
