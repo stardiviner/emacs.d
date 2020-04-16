@@ -40,8 +40,9 @@
                        'company-pseudo-tooltip-unless-just-one-frontend
                      'company-pseudo-tooltip-unless-just-one-frontend-with-delay)
                   company-preview-if-just-one-frontend
-                  company-echo-metadata-frontend
-                  company-preview-common-frontend))
+                  ;; company-echo-metadata-frontend
+                  ;; company-preview-common-frontend
+                  ))
   
   ;; company-tabnine: A company-mode backend for TabNine, the all-language autocompleter.
   (use-package company-tabnine
