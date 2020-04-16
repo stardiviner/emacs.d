@@ -99,7 +99,7 @@
   :defer t
   :delight aggressive-indent-mode
   :commands (aggressive-indent-mode global-aggressive-indent-mode)
-  :init (setq aggressive-indent-sit-for-time 0.1)
+  :init (global-aggressive-indent-mode 1)
   :config
   ;; enable on mode locally
   ;; (defun my/aggressive-indent-enable ()
@@ -110,13 +110,13 @@
   ;; (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
 
   ;; enable globally
+  (add-to-list 'aggressive-indent-excluded-modes 'org-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'snippet-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'cider-repl-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'csharp-mode)
   (add-to-list 'aggressive-indent-dont-electric-modes 'python-mode)
-  (global-aggressive-indent-mode 1)
 
   ;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
   ;; **don't** want indentation to happen.  For instance, if you think it's
