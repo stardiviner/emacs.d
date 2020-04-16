@@ -48,9 +48,8 @@
   ;; company-tabnine: A company-mode backend for TabNine, the all-language autocompleter.
   (use-package company-tabnine
     :ensure t
-    ;; :init (add-to-list 'company-backends #'company-tabnine)
-    ;; (company-tng-configure-default)
     :config
+    (add-to-list 'company-backends #'company-tabnine)
     ;; The free version of TabNine is good enough,
     ;; and below code is recommended that TabNine not always
     ;; prompt me to purchase a paid version in a large project.
@@ -63,11 +62,7 @@
             ad-do-it)))))
 
   (setq-default company-backends
-                `((company-capf         ; `completion-at-point-functions'
-                   ,@(if (and (featurep 'company-tabnine)
-                              (or (derived-mode-p 'c-mode)
-                                  (derived-mode-p 'c++-mode)))
-                         (list 'company-tabnine))
+                '((company-capf         ; `completion-at-point-functions'
                    :separate company-yasnippet
                    ;; :separate company-tempo  ; tempo: flexible template insertion
                    :separate company-keywords)
