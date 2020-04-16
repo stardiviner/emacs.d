@@ -36,11 +36,12 @@
 
   ;; `company-mode' frontend showing the selection as if it had been inserted.
   (setq-default company-frontends
-                `(,(if (zerop company-tooltip-idle-delay)
-                       'company-pseudo-tooltip-unless-just-one-frontend
-                     'company-pseudo-tooltip-unless-just-one-frontend-with-delay)
-                  company-preview-if-just-one-frontend
-                  ;; company-echo-metadata-frontend
+                `(company-pseudo-tooltip-frontend
+                  ;; ,(if (zerop company-tooltip-idle-delay)
+                  ;;      'company-pseudo-tooltip-unless-just-one-frontend
+                  ;;    'company-pseudo-tooltip-unless-just-one-frontend-with-delay)
+                  ;; company-preview-if-just-one-frontend
+                  company-echo-metadata-frontend
                   ;; company-preview-common-frontend
                   ))
   
@@ -67,13 +68,10 @@
                               (or (derived-mode-p 'c-mode)
                                   (derived-mode-p 'c++-mode)))
                          (list 'company-tabnine))
-                   ;; :with company-semantic
-                   ;; company-gtags company-etags
                    :separate company-yasnippet
-                   :separate company-tempo  ; tempo: flexible template insertion
-                   :separate company-keywords
-                   :separate company-abbrev)
-                  company-dabbrev-code
+                   ;; :separate company-tempo  ; tempo: flexible template insertion
+                   :separate company-keywords)
+                  (company-dabbrev-code :with company-abbrev)
                   company-files))
   
   :config
