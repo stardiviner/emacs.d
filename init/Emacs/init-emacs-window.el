@@ -118,73 +118,12 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
   (with-eval-after-load 'ace-window
     (add-to-list 'aw-dispatch-alist '(?w hydra-frame-window/body) t)))
 
-;;; [ golden-ratio ] -- Automatic resizing of Emacs windows to the golden ratio.
+;;; [ zoom ] -- Fixed and automatic balanced window layout.
 
-(use-package golden-ratio
+(use-package zoom
   :ensure t
-  ;; :if (< (frame-width) 200) ; enable `golden-ratio' only in small screen.
-  :config
-  (setq golden-ratio-auto-scale nil
-        golden-ratio-recenter t)
-
-  ;; Exclude following pattern buffers.
-  (setq golden-ratio-exclude-modes
-        (append golden-ratio-exclude-modes
-                '(ediff-mode
-                  calendar-mode calc-mode dired-mode
-                  speedbar-mode project-explorer-mode
-                  gnus-summary-mode gnus-article-mode
-                  mu4e-headers-mode mu4e-compose-mode
-                  help-mode
-                  restclient-mode)))
-
-  ;; (setq golden-ratio-exclude-buffer-regexp
-  ;;       '("\\`\\*.*?\\*\\'" ; "*...*" buffers
-  ;;         "\\` \\*.*?\\*\\'" ; " *...*" buffers
-  ;;         ))
-  (add-to-list 'golden-ratio-exclude-buffer-names "*rg*")
-  (add-to-list 'golden-ratio-exclude-buffer-names " *Org todo*")
-  (add-to-list 'golden-ratio-exclude-buffer-names " *Org tags*")
-  (add-to-list 'golden-ratio-exclude-buffer-names " *Org Attach*")
-
-  ;; add extra commands to golden-ratio trigggers list.
-  ;; (add-to-list 'golden-ratio-inhibit-functions 'pop-to-buffer) ; support for `popwin'
-
-  ;; for `which-key'
-  ;; FIXME this make `golden-ratio' does not work.
-  ;; (with-eval-after-load 'which-key
-  ;;   (add-to-list 'golden-ratio-exclude-buffer-names which-key-buffer-name)
-  ;;   (add-to-list 'golden-ratio-inhibit-functions 'which-key--start-timer)
-  ;;   (add-to-list 'golden-ratio-inhibit-functions 'which-key--update))
-
-  (add-to-list 'golden-ratio-extra-commands 'window-number-select) ; support for `window-number'
-  (add-to-list 'golden-ratio-extra-commands 'ace-window) ; support for `ace-window'
-  (add-to-list 'golden-ratio-extra-commands 'org-noter-sync-current-page-or-chapter) ; support for `org-noter'
-  (add-to-list 'golden-ratio-extra-commands 'org-noter-sync-current-note) ; support for `org-noter'
-
-  ;; exclude calendar buffers
-  (add-to-list 'golden-ratio-exclude-modes 'calendar-mode)
-  (add-to-list 'golden-ratio-exclude-buffer-names calendar-buffer)
-  (add-to-list 'golden-ratio-exclude-buffer-names holiday-buffer)
-  (add-to-list 'golden-ratio-exclude-buffer-names diary-fancy-buffer)
-  (add-to-list 'golden-ratio-exclude-buffer-names calendar-other-calendars-buffer)
-  (add-to-list 'golden-ratio-exclude-buffer-names lunar-phases-buffer)
-  (add-to-list 'golden-ratio-exclude-buffer-names solar-sunrises-buffer)
-
-  ;; disable in ediff session.
-  (add-hook 'ediff-before-setup-windows-hook #'(lambda () (golden-ratio-mode -1)))
-  (add-hook 'ediff-quit-hook #'(lambda () (golden-ratio-mode 1)))
-
-  ;; fix golden-ratio conflict with eyebrowse.
-  (defun golden-ratio-eyebrowse-workaround--advice (orig-fun &rest args)
-    (golden-ratio-mode -1)
-    (apply orig-fun args)
-    (golden-ratio-mode 1))
-  (advice-add 'eyebrowse-last-window-config :around #'golden-ratio-eyebrowse-workaround--advice)
-  (advice-add 'eyebrowse-switch-to-window-config :around #'golden-ratio-eyebrowse-workaround--advice)
-
-  (golden-ratio-mode 1))
-
+  :init (zoom-mode)
+  :config (setq zoom-size '(0.618 . 0.618)))
 
 ;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
 
