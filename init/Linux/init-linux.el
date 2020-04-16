@@ -39,24 +39,12 @@
     :after nginx-mode
     :init (add-hook 'nginx-mode-hook #'company-nginx-keywords)))
 
-;;; [ apache-mode ]
-
-(use-package apache-mode
-  :ensure t
-  :defer t)
-
 ;;; [ Conky ]
 
 (use-package lua-mode
   :ensure t
   :defer t
   :mode (("\\.conkyrc\\'" . lua-mode)))
-
-;;; [ ini-mode ] -- a major mode for *.ini files.
-
-(use-package ini-mode
-  :ensure t
-  :defer t)
 
 ;;; [ PulseAudio ]
 

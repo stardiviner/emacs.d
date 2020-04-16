@@ -6,15 +6,7 @@
 ;; - https://www.gnu.org/philosophy/right-to-read.html
 
 ;;; Code:
-
-;;; [ idle-scroll ] -- idle scroll buffer one line every second.
-
-(use-package idle-scroll
-  :ensure t
-  :defer t
-  :commands (idle-scroll-mode)
-  :bind (:map tools-prefix ("M-r" . idle-scroll-mode)))
-
+;;===============================================================================
 ;;; [ novel reading mode ]
 
 (defun novel-read-mode ()
@@ -66,15 +58,6 @@ Author: xah"
   (set-face-attribute 'spray-accent-face nil
                       :inherit 'spray-base-face
                       :foreground "red"))
-
-;;; [ greader ] -- gnamù reader, a reader with Espeak TTS.
-
-(use-package greader
-  :ensure t
-  :commands (greader-mode)
-  :bind (:map tools-prefix ("s" . greader-mode))
-  ;; disable show shell command process output to minibuffer.
-  :init (setq greader-filter-enabled nil))
 
 ;;; [ amread-mode ] -- a minor mode helping user speed-reading. Similar with Spritz (speed read).
 

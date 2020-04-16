@@ -27,15 +27,15 @@
 
 ;;; [ alarm-clock ] -- An alarm clock for Emacs.
 
-(use-package alarm-clock
-  :ensure t
-  :commands (alarm-clock-set alarm-clock-list-view))
+;; (use-package alarm-clock
+;;   :ensure t
+;;   :commands (alarm-clock-set alarm-clock-list-view))
 
 ;;; [ egg-timer ] -- Commonly used intervals for setting timers while working.
 
-(use-package egg-timer
-  :ensure t
-  :commands (egg-timer-schedule))
+;; (use-package egg-timer
+;;   :ensure t
+;;   :commands (egg-timer-schedule))
 
 
 (provide 'init-tool-clock)

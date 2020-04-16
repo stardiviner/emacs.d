@@ -113,30 +113,27 @@
 
 ;;; [ org-ref ] -- citations, cross-references and bibliographies in Org Mode.
 
-(use-package org-ref
-  :ensure t
-  :defer t
-  :commands (org-ref)
-  :init
-  (setq bibtex-completion-pdf-open-function 'org-open-file)
-  (setq org-latex-prefer-user-labels t)
-  (setq org-ref-bibtex-hydra-key-binding "\C-cj")
-
-  (unless (boundp 'org-ref-prefix)
-    (define-prefix-command 'org-ref-prefix))
-  (define-key Org-prefix (kbd "C-]") 'org-ref-prefix)
-
-  (define-key org-ref-prefix (kbd "C-]") 'org-ref-insert-link)
-  (define-key org-ref-prefix (kbd "c") 'org-ref-helm-insert-cite-link)
-  (define-key org-ref-prefix (kbd "l") 'org-ref-helm-insert-label-link)
-  (define-key org-ref-prefix (kbd "r") 'org-ref-helm-insert-ref-link)
-
-  ;; Let org-mode auto process the LaTeX export to PDF process.
-  (setq org-latex-pdf-process
-        '("pdflatex -interaction nonstopmode -output-directory %o %f"
-          "bibtex %b"
-          "pdflatex -interaction nonstopmode -output-directory %o %f"
-          "pdflatex -interaction nonstopmode -output-directory %o %f")))
+;; (use-package org-ref
+;;   :ensure t
+;;   :defer t
+;;   :commands (org-ref)
+;;   :init
+;;   (setq bibtex-completion-pdf-open-function 'org-open-file)
+;;   (setq org-latex-prefer-user-labels t)
+;;   (setq org-ref-bibtex-hydra-key-binding "\C-cj")
+;;   (unless (boundp 'org-ref-prefix)
+;;     (define-prefix-command 'org-ref-prefix))
+;;   (define-key Org-prefix (kbd "C-]") 'org-ref-prefix)
+;;   (define-key org-ref-prefix (kbd "C-]") 'org-ref-insert-link)
+;;   (define-key org-ref-prefix (kbd "c") 'org-ref-helm-insert-cite-link)
+;;   (define-key org-ref-prefix (kbd "l") 'org-ref-helm-insert-label-link)
+;;   (define-key org-ref-prefix (kbd "r") 'org-ref-helm-insert-ref-link)
+;;   ;; Let org-mode auto process the LaTeX export to PDF process.
+;;   (setq org-latex-pdf-process
+;;         '("pdflatex -interaction nonstopmode -output-directory %o %f"
+;;           "bibtex %b"
+;;           "pdflatex -interaction nonstopmode -output-directory %o %f"
+;;           "pdflatex -interaction nonstopmode -output-directory %o %f")))
 
 
 (provide 'init-org-latex)

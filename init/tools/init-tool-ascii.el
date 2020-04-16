@@ -52,9 +52,7 @@
               ("V" . boxquote-describe-variable)
               ("C-w" . boxquote-kill)
               ("C-y" . boxquote-yank)
-              ("p" . boxquote-paragraph)
-              )
-  )
+              ("p" . boxquote-paragraph)))
 
 
 (provide 'init-tool-ascii)

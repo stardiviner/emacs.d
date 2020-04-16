@@ -33,11 +33,10 @@
   :ensure t
   :defer t
   :commands (bpr-spawn bpr-open-last-buffer)
-  :config
-  (setq bpr-colorize-output t
-        bpr-process-mode #'comint-mode
-        ;; bpr-on-completion #'FUNC
-        ))
+  :init (setq bpr-colorize-output t
+              ;; bpr-process-mode #'comint-mode
+              ;; bpr-on-completion #'FUNC
+              ))
 
 ;;; [ Threads ]
 

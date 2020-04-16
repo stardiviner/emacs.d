@@ -165,10 +165,6 @@
 (add-hook 'prog-mode-hook
           #'(lambda () (setq-local comment-auto-fill-only-comments t)))
 
-(use-package aggressive-fill-paragraph
-  :ensure t
-  :defer t)
-
 (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
 
 ;;; [ page (^L) ]

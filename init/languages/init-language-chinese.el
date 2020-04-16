@@ -9,24 +9,12 @@
 
 ;;; [ pangu-spacing ] -- Emacs minor-mode to add space between Chinese and English characters.
 
-(use-package pangu-spacing
-  :ensure t
-  :defer t
-  :init (global-pangu-spacing-mode 1)
-  (add-hook 'org-mode-hook
-            '(lambda () (set (make-local-variable 'pangu-spacing-real-insert-separtor) t))))
-
-;;; [ chinese-word-at-point ] -- Get (most likely) Chinese word under the cursor in Emacs.
-
-(use-package chinese-word-at-point
-  :ensure t
-  :defer t)
-
-;;; [ pinyinlib ] -- Elisp library for converting first letter of Pinyin to Simplified/Traditional Chinese characters.
-
-(use-package pinyinlib
-  :ensure t
-  :defer t)
+;; (use-package pangu-spacing
+;;   :ensure t
+;;   :defer t
+;;   :init (global-pangu-spacing-mode 1)
+;;   (add-hook 'org-mode-hook
+;;             '(lambda () (set (make-local-variable 'pangu-spacing-real-insert-separtor) t))))
 
 ;;; [ pinyin-search ] -- Search Chinese by Pinyin
 

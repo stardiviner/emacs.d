@@ -120,9 +120,9 @@
 
 ;;; [ guess-word ] -- Emacs guess word game for learning ESL. Emacs 背单词.
 
-(use-package guess-word
-  :quelpa (guess-word :fetcher github :repo "Qquanwei/emacs-guess-word-game")
-  :commands (guess-word))
+;; (use-package guess-word
+;;   :quelpa (guess-word :fetcher github :repo "Qquanwei/emacs-guess-word-game")
+;;   :commands (guess-word))
 
 
 (provide 'init-org-drill)

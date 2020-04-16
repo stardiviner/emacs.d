@@ -30,10 +30,10 @@
 
 ;;; [ demo-it ] -- demonstrations and presentations with `org-tree-slide' from within Emacs.
 
-(use-package demo-it
-  :ensure t
-  :defer t
-  :commands (demo-it-start demo-it-create))
+;; (use-package demo-it
+;;   :ensure t
+;;   :defer t
+;;   :commands (demo-it-start demo-it-create))
 
 ;;; [ ox-reveal ] -- Org-mode export with Reveal.js.
 

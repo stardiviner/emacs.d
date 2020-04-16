@@ -19,20 +19,26 @@
 
 ;;; [ bibtex ] -- BibTeX mode for GNU Emacs.
 
-(use-package bibtex
-  :defer t
-  :config
-  (use-package bibtex-style
-    :ensure t)
-  (use-package bibtex-utils
-    :ensure t))
+(use-package bibtex)
+(use-package bibtex-style)
+
+(use-package bibtex-utils
+  :ensure t)
 
 ;;; ----------------------------------------------------------------------------
+;;; [ bibtex-completion ] -- A BibTeX backend for completion frameworks.
+
+(use-package bibtex-completion
+  :ensure t
+  :defer t)
+
 ;;; [ helm-bibtex ] -- Helm interface for bibliography manager.
 
 (use-package helm-bibtex
+  :if (featurep 'helm)
   :ensure t
   :defer t
+  :commands (helm-bibtex helm-bibtex-with-local-bibliography)
   :bind (:map bibliograph-prefix ("h" . helm-bibtex))
   :config
   (setq bibtex-completion-bibliography "~/Org/Bibliography/index.bib"
@@ -62,12 +68,6 @@
 
 ;; (use-package bibretrieve
 ;;   :ensure t)
-
-(use-package helm-bibtex
-  :if (featurep 'helm)
-  :ensure t
-  :defer t
-  :commands (helm-bibtex helm-bibtex-with-local-bibliography))
 
 ;; (use-package ivy-bibtex
 ;;   :if (featurep 'ivy)

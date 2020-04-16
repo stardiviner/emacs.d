@@ -37,9 +37,7 @@
       ))
 
   (define-key artist-mode-map (kbd "C-c C-a C-c") 'artist-select-colors)
-  (define-key artist-mode-map (kbd "C-c C-o") 'artist-select-operation)
-  )
-
+  (define-key artist-mode-map (kbd "C-c C-o") 'artist-select-operation))
 
 ;;; [ picture-mode ]
 

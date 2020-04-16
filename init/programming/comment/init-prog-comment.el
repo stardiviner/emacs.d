@@ -87,12 +87,6 @@ column.  Place the point after the comment box."
                                     ('dark
                                      (color-darken-name (face-background 'default) 5)))))
 
-;;; [ org-commentary ] -- insert/generate/update conventional library headers using Org-mode.
-
-(use-package org-commentary
-  :ensure t
-  :commands (org-commentary-update))
-
 
 (provide 'init-prog-comment)
 

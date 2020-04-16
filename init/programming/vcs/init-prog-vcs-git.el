@@ -154,13 +154,6 @@
 ;; (use-package magit-tbdiff
 ;;   :ensure t)
 
-;;; [ magit-diff-flycheck ] -- Flycheck for Magit diff buffers!
-
-(use-package magit-diff-flycheck
-  :ensure t
-  :defer t
-  :commands (magit-diff-flycheck))
-
 ;;; [ magit-lfs ] -- Magit support for GLFS: Git Large File System
 
 ;; (use-package magit-lfs
@@ -311,12 +304,6 @@
 ;;   :config
 ;;   (setq vc-git-diff-switches '("--histogram"))
 ;;   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
-
-;;; [ line-reminder ] -- Remind current line status by current buffer.
-
-;; (use-package line-reminder
-;;   :ensure t
-;;   :init (global-line-reminder-mode t))
 
 ;;; [ vc-msg ] -- Show commit message of current line in Emacs.
 

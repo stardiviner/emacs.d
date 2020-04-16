@@ -10,8 +10,6 @@
 ;;; [ rst ] -- Mode for viewing and editing reStructuredText-documents.
 
 (use-package rst
-  :ensure t
-  :defer t
   :commands (rst-mode)
   :config (add-hook 'rst-adjust-hook 'rst-toc-update))
 
@@ -20,16 +18,14 @@
 (use-package auto-complete-rst
   :ensure t
   :defer t
-  :mode "\\.rst\'"
-  :config
-  (setq auto-complete-rst-other-sources
-        '(ac-source-filename
-          ac-source-abbrev
-          ac-source-dictionary
-          ac-source-yasnippet))
-
-  (add-hook 'rst-mode-hook #'auto-complete-mode)
-  (auto-complete-rst-init))
+  :mode ("\\.rst\'")
+  :hook (rst-mode . auto-complete-mode)
+  :init (setq auto-complete-rst-other-sources
+              '(ac-source-filename
+                ac-source-abbrev
+                ac-source-dictionary
+                ac-source-yasnippet))
+  :config (auto-complete-rst-init))
 
 ;;; [ ox-rst ] -- reStructuredText export backend for Org-mode.
 

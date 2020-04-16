@@ -448,44 +448,6 @@ With value selected from a list of available sessions."
   :ensure t
   :defer t)
 
-;;; [ 4clojure ] -- Open and evaluate 4clojure.com questions in Emacs.
-
-(use-package 4clojure
-  :ensure t
-  :defer t
-  :config
-  (defadvice 4clojure-open-question (around 4clojure-open-question-around)
-    "Start a cider/nREPL connection if one hasn't already been started when
-opening 4clojure questions"
-    ad-do-it
-    (unless cider-current-clojure-buffer
-      (cider-jack-in)))
-
-  (defun my/4clojure-check-and-proceed ()
-    "Check the answer and show the next question if it worked."
-    (interactive)
-    (let ((result (4clojure-check-answers)))
-      (unless (string-match "failed." result)
-        (4clojure-next-question))))
-  (define-key clojure-mode-map (kbd "C-c C-c") 'my/4clojure-check-and-proceed))
-
-;;; [ YeSQL Ghosts ] -- Display ghostly YeSQL defqueries inline, in Emacs.
-
-;; (use-package yesql-ghosts
-;;   :ensure t
-;;   :defer t
-;;   :init (setq yesql-ghosts-show-ghosts-automatically t
-;;               yesql-ghosts-show-descriptions t)
-;;   :config (add-hook 'cider-mode-hook 'yesql-ghosts-auto-show-ghosts))
-
-;;; [ HugSQL Ghosts ] -- Display ghostly HugSQL defqueries inline, in Emacs.
-
-;; (use-package hugsql-ghosts
-;;   :ensure t
-;;   :defer t
-;;   :init (setq hugsql-ghosts-newline-before-docstrings t)
-;;   :config (add-hook 'cider-mode-hook 'hugsql-ghosts-install-hook))
-
 (with-eval-after-load 'org
   (add-to-list 'org-default-properties "clojars")
   (add-to-list 'org-default-properties "Maven"))

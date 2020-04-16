@@ -82,14 +82,6 @@
 ;;   :defer t
 ;;   :init (elmacro-mode 1))
 
-;;; [ suggest ] -- suggest elisp functions that give the output requested.
-
-(use-package suggest
-  :ensure t
-  :defer t
-  :commands (suggest))
-
-
 ;;; [ ERT ] -- Emacs Lisp Regression Testing.
 
 ;; (require 'ert)

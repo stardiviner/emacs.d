@@ -140,17 +140,6 @@
                  :empty-lines 1
                  :jump-to-captured t)))
 
-
-;;; [ elfeed-org ] -- Configure the Elfeed RSS reader with an Org Mode file.
-
-;; (use-package elfeed-org
-;;   :ensure t
-;;   :defer t
-;;   :after elfeed
-;;   :commands (elfeed-org)
-;;   :init (setq rmh-elfeed-org-files (list (expand-file-name "elfeed/elfeed.org" user-emacs-directory)))
-;;   :config (elfeed-org))
-
 
 (provide 'init-elfeed)
 

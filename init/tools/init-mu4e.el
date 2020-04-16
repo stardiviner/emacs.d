@@ -726,23 +726,6 @@
   (set-face-attribute 'mu4e-overview-unread nil
                       :foreground "lime green"))
 
-;; [ mu4e-alert ] -- Desktop notifications and modeline display for mu4e.
-
-;; (use-package mu4e-alert
-;;   :ensure t
-;;   :config
-;;   (mu4e-alert-set-default-style 'libnotify)
-;;   ;; disable mu4e-alert desktop libnotify notifications.
-;;   ;; (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
-;;   (setq mu4e-display-update-status-in-modeline t)
-;;   (mu4e-alert-enable-mode-line-display)
-;;   (setq mu4e-alert-interesting-mail-query
-;;         (concat
-;;          "flag:unread"
-;;          " AND NOT flag:trashed"
-;;          ;; " AND NOT maildir:"
-;;          "AND references: t")))
-
 
 
 (provide 'init-mu4e)

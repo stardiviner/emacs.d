@@ -185,13 +185,6 @@
 ;;                   (append '("compile_commands.json" ".ccls")
 ;;                           projectile-project-root-files-top-down-recurring))))
 
-;;; [ c-eldoc ] -- helpful description of the arguments to C functions.
-
-(use-package c-eldoc
-  :ensure t
-  :defer t
-  :hook (c-mode-hook . c-turn-on-eldoc-mode))
-
 ;;; [ flycheck-cstyle ] --
 
 ;; (use-package flycheck-cstyle

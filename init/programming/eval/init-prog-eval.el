@@ -119,25 +119,25 @@
 
 ;;; [ evalator ] -- Package for interactive transformation of data with helm.
 
-(use-package evalator
-  :ensure t
-  :ensure evalator-clojure
-  :defer t
-  :init
-  (unless (boundp 'evalator-prefix)
-    (define-prefix-command 'evalator-prefix))
-  (define-key eval-prefix (kbd "v") 'evalator-prefix)
-  (define-key evalator-prefix (kbd "e") 'evalator)
-  (define-key evalator-prefix (kbd "x") 'evalator-explicit)
-  (define-key evalator-prefix (kbd "r") 'evalator-resume)
-  (define-key evalator-prefix (kbd "i") 'evalator-insert-equiv-expr)
-  :config
-  ;; auto detect context
-  (setq evalator-config-mode-context-alist nil)
-  (add-to-list 'evalator-config-mode-context-alist
-               '(ruby-mode . evalator-ruby-context))
-  (add-to-list 'evalator-config-mode-context-alist
-               '(clojure-mode . evalator-clojure-context)))
+;; (use-package evalator
+;;   :ensure t
+;;   :ensure evalator-clojure
+;;   :defer t
+;;   :init
+;;   (unless (boundp 'evalator-prefix)
+;;     (define-prefix-command 'evalator-prefix))
+;;   (define-key eval-prefix (kbd "v") 'evalator-prefix)
+;;   (define-key evalator-prefix (kbd "e") 'evalator)
+;;   (define-key evalator-prefix (kbd "x") 'evalator-explicit)
+;;   (define-key evalator-prefix (kbd "r") 'evalator-resume)
+;;   (define-key evalator-prefix (kbd "i") 'evalator-insert-equiv-expr)
+;;   :config
+;;   ;; auto detect context
+;;   (setq evalator-config-mode-context-alist nil)
+;;   (add-to-list 'evalator-config-mode-context-alist
+;;                '(ruby-mode . evalator-ruby-context))
+;;   (add-to-list 'evalator-config-mode-context-alist
+;;                '(clojure-mode . evalator-clojure-context)))
 
 ;;; [ play-code ] -- Play code with online playgrounds.
 

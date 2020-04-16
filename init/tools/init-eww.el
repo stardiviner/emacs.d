@@ -60,6 +60,8 @@
   (define-key eww-mode-map (kbd "<enter>") 'eww-submit)
   )
 
+;;; [ eww-lnum ] -- Conkeror-like functionality for eww.
+
 ;; follow mode keybindings support.
 (use-package eww-lnum
   :ensure t

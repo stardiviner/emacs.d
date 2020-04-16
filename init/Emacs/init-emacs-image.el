@@ -33,20 +33,12 @@
 ;;   (add-hook 'wiki-mode-hook #'iimage-mode)
 ;;   (add-hook 'eshell-mode-hook 'iimage-mode))
 
-;;; [ picpocket ] -- image viewer
-
-(use-package picpocket
-  :ensure t
-  :defer t
-  :commands (picpocket))
-
 ;;; [ blimp ] -- Bustling Image Manipulation Package; a complete wrapper around all imagemagick commands.
 
 (use-package blimp
   :ensure t
   :bind (:map image-mode-map ("C-c C-i" . blimp-interface))
-  :config
-  (add-hook 'image-mode-hook 'blimp-mode))
+  :config (add-hook 'image-mode-hook 'blimp-mode))
 
 
 (provide 'init-emacs-image)

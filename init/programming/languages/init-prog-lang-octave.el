@@ -37,14 +37,11 @@
 
 (use-package ac-octave
   :ensure t
-  :defer t
-  :init
-  (add-hook 'octave-mode-hook
-            #'(lambda ()
-                (with-eval-after-load "ac-octave"
-                  (ac-octave-init)
-                  (add-to-list 'ac-sources 'ac-complete-octave))))
-  )
+  :config
+  (defun ac-octave-setup ()
+    (ac-octave-init)
+    (add-to-list 'ac-sources 'ac-complete-octave))
+  (add-hook 'octave-mode-hook #'ac-octave-setup))
 
 ;;; [ ob-octave ]
 

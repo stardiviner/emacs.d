@@ -23,14 +23,12 @@
               ("C-c C-p C-c" . haskell-process-cabal-build)
               ("C-c C-p M-c" . haskell-process-cabal)
               ([f8] . haskell-navigate-imports)
-              ([f5] . haskell-compile)
-              )
+              ([f5] . haskell-compile))
   :defer t
   :config
   (setq haskell-font-lock-symbols t
         haskell-stylish-on-save nil
-        haskell-tags-on-save nil
-        )
+        haskell-tags-on-save nil)
 
   ;; [ Haskell Interactive Mode ]
   (require 'haskell-interactive-mode)

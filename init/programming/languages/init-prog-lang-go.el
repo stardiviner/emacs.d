@@ -67,16 +67,6 @@
   :defer t
   :hook (go-mode . lsp))
 
-;;; [ go-capf ] -- provides a completion-at-point function to complete go code using gocode.
-
-;; (use-package go-capf
-;;   :ensure t
-;;   :after go-mode
-;;   :defer t
-;;   :init (add-hook 'go-mode-hook
-;;                   (lambda ()
-;;                     (add-hook 'completion-at-point-functions #'go-capf nil t))))
-
 ;;; [ gorepl-mode ] -- Go REPL Interactive Development in top of Gore.
 
 (use-package gorepl-mode

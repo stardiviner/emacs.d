@@ -61,18 +61,6 @@
 ;;   ;; (setq ein:enable-dynamic-javascript t)
 ;;   )
 
-;;; [ Apache Pig ]
-
-(use-package pig-mode
-  :ensure t
-  :defer t)
-
-;;; [ Apache Hive ]
-
-(use-package hive
-  :ensure t
-  :defer t)
-
 
 (provide 'init-data-science)
 

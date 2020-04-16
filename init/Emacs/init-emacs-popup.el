@@ -9,28 +9,6 @@
 
 ;;; [ tooltip ]
 
-(use-package tooltip
-  :defer t
-  :init (tooltip-mode 1)
-  ;; :config
-  ;; (setq tooltip-reuse-hidden-frame t)
-
-  ;; (setq-default tooltip-delay 0.3         ; default 0.7
-  ;;               tooltip-hide-delay 10     ; default 10
-  ;;               tooltip-short-delay 0.1   ; default 0.1
-  ;;               ;; tooltip-functions '(tooltip-help-tips)
-  ;;               ;; tooltip-hide-time nil
-  ;;               tooltip-x-offset 5
-  ;;               tooltip-y-offset +20
-  ;;               tooltip-frame-parameters '((name . "tooltip")
-  ;;                                          (internal-border-width . 2)
-  ;;                                          (border-width . 2))
-  ;;               )
-
-  ;; (tooltip-mode t)
-  )
-
-
 ;;; [ popup ]
 
 (use-package popup
@@ -40,24 +18,6 @@
               ("M-n" . popup-next)
               ("M-p" . popup-previous)
               ("M-j" . popup-select)))
-
-
-;;; [ pos-tip ]
-
-(use-package pos-tip
-  :ensure t
-  :defer t
-  :preface (setq x-gtk-use-system-tooltips nil)
-  :init (setq pos-tip-border-width 1
-              pos-tip-internal-border-width 2)
-  :config (set-face-attribute 'tooltip nil :family "Hack"))
-
-;;; [ showtip ]
-
-;; (use-package showtip
-;;   :ensure t)
-
-;;; [ child-frame ]
 
 ;;; [ posframe ] -- Pop a posframe (just a child-frame) at point.
 

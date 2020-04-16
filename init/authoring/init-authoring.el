@@ -7,13 +7,6 @@
 
 ;;; Code:
 
-;;; [ captain ] -- CAPiTalization is Automatic IN emacs.
-
-(use-package captain
-  :ensure t
-  :commands (captain-capitalize-word)
-  :config (global-captain-mode))
-
 ;;; [ org-if ] -- Interactive Fiction Authoring System for Emacs and Org-Mode.
 
 (use-package org-if

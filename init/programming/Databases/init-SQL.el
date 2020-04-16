@@ -268,6 +268,13 @@
 
 ;;; [ db-sql ] -- Connect to SQL server using tramp syntax.
 
+
+;;; [ format-table ] -- Parse and reformat tabular data in Emacs.
+
+(use-package format-table
+  :ensure t
+  :commands (format-table))
+
 
 (provide 'init-SQL)
 
