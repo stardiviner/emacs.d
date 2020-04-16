@@ -105,7 +105,7 @@
 ;;; [ spell-fu ] -- Fast lightweight highlighting of misspelled words.
 
 ;; (use-package spell-fu
-;;   :quelpa (spell-fu :fetcher gitlab :repo "ideasman42/emacs-spell-fu")
+;;   :ensure t
 ;;   :init
 ;;   (defun my/spell-fu-setup-for-org ()
 ;;     (setq spell-fu-faces-exclude '(org-meta-line org-link org-code))
