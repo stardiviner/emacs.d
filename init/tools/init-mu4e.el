@@ -9,7 +9,7 @@
 
 (use-package mu4e
   ;; :load-path "/usr/share/emacs/site-lisp/mu4e/" ; from Linux package
-  :load-path "~/Code/Emacs/mu/mu4e/" ; compile from source code
+  :load-path "~/Code/Emacs/mu/mu4e/"    ; compile from source code
   :defer t
   :commands (mu4e)
   :init (define-key tools-prefix (kbd "m") 'mu4e)
@@ -24,34 +24,25 @@
         '("numbchild@gmail.com" "stardiviner@qq.com" "348284894@qq.com"))
 
   ;; [ Maildir ]
-  (setq mu4e-maildir "~/Mails"       ; top-level Maildir
-        mu4e-sent-folder "/Send"
+  (setq mu4e-sent-folder "/Send"
         mu4e-drafts-folder "/Drafts"
         ;; mu4e-refile-folder "/Archives"
         mu4e-trash-folder "/Trash")
-  ;; (i.e.. /home/user/Maildir/sent must exist)
-  (unless (file-exists-p mu4e-maildir)
-    (make-directory mu4e-maildir))
-  (unless (file-exists-p (concat mu4e-maildir mu4e-sent-folder))
-    (make-directory (concat mu4e-maildir mu4e-sent-folder)))
-  (unless (file-exists-p (concat mu4e-maildir mu4e-drafts-folder))
-    (make-directory (concat mu4e-maildir mu4e-drafts-folder)))
-  (unless (file-exists-p (concat mu4e-maildir mu4e-trash-folder))
-    (make-directory (concat mu4e-maildir mu4e-trash-folder)))
 
   ;; the maildirs you use frequently; access them with 'j' ('jump')
-  (setq mu4e-maildir-shortcuts '(("/INBOX"       . ?i)
-                                 ("/Send"        . ?s)
-                                 ("/Drafts"      . ?d)
-                                 ("/Trash"       . ?t)
-                                 ("/Work"        . ?w)
-                                 ("/Emacs/help"  . ?e)
-                                 ("/Emacs/Org-mode" . ?O)
-                                 ("/Lisp/"          . ?l)
-                                 ("/Clojure"        . ?c)
-                                 ("/ClojureScript"  . ?C)
-                                 ("/JavaScript"     . ?j)
-                                 ("/SQL/PostgreSQL/general" . ?p)))
+  (setq       mu4e-maildir-shortcuts
+              '((:maildir   "/INBOX"                  :key ?i)
+                (:maildir   "/Send"                   :key ?s)
+                (:maildir   "/Drafts"                 :key ?d)
+                (:maildir   "/Trash"                  :key ?t)
+                (:maildir   "/Work"                   :key ?w)
+                (:maildir   "/Emacs/help"             :key ?e)
+                (:maildir   "/Emacs/Org-mode"         :key ?O)
+                (:maildir   "/Lisp/"                  :key ?l)
+                (:maildir   "/Clojure"                :key ?c)
+                (:maildir   "/ClojureScript"          :key ?C)
+                (:maildir   "/JavaScript"             :key ?j)
+                (:maildir   "/SQL/PostgreSQL/general" :key ?p)))
 
   ;; Get Mail, Update -- [U]
   ;; program to get mail; alternatives are 'fetchmail', 'getmail'
@@ -140,7 +131,7 @@
 
   ;; [ View ]
   (setq mu4e-view-use-gnus t)
-  (setq mu4e-split-view 'horizontal ; 'vertical, 'horizontal
+  (setq mu4e-split-view 'horizontal     ; 'vertical, 'horizontal
         mu4e-headers-visible-lines 13
         mu4e-headers-visible-columns 30
         mu4e-headers-show-threads t
@@ -160,7 +151,7 @@
         mu4e-headers-trashed-mark '("T" . "↻")
         ;; thread prefix marks
         mu4e-headers-default-prefix '("|" . "│ ")
-        mu4e-headers-has-child-prefix '("+" . "◼ ") ; "Parent" ╰
+        mu4e-headers-has-child-prefix '("+" . "◼ ")     ; "Parent" ╰
         mu4e-headers-empty-parent-prefix '("-" . "◽ ") ; "Orphan"
         mu4e-headers-first-child-prefix '("\\" . "↳ ")
         mu4e-headers-duplicate-prefix '("=" . "≡ "))
@@ -260,7 +251,7 @@
         ;; to limit completion pool, filter mailing list addresses and like.
         mu4e-compose-complete-only-personal nil
         mu4e-compose-complete-ignore-address-regexp "no-?reply"
-        mu4e-compose-keep-self-cc t ; keep myself on the Cc: list.
+        mu4e-compose-keep-self-cc t     ; keep myself on the Cc: list.
         ;; mu4e-compose-complete-only-after
         )
 
@@ -404,7 +395,7 @@
   ;; in your org-mode files. mu4e supports this with the org-mu4e module; you can
   ;; set it up by adding it to your configuration:
 
-  (require 'org-mu4e) ; for [[mu4e:..]] links.
+  (require 'org-mu4e)                   ; for [[mu4e:..]] links.
 
   ;; enable Org Mode for editing in `mu4e-compose-mode'.
   (add-hook 'mu4e-compose-mode-hook #'org-mu4e-compose-org-mode)
@@ -496,7 +487,7 @@
   ;; By default, mu4e uses the xdg-open-program 1 or (on MacOS) the open program
   ;; for opening attachments. If you want to use another program, you do so by
   ;; setting the MU_PLAY_PROGRAM environment variable to the program to be used.
-
+  (setq mu4e-attachment-dir (expand-file-name "~/Downloads"))
   ;; (add-to-list 'mu4e-view-attachment-actions '("bbrowse-with-browser" . mu4e-view-browse-with-browser))
 
   ;; Actions
@@ -578,7 +569,7 @@
   ;;
   ;; - r -- refiling, mu4e-refile-folder
 
-  (setq mu4e-refile-folder                ; dynamic refiling
+  (setq mu4e-refile-folder              ; dynamic refiling
         (lambda (msg)
           (cond
            ;; mu discuss Google Groups
@@ -607,22 +598,46 @@
   ;; - `$ man mu-query'
 
   (setq mu4e-bookmarks
-        '(("flag:unread AND contact:/.*stardiviner/ OR contact:/.*numbchild@gmail.com/"   "My participated Threads" ?t)
-          ("flag:replied"                  "Replied messages"        ?r)
-          ("flag:passed"                   "Passed  messages"        ?d)
-          ("flag:flagged"                  "Flagged messages"        ?f)
-          ("date:today..now flag:new"      "Today's new messages"    ?n)
-          ("date:today..now"               "Today's messages"        ?d)
-          ("date:1w..now"                  "This week's messages"    ?w)
-          ("size:5M..500M"                 "Big messages"            ?B)
-          ("maildir:/Emacs/help"           "Emacs mailbox"           ?e)
-          ("maildir:/Emacs/Org-mode"       "Org Mode mailbox"        ?o)
-          ("maildir:/Clojure"              "Clojure mailbox"         ?c)
-          ("maildir:/ClojureScript"        "ClojureScript mailbox"   ?C)
-          ("/SQL/PostgreSQL/general"       "PostgreSQL general"      ?p)))
+        '((:name  "Unread messages" :key ?u
+                  :query "flag:unread AND NOT flag:trashed")
+          (:name "Today's messages" :key ?t
+                 :query "date:today..now")
+          (:name "Last 7 days" :key ?w
+                 :query "date:7d..now"
+                 :show-unread t)
+          (:name "Messages with images" :key ?p
+                 :query "mime:image/*"
+                 :hide t)
+          ;;=====================================================================
+          (:name "My participated Threads" :key ?t
+                 :query "flag:unread AND contact:/.*stardiviner/ OR contact:/.*numbchild@gmail.com/")
+          (:name "Replied messages" :key ?r
+                 :query "flag:replied")
+          (:name "Passed  messages" :key ?d
+                 :query "flag:passed")
+          (:name "Flagged messages" :key ?f
+                 :query "flag:flagged")
+          (:name "Today's new messages" :key ?n
+                 :query "date:today..now flag:new")
+          (:name "Today's messages" :key ?d
+                 :query "date:today..now")
+          (:name "This week's messages" :key ?w
+                 :query "date:1w..now")
+          (:name "Big messages" :key ?B
+                 :query "size:5M..500M")
+          (:name "Emacs mailbox" :key ?e
+                 :query "maildir:/Emacs/help")
+          (:name "Org Mode mailbox" :key ?o
+                 :query "maildir:/Emacs/Org-mode")
+          (:name "Clojure mailbox" :key ?c
+                 :query "maildir:/Clojure")
+          (:name "ClojureScript mailbox" :key ?C
+                 :query "maildir:/ClojureScript")
+          (:name "PostgreSQL general" :key ?p
+                 :query "/SQL/PostgreSQL/general")))
 
-  (setq mu4e-index-cleanup nil ; don't do a full cleanup check
-        mu4e-index-lazy-check t ; don't consider up-to-date dirs
+  (setq mu4e-index-cleanup nil          ; don't do a full cleanup check
+        mu4e-index-lazy-check t         ; don't consider up-to-date dirs
         )
 
   (defun mu4e-new-mail-alert ()
