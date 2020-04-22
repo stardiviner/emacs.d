@@ -51,32 +51,10 @@
 
 ;;; [ fringe ]
 
-;; (setq fringe-indicator-alist
-;;       '((truncation left-arrow right-arrow)
-;;         (continuation left-curly-arrow right-curly-arrow)
-;;         (overlay-arrow . right-triangle)
-;;         (up . up-arrow)
-;;         (down . down-arrow)
-;;         (top top-left-angle top-right-angle)
-;;         (bottom bottom-left-angle bottom-right-angle top-right-angle top-left-angle)
-;;         (top-bottom left-bracket right-bracket top-right-angle top-left-angle)
-;;         (empty-line . empty-line)
-;;         (unknown . question-mark)))
+;;; `fringe-indicator-alist'
 
-(setq-default indicate-buffer-boundaries 'left
-              indicate-empty-lines t
-              indicate-unused-lines nil)
-
-
-;; both side fringe 10 pixels wide.
-;; (fringe-mode 10)
-;; make left fringe 10 pixels wide, and right fringe disappear.
-;; (fringe-mode '(10 . 0))
-;; or
-;; (set-fringe-style '(10 . 0))
-;; restore the default size
-;; (fringe-mode nil)
-
+(setq-default indicate-buffer-boundaries 'left)
+(set-fringe-style '(10 . 10))
 
 ;;; [ echo area ]
 
