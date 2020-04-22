@@ -26,7 +26,7 @@
       (set-frame-parameter (selected-frame) 'alpha (list active-alpha inactive-alpha))
       (add-to-list 'default-frame-alist (cons 'alpha (list active-alpha inactive-alpha))))))
 
-;; (my:set-transparency-alpha "95")
+(my:set-transparency-alpha "95")
 
 ;;; [ Title ]
 
