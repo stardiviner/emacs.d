@@ -264,25 +264,18 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   :defer t
   :after clojure-mode
   :delight clj-refactor-mode
-  :init (setq cljr-suppress-middleware-warnings t)
+  :init (setq cljr-suppress-middleware-warnings t
+              cljr-warn-on-eval nil)
   :config
   (defun my:clj-refactor-setup ()
     (clj-refactor-mode 1)
     ;; (cljr-add-keybindings-with-prefix "C-c C-m")
-    (define-key clj-refactor-map (kbd "C-c C-m") #'hydra-cljr-help-menu/body))
+    (define-key clj-refactor-map (kbd "C-c RET") #'hydra-cljr-help-menu/body))
   (add-hook 'clojure-mode-hook #'my:clj-refactor-setup)
   (add-hook 'cider-repl-mode-hook #'my:clj-refactor-setup)
-  ;; :config
-  ;; skip Tab in `cljr-add-require-to-ns' snippet.
-  ;; (advice-add 'cljr-add-require-to-ns :after
-  ;;             (lambda (&rest _)
-  ;;               (yas-next-field)
-  ;;               (yas-next-field)))
-
   ;; FIXME: temporary solution for clj-refactor.
   (with-eval-after-load "clj-refactor"
     (remove-hook 'find-file-hook #'cljr--ensure-no-dashes-in-filename))
-  
   (add-to-list 'display-buffer-alist
                '("^\\*cljr-*\\*" . (display-buffer-below-selected))))
 
