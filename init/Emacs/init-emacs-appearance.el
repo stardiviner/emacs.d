@@ -30,10 +30,7 @@
 
 ;;; [ Title ]
 
-;; (setq frame-title-format "Emacs λ Hacking")
-
-;; (setq frame-title-format "Emacs λ %b")
-
+(setq frame-title-format "Emacs λ Clojure") ; "Emacs λ %b"
 ;; (setq frame-title-format
 ;;       '("" invocation-name ": "
 ;;         (:eval
