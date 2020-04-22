@@ -72,7 +72,7 @@
 
 ;;; [ line numbers ] -- Emacs native line number mode.
 
-;; (setq display-line-numbers-width-start t) ; right-align
+;; (setq display-line-numbers-width-start t)
 ;; (global-display-line-numbers-mode 1)
 
 ;;; [ current line & column ]
@@ -84,29 +84,14 @@
 
 ;;; [ point & cursor ]
 
-(setq-default mouse-avoidance-mode 'animate ; auto move mouse away when cursor is at mouse position
-              cursor-in-echo-area nil
-              mouse-yank-at-point t)
+;; auto move mouse away when cursor is at mouse position
+(setq-default mouse-avoidance-mode 'animate)
 
-;;; horizontal bar
-(setq-default cursor-type t ; '(hbar . 2)
+(setq-default cursor-type t ; '(hbar . 2), 'hollow,
               cursor-in-non-selected-windows nil)
-;; (set-cursor-color "cyan")
-(set-cursor-color "deep pink")
+;; (set-cursor-color "cyan") ; "deep pink"
 
-;;; hollow
-;; (setq-default cursor-type 'hollow
-;;               cursor-in-non-selected-windows nil)
-;; (set-cursor-color "green")
-
-;;; adaptive cursor width
-;; make cursor the width of the character it is under
-;; i.e. full width of a TAB
-(setq x-stretch-cursor t)
-
-;; (setq blink-cursor-blinks 10)
 ;; (blink-cursor-mode 1)
-(setq blink-cursor-mode nil) ; disable `blink-cursor-mode'.
 
 ;;; [ truncate continuous line & word wrap ]
 
