@@ -11,7 +11,14 @@
   ;; :load-path "/usr/share/emacs/site-lisp/mu4e/" ; from Linux package
   :load-path "~/Code/Emacs/mu/mu4e/"    ; compile from source code
   :defer t
-  :commands (mu4e)
+  :commands (mu4e mu4e-org-open mu4e-org-store-link)
+  :preface
+  (if (fboundp 'org-link-set-parameters)
+      (org-link-set-parameters "mu4e"
+                               :follow #'mu4e-org-open
+                               :store  #'mu4e-org-store-link)
+    (org-add-link-type "mu4e" 'mu4e-org-open)
+    (add-hook 'org-store-link-functions 'mu4e-org-store-link))
   :init (define-key tools-prefix (kbd "m") 'mu4e)
   (setq mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
   (setq mu4e-completing-read-function 'completing-read)
