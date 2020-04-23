@@ -138,7 +138,6 @@
   ;;       (smartparens-strict-mode 1)))
 
   (electric-pair-local-mode 1)
-  (add-to-list 'electric-pair-pairs '(?\` . ?\'))
   
   (paredit-mode 1)
   (if (fboundp 'parinfer-mode)

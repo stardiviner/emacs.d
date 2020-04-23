@@ -17,6 +17,7 @@
   :config
   (autoload 'my-lisp-common-settings "init-prog-lang-lisp.el")
   (add-hook 'clojure-mode-hook #'my-lisp-common-settings)
+  (add-hook 'clojure-mode-hook #'(lambda () (add-to-list 'electric-pair-pairs '(?\` . ?\`))))
   
   (autoload 'my-lisp-repl-common-settings "init-prog-lang-lisp.el")
   (add-hook 'cider-repl-mode-hook #'my-lisp-repl-common-settings)

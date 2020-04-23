@@ -10,6 +10,7 @@
 
 (add-hook 'emacs-lisp-mode-hook #'my-lisp-common-settings)
 (add-hook 'inferior-emacs-lisp-mode-hook #'my-lisp-repl-common-settings)
+(add-hook 'emacs-lisp-mode-hook #'(lambda () (add-to-list 'electric-pair-pairs '(?\` . ?\'))))
 
 ;; Recompile your elc when saving an elisp file.
 ;; (add-hook 'after-save-hook
