@@ -7,6 +7,23 @@
 
 ;;; Code:
 
+;;; [ focus ] -- Dim the font color of text in surrounding sections.
+
+(use-package focus
+  :ensure t
+  :commands (focus-mode focus-read-only-mode)
+  :config
+  ;; support python-mode
+  (add-to-list 'focus-mode-to-thing '(python-mode . paragraph))
+  ;; support Org Mode
+  (defun forward-heading (&optional N)
+    "Forward one orgmode-heading for thing-at-point"
+    (interactive "p")
+    (if (= N -1)
+        (outline-previous-heading)
+      (outline-next-heading)))
+  (setq focus-mode-to-thing '((org-mode . heading))))
+
 ;;; [ Beamer ]
 
 ;; (require 'ox-beamer)
