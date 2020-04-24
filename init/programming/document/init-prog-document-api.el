@@ -31,13 +31,15 @@
 (use-package helm-dash
   :ensure t
   :bind (:map document-prefix ("d" . helm-dash-at-point) ("M-d" . helm-dash))
-  :init (setq helm-case-fold-search 'smart)
-
+  :config
+  (setq helm-case-fold-search 'smart)
   ;; buffer local docsets
   (defun my-helm-dash-buffer-local-docsets-add (docsets-list)
     (mapc
      (lambda (docset)
-       (setq-local dash-docs-docsets (add-to-list 'dash-docs-docsets docset)))
+       (make-local-variable 'dash-docs-common-docsets)
+       (setq-local dash-docs-common-docsets nil)
+       (dash-docs-activate-docset docset))
      docsets-list))
   
   ;; Bash
@@ -192,8 +194,7 @@
   (with-eval-after-load 'apache-mode
     (defun helm-dash-buffer-local-nginx-docsets ()
       (setq-local dash-docs-docsets '("Apache_HTTP_Server")))
-    (add-hook 'apache-mode-hook 'helm-dash-buffer-local-apache-docsets))
-  )
+    (add-hook 'apache-mode-hook 'helm-dash-buffer-local-apache-docsets)))
 
 
 ;;; [ zeal-at-point ]
