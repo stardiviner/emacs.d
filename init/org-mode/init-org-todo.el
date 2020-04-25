@@ -136,7 +136,8 @@
     (if (yes-or-no-p "Set schedule delay day? ")
         (org-schedule '(16)))
     (org-set-property "STYLE" "habit")
-    (org-set-property "LOGGING" "TODO DONE(!)"))
+    ;; (org-set-property "LOGGING" "TODO DONE(!)")
+    )
 
   (define-key org-mode-map (kbd "C-c C-x M-h") 'org-habit-apply)
   ;; :config
