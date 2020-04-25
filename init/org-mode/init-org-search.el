@@ -347,8 +347,15 @@ That's it.
 
 (use-package org-ql
   :ensure t
-  :defer t
-  :commands (org-ql-search helm-org-ql))
+  :demand t
+  :requires (helm-org-ql)
+  :commands (helm-org-ql org-ql-sparse-tree org-ql-search org-ql-view)
+  :bind (([remap org-goto] . helm-org-ql)
+         ;; :map org-mode-map ("M-s" . org-ql-search)
+         )
+  :config
+  (add-to-list 'display-buffer-alist
+               '("^\\*Org QL.*\\*" (display-buffer-below-selected))))
 
 
 
