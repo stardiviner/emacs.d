@@ -246,7 +246,7 @@
   (setq mu4e-compose-signature-auto-include t
         mu4e-compose-signature
         "[ stardiviner ]
-       I try to make every word tell the meaning what I want to express.
+       I try to make every word tell the meaning that I want to express.
 
        Blog: https://stardiviner.github.io/
        IRC(freenode): stardiviner, Matrix: stardiviner
