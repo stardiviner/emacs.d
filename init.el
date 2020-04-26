@@ -315,21 +315,11 @@
 ;; (require 'init-prog-lang-solidity)
 
 ;;; [ Query Languages ]
-;; SQL
+
 (require 'init-SQL)
-(require 'init-SQLite)
-(require 'init-MySQL)
-(require 'init-PostgreSQL)
-;; NewSQL
 (require 'init-NewSQL)
-;; NoSQL
 (require 'init-NoSQL)
-(require 'init-MongoDB)
-(require 'init-Redis)
-(require 'init-CouchDB)
-;;; CQL
 ;; (require 'init-CQL)
-;;; GraphQL
 (require 'init-GraphQL)
 
 

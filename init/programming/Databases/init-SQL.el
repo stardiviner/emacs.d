@@ -275,6 +275,16 @@
   :ensure t
   :commands (format-table))
 
+;;; [ emacs-db ] -- very simple database for emacslisp, can also wrap other databases.
+
+;; (use-package db
+;;   :ensure t
+;;   :defer t)
+
+(require 'init-SQLite)
+(require 'init-MySQL)
+(require 'init-PostgreSQL)
+
 
 (provide 'init-SQL)
 
