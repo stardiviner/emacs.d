@@ -81,7 +81,9 @@
                 backend)
       (setq-local company-backends
                   (cons
-                   (list backend :with (car company-backends))
+                   (list backend :with (if (listp (car company-backends))
+                                           (caar company-backends)
+                                         (car company-backends)))
                    (cdr company-backends)))))
 
   ;; [ company-ispell ]
