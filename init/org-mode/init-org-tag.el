@@ -24,7 +24,9 @@
 (defun my/org-add-note--auto-add-tag ()
   "Auto add tag 'NOTE' when add note log."
   (org-back-to-heading)
-  (org-set-tags (cons "LOG" (org-get-tags nil t))))
+  ;; remove multiple same "LOG" tags
+  (autoload 'seq-uniq "seq.el")
+  (org-set-tags (seq-uniq (cons "LOG" (org-get-tags nil t)))))
 (advice-add 'org-add-note :after #'my/org-add-note--auto-add-tag)
 
 ;;; for Org Book reading journal. Mark an headline as a book
