@@ -26,10 +26,8 @@
   :init
   ;; let EasyPG Assistant to use loopback for pinentry.
   (setq epa-pinentry-mode 'loopback
-        epa-file-encrypt-to "stardiviner"
-        epa-file-select-keys (cl-case epa-file-encrypt-to
-                               ('nil t)
-                               (t nil)))
+        epa-file-encrypt-to '("stardiviner" "numbchild@gmail.com")
+        epa-file-select-keys (cl-case epa-file-encrypt-to ('nil t) (t nil)))
   ;; cache passphrase for symmetric encryption.
   ;; For security reasons, this option is turned off by default and
   ;; not recommended to use.  Instead, consider using gpg-agent which
