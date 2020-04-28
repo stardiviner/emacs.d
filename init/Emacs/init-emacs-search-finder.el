@@ -28,7 +28,7 @@
   :defer t
   :commands (fd-dired)
   :bind (:map find-prefix ("f" . fd-dired))
-  :config (add-to-list 'display-buffer-alist '("^\\*Fd\\*" (display-buffer-below-selected))))
+  :init (setq fd-dired-display-in-current-window nil))
 
 ;;; [ find-file-in-project ] -- Find file/directory and review Diff/Patch/Commit efficiently.
 
