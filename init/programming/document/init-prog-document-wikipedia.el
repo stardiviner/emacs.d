@@ -36,10 +36,11 @@
   :after org
   :commands (kiwix-launch-server kiwix-at-point-interactive)
   :bind (:map document-prefix ("w" . kiwix-at-point-interactive))
-  :init (setq kiwix-server-use-docker t
-              kiwix-server-port 8089
-              kiwix-default-library "wikipedia_en_all_2016-02.zim" ; "wikipedia_zh_all_2015-11.zim"
-              kiwix-default-browser-function 'eaf-open-browser))
+  :init (require 'org-kiwix)
+  (setq kiwix-server-use-docker t
+        kiwix-server-port 8089
+        kiwix-default-library "wikipedia_en_all_2016-02.zim" ; "wikipedia_zh_all_2015-11.zim"
+        kiwix-default-browser-function 'eaf-open-browser))
 
 
 (provide 'init-prog-document-wikipedia)
