@@ -655,17 +655,17 @@
     (make-process
      :name "mu4e new mail alert 2"
      :command (list "mpv" (expand-file-name "~/Music/Sounds/Ingress/Speech/speech_zoom_lockon.wav"))))
-  (add-hook 'mu4e-index-updated-hook 'mu4e-new-mail-alert)
+  ;; (add-hook 'mu4e-index-updated-hook 'mu4e-new-mail-alert)
 
   (defun mu4e-open-mail-sound ()
     "The mu4e open email sound."
     (make-process
      :name "mu4e open mail sound"
      :command (list "mpv" (expand-file-name "~/Music/Sounds/Ingress/SFX/sfx_sonar.wav"))))
-  (add-hook 'mu4e-view-mode-hook 'mu4e-open-mail-sound 'append)
+  ;; (add-hook 'mu4e-view-mode-hook 'mu4e-open-mail-sound 'append)
 
-  (add-hook 'mu4e-headers-found-hook 'mu4e-open-mail-sound 'append)
-  (add-hook 'mu4e-index-updated-hook 'mu4e-open-mail-sound 'append)
+  ;; (add-hook 'mu4e-headers-found-hook 'mu4e-open-mail-sound 'append)
+  ;; (add-hook 'mu4e-index-updated-hook 'mu4e-open-mail-sound 'append)
 
   ;; Marking
   (define-key mu4e-headers-mode-map (kbd "f") 'mu4e-headers-mark-for-flag)
