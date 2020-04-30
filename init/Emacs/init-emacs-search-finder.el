@@ -21,6 +21,13 @@
   :defer t
   :bind (:map find-prefix ("h" . helm-fd)))
 
+;;; [ counsel-fd ] -- counsel interface for fd.
+
+(use-package counsel-fd
+  :ensure t
+  :defer t
+  :commands (counsel-fd-file-jump counsel-fd-dired-jump))
+
 ;;; [ fd-dired ] -- find-dired alternative using fd.
 
 (use-package fd-dired
