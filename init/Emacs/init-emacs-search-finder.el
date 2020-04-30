@@ -26,7 +26,10 @@
 (use-package counsel-fd
   :ensure t
   :defer t
-  :commands (counsel-fd-file-jump counsel-fd-dired-jump))
+  :commands (counsel-fd-file-jump counsel-fd-dired-jump)
+  :bind (:map find-prefix
+              ("f" . counsel-fd-file-jump)
+              ("d" . counsel-fd-dired-jump)))
 
 ;;; [ fd-dired ] -- find-dired alternative using fd.
 
@@ -34,8 +37,9 @@
   :ensure t
   :defer t
   :commands (fd-dired)
-  :bind (:map find-prefix ("f" . fd-dired))
-  :init (setq fd-dired-display-in-current-window nil))
+  :init (defalias 'fd-search-async 'fd-dired)
+  (setq fd-dired-display-in-current-window nil)
+  :bind (:map find-prefix ("s" . fd-search-async)))
 
 ;;; [ find-file-in-project ] -- Find file/directory and review Diff/Patch/Commit efficiently.
 
