@@ -118,7 +118,8 @@ Optional for Org-mode file: `LINK'."
 (add-to-list 'org-file-apps '("\\.jar\\'" . "java -jar %s"))
 
 ;; System wise: xdg-open, kde-open, gnome-open.
-(setcdr (assq 'system org-file-apps-gnu) "xdg-open %s")
+;; (when (boundp 'org-file-apps-gnu)
+;;   (setcdr (assq 'system org-file-apps-gnu) "xdg-open %s"))
 
 ;;; Open .pdf, .epub file link with EAF.
 (defun eaf-open-for-org (file &optional link)
