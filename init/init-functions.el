@@ -120,7 +120,8 @@ by creating or altering keymaps stored in buffer-local
 
 ;;; read in encrypted JSON file key-value pairs.
 
-(setq my/account-file (concat user-emacs-directory "secrets/accounts.json.gpg"))
+(when-let ((accounts-file (expand-file-name "secrets/accounts.json.gpg" user-emacs-directory)))
+  (setq my/account-file (concat user-emacs-directory "secrets/accounts.json.gpg")))
 
 (autoload 'json-read-file "json" nil nil)
 
