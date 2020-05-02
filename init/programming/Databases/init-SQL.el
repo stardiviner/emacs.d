@@ -163,8 +163,9 @@
   
   (ejc-create-connection
    "PostgreSQL-db-postgres"
-   :classpath (concat "~/.m2/repository/org/postgresql/postgresql/"
-                      "42.2.5.jre7/postgresql-42.2.5.jre7.jar")
+   :dependencies [[org.postgresql/postgresql "42.2.5.jre7"]]
+   ;; :classpath (concat "~/.m2/repository/org/postgresql/postgresql/"
+   ;;                    "42.2.5.jre7/postgresql-42.2.5.jre7.jar")
    :dbtype "postgresql"
    :host "localhost"
    :port "5432"
@@ -174,8 +175,9 @@
 
   (ejc-create-connection
    "MySQL-db-test"
-   :classpath (concat "~/.m2/repository/mysql/mysql-connector-java/"
-                      "5.1.32/mysql-connector-java-5.1.32.jar")
+   :dependencies [[mysql/mysql-connector-java "5.1.32"]]
+   ;; :classpath (concat "~/.m2/repository/mysql/mysql-connector-java/"
+   ;;                    "5.1.32/mysql-connector-java-5.1.32.jar")
    :dbtype "mysql"
    :host "localhost"
    :port "3306"
@@ -185,8 +187,9 @@
 
   (ejc-create-connection
    "SQLite-db-temp"
-   :classpath (concat "~/.m2/repository/org/xerial/sqlite-jdbc/"
-                      "3.25.2/sqlite-jdbc-3.25.2.jar")
+   :dependencies [[org.xerial/sqlite-jdbc "3.25.2"]]
+   ;; :classpath (concat "~/.m2/repository/org/xerial/sqlite-jdbc/"
+   ;;                    "3.25.2/sqlite-jdbc-3.25.2.jar")
    :subprotocol "sqlite"
    :subname (file-truename "~/test.db"))
 
