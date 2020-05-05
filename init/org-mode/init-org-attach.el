@@ -24,8 +24,9 @@
 ;; created if does not exist.
 (setq org-attach-preferred-new-method 'ask)
 (add-to-list 'org-default-properties "DIR")
-;; (setq org-attach-use-inheritance t)
-(add-to-list 'org-default-properties "ATTACH_DIR_INHERIT")
+;;; inherit first found link attachment parent node's path.
+(setq org-attach-use-inheritance 'selective
+      org-use-property-inheritance '("DIR"))
 
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
