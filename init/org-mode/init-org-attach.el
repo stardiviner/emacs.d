@@ -14,7 +14,8 @@
 ;; store link auto with `org-store-link' using `file:' link type or `attachment:' link type.
 ;; use `file:' to avoid `attachment:' problems especially on exporters.
 (setq org-attach-store-link-p 'file)
-;; (setq org-attach-dir-relative nil)
+;;; use related path for attachment.
+(setq org-attach-dir-relative t)
 ;; don't auto add tag "ATTACH"
 (setq org-attach-auto-tag nil)
 (setq org-attach-archive-delete 'query)
