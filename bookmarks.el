@@ -2,7 +2,97 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("AJAX.org"
+(("Artificial Neural Network.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Artificial Intelligence/Artificial Neural Network/Artificial Neural Network.org")
+ (front-context-string . "#+TITLE: Artific")
+ (rear-context-string)
+ (position . 1))
+("OpenCL.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/OpenCL/OpenCL.org")
+ (front-context-string . "#+TITLE: OpenCL\n")
+ (rear-context-string)
+ (position . 1))
+("OpenCV.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/OpenCV/OpenCV.org")
+ (front-context-string . "#+TITLE: OpenCV\n")
+ (rear-context-string)
+ (position . 1))
+("Management.org"
+ (filename . "~/Org/Wiki/Commercial Science/Management/Management.org")
+ (front-context-string . "#+TITLE: Managem")
+ (rear-context-string)
+ (position . 1))
+("use-package.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/use-package.org")
+ (front-context-string . "* Intro\n\nA use-p")
+ (rear-context-string)
+ (position . 1))
+("Cosmology.org"
+ (filename . "~/Org/Wiki/Physics/Cosmology/Cosmology.org")
+ (front-context-string . "#+TITLE: Cosmolo")
+ (rear-context-string)
+ (position . 1))
+("Fitness.org"
+ (filename . "~/Org/Wiki/Fitness/Fitness.org")
+ (front-context-string . "#+TITLE: Fitness")
+ (rear-context-string)
+ (position . 1))
+("My Chinese Government Communication Records.org"
+ (filename . "~/Org/Wiki/Countries/China/Chinese Government/Data/Manuals/My Chinese Government Communication Records/My Chinese Government Communication Records.org")
+ (front-context-string . "#+TITLE: My Chin")
+ (rear-context-string)
+ (position . 1))
+("The WeChat Mini Program Development Manual.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Technologies/Web Application/Mini Program/WeChat Open Platform/WeChat Mini Program/Data/Manuals/The WeChat Mini Program Development Manual/The WeChat Mini Program Development Manual.org")
+ (front-context-string . "#+TITLE: The WeC")
+ (rear-context-string)
+ (position . 1))
+("Culture.org"
+ (filename . "~/Org/Wiki/Culture/Culture.org")
+ (front-context-string . "#+TITLE: Culture")
+ (rear-context-string)
+ (position . 1))
+("China History.org"
+ (filename . "~/Org/Wiki/History/Country's History/China History/China History.org")
+ (front-context-string . "#+TITLE: China H")
+ (rear-context-string)
+ (position . 1))
+("CSS Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/CSS/Data/CSS Packages/CSS Packages.org")
+ (front-context-string . "#+TITLE: CSS Pac")
+ (rear-context-string)
+ (position . 1))
+(".NET Core Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/.NET Core/.NET Core Packages/.NET Core Packages.org")
+ (front-context-string . "#+TITLE: .NET Co")
+ (rear-context-string)
+ (position . 1))
+("C# Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/.NET Core/C#/Data/C# Packages/C# Packages.org")
+ (front-context-string . "#+TITLE: C# Pack")
+ (rear-context-string)
+ (position . 1))
+("C#.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/.NET Core/C#/C#.org")
+ (front-context-string . "#+TITLE: C# Prog")
+ (rear-context-string)
+ (position . 1))
+(".NET Core.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/.NET Core/.NET Core.org")
+ (front-context-string . "#+TITLE: .NET (C")
+ (rear-context-string)
+ (position . 1))
+("cargo.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Rust/Data/Rust Packages/cargo.org")
+ (front-context-string . "* Intro\n\n*Rust p")
+ (rear-context-string)
+ (position . 1))
+("Government.org"
+ (filename . "~/Org/Wiki/Government/Government.org")
+ (front-context-string . "#+TITLE: Governm")
+ (rear-context-string)
+ (position . 1))
+("AJAX.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Technologies/AJAX/AJAX.org")
  (front-context-string . "#+TITLE: AJAX\n\n*")
  (rear-context-string)
@@ -307,11 +397,6 @@
  (front-context-string . "#+TITLE: Visual ")
  (rear-context-string)
  (position . 1))
-("C#.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/.NET/C#/C#.org")
- (front-context-string . "#+TITLE: C# Prog")
- (rear-context-string)
- (position . 1))
 ("Fedora.org"
  (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Linux Distributions/Fedora/Fedora.org")
  (front-context-string . "#+TITLE: Fedora\n")
@@ -320,16 +405,6 @@
 ("TiDB.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/NewSQL/NewSQL Databases/TiDB/TiDB.org")
  (front-context-string . "#+TITLE: TiDB\n\n*")
- (rear-context-string)
- (position . 1))
-(".NET Packages.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/.NET/.NET Packages/.NET Packages.org")
- (front-context-string . "\n\n* .NET package")
- (rear-context-string . "E: .NET Packages")
- (position . 23))
-(".NET.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/.NET/.NET.org")
- (front-context-string . "#+TITLE: .NET\n\n*")
  (rear-context-string)
  (position . 1))
 ("JVM.org"
@@ -836,11 +911,6 @@
  (size . fit-width)
  (origin)
  (handler . pdf-view-bookmark-jump-handler))
-("Cosmetology.org"
- (filename . "~/Org/Wiki/Cosmetology/Cosmetology.org")
- (front-context-string . "#+TITLE: Cosmeto")
- (rear-context-string)
- (position . 1))
 ("PDF-LAST-VIEWED: /home/stardiviner/Documents/learning/Clojure/website-compare/README.pdf"
  (filename . "~/Documents/learning/Clojure/website-compare/README.pdf")
  (position . 1)
@@ -2001,19 +2071,19 @@
  (position . 1))
 ("org-capture-last-stored-marker"
  (filename . "~/Org/Wiki/Education/Education.org")
- (front-context-string . "*** 中国教授的网络授课经历\n")
- (rear-context-string . "科文组织总干事阿祖莱如是说。\n\n")
- (position . 9852))
+ (front-context-string . "*** 中国多所高校研究者因伪造")
+ (rear-context-string . "与高等教\n  育结合的速度。\n\n")
+ (position . 11292))
 ("org-refile-last-stored"
  (filename . "~/Org/Wiki/Education/Education.org")
- (front-context-string . "*** 中国教授的网络授课经历\n")
- (rear-context-string . "科文组织总干事阿祖莱如是说。\n\n")
- (position . 9852))
+ (front-context-string . "*** 中国多所高校研究者因伪造")
+ (rear-context-string . "与高等教\n  育结合的速度。\n\n")
+ (position . 11292))
 ("org-capture-last-stored"
  (filename . "~/Org/Tasks/Tasks.org")
- (front-context-string . "* 中国教授的网络授课经历\n:P")
- (rear-context-string . "4:33]\n   :END:\n\n")
- (position . 392))
+ (front-context-string . "* 中国多所高校研究者因伪造同行")
+ (rear-context-string . "已注销”。并且标记隐藏账户。\n\n")
+ (position . 399))
 ("PDF-LAST-VIEWED: /tmp/mu-1000/b53469b1/3/test.pdf"
  (filename .
            #("/tmp/mu-1000/b53469b1/3/test.pdf" 0 32
