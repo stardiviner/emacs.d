@@ -16,8 +16,7 @@
   :ensure t
   :defer t
   :delight subword-mode
-  ;; :init (add-hook 'prog-mode-hook 'subword-mode)
-  )
+  :hook (prog-mode . subword-mode))
 
 ;;; [ glasses ] -- make CamelCase identifiers easy look.
 
