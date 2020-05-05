@@ -25,7 +25,7 @@
   :commands (flycheck-rust-setup)
   :hook ((rust-mode . flycheck-mode) (flycheck-mode . flycheck-rust-setup)))
 
-;;; [ racer ]
+;;; [ racer ] -- code completion, goto-definition and docs browsing for Rust via racer.
 
 (use-package racer
   :ensure t

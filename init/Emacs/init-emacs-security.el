@@ -15,7 +15,7 @@
 
 ;;; [ password ] -- authentication sources for Gnus and Emacs.
 
-(setq password-cache-expiry nil) ; don't expire password cache.
+(setq password-cache-expiry nil) ; (* 60 15), nil: don't expire password cache.
 
 ;;; [ auth-source ] -- Emacs built-in authentication sources for Gnus and Emacs.
 
