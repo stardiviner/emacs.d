@@ -1,6 +1,6 @@
 ;;; init-emacs-terminal.el --- init for TERMs -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-04-15 14:59:34 stardiviner>
+;;; Time-stamp: <2020-05-05 15:33:58 stardiviner>
 
 ;;; Commentary:
 
@@ -27,8 +27,7 @@
   :defer t
   :commands (multi-vterm multi-vterm-next multi-vterm-prev multi-vterm-dedicated-toggle multi-vterm-projectile)
   :config
-  (define-key vterm-mode-map [return] #'vterm-send-return)
-  (define-key vterm-mode-map (kbd "C-c") #'vterm--self-insert))
+  (define-key vterm-mode-map [return] #'vterm-send-return))
 
 
 
