@@ -94,38 +94,38 @@
 
 ;;; [ aggressive-indent-mode ] -- Minor mode to aggressively keep your code always indented.
 
-;; (use-package aggressive-indent
-;;   :ensure t
-;;   :defer t
-;;   :delight aggressive-indent-mode
-;;   :commands (aggressive-indent-mode global-aggressive-indent-mode)
-;;   :init (global-aggressive-indent-mode 1)
-;;   :config
-;;   ;; enable on mode locally
-;;   ;; (defun my/aggressive-indent-enable ()
-;;   ;;   (unless (or (member major-mode aggressive-indent-excluded-modes)
-;;   ;;               (member major-mode aggressive-indent-dont-electric-modes))
-;;   ;;     (aggressive-indent-mode 1)))
-;;   ;; (add-hook 'prog-mode-hook #'my/aggressive-indent-enable)
-;;   ;; (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
-;;
-;;   ;; enable globally
-;;   (add-to-list 'aggressive-indent-excluded-modes 'org-mode)
-;;   (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
-;;   (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
-;;   (add-to-list 'aggressive-indent-excluded-modes 'snippet-mode)
-;;   (add-to-list 'aggressive-indent-excluded-modes 'cider-repl-mode)
-;;   (add-to-list 'aggressive-indent-excluded-modes 'csharp-mode)
-;;   (add-to-list 'aggressive-indent-dont-electric-modes 'python-mode)
-;;
-;;   ;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
-;;   ;; **don't** want indentation to happen.  For instance, if you think it's
-;;   ;; annoying that lines jump around in `c++-mode' because you haven't typed the
-;;   ;; `;' yet, you could add the following clause:
-;;   (add-to-list 'aggressive-indent-dont-indent-if
-;;                '(and (derived-mode-p 'c++-mode)
-;;                      (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
-;;                                          (thing-at-point 'line))))))
+(use-package aggressive-indent
+  :ensure t
+  :defer t
+  :delight aggressive-indent-mode
+  :commands (aggressive-indent-mode global-aggressive-indent-mode)
+  :init (global-aggressive-indent-mode 1)
+  :config
+  ;; enable on mode locally
+  ;; (defun my/aggressive-indent-enable ()
+  ;;   (unless (or (member major-mode aggressive-indent-excluded-modes)
+  ;;               (member major-mode aggressive-indent-dont-electric-modes))
+  ;;     (aggressive-indent-mode 1)))
+  ;; (add-hook 'prog-mode-hook #'my/aggressive-indent-enable)
+  ;; (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+
+  ;; enable globally
+  (add-to-list 'aggressive-indent-excluded-modes 'org-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'snippet-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'cider-repl-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'csharp-mode)
+  (add-to-list 'aggressive-indent-dont-electric-modes 'python-mode)
+
+  ;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
+  ;; **don't** want indentation to happen.  For instance, if you think it's
+  ;; annoying that lines jump around in `c++-mode' because you haven't typed the
+  ;; `;' yet, you could add the following clause:
+  (add-to-list 'aggressive-indent-dont-indent-if
+               '(and (derived-mode-p 'c++-mode)
+                     (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
+                                         (thing-at-point 'line))))))
 
 
 (provide 'init-prog-indent)
