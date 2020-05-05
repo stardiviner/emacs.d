@@ -5,6 +5,6 @@
 defcustom ${1:VAR} ${2:VALUE}
   "${3:DOC}"
   :type '${4:boolean,string,number,function}
-  :safe #'${5:booleanp,stringp,numberp}
+  :safe #'${5:booleanp,stringp,numberp,functionp}
   :group '${6:parent group}${7:
   &optional ARGS}$0
