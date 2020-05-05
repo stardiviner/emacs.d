@@ -56,14 +56,12 @@
 ;;; [ shrface ] -- It is a shr faces package. Org Like faces for shr, dash-docs, eww, nov.el, mu4e and more!
 
 (use-package shrface
+  :ensure t
   :after shr
-  :quelpa (shrface :repo "chenyanming/shrface" :fetcher github)
-  :init
-  (require 'shrface)
+  :init (require 'shrface)
   ;; Enable source codes highlight.
   (use-package shr-tag-pre-highlight
     :ensure t
-    :after shr
     :config (add-to-list 'shr-external-rendering-functions '(pre . shr-tag-pre-highlight))))
 
 
