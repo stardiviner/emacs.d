@@ -35,6 +35,9 @@
   :hook (org-mode . org-superstar-mode)
   :config
   (with-eval-after-load 'all-the-icons
+    ;; (setq org-superstar-headline-bullets-list
+    ;;       '("⓪" "①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩"
+    ;;         "⑪" "⑫" "⑬" "⑭" "⑮" "⑯" "⑰" "⑱" "⑲" "⑳"))
     (setq-default org-superstar-headline-bullets-list
                   `(;; disk -> folder -> file style
                     ;; folder -> open folder -> inbox -> book -> text -> file -> floppy -> bookmark
