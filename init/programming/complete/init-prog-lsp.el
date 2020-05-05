@@ -9,6 +9,7 @@
 ;;; [ eglot ] -- Client for Language Server Protocol (LSP) servers.
 
 ;; (use-package eglot
+;;   :ensure t
 ;;   :hook (prog-mode . eglot-ensure))
 
 ;;; [ lsp-mode ] -- clients for servers using Language Server Protocol.
