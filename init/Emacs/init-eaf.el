@@ -1,6 +1,6 @@
 ;;; init-eaf.el --- init for emacs-application-framework -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-04-05 01:56:50 stardiviner>
+;;; Time-stamp: <2020-04-28 19:53:31 stardiviner>
 
 ;;; Commentary:
 
@@ -62,7 +62,11 @@
   (setq eaf-interleave-org-notes-dir-list '("~/org/interleave/"))
   (setq eaf-interleave-split-direction 'vertical)
   (setq eaf-interleave-disable-narrowing t)
-  (setq eaf-interleave-split-lines 20))
+  (setq eaf-interleave-split-lines 20)
+
+  (add-to-list 'display-buffer-alist
+               '("\\*eaf pdf outline\\*" . (display-buffer-below-selected)))
+  )
 
 
 
