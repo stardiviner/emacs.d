@@ -17,7 +17,8 @@
     :init (add-to-list 'tramp-remote-path "~/bin"))
   
   ;; `/sudoedit:' method
-  (require 'tramp-sudoedit)
+  (unless (version<= emacs-version "27")
+    (require 'tramp-sudoedit))
 
   ;; Android `/adb:' method
   (use-package tramp-adb)
