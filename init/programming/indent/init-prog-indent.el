@@ -20,7 +20,7 @@
 
 ;;; [ electric-indent-mode ]
 
-(electric-indent-mode t)
+;; (electric-indent-mode t) ; Now this is enabled by default after Emacs 27
 
 
 ;;; [ custom indent functions ]
