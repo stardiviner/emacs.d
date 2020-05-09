@@ -4,5 +4,6 @@
 # group: babel.postgresql.psql
 # --
 #+begin_src sh :dir /su:postgres@localhost:
-psql -c "${1:\l}"
+psql -s -U ${1:$$(yas-choose-value '("postgres" "user"))} ${2:table} \
+-c "${0}"
 #+end_src
