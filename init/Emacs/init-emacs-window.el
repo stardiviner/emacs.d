@@ -47,7 +47,9 @@
 (add-to-list 'display-buffer-alist
              '("^\\*Process List\\*" (display-buffer-below-selected)))
 (add-to-list 'display-buffer-alist
-             '("^\\*Process List\\*" (display-buffer-below-selected)))
+             '("^\\*Shell Command Output\\*" (display-buffer-no-window)))
+(add-to-list 'display-buffer-alist
+             '("^\\*Async Shell Command\\*" (display-buffer-no-window)))
 (add-to-list 'display-buffer-alist
              '("^\\*Animation\\*" (display-buffer-below-selected)))
 ;; (add-to-list 'display-buffer-alist
