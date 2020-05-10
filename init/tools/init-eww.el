@@ -29,6 +29,11 @@
         eww-search-prefix "https://www.google.com/search?q=%s"
         ;; eww-use-external-browser-for-content-type "\\`\\(video/\\|audio/\\|application/ogg\\)"
         )
+
+  ;; don't open eww in current window that will override original buffer.
+  (add-to-list 'display-buffer-alist
+               '("^\\*eww\\*" (display-buffer-below-selected)))
+  
   :config
   ;; keybindings
   (define-key eww-mode-map (kbd "o") 'eww) ; prompt for a URL.
