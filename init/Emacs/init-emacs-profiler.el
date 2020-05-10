@@ -1,6 +1,6 @@
 ;;; init-emacs-profiler.el --- init profilers for Emacs.
 
-;;; Time-stamp: <2020-04-29 18:25:11 stardiviner>
+;;; Time-stamp: <2020-05-11 06:46:48 stardiviner>
 
 ;;; Commentary:
 
@@ -20,7 +20,8 @@
 (use-package elp
   :commands (elp-instrument-package
              elp-instrument-function
-             elp-instrument-list)
+             elp-instrument-list
+             elp-results)
   :init (add-to-list 'display-buffer-alist
                      '("\\*ELP Profiling Results\\*" . (display-buffer-below-selected))))
 
