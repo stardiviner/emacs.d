@@ -117,6 +117,14 @@
   (add-to-list 'display-buffer-alist
                '("^magit-process.*" (display-buffer-same-window))))
 
+;;; [ magit-pretty-graph ] -- A prettier graph for Magit drawn in Emacs.
+
+(use-package magit-pretty-graph
+  :quelpa (magit-pretty-graph :fetcher github :repo "georgek/magit-pretty-graph")
+  :commands (magit-pg-repo)
+  :init (add-to-list 'display-buffer-alist
+                     '("^\\*magit-prettier-graph\\*" (display-buffer-below-selected))))
+
 ;;; [ magit-gitflow ] -- Git Flow plugin for magit
 
 (use-package magit-gitflow
