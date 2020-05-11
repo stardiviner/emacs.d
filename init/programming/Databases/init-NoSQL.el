@@ -8,8 +8,8 @@
 ;;; Code:
 
 (require 'init-Redis)
-(require 'init-MongoDB)
-(require 'init-CouchDB)
+;; (require 'init-MongoDB)
+;; (require 'init-CouchDB)
 
 ;;; Graph Databases
 (require 'init-Neo4j)

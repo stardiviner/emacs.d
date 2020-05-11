@@ -124,7 +124,7 @@
 (require 'init-emacs-file)
 (require 'init-emacs-color)
 (require 'init-emacs-image)
-(require 'init-emacs-pdf)
+;; (require 'init-emacs-pdf)
 (require 'init-emacs-ebook)
 (require 'init-dired)
 (require 'init-emacs-modes)
@@ -205,7 +205,7 @@
 (require 'init-tool-paste)
 ;; (require 'init-tool-irc)
 ;; (require 'init-communication)
-(require 'init-tool-music)
+;; (require 'init-tool-music)
 ;; (require 'init-tool-subtitle)
 ;; (require 'init-tool-podcast)
 ;; (require 'init-tool-audio)
@@ -226,17 +226,17 @@
 (require 'init-prog-indent)
 (require 'init-prog-folding)
 (require 'init-prog-complete)
-(require 'init-prog-sense)
+;; (require 'init-prog-sense)
 ;; (require 'init-prog-parser)
 ;;; fix issue which `company-rtags' backend is before `company-irony'.
 (require 'init-prog-snippet)
 (require 'init-prog-template)
 (require 'init-prog-sidebar)
 (require 'init-prog-document)
-(require 'init-prog-eval)
+;; (require 'init-prog-eval)
 (require 'init-prog-compile)
 (require 'init-prog-build-system)
-(require 'init-prog-lint)
+;; (require 'init-prog-lint)
 (unless (boundp 'debug-prefix)
   (define-prefix-command 'debug-prefix))
 (global-set-key (kbd "C-c d") 'debug-prefix)
@@ -244,7 +244,7 @@
 (require 'init-prog-profiler)
 (require 'init-prog-test)
 ;; (require 'init-prog-test-coverage)
-(require 'init-prog-reformat)
+;; (require 'init-prog-reformat)
 ;; (require 'init-prog-refactor)
 (require 'init-prog-project)
 (require 'init-prog-vcs)
@@ -256,8 +256,9 @@
 
 (require 'init-prog-lang-lisp)
 (require 'init-prog-lang-emacs-lisp)
-(require 'init-prog-lang-common-lisp)
-(require 'init-prog-lang-scheme)
+;; (require 'init-prog-lang-common-lisp)
+(setq scheme-program-name "guile")
+;; (require 'init-prog-lang-scheme)
 ;; (require 'init-prog-lang-racket)
 ;; (require 'init-prog-lang-newLisp)
 ;; (require 'init-prog-lang-shen)
@@ -266,7 +267,7 @@
 ;; (require 'init-prog-lang-ruby)
 ;; (require 'init-prog-lang-perl)
 (require 'init-prog-lang-shell)
-(require 'init-prog-lang-C-common)
+;; (require 'init-prog-lang-C-common)
 ;; (require 'init-prog-lang-dotnet)
 ;; (require 'init-prog-lang-D)
 ;; (require 'init-prog-lang-go)
@@ -284,7 +285,7 @@
 ;; (require 'init-prog-lang-coffeescript)
 ;; (require 'init-prog-lang-sibilant)
 ;; (require 'init-prog-lang-dart)
-(require 'init-prog-lang-xml)
+;; (require 'init-prog-lang-xml)
 (require 'init-prog-lang-json)
 ;; (require 'init-prog-lang-rdf)
 ;; (require 'init-prog-lang-sdlang)
@@ -298,7 +299,7 @@
 ;; (require 'init-prog-lang-gnuplot)
 ;; (require 'init-prog-lang-octave)
 ;; (require 'init-prog-lang-matlab)
-(require 'init-prog-lang-tex)
+;; (require 'init-prog-lang-tex)
 ;; (require 'init-bibliography)
 (require 'init-prog-lang-markdown)
 ;; (require 'init-prog-lang-reStructuredText)
@@ -317,10 +318,10 @@
 ;;; [ Query Languages ]
 
 (require 'init-SQL)
-(require 'init-NewSQL)
+;; (require 'init-NewSQL)
 (require 'init-NoSQL)
 ;; (require 'init-CQL)
-(require 'init-GraphQL)
+;; (require 'init-GraphQL)
 
 
 ;;; Programming Tools
@@ -348,7 +349,7 @@
 
 ;;; Data Science
 
-(require 'init-data-science)
+;; (require 'init-data-science)
 
 
 (require 'init-log-tools)
@@ -370,13 +371,13 @@
 ;; (require 'init-electric-music)
 
 ;;; Hack
-(require 'init-reverse-engineering)
+;; (require 'init-reverse-engineering)
 
 
 ;;; Authoring & Writing
 
 (require 'init-text-checker)
-(require 'init-authoring)
+;; (require 'init-authoring)
 
 ;;; Chef
 
