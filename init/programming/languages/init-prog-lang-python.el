@@ -104,12 +104,12 @@
 
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
 
-(use-package pyvenv
-  :ensure t
-  :init (pyvenv-workon (if-let (virtual_env (getenv "VIRTUAL_ENV"))
-                           (car (last (split-string virtual_env "/")))
-                         "3.8"))
-  :hook (python-mode . pyvenv-mode))
+;; (use-package pyvenv
+;;   :ensure t
+;;   :init (pyvenv-workon (if-let (virtual_env (getenv "VIRTUAL_ENV"))
+;;                            (car (last (split-string virtual_env "/")))
+;;                          "3.8"))
+;;   :hook (python-mode . pyvenv-mode))
 
 ;;; [ poetry ] -- Python dependency management and packaging in Emacs.
 
