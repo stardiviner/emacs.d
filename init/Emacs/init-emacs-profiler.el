@@ -39,6 +39,13 @@
 ;; (add-to-list 'display-buffer-alist
 ;;              '("\\*trace-output\\*" . (display-buffer-below-selected)))
 
+;;; [ memory-usage ] -- Analyze the memory usage of Emacs in various ways.
+
+(use-package memory-usage
+  :ensure t
+  :defer t
+  :commands (memory-usage))
+
 
 
 (provide 'init-emacs-profiler)
