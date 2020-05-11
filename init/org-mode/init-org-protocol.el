@@ -9,12 +9,14 @@
 
 ;;; [ org-protocol ] -- intercept calls from emacsclient to trigger custom actions.
 
-(unless (featurep 'server)
-  (require 'server))
-(unless (server-running-p)
-  (server-start))
-
-(require 'org-protocol)
+(use-package org-protocol
+  :defer t
+  :config
+  (with-eval-after-load 'org-protocol
+    (unless (featurep 'server)
+      (require 'server))
+    (unless (server-running-p)
+      (server-start))))
 
 ;; ;; TODO: setup this option.
 ;; ;; (module-name :property value property: value ...)

@@ -165,6 +165,7 @@
 (use-package lsp-mode
   :ensure t
   :ensure lsp-javascript-typescript
+  :defer t
   :hook ((js-mode js2-mode rjsx-mode) . lsp))
 
 ;;; [ npm-mode ] -- minor mode for working with npm projects.
@@ -177,7 +178,9 @@
 ;;; [ npm ] -- NPM client for Emacs.
 
 (use-package npm
-  :ensure t)
+  :ensure t
+  :defer t
+  :commands (npm-menu))
 
 ;;; [ jsx-mode ] -- The XML inside of JavaScript.
 
@@ -273,6 +276,7 @@
 (use-package lsp-mode
   :ensure t
   :ensure lsp-javascript-typescript
+  :defer t
   :hook ((typescript-mode) . lsp))
 
 

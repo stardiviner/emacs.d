@@ -46,6 +46,7 @@
   (use-package dired-single
     :ensure t
     :defer t
+    :after dired
     :init
     (defun my:dired-single-enable ()
       (define-key dired-mode-map [return] 'dired-single-buffer)
@@ -57,16 +58,20 @@
   (use-package dired-toggle-sudo        ; browse directory with sudo privileges.
     :ensure t
     :defer t
+    :commands (dired-toggle-sudo)
     :bind (:map dired-mode-map ("#" . dired-toggle-sudo)))
 
   ;; colorful Dired
   (use-package diredfl
     :ensure t
-    :config (diredfl-global-mode 1))
+    :defer t
+    :hook (dired-mode . diredfl-global-mode))
 
   ;; Show git info in Dired.
   (use-package dired-git-info
     :ensure t
+    :defer t
+    :commands (dired-git-info-mode)
     :bind (:map dired-mode-map (")" . dired-git-info-mode)))
   
   ;; allow rsync from dired buffers especially for large files.
@@ -106,11 +111,15 @@
     :config (image-diredx-async-mode 1) (image-diredx-adjust-mode 1))
 
   ;; [ wdired ] -- rename files editing their names in dired buffers.
-  (require 'wdired)
-  (define-key dired-mode-map (kbd "C-c C-p") 'wdired-change-to-wdired-mode)
-  (setq wdired-allow-to-change-permissions t)
+  (use-package wdired
+    :defer t
+    :commands (wdired-change-to-wdired-mode)
+    :init
+    (define-key dired-mode-map (kbd "C-c C-p") 'wdired-change-to-wdired-mode)
+    (setq wdired-allow-to-change-permissions t))
 
   (use-package dired-x ; extra Dired functionality
+    :defer t
     ;; don't bind [C-x C-j] from `dired-x'. (conflict with `ace-window')
     :preface (setq dired-bind-jump nil)
     :config
@@ -126,26 +135,32 @@
   (use-package all-the-icons-dired
     :ensure t
     :defer t
-    :init (add-hook 'dired-mode-hook #'all-the-icons-dired-mode))
+    :commands (all-the-icons-dired-mode)
+    :hook (dired-mode . all-the-icons-dired-mode))
 
   ;; Insert subdirectories in a tree-like fashion.
   (use-package dired-subtree
     :defer t
+    :commands (dired-subtree-cycle)
     :bind (:map dired-mode-map ("TAB" . dired-subtree-cycle)))
 
   ;; Edit Filename At Point in an Emacs' dired buffer
   (use-package dired-efap
     :ensure t
     :defer t
+    :commands (dired-efap dired-efap-click)
     :bind (:map dired-mode-map ([f2] . dired-efap) ([down-mouse-1] . dired-efap-click))
     :init (setq dired-efap-use-mouse t))
 
   ;; `dired-do-*' commands
-  (require 'dired-aux)
+  (use-package dired-aux
+    :defer t
+    :commands (dired-do-shell-command dired-do-async-shell-command))
 
   (use-package dired-narrow
     :ensure t
     :defer t
+    :commands (dired-narrow)
     :bind (:map dired-mode-map ("/" . dired-narrow)))
 
   ;; [ make-it-so ] -- Transform files with Makefile recipes.
@@ -162,6 +177,8 @@
   ;; [ dired-git-info ] -- Show Git info in Dired.
   (use-package dired-git-info
     :ensure t
+    :defer t
+    :commands (dired-git-info-mode)
     :hook (dired . dired-git-info-mode))
   
   ;; [ dired-git ] -- Git integration for Dired.

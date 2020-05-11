@@ -14,6 +14,16 @@
 ;;; Activate `org-table-electric-header-mode' by default?
 (setq org-table-header-line-p nil)
 
+;;; correctly align Chinese/English mixed table.
+(with-eval-after-load 'org
+  (defun org-buffer-face-mode-variable ()
+    (interactive)
+    (make-face 'width-font-face)
+    (set-face-attribute 'width-font-face nil :font "Sarasa Mono SC 10")
+    (setq buffer-face-mode-face 'width-font-face)
+    (buffer-face-mode))
+  (add-hook 'org-mode-hook 'org-buffer-face-mode-variable))
+
 ;; [ org-plot ] -- Plotting Tables in Org-mode.
 
 (use-package org-plot

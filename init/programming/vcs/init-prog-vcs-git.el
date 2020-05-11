@@ -121,6 +121,7 @@
 
 (use-package magit-pretty-graph
   :quelpa (magit-pretty-graph :fetcher github :repo "georgek/magit-pretty-graph")
+  :defer t
   :commands (magit-pg-repo)
   :init (add-to-list 'display-buffer-alist
                      '("^\\*magit-prettier-graph\\*" (display-buffer-below-selected))))
@@ -131,7 +132,7 @@
   :ensure t
   :defer t
   :after magit
-  :init (add-hook 'magit-status-mode-hook 'turn-on-magit-gitflow))
+  :hook (magit-status-mode . turn-on-magit-gitflow))
 
 ;;; [ magit-p4 ] -- Magit plugin integrating git-p4 add-on.
 
@@ -199,8 +200,9 @@
   :ensure t
   :ensure projectile
   :defer t
-  :after magit
-  :init (magit-org-todos-autoinsert)
+  :hook (magit-status-mode . magit-org-todos-autoinsert)
+  :commands (magit-org-todos--magit-visit-org-todo)
+  :init
   (with-eval-after-load 'projectile
     (define-key projectile-command-map (kbd "C-o")  'magit-org-todos--magit-visit-org-todo)))
 

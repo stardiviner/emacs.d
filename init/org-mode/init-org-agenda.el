@@ -10,13 +10,12 @@
 (use-package org-agenda
   :defer t
   :commands (org-agenda)
-  :init
+  :config
   (setq org-agenda-window-setup 'current-window)
   (setq org-agenda-sticky t) ; don't kill *Org Agenda* buffer by [q].
 
   ;; `org-agenda-files'
-  (use-package dash ; for `-flatten'
-    :ensure t)
+  (autoload '-flatten "dash")
   (setq org-agenda-files
         ;; recursive in all directory and sub-directory.
         (-flatten
@@ -462,6 +461,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;; ---------------------------------------------------------
 
 (use-package org-notify
+  :defer t
   :init (setq org-notify-audible nil)
   :config
   (org-notify-add 'default

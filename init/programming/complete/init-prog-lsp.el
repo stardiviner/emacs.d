@@ -130,7 +130,8 @@
 ;;; [ lsp-docker ] -- lsp-mode uses lsp-docker to run language servers using in Docker containers.
 
 (use-package lsp-docker
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-prog-lsp)

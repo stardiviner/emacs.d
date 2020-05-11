@@ -13,10 +13,12 @@
   :ensure t
   :defer t
   :delight company-mode
-  ;; disable `company-mode' in `org-mode' for performance.
-  ;; :preface (setq company-global-modes '(not org-mode))
+  :custom ((company-etags-modes nil)) ; disable `company-etags'
+  ;; disable initialize loading all company backends.
+  :preface (setq company-backends nil)
   :commands (global-company-mode)
-  :init (global-company-mode 1)
+  :hook (after-init . global-company-mode)
+  :config
   (setq company-minimum-prefix-length 3
         ;; decrease this delay when you can type code continuously fast.
         company-idle-delay 0.2
@@ -48,6 +50,7 @@
   ;; company-tabnine: A company-mode backend for TabNine, the all-language autocompleter.
   (use-package company-tabnine
     :ensure t
+    :defer t
     :config
     (add-to-list 'company-backends #'company-tabnine)
     ;; The free version of TabNine is good enough,
@@ -69,7 +72,6 @@
                   (company-dabbrev-code :with company-abbrev)
                   company-files))
   
-  :config
   (defun my-company-add-backend-locally (backend)
     "Add a backend in my custom way.
 
@@ -161,11 +163,6 @@
   (setq company-dabbrev-other-buffers t)
 
   ;; [ company-tempo ]
-
-  ;; [ company-etags ]
-  (setq company-etags-modes nil) ; disable `company-etags'
-  ;; enable to offer completions in comment and strings.
-  ;; (setq company-etags-everywhere t)
 
   ;; [ company-transformers ]
   ;; NOTE: disable customize `company-transformers' to fix python-mode company candidates

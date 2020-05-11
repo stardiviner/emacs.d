@@ -89,6 +89,7 @@
 
 (use-package lsp-mode
   :ensure t
+  :defer t
   :after lsp
   :hook ((python-mode . lsp)
          (python-mode . dap-mode)

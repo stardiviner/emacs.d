@@ -11,6 +11,7 @@
 
 (use-package eldoc
   :ensure t
+  :defer t
   :diminish eldoc-mode
   :config
   ;; ElDoc with most `paredit' command.

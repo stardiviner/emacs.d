@@ -30,7 +30,6 @@
 (use-package saveplace
   :ensure nil
   :defer 1
-  :commands (save-place-mode)
   :hook (after-init . save-place-mode))
 
 

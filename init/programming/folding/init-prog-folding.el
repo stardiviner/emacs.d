@@ -26,6 +26,7 @@
 
 (use-package origami
   :ensure t
+  :defer t
   :bind (:map prog-fold-prefix
               ("m"  . origami-mode)
               ("SPC" .  origami-toggle-node)
@@ -43,9 +44,9 @@
               ("u" . origami-undo)
               ("r" . origami-redo)
               ("!" . origami-reset))
-  :init (add-hook 'prog-mode-hook #'origami-mode)
-  (setq origami-show-fold-header t
-        origami-fold-replacement "..."))
+  :hook (prog-mode . origami-mode)
+  :init (setq origami-show-fold-header t
+              origami-fold-replacement "..."))
 
 
 (provide 'init-prog-folding)

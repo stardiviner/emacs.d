@@ -111,6 +111,7 @@
 ;;; [ Habit ]
 
 (use-package org-habit
+  :defer t
   :after org
   :config
   (setq org-habit-graph-column 70
@@ -188,8 +189,9 @@
 
 (use-package org-edna
   :ensure t
+  :defer t
   :after org
-  :init (org-edna-mode 1))
+  :hook (org-mode . org-edna-mode))
 
 
 

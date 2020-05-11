@@ -12,7 +12,8 @@
   :ensure t
   :defer t
   :custom (eyebrowse-keymap-prefix (kbd "C-x w"))
-  :init (eyebrowse-mode t)
+  :hook (after-init . eyebrowse-mode)
+  :init
   (setq eyebrowse-new-workspace t
         eyebrowse-close-window-config-prompt t
         ;; it has very often invoked by `posn-at-point' affect performance.

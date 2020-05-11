@@ -57,12 +57,16 @@
 
 (use-package shrface
   :ensure t
-  :after shr
-  :init (require 'shrface)
+  :defer t
+  :config
   ;; Enable source codes highlight.
   (use-package shr-tag-pre-highlight
     :ensure t
-    :config (add-to-list 'shr-external-rendering-functions '(pre . shr-tag-pre-highlight))))
+    :defer t
+    :config
+    (add-to-list 'shr-external-rendering-functions '(pre . shr-tag-pre-highlight))))
+
+;;; [ inherit-org ] -- 
 
 
 (provide 'init-org-view)

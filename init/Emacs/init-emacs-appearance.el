@@ -80,6 +80,7 @@
 ;; highlight current line
 (use-package hl-line
   :ensure nil
+  :defer t
   :hook (after-init . global-hl-line-mode))
 
 ;;; [ point & cursor ]

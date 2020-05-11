@@ -714,17 +714,17 @@
 
   ;; Contacts
   (require 'init-org-contacts)
+  (autoload 'org-contacts-setup-completion-at-point "org-contacts")
   (setq mu4e-org-contacts-file (car org-contacts-files))
   (add-to-list 'mu4e-headers-actions
                '("org-contact-add" . mu4e-action-add-org-contact) t)
   (add-to-list 'mu4e-view-actions
                '("org-contact-add" . mu4e-action-add-org-contact) t)
   (add-hook 'mu4e-compose-mode-hook
-            (lambda ()
-              (setq-local completion-at-point-functions
-                          '(mu4e~compose-complete-contact
-                            mail-completion-at-point-function
-                            message-completion-function)))))
+            (lambda () (setq-local completion-at-point-functions
+                              '(mu4e~compose-complete-contact
+                                mail-completion-at-point-function
+                                message-completion-function)))))
 
 ;;; [ mu4e-overview ] -- show overview of maildirs.
 

@@ -42,7 +42,7 @@ If ARG is given, then insert the result to current-buffer"
 (use-package ob-calc
   :defer t
   :commands (org-babel-execute:calc)
-  :init
+  :config
   (add-to-list 'org-babel-load-languages '(calc . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 

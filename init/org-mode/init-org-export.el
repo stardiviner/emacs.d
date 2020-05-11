@@ -147,7 +147,8 @@
 ;;; [ ox-pandoc ] -- another org-mode exporter via pandoc.
 
 (use-package ox-pandoc
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ htmlize ] -- deprecated htmlize implementation.
 

@@ -12,14 +12,13 @@
 (use-package ivy
   :ensure t
   :ensure ivy-hydra ; [C-o], [M-o]
-  :defer t
   :delight ivy-mode
+  :custom (ivy-initial-inputs-alist nil)
   :init (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
               ivy-virtual-abbreviate 'full ; use 'full to fix bookmarks uniquify issue.
               ivy-fixed-height-minibuffer t
               ivy-height 7)
-  :config (ivy-mode 1)
-  (add-hook 'ivy-mode-hook (lambda () (setq ivy-initial-inputs-alist nil))))
+  :hook (after-init . ivy-mode))
 
 ;;; [ ivy-rich ] -- More friendly display transformer for ivy.
 
@@ -27,7 +26,8 @@
 ;;   :ensure t
 ;;   :defer t
 ;;   :commands (ivy-rich-mode)
-;;   :init (ivy-rich-mode 1)
+;;   :hook (ivy-mdoe . ivy-rich-mode)
+;;   :init
 ;;   ;;; [ all-the-icons-ivy-rich ] -- Better experience with icons for Ivy.
 ;;   (use-package all-the-icons-ivy-rich
 ;;     :ensure t
@@ -71,7 +71,7 @@
   (define-key search-prefix (kbd "M-g") 'counsel-grep)
   (define-key search-prefix (kbd "M-r") 'counsel-rg) ; [C-u] prompt for dir support
   :init (setq counsel-mode-override-describe-bindings t)
-  :config (counsel-mode 1))
+  :hook (ivy-mode . counsel-mode))
 
 ;;; [ ivy-posframe ] -- Using posframe to show Ivy.
 

@@ -10,7 +10,7 @@
 ;;; [ Tramp ]
 
 (use-package tramp
-  :ensure t
+  :defer t
   :config
   ;; Shell `/ssh:' etc methods
   (use-package tramp-sh
@@ -21,7 +21,8 @@
     (require 'tramp-sudoedit))
 
   ;; Android `/adb:' method
-  (use-package tramp-adb)
+  (use-package tramp-adb
+    :defer t)
 
   ;; <default method>
   (setq tramp-default-method "ssh")
@@ -88,6 +89,7 @@
 
 (use-package tramp-auto-auth
   :ensure t
+  :defer t
   :config
   (add-to-list 'tramp-auto-auth-alist '("root@localhost" . (:host "localhost" :user "root" :port "ssh")))
   (add-to-list 'tramp-auto-auth-alist '("root@dark" . (:host "dark" :user "root" :port "ssh")))
@@ -96,7 +98,6 @@
 ;;; [ counsel-tramp ] -- Tramp with Ivy/counsel interface.
 
 (use-package counsel-tramp
-  :if (featurep 'counsel)
   :ensure t
   :defer t
   :commands (counsel-tramp)
@@ -104,11 +105,11 @@
 
 ;;; [ helm-tramp ] -- Tramp with Helm interface.
 
-(use-package helm-tramp
-  :if (featurep 'helm)
-  :ensure t
-  :after helm
-  :commands (helm-tramp))
+;; (use-package helm-tramp
+;;   :ensure t
+;;   :defer t
+;;   :after helm
+;;   :commands (helm-tramp))
 
 
 

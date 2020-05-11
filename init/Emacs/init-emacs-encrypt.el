@@ -15,7 +15,8 @@
 
 (use-package pinentry
   :ensure t
-  :init (pinentry-start))
+  :defer t
+  :hook (after-init . pinentry-start))
 
 (use-package epa
   :ensure t
@@ -36,7 +37,7 @@
         epa-file-inhibit-auto-save t)
   (epa-file-enable)
   ;; Decrypt to load session at Emacs startup beginning to avoid pause prompt.
-  (my/json-read-value my/account-file 'ejc-sql-postgresql)
+  ;; (my/json-read-value my/account-file 'ejc-sql-postgresql)
   :config
   (add-to-list 'display-buffer-alist '("^\\*Keys\\*" (display-buffer-below-selected))))
 

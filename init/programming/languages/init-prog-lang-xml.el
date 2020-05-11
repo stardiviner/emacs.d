@@ -51,6 +51,7 @@
 
 (use-package xml-format
   :ensure t
+  :defer t
   :after nxml-mode
   :commands (xml-format-buffer xml-format-region)
   :init (add-hook 'nxml-mode-hook #'xml-format-on-save-mode))

@@ -36,7 +36,8 @@
 ;;; [ vagrant-tramp ] -- Vagrant method for TRAMP.
 
 (use-package vagrant-tramp
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-vagrant)

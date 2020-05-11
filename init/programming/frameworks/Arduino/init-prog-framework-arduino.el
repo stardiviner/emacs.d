@@ -11,23 +11,25 @@
 
 (use-package arduino-mode
   :ensure t
-  :requires (flycheck-arduino)
-  :hook (arduino-mode . flycheck-arduino-setup))
-
-;;; [ ob-arduino ] -- Org Mode Babel support for Arduino.
-
-(use-package org-plus-contrib
-  :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-  :no-require t
-  :pin manual
-  :init
-  (use-package ob-arduino
-    :defer t
-    :commands (org-babel-execute:arduino)
-    :config
-    (add-to-list 'org-babel-load-languages '(arduino . t))
-    (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-    (add-to-list 'org-babel-tangle-lang-exts '("arduino" . "ino"))))
+  :defer t
+  ;; :requires (flycheck-arduino)
+  :commands (flycheck-arduino-setup)
+  :hook (arduino-mode . flycheck-arduino-setup)
+  :config
+  ;; [ ob-arduino ] -- Org Mode Babel support for Arduino.
+  (use-package org-plus-contrib
+    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :no-require t
+    :pin manual
+    :init
+    (use-package ob-arduino
+      :defer t
+      :after arduino-mode
+      :commands (org-babel-execute:arduino)
+      :config
+      (add-to-list 'org-babel-load-languages '(arduino . t))
+      (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+      (add-to-list 'org-babel-tangle-lang-exts '("arduino" . "ino")))))
 
 ;;; [ company-arduino ] -- code completion support for arduino-mode.
 
@@ -40,7 +42,7 @@
   :preface (setq company-arduino-home
                  (setenv "ARDUINO_HOME" (expand-file-name "~/Arduino/")))
   :commands (company-arduino-turn-on)
-  :init
+  :config
   ;; Turn-on irony-mode on arduino-mode (on .ino file).
   (with-eval-after-load 'irony
     (add-to-list 'irony-supported-major-modes 'arduino-mode))

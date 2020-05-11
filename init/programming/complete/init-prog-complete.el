@@ -11,6 +11,7 @@
 ;;; [ pcomplete ] --- Programmable, Context-Sensitive Completion Library
 
 (use-package pcomplete
+  :defer t
   :init (setq pcomplete-ignore-case t))
 
 

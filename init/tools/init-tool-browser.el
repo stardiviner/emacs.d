@@ -60,7 +60,7 @@
 
 ;;; [ ace-link ] -- easier link selection with ace-mode on many buffer links.
 
-(use-package ace-link ; [o]
+(use-package ace-link ; [C-c M-o]
   :ensure t
   :defer t
   :init (ace-link-setup-default)
@@ -70,27 +70,6 @@
     (define-key org-mode-map (kbd "C-c M-o") 'ace-link-org))
   (with-eval-after-load 'org-agenda
     (define-key org-agenda-mode-map (kbd "C-c M-o") 'ace-link-org-agenda)))
-
-;;; [ counsel-ffdata ] -- Ivy interface to access your firefox bookmarks and history in Emacs.
-
-(use-package counsel-ffdata
-  :ensure t
-  :defer t
-  :commands (counsel-ffdata-firefox-bookmarks counsel-ffdata-firefox-history))
-
-;;; [ helm-chrome ] -- Helm interface for Chrome bookmarks.
-
-(use-package helm-chrome
-  :ensure t
-  :defer t
-  :commands (helm-chrome))
-
-;;; [ helm-chrome-control ] -- Control Chrome tabs with Helm (macOS only).
-
-(use-package helm-chrome-control
-  :ensure t
-  :defer t
-  :commands (helm-chrome-control))
 
 
 (provide 'init-tool-browser)

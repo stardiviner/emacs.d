@@ -20,6 +20,7 @@
 
 (use-package mingus
   :ensure t
+  :defer t
   :commands (mingus))
 
 ;;; [ PulseAudio ]

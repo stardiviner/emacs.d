@@ -45,6 +45,8 @@ column.  Place the point after the comment box."
 
 (use-package banner-comment
   :ensure t
+  :defer t
+  :commands (banner-comment)
   :bind (:map prog-comment-prefix ("=" . banner-comment)))
 
 
@@ -59,7 +61,7 @@ column.  Place the point after the comment box."
               ("p" . hl-todo-previous)
               ("o" . hl-todo-occur)
               ("t" . hl-todo-insert))
-  :init (global-hl-todo-mode)
+  :hook (after-init . global-hl-todo-mode)
   :config
   (add-to-list 'hl-todo-keyword-faces '("DEBUG" . "#ff8c00"))
   (add-to-list 'hl-todo-keyword-faces '("PERFORMANCE" . "#5f7f5f"))
@@ -69,6 +71,7 @@ column.  Place the point after the comment box."
 
 (use-package poporg
   :ensure t
+  :defer t
   :bind (("C-c '" . poporg-dwim)
          :map prog-comment-prefix ("'" . poporg-dwim)
          :map poporg-mode-map ([remap save-buffer] . poporg-edit-exit))

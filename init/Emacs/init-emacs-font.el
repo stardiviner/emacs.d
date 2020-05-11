@@ -25,15 +25,6 @@
     (set-frame-font (format "%s-%s" (eval emacs-font-name) (eval emacs-font-size)))
     (set-fontset-font (frame-parameter nil 'font) 'unicode (eval emacs-font-name))))
 
-(with-eval-after-load 'org
-  (defun org-buffer-face-mode-variable ()
-    (interactive)
-    (make-face 'width-font-face)
-    (set-face-attribute 'width-font-face nil :font "Sarasa Mono SC 10")
-    (setq buffer-face-mode-face 'width-font-face)
-    (buffer-face-mode))
-  (add-hook 'org-mode-hook 'org-buffer-face-mode-variable))
-
 
 ;; set Unicode characters font
 (when (display-graphic-p) ; for `set-fontset-font'

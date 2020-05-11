@@ -175,9 +175,11 @@
 (use-package org-pretty-tags
   :ensure t
   :defer t
+  :after org
   :commands (org-pretty-tags-mode org-pretty-tags-global-mode)
-  :init (org-pretty-tags-global-mode t)
-  (setq org-tag-faces nil)
+  :hook (after-init . org-pretty-tags-global-mode)
+  :init (setq org-tag-faces nil)
+  :config
   (setq org-pretty-tags-surrogate-strings
         `(("ARCHIVE" . ,(all-the-icons-faicon "archive"))
           ("noexport" . ,(all-the-icons-faicon "ban"))

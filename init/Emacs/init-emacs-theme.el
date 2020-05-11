@@ -54,11 +54,11 @@
 
 (use-package circadian
   :ensure t
+  :init (setq calendar-location-name "Shaoxing Town"
+              calendar-time-zone +480
+              calendar-latitude 29.72
+              calendar-longitude 120.20)
   :config
-  (setq calendar-location-name "Shaoxing Town"
-        calendar-time-zone +480
-        calendar-latitude 29.72
-        calendar-longitude 120.20)
   ;; NOTE: make sure to use `:defer' keyword for theme `use-package'.
   (setq circadian-themes '((:sunrise . leuven)
                            (:sunset . one-dark)))

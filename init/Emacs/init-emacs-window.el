@@ -124,8 +124,9 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
 
 (use-package zoom
   :ensure t
-  :init (zoom-mode)
-  :config (setq zoom-size '(0.618 . 0.618)))
+  :hook (after-init . zoom-mode)
+  :config (setq zoom-size '(0.618 . 0.618))
+  )
 
 ;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
 

@@ -13,7 +13,8 @@
   :defer t
   :commands (eshell)
   :bind ("C-x !" . eshell)
-  :init (setenv "PAGER" "cat") ; change PAGER from `less' to `cat'.
+  :preface (setenv "PAGER" "cat") ; change PAGER from `less' to `cat'.
+  :config
   ;; Eshell sudo
   ;; load eshell's sudo which use Tramp's su/sudo methods.
   ;; (require 'em-tramp)

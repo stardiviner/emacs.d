@@ -18,9 +18,10 @@
 (use-package docker
   :ensure t
   :defer t
-  :commands (docker-containers docker-images docker-volumes docker-networks
-                               docker-container-eshell docker-container-shell
-                               docker-container-dired docker-container-find-file)
+  :commands (docker
+             docker-containers docker-images docker-volumes docker-networks
+             docker-container-eshell docker-container-shell
+             docker-container-dired docker-container-find-file)
   :bind (:map container-prefix
               ("c" . docker-containers)
               ("i" . docker-images)
@@ -31,14 +32,7 @@
               ("C-d" . docker-container-dired)
               ("C-f" . docker-container-find-file))
   :init (setq docker-containers-show-all t)
-  (defun docker-container-insert-name ()
-    "A helper function to insert container ID or name."
-    (interactive)
-    (insert (funcall-interactively 'docker-container-read-name)))
-  (define-key container-prefix (kbd "M-i") #'docker-container-insert-name)
-  (require 'ob-keys)
-  (define-key org-babel-map (kbd "C-M-d") 'docker-container-insert-name)
-
+  :config
   (add-to-list 'display-buffer-alist
                '("\\*docker-images\\*" .
                  (display-buffer-reuse-window display-buffer-below-selected)))
@@ -54,7 +48,6 @@
   (add-to-list 'display-buffer-alist
                '("\\*docker-networks\\*" .
                  (display-buffer-reuse-window display-buffer-below-selected)))
-  :config (docker-global-mode 1)
   
   (with-eval-after-load 'all-the-icons
     (add-to-list 'all-the-icons-mode-icon-alist
@@ -66,35 +59,45 @@
     (add-to-list 'all-the-icons-mode-icon-alist
                  '(docker-volumes-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
     (add-to-list 'all-the-icons-mode-icon-alist
-                 '(docker-networks-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))))
+                 '(docker-networks-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0)))
+
+  (defun docker-container-insert-name ()
+    "A helper function to insert container ID or name."
+    (interactive)
+    (insert (funcall-interactively 'docker-container-read-name)))
+  (define-key container-prefix (kbd "M-i") #'docker-container-insert-name)
+  (require 'ob-keys)
+  (define-key org-babel-map (kbd "C-M-d") 'docker-container-insert-name))
 
 ;;; [ dockerfile-mode ] -- Major mode for editing `Dockerfile'.
 
 (use-package dockerfile-mode
   :ensure t
   :defer t
-  :init (add-to-list 'company-keywords-alist
-                     '(dockerfile-mode
-                       "FROM"
-                       "ADD" "COPY"
-                       "RUN" "CMD" "ENTRYPOINT"
-                       "VOLUME" "ENV" "EXPOSE"  "LABEL" "ARG"
-                       "STOPSIGNAL" "USER"  "WORKDIR"
-                       "ONBUILD" "HEALTHCHECK" "SHELL")))
+  :config
+  (add-to-list 'company-keywords-alist
+               '(dockerfile-mode "FROM"
+                                 "ADD" "COPY"
+                                 "RUN" "CMD" "ENTRYPOINT"
+                                 "VOLUME" "ENV" "EXPOSE"  "LABEL" "ARG"
+                                 "STOPSIGNAL" "USER"  "WORKDIR"
+                                 "ONBUILD" "HEALTHCHECK" "SHELL")))
 
 ;;; [ docker-compose-mode ] -- Major mode for editing `docker-compose.yml'.
 
 (use-package docker-compose-mode
   :ensure t
-  :defer t)
+  :defer t
+  :mode ("docker-compose[^/]*\\.yml\\'" . docker-compose-mode))
 
 ;;; [ docker-tramp ] -- TRAMP integration for Docker containers.
 
 (use-package docker-tramp
   :ensure t
+  :defer t
   :init (setq docker-tramp-use-names t)
   ;; (setq docker-tramp-docker-options nil)
-
+  :config
   (defun docker-tramp-insert-running-container (container)
     "A helper function to insert the running `CONTAINER' name.
 For Org-babel header argument :dir /docker:<name>:."
@@ -129,7 +132,8 @@ For Org-babel header argument :dir /docker:<name>:."
 ;;; [ kubernetes-tramp ] -- offers a TRAMP method for Docker containers deployed in a Kubernetes cluster.
 
 (use-package kubernetes-tramp
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-docker)

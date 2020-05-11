@@ -10,7 +10,8 @@
 (use-package eww
   :ensure t
   :defer t
-  :init
+  :commands (eww)
+  :config
   ;; set to "internal" Emacs Web Wowser
   ;; (setq browse-url-browser-function 'eww-browse-url)
 
@@ -73,11 +74,10 @@
   :defer t
   :bind (:map eww-mode-map ("f" . eww-lnum-follow) ("U" . eww-lnum-universal)))
 
-(use-package org-eww
-  :defer t)
-
 ;;; - store URL in EWW for `org-store-link'.
 ;;; - copy region and convert to Org format on the fly with `org-eww-copy-for-org-mode' [C-c C-x C-w].
+(use-package ol-eww
+  :after eww)
 
 
 

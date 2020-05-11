@@ -15,6 +15,7 @@
 
 (use-package projectile
   :ensure t
+  :defer t
   :delight projectile-mode
   :commands (projectile-mode)
   :bind-keymap ("C-c p" . projectile-command-map)

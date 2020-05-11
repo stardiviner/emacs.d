@@ -7,6 +7,7 @@
 
 ;;; Code:
 
+;;; Usage: set this variable to non-nil.
 (defvar my/emacs-benchmark-toggle nil)
 
 ;;; [ benchmark-init.el ] -- Benchmark your Emacs initialization

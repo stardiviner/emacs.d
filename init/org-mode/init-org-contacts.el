@@ -10,14 +10,13 @@
 ;;; [ org-contacts ] -- Contacts management in Org-mode.
 
 (use-package org-contacts
-  :demand t
+  :defer t
   :commands (org-contacts org-contacts-anniversaries)
-  :init (setq org-contacts-files (list (concat org-directory "/Contacts/Contacts.org")))
-  ;; Create agenda view for contacts matching NAME.
-  (unless (boundp 'Org-prefix)
-    (define-prefix-command 'Org-prefix))
-  (define-key Org-prefix (kbd "M-c") 'org-contacts)
-
+  :preface (unless (boundp 'Org-prefix)
+             (define-prefix-command 'Org-prefix))
+  :bind (:map Org-prefix ("M-c" . org-contacts)) ; create agenda view for contacts matching NAME.
+  :init
+  (setq org-contacts-files (list (concat org-directory "/Contacts/Contacts.org")))
   (setq org-capture-templates
         (append '(("C" "[C]ontact"
                    entry (file (lambda () (car org-contacts-files)))

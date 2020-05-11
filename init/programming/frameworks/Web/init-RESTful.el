@@ -58,7 +58,6 @@
   ;; [ company-restclient ]
   (use-package company-restclient
     :ensure t
-    :defer t
     :init
     (defun my/company-restclient-setup ()
       (my-company-add-backend-locally 'company-restclient))
@@ -66,11 +65,11 @@
 
   ;; [ restclient-test ] -- Run tests with restclient.el
   (use-package restclient-test
-    :ensure t
-    :defer t))
+    :ensure t))
 
 
 ;; [ ob-restclient ]
+
 (use-package ob-restclient
   :ensure t
   :defer t
@@ -99,14 +98,12 @@
   :commands (httprepl)
   :config (add-hook 'httprepl-mode-hook #'my/company-restclient-setup nil 'local))
 
-
 ;;; [ know-your-http-well ]
 
 (use-package know-your-http-well
   :ensure t
   :defer t
   :after company-restclient)
-
 
 ;;; [ httpcode ] -- explains the meaning of an HTTP status code.
 
@@ -118,11 +115,13 @@
 
 ;;; [ walkman ] -- Write HTTP requests in Org mode and replay them at will using cURL.
 
-(use-package walkman
+(use-package walkman ; [C-c C-'] in Org Mode
   :ensure t
+  :defer t
   :init (walkman-setup)
-  :config (add-to-list 'display-buffer-alist
-                       '("^\\*walkman\\*" (display-buffer-below-selected))))
+  :config
+  (add-to-list 'display-buffer-alist
+               '("^\\*walkman\\*" (display-buffer-below-selected))))
 
 
 

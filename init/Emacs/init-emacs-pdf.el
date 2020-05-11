@@ -13,7 +13,7 @@
   :ensure t
   :defer t
   :commands (pdf-tools-install-noverify pdf-view-mode)
-  :preface (pdf-loader-install)
+  ;; :preface (pdf-loader-install)
   :mode  ("\\.pdf\\'" . pdf-view-mode)
   :magic ("%PDF" . pdf-view-mode) ; for PDF binary header byte.
   ;; :init  (pdf-tools-install-noverify) ; (pdf-tools-install)
@@ -112,6 +112,8 @@
 
 (use-package org-pdfview
   :ensure t
+  :defer t
+  :after pdf-tools
   :config
   (org-link-set-parameters "pdfview"
                            :follow #'org-pdfview-open
@@ -126,6 +128,7 @@
 (use-package pdf-tools-org
   :ensure t
   :defer t
+  :after pdf-tools
   :commands (pdf-tools-org-export-to-org pdf-tools-org-import-from-org)
   :config
   (defun my/pdf-tools-org-setup ()
@@ -138,8 +141,9 @@
 (use-package pdfgrep
   :ensure t
   :defer t
+  :after pdf-tools
   :commands (pdfgrep pdfgrep-mode)
-  :init (add-hook 'pdf-view-mode-hook #'pdfgrep-mode))
+  :hook (pdf-view-mode . pdfgrep-mode))
 
 
 (provide 'init-emacs-pdf)

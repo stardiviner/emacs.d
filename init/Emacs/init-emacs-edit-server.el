@@ -16,10 +16,9 @@
   :ensure t
   :ensure edit-server-htmlize
   :if window-system
-  :init
-  (unless (server-running-p)
-    (server-start))
-  (add-hook 'after-init-hook 'edit-server-start t)
+  :preface (unless (server-running-p)
+             (server-start))
+  :hook (after-init . edit-server-start)
   :config
   (add-hook 'edit-server-edit-mode-hook #'flyspell-mode)
 
@@ -50,8 +49,10 @@
 
 (use-package atomic-chrome
   :ensure t
+  :defer t
   :bind (:map atomic-chrome-edit-mode-map ("C-x #" . atomic-chrome-close-current-buffer))
-  :init (atomic-chrome-start-server)
+  :hook (after-init . atomic-chrome-start-server)
+  :init
   (setq atomic-chrome-default-major-mode 'markdown-mode)
   (setq atomic-chrome-url-major-mode-alist
         '(("github\\.com" . markdown-mode)
@@ -72,6 +73,7 @@
 
 (use-package with-editor
   :ensure t
+  :defer t
   :init
   (add-hook 'shell-mode-hook  'with-editor-export-editor)
   (add-hook 'term-mode-hook   'with-editor-export-editor)

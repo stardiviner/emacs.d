@@ -177,6 +177,7 @@ but `delete-file' is ignored."
 
 (use-package ob-async
   :ensure t
+  :defer t
   :init
   ;; FIX: void variable `inferior-julia-program-name'.
   (add-hook 'ob-async-pre-execute-src-block-hook
