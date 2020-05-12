@@ -11,7 +11,8 @@
   :defer t
   :commands (org-agenda)
   :config
-  (setq org-agenda-window-setup 'current-window)
+  (setq org-agenda-window-setup 'reorganize-frame
+        org-agenda-restore-windows-after-quit t)
   (setq org-agenda-sticky t) ; don't kill *Org Agenda* buffer by [q].
 
   ;; `org-agenda-files'
