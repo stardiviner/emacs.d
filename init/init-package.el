@@ -69,8 +69,9 @@
       (use-package org
         :pin org
         :ensure t
-        :preface (setq org-modules nil)
-        :mode (("\\.org\\'" . org-mode)))
+        :mode (("\\.org\\'" . org-mode))
+        :custom ((org-modules nil) ; disable all extra org-mode modules to speed-up Org-mode file opening.
+                 (org-startup-folded t)))
       (use-package org-plus-contrib
         :pin org
         :ensure t))
@@ -83,12 +84,9 @@
     :pin manual
     :load-path "~/Code/Emacs/org-mode/lisp/"
     :defer t
-    :preface
-    ;; Org Mode modules -- modules that should always be loaded together with org.el.
-    ;; t: greedy load all modules.
-    ;; nil: disable all extra org-mode modules to speed-up Org-mode file opening.
-    (setq org-modules nil)
     :mode (("\\.org\\'" . org-mode))
+    :custom ((org-modules nil) ; disable all extra org-mode modules to speed-up Org-mode file opening.
+             (org-startup-folded t))
     ;; load org before org-mode init files settings.
     :init (require 'org))
   (use-package org-plus-contrib
