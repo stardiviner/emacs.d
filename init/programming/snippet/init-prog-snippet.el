@@ -93,33 +93,33 @@ $0`(yas-escape-text yas-selected-text)`"
 
 ;;; [ org-sync-snippets ] -- simple extension to export snippets to org-mode and vice versa.
 
-(use-package org-sync-snippets
-  :ensure t
-  :defer t
-  :after org ; to fix variable `org-directory' is not customized to "~/Org" issue.
-  :commands (org-sync-snippets-snippets-to-org org-sync-snippets-org-to-snippets)
-  :init (setq org-sync-snippets-snippets-dir (expand-file-name "snippets/" user-emacs-directory)
-              org-sync-snippets-org-snippets-file
-              (concat (file-name-as-directory org-directory)
-                      "Programming Code/Code Snippets/yasnippets.org"))
-  (add-hook 'yas-after-reload-hook 'org-sync-snippets-snippets-to-org))
+;; (use-package org-sync-snippets
+;;   :ensure t
+;;   :defer t
+;;   :after org ; to fix variable `org-directory' is not customized to "~/Org" issue.
+;;   :commands (org-sync-snippets-snippets-to-org org-sync-snippets-org-to-snippets)
+;;   :init (setq org-sync-snippets-snippets-dir (expand-file-name "snippets/" user-emacs-directory)
+;;               org-sync-snippets-org-snippets-file
+;;               (concat (file-name-as-directory org-directory)
+;;                       "Programming Code/Code Snippets/yasnippets.org"))
+;;   (add-hook 'yas-after-reload-hook 'org-sync-snippets-snippets-to-org))
 
 ;;; [ code-archive ] -- saving selecting code regions and inserting them as org-mode styled code blocks.
 
-(use-package code-archive
-  :ensure t
-  :defer t
-  :commands (code-archive-save-code code-archive-insert-org-block code-archive-goto-src)
-  :init (setq code-archive-dir (concat org-directory "/Programming Code/Code Snippets/"))
-  :config
-  (add-to-list 'org-capture-templates
-               '("s" "code [s]nippet archive" entry
-                 (file (lambda () (concat code-archive-dir "snippets.org")))
-                 "* %? %(code-archive-org-src-tag \"%F\")
-:PROPERTIES:
-:FILE:  %F
-:END:
-%(code-archive-do-org-capture \"%F\")")))
+;; (use-package code-archive
+;;   :ensure t
+;;   :defer t
+;;   :commands (code-archive-save-code code-archive-insert-org-block code-archive-goto-src)
+;;   :init (setq code-archive-dir (concat org-directory "/Programming Code/Code Snippets/"))
+;;   :config
+;;   (add-to-list 'org-capture-templates
+;;                '("s" "code [s]nippet archive" entry
+;;                  (file (lambda () (concat code-archive-dir "snippets.org")))
+;;                  "* %? %(code-archive-org-src-tag \"%F\")
+;; :PROPERTIES:
+;; :FILE:  %F
+;; :END:
+;; %(code-archive-do-org-capture \"%F\")")))
 
 
 (provide 'init-prog-snippet)
