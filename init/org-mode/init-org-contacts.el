@@ -84,7 +84,6 @@
 
 (use-package helm-org-rifle
   :ensure t
-  :defer t
   :init
   ;; Contacts
   (defun rifle-Contacts-ref ()

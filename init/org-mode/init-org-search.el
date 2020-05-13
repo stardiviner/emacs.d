@@ -20,6 +20,7 @@
   (unless (boundp 'org-rifle-prefix)
     (define-prefix-command 'org-rifle-prefix))
   (define-key Org-prefix (kbd "g") 'org-rifle-prefix)
+  
   (define-key org-rifle-prefix (kbd "g") 'helm-org-rifle-current-buffer)
   (define-key org-rifle-prefix (kbd "G") 'helm-org-rifle)
   (define-key org-rifle-prefix (kbd "d") 'helm-org-rifle-directories)
@@ -37,12 +38,13 @@
   ;; FIXME: `org-toggle-latex-fragment' does not support in *non-file* buffer.
   ;; (add-hook 'helm-org-rifle-after-init-hook #'org-toggle-latex-fragment)
 
-  :config
   ;; quick references searching.
   (unless (boundp 'reference-prefix)
     (define-prefix-command 'reference-prefix))
   (define-key Org-prefix (kbd "r") 'reference-prefix)
 
+  ;;=============================================================================
+  
   ;; write a helper function for recursive searching org files.
   (defun Rifle-refs-search (&optional dirs-or-files)
     "A macro to quick recursive search through directory or files for Org-mode references."
@@ -51,23 +53,21 @@
                             (-select 'f-dir?
                                      (helm-read-file-name "Directories: "
                                                           :marked-candidates t))))
-           (files (f-files
-                   directories
-                   (lambda (file)
-                     (s-matches?
-                      helm-org-rifle-directories-filename-regexp
-                      (f-filename file)))
-                   t)))
+           (files (f-files directories (lambda (file)
+                                         (s-matches?
+                                          helm-org-rifle-directories-filename-regexp
+                                          (f-filename file)))
+                           t)))
       (if files
           (helm-org-rifle-files files)
-        (error "No org files found in directories: %s" (s-join " " directories))))
-    )
+        (error "No org files found in directories: %s" (s-join " " directories)))))
 
   (define-key reference-prefix (kbd "SPC") 'Rifle-refs-search)
 
+  ;;===============================================================================
+  
   (defvar rifle-references-common-path--languages
-    (concat org-directory
-            "/Wiki/Computer Technology/Programming/Programming Languages/"))
+    (concat org-directory "/Wiki/Computer Technology/Programming/Programming Languages/"))
 
   ;; Emacs modes
   (defun rifle-Emacs-modes-ref ()
@@ -75,9 +75,8 @@
     (let ((my-emacs-modes-reference-dir
            (concat org-directory
                    "/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/")))
-      (helm-org-rifle-directories
-       (list my-emacs-modes-reference-dir))))
-  
+      (helm-org-rifle-directories (list my-emacs-modes-reference-dir))))
+  ;; NOTE: this is VERY SLOW!
   ;; (define-key reference-prefix (kbd "e") 'rifle-Emacs-modes-ref)
 
   ;; TeX/LaTeX
@@ -86,15 +85,8 @@
     (let ((my-tex-symbols-reference-dir
            (concat rifle-references-common-path--languages
                    "TeX/Data/Manuals/My TeX Symbols Reference/")))
-      (helm-org-rifle-directories
-       (list my-tex-symbols-reference-dir))))
-  
+      (helm-org-rifle-directories (list my-tex-symbols-reference-dir))))
   (define-key reference-prefix (kbd "t") 'rifle-TeX-ref)
-
-  ;; TEST:
-  ;; (helm-org-rifle-directories
-  ;;  (list (concat rifle-references-common-path--languages
-  ;;                "Clojure/Data/Manuals/My Clojure Language Syntax Reference/")))
   
   ;; Clojure
   (defun rifle-Clojure-ref ()
@@ -102,9 +94,7 @@
     (let ((my-clojure-syntax-reference-dir
            (concat rifle-references-common-path--languages
                    "Clojure/Data/Manuals/My Clojure Language Syntax Reference/")))
-      (helm-org-rifle-directories
-       (list my-clojure-syntax-reference-dir))))
-  
+      (helm-org-rifle-directories (list my-clojure-syntax-reference-dir))))
   (define-key reference-prefix (kbd "c") 'rifle-Clojure-ref)
 
   ;; Ruby
@@ -112,10 +102,8 @@
     (interactive)
     (let ((my-ruby-syntax-reference-dir
            (concat rifle-references-common-path--languages
-                   "Ruby/Data/Manuals/Ruby Language Syntax Reference/")))
-      (helm-org-rifle-directories
-       (list my-ruby-syntax-reference-dir))))
-  
+                   "Ruby/Data/Manuals/My Ruby Language Syntax Reference/")))
+      (helm-org-rifle-directories (list my-ruby-syntax-reference-dir))))
   (define-key reference-prefix (kbd "r") 'rifle-Ruby-ref)
 
   ;; Python
@@ -124,9 +112,7 @@
     (let ((my-python-syntax-reference-dir
            (concat rifle-references-common-path--languages
                    "Python/Data/Manuals/My Python Language Syntax Reference/")))
-      (helm-org-rifle-directories
-       (list my-python-syntax-reference-dir))))
-  
+      (helm-org-rifle-directories (list my-python-syntax-reference-dir))))
   (define-key reference-prefix (kbd "p") 'rifle-Python-ref)
   
   ;; C
@@ -135,9 +121,7 @@
     (let ((my-C-syntax-reference-dir
            (concat rifle-references-common-path--languages
                    "C/Data/Manuals/My C Language Syntax Reference/")))
-      (helm-org-rifle-directories
-       (list my-C-syntax-reference-dir))))
-  
+      (helm-org-rifle-directories (list my-C-syntax-reference-dir))))
   (define-key reference-prefix (kbd "C") 'rifle-C-ref)
   
   ;; JavaScript
@@ -146,9 +130,7 @@
     (let ((my-javascript-syntax-reference-dir
            (concat rifle-references-common-path--languages
                    "JavaScript/Data/Manuals/My JavaScript Language Syntax Reference/")))
-      (helm-org-rifle-directories
-       (list my-javascript-syntax-reference-dir))))
-  
+      (helm-org-rifle-directories (list my-javascript-syntax-reference-dir))))
   (define-key reference-prefix (kbd "j") 'rifle-JavaScript-ref)
 
   ;; HTML
@@ -157,9 +139,7 @@
     (let ((my-html-syntax-reference-dir
            (concat rifle-references-common-path--languages
                    "HTML/Data/Manuals/My HTML Language Syntax Reference/")))
-      (helm-org-rifle-directories
-       (list my-html-syntax-reference-dir))))
-  
+      (helm-org-rifle-directories (list my-html-syntax-reference-dir))))
   (define-key reference-prefix (kbd "h") 'rifle-HTML-ref)
 
   ;; CSS
@@ -168,9 +148,7 @@
     (let ((my-css-syntax-reference-dir
            (concat rifle-references-common-path--languages
                    "CSS/Data/Manuals/My CSS Language Syntax Reference/")))
-      (helm-org-rifle-directories
-       (list my-css-syntax-reference-dir))))
-  
+      (helm-org-rifle-directories (list my-css-syntax-reference-dir))))
   (define-key reference-prefix (kbd "H") 'rifle-CSS-ref)
 
   ;; Julia
@@ -179,9 +157,7 @@
     (let ((my-julia-syntax-reference-dir
            (concat rifle-references-common-path--languages
                    "Julia/Data/Manuals/My Julia Language Syntax Reference/")))
-      (helm-org-rifle-directories
-       (list my-julia-syntax-reference-dir))))
-  
+      (helm-org-rifle-directories (list my-julia-syntax-reference-dir))))
   (define-key reference-prefix (kbd "J") 'rifle-Julia-ref)
 
   ;; SQL
@@ -190,10 +166,17 @@
     (let ((my-sql-syntax-reference-dir
            (concat rifle-references-common-path--languages
                    "Database/SQL/Data/Manuals/My SQL Language Syntax Reference/")))
-      (helm-org-rifle-directories
-       (list my-sql-syntax-reference-dir))))
-  
-  (define-key reference-prefix (kbd "s") 'rifle-SQL-ref)
+      (helm-org-rifle-directories (list my-sql-syntax-reference-dir))))
+  (define-key reference-prefix (kbd "S") 'rifle-SQL-ref)
+
+  ;; PostgreSQL
+  (defun rifle-PostgreSQL-ref ()
+    (interactive)
+    (let ((my-postgresql-syntax-reference-dir
+           (concat rifle-references-common-path--languages
+                   "Database/SQL/PostgresQL/Data/Manuals/My PostgreSQL Language Syntax Reference/")))
+      (helm-org-rifle-directories (list my-postgresql-syntax-reference-dir))))
+  (define-key reference-prefix (kbd "s") 'rifle-PostgreSQL-ref)
 
   ;; Commands & Softwares
   (defun rifle-Commands-ref ()
@@ -201,22 +184,19 @@
     (let ((my-commands-reference-dir
            (concat org-directory
                    "/Wiki/Computer Technology/Softwares/")))
-      (helm-org-rifle-directories
-       (list my-commands-reference-dir))))
-
+      (helm-org-rifle-directories (list my-commands-reference-dir))))
   ;; NOTE: this is VERY SLOW!
   ;; (define-key reference-prefix (kbd "M-s") 'rifle-Commands-ref)
 
   ;; Programming Implements
-  (defun rifle-Implements-ref ()
+  (defun rifle-Implementations-ref ()
     (interactive)
     (let ((my-implements-reference-dir
            (concat org-directory
-                   "/Wiki/Computer Technology/Programming/Implements/")))
-      (helm-org-rifle-directories
-       (list my-implements-reference-dir))))
-  
-  (define-key reference-prefix (kbd "i") 'rifle-Implements-ref)
+                   "/Wiki/Computer Technology/Programming/Implementations/")))
+      (helm-org-rifle-directories (list my-implements-reference-dir))))
+  ;; NOTE very slow!!!
+  ;; (define-key reference-prefix (kbd "i") 'rifle-Implementations-ref)
 
   ;; Computer Technology Glossary
   (defun rifle-Computer-ref ()
@@ -224,9 +204,7 @@
     (let ((my-implements-reference-dir
            (concat org-directory
                    "/Wiki/Computer Technology/Data/Manuals/My Computer Technology Glossary/")))
-      (helm-org-rifle-directories
-       (list my-implements-reference-dir))))
-  
+      (helm-org-rifle-directories (list my-implements-reference-dir))))
   (define-key reference-prefix (kbd "M-c") 'rifle-Computer-ref)
 
   ;; Programming Glossary
@@ -235,10 +213,8 @@
     (let ((my-implements-reference-dir
            (concat org-directory
                    "/Wiki/Computer Technology/Programming/Data/Manuals/My Programming Glossary/")))
-      (helm-org-rifle-directories
-       (list my-implements-reference-dir))))
-  
-  (define-key reference-prefix (kbd "p") 'rifle-Programming-ref)
+      (helm-org-rifle-directories (list my-implements-reference-dir))))
+  (define-key reference-prefix (kbd "P") 'rifle-Programming-ref)
   
   ;; Mathematics
   (defun rifle-Math-ref ()
@@ -250,9 +226,7 @@
            (concat org-directory
                    "/Wiki/Mathematics/Data/Manuals/Mathematics Terms Reference/")))
       (helm-org-rifle-directories
-       (list my-math-formulas-reference-dir
-             my-math-terms-reference-dir))))
-
+       (list my-math-formulas-reference-dir my-math-terms-reference-dir))))
   ;; NOTE: this is VERY SLOW!
   ;; (define-key reference-prefix (kbd "m") 'rifle-Math-ref)
 
@@ -260,9 +234,7 @@
   (defun rifle-bookmarks-ref ()
     (interactive)
     (let ((my-bookmarks-reference-dir (concat org-directory "/Bookmarks")))
-      (helm-org-rifle-directories
-       (list my-bookmarks-reference-dir))))
-
+      (helm-org-rifle-directories (list my-bookmarks-reference-dir))))
   (define-key reference-prefix (kbd "C-b") 'rifle-bookmarks-ref))
 
 ;; search multiple words in files.
