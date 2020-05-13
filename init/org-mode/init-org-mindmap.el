@@ -18,8 +18,10 @@
 ;;; [ org-roam ] -- Rudimentary Roam replica with Org Mode.
 
 (use-package org-roam
+  :ensure t
+  :defer t
+  :custom (org-roam-directory (expand-file-name "~/Org/org-roam"))
   :hook (after-init . org-roam-mode)
-  :custom (org-roam-directory org-directory)
   :preface
   (unless (boundp 'org-roam-prefix)
     (define-prefix-command 'org-roam-prefix))
@@ -29,7 +31,8 @@
                ("C-c n f" . org-roam-find-file)
                ("C-c n g" . org-roam-show-graph))
               :map org-mode-map
-              (("C-c n i" . org-roam-insert))))
+              (("C-c n i" . org-roam-insert)))
+  :config (setq org-roam-mute-cache-build t))
 
 
 
