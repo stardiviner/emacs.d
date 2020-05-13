@@ -17,7 +17,7 @@
   :ensure t
   :defer t
   :mode (("\\.irbrc\\'" . ruby-mode))
-  :preface (define-derived-mode ruby-mode prog-mode "Ruby")
+  :preface (put 'erlang-mode 'derived-mode-parent 'prog-mode)
   ;; :init
   ;; (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
   ;; (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))

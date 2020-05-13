@@ -13,6 +13,7 @@
   :ensure t
   :ensure ivy-hydra ; [C-o], [M-o]
   :delight ivy-mode
+  :defer t
   :custom (ivy-initial-inputs-alist nil)
   :init (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
               ivy-virtual-abbreviate 'full ; use 'full to fix bookmarks uniquify issue.

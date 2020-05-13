@@ -28,17 +28,19 @@
   :ensure t
   :defer t
   :commands (flycheck-mode flycheck-next-error flycheck-previous-error flycheck-list-errors)
-  :preface (setq flycheck-check-syntax-automatically '(save idle-change new-line)
-                 flycheck-global-modes '(not emacs-lisp-mode clojure-mode lisp-mode))
+  :custom (flycheck-check-syntax-automatically '(save idle-change new-line))
   ;; NOTE: ONLY enable `flycheck-mode' MANUALLY. automatically checking will
   ;; cause high CPU. especially big source code file.
   :hook (prog-mode . flycheck-mode-on-safe)
+  ;; :hook (after-init . global-flycheck-mode)
   :bind (:map linter-prefix ("!" . flycheck-mode)
               :map flycheck-mode-map
               ("M-g M-n" . flycheck-next-error)
               ("M-g M-p" . flycheck-previous-error)
               ("M-g M-l" . flycheck-list-errors))
   :config
+  (when global-flycheck-mode
+    (setq flycheck-global-modes '(not emacs-lisp-mode clojure-mode lisp-mode)))
   ;; [Emacs Lisp]
   ;; To make Flycheck use the current `load-path'.
   ;; Don't error about "free variable" without (require ??).
