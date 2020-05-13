@@ -7,6 +7,7 @@
 
 ;;; Code:
 
+(put 'emacs-lisp-mode 'derived-mode-parent 'prog-mode)
 
 (add-hook 'emacs-lisp-mode-hook #'my-lisp-common-settings)
 (add-hook 'inferior-emacs-lisp-mode-hook #'my-lisp-repl-common-settings)

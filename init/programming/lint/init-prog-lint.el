@@ -27,12 +27,12 @@
 (use-package flycheck
   :ensure t
   :defer t
-  :commands flycheck-mode
+  :commands (flycheck-mode flycheck-next-error flycheck-previous-error flycheck-list-errors)
   :preface (setq flycheck-check-syntax-automatically '(save idle-change new-line)
                  flycheck-global-modes '(not emacs-lisp-mode clojure-mode lisp-mode))
   ;; NOTE: ONLY enable `flycheck-mode' MANUALLY. automatically checking will
   ;; cause high CPU. especially big source code file.
-  :init (add-hook 'prog-mode-hook #'flycheck-mode-on-safe)
+  :hook (prog-mode . flycheck-mode-on-safe)
   :bind (:map linter-prefix ("!" . flycheck-mode)
               :map flycheck-mode-map
               ("M-g M-n" . flycheck-next-error)
@@ -62,7 +62,7 @@
 (use-package flycheck-inline
   :ensure t
   :defer t
-  :init (add-hook 'prog-mode-hook #'flycheck-inline-mode))
+  :hook (flycheck-mode . flycheck-inline-mode))
 
 ;;; [ flycheck-popup-tip ] -- displaying errors from Flycheck using popup.el.
 
