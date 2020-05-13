@@ -93,21 +93,10 @@
            (concat org-directory "/Contacts/")))
       (helm-org-rifle-directories
        (list my-contacts-reference-dir))))
-
   (unless (boundp 'reference-prefix)
     (define-prefix-command 'reference-prefix))
   (define-key Org-prefix (kbd "r") 'reference-prefix)
   (define-key reference-prefix (kbd "C-c") 'rifle-Contacts-ref))
-
-;;; [ org-vcard ] -- export and import vCards from within Org-mode.
-
-(use-package org-vcard
-  :ensure t
-  :defer t
-  :commands (org-vcard-export org-vcard-import)
-  :init (setq org-vcard-append-to-existing-import-buffer t
-              org-vcard-append-to-existing-export-buffer t
-              org-vcard-include-import-unknowns t))
 
 
 (provide 'init-org-contacts)
