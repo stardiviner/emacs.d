@@ -63,6 +63,11 @@
     (defalias 'company-elpy 'elpy-company-backend)
     (my-company-add-backend-locally 'company-elpy))
   (add-hook 'elpy-mode-hook #'my/elpy-company-setup)
+
+  ;; fix company-box-icons very slow completion performance issue.
+  (when (featurep 'company-box)
+    (add-hook 'elpy-mode-hook
+              (lambda () (defun company-box-icons--anaconda (candidate)))))
   
   (setq elpy-rpc-backend "jedi"
         elpy-modules '(elpy-module-sane-defaults
