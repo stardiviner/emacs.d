@@ -278,7 +278,7 @@
   ;; - `mu4e~draft-reply-construct'
 
   ;; [ mml-mode ] -- A package for parsing and validating MML documents.
-  (add-hook 'mu4e-compose-mode-hook #'mml-mode)
+  ;; (add-hook 'mu4e-compose-mode-hook #'mml-mode) ; NOTE: This might cause Chinese email body report error.
   
   ;; [ Sign ] -- `mml-secure-message-sign'
   ;; Signing and encrypting It's possible using emacs-mime, most easily accessed
@@ -299,7 +299,7 @@
   ;; `message-send-hook' or `mu4e-compose-mode-hook'
   ;; `mml-secure-message-sign-pgpauto' or `mml-secure-message-sign-pgpmime'
 
-  (add-hook 'message-send-hook 'mml-secure-message-sign-pgpauto)
+  ;; (add-hook 'message-send-hook 'mml-secure-message-sign-pgpauto)
   (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-sign-pgpauto)
 
   ;; [ Encrypt ] -- `mml-secure-message-encrypt'
