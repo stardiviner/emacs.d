@@ -32,6 +32,20 @@
                ("C-c n g" . org-roam-show-graph))
               :map org-mode-map
               (("C-c n i" . org-roam-insert)))
+  :init
+  ;; [ company-org-roam ] -- company backend for org-roam.
+  (use-package company-org-roam
+    :ensure t
+    :preface
+    (defun my/company-org-roam-setup ()
+      (my-company-add-backend-locally 'company-org-roam))
+    :hook (org-roam-mode . my/company-org-roam-setup))
+
+  ;; [ org-roam-bibtex ] -- Connector between org-roam, BibTeX-completion, and org-ref.
+  (use-package org-roam-bibtex
+    :ensure t
+    :hook (org-roam-mode . org-roam-bibtex-mode)
+    :bind (:map org-mode-map (("C-c n a" . orb-note-actions))))
   :config (setq org-roam-mute-cache-build t))
 
 
