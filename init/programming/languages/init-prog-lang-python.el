@@ -57,7 +57,7 @@
   :hook ((python-mode . lsp)
          (python-mode . dap-mode)
          (python-mode . dap-ui-mode))
-  :config (require 'dap-python))
+  :load (require 'dap-python))
 
 ;;; [ lsp-python-ms ] -- Emacs lsp-mode client for Microsoft's python language server.
 

@@ -17,21 +17,20 @@
 (use-package lsp-mode
   :ensure t
   :defer t
-  :hook ((js-mode css-mode web-mode) . lsp)
+  :load (lsp-clients) ; load `lsp-clients' for auto configuration of language server clients.
   :commands (lsp lsp-describe-session)
+  ;; :hook (prog-mode . lsp)
   :bind (:map lsp-mode-map
               ("C-c C-d" . lsp-describe-thing-at-point)
               ("M-RET"   . lsp-execute-code-action))
-  :load (lsp-clients) ; load `lsp-clients' for auto configuration of language server clients.
-  :init
   ;; speed-up lsp-mode performance
-  (setq lsp-log-io nil ; for for debug
-        lsp-enable-folding nil
-        lsp-diagnostic-package :none ; no real-time syntax check
-        ;; lsp-enable-snippet nil ; handle yasnippet by myself
-        lsp-enable-symbol-highlighting nil
-        lsp-enable-links nil)
-
+  :custom ((lsp-log-io nil)             ; for Debug
+           ;; (lsp-enable-folding nil)
+           ;; (lsp-diagnostic-package :none) ; no real-time syntax check
+           ;; (lsp-enable-snippet nil) ; handle yasnippet by myself
+           (lsp-enable-symbol-highlighting nil)
+           (lsp-enable-links nil))
+  :init
   ;; `which-key' integration
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
 
@@ -84,6 +83,11 @@
   (add-to-list 'display-buffer-alist
                '("^\\*lsp-help\\*" (display-buffer-below-selected)))
   :config
+  ;; disable some lsp clients
+  ;; (add-to-list 'lsp-disabled-clients 'ccls)
+  ;; (add-to-list 'lsp-disabled-clients '(emacs-lisp-mode . nil))
+  ;; (add-to-list 'lsp-disabled-clients '(web-mode . angular-ls))
+
   ;; don't scan 3rd party javascript libraries
   (push "[/\\\\][^/\\\\]*\\.\\(json\\|html\\|jade\\)$" lsp-file-watch-ignored))
 
