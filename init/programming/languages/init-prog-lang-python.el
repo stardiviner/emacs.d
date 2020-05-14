@@ -48,48 +48,6 @@
   (add-to-list 'org-babel-default-header-args:python
                '(:results . "output")))
 
-;;; [ elpy ] -- Emacs Python Development Environment.
-
-(use-package elpy
-  :ensure t
-  :defer t
-  :after python
-  :hook (python-mode . elpy-enable)
-  :bind (:map python-mode-map
-              ("C-h d d" . elpy-doc)
-              ("M-," . pop-tag-mark))
-  :init
-  (defun my/elpy-company-setup ()
-    (defalias 'company-elpy 'elpy-company-backend)
-    (my-company-add-backend-locally 'company-elpy))
-  (add-hook 'elpy-mode-hook #'my/elpy-company-setup)
-
-  ;; fix company-box-icons very slow completion performance issue.
-  (when (featurep 'company-box)
-    (add-hook 'elpy-mode-hook
-              (lambda () (defun company-box-icons--anaconda (candidate)))))
-  
-  (setq elpy-rpc-backend "jedi"
-        elpy-modules '(elpy-module-sane-defaults
-                       ;; elpy-module-company
-                       elpy-module-eldoc
-                       ;; elpy-module-flymake
-                       ;; elpy-module-highlight-indentation
-                       elpy-module-pyvenv
-                       elpy-module-yasnippet
-                       ;; elpy-module-django
-                       )
-        elpy-company-post-completion-function 'elpy-company-post-complete-parens))
-
-;;; [ anaconda-mode ] -- Code navigation, documentation lookup and completion for Python.
-
-;; (use-package anaconda-mode
-;;   :ensure t
-;;   :ensure company-anaconda
-;;   :defer t
-;;   :after python
-;;   :hook (python-mode . anaconda-mode))
-
 ;;; [ lsp-python ] -- Python support for lsp-mode with pyls.
 
 (use-package lsp-mode
@@ -105,7 +63,11 @@
 
 ;; (use-package lsp-python-ms
 ;;   :ensure t
-;;   :demand
+;;   :demand t
+;;   :preface
+;;   (require 'lsp-python-ms)
+;;   (unless (member 'pyls lsp-disabled-clients)
+;;     (push 'pyls lsp-disabled-clients))
 ;;   :hook (python-mode . lsp-deferred))
 
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
