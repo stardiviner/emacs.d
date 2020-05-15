@@ -406,6 +406,15 @@
   ;; enable Org Mode for editing in `mu4e-compose-mode'.
   (add-hook 'mu4e-compose-mode-hook #'org-mu4e-compose-org-mode)
 
+  ;; Insert "cut here" markers block for code snippets. Like this:
+  ;; --8<---------------cut here---------------start------------->8---
+  ;; (syntax-propertize-rules
+  ;;  ("\\(one\\)\\(two\\)\\(\\1\\)" (1 "|") (2 "."))
+  ;;  ("\\(three\\)\\(four\\)\\(\\1\\)" (1 "|") (2 ".")))
+  ;; --8<---------------cut here---------------end--------------->8---
+  (add-hook 'mu4e-compose-mode-hook
+            (lambda () (define-key org-mode-map (kbd "C-c M-m") 'message-mark-inserted-region)))
+
   (setq org-mu4e-link-query-in-headers-mode t)
 
   ;; use #=begin_export html ... #+end_export
