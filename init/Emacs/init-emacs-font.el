@@ -14,9 +14,9 @@
 (let ((emacs-font-size 9)
       emacs-font-name)
   (cond
-   ((featurep 'cocoa)
+   ((or (eq system-type 'darwin) (featurep 'cocoa))
     (setq emacs-font-name "Monaco"))
-   ((string-equal system-type "gnu/linux")
+   ((eq system-type 'gnu/linux)
     ;; "DejaVu Sans Mono", "Fira Code", "Hack", "Source Code Pro", "Noto Sans Mono", "Sarasa Gothic SC", "Sarasa Mono SC",
     ;; "Comic Neue", "Comic Sans MS", "FZSuXinShiLiuKaiS-R-GB",
     ;; "ETBembo", "ETBookOT", "Gabriola"
