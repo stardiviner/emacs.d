@@ -26,6 +26,7 @@
   :bind (:map document-prefix ("d" . helm-dash-at-point) ("M-d" . helm-dash))
   :init
   (setq helm-case-fold-search 'smart)
+  
   ;; buffer local docsets
   (defun my/dash-docs-local-docsets (docsets-list &optional append-to)
     (mapc
@@ -33,8 +34,8 @@
        (make-local-variable 'dash-docs-common-docsets)
        (setq-local dash-docs-common-docsets nil)
        (if append-to
-           (setq dash-docs-docsets (append dash-docs-docsets docsets-list))
-         (setq-local dash-docs-docsets docsets-list))
+           (setq dash-docs-common-docsets (append dash-docs-common-docsets docsets-list))
+         (setq-local dash-docs-common-docsets docsets-list))
        (dash-docs-activate-docset docset))
      docsets-list))
   
@@ -123,6 +124,7 @@
     (cl-case sql-product
       ('ansi (my/dash-docs-local-docsets '("SQLite" "PostgreSQL" "MySQL")))
       ('sqlite (my/dash-docs-local-docsets '("SQLite")))
+      ('postgresql (my/dash-docs-local-docsets '("PostgreSQL")))
       ('postgres (my/dash-docs-local-docsets '("PostgreSQL")))
       ('mariadb (my/dash-docs-local-docsets '("MySQL")))
       ('mysql (my/dash-docs-local-docsets '("MySQL")))))
