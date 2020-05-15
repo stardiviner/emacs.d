@@ -22,8 +22,9 @@
       (setq engine/browser-function 'eaf-browse-url)))
   ;; general search engines
   (defengine google
-    "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
+    ;; "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
     ;; "http://www.google.com/search?q=%s"
+    "https://www.google.com.tw/search?safe=off&q=%s"
     :docstring "Google"
     :keybinding "g")
   (defengine duckduckgo
