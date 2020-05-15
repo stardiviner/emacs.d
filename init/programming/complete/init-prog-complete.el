@@ -7,6 +7,7 @@
 
 ;;; Code:
 
+(setq completion-ignore-case t)
 
 ;;; [ pcomplete ] --- Programmable, Context-Sensitive Completion Library
 

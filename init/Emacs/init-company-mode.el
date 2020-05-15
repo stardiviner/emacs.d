@@ -36,6 +36,8 @@
         company-selection-wrap-around t ; loop over candidates
         company-search-regexp-function #'company-search-flex-regexp)
 
+  (setq completion-ignore-case t) ; complete candidates ignore case-sensitive when typing.
+
   ;; `company-mode' frontend showing the selection as if it had been inserted.
   (setq-default company-frontends
                 `(company-pseudo-tooltip-frontend
