@@ -16,12 +16,12 @@
   ;;        ([remap switch-to-buffer] . helm-mini)
   ;;        ([remap yank-pop] . helm-show-kill-ring)
   ;;        ([remap yas-insert-snippet] . helm-yas-complete))
-  :init ; (helm-mode 1) (helm-top-poll-mode 1)
-  (setq helm-mode-line-string nil) ; use default mode-line instead of help string.
+  ;; :init (helm-mode 1) (helm-top-poll-mode 1)
+  :defer t
   :config
+  (add-hook 'helm-minibuffer-set-up-hook #'helm-hide-minibuffer-maybe)
   ;; echo input in header line
   (setq helm-echo-input-in-header-line t)
-  (add-hook 'helm-minibuffer-set-up-hook #'helm-hide-minibuffer-maybe)
   ;; helm window position
   (setq helm-split-window-inside-p t)
   (setq helm-mini-default-sources
