@@ -25,7 +25,12 @@
   :ensure t
   :bind (:map document-prefix ("d" . helm-dash-at-point) ("M-d" . helm-dash))
   :init
-  (setq helm-case-fold-search 'smart)
+  (defun helm-dash--around (orig-func &rest args)
+    "Make `helm-dash' ignore case. Useful for SQL docsets."
+    (let ((case-fold-search t)
+          (helm-case-fold-search t))
+      (apply orig-func args)))
+  (advice-add 'helm-dash :around #'helm-dash--around)
   
   ;; buffer local docsets
   (defun my/dash-docs-local-docsets (docsets-list &optional append-to)
