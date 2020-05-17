@@ -40,18 +40,22 @@
                 ('dark (eaf-setq eaf-browser-dark-mode "true")))))
   ;; set EAF web browser proxy
   (defvar eaf-proxy-enabled nil)
-  (defun eaf-proxy-toggle ()
+  (defun eaf-toggle-proxy ()
     "Toggle EAF proxy."
     (interactive)
     (if eaf-proxy-enabled
         (progn
           (eaf-setq eaf-proxy-type nil)
           (eaf-setq eaf-proxy-host nil)
-          (eaf-setq eaf-proxy-port nil))
+          (eaf-setq eaf-proxy-port nil)
+          (setq eaf-proxy-enabled nil)
+          (message "EAF proxy disabled."))
       (progn
         (eaf-setq eaf-proxy-type "socks5")
         (eaf-setq eaf-proxy-host "127.0.0.1")
-        (eaf-setq eaf-proxy-port "1086"))))
+        (eaf-setq eaf-proxy-port "1086")
+        (setq eaf-proxy-enabled t)
+        (message "EAF proxy enabled."))))
   ;; exclude EAF buffers from `desktop-save-mode'.
   (with-eval-after-load 'desktop
     (add-to-list 'desktop-modes-not-to-save 'eaf-mode))
