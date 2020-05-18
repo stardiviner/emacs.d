@@ -63,9 +63,6 @@
   (define-key ac-completing-map (kbd "C-M-p") 'ac-quick-help-scroll-up)
   (define-key ac-completing-map [C-down] 'ac-quick-help-scroll-down)
   (define-key ac-completing-map [C-up] 'ac-quick-help-scroll-up)
-
-  ;; auto-complete default setup
-  ;; (ac-config-default)
   
   ;; load `ac-source-yasnippet'
   (require 'auto-complete-config)
