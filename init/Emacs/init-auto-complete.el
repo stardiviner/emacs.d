@@ -14,35 +14,13 @@
   :defer t
   :commands (auto-complete-mode global-auto-complete-mode)
   ;; :init (global-auto-complete-mode 1) ; use auto-complete globally
-  ;; (ac-config-default)
   :config
-  ;; fuzzy completion
-  ;; (setq ac-use-fuzzy t)
-  
   ;; auto raise popup menu
-  (setq ac-auto-start 2)
-  (setq ac-delay 0.1)
   (setq ac-auto-show-menu t)
-  (setq ac-show-menu-immediately-on-auto-complete t)
-  (setq ac-menu-height 10)
-  (setq-default ac-expand-on-auto-complete t)
-  (setq-default ac-dwim t)
-
-  ;;; auto-complete UI
-  ;; - nil : no limit
-  ;; - 25  : character limit
-  ;; - 0.5 : window ratio limit
-  (setq ac-max-width nil)
-
-  ;; completion history
-
-  ;; dictionaries
-  ;; (add-to-list 'ac-dictionary-directories
-  ;;              (expand-file-name "ac-dict" user-emacs-directory))
 
   ;; keybindings
   ;; (ac-set-trigger-key "<tab>") ; <tab> is used for yasnippet.
-  (ac-set-trigger-key "TAB") ; usualy this, <tab> has higher priority than TAB.
+  ;; (ac-set-trigger-key "TAB") ; usualy this, <tab> has higher priority than TAB.
   ;; (define-key global-map (kbd "M-TAB") 'ac-fuzzy-complete) ; fuzzy complete.
 
   ;; ac-menu-map keymap only map for menu is available, not break default.
@@ -77,13 +55,8 @@
   (define-key ac-menu-map "\r" 'my-ac-return)
   (define-key ac-menu-map (kbd "RET") 'my-ac-return)
 
-  ;; quick-help
-  (setq ac-use-quick-help t) ; nil to disable auto popup quick help.
-  ;; Prefer native tooltip with pos-tip than overlay popup for displaying quick help.
-  (setq ac-quick-help-prefer-pos-tip t)
+  ;; quick help
   (setq ac-quick-help-delay 0.2)
-  (setq ac-quick-help-timer nil)     ; quick help idle timer. (nil: never disappear)
-  (setq ac-quick-help-height 20)
 
   (define-key ac-completing-map (kbd "M-h") 'ac-quick-help)
   (define-key ac-completing-map (kbd "C-M-n") 'ac-quick-help-scroll-down)
@@ -91,6 +64,9 @@
   (define-key ac-completing-map [C-down] 'ac-quick-help-scroll-down)
   (define-key ac-completing-map [C-up] 'ac-quick-help-scroll-up)
 
+  ;; auto-complete default setup
+  ;; (ac-config-default)
+  
   ;; load `ac-source-yasnippet'
   (require 'auto-complete-config)
   ;; set default auto-complete source
