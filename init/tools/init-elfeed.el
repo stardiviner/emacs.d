@@ -30,9 +30,10 @@
           ;; ("http://programmers.blogoverflow.com/feed/" Programming StackOverflow)
           ;; Emacs
           ("https://planet.emacslife.com/atom.xml" Emacs) ; EmacsLife Planet
-          ("https://www.reddit.com/r/emacs/.rss" Emacs Reddit) ; Reddit r/Emacs
-          ("https://www.reddit.com/r/orgmode/.rss" Emacs Org-mode Reddit) ; Reddit r/Org-mode
+          ;; ("https://www.reddit.com/r/emacs/.rss" Emacs Reddit) ; Reddit r/Emacs
+          ;; ("https://www.reddit.com/r/orgmode/.rss" Emacs Org-mode Reddit) ; Reddit r/Org-mode
           ("https://sachachua.com/blog/feed/atom/" Blog Emacs) ; Sacha Chua Blog
+          ("https://www.bytedude.com/feed.xml" Blog Emacs) ; ByteDude
           ;; Web
           ("https://blog.mozilla.org/feed/" Mozilla) ; Mozilla Blog
           ("http://hacks.mozilla.org/feed/" Mozilla Web) ; Mozilla Hacks
@@ -56,13 +57,15 @@
           ("http://planet.lisp.org/rss20.xml" LISP) ; Lisp Planet
           ;; Clojure
           ("http://insideclojure.org/feed.xml" Clojure) ; Inside Clojure
+          ("http://planet.clojure.in/atom.xml" Clojure) ; Planet Clojure
           ("http://www.lispcast.com/feed" Clojure) ; LispCast
           ("https://feeds.therepl.net/therepl" Clojure) ; The REPL
-          ("https://www.reddit.com/r/Clojure/.rss" Clojure Reddit) ; subreddit "r/Clojure"
+          ;; ("https://www.reddit.com/r/Clojure/.rss" Clojure Reddit) ; subreddit "r/Clojure"
           ("https://stackoverflow.com/feeds/tag?tagnames=clojure&sort=newest" Clojure) ; StackOverflow Clojure feed
           ("http://blog.jayfields.com/feeds/posts/default" Clojure Blog)
           ("http://corfield.org/atom.xml" Clojure Blog) ; Sean Corfield Blog
           ("https://www.spacjer.com/feed.xml" Clojure Blog) ; Rafal Spacjer Blog
+          ("https://dragan.rocks/feed.xml" Clojure Blog) ; dragan.rocks
           ;; PostgreSQL
           ("https://planet.postgresql.org/rss20.xml" PostgreSQL) ; Planet PostgreSQL
           ;; Programmer Blogs
@@ -73,6 +76,7 @@
           ("https://nalaginrut.com/feed/atom" Blog) ; Samson's Machete "穆垒"
           ("https://www.byvoid.com/zht/feed" Blog)
           ("https://shibumi.dev/posts/index.xml" Blog) ; shibumi
+          ("https://cireu.github.io/rss.xml" Blog) ; cireu
           ;; Kali Linux
           ("http://www.kali.org/feed/" Kali Linux Subscribe) ; Kali Linux Blog
           ;; Subscribe
