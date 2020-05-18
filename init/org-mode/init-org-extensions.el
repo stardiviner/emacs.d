@@ -30,7 +30,8 @@
   :config
   ;; set keybindings for org-crypt functions.
   (define-key org-mode-map (kbd "C-c C-r") 'org-encrypt-entry)
-  (define-key org-mode-map (kbd "C-c M-r") 'org-decrypt-entry))
+  (define-key org-mode-map (kbd "C-c M-r") 'org-decrypt-entry)
+  (define-key org-mode-map (kbd "C-c C-/") 'org-decrypt-entries))
 
 ;;; [ org-invoice ] -- Help manage client invoices in Org Mode.
 
