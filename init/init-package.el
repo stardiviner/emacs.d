@@ -71,7 +71,8 @@
         :ensure t
         :mode (("\\.org\\'" . org-mode))
         :custom ((org-modules nil) ; disable all extra org-mode modules to speed-up Org-mode file opening.
-                 (org-startup-folded t)))
+                 (org-startup-folded t)
+                 (org-agenda-inhibit-startup t)))
       (use-package org-plus-contrib
         :pin org
         :ensure t))
@@ -86,7 +87,8 @@
     :defer t
     :mode (("\\.org\\'" . org-mode))
     :custom ((org-modules nil) ; disable all extra org-mode modules to speed-up Org-mode file opening.
-             (org-startup-folded t))
+             (org-startup-folded t)
+             (org-agenda-inhibit-startup t))
     ;; load org before org-mode init files settings.
     :init (require 'org))
   (use-package org-plus-contrib
