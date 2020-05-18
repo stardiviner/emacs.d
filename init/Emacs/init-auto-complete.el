@@ -15,15 +15,6 @@
   :commands (auto-complete-mode global-auto-complete-mode)
   ;; :init (global-auto-complete-mode 1) ; use auto-complete globally
   :config
-  ;; auto raise popup menu
-  (setq ac-auto-show-menu t)
-
-  ;; quick help
-  (setq ac-quick-help-delay 0.2)
-  (define-key ac-completing-map (kbd "M-h") 'ac-quick-help)
-  (define-key ac-completing-map (kbd "C-M-n") 'ac-quick-help-scroll-down)
-  (define-key ac-completing-map (kbd "C-M-p") 'ac-quick-help-scroll-up)
-  
   ;; load `ac-source-yasnippet'
   (require 'auto-complete-config)
   ;; set default auto-complete source
@@ -32,7 +23,14 @@
                   ac-source-abbrev
                   ;; ac-source-dabbrev
                   ;; ac-source-dictionary
-                  ac-source-words-in-same-mode-buffers)))
+                  ac-source-words-in-same-mode-buffers))
+  ;; auto raise popup menu
+  (setq ac-auto-show-menu t)
+  ;; quick help
+  (setq ac-quick-help-delay 0.2)
+  (define-key ac-completing-map (kbd "M-h") 'ac-quick-help)
+  (define-key ac-completing-map (kbd "C-M-n") 'ac-quick-help-scroll-down)
+  (define-key ac-completing-map (kbd "C-M-p") 'ac-quick-help-scroll-up))
 
 
 ;;; [ ac-capf ] -- auto-complete source of completion-at-point
