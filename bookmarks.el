@@ -1,8 +1,73 @@
-;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8 -*-
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8; mode: lisp-data -*-
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Artificial Neural Network.org"
+(("My Cosmetology Manual.org"
+ (filename . "~/Org/Wiki/Apparel/Cosmetology/Data/Manuals/My Cosmetology Manual/My Cosmetology Manual.org")
+ (front-context-string . "#+TITLE: My Cosm")
+ (rear-context-string)
+ (position . 1))
+("Career.org"
+ (filename . "~/Org/Wiki/Career/Career.org")
+ (front-context-string . "#+TITLE: Career ")
+ (rear-context-string)
+ (position . 1))
+("wireshark.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/wireshark/wireshark.org")
+ (front-context-string . "#+TITLE: wiresha")
+ (rear-context-string)
+ (position . 1))
+("国学.org"
+ (filename . "~/Org/Wiki/国学/国学.org")
+ (front-context-string . "#+TITLE: 国学\n\n* I")
+ (rear-context-string)
+ (position . 1))
+("Linguistics.org"
+ (filename . "~/Org/Wiki/Linguistics/Linguistics.org")
+ (front-context-string . "#+TITLE: Linguis")
+ (rear-context-string)
+ (position . 1))
+("UserScript List.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Technologies/UserScript/Data/UserScript List/UserScript List.org")
+ (front-context-string . "#+TITLE: UserScr")
+ (rear-context-string)
+ (position . 1))
+("Game Theory.org"
+ (filename . "~/Org/Wiki/Strategy/Game Theory/Game Theory.org")
+ (front-context-string . "#+TITLE: Game Th")
+ (rear-context-string)
+ (position . 1))
+("Strategy.org"
+ (filename . "~/Org/Wiki/Strategy/Strategy.org")
+ (front-context-string . "#+TITLE: Strateg")
+ (rear-context-string)
+ (position . 1))
+("PostgreSQL extensions.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/PostgresQL/PostgreSQL extensions/PostgreSQL extensions.org")
+ (front-context-string . "#+TITLE: Postgre")
+ (rear-context-string)
+ (position . 1))
+("Finance.org"
+ (filename . "~/Org/Wiki/Commercial Science/Finance/Finance.org")
+ (front-context-string . "#+TITLE: Finance")
+ (rear-context-string)
+ (position . 1))
+("Poem.org"
+ (filename . "~/Org/Wiki/Literature/Countries Literature/Chinese Literature/Poem/Poem.org")
+ (front-context-string . "#+TITLE: Poem (诗")
+ (rear-context-string)
+ (position . 1))
+("Novel Books.org"
+ (filename . "~/Org/Wiki/Literature/Countries Literature/Chinese Literature/Novels/Data/Novel Books/Novel Books.org")
+ (front-context-string . "#+TITLE: Novel B")
+ (rear-context-string)
+ (position . 1))
+("Chinese Literature.org"
+ (filename . "~/Org/Wiki/Literature/Countries Literature/Chinese Literature/Chinese Literature.org")
+ (front-context-string . "#+TITLE: Chinese")
+ (rear-context-string)
+ (position . 1))
+("Artificial Neural Network.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Artificial Intelligence/Artificial Neural Network/Artificial Neural Network.org")
  (front-context-string . "#+TITLE: Artific")
  (rear-context-string)
@@ -50,11 +115,6 @@
 ("Culture.org"
  (filename . "~/Org/Wiki/Culture/Culture.org")
  (front-context-string . "#+TITLE: Culture")
- (rear-context-string)
- (position . 1))
-("China History.org"
- (filename . "~/Org/Wiki/History/Country's History/China History/China History.org")
- (front-context-string . "#+TITLE: China H")
  (rear-context-string)
  (position . 1))
 ("CSS Packages.org"
@@ -903,14 +963,6 @@
  (front-context-string . "#+TITLE: Brain S")
  (rear-context-string)
  (position . 1))
-("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Literature/Novels/Data/Novel Books/命若琴弦 - 史铁生.pdf"
- (filename . "~/Org/Wiki/Literature/Novels/Data/Novel Books/命若琴弦 - 史铁生.pdf")
- (position . 1)
- (page . 9)
- (slice)
- (size . fit-width)
- (origin)
- (handler . pdf-view-bookmark-jump-handler))
 ("PDF-LAST-VIEWED: /home/stardiviner/Documents/learning/Clojure/website-compare/README.pdf"
  (filename . "~/Documents/learning/Clojure/website-compare/README.pdf")
  (position . 1)
@@ -1306,14 +1358,6 @@
  (front-context-string . "#+TITLE: My Powe")
  (rear-context-string)
  (position . 1))
-("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Literature/Novels/Data/Novel Books/乌克兰拖拉机简史.pdf"
- (filename . "~/Org/Wiki/Literature/Novels/Data/Novel Books/乌克兰拖拉机简史.pdf")
- (position . 1)
- (page . 1)
- (slice 0.10661500000000002 0 0.918385 0.9762670000000001)
- (size . fit-width)
- (origin 0.0 . 0.0)
- (handler . pdf-view-bookmark-jump-handler))
 ("My SQL Theory Explained.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/Data/Manuals/My SQL Theory Explained/My SQL Theory Explained.org")
  (front-context-string . "#+TITLE: My SQL ")
@@ -1549,11 +1593,6 @@
 ("Work.org"
  (filename . "~/Org/Work/Work.org")
  (front-context-string . "#+TITLE: Work\n#+")
- (rear-context-string)
- (position . 1))
-("Job.org"
- (filename . "~/Org/Wiki/Job/Job.org")
- (front-context-string . "#+TITLE: Job\n\n* ")
  (rear-context-string)
  (position . 1))
 ("shadow-cljs.org"
@@ -1850,11 +1889,6 @@
  (size . fit-width)
  (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
-("Poems Collection.org"
- (filename . "~/Org/Wiki/Literature/Poem/Data/Poems Collection/Poems Collection.org")
- (front-context-string . "#+TITLE: Poems C")
- (rear-context-string)
- (position . 1))
 ("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure Data Structures and Algorithms Cookbook.pdf"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure Data Structures and Algorithms Cookbook.pdf")
  (position . 1)
@@ -2018,11 +2052,6 @@
  (front-context-string . "#+TITLE: My Pyth")
  (rear-context-string)
  (position . 1))
-("My Poems Collection.org"
- (filename . "~/Org/Wiki/Literature/Poem/Data/Manuals/My Poems Collection/My Poems Collection.org")
- (front-context-string . "#+TITLE: My Poem")
- (rear-context-string)
- (position . 1))
 ("Magit.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/Magit/Magit.org")
  (front-context-string . "#+TITLE: Magit\n\n")
@@ -2070,20 +2099,20 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored-marker"
- (filename . "~/Org/Wiki/Education/Education.org")
- (front-context-string . "*** 中国多所高校研究者因伪造")
- (rear-context-string . "与高等教\n  育结合的速度。\n\n")
- (position . 11292))
+ (filename . "~/Org/Wiki/World Grid Information/World Grid Information.org")
+ (front-context-string . "*** 美国推进封锁华为芯片供应")
+ (rear-context-string . "  面评估和解读这些规则。”\n\n")
+ (position . 22633))
 ("org-refile-last-stored"
- (filename . "~/Org/Wiki/Education/Education.org")
- (front-context-string . "*** 中国多所高校研究者因伪造")
- (rear-context-string . "与高等教\n  育结合的速度。\n\n")
- (position . 11292))
+ (filename . "~/Org/Wiki/World Grid Information/World Grid Information.org")
+ (front-context-string . "*** 美国推进封锁华为芯片供应")
+ (rear-context-string . "  面评估和解读这些规则。”\n\n")
+ (position . 22633))
 ("org-capture-last-stored"
  (filename . "~/Org/Tasks/Tasks.org")
- (front-context-string . "* 中国多所高校研究者因伪造同行")
+ (front-context-string . "* 美国推进封锁华为芯片供应 中")
  (rear-context-string . "已注销”。并且标记隐藏账户。\n\n")
- (position . 399))
+ (position . 226))
 ("PDF-LAST-VIEWED: /tmp/mu-1000/b53469b1/3/test.pdf"
  (filename .
            #("/tmp/mu-1000/b53469b1/3/test.pdf" 0 32
@@ -3105,12 +3134,6 @@
  (front-context-string . "#+TITLE: systemd")
  (rear-context-string)
  (position . 1))
-(#("Novel Books.org" 0 1
-   (idx 426))
- (filename . "~/Org/Wiki/Literature/Novels/Data/Novel Books/Novel Books.org")
- (front-context-string . "#+TITLE: Novel B")
- (rear-context-string)
- (position . 1))
 (#("Self Enhancement.org" 0 1
    (idx 428))
  (filename . "~/Org/Wiki/Self Enhancement/Self Enhancement.org")
@@ -3693,22 +3716,10 @@
  (front-context-string . "* Intro\n:PROPERT")
  (rear-context-string)
  (position . 1))
-(#("Poem.org" 0 1
-   (idx 613))
- (filename . "~/Org/Wiki/Literature/Poem/Poem.org")
- (front-context-string . "* Intro\n\n\n\n\n* Da")
- (rear-context-string)
- (position . 1))
 (#("Internet.org" 0 1
    (idx 615))
  (filename . "~/Org/Wiki/Internet/Internet.org")
  (front-context-string . "#+TITLE: Interne")
- (rear-context-string)
- (position . 1))
-(#("Novels.org" 0 1
-   (idx 621))
- (filename . "~/Org/Wiki/Literature/Novels/Novels.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
 (#("Beauty.org" 0 1
