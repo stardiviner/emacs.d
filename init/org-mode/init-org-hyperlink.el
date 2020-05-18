@@ -58,63 +58,77 @@ Optional for Org-mode file: `LINK'."
   (emms-play-file file))
 
 (setq org-file-apps
-      `(;; Web Pages
-        ,(if (executable-find "firefox")
-             `("\.x?html?\\'" . "firefox %s")
-           `("\.x?html?\\'" . "google-chrome-unstable %s"))
-        ;; PDF
-        ;; use Okular
-        ;; ("\\.pdf\\'" . "okular %s")
-        ;; ("\\.pdf::\\([[:digit:]]+\\)\\'" . "okular -p %1 %s")
-        ;; CHM
-        ("\\.chm\\'" . "kchmviewer %s")
-        ;; EBooks
-        ;; ("\\.epub\\'" . "okular %s") ; it is opened by `ereader', and `nov'.
-        ("\\.mobi\\'" . "ebook-viewer %s")
-        ("\\.azw3\\'" . "ebook-viewer %s")
-        ;; Image
-        ;; ("\\.png\\'" . "sxiv %s")
-        ;; ("\\.jp\(e\)?g" . "sxiv %s")
-        ("\\.gif\\'" . "sxiv -a -f %s")
-        ;; ("\\.gif\\'" . "gwenview %s")
-        ;; ("\\.gif\\'" . my/open-and-play-gif-image)
-        ;; ("\\.svg\\'" . "feh --magick-timeout 5 %s")
-        ;; ("\\.svg\\'" . "display %s") ; Emacs built-in support display svg
-        ;; Mind Maps
-        ("\\.mm\\'" . "freeplane %s")
-        ;; Office
-        ;; Open Text Document
-        ("\\.odt\\'" . "libreoffice %s") ; Text Documentation
-        ("\\.ods\\'" . "libreoffice %s") ; Spreadsheet
-        ("\\.odp\\'" . "libreoffice %s") ; Presentation
-        ("\\.odf\\'" . "libreoffice %s") ; Database / Formula
-        ;; Windows Office
-        ("\\.doc\\'" . "libreoffice %s")
-        ("\\.ppt\\'" . "libreoffice %s")
-        ("\\.xls\\'" . "libreoffice %s")
-        ("\\.docx\\'" . "libreoffice %s")
-        ("\\.pptx\\'" . "libreoffice %s")
-        ("\\.xlsx\\'" . "libreoffice %s")
-        ;; Video
-        ("\\.mp4\\'" . "mpv %s")
-        ("\\.mkv\\'" . "mpv %s")
-        ("\\.mov\\'" . "mpv %s")
-        ("\\.ogv\\'" . "mpv %s")
-        ("\\.webm\\'" . "mpv %s")
-        ("\\.flv\\'" . "mpv %s")
-        ("\\.f4v\\'" . "mpv %s")
-        ("\\.rmvb\\'" . "mpv %s")
-        ;; Audio
-        ("\\.mp3\\'" . "mpv %s")
-        ("\\.ogg\\'" . "mpv %s")
-        ("\\.wav\\'" . "mpv %s")
-        ("\\.midi\\'" . "timidity %s")
-        (auto-mode . emacs)
+      '((auto-mode . emacs)
+        (directory . emacs)
         (remote . emacs)
-        (system . mailcap)
-        (t . emacs)))
+        (t . default)))
 
-(add-to-list 'org-file-apps '("\\.swf\\'" . "gnash %s"))
+(cl-case system-type
+  ('gnu/linux
+   (add-to-list 'org-file-apps
+                `(,(if (executable-find "firefox")
+                       `("\.x?html?\\'" . "firefox %s")
+                     `("\.x?html?\\'" . "google-chrome-unstable %s"))))
+   
+   (dolist (pair '(;; PDF
+                   ;; use Okular
+                   ;; ("\\.pdf\\'" . "okular %s")
+                   ;; ("\\.pdf::\\([[:digit:]]+\\)\\'" . "okular -p %1 %s")
+                   ;; CHM
+                   ("\\.chm\\'" . "kchmviewer %s")
+                   ;; Djvu
+                   ;; FIXME:
+                   ;; ("\\.djvu\\'" . doc-view-mode)
+                   ;; EBooks
+                   ;; ("\\.epub\\'" . "okular %s") ; it is opened by `ereader', and `nov'.
+                   ("\\.mobi\\'" . "ebook-viewer %s")
+                   ("\\.azw3\\'" . "ebook-viewer %s")
+                   ;; Image
+                   ;; ("\\.png\\'" . "sxiv %s")
+                   ;; ("\\.jp\(e\)?g" . "sxiv %s")
+                   ("\\.gif\\'" . "sxiv -a -f %s")
+                   ;; ("\\.gif\\'" . "gwenview %s")
+                   ;; ("\\.gif\\'" . my/open-and-play-gif-image)
+                   ;; ("\\.svg\\'" . "feh --magick-timeout 5 %s")
+                   ;; ("\\.svg\\'" . "display %s") ; Emacs built-in support display svg
+                   ;; Mind Maps
+                   ("\\.mm\\'" . "freeplane %s")
+                   ;; Office
+                   ;; Open Text Document
+                   ("\\.odt\\'" . "libreoffice %s")  ; Text Documentation
+                   ("\\.ods\\'" . "libreoffice %s")  ; Spreadsheet
+                   ("\\.odp\\'" . "libreoffice %s")  ; Presentation
+                   ("\\.odf\\'" . "libreoffice %s")  ; Database / Formula
+                   ;; Windows Office
+                   ("\\.doc\\'" . "libreoffice %s")
+                   ("\\.ppt\\'" . "libreoffice %s")
+                   ("\\.xls\\'" . "libreoffice %s")
+                   ("\\.docx\\'" . "libreoffice %s")
+                   ("\\.pptx\\'" . "libreoffice %s")
+                   ("\\.xlsx\\'" . "libreoffice %s")
+                   ;; Video
+                   ("\\.mp4\\'" . "mpv %s")
+                   ("\\.mkv\\'" . "mpv %s")
+                   ("\\.mov\\'" . "mpv %s")
+                   ("\\.ogv\\'" . "mpv %s")
+                   ("\\.webm\\'" . "mpv %s")
+                   ("\\.flv\\'" . "mpv %s")
+                   ("\\.f4v\\'" . "mpv %s")
+                   ("\\.rmvb\\'" . "mpv %s")
+                   ;; Audio
+                   ("\\.mp3\\'" . "mpv %s")
+                   ("\\.ogg\\'" . "mpv %s")
+                   ("\\.wav\\'" . "mpv %s")
+                   ("\\.midi\\'" . "timidity %s")))
+     (add-to-list 'org-file-apps pair))
+
+   (add-to-list 'org-file-apps '("\\.swf\\'" . "gnash %s")))
+
+  ('darwin
+   )
+  ('windows-nt
+   ))
+
 (add-to-list 'org-file-apps '("\\.jar\\'" . "java -jar %s"))
 
 ;; System wise: xdg-open, kde-open, gnome-open.
