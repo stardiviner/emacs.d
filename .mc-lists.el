@@ -10,6 +10,7 @@
         cljr-slash
         counsel-M-x
         counsel-yank-pop
+        electric-pair-delete-pair
         fill-paragraph
         forward-sexp
         indent-for-tab-command
@@ -39,8 +40,10 @@
         org-metaright
         org-next-visible-heading
         org-open-line
+        org-return-and-maybe-indent
         org-return-indent
         org-self-insert-command
+        org-set-tags-command
         org-shiftleft
         org-shiftright
         org-shifttab
@@ -55,6 +58,7 @@
         paredit-forward-delete
         paredit-forward-kill-word
         paredit-kill
+        paredit-newline
         paredit-open-round
         paredit-open-square
         paredit-semicolon
@@ -139,6 +143,7 @@
         special-lispy-widen
         special-lispy-x
         special-pop-tag-mark
+        virtual-auto-fill-fill-paragraph-after-confirmation
         yas-expand
         ))
 
