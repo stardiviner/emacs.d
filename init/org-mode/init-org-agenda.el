@@ -65,7 +65,7 @@
   ;; speedup Org Agenda
   (setq org-agenda-inhibit-startup nil
         org-agenda-dim-blocked-tasks nil ; don't dim blocked tasks: past deadline, etc
-        org-agenda-use-tag-inheritance nil)
+        )
 
   ;; toggle log mode in agenda buffer. Press [l] in org-agenda buffer.
   (setq org-agenda-start-with-log-mode '(closed clock)
