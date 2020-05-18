@@ -1,6 +1,6 @@
 ;;; init-SSH.el --- init for SSH. -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-05-11 22:40:35 stardiviner>
+;;; Time-stamp: <2020-05-18 10:25:25 stardiviner>
 
 ;;; Commentary:
 
@@ -27,16 +27,6 @@
   :ensure t
   :defer t
   :commands (ssh-tunnels))
-
-(use-package ssh-deploy
-  :ensure t
-  :after hydra
-  :defer t
-  :commands (ssh-deploy-after-save ssh-deploy-find-file)
-  :hook ((after-save . ssh-deploy-after-save)
-         (find-file . ssh-deploy-find-file))
-  :config (ssh-deploy-line-mode)
-  (ssh-deploy-hydra "C-c C-z"))
 
 
 
