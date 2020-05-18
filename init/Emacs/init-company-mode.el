@@ -13,42 +13,39 @@
   :ensure t
   :defer t
   :delight company-mode
-  :custom ((company-etags-modes nil)) ; disable `company-etags'
+  :custom ((company-etags-modes nil) ; disable `company-etags'
+           (company-minimum-prefix-length 3)
+           (completion-ignore-case t) ; complete candidates ignore case-sensitive when typing.
+           (company-idle-delay 0)
+           (company-tooltip-idle-delay 0)
+           (company-echo-delay 0)
+           ;; (company-auto-complete t)
+           ;; (company-auto-complete-chars '(?\  ?\) ?. ?#)) ; '(?_ ?\( ?w ?. ?\" ?$ ?\' ?/ ?| ?! ?#)
+           (company-selection-wrap-around t) ; loop over candidates
+           (company-tooltip-align-annotations t) ; align annotations to the right tooltip border.
+           (company-show-numbers t)
+           (company-search-regexp-function #'company-search-flex-regexp)
+           (company-frontends `(company-pseudo-tooltip-frontend
+                                ;; ,(if (zerop company-tooltip-idle-delay)
+                                ;;      'company-pseudo-tooltip-unless-just-one-frontend
+                                ;;    'company-pseudo-tooltip-unless-just-one-frontend-with-delay)
+                                company-preview-if-just-one-frontend
+                                company-echo-metadata-frontend
+                                ;; company-preview-common-frontend
+                                ))
+           (company-backends '((company-capf         ; `completion-at-point-functions'
+                                :separate company-yasnippet
+                                ;; :separate company-tempo  ; tempo: flexible template insertion
+                                :separate company-keywords)
+                               (company-dabbrev-code :with company-abbrev)
+                               company-files))
+           (company-dabbrev-other-buffers t) ; only from same major-mode
+           )
   ;; disable initialize loading all company backends.
   :preface (setq company-backends nil)
   :commands (global-company-mode)
   :hook (after-init . global-company-mode)
   :config
-  (setq company-minimum-prefix-length 3
-        ;; decrease this delay when you can type code continuously fast.
-        company-idle-delay 0.2
-        company-tooltip-idle-delay 0 ; 0.5
-        company-echo-delay 0 ; remove annoying blink
-        company-auto-complete nil
-        company-auto-complete-chars '(?\  ?\) ?. ?#) ; '(?_ ?\( ?w ?. ?\" ?$ ?\' ?/ ?| ?! ?#)
-        ;; company-require-match 'company-explicit-action-p ; 'never
-        company-tooltip-align-annotations t ; align annotations to the right tooltip border.
-        company-tooltip-flip-when-above nil
-        company-tooltip-limit 10 ; tooltip candidates max limit
-        company-tooltip-minimum 3 ; minimum candidates height limit
-        ;; company-tooltip-minimum-width 0 ; the minimum width of the tooltip's inner area
-        company-tooltip-margin 1 ; width of margin columns to show around the tooltip
-        company-selection-wrap-around t ; loop over candidates
-        company-search-regexp-function #'company-search-flex-regexp)
-
-  (setq completion-ignore-case t) ; complete candidates ignore case-sensitive when typing.
-
-  ;; `company-mode' frontend showing the selection as if it had been inserted.
-  (setq-default company-frontends
-                `(company-pseudo-tooltip-frontend
-                  ;; ,(if (zerop company-tooltip-idle-delay)
-                  ;;      'company-pseudo-tooltip-unless-just-one-frontend
-                  ;;    'company-pseudo-tooltip-unless-just-one-frontend-with-delay)
-                  ;; company-preview-if-just-one-frontend
-                  company-echo-metadata-frontend
-                  ;; company-preview-common-frontend
-                  ))
-  
   ;; company-tabnine: A company-mode backend for TabNine, the all-language autocompleter.
   (use-package company-tabnine
     :ensure t
@@ -65,14 +62,6 @@
           (unless (string-match "The free version of TabNine only indexes up to"
                                 (funcall company-message-func))
             ad-do-it)))))
-
-  (setq-default company-backends
-                '((company-capf         ; `completion-at-point-functions'
-                   :separate company-yasnippet
-                   ;; :separate company-tempo  ; tempo: flexible template insertion
-                   :separate company-keywords)
-                  (company-dabbrev-code :with company-abbrev)
-                  company-files))
   
   (defun my-company-add-backend-locally (backend)
     "Add a backend in my custom way.
@@ -143,7 +132,6 @@
     ;; (company-abort)
     (company-cancel 'abort)
     (newline-and-indent))
-
   (define-key company-active-map [return] 'company-new-line)
   (define-key company-active-map "\r" 'company-new-line)
 
@@ -153,18 +141,12 @@
     ;; (company-abort)
     (company-cancel 'abort)
     (insert " "))
-  
   (define-key company-active-map (kbd "SPC") 'company-space)
 
   ;; [ company-yasnippet ]
   ;; make `company-yasnippet' work for prefix like `%link_to'.
   ;; (setq-default yas-key-syntaxes (list "w_" "w_." "w_.()"
   ;;                                      #'yas-try-key-from-whitespace))
-
-  ;; [ company-abbrev / company-dabbrev ]
-  (setq company-dabbrev-other-buffers t)
-
-  ;; [ company-tempo ]
 
   ;; [ company-transformers ]
   ;; NOTE: disable customize `company-transformers' to fix python-mode company candidates
