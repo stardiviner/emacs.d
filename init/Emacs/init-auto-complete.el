@@ -18,11 +18,6 @@
   ;; auto raise popup menu
   (setq ac-auto-show-menu t)
 
-  ;; keybindings
-  ;; (ac-set-trigger-key "<tab>") ; <tab> is used for yasnippet.
-  ;; (ac-set-trigger-key "TAB") ; usualy this, <tab> has higher priority than TAB.
-  ;; (define-key global-map (kbd "M-TAB") 'ac-fuzzy-complete) ; fuzzy complete.
-
   ;; ac-menu-map keymap only map for menu is available, not break default.
   (setq ac-use-menu-map t)
   ;; disable [<tab>] [C-n/p] -> ac-next in ac-menu.
