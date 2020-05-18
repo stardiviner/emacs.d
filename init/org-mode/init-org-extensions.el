@@ -12,22 +12,17 @@
 (use-package org-crypt
   :after org
   :commands (org-crypt-use-before-save-magic)
+  :custom (org-crypt-key "F09F650D7D674819892591401B5DF1C95AE89AC3")
   :init
-  ;; You can change the tag to any complex tag matching string by
-  ;; setting the `org-crypt-tag-matcher' variable.
-  (add-to-list 'org-default-properties "CRYPTKEY")
-
-  ;; add `org-crypt' required tag to default persistent tag list.
-  (add-to-list 'org-tag-persistent-alist '("crypt" . ?b))
-
-  ;; set your public keyring.
-  (setq org-crypt-key "F09F650D7D674819892591401B5DF1C95AE89AC3")
-  
   ;; To automatically encrypt all necessary entries when saving a file.
   ;; FIXME this does not work for `desktop.el' startup opened buffers.
   (org-crypt-use-before-save-magic)
-
   :config
+  ;; You can change the tag to any complex tag matching string by
+  ;; setting the `org-crypt-tag-matcher' variable.
+  (add-to-list 'org-default-properties "CRYPTKEY")
+  ;; add `org-crypt' required tag to default persistent tag list.
+  (add-to-list 'org-tag-persistent-alist '("crypt" . ?b))
   ;; set keybindings for org-crypt functions.
   (define-key org-mode-map (kbd "C-c C-r") 'org-encrypt-entry)
   (define-key org-mode-map (kbd "C-c M-r") 'org-decrypt-entry)
