@@ -20,7 +20,8 @@
 (use-package org-roam
   :ensure t
   :defer t
-  :custom (org-roam-directory (expand-file-name "~/Org/org-roam"))
+  :custom ((org-roam-directory (expand-file-name "~/Org/org-roam"))
+           (org-roam-mute-cache-build t))
   :hook (after-init . org-roam-mode)
   :preface
   (unless (boundp 'org-roam-prefix)
@@ -46,7 +47,11 @@
     :ensure t
     :hook (org-roam-mode . org-roam-bibtex-mode)
     :bind (:map org-mode-map (("C-c n a" . orb-note-actions))))
-  :config (setq org-roam-mute-cache-build t))
+
+  ;; [ org-roam-server ] -- A Web Application to Visualize the Org-Roam Database.
+  (use-package org-roam-server
+    :ensure t
+    :commands (org-roam-server-mode)))
 
 
 
