@@ -40,12 +40,6 @@
 ;;   :init (ac-capf-setup) ; global
 ;;   :config (add-to-list 'ac-sources 'ac-source-capf))
 
-
-(defun my/ac-source-remove (source-removed-list)
-  "remove some ac-source from ac-sources."
-  (mapc (lambda (x) (setq-local ac-sources (remq x ac-sources)))
-        source-removed-list))
-
 
 
 (provide 'init-auto-complete)
