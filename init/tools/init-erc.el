@@ -256,7 +256,7 @@ The function is suitable for `erc-after-connect'."
   (setq erc-mode-line-format "%S %a")
 
   ;; prompt
-  (setq erc-prompt " (λ) ⌨ ")
+  (setq erc-prompt " (λ) => ")
   
   (set-face-attribute 'erc-prompt-face nil
                       :background (cl-case (alist-get 'background-mode (frame-parameters))
