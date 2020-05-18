@@ -18,46 +18,11 @@
   ;; auto raise popup menu
   (setq ac-auto-show-menu t)
 
-  ;; ac-menu-map keymap only map for menu is available, not break default.
-  (setq ac-use-menu-map t)
-  ;; disable [<tab>] [C-n/p] -> ac-next in ac-menu.
-  (define-key ac-menu-map "\t" nil)
-  (define-key ac-menu-map [tab] nil)
-  (define-key ac-menu-map (kbd "<tab>") nil)
-  (define-key ac-menu-map (kbd "<S-tab>") nil) ; "S-TAB". "?\\s-\\t"
-  (define-key ac-menu-map "\r" nil)
-  (define-key ac-menu-map [return] nil)
-
-  (define-key ac-menu-map (kbd "C-n") nil)
-  (define-key ac-menu-map (kbd "C-p") nil)
-  (define-key ac-menu-map (kbd "C-j") nil)
-
-  (define-key ac-menu-map (kbd "M-j") 'ac-complete) ; select current candidate.
-  (define-key ac-menu-map (kbd "M-n") 'ac-next) ; next candidate.
-  (define-key ac-menu-map (kbd "M-p") 'ac-previous) ; previous candidate.
-  (define-key ac-menu-map (kbd "M-i") 'ac-expand) ; for expand snippet, abbrev etc.
-  (define-key ac-menu-map (kbd "C-s") 'ac-isearch)
-  (define-key ac-menu-map (kbd "M-s") 'ac-isearch) ; isearch in popup menu.
-  (define-key ac-menu-map (kbd "C-i") 'ac-expand-common) ; complete common string.
-  (define-key ac-menu-map (kbd "C-h") 'ac-stop) ; close the auto complete popup menu.
-
-  (defun my-ac-return ()
-    (interactive)
-    (ac-stop)
-    (newline-and-indent))
-  (define-key ac-menu-map (kbd "<return>") 'my-ac-return) ; go to new line.
-  (define-key ac-menu-map [return] 'my-ac-return)
-  (define-key ac-menu-map "\r" 'my-ac-return)
-  (define-key ac-menu-map (kbd "RET") 'my-ac-return)
-
   ;; quick help
   (setq ac-quick-help-delay 0.2)
-
   (define-key ac-completing-map (kbd "M-h") 'ac-quick-help)
   (define-key ac-completing-map (kbd "C-M-n") 'ac-quick-help-scroll-down)
   (define-key ac-completing-map (kbd "C-M-p") 'ac-quick-help-scroll-up)
-  (define-key ac-completing-map [C-down] 'ac-quick-help-scroll-down)
-  (define-key ac-completing-map [C-up] 'ac-quick-help-scroll-up)
   
   ;; load `ac-source-yasnippet'
   (require 'auto-complete-config)
