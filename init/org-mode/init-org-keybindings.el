@@ -33,7 +33,7 @@
 (unless (boundp 'org-clock-prefix)
   (define-prefix-command 'org-clock-prefix))
 (define-key Org-prefix (kbd "C-c") 'org-clock-prefix)
-(define-key org-clock-prefix (kbd "C-i") 'org-clock-in-last)
+(define-key org-clock-prefix (kbd "C-x") 'org-clock-in-last)
 (define-key org-clock-prefix (kbd "C-j") 'org-clock-goto)
 (define-key org-clock-prefix (kbd "C-o") 'org-clock-out)
 (define-key org-clock-prefix (kbd "C-k") 'org-clock-cancel)
