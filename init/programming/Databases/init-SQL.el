@@ -161,6 +161,13 @@
     (auto-complete-mode 1)
     (ejc-ac-setup))
   (add-hook 'sql-interactive-mode #'ejc-sql-interactive-mode-setup)
+
+  ;; result table
+  (add-hook 'ejc-sql-connected-hook
+            (lambda ()
+              (ejc-set-column-width-limit nil) ; don't limit column width and shrink.
+              ;; (ejc-set-max-rows 50) ; set table max rows.
+              ))
   
   (ejc-create-connection
    "PostgreSQL-db-postgres"
