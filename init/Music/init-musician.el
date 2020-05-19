@@ -23,7 +23,10 @@
   :commands (org-babel-execute:lilypond)
   :config
   (add-to-list 'org-babel-load-languages '(lilypond . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  ;; remove large white space in pager
+  (add-to-list 'org-babel-default-header-args:lilypond
+               '(:prologue . "\\paper{ oddFooterMarkup=##f }")))
 
 ;;; [ gregorio-mode ] -- Gregorio Mode for .gabc files.
 
