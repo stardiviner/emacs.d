@@ -34,6 +34,9 @@
                   ac-source-words-in-same-mode-buffers))
   ;; auto raise popup menu
   (setq ac-auto-show-menu t)
+  ;; custom keybindings
+  (setq ac-use-menu-map t)
+  (define-key ac-menu-map (kbd "M-j") 'ac-complete)
   ;; quick help
   (setq ac-quick-help-delay 0.2)
   (define-key ac-completing-map (kbd "M-h") 'ac-quick-help)
