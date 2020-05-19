@@ -20,7 +20,7 @@
   (setq circe-default-nick "stardiviner"
         circe-network-options `(("Freenode"
                                  :user "stardiviner"
-                                 :pass ,(my/json-read-value my/account-file 'erc)
+                                 :pass ,(my/json-read-value my/account-file 'irc)
                                  :use-tls t
                                  :channels ("#emacs"))))
   ;; ignore

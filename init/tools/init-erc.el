@@ -19,7 +19,7 @@
         erc-email-userid "numbchild@gmail.com")
   ;; [ password ]
   (setq erc-prompt-for-password nil
-        erc-password (my/json-read-value my/account-file 'erc))
+        erc-password (my/json-read-value my/account-file 'irc))
   ;; encoding
   (setq  erc-server-coding-system '(utf-8 . utf-8))
 
