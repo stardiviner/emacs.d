@@ -163,11 +163,12 @@
   (add-hook 'sql-interactive-mode #'ejc-sql-interactive-mode-setup)
 
   ;; result table
-  (add-hook 'ejc-sql-connected-hook
-            (lambda ()
-              (ejc-set-column-width-limit nil) ; don't limit column width and shrink.
-              ;; (ejc-set-max-rows 50) ; set table max rows.
-              ))
+  (defun my/ejc-sql-customize-output ()
+    (ejc-set-column-width-limit nil) ; don't limit column width and shrink.
+    ;; (ejc-set-max-rows 50) ; set table max rows.
+    ;; (ejc-set-use-unicode t)
+    )
+  (add-hook 'ejc-sql-connected-hook #'my/ejc-sql-customize-output)
   
   (ejc-create-connection
    "PostgreSQL-db-postgres"
