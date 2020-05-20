@@ -10,11 +10,14 @@
 (use-package org-agenda
   :defer t
   :commands (org-agenda)
+  :custom ((org-agenda-window-setup 'current-window)
+           (org-agenda-restore-windows-after-quit t)
+           (org-agenda-sticky t) ; don't kill *Org Agenda* buffer by [q].
+           )
+  :init
+  (add-to-list 'display-buffer-alist
+               '("^\\*Org Agenda(.*)\\*" (display-buffer-below-selected)))
   :config
-  (setq org-agenda-window-setup 'reorganize-frame
-        org-agenda-restore-windows-after-quit t)
-  (setq org-agenda-sticky t) ; don't kill *Org Agenda* buffer by [q].
-
   ;; `org-agenda-files'
   (autoload '-flatten "dash")
   (setq org-agenda-files
