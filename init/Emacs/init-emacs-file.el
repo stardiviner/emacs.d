@@ -15,7 +15,9 @@
 
 (use-package vlf
   :ensure t
-  :defer t)
+  :defer t
+  :commands (vlf vlf-ediff-files vlf-ediff-buffers)
+  :config (vlf-setup))
 
 ;;; [ openwith ] -- Open files with external programs.
 
