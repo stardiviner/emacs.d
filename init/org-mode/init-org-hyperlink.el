@@ -143,6 +143,12 @@ Optional for Org-mode file: `LINK'."
   ;; documents
   (add-to-list 'org-file-apps '("\\.pdf\\'" . eaf-open-for-org))
   (add-to-list 'org-file-apps '("\\.epub\\'" . eaf-open-for-org))
+  (add-to-list 'org-file-apps '("\\.djvu\\'" . eaf-open-for-org))
+  (add-to-list 'org-file-apps '("\\.xps\\'" . eaf-open-for-org))
+  (add-to-list 'org-file-apps '("\\.oxps\\'" . eaf-open-for-org))
+  (add-to-list 'org-file-apps '("\\.cbz\\'" . eaf-open-for-org))
+  (add-to-list 'org-file-apps '("\\.fb2\\'" . eaf-open-for-org))
+  (add-to-list 'org-file-apps '("\\.fbz\\'" . eaf-open-for-org))
   ;; images
   (add-to-list 'org-file-apps '("\\.gif\\'" . eaf-open-for-org))
   ;; videos
