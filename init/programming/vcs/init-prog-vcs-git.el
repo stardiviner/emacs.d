@@ -103,6 +103,8 @@
   (setq magit-display-buffer-function 'display-buffer)
   ;; show gravatar in Magit revision.
   ;; (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
+
+  (setq magit-prefix-use-buffer-arguments 'always) ; use toggled arguments. For example, "-c" (--color) for log.
   
   :config
   ;; manage popup buffers.
