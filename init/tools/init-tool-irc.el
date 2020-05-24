@@ -15,6 +15,7 @@
   :ensure t
   :defer t
   :commands (circe)
+  :bind (:map tools-prefix ("i" . circe))
   :config
   ;; user and servers info
   (setq circe-default-nick "stardiviner"
@@ -45,14 +46,12 @@
   ;; track bar
   (enable-lui-track-bar))
 
-(define-key tools-prefix (kbd "i") 'circe)
-
 ;;; [ circe-notifications ] -- Add desktop notifications to Circe.
 
 (use-package circe-notifications
   :ensure t
   :defer t
-  :init (add-hook 'circe-server-connected-hook 'enable-circe-notifications))
+  :hook (circe-server-connected . enable-circe-notifications))
 
 
 (provide 'init-tool-irc)
