@@ -1,6 +1,6 @@
 ;;; init-eaf.el --- init for emacs-application-framework -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-05-12 05:30:53 stardiviner>
+;;; Time-stamp: <2020-05-25 15:18:11 stardiviner>
 
 ;;; Commentary:
 
@@ -22,6 +22,7 @@
               ("C-c M-i" . 'eaf-interleave-add-note)
               ("C-c M-o" . 'eaf-interleave-open-notes-file)
               ("C-c M-q" . 'eaf-interleave-quit))
+  :init (require 'eaf-org)
   :config
   (define-key dired-mode-map (kbd "M-RET") 'eaf-open-this-from-dired)
   (eaf-setq eaf-camera-save-path "~")
