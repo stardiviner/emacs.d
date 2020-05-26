@@ -14,65 +14,60 @@
 ;; - c++-mode
 ;; - java-mode
 ;; - objc-mode
-;; - idl-mode
-;; - pike-mode
-;; - awk-mode
 ;; - and some 3rd part modes.
 
-;; (require 'cc-mode)
+(use-package cc-mode
+  :defer t
+  :init
+  (setq-default c-default-style '((java-mode . "java")
+                                  (awk-mode . "awk")
+                                  (other . "gnu")))
+  
+  ;; indent
+  (setq-default c-syntactic-indentation t
+                c-basic-offset 2
+                tab-width 2
+                indent-tabs-mode nil    ; never use tab, always use space only.
+                tab-always-indent t ; make tab key always call a indent command.
+                )
+  ;; Do not check for old-style (K&R) function declarations; this speeds up
+  ;; indenting a lot.
+  (setq c-recognize-knr-p nil)
 
-;; Do not check for old-style (K&R) function declarations; this speeds up
-;; indenting a lot.
-(setq c-recognize-knr-p nil)
+  ;; Hook called by all CC Mode modes for common initializations.
+  ;; (add-hook 'c-mode-common-hook)
 
-;; Hook called by all CC Mode modes for common initializations.
-;; (add-hook 'c-mode-common-hook)
+  :config
+  (defvar c-dialects-mode
+    '(c-mode
+      c++-mode
+      objc-mode))
 
-(defvar c-dialects-mode
-  '(c-mode
-    c++-mode
-    objc-mode))
+  (hook-modes c-dialects-mode
+    ;; (c-toggle-auto-hungry-state 1)
+    ;; (c-toggle-auto-newline 1)
+    ;; (c-toggle-hungry-state 1)
+    (electric-indent-local-mode 1)
+    (electric-pair-local-mode 1))
 
-;; [ C-mode ]
+  ;;; auto insert newline in c-mode
+  ;; (add-hook 'c-mode-hook #'c-toggle-auto-newline)
 
-;; indent
-(setq-default c-syntactic-indentation t
-              c-basic-offset 2
-              tab-width 2
-              indent-tabs-mode nil ; never use tab, always use space only.
-              tab-always-indent t ; make tab key always call a indent command.
-              )
+  (require 'cc-mode) ; load for `c-mode-base-map'
+  (add-hook 'c-mode-hook #'electric-layout-local-mode)
+  (define-key c-mode-base-map ";" nil) ; fix ";" not work for `electric-layout-local-mode' issue.
+  (defun c-mode-electric-layout-setting ()
+    "auto insert newline after specific characters."
+    (setq-local electric-layout-rules '((?\; . after)))
+    (add-to-list 'electric-layout-rules '( ?\{ .  after))
+    (add-to-list 'electric-layout-rules '( ?\} .  before)))
+  (add-hook 'c-mode-hook #'c-mode-electric-layout-setting)
 
-(hook-modes c-dialects-mode
-  ;; (c-toggle-auto-hungry-state 1)
-  ;; (c-toggle-auto-newline 1)
-  ;; (c-toggle-hungry-state 1)
-  (electric-indent-local-mode 1)
-  (electric-pair-local-mode 1)
-  (local-set-key (kbd "C-h d") 'manual-entry))
-
-(setq-default c-default-style '((java-mode . "java")
-                                (awk-mode . "awk")
-                                (other . "gnu")))
-
-;;; auto insert newline in c-mode
-;; (add-hook 'c-mode-hook #'c-toggle-auto-newline)
-
-(require 'cc-mode) ; load for `c-mode-base-map'
-(define-key c-mode-base-map ";" nil) ; fix ";" not work for `electric-layout-local-mode' issue.
-(defun c-mode-electric-layout-setting ()
-  "auto insert newline after specific characters."
-  (setq-local electric-layout-rules '((?\; . after)))
-  (add-to-list 'electric-layout-rules '( ?\{ .  after))
-  (add-to-list 'electric-layout-rules '( ?\} .  before)))
-(add-hook 'c-mode-hook #'electric-layout-local-mode)
-(add-hook 'c-mode-hook #'c-mode-electric-layout-setting)
-
-(defun my/c-mode-common-header-switch ()
-  "Open header file at point."
-  (local-set-key (kbd "C-c C-o") 'ff-find-other-file))
-(add-hook 'c-mode-common-hook #'my/c-mode-common-header-switch)
-
+  ;; open header file
+  (defun my/c-mode-common-header-switch ()
+    "Open header file at point."
+    (local-set-key (kbd "C-c C-o") 'ff-find-other-file))
+  (add-hook 'c-mode-common-hook #'my/c-mode-common-header-switch))
 
 ;;; [ modern-cpp-font-lock ] -- Font-locking for "Modern C++"
 
@@ -116,45 +111,41 @@
          (objc-mode . irony-mode))
   :config
   ;; find the compile flag options automatically:
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
-(use-package company-irony
-  :ensure t
-  :ensure company-irony-c-headers
-  :after irony
-  :init (setq company-irony-ignore-case t)
-  :config
-  (defun my/company-irony-setup ()
-    ;; (optional) adds CC special commands to `company-begin-commands'
-    ;; in order to trigger completion at interesting places, such as
-    ;; after scope operator.
-    ;;     std::|
-    (company-irony-setup-begin-commands)
-    (make-local-variable 'company-backends)
-    (my-company-add-backend-locally 'company-irony)
-    (add-to-list 'company-backends 'company-irony-c-headers)
-    (setq-local company-minimum-prefix-length 1))
+  (use-package company-irony
+    :ensure t
+    :ensure company-irony-c-headers
+    :after irony
+    :init (setq company-irony-ignore-case t)
+    :config
+    (defun my/company-irony-setup ()
+      ;; (optional) adds CC special commands to `company-begin-commands'
+      ;; in order to trigger completion at interesting places, such as
+      ;; after scope operator.
+      ;;     std::|
+      (company-irony-setup-begin-commands)
+      (make-local-variable 'company-backends)
+      (my-company-add-backend-locally 'company-irony)
+      (add-to-list 'company-backends 'company-irony-c-headers)
+      (setq-local company-minimum-prefix-length 1))
 
-  (dolist (hook '(c-mode-hook
-                  c++-mode-hook
-                  objc-mode-hook))
-    (add-hook hook #'my/company-irony-setup)))
+    (dolist (hook '(c-mode-hook
+                    c++-mode-hook
+                    objc-mode-hook))
+      (add-hook hook #'my/company-irony-setup)))
 
-(use-package irony-eldoc
-  :ensure t
-  :defer t
-  :after irony
-  :init (add-hook 'irony-mode-hook #'irony-eldoc))
+  (use-package irony-eldoc
+    :ensure t
+    :defer t
+    :after irony
+    :init (add-hook 'irony-mode-hook #'irony-eldoc))
 
-;;; [ Tags ]
-
-(require 'init-prog-tags)
-
-(use-package flycheck-irony
-  :ensure t
-  :defer t
-  :after irony
-  :init (add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+  (use-package flycheck-irony
+    :ensure t
+    :defer t
+    :after irony
+    :init (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
 
 ;;; [ cquery ] -- Low-latency language server supporting multi-million line C++ code-bases, powered by libclang.
 
@@ -185,7 +176,7 @@
 ;;                   (append '("compile_commands.json" ".ccls")
 ;;                           projectile-project-root-files-top-down-recurring))))
 
-;;; [ flycheck-cstyle ] --
+;;; [ flycheck-cstyle ] -- Integrate cstyle with flycheck.
 
 ;; (use-package flycheck-cstyle
 ;;   :ensure t
@@ -204,6 +195,9 @@
 ;;   :defer t
 ;;   :after flycheck
 ;;   :config (flycheck-clang-analyzer-setup))
+
+
+(require 'init-prog-tags)
 
 
 
