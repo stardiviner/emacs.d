@@ -279,6 +279,12 @@
   :defer t
   :hook ((typescript-mode) . lsp))
 
+;;; [ osa ] -- OSA (JavaScript / AppleScript) bridge.
+
+(use-package osa
+  :ensure t
+  :defer t)
+
 
 (provide 'init-prog-lang-javascript)
 
