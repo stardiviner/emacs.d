@@ -33,6 +33,9 @@
   ;;
   (put 'dired-find-alternate-file 'disabled nil) ; key [a] in Dired.
 
+  ;; open file with external program by pressing [W].
+  (setq browse-url-handlers '(("\\`file:" . browse-url-default-browser)))
+
   ;; allow dired to be able to delete or copy a whole dir.
   (setq dired-recursive-copies 'always)
   (setq dired-recursive-deletes 'top) ; 'top means ask once
