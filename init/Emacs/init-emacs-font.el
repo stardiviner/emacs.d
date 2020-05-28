@@ -27,10 +27,9 @@
 
 
 ;; set Unicode characters font
-(when (display-graphic-p) ; for `set-fontset-font'
-  (when (member "Symbola" (font-family-list))
-    (set-fontset-font t 'unicode "Symbola" nil 'prepend)))
-
+;; (when (display-graphic-p) ; for `set-fontset-font'
+;;   (when (member "Symbola" (font-family-list))
+;;     (set-fontset-font t 'unicode "Symbola" nil 'prepend)))
 
 
 (provide 'init-emacs-font)
