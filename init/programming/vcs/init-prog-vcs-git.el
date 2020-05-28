@@ -105,6 +105,9 @@
   ;; (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
 
   (setq magit-prefix-use-buffer-arguments 'always) ; use toggled arguments. For example, "-c" (--color) for log.
+
+  ;; `magit-diff-toggle-refine-hunk'
+  (setq magit-diff-refine-hunk t)
   
   :config
   ;; manage popup buffers.
@@ -127,6 +130,12 @@
   :commands (magit-pg-repo)
   :init (add-to-list 'display-buffer-alist
                      '("^\\*magit-prettier-graph\\*" (display-buffer-below-selected))))
+
+;;; [ magit-delta ] -- Use Delta when displaying diffs in Magit.
+
+(use-package magit-delta
+  :ensure t
+  :init (magit-delta-mode 1))
 
 ;;; [ magit-gitflow ] -- Git Flow plugin for magit
 
