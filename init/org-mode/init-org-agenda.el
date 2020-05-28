@@ -15,8 +15,8 @@
            (org-agenda-sticky t) ; don't kill *Org Agenda* buffer by [q].
            )
   :init
-  (add-to-list 'display-buffer-alist
-               '("^\\*Org Agenda(.*)\\*" (display-buffer-below-selected)))
+  ;; (add-to-list 'display-buffer-alist
+  ;;              '("^\\*Org Agenda(.*)\\*" (display-buffer-below-selected)))
   :config
   ;; `org-agenda-files'
   (autoload '-flatten "dash")

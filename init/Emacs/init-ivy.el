@@ -36,7 +36,7 @@
 ;;     ;; fix extra spaces between icon and text issue
 ;;     :config (setq all-the-icons-ivy-rich-icon-size 0.9)))
 
-;;; [ counsel ]
+;;; [ counsel ] -- various completion functions using Ivy.
 
 (use-package counsel
   :ensure t

@@ -28,7 +28,7 @@
 ;;         ;; no proxy for baidu.com, sina.com etc. proxy for all others.
 ;;         ;; ("no_proxy" . "^.*\\(baidu\\|sina)\\.com")
 ;;         ))
-
+;;
 ;; (setq url-using-proxy "http://127.0.0.1:8118")
 
 ;;; AUTHORITY

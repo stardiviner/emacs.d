@@ -51,8 +51,8 @@
       (apply orig-func args)))
   (advice-add 'hyperspec-lookup :around #'hyperspec-lookup--eww-browser)
 
-  (add-to-list 'display-buffer-alist
-               '("^\\*sly-mrepl.*\\*" (display-buffer-below-selected)))
+  ;; (add-to-list 'display-buffer-alist
+  ;;              '("^\\*sly-mrepl.*\\*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
                '("^\\*sly-connections\\*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
