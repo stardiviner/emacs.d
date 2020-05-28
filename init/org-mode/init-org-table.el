@@ -67,6 +67,13 @@
 ;;   ('darwin
 ;;    (setq face-font-rescale-alist '(("Kaiti SC" . 1.0)))))
 
+;;; [ valign ] -- Pixel alignment for Org table.
+
+(use-package valign
+  :quelpa (valign :fetcher github :repo "casouri/valign")
+  :commands (valign-setup valign-table)
+  :init (valign-setup))
+
 ;; [ org-plot ] -- Plotting Tables in Org-mode.
 
 (use-package org-plot
