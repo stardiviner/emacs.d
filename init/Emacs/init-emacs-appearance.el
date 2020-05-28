@@ -51,6 +51,10 @@
 ;;; `fringe-indicator-alist'
 
 (setq-default indicate-buffer-boundaries 'left)
+(setq-default left-fringe-width 5
+              right-fringe-width 5)
+(setq-default left-margin-width 0
+              right-margin-width 0)
 (set-fringe-style '(10 . 10))
 
 ;;; [ echo area ]
