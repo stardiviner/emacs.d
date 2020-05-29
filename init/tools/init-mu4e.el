@@ -565,36 +565,6 @@
 
   (add-hook 'mu4e-view-mode-hook #'turn-on-visual-line-mode)
 
-  ;; Gmail
-  ;; (setq mu4e-maildir "~/Maildir")
-  ;; (setq mu4e-drafts-folder "/[Gmail].Drafts")
-  ;; (setq mu4e-sent-folder   "/[Gmail].Sent Mail")
-  ;; (setq mu4e-trash-folder  "/[Gmail].Trash")
-  ;; (setq mu4e-send-mail-function 'smtpmail-send-it)
-  ;; (setq smtpmail-smtp-server "smtp.gmail.com")
-  ;; (setq mu4e-sent-messages-behavior 'delete)
-  ;; (setq mu4e-maildir-shortcuts
-  ;;       '( ("/INBOX"               . ?i)
-  ;;          ("/[Gmail].Sent Mail"   . ?s)
-  ;;          ("/[Gmail].Trash"       . ?t)
-  ;;          ("/[Gmail].All Mail"    . ?a)))
-  ;; (setq mu4e-get-mail-command "offlineimap")
-  ;; (require 'smtpmail)
-  ;; (setq message-send-mail-function 'smtpmail-send-it
-  ;;       starttls-use-gnutls t
-  ;;       smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
-  ;;       smtpmail-auth-credentials
-  ;;       '(("smtp.gmail.com" 587 "USERNAME@gmail.com" nil))
-  ;;       smtpmail-default-smtp-server "smtp.gmail.com"
-  ;;       smtpmail-smtp-server "smtp.gmail.com"
-  ;;       smtpmail-smtp-service 587)
-  ;; ;; alternatively, for emacs-24 you can use:
-  ;; (setq message-send-mail-function 'smtpmail-send-it
-  ;;       smtpmail-stream-type 'starttls
-  ;;       smtpmail-default-smtp-server "smtp.gmail.com"
-  ;;       smtpmail-smtp-server "smtp.gmail.com"
-  ;;       smtpmail-smtp-service 587)
-
   ;; [ mu4e-speedbar ]
 
   ;; (add-hook 'mu4e-main-mode-hook 'sr-speedbar-open)
