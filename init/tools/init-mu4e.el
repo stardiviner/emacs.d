@@ -13,23 +13,20 @@
   :commands (mu4e mu4e-org-open mu4e-org-store-link)
   :custom ((mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
            (mu4e-completing-read-function 'completing-read)
-           (message-send-mail-function 'message-send-mail-with-sendmail))
-  :preface
-  (if (fboundp 'org-link-set-parameters)
-      (org-link-set-parameters "mu4e"
-                               :follow #'mu4e-org-open
-                               :store  #'mu4e-org-store-link)
-    (org-add-link-type "mu4e" 'mu4e-org-open)
-    (add-hook 'org-store-link-functions 'mu4e-org-store-link))
+           (message-send-mail-function 'message-send-mail-with-sendmail)
+           ;; my personal email
+           (mu4e-compose-reply-to-address "numbchild@gmail.com")
+           (user-mail-address "numbchild@gmail.com")
+           (user-full-name  "stardiviner"))
+  :preface (if (fboundp 'org-link-set-parameters)
+               (org-link-set-parameters "mu4e"
+                                        :follow #'mu4e-org-open
+                                        :store  #'mu4e-org-store-link)
+             (org-add-link-type "mu4e" 'mu4e-org-open)
+             (add-hook 'org-store-link-functions 'mu4e-org-store-link))
   :bind (:map tools-prefix ("m" . mu4e))
   :init
-  ;; (setq mu4e-mu-home nil ; nil for default
-  ;;       mu4e-mu-binary "/usr/sbin/mu"
-  ;;       )
-
   ;; [ View ]
-  ;; FIXME this cause long slow on decryption on email
-  ;; (setq mu4e-view-use-gnus t)
   (setq mu4e-use-fancy-chars t
         ;; email prefix
         mu4e-headers-new-mark '("N" . " ")
@@ -50,23 +47,6 @@
         mu4e-headers-first-child-prefix '("\\" . "↳ ")
         mu4e-headers-duplicate-prefix '("=" . "≡ "))
 
-  ;; [ Message ]
-
-  ;; the headers to show in the headers list -- a pair of a field
-  ;; and its width, with `nil' meaning 'unlimited'
-  ;; (better only use that for the last field.
-  ;; These are the defaults:
-
-  (setq mu4e-headers-date-format "%F")
-
-  ;; normal fields
-  ;; (setq mu4e-headers-fields
-  ;;       '((:flags   .  6)
-  ;;         (:subject . 65)
-  ;;         (:from    . 15)
-  ;;         (:date    . 20))
-  ;;       )
-
   ;; only show thread subject once
   (setq mu4e-headers-fields
         '((:flags .  6)
@@ -75,12 +55,6 @@
           ;; (:mailing-list  .   10)
           ;; (:thread-subject . 30)
           (:subject . nil)))
-
-  ;; general emacs mail settings; used when composing e-mail
-  ;; the non-mu4e-* stuff is inherited from emacs/message-mode
-  (setq mu4e-compose-reply-to-address "numbchild@gmail.com"
-        user-mail-address "numbchild@gmail.com"
-        user-full-name  "stardiviner")
 
   :config
   ;; [ Maildir ]
@@ -116,40 +90,6 @@
   (setq mu4e-update-interval (* 60 10))
   
   ;; [ Compose ]
-
-  ;; - `org-mu4e-compose-org-mode' ::
-
-  ;; Compose hooks [mu4e-compose-pre-hook, mu4e-compose-mode-hook]
-  ;;
-  ;; When replying to an email I want to use the address I received this message
-  ;; to as the sender of the reply. This is fairly trivial:
-  ;;
-  ;; - mu4e-compose-pre-hook:
-  ;;       this hook is run before composition starts; if you are composing a reply, forward a message, or edit an existing message, the variable mu4e-compose-parent-message points to the message being replied to, forwarded or edited, and you can use mu4e-message-field to get the value of various properties
-  ;; - mu4e-compose-mode-hook:
-  ;;       this hook is run just before composition starts, when the whole buffer has already been set up. This is a good place for editing-related settings. mu4e-compose-parent-message (see above) is also at your disposal. mu4e-compose-mode-hook is especially useful for editing-related settings.
-
-  ;; suppose we want to set the From:-address for a reply message based on the
-  ;; receiver of the original:
-
-  ;; (add-hook 'mu4e-compose-pre-hook
-  ;;           (defun my-mu4e-set-from-address ()
-  ;;             "Set the From: address based on the To: address of the original."
-  ;;             (let ((msg mu4e-compose-parent-message)) ; msg is shorter...
-  ;;               (setq user-mail-address
-  ;;                     (cond
-  ;;                      ((mu4e-message-contact-field-matches msg :to "348284894@qq.com")
-  ;;                       "348284894@qq.com")
-  ;;                      ((mu4e-message-contact-field-matches msg :to "blackredwhore@gmail.com")
-  ;;                       "blackredwhore@gmail.com")
-  ;;                      (t "numbchild@gmail.com")))
-  ;;               )))
-
-  ;; [ `org-mu4e-compose-org-mode' ]
-  ;;
-  ;; [mu4e] org-mu4e-compose-org-mode enabled; press [M-m] before issuing
-  ;; message-mode commands.
-  
   ;; (add-hook 'mu4e-compose-mode-hook #'visual-fill-column-mode)
   (add-hook 'mu4e-compose-mode-hook #'turn-on-auto-fill)
   (add-hook 'mu4e-compose-mode-hook #'turn-on-flyspell)
@@ -160,9 +100,7 @@
   (add-hook 'mu4e-compose-mode-hook #'mu4e-enable-company-ispell)
 
   ;; Message signatures
-  ;; include in message with [C-c C-w]
-  (setq mu4e-compose-signature-auto-include t
-        mu4e-compose-signature
+  (setq mu4e-compose-signature
         "[ stardiviner ]
        I try to make every word tell the meaning that I want to express.
 
@@ -172,80 +110,31 @@
       ")
 
   (setq mu4e-compose-keep-self-cc t)    ; keep myself on the Cc: list.
-
-  ;; don't keep message buffers around
-  ;; (setq message-kill-buffer-on-exit t)
-
-  ;;  [ Reply ]
-  ;; don't include self (that is, any member of `mu4e-user-mail-address-list') in
-  ;; replies.
+  ;; don't include self (that is, any member of `mu4e-user-mail-address-list') in replies.
   (setq mu4e-compose-dont-reply-to-self t)
 
   (define-key mu4e-headers-mode-map (kbd "r") 'mu4e-compose-reply)
   (define-key mu4e-headers-mode-map (kbd "R") 'mu4e-headers-mark-for-refile)
   (define-key mu4e-view-mode-map (kbd "r") 'mu4e-compose-reply)
   (define-key mu4e-view-mode-map (kbd "R") 'mu4e-view-mark-for-refile)
-  
-  ;; reply only to thread: header `Reply-to:', `List-Post:'
-  ;; - `mu4e~draft-reply-construct'
 
-  ;; [ mml-mode ] -- A package for parsing and validating MML documents.
-  ;; (add-hook 'mu4e-compose-mode-hook #'mml-mode) ; NOTE: This might cause Chinese email body report error.
-  
-  ;; [ Sign ] -- `mml-secure-message-sign'
-  ;; Signing and encrypting It's possible using emacs-mime, most easily accessed
-  ;; through the Attachments-menu while composing a message, or with M-x
-  ;; mml-secure-message-encrypt-pgp, M-x mml-secure-message-sign-pgp.  The support
-  ;; for encryption and signing is independent of the support for their
-  ;; counterparts, decrypting and signature verification. Even if your mu4e does
-  ;; have support for the latter two, you can still sign/encrypt messages.
-  ;;
-  ;; - [C-c C-m C-e] :: (mml-secure-message-sign-encrypt)
-  ;;    This will add a tag at the beginning of the mail.
-  ;;    <#secure method=pgpmime mode=signencrypt>
-  ;;    the `mode=signencrypt' means:
-  ;;      - `sign'
-  ;;      - `encrypt'
-  ;;
-  ;; message inline pgp sign.
-  ;; `message-send-hook' or `mu4e-compose-mode-hook'
-  ;; `mml-secure-message-sign-pgpauto' or `mml-secure-message-sign-pgpmime'
-
-  ;; (add-hook 'message-send-hook 'mml-secure-message-sign-pgpauto)
-  (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-sign-pgpauto)
-
-  ;; [ Encrypt ] -- `mml-secure-message-encrypt'
-  ;;
-  ;; encrypt outgoing message.
-  (require 'epg-config)
   (require 'mml)
   (require 'mml2015)
+  (require 'epg-config)
   (setq mml2015-use 'epg
         epg-user-id "5AE89AC3"
         mml-secure-openpgp-encrypt-to-self t
         mml-secure-openpgp-sign-with-sender t)
+  ;; auto sign email
+  ;; (add-hook 'message-send-hook 'mml-secure-message-sign-pgpauto)
+  (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-sign-pgpauto)
+  ;; auto encrypt outgoing message
   ;; (add-hook 'message-send-hook 'mml-secure-message-encrypt-pgpauto)
   ;; (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-encrypt-pgpauto)
 
   (define-key mu4e-headers-mode-map (kbd "N") 'mu4e-headers-next-unread)
 
-  ;; `mu4e-header-info-custom'
-  ;; (add-to-list 'mu4e-header-info-custom
-  ;;              '(:recipnum :name "Number of recipients" :shortname "Recip#" :help "Number of recipients for this message" :function
-  ;;                          (lambda
-  ;;                            (msg)
-  ;;                            (format "%d"
-  ;;                                    (+
-  ;;                                     (length
-  ;;                                      (mu4e-message-field msg :to))
-  ;;                                     (length
-  ;;                                      (mu4e-message-field msg :cc)))))))
-
-  ;; TODO: make use of flag: list.
-
   ;; [ Search ] -- [s/S]  [:references [regexp]] in search query.
-  ;;
-  ;; result is:   -> :References : nil
   (add-to-list 'mu4e-header-info-custom
                '(:references :name "References"
                              :shortname "References"
@@ -301,50 +190,18 @@
   (add-to-list 'mu4e-view-actions
                '("HMark as ham" . mu4e-view-register-msg-as-ham) t)
 
-  ;; creating org-mode links from mu4e messages.
-  ;;
-  ;; - [M-x org-store-link] / [C-c C-l] -- store link to org-mode.
-  ;; - [C-c C-l] -- in org file, you can insert upper stored link into org file.
-  ;;
-  ;; It can be useful to include links to e-mail messages or even search queries
-  ;; in your org-mode files. mu4e supports this with the org-mu4e module; you can
-  ;; set it up by adding it to your configuration:
-
+  ;; `org-store-link' in mu4e
   (require 'org-mu4e)                   ; for [[mu4e:..]] links.
-
+  (setq mu4e-org-link-query-in-headers-mode t)
   ;; enable Org Mode for editing in `mu4e-compose-mode'.
   (add-hook 'mu4e-compose-mode-hook #'org-mu4e-compose-org-mode)
 
-  ;; Insert "cut here" markers block for code snippets. Like this:
-  ;; --8<---------------cut here---------------start------------->8---
-  ;; (syntax-propertize-rules
-  ;;  ("\\(one\\)\\(two\\)\\(\\1\\)" (1 "|") (2 "."))
-  ;;  ("\\(three\\)\\(four\\)\\(\\1\\)" (1 "|") (2 ".")))
-  ;; --8<---------------cut here---------------end--------------->8---
   (add-hook 'mu4e-compose-mode-hook
             (lambda ()
               (define-key org-mode-map (kbd "C-c M-m") 'message-mark-inserted-region)))
 
-  (setq mu4e-org-link-query-in-headers-mode t)
-
   ;; use #=begin_export html ... #+end_export
   ;; (setq org-mu4e-convert-to-html t)
-
-  ;; - `org-mu4e-open' :: open the mu4e message (for paths starting with 'msgid:')
-  ;;                      or run the query (for paths starting with 'query:').
-  ;; (org-link-set-parameters "email-msgid" :follow #'org-mu4e-open)
-  ;; (org-link-set-parameters "email-query" :follow #'org-mu4e-open)
-
-
-  ;; Sort order and threading
-  ;; - O -- sort. mu4e-headers-change-sorting
-  ;; - P -- toggle threading
-  ;; By default, mu4e sorts messages by date, in descending order: the most recent
-  ;; messages are shown at the top.
-  ;; In addition, the messages are threaded, i.e., shown in the context of a
-  ;; discussion thread; this also affects the sort order.
-
-  ;; (mu4e-headers-toggle-threading) ; toggle threading. (P)
 
   ;; add find relative on same thread search to mu4e actions. [a/A]
   (defun my/mu4e-view-related-search (msg)
@@ -378,28 +235,12 @@
   (setq message-cite-style message-cite-style-gmail)
 
   ;; [ viewing images inline ]
-  ;;
-  ;; It is possible to show images inline in the message view buffer if you run
-  ;; emacs in GUI-mode. You can enable this by setting the variable
-  ;; mu4e-view-show-images to t. Since emacs does not always handle images
-  ;; correctly, this is not enabled by default. If you are using emacs 24 with
-  ;; ImageMagick1 support, make sure you call imagemagick-register-types in your
-  ;; configuration, so it is used for images.
-  ;; enable inline images
-  ;; attempt to show images when viewing messages
-  (setq mu4e-view-show-images t
-        ;; mu4e-view-image-max-width 400
-        )
+  (setq mu4e-view-show-images t)
   ;; use imagemagick, if available
   (when (fboundp 'imagemagick-register-types)
     (imagemagick-register-types))
 
-  ;; [ Displaying rich-text messages ]
-  ;;
-  ;; mu4e normally prefers the plain-text version for messages that consist of
-  ;; both a plain-text and html (rich-text) versions of the body-text. You change
-  ;; this by setting mu4e-view-prefer-html to t.
-  (setq mu4e-view-prefer-html nil)
+  ;; [ displaying rich-text messages ]
   (add-to-list 'mu4e-view-actions
                '("Browser HTML Message" . mu4e-action-view-in-browser) t)
 
@@ -454,23 +295,7 @@
   ;; (add-to-list 'mu4e-view-actions
   ;;              '("xsearch for sender" . search-for-sender) t)
 
-  ;; Searching
-  ;; - Q -- search. mu4e-headers-toggle-full-search.
-  ;;
-  ;; mu4e is fully search-based: even if you 'jump to a folder', you are executing
-  ;; a query for messages that happen to have the property of being in a certain
-  ;; folder.
-  ;;
-  ;; Normally, queries return up to mu4e-headers-results-limit (default: 500)
-  ;; results. That is usually more than enough, and makes things significantly
-  ;; faster. Sometimes, however, you may want to show all results; you can enable
-  ;; this with M-x mu4e-headers-toggle-full-search, or by customizing the variable
-  ;; mu4e-headers-full-search. This applies to all search commands.
-
-  ;; Refiling
-  ;;
-  ;; - r -- refiling, mu4e-refile-folder
-
+  ;; Refiling -- [r] -- refiling, mu4e-refile-folder
   (setq mu4e-refile-folder              ; dynamic refiling
         (lambda (msg)
           (cond
@@ -566,15 +391,11 @@
   (add-hook 'mu4e-view-mode-hook #'turn-on-visual-line-mode)
 
   ;; [ mu4e-speedbar ]
-
   ;; (add-hook 'mu4e-main-mode-hook 'sr-speedbar-open)
 
 
   ;; maintaining an address-book with org-contacts
-  ;; Usage:
-  ;; - <a o> in headers view & message view :: using the org-capture mechanism.
-
-  ;; Contacts
+  ;; Usage: <a o> in headers view & message view :: using the org-capture mechanism.
   (require 'init-org-contacts)
   (autoload 'org-contacts-setup-completion-at-point "org-contacts")
   (setq mu4e-org-contacts-file (car org-contacts-files))
