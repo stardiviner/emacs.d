@@ -11,7 +11,9 @@
   :load-path "~/Code/Emacs/mu/mu4e/"    ; compile from source code
   :defer t
   :commands (mu4e mu4e-org-open mu4e-org-store-link)
-  :custom (mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
+  :custom ((mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
+           (mu4e-completing-read-function 'completing-read)
+           (message-send-mail-function 'message-send-mail-with-sendmail))
   :preface
   (if (fboundp 'org-link-set-parameters)
       (org-link-set-parameters "mu4e"
@@ -19,112 +21,11 @@
                                :store  #'mu4e-org-store-link)
     (org-add-link-type "mu4e" 'mu4e-org-open)
     (add-hook 'org-store-link-functions 'mu4e-org-store-link))
-  :init (define-key tools-prefix (kbd "m") 'mu4e)
-  (setq mu4e-completing-read-function 'completing-read)
+  :bind (:map tools-prefix ("m" . mu4e))
+  :init
   ;; (setq mu4e-mu-home nil ; nil for default
   ;;       mu4e-mu-binary "/usr/sbin/mu"
   ;;       )
-
-  ;; [ Maildir ]
-  (setq mu4e-sent-folder "/Send"
-        mu4e-drafts-folder "/Drafts"
-        ;; mu4e-refile-folder "/Archives"
-        mu4e-trash-folder "/Trash")
-
-  ;; the maildirs you use frequently; access them with 'j' ('jump')
-  (setq mu4e-maildir-shortcuts
-        '((:maildir   "/INBOX"                  :key ?i)
-          (:maildir   "/Send"                   :key ?s)
-          (:maildir   "/Drafts"                 :key ?d)
-          (:maildir   "/Trash"                  :key ?t)
-          (:maildir   "/Work"                   :key ?w)
-          (:maildir   "/Emacs/help"             :key ?e)
-          (:maildir   "/Emacs/Org-mode"         :key ?O)
-          (:maildir   "/Lisp/"                  :key ?l)
-          (:maildir   "/Clojure"                :key ?c)
-          (:maildir   "/ClojureScript"          :key ?C)
-          (:maildir   "/JavaScript"             :key ?j)
-          (:maildir   "/SQL/PostgreSQL/general" :key ?p)))
-
-  ;; Get Mail, Update -- [U]
-  ;; program to get mail; alternatives are 'fetchmail', 'getmail'
-  ;; isync or your own shellscript.
-  (setq mu4e-get-mail-command
-        "getmail --rcfile numbchild@gmail.com --rcfile stardiviner@qq.com"
-        ;; mu4e-update-interval 1800
-        mu4e-hide-index-messages t)
-
-  ;; Auto Update Database [C-c C-u]
-  (setq mu4e-update-interval (* 60 10)
-        mu4e-display-update-status-in-modeline t)
-
-  ;; Send Mail
-
-  ;; SMTP
-  ;; (require 'smtpmail)
-  ;; (setq
-  ;;  message-send-mail-function   'smtpmail-send-it
-  ;;  smtpmail-default-smtp-server "smtp.example.com"
-  ;;  smtpmail-smtp-server         "smtp.example.com"
-  ;;  smtpmail-local-domain        "example.com")
-
-  ;; send-mail program
-  ;; tell message-mode how to send mail
-  ;; - `smtpmail-send-it'
-  ;; - `message-send-mail-with-mailclient'
-  ;; - `message-send-mail-with-sendmail'
-
-  ;; 0: [sendmail]
-  (setq message-send-mail-function 'message-send-mail-with-sendmail)
-
-  ;; 1: msmtp
-  ;; NOTE: `msmtp' has socks proxy support for sending Gmail.
-  ;; (setq sendmail-program "/usr/bin/msmtp")
-  ;; $ msmtp -C $HOME/.mutt/msmtprc
-
-  ;; 2: smtpmail
-  ;; (setq message-send-mail-function 'smtpmail-send-queued-mail)
-  ;; (setq message-send-mail-function 'smtpmail-send-it)
-
-  ;; (setq smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
-  ;;       smtpmail-auth-credentials '(("smtp.gmail.com" 587 "numbchild@gmail.com" nil))
-  ;;       smtpmail-default-smtp-server "smtp.gmail.com"
-  ;;       smtpmail-smtp-server "smtp.gmail.com"
-  ;;       smtpmail-smtp-service 587
-  ;;       ;; smtpmail-local-domain        "example.com"
-  ;;       )
-
-  ;; Queuing mail
-  ;; you can queue the mail, and send it when you have restored your internet connection.
-  ;; (setq message-send-mail-function 'smtpmail-send-it
-  ;;       smtpmail-queue-mail t  ;; start in non-queuing mode
-  ;;       smtpmail-queue-dir  "~/Mails/queue/cur" ; send with `smtpmail-send-queued-mail'
-  ;;       smtpmail-queue-index "~/Mails/queue/index"
-  ;;       smtpmail-queue-index-file "index")
-
-  ;; two: [smtp] for Gmail
-  ;; (require 'smtpmail)
-
-  ;; 1.
-  ;; (setq message-send-mail-function 'smtpmail-send-it
-  ;;       starttls-use-gnutls t
-  ;;       smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
-  ;;       smtpmail-auth-credentials '(("smtp.gmail.com" 587 "numbchild@gmail.com" nil))
-  ;;       smtpmail-default-smtp-server "smtp.gmail.com"
-  ;;       smtpmail-smtp-server "smtp.gmail.com"
-  ;;       smtpmail-smtp-service 587
-  ;;       ;; queue offline mode.
-  ;;       smtpmail-queue-mail nil             ; start in non-queuing mode.
-  ;;       smtpmail-queue-dir "~/Mails/queue/cur")
-
-  ;; 2.
-  ;; alternatively, for emacs-24 you can use:
-  ;; (setq message-send-mail-function 'smtpmail-send-it
-  ;;       smtpmail-stream-type 'starttls
-  ;;       smtpmail-default-smtp-server "smtp.gmail.com"
-  ;;       smtpmail-smtp-server "smtp.gmail.com"
-  ;;       smtpmail-smtp-service 587)
-
 
   ;; [ View ]
   ;; FIXME this cause long slow on decryption on email
@@ -182,6 +83,37 @@
         user-full-name  "stardiviner")
 
   :config
+  ;; [ Maildir ]
+  (setq mu4e-sent-folder "/Send"
+        mu4e-drafts-folder "/Drafts"
+        ;; mu4e-refile-folder "/Archives"
+        mu4e-trash-folder "/Trash")
+
+  ;; the maildirs you use frequently; access them with 'j' ('jump')
+  (setq mu4e-maildir-shortcuts
+        '((:maildir   "/INBOX"                  :key ?i)
+          (:maildir   "/Send"                   :key ?s)
+          (:maildir   "/Drafts"                 :key ?d)
+          (:maildir   "/Trash"                  :key ?t)
+          (:maildir   "/Work"                   :key ?w)
+          (:maildir   "/Emacs/help"             :key ?e)
+          (:maildir   "/Emacs/Org-mode"         :key ?O)
+          (:maildir   "/Lisp/"                  :key ?l)
+          (:maildir   "/Clojure"                :key ?c)
+          (:maildir   "/ClojureScript"          :key ?C)
+          (:maildir   "/JavaScript"             :key ?j)
+          (:maildir   "/SQL/PostgreSQL/general" :key ?p)))
+
+  ;; Get Mail, Update -- [U]
+  ;; program to get mail; alternatives are 'fetchmail', 'getmail'
+  ;; isync or your own shellscript.
+  (setq mu4e-get-mail-command
+        "getmail --rcfile numbchild@gmail.com --rcfile stardiviner@qq.com"
+        ;; mu4e-update-interval 1800
+        mu4e-hide-index-messages t)
+
+  ;; Auto Update Database [C-c C-u]
+  (setq mu4e-update-interval (* 60 10))
   
   ;; [ Compose ]
 
@@ -682,9 +614,9 @@
                '("org-contact-add" . mu4e-action-add-org-contact) t)
   (add-hook 'mu4e-compose-mode-hook
             (lambda () (setq-local completion-at-point-functions
-                                   '(mu4e~compose-complete-contact
-                                     mail-completion-at-point-function
-                                     message-completion-function)))))
+                              '(mu4e~compose-complete-contact
+                                mail-completion-at-point-function
+                                message-completion-function)))))
 
 ;;; [ mu4e-overview ] -- show overview of maildirs.
 
