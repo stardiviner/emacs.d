@@ -21,24 +21,27 @@
   ;; `org-agenda-files'
   (autoload '-flatten "dash")
   (setq org-agenda-files
-        ;; recursive in all directory and sub-directory.
-        (-flatten
-         (mapcar
-          (lambda (path)
-            (if (file-directory-p path)   ; if it is a directory
-                ;; return all files recursively in directory
-                (directory-files-recursively path ".org$")
-              ;; if it is a file, return the file directly.
-              path))
-          '("~/Org/Wiki/Things/Things.org" ; Buy Things
-            "~/Org/Tasks/"
-            "~/Org/Work/"
-            "~/Org/Projects/"
-            "~/Org/Learning Plan/"
-            "~/Org/Contacts/Contacts.org"
-            "~/Org/Calendars/Anniversary.org"
-            "~/Org/Myself/"               ; about Myself tasks
-            ))))
+        ;; filter Emacs temporary files like ".#filename".
+        (-filter
+         (lambda (f) (not (string-prefix-p ".#" (file-name-nondirectory f))))
+         ;; recursive in all directory and sub-directory.
+         (-flatten
+          (mapcar
+           (lambda (path)
+             (if (file-directory-p path) ; if it is a directory
+                 ;; return all files recursively in directory
+                 (directory-files-recursively path ".org$")
+               ;; if it is a file, return the file directly.
+               path))
+           '("~/Org/Wiki/Things/Things.org" ; Buy Things
+             "~/Org/Tasks/"
+             "~/Org/Work/"
+             "~/Org/Projects/"
+             "~/Org/Learning Plan/"
+             "~/Org/Contacts/Contacts.org"
+             "~/Org/Calendars/Anniversary.org"
+             "~/Org/Myself/"            ; about Myself tasks
+             )))))
   
   ;; include `diary-file' from `calendar'
   (setq org-agenda-include-diary nil
