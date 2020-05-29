@@ -11,6 +11,7 @@
   :load-path "~/Code/Emacs/mu/mu4e/"    ; compile from source code
   :defer t
   :commands (mu4e mu4e-org-open mu4e-org-store-link)
+  :custom (mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
   :preface
   (if (fboundp 'org-link-set-parameters)
       (org-link-set-parameters "mu4e"
@@ -19,15 +20,10 @@
     (org-add-link-type "mu4e" 'mu4e-org-open)
     (add-hook 'org-store-link-functions 'mu4e-org-store-link))
   :init (define-key tools-prefix (kbd "m") 'mu4e)
-  (setq mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
   (setq mu4e-completing-read-function 'completing-read)
   ;; (setq mu4e-mu-home nil ; nil for default
   ;;       mu4e-mu-binary "/usr/sbin/mu"
   ;;       )
-
-  ;; a list of user's e-mail addresses
-  (setq mu4e-user-mail-address-list
-        '("numbchild@gmail.com" "stardiviner@qq.com" "348284894@qq.com"))
 
   ;; [ Maildir ]
   (setq mu4e-sent-folder "/Send"
@@ -36,19 +32,19 @@
         mu4e-trash-folder "/Trash")
 
   ;; the maildirs you use frequently; access them with 'j' ('jump')
-  (setq       mu4e-maildir-shortcuts
-              '((:maildir   "/INBOX"                  :key ?i)
-                (:maildir   "/Send"                   :key ?s)
-                (:maildir   "/Drafts"                 :key ?d)
-                (:maildir   "/Trash"                  :key ?t)
-                (:maildir   "/Work"                   :key ?w)
-                (:maildir   "/Emacs/help"             :key ?e)
-                (:maildir   "/Emacs/Org-mode"         :key ?O)
-                (:maildir   "/Lisp/"                  :key ?l)
-                (:maildir   "/Clojure"                :key ?c)
-                (:maildir   "/ClojureScript"          :key ?C)
-                (:maildir   "/JavaScript"             :key ?j)
-                (:maildir   "/SQL/PostgreSQL/general" :key ?p)))
+  (setq mu4e-maildir-shortcuts
+        '((:maildir   "/INBOX"                  :key ?i)
+          (:maildir   "/Send"                   :key ?s)
+          (:maildir   "/Drafts"                 :key ?d)
+          (:maildir   "/Trash"                  :key ?t)
+          (:maildir   "/Work"                   :key ?w)
+          (:maildir   "/Emacs/help"             :key ?e)
+          (:maildir   "/Emacs/Org-mode"         :key ?O)
+          (:maildir   "/Lisp/"                  :key ?l)
+          (:maildir   "/Clojure"                :key ?c)
+          (:maildir   "/ClojureScript"          :key ?C)
+          (:maildir   "/JavaScript"             :key ?j)
+          (:maildir   "/SQL/PostgreSQL/general" :key ?p)))
 
   ;; Get Mail, Update -- [U]
   ;; program to get mail; alternatives are 'fetchmail', 'getmail'
@@ -59,8 +55,7 @@
         mu4e-hide-index-messages t)
 
   ;; Auto Update Database [C-c C-u]
-  (setq mu4e-index-update-in-background t
-        mu4e-update-interval (* 60 10)
+  (setq mu4e-update-interval (* 60 10)
         mu4e-display-update-status-in-modeline t)
 
   ;; Send Mail
@@ -81,10 +76,6 @@
 
   ;; 0: [sendmail]
   (setq message-send-mail-function 'message-send-mail-with-sendmail)
-
-  ;; $ sendmail -q
-  ;; $ sendmail -oem -oi
-  (setq sendmail-program (executable-find "sendmail"))
 
   ;; 1: msmtp
   ;; NOTE: `msmtp' has socks proxy support for sending Gmail.
@@ -136,13 +127,9 @@
 
 
   ;; [ View ]
-  (setq mu4e-view-use-gnus t)
-  (setq mu4e-split-view 'horizontal     ; 'vertical, 'horizontal
-        mu4e-headers-visible-lines 13
-        mu4e-headers-visible-columns 30
-        mu4e-headers-show-threads t
-        mu4e-headers-auto-update t
-        mu4e-use-fancy-chars t
+  ;; FIXME this cause long slow on decryption on email
+  ;; (setq mu4e-view-use-gnus t)
+  (setq mu4e-use-fancy-chars t
         ;; email prefix
         mu4e-headers-new-mark '("N" . " ")
         mu4e-headers-unread-mark '("u" . "∘") ; · • ∘ ⋄
@@ -252,22 +239,15 @@
        GPG: F09F650D7D674819892591401B5DF1C95AE89AC3
       ")
 
-  ;; compose address complete with [M-Tab].
-  (setq mu4e-compose-complete-addresses t ; e-mail address auto completion
-        ;; to limit completion pool, filter mailing list addresses and like.
-        mu4e-compose-complete-only-personal nil
-        mu4e-compose-complete-ignore-address-regexp "no-?reply"
-        mu4e-compose-keep-self-cc t     ; keep myself on the Cc: list.
-        ;; mu4e-compose-complete-only-after
-        )
+  (setq mu4e-compose-keep-self-cc t)    ; keep myself on the Cc: list.
 
   ;; don't keep message buffers around
-  (setq message-kill-buffer-on-exit t)
+  ;; (setq message-kill-buffer-on-exit t)
 
   ;;  [ Reply ]
   ;; don't include self (that is, any member of `mu4e-user-mail-address-list') in
   ;; replies.
-  (setq mu4e-compose-dont-reply-to-self nil)
+  (setq mu4e-compose-dont-reply-to-self t)
 
   (define-key mu4e-headers-mode-map (kbd "r") 'mu4e-compose-reply)
   (define-key mu4e-headers-mode-map (kbd "R") 'mu4e-headers-mark-for-refile)
@@ -315,9 +295,6 @@
   ;; (add-hook 'message-send-hook 'mml-secure-message-encrypt-pgpauto)
   ;; (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-encrypt-pgpauto)
 
-  ;; [ Headers ] -- `mu4e-header-info'.
-  (setq mu4e-headers-auto-update t
-        mu4e-headers-skip-duplicates t)
   (define-key mu4e-headers-mode-map (kbd "N") 'mu4e-headers-next-unread)
 
   ;; `mu4e-header-info-custom'
@@ -413,9 +390,10 @@
   ;;  ("\\(three\\)\\(four\\)\\(\\1\\)" (1 "|") (2 ".")))
   ;; --8<---------------cut here---------------end--------------->8---
   (add-hook 'mu4e-compose-mode-hook
-            (lambda () (define-key org-mode-map (kbd "C-c M-m") 'message-mark-inserted-region)))
+            (lambda ()
+              (define-key org-mode-map (kbd "C-c M-m") 'message-mark-inserted-region)))
 
-  (setq org-mu4e-link-query-in-headers-mode t)
+  (setq mu4e-org-link-query-in-headers-mode t)
 
   ;; use #=begin_export html ... #+end_export
   ;; (setq org-mu4e-convert-to-html t)
@@ -461,8 +439,7 @@
                                  :decryption)
         ;; show e-mail address after names of contacts From: field. or press [M-RET] to view.
         mu4e-view-show-addresses t)
-  (setq mu4e-view-scroll-to-next nil
-        mu4e-split-view 'horizontal)
+  (setq mu4e-view-scroll-to-next nil) ; don't open next email when SPC scroll to bottom of message.
 
   ;; [ Cite ]
   ;; (add-hook 'mu4e-view-mode-hook 'mu4e-view-toggle-hide-cited)
@@ -479,7 +456,8 @@
   ;; enable inline images
   ;; attempt to show images when viewing messages
   (setq mu4e-view-show-images t
-        mu4e-view-image-max-width 400)
+        ;; mu4e-view-image-max-width 400
+        )
   ;; use imagemagick, if available
   (when (fboundp 'imagemagick-register-types)
     (imagemagick-register-types))
@@ -557,29 +535,6 @@
   ;; this with M-x mu4e-headers-toggle-full-search, or by customizing the variable
   ;; mu4e-headers-full-search. This applies to all search commands.
 
-  (setq mu4e-headers-full-search nil) ; whether show all search results. or depend on `mu4e-headers-results-limit'.
-  (setq mu4e-headers-results-limit 500)
-
-  ;; Including related messages
-  ;;
-  ;; It can be useful to not only show the messages that directly match a certain
-  ;; query, but also include messages that are related to these messages. That is,
-  ;; messages that belong to the same discussion thread are included in the
-  ;; results, just like e.g. Gmail does it. You can enable this behavior by
-  ;; setting mu4e-headers-include-related to t, and you can toggle between
-  ;; including/not-including with <W>.
-  (setq mu4e-headers-include-related t)
-
-  ;; Send
-  (setq mu4e-sent-messages-behavior 'sent)
-
-  ;; Crypto (signing, encrypting, verifying, decrypting)
-  ;; - v -- see the details of the signature verification by activating the Details.
-  ;; start gpg-agent manually:
-  ;; $ eval $(gpg-agent --daemon)
-  (setq mu4e-auto-retrieve-keys t
-        mu4e-decryption-policy t)
-
   ;; Refiling
   ;;
   ;; - r -- refiling, mu4e-refile-folder
@@ -650,10 +605,6 @@
                  :query "maildir:/ClojureScript")
           (:name "PostgreSQL general" :key ?p
                  :query "/SQL/PostgreSQL/general")))
-
-  (setq mu4e-index-cleanup nil          ; don't do a full cleanup check
-        mu4e-index-lazy-check t         ; don't consider up-to-date dirs
-        )
 
   (defun mu4e-new-mail-alert ()
     "The mu4e new email alert."
@@ -731,9 +682,9 @@
                '("org-contact-add" . mu4e-action-add-org-contact) t)
   (add-hook 'mu4e-compose-mode-hook
             (lambda () (setq-local completion-at-point-functions
-                              '(mu4e~compose-complete-contact
-                                mail-completion-at-point-function
-                                message-completion-function)))))
+                                   '(mu4e~compose-complete-contact
+                                     mail-completion-at-point-function
+                                     message-completion-function)))))
 
 ;;; [ mu4e-overview ] -- show overview of maildirs.
 
