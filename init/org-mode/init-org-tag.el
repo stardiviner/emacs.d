@@ -96,7 +96,8 @@
         (:startgrouptag) ("@programming") (:grouptags)
         ("code" . ?C) ("source_code") ("bug") ("Emacs" . ?e) ("git" . ?G) ("github")
         (:startgroup)
-        ("hardware") ("usb") ("terminal") ("cloud") ("DevOps") ("security") ("disk")
+        ("hardware") ("usb") ("disk") ("terminal") ("cloud") ("DevOps") ("docker")
+        ("security")
         ("Linux" . ?L) ("Apple") ("macOS") ("Windows") ("Android") ("iOS")
         ("LISP" . nil) ("Common_Lisp" . ?l) ("Clojure" . ?c) ("ClojureScript" . ?s)
         ("Shell" . ?S) ("Python" . ?p) ("Ruby" . ?r)
@@ -301,6 +302,7 @@
           ("terminal" . ,(all-the-icons-faicon "terminal"))
           ("cloud" . ,(all-the-icons-faicon "cloud"))
           ("DevOps" . ,(all-the-icons-faicon "cogs")) ; "sitemap"
+          ("docker" . ,(all-the-icons-fileicon "dockerfile"))
           ("security" . ,(all-the-icons-faicon "shield"))
           ("disk" . ,(all-the-icons-faicon "hdd-o"))
           ;; -----------------------------------------------------
