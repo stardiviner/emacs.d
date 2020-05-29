@@ -105,7 +105,8 @@
         ("database" . ?d) ("SQL") ("PostgreSQL") ("MySQL") ("MariaDB") ("Oracle")
         ("TeX") ("LaTeX")
         ;; Internet
-        ("Internet") ("Google") ("Facebook") ("Tencent")
+        ("Internet") ("Google") ("Facebook") ("Twitter") ("Microsoft") ("Windows")
+        ("Tencent")
         (:endgroup)
         (:endgrouptag)
         
@@ -351,7 +352,10 @@
           ;; Internet
           ("Internet" . ,(all-the-icons-faicon "globe"))
           ("Google" . ,(all-the-icons-faicon "google"))
+          ("Windows" . ,(all-the-icons-faicon "windows"))
+          ("Microsoft" . ,(all-the-icons-faicon "windows"))
           ("Facebook" . ,(all-the-icons-faicon "facebook-official"))
+          ("Twitter" . ,(all-the-icons-faicon "twitter"))
           ("Amazon" . ,(all-the-icons-faicon "amazon"))
           ("Tencent" . ,(all-the-icons-faicon "qq")))))
 
