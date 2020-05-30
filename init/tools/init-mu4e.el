@@ -188,9 +188,6 @@
 
   ;; [ viewing images inline ]
   (setq mu4e-view-show-images t)
-  ;; use imagemagick, if available
-  (when (fboundp 'imagemagick-register-types)
-    (imagemagick-register-types))
 
   ;; [ displaying rich-text messages ]
   (add-to-list 'mu4e-view-actions
