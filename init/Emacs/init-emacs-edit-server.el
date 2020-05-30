@@ -18,7 +18,8 @@
   :if window-system
   :preface (unless (server-running-p)
              (server-start))
-  :hook (after-init . edit-server-start)
+  :hook ((after-init . edit-server-start)
+         (edit-server-edit-mode . flyspell-mode))
   :config
   (setq edit-server-default-major-mode 'markdown-mode)
   (setq edit-server-url-major-mode-alist
@@ -49,7 +50,8 @@
   :ensure t
   :defer t
   :bind (:map atomic-chrome-edit-mode-map ("C-x #" . atomic-chrome-close-current-buffer))
-  :hook (after-init . atomic-chrome-start-server)
+  :hook ((after-init . atomic-chrome-start-server)
+         (atomic-chrome-edit-mode . flyspell-mode))
   :init
   (setq atomic-chrome-default-major-mode 'markdown-mode)
   (setq atomic-chrome-url-major-mode-alist
