@@ -149,7 +149,9 @@
     (ejc-sql-mode 1)
     (unless (eq major-mode 'org-mode)
       (auto-complete-mode 1))
-    (ejc-ac-setup))
+    (ejc-ac-setup)
+    (add-to-list 'ac-sources 'ac-source-abbrev t)
+    (add-to-list 'ac-sources 'ac-source-words-in-same-mode-buffers t))
   (add-hook 'sql-mode-hook #'my-ejc-sql-ac-setup)
 
   ;; enable `ejc-sql' in `sql-interactive-mode'.
