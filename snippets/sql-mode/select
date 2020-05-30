@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: select
+# key: select
+# group: select
+# --
+SELECT $0 FROM ${1:table1 t1, table2 t2};
