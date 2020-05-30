@@ -18,12 +18,6 @@
            (mu4e-compose-reply-to-address "numbchild@gmail.com")
            (user-mail-address "numbchild@gmail.com")
            (user-full-name  "stardiviner"))
-  :preface (if (fboundp 'org-link-set-parameters)
-               (org-link-set-parameters "mu4e"
-                                        :follow #'mu4e-org-open
-                                        :store  #'mu4e-org-store-link)
-             (org-add-link-type "mu4e" 'mu4e-org-open)
-             (add-hook 'org-store-link-functions 'mu4e-org-store-link))
   :bind (:map tools-prefix ("m" . mu4e))
   :init
   ;; [ View ]
