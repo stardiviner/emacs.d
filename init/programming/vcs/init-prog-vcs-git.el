@@ -149,20 +149,6 @@
 ;; (use-package magit-p4
 ;;   :ensure t)
 
-;;; [ git-messenger ] -- popup commit message at current line.
-
-(use-package git-messenger
-  :ensure t
-  :defer t
-  :bind (:map prog-vcs-prefix
-              ("m m" . git-messenger:popup-message)
-              :map git-messenger-map
-              ("m" . git-messenger:copy-message)
-              ("c" . git-messenger:copy-message))
-  :init (setq git-messenger:show-detail t ; always show detail message.
-              ;; git-messenger:handled-backends '(git svn)
-              git-messenger:use-magit-popup t))
-
 ;;; [ git-timemachine ] -- time-machine of Git revisions.
 
 ;; (use-package git-timemachine
@@ -333,6 +319,20 @@
   :commands (vc-msg-show)
   :bind (:map git-quick-prefix ("b" . vc-msg-show))
   :init (setq vc-msg-git-show-commit-function 'magit-show-commit))
+
+;;; [ git-messenger ] -- popup commit message at current line.
+
+(use-package git-messenger
+  :ensure t
+  :defer t
+  :bind (:map prog-vcs-prefix
+              ("m m" . git-messenger:popup-message)
+              :map git-messenger-map
+              ("m" . git-messenger:copy-message)
+              ("c" . git-messenger:copy-message))
+  :init (setq git-messenger:show-detail t ; always show detail message.
+              ;; git-messenger:handled-backends '(git svn)
+              git-messenger:use-magit-popup t))
 
 
 

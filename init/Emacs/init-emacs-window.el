@@ -27,6 +27,7 @@
 ;;                (reusable-frames . visible)
 ;;                (side . right)
 ;;                (slot . 1)
+;;                (window-sides-vertical . t)
 ;;                (window-width . 0.5)
 ;;                (window-height . 0.15)))
 ;;
