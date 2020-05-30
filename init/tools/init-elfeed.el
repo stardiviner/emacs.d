@@ -15,15 +15,12 @@
   :commands (elfeed elfeed-update)
   :bind (:map tools-prefix ("R" . elfeed)
               :map elfeed-search-mode-map ("g" . elfeed-update))
-  :init ; (setq elfeed-log-level 'debug)
-  (setq elfeed-db-directory (expand-file-name ".elfeed" user-emacs-directory))
+  :custom ((elfeed-db-directory (expand-file-name ".elfeed" user-emacs-directory))
+           (elfeed-curl-extra-arguments '("--proxy" "socks5h://127.0.0.1:1086")) ; specify proxy for elfeed backend cURL.
+           ;; (elfeed-log-level 'debug)
+           )
+  :init (advice-add 'elfeed :after #'elfeed-update) ; auto update after entering elfeed.
   :config
-  ;; auto update after entering elfeed.
-  (advice-add 'elfeed :after #'elfeed-update)
-
-  ;; specify proxy for elfeed backend cURL.
-  (setq elfeed-curl-extra-arguments '("--proxy" "socks5h://127.0.0.1:1086"))
-
   (setq elfeed-feeds
         '(;; Programming
           ;; ("http://blog.stackoverflow.com/feed/" Programming StackOverflow)
