@@ -139,10 +139,12 @@
   (add-to-list 'mu4e-view-actions
                '("HMark as ham" . mu4e-view-register-msg-as-ham) t)
 
-  ;; `org-store-link' in mu4e
-  (require 'org-mu4e)                   ; for [[mu4e:..]] links.
+  ;; support `org-store-link' in mu4e
+  (require 'mu4e-org)                   ; for [[mu4e:..]] links.
   (setq mu4e-org-link-query-in-headers-mode t)
+  
   ;; enable Org Mode for editing in `mu4e-compose-mode'.
+  (require 'org-mu4e)
   (add-hook 'mu4e-compose-mode-hook #'org-mu4e-compose-org-mode)
 
   (add-hook 'mu4e-compose-mode-hook
