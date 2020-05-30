@@ -20,8 +20,6 @@
              (server-start))
   :hook (after-init . edit-server-start)
   :config
-  (add-hook 'edit-server-edit-mode-hook #'flyspell-mode)
-
   (setq edit-server-default-major-mode 'markdown-mode)
   (setq edit-server-url-major-mode-alist
         '(("github\\.com" . markdown-mode)
@@ -66,8 +64,7 @@
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=clojure" . clojure-mode)
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=ruby" . ruby-mode)
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=julia" . julia-mode)
-          ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=python" . python-mode)))
-  (add-hook 'atomic-chrome-edit-mode-hook #'flyspell-mode))
+          ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=python" . python-mode))))
 
 ;;; [ with-editor ]
 

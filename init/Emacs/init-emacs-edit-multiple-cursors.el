@@ -57,8 +57,9 @@
               ("e" . mc/edit-ends-of-lines)
               ("n" . mc/insert-numbers)
               ("s" . mc/sort-regions)
-              ("R" . mc/reverse-regions)
-              )
+              ("R" . mc/reverse-regions))
+  ;; :custom ((mc/keymap "C-c c"))
+  :bind (:map mc/keymap ("C-'" . mc-hide-unmatched-lines-mode))
   :init
   (unless (boundp 'mc/mark-prefix)
     (define-prefix-command 'mc/mark-prefix))
@@ -85,13 +86,7 @@
       (define-key mc/mark-prefix (kbd "v") 'vr/mc-mark))
   ;; `vr/select-mc-mark', `vr/select-replace', `vr/select-query-replace' etc.
 
-  (setq mc/list-file (expand-file-name ".mc-lists.el" user-emacs-directory))
-  :config
-  ;; (add-to-list 'mc/unsupported-minor-modes 'flyspell-mode)
-  
-  ;; (setq mc/keymap "C-c c")
-  (define-key mc/keymap (kbd "C-'") 'mc-hide-unmatched-lines-mode)
-  )
+  (setq mc/list-file (expand-file-name ".mc-lists.el" user-emacs-directory)))
 
 
 (provide 'init-emacs-edit-multiple-cursors)

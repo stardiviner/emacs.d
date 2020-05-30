@@ -19,7 +19,6 @@
     (setq-local company-dabbrev-ignore-buffers
                 #'my:company-dabbrev-ignore-except-magit-diff)
     (setq company-dabbrev-code-other-buffers 'all)
-    (flyspell-mode)
     (setq-local company-backends
                 '(company-dabbrev-code
                   :with company-abbrev                  
