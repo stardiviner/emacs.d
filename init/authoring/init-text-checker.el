@@ -21,26 +21,14 @@
   :bind (:map text-checker-prefix
               ("s" . ispell-word) ; [M-$]
               ("<tab>" . ispell-complete-word))
-  :init
-  (cond
-   ;; use smarter "aspell" to replace default "ispell".
-   ((executable-find "aspell")
-    (setq-default ispell-program-name "aspell")
-    ;; --reverse :: fix `aspell' conflict bug with `ispell'.
-    (setq-default ispell-extra-args '("--reverse" "--sug-mode=ultra" "--lang=en_US")))
-   ((executable-find "ispell")
-    (setq-default ispell-program-name "ispell"))
-   (t
-    (setq ispell-program-name nil)))
+  :custom ((ispell-dictionary "english")
+           (ispell-silently-savep t)    ; `ispell-pdict-save' save silently.
+           )
   :config
-  (setq ispell-dictionary "english"
-        ;; ispell-local-dictionary
-        ispell-personal-dictionary nil ; If nil, the default (~/.ispell_LANGUAGE) will be used
-        ispell-complete-word-dict "/usr/share/dict/words"
-        ;; ispell-alternate-dictionary "/usr/share/dict/words"
-        ispell-silently-savep t ; `ispell-pdict-save' save silently.
-        ispell-parser 'use-mode-name)
-  ;;; skip regions in Org-mode for ispell.
+  ;; --reverse :: fix `aspell' conflict bug with `ispell'.
+  (when (string-equal ispell-program-name "ispell")
+    (setq ispell-extra-args '("--reverse" "--sug-mode=ultra" "--lang=en_US")))
+  ;; skip regions in Org-mode for ispell.
   (add-to-list 'ispell-skip-region-alist '("[^\000-\377]+"))
   (add-to-list 'ispell-skip-region-alist '(":\\(PROPERTIES\\|LOGBOOK\\):" . ":END:"))
   (add-to-list 'ispell-skip-region-alist '("#\\+begin_src" . "#\\+end_src"))
