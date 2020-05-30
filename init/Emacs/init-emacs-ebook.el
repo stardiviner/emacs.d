@@ -17,6 +17,13 @@
     (add-to-list 'org-file-apps '("\\.epub\\'" . auto-mode)))
   (define-key nov-mode-map (kbd "q") 'kill-current-buffer))
 
+;;; [ calibredb ] -- Yet Another calibre client for ebook management.
+
+(use-package calibredb
+  :ensure t
+  :commands (calibredb)
+  :custom ((calibredb-root-dir (expand-file-name "~/Calibre Library"))))
+
 
 (provide 'init-emacs-ebook)
 
