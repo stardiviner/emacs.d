@@ -36,40 +36,40 @@
 
 ;;; [ Flyspell ] -- On-the-fly spell checker.
 
-;; (use-package flyspell
-;;   :ensure t
-;;   :defer t
-;;   :custom (flyspell-use-meta-tab nil)
-;;   :bind (:map text-checker-prefix
-;;               ("m" . flyspell-mode)
-;;               :map flyspell-mode-map
-;;               ("C-." . flyspell-correct-word-before-point)
-;;               ("C-," . flyspell-goto-next-error)
-;;               :map text-checker-prefix
-;;               ("w" . flyspell-buffer)
-;;               ("n" . flyspell-goto-next-error)
-;;               ("c" . flyspell-correct-word-before-point))
-;;   :init
-;;   (setq flyspell-default-dictionary "en"
-;;         ;; flyspell-after-incorrect-word-string "✗"
-;;         flyspell-consider-dash-as-word-delimiter-flag t
-;;         flyspell-issue-message-flag nil)
-;;
-;;   ;; programming code
-;;   ;; flyspell-prog-mode : enable flyspell for comments in source code
-;;   ;; (add-hook 'prog-mode-hook #'flyspell-prog-mode) ; cause little performance issue on code completing.
-;;
-;;   ;; TeX
-;;   (add-hook 'tex-mode-hook
-;;             (lambda () (setq ispell-parser 'tex) (flyspell-mode 1)))
-;;
-;;   ;; text
-;;   (dolist (hook
-;;            '(;; `text-mode' is parent mode of `org-mode' and `markdown-mode'.
-;;              ;; text-mode-hook
-;;              org-mode-hook
-;;              markdown-mode-hook))
-;;     (add-hook hook 'flyspell-mode)))
+(use-package flyspell
+  :ensure t
+  :defer t
+  :custom (flyspell-use-meta-tab nil)
+  :bind (:map text-checker-prefix
+              ("m" . flyspell-mode)
+              :map flyspell-mode-map
+              ("C-." . flyspell-correct-word-before-point)
+              ("C-," . flyspell-goto-next-error)
+              :map text-checker-prefix
+              ("w" . flyspell-buffer)
+              ("n" . flyspell-goto-next-error)
+              ("c" . flyspell-correct-word-before-point))
+  :init
+  (setq flyspell-default-dictionary "en"
+        ;; flyspell-after-incorrect-word-string "✗"
+        flyspell-consider-dash-as-word-delimiter-flag t
+        flyspell-issue-message-flag nil)
+
+  ;; programming code
+  ;; flyspell-prog-mode : enable flyspell for comments in source code
+  ;; (add-hook 'prog-mode-hook #'flyspell-prog-mode) ; cause little performance issue on code completing.
+
+  ;; TeX
+  (add-hook 'tex-mode-hook
+            (lambda () (setq ispell-parser 'tex) (flyspell-mode 1)))
+
+  ;; text
+  (dolist (hook
+           '(;; `text-mode' is parent mode of `org-mode' and `markdown-mode'.
+             ;; text-mode-hook
+             org-mode-hook
+             markdown-mode-hook))
+    (add-hook hook 'flyspell-mode)))
 
 ;;; [ flyspell-correct ] -- correcting words with flyspell via custom interface.
 
@@ -78,14 +78,6 @@
 ;;   :defer t
 ;;   :after flyspell
 ;;   :bind (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper)))
-
-;;; [ wucuo ] -- Fastest solution to spell check camel case code or plain text.
-
-(use-package wucuo
-  :ensure t
-  :defer t
-  :hook ((prog-mode . wucuo-start)
-         (text-mode . wucuo-start)))
 
 ;;; [ flycheck-grammarly ] -- Grammarly support for Flycheck.
 
