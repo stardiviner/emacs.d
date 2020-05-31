@@ -435,8 +435,10 @@ and append it."
                          :follow #'org-video-link-open
                          :complete #'org-video-complete-link)
 
-;; [[eshell:*et:.config/emacs*:cd /home/stardiviner/.config/emacs][cd /home/stardiviner/.config/emacs]]
-;; (require 'ol-eshell)
+;;; [ ol-eshell ] -- org-link support for EShell
+
+(use-package ol-eshell
+  :after eshell)
 
 
 ;;; [ Link abbreviations ]
