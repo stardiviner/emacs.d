@@ -141,6 +141,7 @@
 
   ;; support `org-store-link' in mu4e
   (require 'mu4e-org)                   ; for [[mu4e:..]] links.
+  (setq mu4e-org-link-query-in-headers-mode t)
   
   ;; enable Org Mode for editing in `mu4e-compose-mode'.
   (require 'org-mu4e)
