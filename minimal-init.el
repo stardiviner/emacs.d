@@ -13,13 +13,6 @@
       debug-on-signal nil
       debug-on-quit nil)
 
-;;; [ profiler ]
-;; (profiler-start 'cpu+mem)
-
-;;; benchmark
-;; (require 'init-emacs-benchmark)
-
-
 ;;; add my init files directory
 
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/")
@@ -42,18 +35,11 @@
 (load (expand-file-name "init/init-package.el" user-emacs-directory))
 (require 'init-package)
 
-
 (setq visible-bell nil)
 ;;; disable Emacs built-in bell when [C-g]
 (setq ring-bell-function 'ignore)
 
-(use-package pinentry
-  :ensure t
-  :init (pinentry-start))
-
 (require 'color)
-
-
 
 ;;; my custom functions
 (require 'init-library)
@@ -72,13 +58,10 @@
 
 (use-package which-key
   :ensure
-  :config
-  (which-key-mode 1))
+  :config (which-key-mode 1))
 
 (require 'init-ivy)
 (require 'init-company-mode)
-
-
 
 ;; (require 'init-org-mode)
 
@@ -106,8 +89,6 @@
    (shell . t)
    (lisp . t) (clojure . t)
    (js . t)))
-
-
 
 ;; (require 'init-prog-lang-clojure)
 
