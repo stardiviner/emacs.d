@@ -71,6 +71,8 @@
 
   (add-to-list 'display-buffer-alist
                '("\\*eaf pdf outline\\*" . (display-buffer-below-selected)))
+  ;; [ `eaf-org' ]
+  (setq eaf-org-override-pdf-links t)
   )
 
 
