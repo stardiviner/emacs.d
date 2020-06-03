@@ -184,6 +184,19 @@
     :docstring "ZhiHu"
     :keybinding "z")
 
+  ;; Mailing Lists
+  (defengine emacs-help
+    "https://lists.gnu.org/archive/cgi-bin/namazu.cgi?query=%s&submit=Search&idxname=help-gnu-emacs&max=20&result=normal&sort=score"
+    :docstring "emacs-help"
+    :keybinding "e")
+  (defengine emacs-devel
+    "https://lists.gnu.org/archive/cgi-bin/namazu.cgi?query=%s&submit=Search&idxname=emacs-devel"
+    :docstring "emacs-devel")
+  (defengine org-mode
+    "https://lists.gnu.org/archive/cgi-bin/namazu.cgi?query=%s&submit=Search&idxname=emacs-orgmode&max=20&result=normal&sort=score"
+    :docstring "org-mode"
+    :keybinding "o")
+
   ;; Downloads
   (defengine piratebay
     "https://thepiratebay.org/search/%s"
