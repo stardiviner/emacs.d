@@ -15,7 +15,7 @@
 ;;; way 0:
 ;; (setenv "PATH" (concat (getenv "PATH") ":~/bin"))
 ;;; way 1:
-;;     (setq exec-path (append exex-path '("~/bin")))
+(add-to-list 'exec-path (expand-file-name "~/bin"))
 ;;; way 2:
 ;; (defun eshell-mode-hook-func ()
 ;;   (setq eshell-path-env (concat "~/bin:" eshell-path-env))
