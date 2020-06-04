@@ -84,6 +84,8 @@
               ("M-b" . magit-bisect)
               ("B" . magit-blame)
               ("f" . magit-file-popup))
+  :custom ((magit-section-initial-visibility-alist '((stashes . hide) (untracked . hide) (unpushed . hide)))
+           (magit-status-initial-section nil))
   :init
   (defalias 'magit-log-region 'magit-log-buffer-file)
   (define-key prog-vcs-git-prefix (kbd "r") 'magit-log-region)
