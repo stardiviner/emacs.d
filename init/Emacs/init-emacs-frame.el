@@ -10,15 +10,14 @@
 ;;; default frame size
 
 (setq default-frame-alist
-      '((top . 0) (left . 0)
-        (height . 120)
-        (width . 100)
+      `((top . 0) (left . 0)
+        (height . ,(display-pixel-height))
+        (width . ,(display-pixel-width))
         (left-fringe) (right-fringe)
         (tool-bar-lines . 0)
         (menu-bar-lines . 0)
         (scroll-bar . nil)
-        (vertical-scroll-bars . nil)
-        ))
+        (vertical-scroll-bars . nil)))
 
 (setq initial-frame-alist default-frame-alist)
 (setq window-system-default-frame-alist default-frame-alist)

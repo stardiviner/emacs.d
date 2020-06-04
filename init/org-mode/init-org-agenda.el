@@ -10,7 +10,7 @@
 (use-package org-agenda
   :defer t
   :commands (org-agenda)
-  :custom ((org-agenda-window-setup 'current-window)
+  :custom ((org-agenda-window-setup 'only-window) ; avoid ol 'line-height property failed on long line in "colorized blocks on agenda" hook.
            (org-agenda-restore-windows-after-quit t)
            (org-agenda-sticky t) ; don't kill *Org Agenda* buffer by [q].
            )
