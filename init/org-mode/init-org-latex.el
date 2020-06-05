@@ -36,14 +36,6 @@
 
   (setq org-latex-prefer-user-labels t))
 
-;;; [ webkit-katex-render ] -- An instant Latex Previewer for Emacs.
-
-;; (use-package webkit-katex-render
-;;   ;; :ensure t
-;;   :load-path "~/Code/Emacs/webkit-katex-render/"
-;;   :init (add-hook 'org-mode-hook #'webkit-katex-render-mode)
-;;   (add-hook 'TeX-mode-hook #'webkit-katex-render-mode))
-
 ;;; [ LaTeX -> HTML ]
 
 ;;; set LaTeX export to HTML style.
