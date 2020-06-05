@@ -49,7 +49,7 @@
   ;;       )
 
   ;; increase TeX/LaTeX preview scale size.
-  (setq preview-scale-function 1.7)
+  (setq preview-scale-function (* 1.7 (if (screen-hidpi-p) 2 1)))
   
   ;; view generated PDF with `pdf-tools'. (this is built-in now.)
   (require 'tex)

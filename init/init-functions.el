@@ -111,6 +111,25 @@ by creating or altering keymaps stored in buffer-local
             (get-text-property (point) 'keymap)
             (get-text-property (point) 'local-map)))))
 
+;;; [ Screen ]
+
+;;; a helper function to detect HiDPI screen resolution.
+(defun screen-get-monitor-attributes-by-name (name)
+  "Get the display monitor attributes by NAME."
+  (car (delete nil
+               (mapcar (lambda (monitor)     ; support multiple display screens
+                         (when (string-equal name (cdr (assq 'name monitor)))
+                           monitor))
+                       (display-monitor-attributes-list)))))
+
+(defun screen-hidpi-p ()
+  "A helper function to detect HiDPI screen resolution."
+  (let* ((attrs (screen-get-monitor-attributes-by-name "eDP1"))
+         (resolution (last (assq 'geometry attrs) 2))
+         (size (cdr (assoc 'mm-size attrs)))
+         (display-width (display-pixel-width))
+         (display-height (display-pixel-height)))
+    (if (>= (or display-width (cadr resolution)) 1600) t nil)))
 
 ;;; [ Network ]
 

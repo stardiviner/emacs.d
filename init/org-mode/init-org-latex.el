@@ -29,10 +29,10 @@
   ;;                :image-converter ("dvisvgm %f -n -b min -c %S -o %O")))
 
   (setq org-latex-image-default-width "1.5\\linewidth")
-  (setq org-format-latex-options
-        (plist-put org-format-latex-options :scale 1.5)) ; adjust LaTeX preview image size.
-  (setq org-format-latex-options
-        (plist-put org-format-latex-options :html-scale 2.0)) ; adjust HTML exporting LaTeX image size.
+  (setq org-format-latex-options ; adjust LaTeX preview image size.
+        `(plist-put org-format-latex-options :scale ,(* 1.5 (if (screen-hidpi-p) 2 1))))
+  (setq org-format-latex-options ; adjust HTML exporting LaTeX image size.
+        `(plist-put org-format-latex-options :html-scale ,(* 2.0 (if (screen-hidpi-p) 2 1))))
 
   (setq org-latex-prefer-user-labels t))
 
