@@ -13,21 +13,12 @@
   :ensure t
   :defer t
   :commands (migemo)
+  :custom ((migemo-command "cmigemo")
+           (migemo-options '("-q" "--emacs")))
   :bind (:map language-search-prefix
               ("j" . migemo-isearch-toggle-migemo))
-  :config
-  (setq migemo-command "cmigemo"
-        migemo-options '("-q" "--emacs")
-        ;; Set your installed path
-        ;; migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict"
-        ;; migemo-user-dictionary nil
-        ;; migemo-regex-dictionary nil
-        migemo-coding-system 'utf-8-unix
-        )
-
-  ;; (migemo-init)
+  ;; :init (migemo-init)
   )
-
 
 ;;; [ oniisama ]
 
