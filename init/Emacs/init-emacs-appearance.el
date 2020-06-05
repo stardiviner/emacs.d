@@ -100,8 +100,11 @@
 
 ;;; [ truncate continuous line & word wrap ]
 
-;; (setq-default truncate-lines t
-;;               word-wrap t)
+;;; `toggle-truncate-lines'
+;; (setq-default truncate-lines t)
+;;
+;;; `toggle-word-wrap'
+;; (setq-default word-wrap t)
 
 (define-fringe-bitmap 'left-curly-arrow
   [#b00011000
