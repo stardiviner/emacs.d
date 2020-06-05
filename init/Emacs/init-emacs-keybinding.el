@@ -20,6 +20,11 @@
 
 ;; (setq x-hyper-keysym 'hyper)
 
+;; swap Command & Ctrl keys on macOS
+;; (when (string-equal system-type "darwin")
+;;   (setq mac-command-modifier 'control)  ; use Command as Control
+;;   (setq mac-control-modifier 'super))   ; use Control as Super (Command)
+
 ;;; stop using the arrow keys
 (global-unset-key [left])
 (global-unset-key [right])
