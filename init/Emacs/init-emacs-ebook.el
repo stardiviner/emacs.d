@@ -22,7 +22,8 @@
 (use-package calibredb
   :ensure t
   :commands (calibredb)
-  :custom ((calibredb-root-dir (expand-file-name "~/Calibre Library"))))
+  :custom ((calibredb-root-dir (expand-file-name "~/Calibre Library"))
+           (calibredb-format-icons t)))
 
 
 (provide 'init-emacs-ebook)
