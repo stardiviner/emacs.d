@@ -47,8 +47,7 @@
 
 (use-package one-themes
   :load-path "~/Code/Emacs/one-themes"
-  :config (when (null custom-enabled-themes)
-            (load-theme 'one-dark t)))
+  :config (load-theme 'one-dark t))
 
 ;;; [ circadian ] -- Theme-switching based on daytime.
 
@@ -62,6 +61,8 @@
   ;; NOTE: make sure to use `:defer' keyword for theme `use-package'.
   (setq circadian-themes '((:sunrise . leuven)
                            (:sunset . one-dark)))
+  ;; fix multiple themes loaded at startup caused theme colors mixture.
+  (mapc #'disable-theme custom-enabled-themes)
   (circadian-setup))
 
 
