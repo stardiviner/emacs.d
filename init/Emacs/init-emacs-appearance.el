@@ -30,13 +30,12 @@
 
 ;;; [ Title ]
 
-(setq frame-title-format "Emacs λ Clojure") ; "Emacs λ %b"
-;; (setq frame-title-format
-;;       '("" invocation-name ": "
-;;         (:eval
-;;          (if (buffer-file-name)
-;;              (abbreviate-file-name (buffer-file-name))
-;;            "%b"))))
+;;; NOTE set title for KDE KWin manager matching PDF viewer frame.
+(setq frame-title-format
+      '("" invocation-name " λ "
+        (:eval (if (buffer-file-name)
+                   (abbreviate-file-name (buffer-file-name))
+                 "%b"))))
 
 ;;; [ border & margin ]
 
