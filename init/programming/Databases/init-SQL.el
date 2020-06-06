@@ -175,20 +175,23 @@
   (ejc-create-connection
    "PostgreSQL-db-postgres"
    :dependencies [[org.postgresql/postgresql "42.2.5.jre7"]]
-   ;; :classpath (concat "~/.m2/repository/org/postgresql/postgresql/"
-   ;;                    "42.2.5.jre7/postgresql-42.2.5.jre7.jar")
-   :dbtype "postgresql"
-   :host "localhost"
-   :port "5432"
+   :classname "org.postgresql.Driver"
+   :connection-uri "jdbc:postgresql://localhost:5432/test"
    :user "postgres"
-   :password (my/json-read-value my/account-file 'ejc-sql-postgresql)
-   :dbname "test")
+   :password (my/json-read-value my/account-file 'ejc-sql-postgresql))
+
+  (ejc-create-connection
+   "MariaDB-db-test"
+   :dependencies [[org.mariadb.jdbc/mariadb-java-client "2.6.0"]]
+   :classname "org.mariadb.jdbc.Driver"
+   :connection-uri "jdbc:mariadb://localhost:3306/test"
+   :user "root"
+   :password (my/json-read-value my/account-file 'ejc-sql-mysql))
 
   (ejc-create-connection
    "MySQL-db-test"
    :dependencies [[mysql/mysql-connector-java "5.1.32"]]
-   ;; :classpath (concat "~/.m2/repository/mysql/mysql-connector-java/"
-   ;;                    "5.1.32/mysql-connector-java-5.1.32.jar")
+   ;; FIXME :classname "mysql"
    :dbtype "mysql"
    :host "localhost"
    :port "3306"
@@ -199,8 +202,6 @@
   (ejc-create-connection
    "SQLite-db-temp"
    :dependencies [[org.xerial/sqlite-jdbc "3.25.2"]]
-   ;; :classpath (concat "~/.m2/repository/org/xerial/sqlite-jdbc/"
-   ;;                    "3.25.2/sqlite-jdbc-3.25.2.jar")
    :subprotocol "sqlite"
    :subname (file-truename "~/test.db"))
 
@@ -210,8 +211,7 @@
     (let ((connection-name (read-string "Input SQLite connection name: ")))
       (ejc-create-connection
        connection-name
-       :classpath (concat "~/.m2/repository/org/xerial/sqlite-jdbc/"
-                          "3.25.2/sqlite-jdbc-3.25.2.jar")
+       :dependencies [[org.xerial/sqlite-jdbc "3.25.2"]]
        :subprotocol "sqlite"
        :subname (file-truename sqlite-db-file))
       (ejc-connect connection-name)))
