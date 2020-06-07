@@ -261,13 +261,15 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 ;;; [ clj-refactor ] -- A collection of commands for refactoring Clojure code.
 
-(use-package clj-refactor
+(use-package clj-refactor ; [C-c C-m]
   :ensure t
+  :ensure cljr-helm
   :defer t
   :after clojure-mode
   :delight clj-refactor-mode
-  :init (setq cljr-suppress-middleware-warnings t
-              cljr-warn-on-eval nil)
+  :custom ((cljr-suppress-middleware-warnings t)
+           (cljr-warn-on-eval nil))
+  :bind (:map clojure-mode-map ("M-RET" . cljr-helm))
   :config
   (defun my:clj-refactor-setup ()
     (clj-refactor-mode 1)
