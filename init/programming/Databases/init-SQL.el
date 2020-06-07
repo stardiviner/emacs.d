@@ -133,8 +133,8 @@
 
   (defun my/ejc-sql-settings ()
     (setq-local ac-auto-start 2)
-    (setq-local ac-delay 0.2) ; 0 will cause very slow delay on non-exist object or table.
-    (setq-local ac-auto-show-menu t)
+    (setq-local ac-delay 0.1) ; 0 will cause very slow delay on non-exist object or table.
+    (setq-local ac-auto-show-menu 0.5)
     (setq-local ac-use-quick-help nil)
     (company-mode -1)
     (flyspell-mode -1))
