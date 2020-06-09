@@ -41,7 +41,8 @@
               google-translate-translation-directions-alist '(("en" . "zh-CN")
                                                               ("zh-CN" . "en")
                                                               ("zh-CN" . "ja")
-                                                              ("zh-CN" . "ko")))
+                                                              ("zh-CN" . "ko"))
+              google-translate-listen-program (executable-find "mpv"))
 
   (add-to-list 'display-buffer-alist
                '("^\\*Google Translate\\*"
