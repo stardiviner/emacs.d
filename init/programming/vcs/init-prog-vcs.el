@@ -12,6 +12,12 @@
   (define-prefix-command 'prog-vcs-prefix))
 (global-set-key (kbd "C-c v") 'prog-vcs-prefix)
 
+;;; [ bump-version ] -- Bump version (in batch) via Emacs.
+
+(use-package bump-version
+  :quelpa (bump-version :fetcher github :repo "atykhonov/emacs-bump-version")
+  :commands (bump-version-patch bump-version-minor bump-version-major bump-version-release))
+
 ;;; [ vc ]
 
 (setq vc-handled-backends '(Git))
