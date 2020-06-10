@@ -11,26 +11,24 @@
 
 (use-package helm
   :ensure t
+  :defer t
+  :custom ((helm-input-idle-delay 0.1) ; fix Helm fast respond to input caused failed issue.
+           (helm-echo-input-in-header-line t) ; echo input in header line
+           (helm-split-window-inside-p t)) ; helm window position
   ;; :bind (([remap execute-extended-command] . helm-M-x)
   ;;        ("M-x" . helm-M-x)
   ;;        ([remap switch-to-buffer] . helm-mini)
   ;;        ([remap yank-pop] . helm-show-kill-ring)
   ;;        ([remap yas-insert-snippet] . helm-yas-complete))
-  ;; :init (helm-mode 1) (helm-top-poll-mode 1)
-  :defer t
+  ;; :hook (after-init . helm-mode)
   :config
+  ;; (helm-top-poll-mode 1)
   (add-hook 'helm-minibuffer-set-up-hook #'helm-hide-minibuffer-maybe)
-  ;; echo input in header line
-  (setq helm-echo-input-in-header-line t)
-  ;; helm window position
-  (setq helm-split-window-inside-p t)
   (setq helm-mini-default-sources
         '(helm-source-buffers-list
           helm-source-bookmarks
           helm-source-recentf
-          helm-source-buffer-not-found))
-  (setq helm-input-idle-delay 0.1) ; fix Helm fast respond to input caused failed issue.
-  (setq helm-org-headings-fontify t))
+          helm-source-buffer-not-found)))
 
 ;;; [ helm-fuz ] -- Integrate Helm and Fuz.
 
