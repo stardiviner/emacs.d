@@ -33,6 +33,9 @@
 (setq org-hierarchical-todo-statistics nil
       org-checkbox-hierarchical-statistics nil)
 
+;;; it makes sense to have list bullets change with depth.
+(setq org-list-demote-modify-bullet '(("+" . "-") ("-" . "+") ("*" . "+")))
+
 ;; * Column View::
 
 ;; (setq org-columns-default-format
