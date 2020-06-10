@@ -7,7 +7,6 @@
 
 ;;; Code:
 
-;; (require 'init-custom-mode-line)
 ;; (require 'init-powerline)
 
 ;;; [ mood-line ] -- a minimal mode-line configuration that aims to replicate some of the features of the doom-modeline.
