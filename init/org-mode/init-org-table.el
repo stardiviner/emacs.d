@@ -18,8 +18,8 @@
 
 (use-package valign
   :quelpa (valign :fetcher github :repo "casouri/valign")
-  :commands (valign-setup valign-table)
-  :init (valign-setup))
+  :commands (valign-mode)
+  :hook (org-mode . valign-mode))
 
 ;; [ org-plot ] -- Plotting Tables in Org-mode.
 
