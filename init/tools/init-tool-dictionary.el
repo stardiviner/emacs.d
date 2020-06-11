@@ -29,7 +29,9 @@
               ("M-t" . google-translate-query-translate)
               ("C-r" . google-translate-at-point-reverse)
               ("M-r" . google-translate-query-translate-reverse)
-              ("C-b" . google-translate-buffer))
+              ("C-b" . google-translate-buffer)
+              ("C-p" . google-translate-paragraphs-overlay)
+              ("M-p" . google-translate-paragraphs-insert))
   :preface (setq google-translate-base-url "https://translate.google.cn/translate_a/single"
                  google-translate-listen-url "https://translate.google.cn/translate_tts"
                  google-translate--tkk-url "https://translate.google.cn/")
@@ -42,7 +44,8 @@
                                                               ("zh-CN" . "en")
                                                               ("zh-CN" . "ja")
                                                               ("zh-CN" . "ko"))
-              google-translate-listen-program (executable-find "mpv"))
+              google-translate-listen-program (executable-find "mpv")
+              google-translate-result-to-kill-ring t)
 
   (add-to-list 'display-buffer-alist
                '("^\\*Google Translate\\*"
