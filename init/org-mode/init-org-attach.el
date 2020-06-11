@@ -108,6 +108,8 @@
   :commands (org-board-new
              org-board-archive org-board-archive-dry-run org-board-cancel
              org-board-open)
+  :custom ((org-board-default-browser 'eww) ; press [&] in eww to open in external browser
+           (org-board-make-relative t)) ; org-attach use relative path
   :bind (:map org-board-prefix
               ("n" . org-board-new)
               ("a" . org-board-archive)
@@ -117,8 +119,7 @@
               ("d" . org-board-delete-all)
               ("f" . org-board-diff)
               ("3" . org-board-diff3))
-  :init
-  (setq org-board-default-browser 'eww) ; press [&] in eww to open in external browser.
+  :config
   (add-to-list 'display-buffer-alist
                '("org-board-wget-call" (display-buffer-below-selected))))
 
