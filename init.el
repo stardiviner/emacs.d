@@ -37,6 +37,10 @@
 
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/") ; for compiled version Emacs load system installed Emacs related packages.
 
+;;; Since Emacs 27, `user-emacs-directory' changed to "~/.config/emacs/" by default.
+(if (version<= emacs-version "27")
+    (setq user-emacs-directory (expand-file-name "~/.config/emacs/")))
+
 (add-to-list 'load-path (expand-file-name "init" user-emacs-directory))
 ;; recursively load init files.
 (let ((default-directory (expand-file-name "init" user-emacs-directory)))
