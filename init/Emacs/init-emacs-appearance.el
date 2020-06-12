@@ -33,9 +33,12 @@
 ;;; NOTE set title for KDE KWin manager matching PDF viewer frame.
 (setq frame-title-format
       '("" invocation-name " λ "
-        (:eval (if (buffer-file-name)
-                   (abbreviate-file-name (buffer-file-name))
-                 "%b"))))
+        (:eval
+         (cond
+          ((eq major-mode 'eaf-mode)
+           (format "EAF:%s" eaf--buffer-app-name))
+          ((buffer-file-name)
+           (or (file-name-nondirectory (buffer-file-name)) "%b"))))))
 
 ;;; [ border & margin ]
 
