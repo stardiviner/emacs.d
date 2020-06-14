@@ -6,7 +6,7 @@
 # --
 #+begin_src sh$0 :dir "${1:~/Code/Emacs}" :var repo_name="${2:hl-sexp}" :results file link :file "$2/${3:README.md}" :async
 if [ ! -d $repo_name ]; then
-  git clone ${4:forked repo Git}
+  git clone ${4:forked repo Git} $repo_name
   cd $repo_name
   git remote add upstream ${5:upstream repo Git}
   git fetch upstream

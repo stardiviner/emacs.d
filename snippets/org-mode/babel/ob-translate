@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: ob-translate
+# key: ob-translate
+# group: babel.translate
+# --
+#+begin_src translate :dest ${1:zh-CN}
+$0
+#+end_src

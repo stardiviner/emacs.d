@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
-# name: PostgreSQL shell
+# name: postgresql-shell
 # key: postgresql-shell
 # group: babel.postgresql
 # --
-#+begin_src sh :dir /su:postgres@localhost: :var dbname="test"
-${0:createdb $dbname}
+#+begin_src sh :dir /su:postgres@localhost:${1:/path/to/directory}
+$0
 #+end_src
