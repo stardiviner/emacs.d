@@ -69,6 +69,13 @@
   :commands (arduino-cli-board-list)
   :hook (arduino-mode . arduino-cli-mode))
 
+;;; [ platformio-mode ] -- PlatformIO integration for Emacs
+
+(use-package platformio-mode
+  :ensure t
+  :defer t
+  :hook (c++-mode . platformio-conditionally-enable))
+
 
 (provide 'init-prog-framework-arduino)
 
