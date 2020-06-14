@@ -76,7 +76,7 @@
 
 ;;; manipulate windows
 
-(defun my:turn-current-window-into-new-frame ()
+(defun my-turn-current-window-into-new-frame ()
   "Popup current window to another new frame."
   (interactive)
   (let ((buffer (current-buffer)))
@@ -84,7 +84,7 @@
       (delete-window))
     (display-buffer-pop-up-frame buffer nil)))
 
-(global-set-key (kbd "C-x 5 5") 'my:turn-current-window-into-new-frame)
+(global-set-key (kbd "C-x 5 5") 'my-turn-current-window-into-new-frame)
 
 (use-package hydra
   :ensure t
