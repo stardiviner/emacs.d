@@ -22,7 +22,7 @@
               ("C-c M-i" . 'eaf-interleave-add-note)
               ("C-c M-o" . 'eaf-interleave-open-notes-file)
               ("C-c M-q" . 'eaf-interleave-quit))
-  :init (require 'eaf-org)
+  :load (eaf-org)
   :config
   (define-key dired-mode-map (kbd "M-RET") 'eaf-open-this-from-dired)
   (eaf-setq eaf-camera-save-path "~")
@@ -60,6 +60,10 @@
   ;; exclude EAF buffers from `desktop-save-mode'.
   (with-eval-after-load 'desktop
     (add-to-list 'desktop-modes-not-to-save 'eaf-mode))
+
+  ;; [ `eaf-org' ] Org Mode integration
+  (setq eaf-org-override-pdf-links t)
+
   ;; eaf-interleave integration
   (add-hook 'eaf-pdf-viewer-hook 'eaf-interleave-app-mode)
   (add-hook 'eaf-browser-hook 'eaf-interleave-app-mode)
@@ -70,10 +74,7 @@
   (setq eaf-interleave-split-lines 20)
 
   (add-to-list 'display-buffer-alist
-               '("\\*eaf pdf outline\\*" . (display-buffer-below-selected)))
-  ;; [ `eaf-org' ]
-  (setq eaf-org-override-pdf-links t)
-  )
+               '("\\*eaf pdf outline\\*" . (display-buffer-below-selected))))
 
 
 
