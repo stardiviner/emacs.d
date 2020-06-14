@@ -17,6 +17,9 @@
 
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/")
 
+(if (version<= emacs-version "27")
+ (setq user-emacs-directory (expand-file-name "~/.config/emacs/")))
+
 (add-to-list 'load-path (expand-file-name "init" user-emacs-directory))
 
 ;; recursively load init files.
