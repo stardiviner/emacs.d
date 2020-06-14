@@ -61,6 +61,14 @@
     )
   (add-hook 'arduino-mode-hook #'my/company-arduino-setup))
 
+;;; [ arduino-cli-mode ] -- Emacs support for the arduino-cli.
+
+(use-package arduino-cli-mode ; [C-c C-a]
+  :ensure t
+  :defer t
+  :commands (arduino-cli-board-list)
+  :hook (arduino-mode . arduino-cli-mode))
+
 
 (provide 'init-prog-framework-arduino)
 
