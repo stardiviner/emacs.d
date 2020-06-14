@@ -21,6 +21,8 @@
   :ensure t
   :defer t
   :commands (auto-complete-mode global-auto-complete-mode)
+  :custom ((ac-delay 0.2)
+           (ac-quick-help-delay 0.2))
   ;; :init (global-auto-complete-mode 1) ; use auto-complete globally
   :config
   ;; load `ac-source-yasnippet'
@@ -38,7 +40,6 @@
   (setq ac-use-menu-map t)
   (define-key ac-menu-map (kbd "M-j") 'ac-complete)
   ;; quick help
-  (setq ac-quick-help-delay 0.2)
   (define-key ac-completing-map (kbd "M-h") 'ac-quick-help)
   (define-key ac-completing-map (kbd "C-M-n") 'ac-quick-help-scroll-down)
   (define-key ac-completing-map (kbd "C-M-p") 'ac-quick-help-scroll-up)
