@@ -30,58 +30,7 @@
            ;; (lsp-enable-snippet nil) ; handle yasnippet by myself
            (lsp-enable-symbol-highlighting nil)
            (lsp-enable-links nil))
-  :init
-  ;; `which-key' integration
-  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
-
-  ;; Support LSP in Org Babel with header argument `:file'.
-  ;; https://github.com/emacs-lsp/lsp-mode/issues/377
-  (defvar org-babel-lsp-explicit-lang-list
-    '("java")
-    "Org Mode Babel languages which need explicitly specify header argument :file.")
-  (cl-defmacro lsp-org-babel-enbale (lang)
-    "Support LANG in org source code block."
-    ;; (cl-check-type lang symbolp)
-    (let* ((edit-pre (intern (format "org-babel-edit-prep:%s" lang)))
-           (intern-pre (intern (format "lsp--%s" (symbol-name edit-pre)))))
-      `(progn
-         (defun ,intern-pre (info)
-           (let* ((lsp-file (or (->> info caddr (alist-get :file))
-                                (unless (member ,lang org-babel-lsp-explicit-lang-list)
-                                  (concat (org-babel-temp-file (format "lsp-%s-" ,lang))
-                                          (cdr (assoc ,lang org-babel-tangle-lang-exts)))))))
-             (setq-local buffer-file-name lsp-file)
-             (setq-local lsp-buffer-uri (lsp--path-to-uri lsp-file))
-             (lsp)))
-         (if (fboundp ',edit-pre)
-             (advice-add ',edit-pre :after ',intern-pre)
-           (progn
-             (defun ,edit-pre (info)
-               (,intern-pre info))
-             (put ',edit-pre 'function-documentation
-                  (format "Add LSP info to Org source block dedicated buffer (%s)."
-                          (upcase ,lang))))))))
-
-  (defvar org-babel-lsp-lang-list
-    '("shell"
-      ;; "python" "ipython"
-      ;; "ruby"
-      "js" "css" "html"
-      ;; "C" "C++"
-      "java" "rust" "go" "kotlin"))
-
-  (dolist (lang org-babel-lsp-lang-list)
-    (eval `(lsp-org-babel-enbale ,lang)))
-
-  (defun my/babel-insert-lsp-file-header-argument (lsp-mirror-file)
-    "A helper command to insert `:file' header argument path."
-    (interactive "fPath to file: ")
-    (org-babel-insert-header-arg "file" (format "\"%s\"" lsp-mirror-file)))
-  (define-key org-babel-map (kbd "M-f") 'my/babel-insert-lsp-file-header-argument)
-
-  ;; manage lsp-mode popup buffers
-  (add-to-list 'display-buffer-alist
-               '("^\\*lsp-help\\*" (display-buffer-below-selected)))
+  :hook (lsp-mode . lsp-enable-which-key-integration)
   :config
   ;; disable some lsp clients
   ;; (add-to-list 'lsp-disabled-clients 'ccls)
@@ -89,7 +38,11 @@
   ;; (add-to-list 'lsp-disabled-clients '(web-mode . angular-ls))
 
   ;; don't scan 3rd party javascript libraries
-  (push "[/\\\\][^/\\\\]*\\.\\(json\\|html\\|jade\\)$" lsp-file-watch-ignored))
+  (push "[/\\\\][^/\\\\]*\\.\\(json\\|html\\|jade\\)$" lsp-file-watch-ignored)
+  
+  ;; manage lsp-mode popup buffers
+  (add-to-list 'display-buffer-alist
+               '("^\\*lsp-help\\*" (display-buffer-below-selected))))
 
 ;; [ lsp-ui ] -- UI modules for lsp-mode.
 
