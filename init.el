@@ -230,7 +230,7 @@
 ;; (require 'init-prog-eval)
 (require 'init-prog-compile)
 (require 'init-prog-build-system)
-;; (require 'init-prog-lint)
+(require 'init-prog-lint)
 (unless (boundp 'debug-prefix)
   (define-prefix-command 'debug-prefix))
 (global-set-key (kbd "C-c d") 'debug-prefix)
