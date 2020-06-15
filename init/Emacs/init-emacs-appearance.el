@@ -40,24 +40,37 @@
           ((buffer-file-name)
            (or (file-name-nondirectory (buffer-file-name)) "%b"))))))
 
-;;; [ border & margin ]
+;;; [ Emacs window border ]
 
-(setq-default left-margin-width 0
-              right-margin-width 0)
 ;; frame internal border width
 (set-frame-parameter nil 'internal-border-width 5)
-;; (set-window-buffer nil (current-buffer))
-
-;;; [ fringe ]
-
-;;; `fringe-indicator-alist'
 
 (setq-default indicate-buffer-boundaries 'left)
-(setq-default left-fringe-width 5
-              right-fringe-width 5)
-(setq-default left-margin-width 0
+
+;;; margin
+(setq-default left-margin-width 1
               right-margin-width 0)
-(set-fringe-style '(10 . 10))
+;;; fringe
+(if (screen-hidpi-p)
+    (progn
+      (set-fringe-style '(20 . 10))
+      (setq-default left-fringe-width 20
+                    right-fringe-width 10))
+  (set-fringe-style '(10 . 5))
+  (setq-default left-fringe-width 10
+                right-fringe-width 5))
+;;; `fringe-indicator-alist'
+(setq fringe-indicator-alist
+      '((truncation left-arrow right-arrow)
+        (continuation left-curly-arrow right-curly-arrow)
+        (overlay-arrow . right-triangle)
+        (up . up-arrow)
+        (down . down-arrow)
+        (top top-left-angle top-right-angle)
+        (bottom bottom-left-angle bottom-right-angle top-right-angle top-left-angle)
+        (top-bottom left-bracket right-bracket top-right-angle top-left-angle)
+        (empty-line . empty-line)
+        (unknown . question-mark)))
 
 ;;; [ echo area ]
 
