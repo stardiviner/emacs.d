@@ -7,6 +7,13 @@
 
 ;;; Code:
 
+;;; [ helm-system-packages ] -- Helm UI wrapper for system package managers.
+
+(use-package helm-system-packages
+  :ensure t
+  :defer t
+  :commands (helm-system-packages))
+
 ;;; [ systemd-mode ] -- Emacs major mode for editing systemd units.
 
 (use-package systemd
