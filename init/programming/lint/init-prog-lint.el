@@ -9,8 +9,7 @@
 (unless (boundp 'linter-prefix)
   (define-prefix-command 'linter-prefix))
 
-(add-hook 'prog-mode-hook
-          (lambda () (local-set-key (kbd "C-c !") 'linter-prefix)))
+(define-key prog-mode-map (kbd "C-c !") 'linter-prefix)
 
 ;;; [ flymake ] -- A universal on-the-fly syntax checker.
 
