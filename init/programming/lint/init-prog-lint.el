@@ -63,7 +63,6 @@
 
 (use-package flycheck-inline
   :ensure t
-  :defer t
   :hook (flycheck-mode . flycheck-inline-mode))
 
 ;;; [ flycheck-popup-tip ] -- displaying errors from Flycheck using popup.el.
