@@ -12,12 +12,12 @@
 (use-package dash-docs
   :ensure t
   :defer t
-  :init (setq dash-docs-docsets-path (expand-file-name "~/.docsets")
-              dash-docs-min-length 3
-              ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
-              dash-docs-browser-func 'eww-browse-url
-              dash-docs-candidate-format "%d  %n  (%t)"
-              dash-docs-enable-debugging nil))
+  :custom ((dash-docs-docsets-path (expand-file-name "~/.docsets"))
+           (dash-docs-min-length 3)
+           ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
+           (dash-docs-browser-func 'eaf-open-browser)
+           (dash-docs-candidate-format "%d  %n  (%t)")
+           (dash-docs-enable-debugging nil)))
 
 ;;; [ helm-dash ] -- Offline documentation browser for +150 APIs using Dash docsets.
 
