@@ -53,6 +53,7 @@
     (add-to-list 'desktop-modes-not-to-save 'eaf-mode))
 
   ;; [ `eaf-org' ] Org Mode integration
+  (require 'eaf-org)
   (setq eaf-org-override-pdf-links t)
 
   ;; eaf-interleave integration
