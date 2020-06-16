@@ -91,10 +91,7 @@
 
 (use-package irony
   :ensure t
-  :defer t
-  :hook ((c-mode . irony-mode)
-         (c++-mode . irony-mode)
-         (objc-mode . irony-mode))
+  :hook ((c-mode c++-mode objc-mode) . irony-mode)
   :config
   ;; find the compile flag options automatically:
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
@@ -102,8 +99,7 @@
   (use-package company-irony
     :ensure t
     :ensure company-irony-c-headers
-    :after irony
-    :init (setq company-irony-ignore-case t)
+    :custom (company-irony-ignore-case t)
     :config
     (defun my/company-irony-setup ()
       ;; (optional) adds CC special commands to `company-begin-commands'
@@ -123,13 +119,11 @@
 
   (use-package irony-eldoc
     :ensure t
-    :defer t
     :after irony
     :init (add-hook 'irony-mode-hook #'irony-eldoc))
 
   (use-package flycheck-irony
     :ensure t
-    :defer t
     :after irony
     :init (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
 
