@@ -162,19 +162,14 @@
 
 ;;; [ ccls ] -- C/C++/Objective-C lang server support for lsp-mode using Clang.
 
-;; (use-package ccls
-;;   :ensure t
-;;   :defer t
-;;   :defines projectile-project-root-files-top-down-recurring
-;;   :ensure t
-;;   :after lsp
-;;   :commands lsp-ccls-enable
-;;   :load ccls
-;;   :hook ((c-mode c++-mode objc-mode) . lsp)
-;;   :config (with-eval-after-load 'projectile
-;;             (setq projectile-project-root-files-top-down-recurring
-;;                   (append '("compile_commands.json" ".ccls")
-;;                           projectile-project-root-files-top-down-recurring))))
+(use-package ccls
+  :ensure t
+  :after lsp
+  :hook ((c-mode c++-mode objc-mode) . lsp)
+  :config (with-eval-after-load 'projectile
+            (setq projectile-project-root-files-top-down-recurring
+                  (append '("compile_commands.json" ".ccls")
+                          projectile-project-root-files-top-down-recurring))))
 
 ;;; [ flycheck-cstyle ] -- Integrate cstyle with flycheck.
 
