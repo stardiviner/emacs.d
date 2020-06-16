@@ -151,17 +151,6 @@
                   (append '("compile_commands.json" ".ccls")
                           projectile-project-root-files-top-down-recurring))))
 
-;;; [ flycheck-cstyle ] -- Integrate cstyle with flycheck.
-
-(use-package flycheck-cstyle
-  :ensure t
-  :after flycheck
-  :hook ((c-mode c++-mode objc-mode) . flycheck-cstyle-setup)
-  :config (flycheck-add-next-checker 'c/c++-cppcheck '(warning . cstyle))
-  ;; If you do not use cppcheck then chain after whichever checker you do use (ie. clang / gcc / irony etc).
-  ;; (flycheck-add-next-checker 'c/c++-clang '(warning . cstyle))
-  )
-
 ;;; [ flycheck-clang-analyzer ] -- Integrate Clang Static Analyzer with flycheck for on-the-fly static analysis in Emacs.
 
 (use-package flycheck-clang-analyzer
@@ -169,6 +158,16 @@
   :after flycheck
   :hook ((c-mode c++-mode objc-mode) . flycheck-clang-analyzer-setup))
 
+;;; [ flycheck-cstyle ] -- Integrate cstyle with flycheck.
+
+;; (use-package flycheck-cstyle
+;;   :ensure t
+;;   :after flycheck
+;;   :hook ((c-mode c++-mode objc-mode) . flycheck-cstyle-setup)
+;;   :config (flycheck-add-next-checker 'c/c++-cppcheck '(warning . cstyle))
+;;   ;; If you do not use cppcheck then chain after whichever checker you do use (ie. clang / gcc / irony etc).
+;;   ;; (flycheck-add-next-checker 'c/c++-clang '(warning . cstyle))
+;;   )
 
 (require 'init-prog-tags)
 
