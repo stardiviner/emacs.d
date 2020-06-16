@@ -1,6 +1,6 @@
 ;;; init-eaf.el --- init for emacs-application-framework -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-05-25 15:18:11 stardiviner>
+;;; Time-stamp: <2020-06-16 11:03:51 stardiviner>
 
 ;;; Commentary:
 
@@ -12,23 +12,14 @@
 
 (use-package eaf
   :load-path "~/Code/Emacs/emacs-application-framework/"
-  :custom (eaf-find-alternate-file-in-dired t)
   :diminish eaf-mode
-  :bind (:map eaf-interleave-mode-map
-              ("M-." . 'eaf-interleave-sync-current-note)
-              ("M-p" . 'eaf-interleave-sync-previous-note)
-              ("M-n" . 'eaf-interleave-sync-next-note)
-              :map eaf-interleave-app-mode-map
-              ("C-c M-i" . 'eaf-interleave-add-note)
-              ("C-c M-o" . 'eaf-interleave-open-notes-file)
-              ("C-c M-q" . 'eaf-interleave-quit))
-  :load (eaf-org)
   :config
-  (define-key dired-mode-map (kbd "M-RET") 'eaf-open-this-from-dired)
   (eaf-setq eaf-camera-save-path "~")
-  (setf (alist-get "q" eaf-pdf-viewer-keybinding) 'quit-window)
-  (setf (alist-get "q" eaf-image-viewer-keybinding) 'quit-window)
-  (setf (alist-get "q" eaf-video-player-keybinding) 'quit-window)
+
+  ;; [ Dired ]
+  (setq eaf-find-alternate-file-in-dired t)
+  (define-key dired-mode-map (kbd "M-RET") 'eaf-open-this-from-dired)
+  
   ;; use EAF as default web browser for Emacs.
   (setq browse-url-browser-function 'eaf-open-browser)
   ;; let `eaf-open-browser' support HiDPI screen
@@ -72,6 +63,13 @@
   (setq eaf-interleave-split-direction 'vertical)
   (setq eaf-interleave-disable-narrowing t)
   (setq eaf-interleave-split-lines 20)
+  (define-key eaf-interleave-mode-map (kbd "M-.") 'eaf-interleave-sync-current-note)
+  (define-key eaf-interleave-mode-map (kbd "M-p") 'eaf-interleave-sync-previous-note)
+  (define-key eaf-interleave-mode-map (kbd "M-n") 'eaf-interleave-sync-next-note)
+  (define-key eaf-interleave-app-mode-map (kbd "C-c M-i") 'eaf-interleave-add-note)
+  (define-key eaf-interleave-app-mode-map (kbd "C-c M-o") 'eaf-interleave-open-notes-file)
+  (define-key eaf-interleave-app-mode-map (kbd "C-c M-q") 'eaf-interleave-quit)
+  
 
   (add-to-list 'display-buffer-alist
                '("\\*eaf pdf outline\\*" . (display-buffer-below-selected))))
