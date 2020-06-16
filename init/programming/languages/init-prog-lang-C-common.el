@@ -185,11 +185,10 @@
 
 ;;; [ flycheck-clang-analyzer ] -- Integrate Clang Static Analyzer with flycheck for on-the-fly static analysis in Emacs.
 
-;; (use-package flycheck-clang-analyzer
-;;   :ensure t
-;;   :defer t
-;;   :after flycheck
-;;   :config (flycheck-clang-analyzer-setup))
+(use-package flycheck-clang-analyzer
+  :ensure t
+  :after flycheck
+  :hook ((c-mode c++-mode objc-mode) . flycheck-clang-analyzer-setup))
 
 
 (require 'init-prog-tags)
