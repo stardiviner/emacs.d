@@ -61,13 +61,7 @@
     (setq-local electric-layout-rules '((?\; . after)))
     (add-to-list 'electric-layout-rules '( ?\{ .  after))
     (add-to-list 'electric-layout-rules '( ?\} .  before)))
-  (add-hook 'c-mode-hook #'c-mode-electric-layout-setting)
-
-  ;; open header file
-  (defun my/c-mode-common-header-switch ()
-    "Open header file at point."
-    (local-set-key (kbd "C-c C-o") 'ff-find-other-file))
-  (add-hook 'c-mode-common-hook #'my/c-mode-common-header-switch))
+  (add-hook 'c-mode-hook #'c-mode-electric-layout-setting))
 
 ;;; [ modern-cpp-font-lock ] -- Font-locking for "Modern C++"
 
