@@ -67,8 +67,7 @@
 
 (use-package modern-cpp-font-lock
   :ensure t
-  :defer t
-  :hook (c++-mode-hook . modern-c++-font-lock-mode))
+  :hook (c++-mode . modern-c++-font-lock-mode))
 
 ;;; [ ob-C ]
 
