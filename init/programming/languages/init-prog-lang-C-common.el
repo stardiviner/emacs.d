@@ -153,15 +153,14 @@
 
 ;;; [ flycheck-cstyle ] -- Integrate cstyle with flycheck.
 
-;; (use-package flycheck-cstyle
-;;   :ensure t
-;;   :defer t
-;;   :after flycheck
-;;   :config
-;;   (flycheck-cstyle-setup)
-;;   (flycheck-add-next-checker 'c/c++-cppcheck '(warning . cstyle))
-;;   ;; (flycheck-add-next-checker 'c/c++-clang '(warning . cstyle))
-;;   )
+(use-package flycheck-cstyle
+  :ensure t
+  :after flycheck
+  :hook ((c-mode c++-mode objc-mode) . flycheck-cstyle-setup)
+  :config (flycheck-add-next-checker 'c/c++-cppcheck '(warning . cstyle))
+  ;; If you do not use cppcheck then chain after whichever checker you do use (ie. clang / gcc / irony etc).
+  ;; (flycheck-add-next-checker 'c/c++-clang '(warning . cstyle))
+  )
 
 ;;; [ flycheck-clang-analyzer ] -- Integrate Clang Static Analyzer with flycheck for on-the-fly static analysis in Emacs.
 
