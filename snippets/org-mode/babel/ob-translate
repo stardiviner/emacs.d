@@ -3,6 +3,6 @@
 # key: ob-translate
 # group: babel.translate
 # --
-#+begin_src translate :dest ${1:zh-CN}
+#+begin_src translate${1: src:${2:auto}} :dest ${3:zh-CN}
 $0
 #+end_src
