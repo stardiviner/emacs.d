@@ -32,21 +32,19 @@
               ("C-b" . google-translate-buffer)
               ("C-p" . google-translate-paragraphs-overlay)
               ("M-p" . google-translate-paragraphs-insert))
-  :preface (setq google-translate-base-url "https://translate.google.cn/translate_a/single"
-                 google-translate-listen-url "https://translate.google.cn/translate_tts"
-                 google-translate--tkk-url "https://translate.google.cn/")
-  :init (setq google-translate-show-phonetic t
-              google-translate-pop-up-buffer-set-focus t
-              ;; `google-translate-supported-languages'
-              google-translate-default-target-language "zh-CN"
-              ;; for `google-translate-smooth-translate' + [C-n/p]
-              google-translate-translation-directions-alist '(("en" . "zh-CN")
-                                                              ("zh-CN" . "en")
-                                                              ("zh-CN" . "ja")
-                                                              ("zh-CN" . "ko"))
-              google-translate-listen-program (executable-find "mpv")
-              google-translate-result-to-kill-ring t)
-
+  :custom ((google-translate-base-url "https://translate.google.cn/translate_a/single")
+           (google-translate-listen-url "https://translate.google.cn/translate_tts")
+           (google-translate--tkk-url "https://translate.google.cn/")
+           (google-translate-show-phonetic t)
+           (google-translate-pop-up-buffer-set-focus t)
+           (google-translate-default-target-language "zh-CN") ; `google-translate-supported-languages'
+           (google-translate-translation-directions-alist '(("en" . "zh-CN")
+                                                            ("zh-CN" . "en")
+                                                            ("zh-CN" . "ja")
+                                                            ("zh-CN" . "ko"))) ; for `google-translate-smooth-translate' + [C-n/p]
+           (google-translate-listen-program (executable-find "mpv"))
+           (google-translate-result-to-kill-ring t))
+  :config
   (add-to-list 'display-buffer-alist
                '("^\\*Google Translate\\*"
                  (display-buffer-reuse-window display-buffer-below-selected)))
