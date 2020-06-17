@@ -64,6 +64,19 @@
               ("C-c C-j" . lsp-ui-imenu))
   :preface (if (featurep 'xwidget-internal) (setq lsp-ui-doc-use-webkit t)))
 
+;;; [ lsp-treemacs ] -- LSP treemacs
+
+(use-package lsp-treemacs
+  :ensure t
+  :hook (lsp-mode . lsp-treemacs-sync-mode)
+  :commands (lsp-treemacs-quick-fix
+             lsp-treemacs-symbols-list
+             lsp-treemacs-references
+             lsp-treemacs-implementations
+             lsp-treemacs-call-hierarchy
+             lsp-treemacs-type-hierarchy
+             lsp-treemacs-deps-list))
+
 ;;; [ dap-mode ] -- Debug Adapter Protocol mode for lsp-mode.
 
 (use-package dap-mode
