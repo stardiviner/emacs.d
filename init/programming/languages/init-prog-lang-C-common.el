@@ -145,7 +145,6 @@
 (use-package ccls
   :ensure t
   :ensure lsp-mode
-  :after lsp
   :hook ((c-mode c++-mode objc-mode) . lsp)
   :config
   (with-eval-after-load 'projectile
