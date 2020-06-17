@@ -91,11 +91,12 @@
               ("<f8>" . dap-next)
               ("<f9>" . dap-continue)))
 
-;;; [ helm-lsp ] -- LSP helm integration.
+;;; [ lsp-ivy ] -- LSP Ivy integration.
 
-(use-package helm-lsp
+(use-package lsp-ivy
   :ensure t
-  :commands (helm-lsp-workspace-symbol helm-lsp-global-workspace-symbol))
+  :commands (lsp-ivy-workspace-symbol lsp-ivy-global-workspace-symbol)
+  :bind (:map lsp-command-map ("g G" . lsp-ivy-workspace-symbol)))
 
 ;;; [ lsp-docker ] -- lsp-mode uses lsp-docker to run language servers using in Docker containers.
 
