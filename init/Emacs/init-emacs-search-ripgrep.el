@@ -43,7 +43,15 @@
   :config (if (fboundp 'wgrep-rg-setup)
               (add-hook 'rg-mode-hook #'wgrep-rg-setup))
   (add-to-list 'display-buffer-alist
-               '("^\\*rg\\*" (display-buffer-reuse-window display-buffer-below-selected))))
+               '("^\\*rg\\*" (display-buffer-reuse-window display-buffer-below-selected)))
+
+  ;; automatically "reveal context" when opening matches in org buffers.
+  (defun rg-reveal-org ()
+    "Call`org-reveal' if current buffer is an `org-mode' buffer."
+    (when (derived-mode-p 'org-mode) (org-reveal)))
+  (defun rg-next-error-reveal-org ()
+    (add-hook 'next-error-hook #'rg-reveal-org nil 'local))
+  (add-hook 'rg-mode-hook #'rg-next-error-reveal-org))
 
 ;;; [ helm-rg ]
 
