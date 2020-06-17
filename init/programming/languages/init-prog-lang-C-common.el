@@ -144,12 +144,13 @@
 
 (use-package ccls
   :ensure t
+  :ensure lsp-mode
   :after lsp
   :hook ((c-mode c++-mode objc-mode) . lsp)
-  :config (with-eval-after-load 'projectile
-            (setq projectile-project-root-files-top-down-recurring
-                  (append '("compile_commands.json" ".ccls")
-                          projectile-project-root-files-top-down-recurring))))
+  :config
+  (with-eval-after-load 'projectile
+    (add-to-list 'projectile-project-root-files-top-down-recurring "compile_commands.json")
+    (add-to-list 'projectile-project-root-files-top-down-recurring ".ccls")))
 
 ;;; [ flycheck-clang-analyzer ] -- Integrate Clang Static Analyzer with flycheck for on-the-fly static analysis in Emacs.
 
