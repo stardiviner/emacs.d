@@ -69,14 +69,11 @@
       ;; tags-completion-table
       tags-apropos-verbose t)
 
-;;; Build Tags
-
-
 ;; NOTE: use etags & gtags, because company-mode support.
 ;; (require 'init-etags)
 ;; (require 'init-gtags)
 ;; (require 'init-ctags)
-(require 'init-cscope)
+;; (require 'init-cscope) ; <----- prefer "cscope"
 ;; (require 'init-rtags)
 
 

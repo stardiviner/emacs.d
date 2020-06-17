@@ -7,7 +7,7 @@
 
 ;;; Code:
 
-(defun cscope-build (dir)
+(defun cscope-build-tags-database (dir)
   "My custom function to execute shell command: $ cscope -bR under `DIR'."
   (interactive "Dcscope build database directory: ")
   (let* ((dir (expand-file-name dir))
@@ -29,7 +29,7 @@
           (message "cscope: database build %s : OK" dir))))
     cscope-buffer))
 
-(define-key tags-prefix (kbd "b") 'cscope-build)
+(define-key tags-prefix (kbd "b") 'cscope-build-tags-database)
 
 ;;; [ cscope ] -- An interface to Joe Steffen's "cscope" C browser.
 
