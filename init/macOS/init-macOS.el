@@ -29,6 +29,16 @@
   :init (when (memq window-system '(mac ns x))
           (exec-path-from-shell-initialize)))
 
+;;; [ xcode-mode ] -- A minor mode for emacs to perform Xcode like actions.
+
+(use-package xcode-mode
+  :ensure t)
+
+;;; [ xcode-project ] -- A package for reading Xcode project files.
+
+(use-package xcode-project
+  :ensure t)
+
 ;;; [ company-xcode ]
 
 (use-package company
