@@ -166,7 +166,9 @@
   :ensure t
   :ensure lsp-javascript-typescript
   :defer t
-  :hook ((js-mode js2-mode rjsx-mode) . lsp))
+  :hook ((js-mode js2-mode rjsx-mode) . lsp)
+  :config
+  (define-key js-mode-map [remap js-find-symbol] 'lsp-find-definition))
 
 ;;; [ npm-mode ] -- minor mode for working with npm projects.
 
