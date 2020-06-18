@@ -25,25 +25,25 @@
 
 (use-package flycheck
   :ensure t
-  :defer t
   :commands (flycheck-mode flycheck-next-error flycheck-previous-error flycheck-list-errors)
-  :custom (flycheck-check-syntax-automatically '(save idle-change new-line))
+  :custom ((flycheck-global-modes '(not emacs-lisp-mode
+                                        text-mode markdown-mode org-mode
+                                        lisp-mode clojure-mode))
+           (flycheck-check-syntax-automatically '(save idle-change new-line))
+           ;; let flycheck use the current `load-path'.
+           ;; don't error about "free variable" without (require ??).
+           (flycheck-emacs-lisp-load-path 'inherit))
   ;; NOTE: ONLY enable `flycheck-mode' MANUALLY. automatically checking will
   ;; cause high CPU. especially big source code file.
-  :hook (prog-mode . flycheck-mode-on-safe)
-  ;; :hook (after-init . global-flycheck-mode)
+  :hook ((after-init . global-flycheck-mode)
+         ;; (prog-mode . flycheck-mode-on-safe)
+         )
   :bind (:map linter-prefix ("!" . flycheck-mode)
               :map flycheck-mode-map
               ("M-g M-n" . flycheck-next-error)
               ("M-g M-p" . flycheck-previous-error)
               ("M-g M-l" . flycheck-list-errors))
   :config
-  (when global-flycheck-mode
-    (setq flycheck-global-modes '(not emacs-lisp-mode clojure-mode lisp-mode)))
-  ;; [Emacs Lisp]
-  ;; To make Flycheck use the current `load-path'.
-  ;; Don't error about "free variable" without (require ??).
-  (setq flycheck-emacs-lisp-load-path 'inherit)
   ;; (add-to-list 'display-buffer-alist
   ;;              '("^\\*Flycheck errors\\*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
