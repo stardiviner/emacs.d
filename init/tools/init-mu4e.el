@@ -11,7 +11,13 @@
   :load-path "~/Code/Emacs/mu/mu4e/"    ; compile from source code
   :defer t
   :commands (mu4e mu4e-org-open mu4e-org-store-link)
-  :custom ((mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
+  :custom (;; Maildir
+           (mu4e-sent-folder "/Send")
+           (mu4e-drafts-folder "/Drafts")
+           ;; (mu4e-refile-folder "/Archives")
+           (mu4e-trash-folder "/Trash")
+           ;; mail agent
+           (mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
            (mu4e-completing-read-function 'completing-read)
            (message-send-mail-function 'message-send-mail-with-sendmail)
            ;; my personal email
@@ -20,12 +26,6 @@
            (user-full-name  "stardiviner"))
   :bind (:map tools-prefix ("m" . mu4e))
   :config
-  ;; [ Maildir ]
-  (setq mu4e-sent-folder "/Send"
-        mu4e-drafts-folder "/Drafts"
-        ;; mu4e-refile-folder "/Archives"
-        mu4e-trash-folder "/Trash")
-
   ;; the maildirs you use frequently; access them with 'j' ('jump')
   (setq mu4e-maildir-shortcuts
         '((:maildir   "/INBOX"                  :key ?i)
