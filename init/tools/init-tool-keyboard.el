@@ -20,6 +20,11 @@
   :ensure t
   :commands (esonify-mode))
 
+;;; [ rainbow-fart ] -- 程序猿鼓励师
+
+(use-package rainbow-fart
+  :quelpa (rainbow-fart :fetcher "github" :repo "stardiviner/emacs-rainbow-fart")
+  :hook (prog-mode . rainbow-fart-mode))
 
 (provide 'init-tool-keyboard)
 
