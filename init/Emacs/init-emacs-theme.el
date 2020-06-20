@@ -53,17 +53,13 @@
 
 (use-package circadian
   :ensure t
-  :init (setq calendar-location-name "Shaoxing Town"
-              calendar-time-zone +480
-              calendar-latitude 29.72
-              calendar-longitude 120.20)
-  :config
-  ;; NOTE: make sure to use `:defer' keyword for theme `use-package'.
-  (setq circadian-themes '((:sunrise . leuven)
-                           (:sunset . one-dark)))
-  ;; fix multiple themes loaded at startup caused theme colors mixture.
-  (mapc #'disable-theme custom-enabled-themes)
-  (circadian-setup))
+  :custom ((calendar-location-name "Shaoxing Town")
+           (calendar-time-zone +480)
+           (calendar-latitude 29.72)
+           (calendar-longitude 120.20)
+           (circadian-themes '((:sunrise . leuven)
+                               (:sunset . one-dark))))
+  :hook (after-init . circadian-setup))
 
 
 (provide 'init-emacs-theme)
