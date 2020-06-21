@@ -576,6 +576,13 @@ and append it."
 (use-package org-screen
   :commands (org-screen))
 
+;;; [ org-link-beautify ] -- beautify org links with intuitive icons.
+
+(use-package org-link-beautify
+  :quelpa (org-link-beautify :fetcher github :repo "stardiviner/org-link-beautify")
+  :commands (global-org-link-beautify-mode org-link-beautify-mode)
+  :init (global-org-link-beautify-mode 1))
+
 
 
 (provide 'init-org-hyperlink)
