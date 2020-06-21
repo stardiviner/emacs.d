@@ -122,7 +122,8 @@ Optional for Org-mode file: `LINK'."
                    ("\\.midi\\'" . "timidity %s")))
      (add-to-list 'org-file-apps pair))
 
-   (add-to-list 'org-file-apps '("\\.swf\\'" . "gnash %s")))
+   ;; (add-to-list 'org-file-apps '("\\.swf\\'" . "gnash %s"))
+   )
 
   ('darwin
    )
@@ -152,6 +153,7 @@ Optional for Org-mode file: `LINK'."
   ;; images
   (add-to-list 'org-file-apps '("\\.gif\\'" . eaf-open-for-org))
   ;; videos
+  (add-to-list 'org-file-apps '("\\.avi\\'" . eaf-open-for-org))
   (add-to-list 'org-file-apps '("\\.mp4\\'" . eaf-open-for-org))
   (add-to-list 'org-file-apps '("\\.mkv\\'" . eaf-open-for-org))
   (add-to-list 'org-file-apps '("\\.mov\\'" . eaf-open-for-org))
@@ -182,6 +184,7 @@ Optional for Org-mode file: `LINK'."
                   (format "*mplayer %s*" name)
                   "mplayer" file)))))
 (with-eval-after-load 'org
+  (add-to-list 'org-file-apps '("\\.avi\\'" . my/org-open-video-file))
   (add-to-list 'org-file-apps '("\\.mp4\\'" . my/org-open-video-file))
   (add-to-list 'org-file-apps '("\\.mkv\\'" . my/org-open-video-file))
   (add-to-list 'org-file-apps '("\\.mov\\'" . my/org-open-video-file))
