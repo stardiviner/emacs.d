@@ -208,6 +208,9 @@
     "http://www.youtube.com/results?aq=f&oq=&search_query=%s"
     :docstring "YouTube"
     :keybinding "y")
+  (defengine bilibili
+    "https://search.bilibili.com/all?keyword=%s"
+    :docstring "Bilibili")
   (defengine douban-books
     "http://book.douban.com/subject_search?search_text=%s"
     :docstring "Douban Books")
