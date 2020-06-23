@@ -56,6 +56,10 @@
 ;;   (format "<script type=\"text/javascript\">\n%s\n</script>" body))
 
 
+;;; load `ox-md' for exporting to Markdown.
+(with-eval-after-load 'ox
+  (require 'ox-md))
+
 ;;; [ org-mime ] -- org-mime can be used to send HTML email using Org-mode HTML export.
 
 (use-package org-mime
