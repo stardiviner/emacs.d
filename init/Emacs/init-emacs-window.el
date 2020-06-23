@@ -128,8 +128,7 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
   :hook (after-init . zoom-mode)
   :config (setq zoom-size '(0.618 . 0.618))
   
-  (add-to-list 'zoom-ignored-major-modes 'dired-mode)
-  (add-to-list 'zoom-ignored-major-modes 'fundamental-mode)
+  (add-to-list 'zoom-ignored-major-modes 'helm-major-mode)
   (add-to-list 'zoom-ignored-major-modes 'ediff-mode)
   
   (add-to-list 'zoom-ignored-buffer-name-regexps "^*Ediff Control Panel*")
