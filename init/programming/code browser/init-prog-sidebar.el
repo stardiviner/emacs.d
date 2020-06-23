@@ -14,7 +14,17 @@
   :defer t
   :commands (dired-sidebar-toggle-sidebar)
   :bind ("<f8>" . dired-sidebar-toggle-sidebar)
-  :init (setq dired-sidebar-no-delete-other-windows t))
+  :custom ((dired-sidebar-no-delete-other-windows t))
+  :config
+  ;; disable `zoom-mode' before toggle `dired-sidebar'.
+  (add-to-list 'dired-sidebar-toggle-hidden-commands 'zoom--handler)
+  (when (featurep 'zoom)
+    (defvar dired-sidebar--zoom-mode-status nil)
+    (advice-add 'dired-sidebar-show-sidebar :before
+                (lambda (&optional b)
+                  (setq dired-sidebar--zoom-mode-status zoom-mode)
+                  (zoom--off)))
+    (advice-add 'dired-sidebar-hide-sidebar :after #'zoom--on)))
 
 ;; (use-package ibuffer-sidebar
 ;;   :ensure t
