@@ -319,7 +319,7 @@
 ;; above or below the display line.
 
 ;; additional space to put between lines.
-(setq-default line-spacing 0.1)         ; nil, 0, 0.1, 1,
+;; (setq-default line-spacing 0.1)         ; nil, 0, 0.1, 1,
 
 ;;; [ line numbers ] -- Emacs native line number mode.
 
