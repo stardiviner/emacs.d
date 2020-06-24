@@ -17,7 +17,6 @@
   :custom ((dired-sidebar-no-delete-other-windows t))
   :config
   ;; disable `zoom-mode' before toggle `dired-sidebar'.
-  (add-to-list 'dired-sidebar-toggle-hidden-commands 'zoom--handler)
   (when (featurep 'zoom)
     (defvar dired-sidebar--zoom-mode-status nil)
     (advice-add 'dired-sidebar-show-sidebar :before
