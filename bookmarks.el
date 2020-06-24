@@ -2,7 +2,82 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("My Cosmetology Manual.org"
+(("My C++ Language Standard Library Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C++/Data/Manuals/My C++ Language Standard Library Reference/My C++ Language Standard Library Reference.org")
+ (front-context-string . "#+TITLE: My C++ ")
+ (rear-context-string)
+ (position . 1))
+("Cosmetology.org"
+ (filename . "~/Org/Wiki/Apparel/Cosmetology/Cosmetology.org")
+ (front-context-string . "#+TITLE: Cosmeto")
+ (rear-context-string)
+ (position . 1))
+("Evolutionism.org"
+ (filename . "~/Org/Wiki/Biology/Genetics/Evolutionism/Evolutionism.org")
+ (front-context-string . "#+TITLE: Evoluti")
+ (rear-context-string)
+ (position . 1))
+("Web Design.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Design/Web Design.org")
+ (front-context-string . "#+TITLE: Web Des")
+ (rear-context-string)
+ (position . 1))
+("Microservices.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Server Architecture/Microservices/Microservices.org")
+ (front-context-string . "#+TITLE: Microse")
+ (rear-context-string)
+ (position . 1))
+("Success.org"
+ (filename . "~/Org/Wiki/Self Enhancement/Success/Success.org")
+ (front-context-string . "#+TITLE: Success")
+ (rear-context-string)
+ (position . 1))
+("Novel Books.org"
+ (filename . "~/Org/Wiki/Literature/Countries Literature/Chinese Literature/Novel/Data/Novel Books/Novel Books.org")
+ (front-context-string . "#+TITLE: Novel B")
+ (rear-context-string)
+ (position . 1))
+("Information Technology.org"
+ (filename . "~/Org/Wiki/Information Science/Information Technology/Information Technology.org")
+ (front-context-string . "#+TITLE: Informa")
+ (rear-context-string)
+ (position . 1))
+("易經.org"
+ (filename . "~/Org/Wiki/Mysterious Culture/Yi Learning/易經/易經.org")
+ (front-context-string . "#+TITLE: 易經\n\n* I")
+ (rear-context-string)
+ (position . 1))
+("Yi Learning.org"
+ (filename . "~/Org/Wiki/Mysterious Culture/Yi Learning/Yi Learning.org")
+ (front-context-string . "#+TITLE: Yi Lear")
+ (rear-context-string)
+ (position . 1))
+("Mysterious Culture.org"
+ (filename . "~/Org/Wiki/Mysterious Culture/Mysterious Culture.org")
+ (front-context-string . "#+TITLE: Mysteri")
+ (rear-context-string)
+ (position . 1))
+("Project Management.org"
+ (filename . "~/Org/Wiki/Commercial Science/Management/Project Management/Project Management.org")
+ (front-context-string . "#+TITLE: Project")
+ (rear-context-string)
+ (position . 1))
+("Remote Work.org"
+ (filename . "~/Org/Wiki/Career/Remote Work/Remote Work.org")
+ (front-context-string . "#+TITLE: Remote ")
+ (rear-context-string)
+ (position . 1))
+("Windows Subsystem for Linux.org"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Microsoft Windows/Windows Subsystem for Linux/Windows Subsystem for Linux.org")
+ (front-context-string . "#+TITLE: Windows")
+ (rear-context-string)
+ (position . 1))
+("clj-new.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/clj-new.org")
+ (front-context-string . "* Intro\n\nGenerat")
+ (rear-context-string)
+ (position . 1))
+("My Cosmetology Manual.org"
  (filename . "~/Org/Wiki/Apparel/Cosmetology/Data/Manuals/My Cosmetology Manual/My Cosmetology Manual.org")
  (front-context-string . "#+TITLE: My Cosm")
  (rear-context-string)
@@ -55,11 +130,6 @@
 ("Poem.org"
  (filename . "~/Org/Wiki/Literature/Countries Literature/Chinese Literature/Poem/Poem.org")
  (front-context-string . "#+TITLE: Poem (诗")
- (rear-context-string)
- (position . 1))
-("Novel Books.org"
- (filename . "~/Org/Wiki/Literature/Countries Literature/Chinese Literature/Novels/Data/Novel Books/Novel Books.org")
- (front-context-string . "#+TITLE: Novel B")
  (rear-context-string)
  (position . 1))
 ("Chinese Literature.org"
@@ -2099,20 +2169,20 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored-marker"
- (filename . "~/Org/Wiki/World Grid Information/World Grid Information.org")
- (front-context-string . "*** 美国推进封锁华为芯片供应")
- (rear-context-string . "  面评估和解读这些规则。”\n\n")
- (position . 22633))
+ (filename . "~/Org/Wiki/Healthcare/Healthcare.org")
+ (front-context-string . "*** 北京疫情复发昭示新常态\n")
+ (rear-context-string . "情，\n  这种可能性很大。\n\n\n")
+ (position . 51607))
 ("org-refile-last-stored"
- (filename . "~/Org/Wiki/World Grid Information/World Grid Information.org")
- (front-context-string . "*** 美国推进封锁华为芯片供应")
- (rear-context-string . "  面评估和解读这些规则。”\n\n")
- (position . 22633))
+ (filename . "~/Org/Wiki/Healthcare/Healthcare.org")
+ (front-context-string . "*** 北京疫情复发昭示新常态\n")
+ (rear-context-string . "情，\n  这种可能性很大。\n\n\n")
+ (position . 51607))
 ("org-capture-last-stored"
- (filename . "~/Org/Tasks/Tasks.org")
- (front-context-string . "* 美国推进封锁华为芯片供应 中")
- (rear-context-string . "已注销”。并且标记隐藏账户。\n\n")
- (position . 226))
+ (filename . "~/Org/Diary/Diary.org")
+ (front-context-string . "**** 这就是他们的嘴脸，对他")
+ (rear-context-string . "6-24 Wednesday\n\n")
+ (position . 88356))
 ("PDF-LAST-VIEWED: /tmp/mu-1000/b53469b1/3/test.pdf"
  (filename .
            #("/tmp/mu-1000/b53469b1/3/test.pdf" 0 32
@@ -3192,12 +3262,6 @@
    (idx 457))
  (filename . "~/.config/emacs/Org-mode/Library of Babel/Library of Babel.org")
  (front-context-string . "#+TITLE: Library")
- (rear-context-string)
- (position . 1))
-(#("Spiritual.org" 0 1
-   (idx 461))
- (filename . "~/Org/Wiki/Spiritual/Spiritual.org")
- (front-context-string . "* Intro\n\n** \"灵修\"")
  (rear-context-string)
  (position . 1))
 (#("Vagrant.org" 0 1
