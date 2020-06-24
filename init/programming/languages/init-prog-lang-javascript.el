@@ -9,9 +9,11 @@
 ;;; [ JavaScript ]
 
 (use-package js
-  :defer t
   :mode (("\\.js\\'" . js-mode)
-         ("\\.jsx\\'" . js-jsx-mode)))
+         ("\\.jsx\\'" . js-jsx-mode))
+  :config
+  ;; fix `js-find-symbol' [M-.] overriding other packages' keybinding.
+  (substitute-key-definition 'js-find-symbol 'xref-find-definitions js-mode-map))
 
 ;;; [ ob-js ]
 
@@ -160,16 +162,11 @@
               (indium-eval
                (format "window.dispatchEvent(new CustomEvent('patch', {detail: {url: '%s'}}))" url)))))
 
-;;; [ lsp-javascript-typescript ] -- Javascript and Typescript support for lsp-mode using javascript-typescript-langserver.
+;;; [ lsp-mode ] -- Javascript and Typescript support for lsp-mode using javascript-typescript-langserver.
 
 (use-package lsp-mode
   :ensure t
-  :ensure lsp-javascript-typescript
-  :defer t
-  :hook ((js-mode js2-mode rjsx-mode) . lsp)
-  :config
-  (with-eval-after-load 'js-mode
-    (define-key js-mode-map [remap js-find-symbol] 'lsp-find-definition)))
+  :hook ((js-mode js2-mode rjsx-mode) . lsp))
 
 ;;; [ npm-mode ] -- minor mode for working with npm projects.
 
