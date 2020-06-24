@@ -134,9 +134,9 @@
 
 ;;; [ magit-delta ] -- Use Delta when displaying diffs in Magit.
 
-(use-package magit-delta
-  :ensure t
-  :init (magit-delta-mode 1))
+;; (use-package magit-delta
+;;   :ensure t
+;;   :init (magit-delta-mode 1))
 
 ;;; [ magit-gitflow ] -- Git Flow plugin for magit
 
