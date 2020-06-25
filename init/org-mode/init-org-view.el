@@ -66,20 +66,9 @@
     :config
     (add-to-list 'shr-external-rendering-functions '(pre . shr-tag-pre-highlight))))
 
-;;; [ inherit-org ] -- 
+;;===============================================================================
 
-;;; bind [SPACE] key to `scroll-up-command' after enabled `read-only-mode'.
-(defun my/org-read-only-SPC-down-keybinding ()
-  "Bind the SPACE key to `scroll-up-command' after enabled `read-only-mode'."
-  (when (eq major-mode 'org-mode)
-    (if buffer-read-only
-        (progn
-          (local-set-key (kbd "SPC") 'scroll-up-command)
-          (message "Temporaril set [SPACE] key to `scroll-up-command' locally."))
-      (define-key org-mode-map (kbd "SPC") 'org-self-insert-command)
-      (message "Revert [SPACE] key back to `org-self-insert-command'."))))
-
-(add-hook 'read-only-mode-hook #'my/org-read-only-SPC-down-keybinding)
+(setq view-read-only t) ; enable view mode after enabled `read-only-mode' [C-x C-q].
 
 
 (provide 'init-org-view)
