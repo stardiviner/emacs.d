@@ -362,8 +362,12 @@ and append it."
 
 (use-package orgit
   :ensure t
-  :defer t
-  :init (setq orgit-log-save-arguments t))
+  :custom (orgit-log-save-arguments t))
+
+;;; [ orgit-forge ] -- Org links to Magit Forge issue buffers.
+
+(use-package orgit-forge
+  :ensure t)
 
 ;;; `track:' for OSM Maps
 ;; [[track:((9.707032442092896%2052.37033874553582)(9.711474180221558%2052.375238282987))data/images/org-osm-link.svg][Open this link will generate svg, png image for track link on map]]
