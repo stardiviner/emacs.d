@@ -45,7 +45,7 @@
         ("lock") ("unlock") ("key")
         ("refresh") ("repeat") ("inprogress") ("fragment")
         (:endgrouptag)
-
+        
         ;; Life
         (:startgrouptag) ("@life" . nil) (:grouptags)
         ("talk") ("call") ("shopping") ("express")
@@ -83,7 +83,7 @@
         (:startgrouptag) ("@work" . ?w) (:grouptags)
         ("appointment" . ?a) ("meeting" . ?m) ("urgent" . ?u)
         (:endgrouptag)
-
+        
         (:startgrouptag) ("@wiki" . ?k) (:grouptags)
         ("thought") ("philosophy") ("psychology") ("literature")
         ("computer_science") ("math")
@@ -94,19 +94,19 @@
         (:endgrouptag)
         
         (:startgrouptag) ("@programming") (:grouptags)
-        ("code" . ?C) ("source_code") ("bug") ("Emacs" . ?e) ("git" . ?G) ("github") ("GitHub")
+        ("code" . ?C) ("source_code") ("bug") ("Emacs" . ?e) ("git" . ?G) ("GitHub") ("GitLab")
         (:startgroup)
         ("hardware") ("usb") ("disk") ("terminal") ("cloud") ("DevOps") ("docker")
         ("security")
-        ("Linux" . ?L) ("Apple") ("macOS") ("Windows") ("Android") ("iOS")
-        ("LISP" . nil) ("Common_Lisp" . ?l) ("Clojure" . ?c) ("ClojureScript" . ?s)
+        ("Linux" . ?L) ("Apple") ("macOS") ("Windows" . ?W) ("Android") ("iOS")
+        ("LISP" . ?l) ("Common_Lisp") ("Clojure" . ?c) ("ClojureScript" . ?s)
+        ("Java" . ?j) ("C") ("cpp") ("Go") ("Rust") ("Swift") ("C#" . ?#)
         ("Shell" . ?S) ("Python" . ?p) ("Ruby" . ?r)
         ("JavaScript" . ?J) ("HTML") ("HTML5") ("CSS") ("CSS3")
-        ("Java" . ?j) ("C") ("cpp") ("Go") ("Rust") ("Swift") ("C#")
-        ("database" . ?d) ("SQL") ("PostgreSQL") ("MySQL") ("MariaDB") ("Oracle")
-        ("TeX") ("LaTeX")
+        ("database" . ?d) ("SQL") ("PostgreSQL") ("MySQL") ("MariaDB") ("Oracle") ("SQLite") ("DB2")
+        ("TeX") ("LaTeX") ("Markdown") ("reStructuredText") ("AsciiDoc") ("YAML") ("TOML") ("CWL")
         ;; Internet
-        ("Internet") ("Google") ("Facebook") ("Twitter") ("Microsoft") ("Windows")
+        ("Internet") ("Google") ("Facebook") ("Twitter") ("Microsoft") ("Amazon")
         ("Tencent")
         (:endgroup)
         (:endgrouptag)
@@ -115,7 +115,7 @@
         (:startgrouptag) ("@family") (:grouptags)
         ("sister") ("father") ("mother")
         (:endgrouptag)
-        (:startgrouptag) ("@relatives") (:endgrouptag)
+        (:startgrouptag) ("@relative") (:endgrouptag)
         (:startgrouptag) ("@girlfriend") (:endgrouptag)
         (:startgrouptag) ("@workmate") (:endgrouptag)
         (:startgrouptag) ("@friend") (:grouptags)
@@ -126,7 +126,7 @@
         (:startgrouptag) ("@project") (:grouptags)
         ("agriculture")
         (:endgrouptag)
-
+        
         (:startgrouptag) ("@company") (:grouptags)
         ("users") ("promotion") ("copyright")
         (:endgrouptag)
@@ -265,9 +265,9 @@
           ("file" . ,(all-the-icons-faicon "file-text-o"))
           ("archive" . ,(all-the-icons-faicon "file-archive-o"))
           ("document" . ,(all-the-icons-faicon "file-text-o"))
-          ("markdown" . ,(all-the-icons-fileicon "markdownlint"))
-          ("asciidoc" . ,(all-the-icons-fileicon "asciidoc"))
-          ("onenote" . ,(all-the-icons-fileicon "onenote"))
+          ("Markdown" . ,(all-the-icons-fileicon "markdownlint"))
+          ("AsciiDoc" . ,(all-the-icons-fileicon "asciidoc"))
+          ("OneNote" . ,(all-the-icons-fileicon "onenote"))
           ("word" . ,(all-the-icons-fileicon "word"))
           ("excel" . ,(all-the-icons-fileicon "excel"))
           ("powerpoint" . ,(all-the-icons-fileicon "powerpoint"))
@@ -525,7 +525,6 @@
           ("Facebook" . ,(all-the-icons-faicon "facebook-official"))
           ("Twitter" . ,(all-the-icons-faicon "twitter"))
           ("Amazon" . ,(all-the-icons-faicon "amazon"))
-          ("github" . ,(all-the-icons-faicon "github"))
           ("GitHub" . ,(all-the-icons-faicon "github"))
           ("GitLab" . ,(all-the-icons-fileicon "gitlab"))
           ("hacker_news" . ,(all-the-icons-faicon "hacker-news"))
