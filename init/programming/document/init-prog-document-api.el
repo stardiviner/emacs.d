@@ -70,7 +70,7 @@
   ;; JavaScript
   (defun helm-dash-buffer-local-javascript-docsets ()
     (my/dash-docs-local-docsets '("JavaScript" "NodeJS" "jQuery"))
-    (my/dash-docs-local-docsets '("React") t))
+    (my/dash-docs-local-docsets '("React" "VueJS" "Angular" "BackboneJS" "Express" "Bootstrap_4" "D3JS") t))
   (add-hook 'js-mode-hook 'helm-dash-buffer-local-javascript-docsets)
   ;; HTML
   (defun helm-dash-buffer-local-html-docsets ()
