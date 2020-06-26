@@ -68,11 +68,10 @@
       (my/dash-docs-local-docsets '("jQuery" "React") t))
     (add-hook 'web-mode-hook 'helm-dash-buffer-local-web-docsets))
   ;; JavaScript
-  (with-eval-after-load 'js2-mode
-    (defun helm-dash-buffer-local-javascript-docsets ()
-      (my/dash-docs-local-docsets '("JavaScript" "NodeJS" "jQuery"))
-      (my/dash-docs-local-docsets '("React") t))
-    (add-hook 'js2-mode-hook 'helm-dash-buffer-local-javascript-docsets))
+  (defun helm-dash-buffer-local-javascript-docsets ()
+    (my/dash-docs-local-docsets '("JavaScript" "NodeJS" "jQuery"))
+    (my/dash-docs-local-docsets '("React") t))
+  (add-hook 'js-mode-hook 'helm-dash-buffer-local-javascript-docsets)
   ;; HTML
   (defun helm-dash-buffer-local-html-docsets ()
     (my/dash-docs-local-docsets '("HTML" "JavaScript" "jQuery"))

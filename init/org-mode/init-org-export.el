@@ -48,7 +48,7 @@
 ;;; Exporting JavaScript babel code block into <script> tag in HTML export.
 
 ;; (add-to-list 'org-src-lang-modes '("inline-js" . javascript))
-;; (add-to-list 'org-src-lang-modes '("inline-js" . js2))
+;; (add-to-list 'org-src-lang-modes '("inline-js" . js))
 ;; (defvar org-babel-default-header-args:inline-js
 ;;   '((:results . "html")
 ;;     (:exports . "results")))

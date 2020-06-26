@@ -25,7 +25,7 @@
                   (cl-case major-mode
                     (haskell-mode
                      (push '("\\"       . ?λ) prettify-symbols-alist))
-                    (js2-mode
+                    (js-mode
                      (push '("function" . ?λ) prettify-symbols-alist))
                     (lua-mode
                      (push '("function" . ?λ) prettify-symbols-alist))
