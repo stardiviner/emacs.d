@@ -279,6 +279,7 @@
 ;; (require 'init-prog-lang-dart)
 ;; (require 'init-prog-lang-xml)
 (require 'init-prog-lang-json)
+(require 'init-prog-lang-csv)
 ;; (require 'init-prog-lang-rdf)
 ;; (require 'init-prog-lang-sdlang)
 ;; (require 'init-prog-lang-haskell)
