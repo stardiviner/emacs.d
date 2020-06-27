@@ -18,6 +18,14 @@
   :defer t
   :bind (:map screencast-prefix ("k" . keycast-mode)))
 
+;;; [ keypression ] -- Keystroke visualizer.
+
+(use-package keypression
+  :ensure t
+  :commands (keypression-mode)
+  :custom ((keypression-cast-command-name t)
+           (keypression-combine-same-keystrokes t)))
+
 ;;; [ gif-screencast ] -- one-frame-per-action GIF recording for optimal quality/size ratio.
 
 (use-package gif-screencast
