@@ -1,6 +1,6 @@
 ;;; init-emacs-profiler.el --- init profilers for Emacs.
 
-;;; Time-stamp: <2020-05-12 00:41:38 stardiviner>
+;;; Time-stamp: <2020-06-27 08:35:35 stardiviner>
 
 ;;; Commentary:
 
@@ -45,6 +45,13 @@
   :ensure t
   :defer t
   :commands (memory-usage))
+
+;;; [ explain-pause-mode ] -- Emacs minor mode that watches for long pauses and reports them.
+
+(use-package explain-pause-mode
+  :quelpa (explain-pause-mode :fetcher github :repo "lastquestion/explain-pause-mode")
+  :commands (explain-pause-mode explain-pause-top)
+  :hook (after-init . explain-pause-mode))
 
 
 
