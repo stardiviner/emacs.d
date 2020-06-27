@@ -207,6 +207,7 @@
 ;; (require 'init-stack-exchange)
 ;; (require 'init-tool-social-network)
 ;; (require 'init-tool-weather)
+(require 'init-tool-utilities)
 ;; (require 'init-leetcode)
 
 
