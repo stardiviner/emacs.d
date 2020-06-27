@@ -95,6 +95,12 @@ For pasting source code in Email."
   :commands (carbon-now-sh)
   :bind (:map paste-prefix ("i" . carbon-now-sh)))
 
+;;; [ linkode ] -- Send buffer or region code to linkode.org to generate an image.
+
+(use-package linkode
+  :ensure t
+  :commands (linkode-region linkode-buffer))
+
 
 (provide 'init-tool-paste)
 
