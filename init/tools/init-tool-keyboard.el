@@ -23,8 +23,9 @@
 ;;; [ rainbow-fart ] -- 程序猿鼓励师
 
 (use-package rainbow-fart
-  :quelpa (rainbow-fart :fetcher "github" :repo "stardiviner/emacs-rainbow-fart")
-  :hook (prog-mode . rainbow-fart-mode))
+  :ensure t
+  :hook (prog-mode . rainbow-fart-mode)
+  :custom ((rainbow-fart-keyword-interval nil)))
 
 (provide 'init-tool-keyboard)
 
