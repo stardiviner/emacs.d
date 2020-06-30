@@ -62,7 +62,8 @@
     (define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
     ;; change key [k] to [K] to avoid mis-press.
     ;; (define-key pdf-view-mode-map (kbd "k") nil)
-    (pdf-outline-minor-mode 1))
+    (pdf-outline-minor-mode 1)
+    (pdf-isearch-minor-mode 1))
   (add-hook 'pdf-view-mode-hook #'my-pdf-tools-setup)
   
   ;; (add-to-list 'display-buffer-alist
