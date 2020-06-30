@@ -127,23 +127,7 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
   :ensure t
   :hook (after-init . zoom-mode)
   :config (setq zoom-size '(0.618 . 0.618))
-  
-  (add-to-list 'zoom-ignored-major-modes 'helm-major-mode)
-  (add-to-list 'zoom-ignored-major-modes 'ediff-mode)
-  
-  (add-to-list 'zoom-ignored-buffer-name-regexps "^*Ediff Control Panel*")
-  (add-to-list 'zoom-ignored-buffer-name-regexps "^*Ediff Registry*")
-  
-  ;; (add-to-list 'zoom-ignored-buffer-name-regexps "^*.pdf")
-  
-  ;; (setq zoom-ignore-predicates '((lambda () (< (count-lines (point-min) (point-max)) 20))))
-  
-  ;; don't resize ediff control panel window.
-  (defun my/fix-ediff-size ()
-    (with-selected-window (get-buffer-window "*Ediff Control Panel*")
-      (setq window-size-fixed t)
-      (window-resize (selected-window) (- 5 (window-total-height)) nil t)))
-  (add-hook 'ediff-after-setup-windows-hook 'my/fix-ediff-size))
+  (add-to-list 'zoom-ignored-major-modes 'helm-major-mode))
 
 ;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
 
