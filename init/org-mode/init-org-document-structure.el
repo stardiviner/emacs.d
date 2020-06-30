@@ -13,7 +13,7 @@
   (make-local-variable 'electric-pair-pairs)
   (setq-local electric-pair-pairs nil)
   ;; (add-to-list 'electric-pair-pairs '(?\* . ?\*)) ; bold text ; NOTE disable for change headline level.
-  (add-to-list 'electric-pair-pairs '(?\/ . ?\/)) ; italic text
+  ;; (add-to-list 'electric-pair-pairs '(?\/ . ?\/)) ; italic text
   ;; (add-to-list 'electric-pair-pairs '(?\_ . ?\_)) ; underline text
   (add-to-list 'electric-pair-pairs '(?\= . ?\=)) ; verbatim
   (add-to-list 'electric-pair-pairs '(?\~ . ?\~)) ; code
