@@ -38,23 +38,20 @@
 ;;                (side            . bottom)
 ;;                (reusable-frames . visible)
 ;;                (window-height   . 0.15)))
+;;
+;; (add-to-list 'display-buffer-alist
+;;              '((lambda (&rest _)
+;;                  (memq this-command '(compile-goto-error occur-mode-goto-occurrence)))
+;;                (display-buffer-reuse-window display-buffer-same-window)
+;;                (inhibit-same-window . nil)))
+;;
 
-(add-to-list 'display-buffer-alist
-             '("^\\*Warnings\\*" (display-buffer-below-selected)))
 (add-to-list 'display-buffer-alist
              '("^\\*Pp Eval Output\\*" (display-buffer-below-selected)))
 (add-to-list 'display-buffer-alist
-             '("^\\*Backtrace\\*" (display-buffer-below-selected)))
-(add-to-list 'display-buffer-alist
              '("^\\*Process List\\*" (display-buffer-below-selected)))
 (add-to-list 'display-buffer-alist
-             '("^\\*Shell Command Output\\*" (display-buffer-no-window)))
-(add-to-list 'display-buffer-alist
-             '("^\\*Async Shell Command\\*" (display-buffer-no-window)))
-(add-to-list 'display-buffer-alist
              '("^\\*Animation\\*" (display-buffer-below-selected)))
-;; (add-to-list 'display-buffer-alist
-;;              '("^\\*Org Src" . (display-buffer-at-bottom)))
 
 ;;; [ winner ] -- Restore old window configurations.
 

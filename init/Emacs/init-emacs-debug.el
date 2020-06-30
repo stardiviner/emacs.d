@@ -13,6 +13,11 @@
 (setq debug-on-error t)
 (add-hook 'after-init-hook #'(lambda () (setq debug-on-error nil)))
 
+(add-to-list 'display-buffer-alist
+             '("^\\*Warnings\\*" (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist
+             '("^\\*Backtrace\\*" (display-buffer-below-selected)))
+
 ;;; [ Edebug ] -- Edebug is a source level debugger.
 
 (use-package edebug

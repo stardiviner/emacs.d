@@ -28,13 +28,14 @@
 
   (add-to-list 'display-buffer-alist ; open shell buffer in current window
                '("^\\*shell\\*$" . (display-buffer-below-selected)))
-
-  ;; (add-to-list 'display-buffer-alist
-  ;;              '("^\\*Shell Command Output\\*$" . (display-buffer-reuse-window display-buffer-below-selected)))
-  ;; (add-to-list 'display-buffer-alist
-  ;;              '("^\\*Async Shell Command\\*" (display-buffer-reuse-window display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*Shell Command Output\\*$"
+                 (display-buffer-reuse-window display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*Async Shell Command\\*"
+                 (display-buffer-reuse-window display-buffer-below-selected)))
   
-  ;;; a helper function to run sudo Shell command.
+  ;; a helper function to run sudo Shell command.
   (defun sudo-shell-command (command)
     "The suggested way to run sudo Shell `COMMAND' with TRAMP's sudo method."
     (interactive "MAsync sudo command (root): ")

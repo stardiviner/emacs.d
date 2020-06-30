@@ -19,7 +19,14 @@
   (add-to-list 'display-buffer-alist
                '("^\\*compilation\\*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("^\\*Compile-Log\\*" (display-buffer-below-selected))))
+               '("^\\*Compile-Log\\*" (display-buffer-below-selected)))
+
+  ;; make `compile-goto-error' open result target in current window.
+  (add-to-list 'display-buffer-alist
+               '((lambda (&rest _)
+                   (eq this-command 'compile-goto-error))
+                 (display-buffer-reuse-window display-buffer-same-window)
+                 (inhibit-same-window . nil))))
 
 ;;; [ quickrun ] -- Run command quickly.
 

@@ -9,16 +9,24 @@
 
 ;;; [ occur ]
 
-(define-key search-prefix (kbd "o") 'occur)
-
-;; Activate `occur' easily inside `isearch'.
-(define-key isearch-mode-map (kbd "M-o")
-  (lambda () (interactive)
-    (let ((case-fold-search isearch-case-fold-search))
-      (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
-
-(add-to-list 'display-buffer-alist
-             '("^\\*Occur\\*" (display-buffer-reuse-window display-buffer-below-selected)))
+(use-package occur
+  :no-require t
+  :init
+  (define-key search-prefix (kbd "o") 'occur)
+  ;; Activate `occur' easily inside `isearch'.
+  (define-key isearch-mode-map (kbd "M-o")
+    (lambda () (interactive)
+      (let ((case-fold-search isearch-case-fold-search))
+        (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
+  :config
+  (add-to-list 'display-buffer-alist
+               '("^\\*Occur\\*" (display-buffer-reuse-window display-buffer-below-selected)))
+  ;; make `occur-mode-goto-occurrence' open result target in current window.
+  (add-to-list 'display-buffer-alist
+               '((lambda (&rest _)
+                   (eq this-command 'occur-mode-goto-occurrence))
+                 (display-buffer-reuse-window display-buffer-same-window)
+                 (inhibit-same-window . nil))))
 
 ;;; [ multi-occur ]
 
