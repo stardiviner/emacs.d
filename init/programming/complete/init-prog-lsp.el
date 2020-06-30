@@ -48,9 +48,7 @@
 
 (use-package lsp-ui
   :ensure t
-  :defer t
-  :after lsp
-  :commands lsp-ui-mode
+  :commands (lsp-ui-mode)
   :hook (lsp-mode . lsp-ui-mode)
   :custom ((lsp-ui-doc-enable nil)
            (lsp-ui-doc-header nil)
