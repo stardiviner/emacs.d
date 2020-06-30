@@ -66,13 +66,15 @@
 (use-package magit
   :ensure t
   :defer t
+  :preface (defalias 'magit-log-region 'magit-log-buffer-file)
   :commands (magit-status)
   :bind (:map prog-vcs-prefix
               ("v" . magit-status)
               ("l" . magit-list-repositories)
-
+              
               :map prog-vcs-git-prefix
               ("F" . magit-log-buffer-file)
+              ("r" . magit-log-region)
               ("b" . magit-blame-popup)
               ("v" . magit-status)
               ("s" . magit-stage)
@@ -84,32 +86,16 @@
               ("M-b" . magit-bisect)
               ("B" . magit-blame)
               ("f" . magit-file-popup))
-  :custom ((magit-section-initial-visibility-alist '((stashes . hide) (untracked . hide) (unpushed . hide)))
-           (magit-status-initial-section nil))
-  :init
-  (defalias 'magit-log-region 'magit-log-buffer-file)
-  (define-key prog-vcs-git-prefix (kbd "r") 'magit-log-region)
-  
-  ;; Performance
-  ;; (setq magit-refresh-status-buffer nil)
-  ;; (setq auto-revert-buffer-list-filter 'magit-auto-revert-repository-buffer-p)
-
-  (setq magit-clone-default-directory (expand-file-name "~/Code"))
-  (setq magit-repository-directories
-        `((,user-emacs-directory . 0)
-          ("~/Code/" . 3)
-          ("~/Org/Website" . 1)))
-  
-  ;; let magit status buffer display in current window.
-  (setq magit-display-buffer-function 'display-buffer)
-  ;; show gravatar in Magit revision.
-  ;; (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
-
-  (setq magit-prefix-use-buffer-arguments 'always) ; use toggled arguments. For example, "-c" (--color) for log.
-
-  ;; `magit-diff-toggle-refine-hunk'
-  (setq magit-diff-refine-hunk t)
-  
+  :custom ((magit-clone-default-directory (expand-file-name "~/Code"))
+           (magit-repository-directories `((,user-emacs-directory . 0)
+                                           ("~/Code/" . 3)
+                                           ("~/Org/Website" . 1)))
+           ;; let magit status buffer display in current window.
+           (magit-display-buffer-function 'display-buffer)
+           ;; use toggled arguments. For example, "-c" (--color) for log.
+           (magit-prefix-use-buffer-arguments 'always)
+           (magit-diff-refine-hunk t)   ; `magit-diff-toggle-refine-hunk'
+           )
   :config
   ;; manage popup buffers.
   (add-to-list 'display-buffer-alist
