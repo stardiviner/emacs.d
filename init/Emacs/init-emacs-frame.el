@@ -31,6 +31,30 @@
 
 (global-set-key [remap toggle-frame-maximized] 'toggle-frame-fullscreen)
 
+;;; scroll other frame like `scroll-other-window' command.
+(defun my/scroll-other-frame ()
+  "Scroll other frame.
+This is helpful for multiple monitor screens."
+  (interactive)
+  (other-frame +1)
+  (if (derived-mode-p 'eaf-mode)
+      (eaf-proxy-scroll_up_page)
+    (call-interactively 'scroll-up-command))
+  (other-frame -1))
+
+(defun my/scroll-other-frame-down ()
+  "Scroll other frame down.
+This is helpful for multiple monitor screens."
+  (interactive)
+  (other-frame +1)
+  (if (derived-mode-p 'eaf-mode)
+      (eaf-proxy-scroll_down_page)
+    (scroll-down-command))
+  (other-frame -1))
+
+(global-set-key (kbd "C-M-]") 'my/scroll-other-frame)
+(global-set-key (kbd "C-M-[") 'my/scroll-other-frame-down)
+
 
 (provide 'init-emacs-frame)
 
