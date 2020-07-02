@@ -71,17 +71,7 @@
   :config (with-eval-after-load 'eldoc ; refresh eldoc after ace-window selecting window.
             (eldoc-add-command 'ace-window)))
 
-;;; manipulate windows
-
-(defun my-turn-current-window-into-new-frame ()
-  "Popup current window to another new frame."
-  (interactive)
-  (let ((buffer (current-buffer)))
-    (unless (one-window-p)
-      (delete-window))
-    (display-buffer-pop-up-frame buffer nil)))
-
-(global-set-key (kbd "C-x 5 5") 'my-turn-current-window-into-new-frame)
+;;; [ hydra ]
 
 (use-package hydra
   :ensure t
