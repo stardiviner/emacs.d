@@ -44,6 +44,18 @@
                                                             ("zh-CN" . "ko"))) ; for `google-translate-smooth-translate' + [C-n/p]
            (google-translate-listen-program (executable-find "mpv"))
            (google-translate-result-to-kill-ring t))
+  :init
+  ;; support `google-translate' in `pdf-view-mode' buffer.
+  (defun my/google-translate-mark-pdf-view-page (orig-func &rest args)
+    (interactive)
+    (let ((buffer (current-buffer)))
+      (when (eq major-mode 'pdf-view-mode)
+        (pdf-view-mark-whole-page))
+      (apply orig-func args)
+      (with-current-buffer buffer
+        (deactivate-mark))))
+  (advice-add 'google-translate-at-point :around #'my/google-translate-mark-pdf-view-page)
+  
   :config
   (add-to-list 'display-buffer-alist
                '("^\\*Google Translate\\*"
