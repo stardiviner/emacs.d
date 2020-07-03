@@ -24,6 +24,7 @@
 (use-package helm-dash
   :ensure t
   :bind (:map document-prefix ("d" . helm-dash-at-point) ("M-d" . helm-dash))
+  :custom (dash-docs-common-docsets '("Clojure" "ClojureDocs" "Java"))
   :init
   (defun helm-dash--around (orig-func &rest args)
     "Make `helm-dash' ignore case. Useful for SQL docsets."
