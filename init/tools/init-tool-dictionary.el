@@ -44,6 +44,7 @@
                                                             ("zh-CN" . "ja")
                                                             ("zh-CN" . "ko"))) ; for `google-translate-smooth-translate' + [C-n/p]
            (google-translate-listen-program (executable-find "mpv"))
+           (google-translate-pop-up-buffer-set-focus t)
            (google-translate-result-to-kill-ring t))
   :init
   ;; support `google-translate' in `pdf-view-mode' buffer.
