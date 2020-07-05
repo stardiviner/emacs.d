@@ -91,12 +91,10 @@
 
 (use-package tide
   :ensure t
-  :defer t
   :after typescript-mode
   :commands (tide-mode)
-  :init 
-  (add-hook 'typescript-mode-hook #'tide-setup)
-  (add-hook 'typescript-mode-hook #'tide-hl-identifier-mode))
+  :hook ((typescript-mode . tide-setup)
+         (typescript-mode . tide-hl-identifier-mode)))
 
 ;;; [ lsp-mode ] -- Javascript and Typescript support for lsp-mode using javascript-typescript-langserver.
 
