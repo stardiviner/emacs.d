@@ -31,10 +31,6 @@
           ;; ("https://www.reddit.com/r/orgmode/.rss" Emacs Org-mode Reddit) ; Reddit r/Org-mode
           ("https://sachachua.com/blog/feed/atom/" Blog Emacs) ; Sacha Chua Blog
           ("https://www.bytedude.com/feed.xml" Blog Emacs) ; ByteDude
-          ;; Org Mode issue tracker
-          ("https://updates.orgmode.org/feed/bugs" Emacs Org-Mode)
-          ("https://updates.orgmode.org/feed/changes" Emacs Org-Mode)
-          ("https://updates.orgmode.org/feed/releases" Emacs Org-Mode)
           ;; Web
           ("https://blog.mozilla.org/feed/" Mozilla) ; Mozilla Blog
           ("http://hacks.mozilla.org/feed/" Mozilla Web) ; Mozilla Hacks
@@ -78,6 +74,7 @@
           ("https://www.byvoid.com/zht/feed" Blog)
           ("https://shibumi.dev/posts/index.xml" Blog) ; shibumi
           ("https://cireu.github.io/rss.xml" Blog) ; cireu
+          ("http://feeds.feedburner.com/felixcat" Blog) ; Felix (felixonmars)
           ;; Kali Linux
           ("http://www.kali.org/feed/" Kali Linux Subscribe) ; Kali Linux Blog
           ;; Subscribe
