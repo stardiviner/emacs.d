@@ -382,6 +382,8 @@
 
 (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
 
+;; (global-display-fill-column-indicator-mode 1)
+
 ;;; [ page (^L) ]
 
 ;; - <C-x [/]> :: navigate.
