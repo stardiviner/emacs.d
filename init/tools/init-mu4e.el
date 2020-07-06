@@ -19,7 +19,6 @@
            ;; mail agent
            (mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
            (mu4e-completing-read-function 'completing-read)
-           (message-send-mail-function 'message-send-mail-with-sendmail)
            ;; my personal email
            (mu4e-compose-reply-to-address "numbchild@gmail.com")
            (user-mail-address "numbchild@gmail.com")

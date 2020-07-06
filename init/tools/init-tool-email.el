@@ -12,21 +12,19 @@
   (define-prefix-command 'email-prefix))
 (define-key tools-prefix (kbd "m") 'email-prefix)
 
-;;; [ mail-mode ] -- mail-mode is replaced with message-mode.
-
-
 ;;; [ message ] -- composing mail and news messages.
 
 (use-package message
-  :config
+  :init
+  ;; user agent
   ;; 'message-user-agent, 'mail-user-agent, 'gnus-user-agent, 'mu4e-user-agent,
-  (setq mail-user-agent 'message-user-agent
-        ;; compose-mail-user-agent-warnings nil
-        ;; use `postfix' server instead of `smtpmail'.
-        send-mail-function 'sendmail-send-it
-        message-send-mail-function 'message-send-mail-with-sendmail
-        ;; message-send-mail-real-function 'message-send-mail-with-sendmail
-        )
+  (setq mail-user-agent 'message-user-agent)
+
+  ;; send mail
+  ;; send mail from localhost, NOTE: for Gmail will be in Junk Spam folder.
+  ;; (setq message-send-mail-function 'message-send-mail-with-sendmail)
+  ;; send email with SMTP
+  (setq message-send-mail-function 'message-smtpmail-send-it)
 
   (defun my/message-mode-setup ()
     ;; add email name complete support
@@ -52,7 +50,7 @@
         (when  (looking-at " ") (delete-char 1))
         (when (> levels 0)
           (insert-char ?> levels)
-          (insert-char ?\ ) ) ; this repairs ugly >quotes as well
+          (insert-char ?\ ))            ; this repairs ugly >quotes as well
         (forward-line 1) )
       ;; clean up
       (goto-char (point-min))
@@ -71,6 +69,30 @@
 ;;;      - `sign'
 ;;;      - `encrypt'
 
+(use-package sendmail
+  :init
+  ;; use `postfix' `sendmail' server instead of `smtpmail'.
+  ;; (setq send-mail-function 'sendmail-send-it)
+  ;; use SMTP remote mail host instead of local machine.
+  (setq send-mail-function 'smtpmail-send-it)
+  (setq mail-default-reply-to user-mail-address))
+
+;;; [ smtpmail ] -- send email to remote mail host
+
+;;; [[info:smtpmail#Top][info:smtpmail#Top]]
+
+(use-package smtpmail
+  :init
+  ;; debug
+  ;; (setq smtpmail-debug-info t
+  ;;       smtpmail-debug-verb t)
+  (setq smtpmail-smtp-server "smtp.gamil.com"
+        smtpmail-smtp-service 587
+        smtpmail-stream-type 'starttls           ; 'ssl
+        smtpmail-smtp-user "numbchild@gmail.com" ; user name in authinfo file
+        )
+  (setq smtpmail-queue-mail t
+        smtpmail-queue-dir "~/Mails/queue/"))
 
 ;; (require 'init-gnus)
 (require 'init-mu4e)
