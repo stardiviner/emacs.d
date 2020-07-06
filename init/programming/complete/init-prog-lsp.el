@@ -79,15 +79,18 @@
 
 (use-package dap-mode
   :ensure t
-  :ensure posframe ; fix void `posframe-hide' in `dap-ui-controls-mode'
   :after lsp
-  :commands (dap-debug)
+  :commands (dap-debug dap-hydra)
   :bind (:map dap-mode-map
               ("<f5>" . dap-debug)
               ("<f7>" . dap-step-in)
               ("<M-f7>" . dap-step-out)
               ("<f8>" . dap-next)
-              ("<f9>" . dap-continue)))
+              ("<f9>" . dap-continue))
+  ;; enable only some features
+  :custom (dap-auto-configure-features '(sessions locals controls tooltip))
+  :init (dap-mode t) (dap-ui-mode t)
+  :config (add-hook 'dap-stopped-hook (lambda (arg) (call-interactively #'dap-hydra))))
 
 ;;; [ lsp-ivy ] -- LSP Ivy integration.
 
