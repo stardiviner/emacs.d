@@ -12,19 +12,21 @@
   (define-prefix-command 'email-prefix))
 (define-key tools-prefix (kbd "m") 'email-prefix)
 
-;;; [ message ] -- composing mail and news messages.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Reading Mail [ Mail User Agent ] (MTA)                                           ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'init-mu4e)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Composing Mail [ Mail User Agent ] (MTA)                                         ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package message
   :init
   ;; user agent
   ;; 'message-user-agent, 'mail-user-agent, 'gnus-user-agent, 'mu4e-user-agent,
   (setq mail-user-agent 'message-user-agent)
-
-  ;; send mail
-  ;; send mail from localhost, NOTE: for Gmail will be in Junk Spam folder.
-  ;; (setq message-send-mail-function 'message-send-mail-with-sendmail)
-  ;; send email with SMTP
-  (setq message-send-mail-function 'message-smtpmail-send-it)
 
   (defun my/message-mode-setup ()
     ;; add email name complete support
@@ -35,7 +37,7 @@
     (footnote-mode 1))
 
   (add-hook 'message-mode-hook #'my/message-mode-setup)
-
+  :config
   ;; cite region in message-mode.
   (defun message-cite-region (beg end &optional levels)
     "Cite region in message-mode."
@@ -59,52 +61,6 @@
       (when (region-active-p) (keyboard-quit))))
 
   (define-key message-mode-map (kbd "M-;") 'message-cite-region))
-
-;;; [ mml-sec.el ] -- Encrypt Email.
-
-;;; - [C-c C-m C-e] :: (mml-secure-message-sign-encrypt)
-;;;    This will add a tag at the beginning of the mail.
-;;;    <#secure method=pgpmime mode=signencrypt>
-;;;    the `mode=signencrypt' means:
-;;;      - `sign'
-;;;      - `encrypt'
-
-(use-package sendmail
-  :init
-  ;; use `postfix' `sendmail' server instead of `smtpmail'.
-  ;; (setq send-mail-function 'sendmail-send-it)
-  ;; use SMTP remote mail host instead of local machine.
-  (setq send-mail-function 'smtpmail-send-it)
-  (setq mail-default-reply-to user-mail-address))
-
-;;; [ smtpmail ] -- send email to remote mail host
-
-;;; [[info:smtpmail#Top][info:smtpmail#Top]]
-
-(use-package smtpmail
-  :init
-  ;; debug
-  ;; (setq smtpmail-debug-info t
-  ;;       smtpmail-debug-verb t)
-  (setq smtpmail-smtp-server "smtp.gamil.com"
-        smtpmail-smtp-service 587
-        smtpmail-stream-type 'starttls           ; 'ssl
-        smtpmail-smtp-user "numbchild@gmail.com" ; user name in authinfo file
-        )
-  (setq smtpmail-queue-mail t
-        smtpmail-queue-dir "~/Mails/queue/"))
-
-;; (require 'init-gnus)
-(require 'init-mu4e)
-
-
-;; procmail
-(add-to-list 'auto-mode-alist '("\\.procmailrc\\'" . conf-mode))
-;; getmail
-(add-to-list 'auto-mode-alist '("\\.getmailrc\\'" . conf-mode))
-;;; [ Thunderbird ]
-;; use org mode for eml files (useful for thunderbird plugin like "external editor").
-(add-to-list 'auto-mode-alist '("\\.eml\\'" . org-mode))
 
 ;;; [ org-msg ] -- Org Mode to send and reply to Email in HTML.
 
@@ -131,6 +87,65 @@
 ;; GPG: F09F650D7D674819892591401B5DF1C95AE89AC3
 ;; #+end_signature")
 ;;   (org-msg-mode))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Sign/Encrypt Mail                                                                ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; [ mml-sec.el ] -- Encrypt Email.
+
+;;; - [C-c C-m C-e] :: (mml-secure-message-sign-encrypt)
+;;;    This will add a tag at the beginning of the mail.
+;;;    <#secure method=pgpmime mode=signencrypt>
+;;;    the `mode=signencrypt' means:
+;;;      - `sign'
+;;;      - `encrypt'
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Send Mail [ Mail Sending Agent ] (MSA)                                           ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package sendmail
+  :init
+  ;; use `postfix' `sendmail' server instead of `smtpmail'.
+  ;; (setq send-mail-function 'sendmail-send-it)
+  ;; use SMTP remote mail host instead of local machine.
+  (setq send-mail-function 'smtpmail-send-it)
+  (setq mail-default-reply-to user-mail-address))
+
+;;; [ smtpmail ] -- send email to remote mail host
+
+;;; [[info:smtpmail#Top][info:smtpmail#Top]]
+
+(use-package smtpmail
+  :init
+  ;; debug
+  ;; (setq smtpmail-debug-info t
+  ;;       smtpmail-debug-verb t)
+  (setq smtpmail-smtp-server "smtp.gamil.com" ; 587
+        smtpmail-smtp-service "smtps"         ; SMTP/TLS, was 25 == "smtp" 
+        smtpmail-stream-type 'ssl             ; 'starttls, 'ssl
+        smtpmail-smtp-user "numbchild@gmail.com" ; user name in authinfo file
+        )
+  (setq smtpmail-queue-mail t
+        smtpmail-queue-dir "~/Mails/queue/"))
+
+(use-package message
+  :init
+  ;; send mail
+  ;; send mail from localhost, NOTE: for Gmail will be in Junk Spam folder.
+  ;; (setq message-send-mail-function 'message-send-mail-with-sendmail)
+  ;; send email with SMTP
+  (setq message-send-mail-function 'message-smtpmail-send-it))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Retrieve Mail                                                                    ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; procmail
+(add-to-list 'auto-mode-alist '("\\.procmailrc\\'" . conf-mode))
+;; getmail
+(add-to-list 'auto-mode-alist '("\\.getmailrc\\'" . conf-mode))
 
 
 

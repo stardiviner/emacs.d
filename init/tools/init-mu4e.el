@@ -11,13 +11,12 @@
   :load-path "~/Code/Emacs/mu/mu4e/"    ; compile from source code
   :defer t
   :commands (mu4e mu4e-org-open mu4e-org-store-link)
-  :custom (;; Maildir
+  :custom ((mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
+           ;; Maildir
            (mu4e-sent-folder "/Send")
            (mu4e-drafts-folder "/Drafts")
            ;; (mu4e-refile-folder "/Archives")
            (mu4e-trash-folder "/Trash")
-           ;; mail agent
-           (mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
            (mu4e-completing-read-function 'completing-read)
            ;; my personal email
            (mu4e-compose-reply-to-address "numbchild@gmail.com")
