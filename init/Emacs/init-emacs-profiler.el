@@ -1,6 +1,6 @@
 ;;; init-emacs-profiler.el --- init profilers for Emacs.
 
-;;; Time-stamp: <2020-06-27 08:35:35 stardiviner>
+;;; Time-stamp: <2020-07-04 19:57:28 stardiviner>
 
 ;;; Commentary:
 
@@ -51,7 +51,8 @@
 (use-package explain-pause-mode
   :quelpa (explain-pause-mode :fetcher github :repo "lastquestion/explain-pause-mode")
   :commands (explain-pause-mode explain-pause-top)
-  :hook (after-init . explain-pause-mode))
+  ;; :hook (after-init . explain-pause-mode)
+  )
 
 
 
