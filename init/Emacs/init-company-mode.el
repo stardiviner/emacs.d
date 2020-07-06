@@ -109,8 +109,6 @@
   (define-key company-active-map [tab] nil)
   (define-key company-active-map (kbd "<tab>") nil)
   (define-key company-active-map (kbd "<S-tab>") nil)
-  (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous)
   (define-key company-active-map (kbd "M-j") 'company-complete-selection)
   (define-key company-active-map (kbd "M-i") 'company-complete-common)
   (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
