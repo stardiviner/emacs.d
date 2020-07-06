@@ -267,10 +267,11 @@
   (add-to-list 'mu4e-view-actions
                '("org-contact-add" . mu4e-action-add-org-contact) t)
   (add-hook 'mu4e-compose-mode-hook
-            (lambda () (setq-local completion-at-point-functions
-                              '(mu4e~compose-complete-contact
-                                mail-completion-at-point-function
-                                message-completion-function)))))
+            (lambda ()
+              (setq-local completion-at-point-functions
+                          '(mu4e~compose-complete-contact
+                            mail-completion-at-point-function
+                            message-completion-function)))))
 
 ;;; [ mu4e-overview ] -- show overview of maildirs.
 

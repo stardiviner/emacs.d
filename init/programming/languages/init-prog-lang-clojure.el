@@ -107,8 +107,8 @@
 (use-package cider
   :ensure t
   :defer t
-  :commands (cider-jack-in)
   :after clojure-mode
+  :commands (cider-jack-in)
   :init
   ;; manage CIDER popup buffers.
   (add-to-list 'display-buffer-alist
