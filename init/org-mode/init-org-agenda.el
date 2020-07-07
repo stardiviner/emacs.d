@@ -14,7 +14,9 @@
   ;; property failed on long line in "colorized blocks on agenda" hook.
   :custom ((org-agenda-window-setup 'current-window)
            (org-agenda-restore-windows-after-quit t)
-           (org-agenda-sticky t))       ; don't kill *Org Agenda* buffer by [q].
+           (org-agenda-sticky t)        ; don't kill *Org Agenda* buffer by [q].
+           (org-agenda-remove-tags t)   ; don't display tags in Org Agenda
+           )
   :init
   ;; (add-to-list 'display-buffer-alist
   ;;              '("^\\*Org Agenda(.*)\\*" (display-buffer-below-selected)))
@@ -214,6 +216,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   ;; Show Org Agenda tasks with heigh spacing based on clock time with `org-agenda-log-mode'.
   ;; https://emacs-china.org/t/org-agenda/8679
   ;; work with org-agenda dispatcher [c] "Today Clocked Tasks" to view today's clocked tasks.
+  (setq org-agenda-remove-tags t)
   (defun org-agenda-clock-colorize-block ()
     "Set different line spacing based on clock time duration."
     (save-excursion
