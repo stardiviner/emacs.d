@@ -24,12 +24,9 @@
   (setq browse-url-browser-function 'eaf-open-browser)
   ;; let `eaf-open-browser' support HiDPI screen
   (eaf-setq eaf-browser-default-zoom  "2")
-  ;; auto set EAF browser to dark mode when in dark theme.
-  (add-hook 'circadian-after-load-theme-hook
-            (lambda (theme)
-              (cl-case (alist-get 'background-mode (frame-parameters))
-                ('light (eaf-setq eaf-browser-dark-mode "false"))
-                ('dark (eaf-setq eaf-browser-dark-mode "true")))))
+  ;; EAF app follow Emacs theme
+  (eaf-setq eaf-browser-dark-mode "follow")
+  (eaf-setq eaf-pdf-dark-mode "follow")
   ;; set EAF web browser proxy
   (defvar eaf-proxy-enabled nil)
   (defun eaf-toggle-proxy ()
