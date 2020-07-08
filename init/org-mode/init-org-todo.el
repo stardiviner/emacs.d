@@ -111,13 +111,11 @@
 ;;; [ Habit ]
 
 (use-package org-habit
-  :defer t
   :after org
+  :custom ((org-habit-graph-column 70)
+           (org-habit-today-glyph ?>)
+           (org-habit-completed-glyph ?✔))
   :config
-  (setq org-habit-graph-column 70
-        org-habit-today-glyph ?>
-        org-habit-completed-glyph ?✔)
-
   ;; set task to habit
   (defun org-habit-apply ()
     "Apply org-habit on this task."
