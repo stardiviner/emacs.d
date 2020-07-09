@@ -21,6 +21,7 @@
   :init (setq dired-auto-revert-buffer t) ; auto refresh dired when file changes
   :config
   (add-hook 'dired-mode-hook #'turn-on-auto-revert-mode)
+  (add-hook 'dired-mode-hook #'toggle-truncate-lines) ; don't wrap long lines to break single line
   
   (setq dired-create-destination-dirs 'ask)
 
