@@ -12,11 +12,6 @@
   (define-prefix-command 'highlight-prefix))
 (global-set-key (kbd "M-g h") 'highlight-prefix)
 
-;;; make `font-lock-name-face' more large for easy source code reading.
-(set-face-attribute 'font-lock-function-name-face nil
-                    :height 150
-                    :overline t)
-
 ;;; [ hi-lock ]
 
 ;; unbind default keybindings
@@ -27,7 +22,8 @@
   (unbind-key (kbd "C-x w i") hi-lock-map)
   (unbind-key (kbd "C-x w l") hi-lock-map)
   (unbind-key (kbd "C-x w p") hi-lock-map)
-  (unbind-key (kbd "C-x w r") hi-lock-map))
+  (unbind-key (kbd "C-x w r") hi-lock-map)
+  )
 
 ;; rebind commands
 (define-key highlight-prefix (kbd "M-p") 'highlight-symbol-at-point)
@@ -64,7 +60,8 @@
                                     ('light
                                      (color-darken-name (face-background 'default) 10))
                                     ('dark
-                                     (color-darken-name (face-background 'default) 5)))))
+                                     (color-darken-name (face-background 'default) 5))))
+  )
 
 
 (provide 'init-emacs-highlight)
