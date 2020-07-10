@@ -39,6 +39,9 @@
           (:maildir   "/JavaScript"             :key ?j)
           (:maildir   "/SQL/PostgreSQL/general" :key ?p)))
 
+  ;; main-view
+  (setq mu4e-main-hide-fully-read t)
+
   ;; better customized unicode symbols for headers
   (setq mu4e-use-fancy-chars t
         ;; email prefix
