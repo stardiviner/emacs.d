@@ -129,13 +129,14 @@
 
   ;; Enlighten faces
   ;; NOTE `cider-enlighten-mode' will extremely slow down Clojure/CIDER evaluation.
-  (defun my/cider-enlighten-mode-enable ()
-    "Enable `cider-enlighten-mode' only when in real Clojure
-    source code file instead of virtual temprary buffer like Org
-    Babel opened buffers."
-    (unless (buffer-file-name)
-      (cider-enlighten-mode)))
-  (add-hook 'cider-mode-hook #'my/cider-enlighten-mode-enable)
+  ;; NOTE `cider-enlighten-mode' will cause Org Mode source block evaluate filter error when you eval in opened source block temp buffer.
+  ;; (defun my/cider-enlighten-mode-enable ()
+  ;;   "Enable `cider-enlighten-mode' only when in real Clojure
+  ;;   source code file instead of virtual temprary buffer like Org
+  ;;   Babel opened buffers."
+  ;;   (unless (buffer-file-name)
+  ;;     (cider-enlighten-mode)))
+  ;; (add-hook 'cider-mode-hook #'my/cider-enlighten-mode-enable)
 
   ;; auto completion with company-mode support
   ;; `cider-complete-at-point' in `completion-at-point-functions'
