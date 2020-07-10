@@ -218,9 +218,9 @@
                   :query "flag:unread AND NOT flag:trashed")
           (:name "Today's messages" :key ?t
                  :query "date:today..now")
-          (:name "Last 7 days" :key ?w
-                 :query "date:7d..now"
-                 :show-unread t)
+          ;; (:name "Last 7 days" :key ?w
+          ;;        :query "date:7d..now"
+          ;;        :show-unread t)
           (:name "Messages with images" :key ?p
                  :query "mime:image/*"
                  :hide t)
