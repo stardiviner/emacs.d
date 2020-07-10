@@ -78,9 +78,9 @@
         mu4e-hide-index-messages t)
   
   ;; [ Compose ]
-  ;; (add-hook 'mu4e-compose-mode-hook #'visual-fill-column-mode)
   (add-hook 'mu4e-compose-mode-hook #'turn-on-auto-fill)
   (add-hook 'mu4e-compose-mode-hook #'turn-on-flyspell)
+  (add-hook 'mu4e-compose-mode-hook #'display-fill-column-indicator-mode)
 
   ;; Message signature
   (setq mu4e-compose-signature
