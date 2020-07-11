@@ -245,15 +245,7 @@
           (:name "Big messages" :key ?B
                  :query "size:5M..500M")
           (:name "Emacs mailbox" :key ?e
-                 :query "maildir:/Emacs/help")
-          (:name "Org Mode mailbox" :key ?o
-                 :query "maildir:/Emacs/Org-mode")
-          (:name "Clojure mailbox" :key ?c
-                 :query "maildir:/Clojure")
-          (:name "ClojureScript mailbox" :key ?C
-                 :query "maildir:/ClojureScript")
-          (:name "PostgreSQL general" :key ?p
-                 :query "/SQL/PostgreSQL/general")))
+                 :query "maildir:/Emacs/help")))
 
   ;; Marking
   (define-key mu4e-headers-mode-map (kbd "f") 'mu4e-headers-mark-for-flag)
