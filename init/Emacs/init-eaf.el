@@ -50,8 +50,9 @@
     (add-to-list 'desktop-modes-not-to-save 'eaf-mode))
 
   ;; [ `eaf-org' ] Org Mode integration
-  (require 'eaf-org)
+  ;; NOTE set overriding option before loading `eaf-org' to execute if condition.
   (setq eaf-org-override-pdf-links t)
+  (require 'eaf-org)
 
   ;; eaf-interleave integration
   (add-hook 'eaf-pdf-viewer-hook 'eaf-interleave-app-mode)
