@@ -11,6 +11,7 @@
   :load-path "~/Code/Emacs/mu/mu4e/"    ; compile from source code
   :defer t
   :commands (mu4e mu4e-org-open mu4e-org-store-link)
+  ;; :preface (setq mu4e-mu-debug t)
   :custom ((mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
            ;; Maildir
            (mu4e-sent-folder "/Send")
