@@ -28,7 +28,6 @@
 ;;; [ saveplace ] -- save visited files' point positions.
 
 (use-package saveplace
-  :ensure nil
   :defer 1
   :hook (after-init . save-place-mode))
 
