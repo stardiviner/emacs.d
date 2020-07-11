@@ -127,8 +127,9 @@
         smtpmail-stream-type 'ssl             ; 'starttls, 'ssl
         smtpmail-smtp-user "numbchild@gmail.com" ; user name in authinfo file
         )
-  (setq smtpmail-queue-mail t
-        smtpmail-queue-dir "~/Mails/queue/"))
+  ;; (setq smtpmail-queue-mail t
+  ;;       smtpmail-queue-dir "~/Mails/queue/")
+  )
 
 (use-package message
   :init
