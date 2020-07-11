@@ -11,12 +11,10 @@
 
 (use-package pdf-tools
   :ensure t
-  :defer t
-  :commands (pdf-tools-install-noverify pdf-view-mode)
   ;; :preface (pdf-loader-install)
   :mode  ("\\.pdf\\'" . pdf-view-mode)
-  :magic ("%PDF" . pdf-view-mode) ; for PDF binary header byte.
-  ;; :init  (pdf-tools-install-noverify) ; (pdf-tools-install)
+  ;; :magic ("%PDF" . pdf-view-mode) ; for PDF binary header byte.
+  ;; :init (pdf-tools-install-noverify) ; (pdf-tools-install)
   :config
   (setq pdf-view-use-scaling t ; open PDF scaled to fit page.
         ;; speed-up pdf-tools by don't try to find unicode.
@@ -77,15 +75,12 @@
 
 (use-package pdf-view-restore
   :ensure t
-  :demand t
-  :commands (pdf-view-restore)
   :hook ((pdf-view-mode . pdf-view-restore-mode)))
 
 ;; [ org-noter ] -- Emacs document annotator, using Org-mode.
 
 (use-package org-noter
   :ensure t
-  :defer t
   :commands (org-noter)
   :preface (unless (boundp 'Org-prefix) (define-prefix-command 'Org-prefix))
   :bind (:map Org-prefix ("n" . org-noter))
@@ -113,7 +108,6 @@
 
 (use-package org-pdfview
   :ensure t
-  :defer t
   :after pdf-tools
   :config
   (org-link-set-parameters "pdfview"
