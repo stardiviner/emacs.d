@@ -68,7 +68,7 @@
 
 (use-package pinentry
   :ensure t
-  :config (pinentry-start))
+  :init (pinentry-start))
 
 
 ;;; my custom functions
