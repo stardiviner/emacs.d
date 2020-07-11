@@ -349,6 +349,7 @@
 
 ;;; `toggle-truncate-lines'
 ;; (setq-default truncate-lines t)
+(setq truncate-string-ellipsis "…")
 ;;
 ;;; `toggle-word-wrap'
 ;; (setq-default word-wrap t)
