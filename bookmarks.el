@@ -1,4 +1,4 @@
-;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8; mode: lisp-data -*-
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: no-conversion; mode: lisp-data -*-
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
@@ -10,11 +10,6 @@
 ("Marketing.org"
  (filename . "~/Org/Wiki/Commercial Science/Marketing/Marketing.org")
  (front-context-string . "#+TITLE: Marketi")
- (rear-context-string)
- (position . 1))
-("诸子百家.org"
- (filename . "~/Org/Wiki/Thought/诸子百家/诸子百家.org")
- (front-context-string . "#+TITLE: 诸子百家\n\n*")
  (rear-context-string)
  (position . 1))
 ("Ethereum.org"
@@ -149,7 +144,7 @@
  (position . 1))
 ("Poem.org"
  (filename . "~/Org/Wiki/Literature/Countries Literature/Chinese Literature/Poem/Poem.org")
- (front-context-string . "#+TITLE: Poem (诗")
+ (front-context-string . "#+TITLE: Poem (\350\257\227")
  (rear-context-string)
  (position . 1))
 ("Chinese Literature.org"
@@ -289,7 +284,7 @@
  (position . 1))
 ("Home.org"
  (filename . "~/Org/Wiki/Architecture/Home/Home.org")
- (front-context-string . "#+TITLE: Home (家")
+ (front-context-string . "#+TITLE: Home (\345\256\266")
  (rear-context-string)
  (position . 1))
 ("Healthcare.org"
@@ -487,11 +482,6 @@
  (front-context-string . "*** Usage\n\n**** ")
  (rear-context-string . "nnection-uri]]\n\n")
  (position . 6565))
-("网店操作手册.org"
- (filename . "~/Org/Wiki/Commercial Science/Marketing/Internet Marketing/E-Commerce/Data/Manuals/网店操作手册/网店操作手册.org")
- (front-context-string . "#+TITLE: 网店操作手册\n")
- (rear-context-string)
- (position . 1))
 ("Trade.org"
  (filename . "~/Org/Wiki/Commercial Science/Trade/Trade.org")
  (front-context-string . "#+TITLE: Trade (")
@@ -604,7 +594,7 @@
  (position . 1))
 ("Art.org"
  (filename . "~/Org/Wiki/Art/Art.org")
- (front-context-string . "#+TITLE: Art (艺术")
+ (front-context-string . "#+TITLE: Art (\350\211\272\346\234\257")
  (rear-context-string)
  (position . 1))
 ("Android Development.org"
@@ -644,7 +634,7 @@
  (position . 1))
 ("Life.org"
  (filename . "~/Org/Wiki/Life/Life.org")
- (front-context-string . "#+TITLE: Life (人")
+ (front-context-string . "#+TITLE: Life (\344\272\272")
  (rear-context-string)
  (position . 1))
 ("Environmental Protection.org"
@@ -654,7 +644,7 @@
  (position . 1))
 ("Live.org"
  (filename . "~/Org/Wiki/Live/Live.org")
- (front-context-string . "#+TITLE: Live (生")
+ (front-context-string . "#+TITLE: Live (\347\224\237")
  (rear-context-string)
  (position . 1))
 ("Chinese Economy.org"
@@ -1197,21 +1187,6 @@
  (front-context-string . "#+TITLE: TRAMP\n\n")
  (rear-context-string)
  (position . 1))
-("org-capture-last-stored-marker"
- (filename . "~/Org/Wiki/World Grid Information/World Grid Information.org")
- (front-context-string . "*** 英国将禁止华为参与 5G")
- (rear-context-string . "press-releases\n\n")
- (position . 49553))
-("org-refile-last-stored"
- (filename . "~/Org/Wiki/World Grid Information/World Grid Information.org")
- (front-context-string . "*** 英国将禁止华为参与 5G")
- (rear-context-string . "press-releases\n\n")
- (position . 49553))
-("org-capture-last-stored"
- (filename . "~/Org/Tasks/Tasks.org")
- (front-context-string . "* 英国将禁止华为参与 5G\n:")
- (rear-context-string . "已注销”。并且标记隐藏账户。\n\n")
- (position . 226))
 ("TeX.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/TeX.org")
  (front-context-string . "#+TITLE: TeX\n\n* ")
@@ -2667,7 +2642,7 @@
 (#("Strategy" 0 1
    (idx 629))
  (filename . "~/Org/Wiki/Strategy/Strategy.org")
- (front-context-string . "* Intro\n\n** 名句思想")
+ (front-context-string . "* Intro\n\n** \345\220\215\345\217\245\346\200\235\346\203\263")
  (rear-context-string)
  (position . 1))
 (#("Travel" 0 1
@@ -2712,30 +2687,12 @@
  (front-context-string . "#!/usr/bin/env b")
  (rear-context-string)
  (position . 1))
-(#("Writing" 0 1
-   (idx 645))
- (filename . "~/Org/Wiki/Writing/Writing.org")
- (front-context-string . "* Words (文字)\n\n[[")
- (rear-context-string)
- (position . 1))
 (#("Investing & Financing (Org)" 0 1
    (idx 649))
  (filename . "~/Org/Wiki/Investing and Financing/Investing and Financing.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-(#("Mathematics (Org)" 0 1
-   (idx 651))
- (filename . "~/Org/Wiki/Mathematics/Mathematics.org")
- (front-context-string . "  - [ ] [[file+s")
- (rear-context-string . "学 同济大学数学系 [0/4]\n")
- (position . 156))
-(#("Psychology (Org)" 0 1
-   (idx 652))
- (filename . "~/Org/Wiki/Psychology/Psychology.org")
- (front-context-string . " Tips\n\n- 心怀期待更快乐")
- (rear-context-string . "* Books\n\n* Small")
- (position . 36))
 (#("Literature (Org)" 0 1
    (idx 653))
  (filename . "~/Org/Wiki/Literature/Literature.org")
@@ -2745,26 +2702,26 @@
 (#("Kung Fu (Org)" 0 1
    (idx 654))
  (filename . "~/Org/Wiki/Kung Fu/Kung Fu.org")
- (front-context-string . "* Urgent 易筋经 (mu")
+ (front-context-string . "* Urgent \346\230\223\347\255\213\347\273\217 (mu")
  (rear-context-string)
  (position . 1))
 (#("Reading (Org)" 0 1
    (idx 657))
  (filename . "~/Org/Wiki/Reading/Reading.org")
  (front-context-string . "[[file:Literatur")
- (rear-context-string . "Literature (文学)\n")
+ (rear-context-string . "Literature (\346\226\207\345\255\246)\n")
  (position . 30))
 (#("Wiki (Org)" 0 1
    (idx 659))
  (filename . "~/Org/Wiki/Wiki.org")
  (front-context-string . "[[file:Reading/R")
- (rear-context-string . "\n* Reading (阅读)\n")
+ (rear-context-string . "\n* Reading (\351\230\205\350\257\273)\n")
  (position . 59))
 (#("INDEX (Org)" 0 1
    (idx 660))
  (filename . "~/Org/INDEX.org")
- (front-context-string . "* Learning (学习)\n")
- (rear-context-string . "  =精于心, 简于形.=\n\n\n")
+ (front-context-string . "* Learning (\345\255\246\344\271\240)\n")
+ (rear-context-string . "  =\347\262\276\344\272\216\345\277\203, \347\256\200\344\272\216\345\275\242.=\n\n\n")
  (position . 164))
 (#("Programming Language Design.org<2>" 0 1
    (idx 53))
