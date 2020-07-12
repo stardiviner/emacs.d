@@ -135,34 +135,19 @@
                '("^\\*ejc-sql-output\\*" (display-buffer-below-selected)))
 
   (add-hook 'sql-mode-hook #'ejc-sql-mode)
-  
   (add-hook 'ejc-sql-mode-hook #'ejc-eldoc-setup)
-
-  (add-to-list 'display-buffer-alist
-               '("^\\*ejc-sql-output\\*" (display-buffer-below-selected)))
-  
-  (defun my-ejc-sql-complete-setup ()
-    (unless (eq major-mode 'org-mode)
-      (auto-complete-mode 1))
-    (ejc-ac-setup)
-    (add-to-list 'ac-sources 'ac-source-abbrev t)
-    (add-to-list 'ac-sources 'ac-source-words-in-same-mode-buffers t)
-    (setq-local ac-auto-start 2)
-    (setq-local ac-delay 0.3) ; 0 will cause very slow delay on non-exist object or table.
-    (setq-local ac-auto-show-menu 0.3)
-    (setq-local ac-use-quick-help nil)
-    (flyspell-mode -1))
-  
-  (add-hook 'sql-mode-hook #'my-ejc-sql-complete-setup)
+  (require 'ejc-company)
+  (defun my/ejc-sql-company-setup ()
+    (my-company-add-backend-locally 'ejc-company-backend)
+    (setq-local company-minimum-prefix-length 2))
+  (add-hook 'ejc-sql-mode-hook #'my/ejc-sql-company-setup)
 
   ;; enable `ejc-sql' in `sql-interactive-mode'.
   (defun ejc-sql-interactive-mode-setup ()
     "Setup ejc-sql completion in `sql-interactive-mode'."
     (interactive)
     (call-interactively 'ejc-connect)
-    (ejc-sql-mode)
-    (auto-complete-mode 1)
-    (ejc-ac-setup))
+    (ejc-sql-mode))
   (add-hook 'sql-interactive-mode #'ejc-sql-interactive-mode-setup)
 
   ;; result table
