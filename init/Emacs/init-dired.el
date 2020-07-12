@@ -69,7 +69,7 @@
   (use-package diredfl
     :ensure t
     :defer t
-    :hook (dired-mode . diredfl-global-mode))
+    :hook (dired-mode . diredfl-mode))
 
   ;; Show git info in Dired.
   (use-package dired-git-info
