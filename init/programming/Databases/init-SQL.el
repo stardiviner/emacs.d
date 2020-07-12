@@ -131,28 +131,29 @@
   (with-eval-after-load 'ob-async
     (add-to-list 'ob-async-no-async-languages-alist "sql"))
 
-  (defun my/ejc-sql-settings ()
-    (setq-local ac-auto-start 2)
-    (setq-local ac-delay 0.2) ; 0 will cause very slow delay on non-exist object or table.
-    (setq-local ac-auto-show-menu 0.5)
-    (setq-local ac-use-quick-help nil)
-    (company-mode -1)
-    (flyspell-mode -1))
-  (add-hook 'ejc-sql-mode-hook #'my/ejc-sql-settings)
+  (add-to-list 'display-buffer-alist
+               '("^\\*ejc-sql-output\\*" (display-buffer-below-selected)))
 
+  (add-hook 'sql-mode-hook #'ejc-sql-mode)
+  
   (add-hook 'ejc-sql-mode-hook #'ejc-eldoc-setup)
 
   (add-to-list 'display-buffer-alist
                '("^\\*ejc-sql-output\\*" (display-buffer-below-selected)))
   
-  (defun my-ejc-sql-ac-setup ()
-    (ejc-sql-mode 1)
+  (defun my-ejc-sql-complete-setup ()
     (unless (eq major-mode 'org-mode)
       (auto-complete-mode 1))
     (ejc-ac-setup)
     (add-to-list 'ac-sources 'ac-source-abbrev t)
-    (add-to-list 'ac-sources 'ac-source-words-in-same-mode-buffers t))
-  (add-hook 'sql-mode-hook #'my-ejc-sql-ac-setup)
+    (add-to-list 'ac-sources 'ac-source-words-in-same-mode-buffers t)
+    (setq-local ac-auto-start 2)
+    (setq-local ac-delay 0.3) ; 0 will cause very slow delay on non-exist object or table.
+    (setq-local ac-auto-show-menu 0.3)
+    (setq-local ac-use-quick-help nil)
+    (flyspell-mode -1))
+  
+  (add-hook 'sql-mode-hook #'my-ejc-sql-complete-setup)
 
   ;; enable `ejc-sql' in `sql-interactive-mode'.
   (defun ejc-sql-interactive-mode-setup ()
