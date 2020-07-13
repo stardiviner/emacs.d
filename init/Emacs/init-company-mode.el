@@ -83,9 +83,11 @@
   ;; hide `company-ispell' echo message "Starting 'look' process".
   (use-package shut-up
     :ensure t
-    :init (advice-add 'ispell-lookup-words :around
-                      (lambda (orig &rest args)
-                        (shut-up (apply orig args)))))
+    :init
+    (defun ispell-silent (orig-func &rest args)
+      "Silent ispell lookup words message."
+      (shut-up (apply orig-func args)))
+    (advice-add 'ispell-lookup-words :around 'ispell-silent))
   
   ;; keybindings
 
