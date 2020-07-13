@@ -19,6 +19,12 @@
 (use-package systemd
   :ensure t)
 
+;;; [ journalctl-mode ] -- Major mode to view journalctl's output in Emacs.
+
+(use-package journalctl-mode
+  :ensure t
+  :commands (journalctl journalctl-boot journalctl-unit journalctl-user-unit))
+
 ;;; [ daemons ] -- An Emacs UI for managing init system services like Systemd.
 
 (use-package daemons
