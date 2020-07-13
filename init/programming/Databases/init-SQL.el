@@ -125,9 +125,6 @@
              ejc-connect-existing-repl ejc-connect-interactive ejc-sql-mode
              ejc-get-temp-editor-buffer)
   :config
-  (setq nrepl-sync-request-timeout 60
-        ejc-connection-validate-timeout 60)
-  
   (with-eval-after-load 'ob-async
     (add-to-list 'ob-async-no-async-languages-alist "sql"))
 
