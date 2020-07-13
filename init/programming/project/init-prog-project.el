@@ -19,11 +19,15 @@
   :delight projectile-mode
   :commands (projectile-mode)
   :bind-keymap ("C-c p" . projectile-command-map)
-  :init (projectile-mode 1)
-  (setq projectile-completion-system 'ivy
-        projectile-use-git-grep t)
-  ;; testing
-  (setq projectile-create-missing-test-files t))
+  :custom ((projectile-completion-system 'ivy)
+           (projectile-switch-project-action #'projectile-commander)
+           (projectile-use-git-grep t)
+           (projectile-create-missing-test-files t))
+  :init (projectile-global-mode 1)
+  :config
+  (add-to-list 'display-buffer-alist
+               '("^\\*Projectile Commander Help\\*"
+                 (display-buffer-reuse-window display-buffer-below-selected))))
 
 ;;; [ projectile-variable ] -- store project local variables.
 
