@@ -14,6 +14,13 @@
 (add-to-list 'display-buffer-alist
              '("^\\*Apropos\\*$" (display-buffer-reuse-window display-buffer-below-selected)))
 
+;;; open source code link file on Help buffer in current window.
+(add-to-list 'display-buffer-alist
+             '((lambda (&rest _)
+                 (memq this-command '(push-button)))
+               (display-buffer-reuse-window display-buffer-same-window)
+               (inhibit-same-window . nil)))
+
 ;;; [ Info ]
 
 (use-package info
