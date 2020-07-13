@@ -22,8 +22,8 @@
 (global-set-key (kbd "C-x C-;") 'comment-line)
 (define-key prog-comment-prefix (kbd "r") 'comment-or-uncomment-region)
 (define-key prog-comment-prefix (kbd "l") 'comment-line)
-(define-key prog-comment-prefix (kbd "b") 'comment-box)
-(define-key prog-comment-prefix (kbd "B") 'comment-box-with-fill-column)
+(define-key prog-comment-prefix (kbd "B") 'comment-box)
+(define-key prog-comment-prefix (kbd "b") 'comment-box-with-fill-column)
 
 (defun comment-box-with-fill-column (b e) ; begin, end
   "Draw a box comment around the region of B and E.
