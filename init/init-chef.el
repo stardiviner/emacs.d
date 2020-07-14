@@ -8,7 +8,9 @@
 
 (with-eval-after-load 'org-capture
   (add-to-list 'org-capture-templates
-               '("F" "Chef [F]ood Cookbook" entry
+               `("F" ,(format "%s\tChef Recipe Cookbook"
+                              (all-the-icons-material "restaurant" :face 'all-the-icons-maroon))
+                 entry
                  (file (concat org-directory
                                "/Wiki/Chef/Recipes/Data/Manuals/My Recipes Reference/My Recipes Reference.org"))
                  "* %^{Recipe Name}"
@@ -23,7 +25,9 @@
 ;;   :init
 ;;   (with-eval-after-load 'org-capture
 ;;     (add-to-list 'org-capture-templates
-;;                  '("F" "Chef [F]ood Cookbook" entry
+;;                  `("F" ,(format "%s\tChef Recipe Cookbook"
+;;                                 (all-the-icons-faicon "beer" :face 'all-the-icons-maroon))
+;;                    entry
 ;;                    (file "~/Org/Wiki/Chef/Recipes/Data/Manuals/My Recipes Reference/My Recipes Reference.org")
 ;;                    "%(org-chef-get-recipe-from-url)"
 ;;                    :empty-lines 1))))

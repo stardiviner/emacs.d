@@ -17,10 +17,11 @@
   :bind (:map Org-prefix ("M-c" . org-contacts)) ; create agenda view for contacts matching NAME.
   :init
   (setq org-contacts-files (list (concat org-directory "/Contacts/Contacts.org")))
-  (setq org-capture-templates
-        (append '(("C" "[C]ontact"
-                   entry (file (lambda () (car org-contacts-files)))
-                   "** %^{NAME}
+  (add-to-list 'org-capture-templates
+               `("C" ,(format "%s\tContacts"
+                              (all-the-icons-material "contacts" :face 'all-the-icons-blue-alt))
+                 entry (file (lambda () (car org-contacts-files)))
+                 "** %^{NAME}
 :PROPERTIES:
 :DATE: %^U
 :AVATAR: %^{Avatar}
@@ -44,11 +45,8 @@
 :Occupation: %^{Occupation|Programmer|Freelancer|Businessman|Servant|Arter}
 :Hobbies: %^{Hobbies|Reading|Music|Movie|Travel}
 :END:"
-                   :empty-lines 0
-                   :jump-to-captured t
-                   )
-                  )
-                org-capture-templates))
+                 :empty-lines 0
+                 :jump-to-captured t))
 
   (setq org-contacts-matcher
         "NAME<>\"\"|EMAIL<>\"\"|Mailing-List<>\"\"|ALIAS<>\"\"|RELATIONSHIP<>\"\"|PHONE<>\"\"|ADDRESS<>\"\"|BIRTHDAY<>\"\"|PROGRAMMING-SKILLS<>\"\"|SKILLS<>\"\"|EDUCATION<>\"\"|JOBS<>\"\"|NOTE"

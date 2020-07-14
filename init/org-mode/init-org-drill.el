@@ -42,10 +42,11 @@
   ;; record (GoldenDict) queried words to Org-mode drill files for memory.
   (require 'org-capture) ; load `org-capture-templates'
 
-  (setq org-capture-templates
-        (append '(("w" "org-drill [w]ords"
-                   entry (file my-org-drill-words-file)
-                   "* %i :drill:
+  (add-to-list 'org-capture-templates
+               `("w" ,(format "%s\torg-drill words"
+                              (all-the-icons-material "check_box" :face 'all-the-icons-lyellow))
+                 entry (file ,my-org-drill-words-file)
+                 "* %i :drill:
 :PROPERTIES:
 :DRILL_CARD_TYPE: %^{Drill Difficulty|simple|twosided|multisided|hide1cloze}
 :END:
@@ -54,8 +55,7 @@
 
 %c
 "
-                   :empty-lines 1))
-                org-capture-templates))
+                 :empty-lines 1))
 
   (defun my-org-drill-word-exist-p (word)
     "Check word exist in Words.org file?"

@@ -129,7 +129,8 @@
               (insert content))))))
 
   (add-to-list 'org-capture-templates
-               '("R" "Capture elfeed [R]SS feed content to Org buffer"
+               `("R" ,(format "%s\tcapture elfeed RSS feed content to Org buffer"
+                              (all-the-icons-faicon "rss" :face 'all-the-icons-blue-alt))
                  entry (file "")
                  "* %(my/org-capture-elfeed-title)
 :PROPERTIES:

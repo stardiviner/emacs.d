@@ -91,6 +91,44 @@ $0`(yas-escape-text yas-selected-text)`"
   :defer t
   :bind (:map yas-minor-mode-map ([remap yas-insert-snippet] . ivy-yasnippet)))
 
+
+;;; code snippets capture template
+(defun my/org-capture-get-src-block-string (major-mode)
+  "Given a major mode symbol, return the associated org-src block
+string that will enable syntax highlighting for that language
+
+E.g. tuareg-mode will return 'ocaml', python-mode 'python', etc..."
+
+  (let ((mm (intern (replace-regexp-in-string "-mode" "" (format "%s" major-mode)))))
+    (or (car (rassoc mm org-src-lang-modes)) (format "%s" mm))))
+
+(defun my/org-capture-code-snippet (f)
+  (with-current-buffer (find-buffer-visiting f)
+    (let ((code-snippet (buffer-substring-no-properties (mark) (- (point) 1)))
+          (func-name (read-from-minibuffer "Function name: "))
+          (file-name (buffer-file-name))
+          (line-number (line-number-at-pos (region-beginning)))
+          (org-src-mode (my/org-capture-get-src-block-string major-mode)))
+      (format
+       "file:%s::%s
+In ~%s~:
+
+#+begin_src %s
+%s
+#+end_src"
+       file-name
+       line-number
+       func-name
+       org-src-mode
+       code-snippet))))
+
+;; use region select to capture.
+(add-to-list 'org-capture-templates
+             `("s" ,(format "%s\tcreate new code snippet"
+                            (all-the-icons-faicon "code" :face 'all-the-icons-cyan :v-adjust 0.05))
+               entry (file (lambda () (concat org-directory "/Programming Code/Code Snippets/snippets.org")))
+               "* %?\n%(my/org-capture-code-snippet \"%F\")"))
+
 ;;; [ org-sync-snippets ] -- simple extension to export snippets to org-mode and vice versa.
 
 ;; (use-package org-sync-snippets
@@ -113,7 +151,9 @@ $0`(yas-escape-text yas-selected-text)`"
 ;;   :init (setq code-archive-dir (concat org-directory "/Programming Code/Code Snippets/"))
 ;;   :config
 ;;   (add-to-list 'org-capture-templates
-;;                '("s" "code [s]nippet archive" entry
+;;                `("s" ,(format "%s\tcode snippet archive"
+;;                               (all-the-icons-faicon "code" :face 'all-the-icons-cyan))
+;;                  entry
 ;;                  (file (lambda () (concat code-archive-dir "snippets.org")))
 ;;                  "* %? %(code-archive-org-src-tag \"%F\")
 ;; :PROPERTIES:

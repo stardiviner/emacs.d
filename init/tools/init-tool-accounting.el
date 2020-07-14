@@ -36,74 +36,104 @@
 
 (with-eval-after-load 'org-capture
   (setq org-capture-templates
-        (append '(("l" "[l]edger")
+        (append `(("l" ,(format "%s\tledger" (all-the-icons-faicon "money" :face 'all-the-icons-green)))
                   ;; Expense
-                  ("le" "[E]xpenses 支出")
-                  ("les" "[S]hopping 购物" plain
+                  ("le" ,(format "%s\tExpenses 支出"
+                                 (all-the-icons-faicon "minus-circle" :face 'all-the-icons-green)))
+                  ("les" ,(format "%s\tShopping 购物"
+                                  (all-the-icons-faicon "shopping-cart" :face 'all-the-icons-green))
+                   plain
                    (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
                    "%(org-read-date) %^{Event}\n expenses:shopping:%^{category}  %^{Amount}\n%?"
                    :empty-lines-before 1)
-                  ("lef" "[F]ood 食物" plain
+                  ("lef" ,(format "%s\tFood 食物"
+                                  (all-the-icons-material "restaurant" :face 'all-the-icons-green))
+                   plain
                    (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
                    "%(org-read-date) %^{Event}\n expenses:food:%^{meat,breakfast,lunch,dinner}  %^{Amount}\n%?"
                    :empty-lines-before 1)
-                  ("let" "[T]raffic 交通" plain
+                  ("let" ,(format "%s\tTraffic 交通"
+                                  (all-the-icons-faicon "car" :face 'all-the-icons-purple-alt))
+                   plain
                    (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
                    "%(org-read-date) %^{Event}\n expenses:traffic:%^{bus,train,plane}  %^{Amount}\n%?"
                    :empty-lines-before 1)
-                  ("leh" "[H]ouse Rent 房租" plain
+                  ("leh" ,(format "%s\tHouse Rent 房租"
+                                  (all-the-icons-faicon "home" :face 'all-the-icons-silver))
+                   plain
                    (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
                    "%(org-read-date) %^{Event}\n expenses:house rent:  %^{Amount}\n%?"
                    :empty-lines-before 1)
-                  ("lee" "[E]lectric fee 电费" plain
+                  ("lee" ,(format "%s\tElectric fee 电费"
+                                  (all-the-icons-material "power" :face 'all-the-icons-dsilver))
+                   plain
                    (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
                    "%(org-read-date) %^{Event}\n expenses:house rent:  %^{Amount}\n%?"
                    :empty-lines-before 1)
                   
                   ;; Income
-                  ("li" "[I]ncome 收入")
-                  ("lis" "[S]alary 工资收入" plain
+                  ("li" ,(format "%s\tIncome 收入"
+                                 (all-the-icons-faicon "plus-circle" :face 'all-the-icons-green)))
+                  ("lis" ,(format "%s\tSalary 工资收入"
+                                  (all-the-icons-material "receipt" :face 'all-the-icons-green))
+                   plain
                    (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
                    "%(org-read-date) %^{Event}\n income:salary:%^{account}  %^{Amount}\n%?"
                    :empty-lines-before 1)
-                  ("lit" "[T]aobao 淘宝收入" plain
+                  ("lit" ,(format "%s\tTaobao 淘宝收入"
+                                  (all-the-icons-faicon "plus-square-o" :face 'all-the-icons-green))
+                   plain
                    (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
                    "%(org-read-date) %^{Event}\n income:salary:%^{account}  %^{Amount}\n%?"
                    :empty-lines-before 1)
-
+                  
                   ;; Transfer
-                  ("lt" "[T]ransfer 转账")
-                  ("ltb" "Take out money from [B]ank 从银行取钱"
-                   (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
-                   "%(org-read-date) %^{Event}\n transfer:%^{source} -> %^{bank}  %^{Amount}\n%?"
-                   :empty-lines-before 1)
-                  ("lto" "save moeny on [o]nline account 存钱到虚拟账户"
+                  ("lt" ,(format "%s\tTransfer 转账"
+                                 (all-the-icons-faicon "money" :face 'all-the-icons-green)))
+                  ("lto" ,(format "%s\tsave moeny on online account 存钱到虚拟账户"
+                                  (all-the-icons-faicon "jpy" :face 'all-the-icons-green))
                    (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
                    "%(org-read-date) %^{Event}\n transfer:%^{source} -> %^{ZhiFuBao}  %^{Amount}\n%?"
                    :empty-lines-before 1)
-                  ("ltc" "take out moeny to [C]ash 转账到现金"
+                  ("ltb" ,(format "%s\tTake out money from Bank 从银行取钱"
+                                  (all-the-icons-faicon "money" :face 'all-the-icons-green))
+                   (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
+                   "%(org-read-date) %^{Event}\n transfer:%^{source} -> %^{bank}  %^{Amount}\n%?"
+                   :empty-lines-before 1)
+                  ("ltc" ,(format "%s\ttake out Cash 提现"
+                                  (all-the-icons-faicon "money" :face 'all-the-icons-green))
                    (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
                    "%(org-read-date) %^{Event}\n transfer:%^{source} -> cash  %^{Amount}\n%?"
                    :empty-lines-before 1)
-
+                  
                   ;; Debt
-                  ("ld" "[D]ebt 债务")
-                  ("ldr" "[R]ent 租金" plain
+                  ("ld" ,(format "%s\tDebt 债务"
+                                 (all-the-icons-faicon "money" :face 'all-the-icons-green)))
+                  ("ldr" ,(format "%s\tRent 租金"
+                                  (all-the-icons-faicon "money" :face 'all-the-icons-green))
+                   plain
                    (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
                    "%(org-read-date) %^{Event}\n debt:rent:%^{people}  %^{Amount}\n%?"
                    :empty-lines-before 1)
-                  ("ldb" "[B]orrow 借贷" plain
+                  ("ldb" ,(format "%s\tBorrow 借贷"
+                                  (all-the-icons-faicon "money" :face 'all-the-icons-green))
+                   plain
                    (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
                    "%(org-read-date) %^{Event}\n debt:borrow:%^{people}  %^{Amount}\n%?"
                    :empty-lines-before 1)
                   
                   ;; Assets
-                  ("la" "[A]ssets 资产")
-                  ("lab" "[B]ank 银行" plain
+                  ("la" ,(format "%s\tAssets 资产"
+                                 (all-the-icons-material "account_balance" :face 'all-the-icons-green)))
+                  ("lab" ,(format "%s\tBank 银行"
+                                  (all-the-icons-material "account_balance" :face 'all-the-icons-green))
+                   plain
                    (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
                    "%(org-read-date) %^{Event}\n assets:bank:%^{bank}  %^{Amount}\n%?"
                    :empty-lines-before 1)
-                  ("lao" "[O]nline Accounts 虚拟账户" plain
+                  ("lao" ,(format "%s\tOnline Accounts 虚拟账户"
+                                  (all-the-icons-material "account_balance_wallet" :face 'all-the-icons-green))
+                   plain
                    (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
                    "%(org-read-date) %^{Event}\n assets:online-account:%^{ZhiFuBao}  %^{Amount}\n%?"
                    :empty-lines-before 1))

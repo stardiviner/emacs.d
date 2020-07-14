@@ -14,25 +14,30 @@
 (setq org-default-notes-file (concat org-directory "/Tasks/Tasks.org"))
 
 (setq org-capture-templates
-      '(("c" "[c]apture"
+      `(("c" ,(format "%s\tsticky note"
+                      (all-the-icons-faicon "sticky-note-o" :face 'all-the-icons-green :v-adjust 0.01))
          entry (file "")
          ;; select todo keyword interactively from `org-todo-keywords'.
-         ;; NOTE The `org-todo-keywords-for-agenda' variable is fullfilled with value AFTER generated Agenda.
+         ;; The `org-todo-keywords-for-agenda' variable is fullfilled with value AFTER generated Agenda.
          "* %(completing-read \"Todo keyword: \" org-todo-keywords-for-agenda nil t) %^{Capture} [/] \n:PROPERTIES:\n:TIME: %U\n:END: \n%i\n%a\n\n%?"
          ;; :time-prompt t
          :empty-lines-before 1
          :empty-lines-after 1
          :jump-to-captured t)
-
-        ;; Tasks
-        ("t" "Add a [t]ime scheduled task into Tasks"
-         entry (file "~/Org/Tasks/Computer Todos.org")
+        
+        ;; Clock task
+        ("t" ,(format "%s\tstart a clock task"
+                      (all-the-icons-faicon "hourglass-start" :face 'all-the-icons-red :v-adjust 0.05)
+                      ;; (all-the-icons-material "timer" :face 'all-the-icons-red :v-adjust -0.1)
+                      )
+         entry (file "~/Org/Tasks/Tasks.org")
          "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
          :clock-in t :clock-resume t :clock-keep t
          :empty-lines 1)
-
+        
         ;; Diary
-        ("d" "Write [d]iary"
+        ("d" ,(format "%s\twrite diary"
+                      (all-the-icons-faicon "book" :face 'all-the-icons-cyan))
          entry (file+olp+datetree "~/Org/Diary/Diary.org")
          "* %^{Diary Title} %^G\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n%i\n\n"
          ;; :time-prompt t
@@ -41,65 +46,33 @@
          :jump-to-captured t)
         
         ;; Bookmark
-        ("u" "Add an [U]RL to bookmarks database"
+        ("u" ,(format "%s\tAdd an URL to Bookmarks database"
+                      (all-the-icons-faicon "bookmark" :face 'all-the-icons-yellow :v-adjust 0.05))
          entry (file "~/Org/Bookmarks/Bookmarks.org")
          "* [[%^C][%^{link description}]]\n:PROPERTIES:\n:URL: %^C\n:DATE: %t\n:END: \n\n%?\n\n"
          :empty-lines 1
          :jump-to-captured t)
-
+        
         ;; org-passwords
-        ("A" "[A]ccount passwords"
+        ("A" ,(format "%s\trecord new account"
+                      (all-the-icons-faicon "expeditedssl" :face 'all-the-icons-silver :v-adjust 0.05))
          entry (file "~/Org/Accounts/accounts.org.gpg")
          "* %^{Title}\n  %^{URL}p %^{USERNAME}p %^{PASSWORD}p %^{EMAIL}p"
          :empty-lines-before 1
          :empty-lines-after 1)
-
-        ("B" "[B]eauty"
+        
+        ("B" ,(format "%s\tRecord to Beauty"
+                      (all-the-icons-faicon "picture-o" :face 'all-the-icons-pink :v-adjust 0.05))
          entry (file "~/Org/Beauty/Beauty.org")
          "* %^{Name}\n   %^{DATE}p %^{GENDER}p %^{NAME(Chinese)}p %^{Name(English)}p %^{Constellation}p %^{Birthday}p %^{Address(Birth)}p %^{IMDb}p %^{Douban}p"
          :empty-lines 1
          :jump-to-captured t)
-
+        
         ;; current buffer: in file logging
-        ("L" "Add Change[L]og into current buffer file"
+        ("L" ,(format "%s\tAdd Changelog into current file"
+                      (all-the-icons-faicon "file-text-o" :face 'all-the-icons-blue :v-adjust 0.05))
          entry (file+headline (lambda () (buffer-file-name)) "Change Log")
          "* %^{Header of Changelog item}\n:PROPERTIES:\n:LOGGED: %U \n:LINK: %a \n:AUTHOR: stardiviner, email: numbchild@gmail.com\n :END:\n %?")))
-
-;;; code snippets capture template
-(defun my/org-capture-get-src-block-string (major-mode)
-  "Given a major mode symbol, return the associated org-src block
-string that will enable syntax highlighting for that language
-
-E.g. tuareg-mode will return 'ocaml', python-mode 'python', etc..."
-
-  (let ((mm (intern (replace-regexp-in-string "-mode" "" (format "%s" major-mode)))))
-    (or (car (rassoc mm org-src-lang-modes)) (format "%s" mm))))
-
-(defun my/org-capture-code-snippet (f)
-  (with-current-buffer (find-buffer-visiting f)
-    (let ((code-snippet (buffer-substring-no-properties (mark) (- (point) 1)))
-          (func-name (read-from-minibuffer "Function name: "))
-          (file-name (buffer-file-name))
-          (line-number (line-number-at-pos (region-beginning)))
-          (org-src-mode (my/org-capture-get-src-block-string major-mode)))
-      (format
-       "file:%s::%s
-In ~%s~:
-
-#+begin_src %s
-%s
-#+end_src"
-       file-name
-       line-number
-       func-name
-       org-src-mode
-       code-snippet))))
-
-;; use region select to capture.
-(add-to-list 'org-capture-templates
-             '("s" "code [s]nippet" entry
-               (file (lambda () (concat org-directory "/Programming Code/Code Snippets/snippets.org")))
-               "* %?\n%(my/org-capture-code-snippet \"%F\")"))
 
 
 ;;; Context org-capture templates.
@@ -132,27 +105,31 @@ In ~%s~:
 (require 'org-protocol)
 
 (setq org-capture-templates
-      (append `(("P" "Org-[P]rotocol")
-                ("PP" "Protocol"
+      (append `(("P" ,(format "%s\torg-protocol"
+                              (all-the-icons-faicon "external-link" :face 'all-the-icons-orange)))
+                ("PP" ,(format "%s\tProtocol"
+                               (all-the-icons-faicon "chrome" :face 'all-the-icons-orange))
                  entry (file ,(concat org-directory "/Tasks/Tasks.org"))
                  "* %^{Title}\nSource: %u, %c\n #+begin_quote\n%i\n#+end_quote\n\n\n%?"
                  :prepend t
-                 :empty-lines 1
-                 )
-                ("PL" "Protocol Link"
+                 :empty-lines 1)
+                ("PL" ,(format "%s\tProtocol Link"
+                               (all-the-icons-faicon "external-link" :face 'all-the-icons-orange))
                  entry (file ,(concat org-directory "/Tasks/Tasks.org"))
                  "* %? [[%:link][%:description]] \nCaptured On: %U"
                  :prepend t
                  :empty-lines 1))
               org-capture-templates))
 
-;; (use-package org-protocol-capture-html
-;;   :quelpa (org-protocol-capture-html :fetcher github :repo "alphapapa/org-protocol-capture-html")
-;;   :config (setq org-capture-templates (append
-;;                                        '(("PH" "org-[p]rotocol-capture-[h]tml" entry
-;;                                           (file "")
-;;                                           "* %a :website:\n\n%U %?\n\n%:initial"))
-;;                                        org-capture-templates)))
+(use-package org-protocol-capture-html
+  :ensure t
+  :config (setq org-capture-templates
+                (append
+                 `(("PH" ,(format "%s\torg-protocol-capture-html"
+                                  (all-the-icons-faicon "html5" :face 'all-the-icons-pink))
+                    entry (file "")
+                    "* %a :website:\n\n%U %?\n\n%:initial"))
+                 org-capture-templates)))
 
 
 (provide 'init-org-capture)

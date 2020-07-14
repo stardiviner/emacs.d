@@ -197,7 +197,9 @@
   :commands (cfw:open-org-calendar)
   :bind (:map calendar-prefix ("o" . cfw:open-org-calendar))
   :init (setq cfw:org-capture-template
-              '("D" "[D] calfw2org" entry
+              `("D" ,(format "%s\t calfw2org"
+                             (all-the-icons-faicon "calendar" :face 'all-the-icons-blue))
+                entry
                 (file nil)
                 "* %?\n %(cfw:org-capture-day)")))
 

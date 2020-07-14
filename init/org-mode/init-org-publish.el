@@ -21,15 +21,15 @@
                 (replace-regexp-in-string "\\ " "-" title)
                 title)))
     (add-to-list 'org-capture-templates
-                 '("b" "[b]log"
+                 `("b" ,(format "%s\tblog"
+                                (all-the-icons-faicon "calendar-o" :face 'all-the-icons-blue))
                    ;; TODO: how to use pause on new capture for later refile to target file?
                    entry (file "~/Org/Website/Blog/index.org")
                    (function my/org-capture-template-blog--generate-template)
                    :empty-lines 1
                    :prepend t
                    :immediate-finish t
-                   :jump-to-captured t
-                   )))
+                   :jump-to-captured t)))
   :config
   (use-package ox-html
     :init
