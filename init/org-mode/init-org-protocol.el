@@ -33,6 +33,37 @@
 ;;          :working-directory "/home/user/org/"
 ;;          :rewrites (("org/?$" . "index.php")))))
 
+;;; [ org-protocol capture ]
+
+(require 'org-protocol)
+
+(setq org-capture-templates
+      (append `(("P" ,(format "%s\torg-protocol"
+                              (all-the-icons-faicon "external-link" :face 'all-the-icons-orange)))
+                ("PP" ,(format "%s\tProtocol"
+                               (all-the-icons-faicon "chrome" :face 'all-the-icons-orange))
+                 entry (file ,(concat org-directory "/Tasks/Tasks.org"))
+                 "* %^{Title}\nSource: %u, %c\n #+begin_quote\n%i\n#+end_quote\n\n\n%?"
+                 :prepend t
+                 :empty-lines 1)
+                ("PL" ,(format "%s\tProtocol Link"
+                               (all-the-icons-faicon "external-link" :face 'all-the-icons-orange))
+                 entry (file ,(concat org-directory "/Tasks/Tasks.org"))
+                 "* %? [[%:link][%:description]] \nCaptured On: %U"
+                 :prepend t
+                 :empty-lines 1))
+              org-capture-templates))
+
+(use-package org-protocol-capture-html
+  :ensure t
+  :config (setq org-capture-templates
+                (append
+                 `(("PH" ,(format "%s\torg-protocol-capture-html"
+                                  (all-the-icons-faicon "html5" :face 'all-the-icons-pink))
+                    entry (file "")
+                    "* %a :website:\n\n%U %?\n\n%:initial"))
+                 org-capture-templates)))
+
 
 (provide 'init-org-protocol)
 
