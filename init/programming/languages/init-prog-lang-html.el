@@ -71,8 +71,11 @@
 (use-package ob-html-chrome
   :quelpa (ob-html-chrome :fetcher github :repo "stardiviner/ob-html-chrome")
   :commands (org-babel-execute:html-chrome)
-  :init (setq org-babel-html-chrome-chrome-executable
-              (executable-find "google-chrome-unstable")))
+  :custom (org-babel-html-chrome-chrome-executable (executable-find "google-chrome-unstable"))
+  :config
+  (add-to-list 'org-babel-load-languages '(html-chrome . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("html-chrome" . "html")))
 
 ;;; [ cakecrumbs ] -- Show parent-chain on header for HTML / Jade / Pug / LESS / SCSS / Sass / Stylus.
 
