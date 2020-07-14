@@ -27,12 +27,13 @@
                    "* %^{Title}\nSource: %u, %c\n#+begin_quote\n%i\n#+end_quote\n\n\n%?"
                    :prepend t
                    :empty-lines 1)
-                  ("pl" ,(format "%s\tProtocol Link"
+                  ("pl" ,(format "%s\tSave Link to Bookmarks"
                                  (all-the-icons-faicon "external-link" :face 'all-the-icons-orange))
-                   entry (file ,(concat org-directory "/Tasks/Tasks.org"))
-                   "* %? [[%:link][%:description]] \nCaptured On: %U"
+                   entry (file ,(concat org-directory "/Bookmarks/Bookmarks.org"))
+                   "* [[%:link][%:description]]\n:PROPERTIES:\n:DATE: %U \n:END:\n %?"
                    :prepend t
-                   :empty-lines 1))
+                   :empty-lines 1
+                   :jump-to-captured t))
                 org-capture-templates))
 
   
@@ -54,13 +55,15 @@
 
 (use-package org-protocol-capture-html
   :ensure t
-  :config (setq org-capture-templates
-                (append
-                 `(("ph" ,(format "%s\torg-protocol-capture-html"
-                                  (all-the-icons-faicon "html5" :face 'all-the-icons-pink))
-                    entry (file "")
-                    "* %a :website:\n\n%U %?\n\n%:initial"))
-                 org-capture-templates)))
+  :config
+  (add-to-list 'org-capture-templates
+               `("ph" ,(format "%s\torg-protocol-capture-html"
+                               (all-the-icons-faicon "html5" :face 'all-the-icons-pink))
+                 entry (file ,(concat org-directory "/Bookmarks/Bookmarks.org"))
+                 "* [[%:link][%:description]]\n:PROPERTIES:\n:DATE: %U \n:END:\n %? \n%:initial"
+                 :prepend t
+                 :empty-lines 1
+                 :jump-to-captured t)))
 
 
 (provide 'init-org-protocol)
