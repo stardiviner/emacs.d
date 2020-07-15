@@ -28,7 +28,8 @@
   :commands (flycheck-mode flycheck-next-error flycheck-previous-error flycheck-list-errors)
   :custom ((flycheck-global-modes '(not emacs-lisp-mode
                                         text-mode markdown-mode org-mode
-                                        lisp-mode clojure-mode))
+                                        lisp-mode clojure-mode
+                                        sql-mode))
            (flycheck-check-syntax-automatically '(save idle-change new-line))
            ;; let flycheck use the current `load-path'.
            ;; don't error about "free variable" without (require ??).
