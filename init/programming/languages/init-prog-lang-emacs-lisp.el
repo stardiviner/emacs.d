@@ -40,7 +40,7 @@
   ;; (add-to-list 'org-babel-default-header-args:emacs-lisp
   ;;              '(:lexical . "yes"))
   (add-to-list 'org-babel-default-header-args:emacs-lisp
-               '(:results . "value"))
+               '(:results . "verbatim"))
   (add-to-list 'org-babel-default-header-args:emacs-lisp
                '(:noweb . "yes")))
 
