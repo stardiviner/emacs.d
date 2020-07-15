@@ -13,6 +13,8 @@
   :ensure t
   :defer t
   :diminish eldoc-mode
+  :preface (setq global-eldoc-mode t)
+  :hook (prog-mode . eldoc-mode)
   :init (global-eldoc-mode -1) ; don't enable `global-eldoc-mode'
   :config
   ;; ElDoc with most `paredit' command.
