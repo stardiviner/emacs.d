@@ -23,9 +23,9 @@
 
 ;;; [ eldoc-overlay ]  -- display eldoc with contextual documentation overlay.
 
-;; (use-package eldoc-overlay
-;;   :ensure t
-;;   :init (global-eldoc-overlay-mode 1))
+(use-package eldoc-overlay
+  :ensure t
+  :hook (eldoc-mode . eldoc-overlay-mode))
 
 ;;; [ help-at-pt ] -- local help through the keyboard.
 
