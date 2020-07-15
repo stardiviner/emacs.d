@@ -12,7 +12,7 @@
   :defer t
   :delight auto-revert-mode
   :init (setq auto-revert-interval 30)
-  (global-auto-revert-mode -1))
+  :config (global-auto-revert-mode 1))
 
 ;;; [ ibuffer ]
 
