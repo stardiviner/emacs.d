@@ -14,7 +14,9 @@
   :defer t
   :custom ((helm-input-idle-delay 0.1) ; fix Helm fast respond to input caused failed issue.
            (helm-echo-input-in-header-line t) ; echo input in header line
-           (helm-split-window-inside-p t)) ; helm window position
+           (helm-split-window-inside-p t) ; helm window position
+           (helm-ff-keep-cached-candidates nil) ; disable `helm-ff-cache-mode' idle timer
+           )
   ;; :bind (([remap execute-extended-command] . helm-M-x)
   ;;        ("M-x" . helm-M-x)
   ;;        ([remap switch-to-buffer] . helm-mini)
