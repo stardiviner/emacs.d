@@ -188,6 +188,7 @@
 (use-package org-edna
   :ensure t
   :defer t
+  :delight org-edna-mode
   :after org
   :hook (org-mode . org-edna-mode))
 

@@ -39,6 +39,7 @@
 (use-package flyspell
   :ensure t
   :defer t
+  :delight flyspell-mode
   :custom (flyspell-use-meta-tab nil)
   :bind (:map text-checker-prefix
               ("m" . flyspell-mode)

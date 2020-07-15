@@ -112,6 +112,7 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
 
 (use-package zoom
   :ensure t
+  :delight 'zoom-mode
   :hook (after-init . zoom-mode)
   :config (setq zoom-size '(0.618 . 0.618))
   (add-to-list 'zoom-ignored-major-modes 'helm-major-mode))
@@ -120,6 +121,7 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
 
 (use-package follow
   :defer t
+  :commands (follow-mode)
   :config (add-hook 'follow-mode-hook #'split-window-horizontally))
 
 

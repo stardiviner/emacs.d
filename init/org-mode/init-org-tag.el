@@ -178,6 +178,7 @@
   :ensure t
   :defer t
   :after org
+  :delight org-pretty-tags-mode
   :commands (org-pretty-tags-mode org-pretty-tags-global-mode)
   :hook (after-init . org-pretty-tags-global-mode)
   :init (setq org-tag-faces nil)

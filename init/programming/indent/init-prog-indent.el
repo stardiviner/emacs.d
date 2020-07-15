@@ -53,6 +53,7 @@
 (use-package aggressive-indent
   :ensure t
   :defer t
+  :delight aggressive-indent-mode
   :commands (aggressive-indent-mode global-aggressive-indent-mode)
   :preface (setq global-aggressive-indent-mode t)
   :init (global-aggressive-indent-mode -1) ; don't enable globally by default.

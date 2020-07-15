@@ -12,7 +12,7 @@
 (use-package eldoc
   :ensure t
   :defer t
-  :diminish eldoc-mode
+  :delight eldoc-mode
   :preface (setq global-eldoc-mode t)
   :hook (prog-mode . eldoc-mode)
   :init (global-eldoc-mode -1) ; don't enable `global-eldoc-mode'
@@ -25,6 +25,7 @@
 
 (use-package eldoc-overlay
   :ensure t
+  :delight eldoc-overlay-mode
   :hook (eldoc-mode . eldoc-overlay-mode))
 
 ;;; [ help-at-pt ] -- local help through the keyboard.
