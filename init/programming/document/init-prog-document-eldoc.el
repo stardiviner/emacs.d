@@ -13,6 +13,7 @@
   :ensure t
   :defer t
   :diminish eldoc-mode
+  :init (global-eldoc-mode -1) ; don't enable `global-eldoc-mode'
   :config
   ;; ElDoc with most `paredit' command.
   ;; whenever the listed commands are used, ElDoc will automatically refresh the minibuffer.
