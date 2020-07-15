@@ -53,17 +53,17 @@
 (use-package aggressive-indent
   :ensure t
   :defer t
-  :delight aggressive-indent-mode
   :commands (aggressive-indent-mode global-aggressive-indent-mode)
-  :init (global-aggressive-indent-mode 1)
+  :preface (setq global-aggressive-indent-mode t)
+  :init (global-aggressive-indent-mode -1) ; don't enable globally by default.
   :config
   ;; enable on mode locally
-  ;; (defun my/aggressive-indent-enable ()
-  ;;   (unless (or (member major-mode aggressive-indent-excluded-modes)
-  ;;               (member major-mode aggressive-indent-dont-electric-modes))
-  ;;     (aggressive-indent-mode 1)))
-  ;; (add-hook 'prog-mode-hook #'my/aggressive-indent-enable)
-  ;; (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+  (defun my/aggressive-indent-enable ()
+    (unless (or (member major-mode aggressive-indent-excluded-modes)
+                (member major-mode aggressive-indent-dont-electric-modes))
+      (aggressive-indent-mode 1)))
+  (add-hook 'prog-mode-hook #'my/aggressive-indent-enable)
+  (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
 
   ;; enable globally
   (add-to-list 'aggressive-indent-excluded-modes 'org-mode)
