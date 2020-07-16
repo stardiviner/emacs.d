@@ -135,7 +135,8 @@
   (add-hook 'ejc-sql-mode-hook #'ejc-eldoc-setup)
   (require 'ejc-company)
   (defun my/ejc-sql-company-setup ()
-    (my-company-add-backend-locally 'ejc-company-backend)
+    (make-local-variable 'company-backends)
+    (add-to-list 'company-backends '(ejc-company-backend company-yasnippet))
     (setq-local company-minimum-prefix-length 2))
   (add-hook 'ejc-sql-mode-hook #'my/ejc-sql-company-setup)
 
