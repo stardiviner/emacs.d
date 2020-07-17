@@ -23,6 +23,7 @@
 
 (use-package journalctl-mode
   :ensure t
+  :defer t
   :commands (journalctl journalctl-boot journalctl-unit journalctl-user-unit))
 
 ;;; [ daemons ] -- An Emacs UI for managing init system services like Systemd.
@@ -39,6 +40,7 @@
 
 (use-package helm-systemd
   :ensure t
+  :defer t
   :commands (helm-systemd))
 
 ;;; [ nginx-mode ]
@@ -72,6 +74,7 @@
 ;;; Arch PKGBUILD (pkgbuild-mode)
 (use-package pkgbuild-mode
   :ensure t
+  :defer t
   :mode ("/PKGBUILD\\'" . pkgbuild-mode))
 
 ;;; [ pacfiles-mode ] -- pacnew and pacsave merging tool.
