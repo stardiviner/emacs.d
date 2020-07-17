@@ -68,6 +68,7 @@
 
   ;; enable globally
   (add-to-list 'aggressive-indent-excluded-modes 'org-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'sql-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'snippet-mode)
