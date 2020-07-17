@@ -22,7 +22,7 @@
   ;; add files to `org-agenda'.
   (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
   ;; add org-mode capture templates.
-  (add-to-list 'org-capture-templates (org-projectile-project-todo-entry)))
+  (add-to-list 'org-capture-templates (org-projectile-project-todo-entry :capture-character "p")))
 
 
 (provide 'init-org-programming)
