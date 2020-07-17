@@ -1,6 +1,6 @@
 ;;; init-emacs-profiler.el --- init profilers for Emacs.
 
-;;; Time-stamp: <2020-07-04 19:57:28 stardiviner>
+;;; Time-stamp: <2020-07-17 16:47:10 stardiviner>
 
 ;;; Commentary:
 
