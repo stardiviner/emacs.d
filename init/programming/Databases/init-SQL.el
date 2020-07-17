@@ -137,7 +137,8 @@
   (defun my/ejc-sql-company-setup ()
     (make-local-variable 'company-backends)
     (add-to-list 'company-backends '(ejc-company-backend :separate company-yasnippet))
-    (setq-local company-minimum-prefix-length 2))
+    (setq-local company-minimum-prefix-length 2)
+    (setq-local company-idle-delay 0.3))
   (add-hook 'ejc-sql-mode-hook #'my/ejc-sql-company-setup)
 
   ;; enable `ejc-sql' in `sql-interactive-mode'.
