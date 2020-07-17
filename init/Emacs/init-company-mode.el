@@ -45,24 +45,7 @@
   :preface (setq company-backends nil)
   :commands (global-company-mode)
   :hook (after-init . global-company-mode)
-  :config
-  ;; company-tabnine: A company-mode backend for TabNine, the all-language autocompleter.
-  (use-package company-tabnine
-    :ensure t
-    :defer t
-    :config
-    (add-to-list 'company-backends #'company-tabnine)
-    ;; The free version of TabNine is good enough,
-    ;; and below code is recommended that TabNine not always
-    ;; prompt me to purchase a paid version in a large project.
-    (defadvice company-echo-show (around disable-tabnine-upgrade-message activate)
-      (let ((company-message-func (ad-get-arg 0)))
-        (when (and company-message-func
-                   (stringp (funcall company-message-func)))
-          (unless (string-match "The free version of TabNine only indexes up to"
-                                (funcall company-message-func))
-            ad-do-it)))))
-  
+  :config  
   (defun my-company-add-backend-locally (backend)
     "Add a backend in my custom way.
 
@@ -180,6 +163,24 @@
 ;;         company-box-doc-enable nil ; disable auto `company-box-doc' timer.
 ;;         company-box-icons-image-size 25)
 ;;   (setq company-box-icons-alist 'company-box-icons-images))
+
+;; [ company-tabnine ] -- A company-mode backend for TabNine, the all-language autocompleter.
+
+;; (use-package company-tabnine
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (add-to-list 'company-backends #'company-tabnine)
+;;   ;; The free version of TabNine is good enough,
+;;   ;; and below code is recommended that TabNine not always
+;;   ;; prompt me to purchase a paid version in a large project.
+;;   (defadvice company-echo-show (around disable-tabnine-upgrade-message activate)
+;;     (let ((company-message-func (ad-get-arg 0)))
+;;       (when (and company-message-func
+;;                  (stringp (funcall company-message-func)))
+;;         (unless (string-match "The free version of TabNine only indexes up to"
+;;                               (funcall company-message-func))
+;;           ad-do-it)))))
 
 
 (provide 'init-company-mode)
