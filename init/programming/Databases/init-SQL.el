@@ -124,10 +124,10 @@
   :commands (ejc-connect
              ejc-connect-existing-repl ejc-connect-interactive ejc-sql-mode
              ejc-get-temp-editor-buffer)
-  :config
+  :init
   (with-eval-after-load 'ob-async
     (add-to-list 'ob-async-no-async-languages-alist "sql"))
-
+  :config
   (add-to-list 'display-buffer-alist
                '("^\\*ejc-sql-output\\*" (display-buffer-below-selected)))
 
