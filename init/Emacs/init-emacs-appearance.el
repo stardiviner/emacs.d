@@ -23,6 +23,12 @@
 ;;
 ;; - `set-face-attribute'
 ;; - `set-frame-font'
+;;
+;; - "DejaVu Sans Mono"
+;; - "Hack"
+;; - "Fira Sans"
+;; - "Sarasa Mono SC"
+;; - "Sarasa Nerd"
 
 (set-face-attribute 'default nil
                     :family "DejaVu Sans Mono"
