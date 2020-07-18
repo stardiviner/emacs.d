@@ -218,7 +218,7 @@
 
   ;; Bookmarks -- [b]
   (setq mu4e-bookmarks
-        '((:name  "Unread messages" :key ?u
+        `((:name  "Unread messages" :key ?u
                   :query "flag:unread AND NOT flag:trashed")
           (:name "Today's messages" :key ?t
                  :query "date:today..now")
@@ -229,8 +229,10 @@
                  :query "mime:image/*"
                  :hide t)
           ;;=====================================================================
-          (:name "My participated Threads" :key ?t
-                 :query "flag:unread AND contact:/.*stardiviner/ OR contact:/.*numbchild@gmail.com/")
+          (:name "My participated threads" :key ?b
+                 :query (concat "maildir:\"/Send\" AND flag:unread "
+                                " OR contact:/.*stardiviner/ "
+                                " OR contact:/.*numbchild@gmail.com/ "))
           (:name "Replied messages" :key ?r
                  :query "flag:replied")
           (:name "Passed  messages" :key ?d
