@@ -584,8 +584,8 @@ and append it."
 
 (use-package org-link-beautify
   :quelpa (org-link-beautify :fetcher github :repo "stardiviner/org-link-beautify")
-  :commands (global-org-link-beautify-mode org-link-beautify-mode)
-  :init (global-org-link-beautify-mode 1))
+  :commands (org-link-beautify-mode)
+  :init (org-link-beautify-mode 1))
 
 
 
