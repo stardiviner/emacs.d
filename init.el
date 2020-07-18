@@ -143,7 +143,6 @@
 ;; (require 'init-emacs-rpc)
 (require 'init-emacs-network)
 ;; (require 'init-emacs-xwidget)
-(require 'init-emacs-customize)
 (require 'init-emacs-accessibility)
 (require 'init-eaf)
 

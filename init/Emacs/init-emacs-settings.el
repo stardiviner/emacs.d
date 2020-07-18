@@ -4,6 +4,18 @@
 
 ;;; Code:
 
+;; [ Customize ]
+
+(setq custom-file (expand-file-name "customize.el" user-emacs-directory))
+
+(if (file-exists-p custom-file)
+    (load custom-file)
+  ;; (use-package f
+  ;;   :ensure t
+  ;;   :init (f-touch custom-file))
+  (shell-command (concat "touch " custom-file)))
+
+
 (fset 'yes-or-no-p 'y-or-n-p) ; treat 'y' as yes, 'n' as no.
 (setq confirm-kill-emacs 'yes-or-no-p)
 
