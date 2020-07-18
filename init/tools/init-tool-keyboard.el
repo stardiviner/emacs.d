@@ -25,8 +25,9 @@
 (use-package rainbow-fart
   :ensure t
   :delight rainbow-fart-mode
-  :hook (prog-mode . rainbow-fart-mode)
-  :custom ((rainbow-fart-keyword-interval nil)))
+  :commands (rainbow-fart-mode)
+  :custom ((rainbow-fart-keyword-interval nil))
+  :init (rainbow-fart-mode 1))
 
 (provide 'init-tool-keyboard)
 
