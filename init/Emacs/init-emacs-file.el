@@ -71,6 +71,20 @@
   :defer t
   :commands (doc-view-mode))
 
+;;; [ exif ] -- parsing Exif data in JPEG images.
+
+;;; (exif-parse-file "test.jpg")
+
+(use-package exif
+  :defer t)
+
+;;; [ exiftool ] -- Elisp wrapper around ExifTool.
+
+(use-package exiftool
+  :ensure t
+  :defer t
+  :commands (exiftool-read exiftool-write exiftool-copy))
+
 
 (provide 'init-emacs-file)
 
