@@ -388,13 +388,11 @@
 ;;; detect external system has Emacs process running?
 ;;; If yes, like `bug-hunter' is running. Then don't load session.
 (let ((emacs-processes
-       (length (mapcar
-                'string-to-number
-                (seq-filter
-                 (lambda (str)
-                   (not (string-empty-p str)))
-                 (split-string
-                  (shell-command-to-string "ps -C emacs -o pid=") "\n"))))))
+       (seq-count
+        (lambda (proc)
+          (and (equal (alist-get 'user proc) user-login-name)
+               (string-match "\\<emacs\\>" (alist-get 'comm proc))))
+        (mapcar #'process-attributes (list-system-processes)))))
   (when (<= emacs-processes 1)
     (require 'init-emacs-session)))
 
