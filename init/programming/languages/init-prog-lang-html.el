@@ -47,23 +47,22 @@
   ;; preview minor mode
   (emmet-preview-mode 1))
 
-
 ;;; [ tagedit ] -- A collection of paredit-like functions for editing in html-mode.
 
 ;; (use-package tagedit
 ;;   :ensure t
 ;;   :defer t
+;;   :hook (html-mode-hook . tagedit-mode)
 ;;   :init
 ;;   (tagedit-add-paredit-like-keybindings)
 ;;   ;; auto insert <></> when you type <, and auto expand to <div></div> as you type.
-;;   (tagedit-add-experimental-features)
-;;   (add-hook 'html-mode-hook 'tagedit-mode)
-;;   )
+;;   (tagedit-add-experimental-features))
 
 ;;; [ impatient-mode ] -- see your HTML rendered as you type.
 
 (use-package impatient-mode
   :ensure t
+  :defer t
   :commands (impatient-mode))
 
 ;;; [ ob-browser-chrome ] -- Export Org HTML SRC blocks as PNG files using Chrome in "headless" mode.
@@ -83,12 +82,16 @@
 ;;   :ensure t
 ;;   :init (cakecrumbs-auto-setup))
 
+;;; [ company-web ] -- Company version of ac-html, complete for web,html,emmet,jade,slim modes.
 
-(defun my:html-mode-company-add ()
-  "Add company-mode backend like `company-web-html' for completion."
-  (make-variable-buffer-local 'company-backends)
-  (add-to-list 'company-backends 'company-web-html))
-(add-hook 'html-mode-hook #'my:html-mode-company-add)
+(use-package company-web
+  :ensure t
+  :config
+  (defun my:html-mode-company-add ()
+    "Add company-mode backend like `company-web-html' for completion."
+    (make-variable-buffer-local 'company-backends)
+    (add-to-list 'company-backends 'company-web-html))
+  (add-hook 'html-mode-hook #'my:html-mode-company-add))
 
 
 (provide 'init-prog-lang-html)
