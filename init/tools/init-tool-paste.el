@@ -9,6 +9,27 @@
   (define-prefix-command 'paste-prefix))
 (define-key tools-prefix (kbd "p") 'paste-prefix)
 
+(defun kill-with-linenum (beg end)
+  "Kill region selected code with line number and wrapped with unicode symbols."
+  (interactive "r")
+  (save-excursion
+    (goto-char end)
+    (skip-chars-backward "\n \t")
+    (setq end (point))
+    (let* ((chunk (buffer-substring beg end))
+           (chunk (concat
+                   (format "╭──────── #%-d ─ %s ──\n│ "
+                           (line-number-at-pos beg)
+                           (or (buffer-file-name) (buffer-name))
+                           )
+                   (replace-regexp-in-string "\n" "\n│ " chunk)
+                   (format "\n╰──────── #%-d ─" 
+                           (line-number-at-pos end)))))
+      (kill-new chunk)))
+  (deactivate-mark))
+
+(define-key paste-prefix (kbd "k") 'kill-with-linenum)
+
 ;;; convert selected region to Markdown and copy to clipboard for pasting
 ;;; on sites like GitHub, and Stack Overflow.
 (use-package ox-gfm
