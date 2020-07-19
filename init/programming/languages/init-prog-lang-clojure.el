@@ -411,6 +411,17 @@ With value selected from a list of available sessions."
   :after cider
   :bind (:map cider-doc-map ("M-d" . helm-clojuredocs)))
 
+;;; [ clojure-essential-ref ] -- `cider-doc' to "Clojure, The Essential Reference".
+
+(use-package clojure-essential-ref
+  :ensure t
+  :commands (clojure-essential-ref clojure-essential-ref-web)
+  :bind (
+         :map cider-mode-map
+         ("C-c h c" . clojure-essential-ref)
+         :map cider-repl-mode-map
+         ("C-c h c" . clojure-essential-ref)))
+
 ;;; [ elein ] -- running Leiningen commands from Emacs.
 
 (use-package elein
