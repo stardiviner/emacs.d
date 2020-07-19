@@ -107,15 +107,14 @@
       (interactive)
       (setq-local company-minimum-prefix-length 1)
       (make-local-variable 'company-backends)
-      (add-to-list 'company-backends 'company-css)
-      (if (featurep 'company-jquery)
-          (add-to-list 'company-backends 'company-jquery))
-      (if (featurep 'company-tern)
-          (add-to-list 'company-backends 'company-tern))
-      ;; (add-to-list 'company-backends 'company-web-jade)
-      ;; (add-to-list 'company-backends 'company-web-slim)
-      (add-to-list 'company-backends 'company-web-html))
-    
+      (setq-local company-web-backends-group
+                  `(company-web-html
+                    ;; :with company-web-jade
+                    ;; :with company-web-slim
+                    :with company-css
+                    ;; ,(if (featurep 'company-tern) :with company-tern)
+                    :separate company-yasnippet)))
+
     (dolist (hook '(web-mode-hook
                     html-mode-hook))
       (add-hook hook #'my-company-web-backends-setup))
