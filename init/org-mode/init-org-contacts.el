@@ -21,8 +21,9 @@
                `("C" ,(format "%s\tContacts"
                               (all-the-icons-material "contacts" :face 'all-the-icons-blue-alt))
                  entry (file (lambda () (car org-contacts-files)))
-                 "** %^{NAME}
+                 "* %^{NAME}
 :PROPERTIES:
+:DIR:  %\\1
 :DATE: %^U
 :AVATAR: %^{Avatar}
 :NICK: %^{Nick}
