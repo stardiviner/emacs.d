@@ -40,6 +40,20 @@ Usage: (my:auth-source-get :host \"api.heroku.com\" :user)"
       (:host
        (plist-get (car (auth-source-search query-key query-value)) :host)))))
 
+;;; [ auth-source-xoauth2 ] -- Integrate auth-source with XOAUTH2
+
+(use-package auth-source-xoauth2
+  :ensure t
+  :init (auth-source-xoauth2-enable))
+
+;; [ oauth2 ] -- OAuth 2.0 Authorization Protocol
+
+(use-package oauth2
+  :ensure t
+  :commands (oauth2-auth
+             oauth2-refresh-access oauth2-auth-and-store
+             oauth2-url-retrieve-synchronously oauth2-url-retrieve))
+
 ;;; [ Secrets ] -- presenting password entries retrieved by Security Service from freedesktop.org.
 
 ;; - Variable: `secrets-path'
