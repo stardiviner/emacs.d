@@ -35,15 +35,13 @@
   
   ;; buffer local docsets
   (defun my/dash-docs-local-docsets (docsets-list &optional append-to)
-    (mapc
-     (lambda (docset)
-       (make-local-variable 'dash-docs-common-docsets)
-       (setq-local dash-docs-common-docsets nil)
-       (if append-to
-           (setq dash-docs-common-docsets (append dash-docs-common-docsets docsets-list))
-         (setq-local dash-docs-common-docsets docsets-list))
-       (dash-docs-activate-docset docset))
-     docsets-list))
+    (make-local-variable 'dash-docs-common-docsets)
+    (if append-to
+        (setq dash-docs-common-docsets
+              (append dash-docs-common-docsets docsets-list))
+      (setq-local dash-docs-common-docsets nil)
+      (setq-local dash-docs-common-docsets docsets-list))
+    (mapc 'dash-docs-activate-docset dash-docs-common-docsets))
   
   ;; Bash
   (defun helm-dash-buffer-local-shell-docsets ()
