@@ -122,11 +122,17 @@
   ;; debug
   ;; (setq smtpmail-debug-info t
   ;;       smtpmail-debug-verb t)
-  (setq smtpmail-smtp-server "smtp.gamil.com" ; 587
-        smtpmail-smtp-service "smtps"         ; SMTP/TLS, was 25 == "smtp" 
-        smtpmail-stream-type 'ssl             ; 'starttls, 'ssl
-        smtpmail-smtp-user "numbchild@gmail.com" ; user name in authinfo file
-        )
+
+  (setq send-mail-function 'smtpmail-send-it
+	      message-send-mail-function send-mail-function
+	      smtpmail-smtp-server "smtp.gmail.com"
+        smtpmail-default-smtp-server smtpmail-smtp-server
+	      ;; smtpmail-stream-type 'ssl
+	      smtpmail-smtp-service 587 ; "smtp": 25, "smtps": 587
+	      smtpmail-smtp-user "numbchild@gmail.com"
+        ;; smtpmail-auth-credentials (expand-file-name (car auth-sources))
+        smtpmail-local-domain "gmail.com")
+  
   ;; (setq smtpmail-queue-mail t
   ;;       smtpmail-queue-dir "~/Mails/queue/")
   )
