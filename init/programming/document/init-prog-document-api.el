@@ -13,7 +13,7 @@
   :ensure t
   :defer t
   :custom ((dash-docs-docsets-path (expand-file-name "~/.docsets"))
-           (dash-docs-min-length 3)
+           (dash-docs-min-length 2)
            ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
            (dash-docs-browser-func 'eaf-open-browser)
            (dash-docs-candidate-format "%d  %n  (%t)")
