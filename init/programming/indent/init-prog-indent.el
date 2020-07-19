@@ -74,6 +74,8 @@
   (add-to-list 'aggressive-indent-excluded-modes 'cider-repl-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'csharp-mode)
   (add-to-list 'aggressive-indent-dont-electric-modes 'python-mode)
+  (add-to-list 'aggressive-indent-dont-electric-modes 'html-mode)
+  (add-to-list 'aggressive-indent-dont-electric-modes 'web-mode)
 
   ;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
   ;; **don't** want indentation to happen.  For instance, if you think it's
