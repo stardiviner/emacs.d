@@ -78,7 +78,8 @@
   ;; 'isync' or your own shellscript.
   (setq mu4e-get-mail-command
         "getmail --rcfile numbchild@gmail.com --rcfile stardiviner@qq.com"
-        mu4e-update-interval (* 60 10)
+        mu4e-update-interval (* 60 30)
+        mu4e-display-update-status-in-modeline t
         mu4e-hide-index-messages t)
   
   ;; [ Compose ]
