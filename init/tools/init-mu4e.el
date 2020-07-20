@@ -76,11 +76,17 @@
   ;; [ Get/Update Mail ] -- [C-c C-u]
   ;; program to get mail: alternatives are 'fetchmail', 'getmail',
   ;; 'isync' or your own shellscript.
-  (setq mu4e-get-mail-command
-        "getmail --rcfile numbchild@gmail.com --rcfile stardiviner@qq.com"
-        mu4e-update-interval (* 60 30)
-        mu4e-display-update-status-in-modeline t
-        mu4e-hide-index-messages t)
+
+  ;; disable mu4e auto fetch and update if you use systemd timer unit.
+  (unless (string-equal (string-trim
+                         (shell-command-to-string
+                          "systemctl --user is-enabled getmail.timer"))
+                        "enabled")
+    (setq mu4e-get-mail-command
+          "proxychains getmail --rcfile numbchild@gmail.com --rcfile stardiviner@qq.com"
+          mu4e-update-interval (* 60 30)
+          mu4e-display-update-status-in-modeline t
+          mu4e-hide-index-messages t))
   
   ;; [ Compose ]
   (add-hook 'mu4e-compose-mode-hook #'turn-on-auto-fill)
