@@ -6,9 +6,6 @@
 
 ;;; Code:
 
-;;; ERC is a powerful, modular, and extensible IRC client for Emacs.
-;; (require 'init-erc)
-
 ;;; [ Circe ] -- have sane defaults, and integrates well with the rest of the editor.
 
 (use-package circe
