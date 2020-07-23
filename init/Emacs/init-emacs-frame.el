@@ -11,8 +11,9 @@
 
 (setq default-frame-alist
       `((top . 0) (left . 0)
-        (height . ,(display-pixel-height))
-        (width . ,(display-pixel-width))
+        ;; don't use full screen size (which have not considered KDE panel space)
+        ;; (height . ,(display-pixel-height))
+        ;; (width . ,(display-pixel-width))
         (left-fringe) (right-fringe)
         (tool-bar-lines . 0)
         (menu-bar-lines . 0)
