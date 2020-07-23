@@ -13,7 +13,7 @@
   :commands (powershell))
 
 (use-package ob-powershell
-  :load-path (lambda () (expand-file-name "init/extensions/ob-powershell.el" user-emacs-directory))
+  :load-path (lambda () (expand-file-name "init/extensions/" user-emacs-directory))
   :defer t
   :commands (org-babel-execute:powershell)
   :init (setq org-babel-powershell-command "pwsh")
