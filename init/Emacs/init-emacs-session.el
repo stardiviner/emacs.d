@@ -14,15 +14,14 @@
 
 (use-package desktop
   :ensure nil
-  :preface (let ((my/desktop-dir (concat user-emacs-directory ".desktop-save")))
+  :preface (let ((my/desktop-dir (expand-file-name "desktop-save" user-emacs-directory)))
              (unless (file-exists-p my/desktop-dir)
-               (make-directory my/desktop-dir))
-             (add-to-list 'desktop-path my/desktop-dir)
-             (setq desktop-dirname my/desktop-dir))
-  :if (not (or (featurep 'esup) my/emacs-benchmark-toggle))
-  :custom ((desktop-files-not-to-save "\\(^/[^/:]*:\\|(ftp)$\\|^/tmp/\\)")
+               (make-directory my/desktop-dir)))
+  :custom ((desktop-files-not-to-save "\\(^/[^/:]*:\\|(ftp)$\\|^/tmp/\\|(ssh)$\\)")
            (desktop-auto-save-timeout (* 60 10)))
-  :config (desktop-save-mode 1))
+  :config
+  (add-to-list 'desktop-path (expand-file-name "desktop-save" user-emacs-directory))
+  (desktop-save-mode 1))
 
 
 (provide 'init-emacs-session)
