@@ -75,17 +75,15 @@
 
 (use-package rime
   :ensure t
-  :init (setq rime-user-data-dir "~/.config/fcitx/rime")
-  :config
-  (setq rime-posframe-properties
-        (list :background-color "#333333"
-              :foreground-color "#dcdccc"
-              :internal-border-width 10))
-  (setq default-input-method "rime"
-        rime-show-candidate 'posframe
-        rime-cursor "˰")
-  (if (eq rime-show-candidate 'posframe)
-      (setq rime-posframe-style 'vertical)))
+  :custom ((rime-user-data-dir "~/.config/fcitx/rime")
+           (default-input-method "rime")
+           (rime-show-candidate 'posframe)
+           (rime-cursor "˰")
+           (rime-posframe-properties (list :background-color "#333333"
+                                           :foreground-color "#dcdccc"
+                                           :internal-border-width 10)))
+  :config (if (eq rime-show-candidate 'posframe)
+              (setq rime-posframe-style 'vertical)))
 
 
 
