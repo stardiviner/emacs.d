@@ -25,12 +25,6 @@
   (setq desktop-files-not-to-save "\\(^/[^/:]*:\\|(ftp)$\\|^/tmp/\\)")
   (setq desktop-auto-save-timeout (* 60 10)))
 
-;;; [ saveplace ] -- save visited files' point positions.
-
-(use-package saveplace
-  :defer 1
-  :hook (after-init . save-place-mode))
-
 
 (provide 'init-emacs-session)
 

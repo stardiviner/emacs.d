@@ -45,6 +45,10 @@
               ;; recentf-auto-cleanup 'mode ; 'mode, 'never.
               )
   :config (recentf-mode))
+;;; [ saveplace ] -- save visited files' point positions.
+
+(use-package saveplace
+  :hook (after-init . save-place-mode))
 
 ;;; [ frog-jump-buffer ] -- The fastest buffer-jumping Emacs lisp package around.
 
