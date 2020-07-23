@@ -10,11 +10,7 @@
 
 (use-package powershell
   :ensure t
-  :commands (powershell)
-  :init
-  ;; (setq powershell-location-of-exe
-  ;;       "c:\\windows\\system32\\WindowsPowerShell\\v1.0\\powershell.exe")
-  (setq powershell-location-of-exe "/usr/bin/pwsh"))
+  :commands (powershell))
 
 (use-package ob-powershell
   :load-path (lambda () (expand-file-name "init/extensions/ob-powershell.el" user-emacs-directory))
