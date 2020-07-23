@@ -49,6 +49,33 @@
 
 (advice-add 'org-link-make-string :around #'my/org-insert-link-as-inline-image)
 
+;;; Only display inline images under current subtree.
+(defun org-display-subtree-inline-images ()
+  "Toggle the display of inline images under current subtree.
+INCLUDE-LINKED is passed to `org-display-inline-images'."
+  (interactive)
+  (save-excursion
+    (save-restriction
+      (org-narrow-to-subtree)
+      (let* ((beg (point-min))
+             (end (point-max))
+             (image-overlays (cl-intersection
+                              org-inline-image-overlays
+                              (overlays-in beg end))))
+        (if image-overlays
+            (progn
+              (org-remove-inline-images)
+              (message "Inline image display turned off"))
+          (org-display-inline-images t t beg end)
+          (setq image-overlays (cl-intersection
+                                org-inline-image-overlays
+                                (overlays-in beg end)))
+          (if (and (org-called-interactively-p) image-overlays)
+              (message "%d images displayed inline"
+                       (length image-overlays))))))))
+
+(define-key org-mode-map (kbd "C-c C-x C-v") 'org-display-subtree-inline-images)
+
 
 
 (provide 'init-org-image)
