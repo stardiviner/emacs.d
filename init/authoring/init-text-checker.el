@@ -50,27 +50,16 @@
               ("w" . flyspell-buffer)
               ("n" . flyspell-goto-next-error)
               ("c" . flyspell-correct-word-before-point))
-  :init
-  (setq flyspell-default-dictionary "en"
-        ;; flyspell-after-incorrect-word-string "✗"
-        flyspell-consider-dash-as-word-delimiter-flag t
-        flyspell-issue-message-flag nil)
-
-  ;; programming code
-  ;; flyspell-prog-mode : enable flyspell for comments in source code
-  ;; (add-hook 'prog-mode-hook #'flyspell-prog-mode) ; cause little performance issue on code completing.
-
-  ;; TeX
-  (add-hook 'tex-mode-hook
-            (lambda () (setq ispell-parser 'tex) (flyspell-mode 1)))
-
-  ;; text
-  (dolist (hook
-           '(;; `text-mode' is parent mode of `org-mode' and `markdown-mode'.
-             ;; text-mode-hook
-             org-mode-hook
-             markdown-mode-hook))
-    (add-hook hook 'flyspell-mode)))
+  :custom ((flyspell-default-dictionary "en")
+           ;; (flyspell-after-incorrect-word-string "✗")
+           (flyspell-consider-dash-as-word-delimiter-flag t)
+           (flyspell-issue-message-flag nil))
+  :hook ((prog-mode . flyspell-prog-mode)
+         ;; (text-mode . flyspell-mode)
+         ;; (org-mode . flyspell-mode)
+         (markdown-mode . flyspell-mode))
+  :config (add-hook 'tex-mode-hook
+                    (lambda () (setq ispell-parser 'tex) (flyspell-mode 1))))
 
 ;;; [ flyspell-correct ] -- correcting words with flyspell via custom interface.
 
