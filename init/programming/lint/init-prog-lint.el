@@ -36,8 +36,9 @@
            (flycheck-emacs-lisp-load-path 'inherit))
   ;; NOTE: ONLY enable `flycheck-mode' MANUALLY. automatically checking will
   ;; cause high CPU. especially big source code file.
-  :hook ((after-init . global-flycheck-mode)
-         ;; (prog-mode . flycheck-mode-on-safe)
+  :hook ((prog-mode . flycheck-mode-on-safe)
+         (org-mode . flycheck-mode-on-safe)
+         ;; (after-init . global-flycheck-mode)
          )
   :bind (:map linter-prefix ("!" . flycheck-mode)
               :map flycheck-mode-map
