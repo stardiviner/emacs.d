@@ -73,17 +73,17 @@
 
 ;;; [ emacs-rime ] -- RIME ㄓ in Emacs using librime.
 
-(use-package rime
-  :ensure t
-  :custom ((rime-user-data-dir "~/.config/fcitx/rime")
-           (default-input-method "rime")
-           (rime-show-candidate 'posframe)
-           (rime-cursor "˰")
-           (rime-posframe-properties (list :background-color "#333333"
-                                           :foreground-color "#dcdccc"
-                                           :internal-border-width 10)))
-  :config (if (eq rime-show-candidate 'posframe)
-              (setq rime-posframe-style 'vertical)))
+;; (use-package rime
+;;   :ensure t
+;;   :custom ((rime-user-data-dir "~/.config/fcitx/rime")
+;;            (default-input-method "rime")
+;;            (rime-show-candidate 'posframe)
+;;            (rime-cursor "˰")
+;;            (rime-posframe-properties (list :background-color "#333333"
+;;                                            :foreground-color "#dcdccc"
+;;                                            :internal-border-width 10)))
+;;   :config (if (eq rime-show-candidate 'posframe)
+;;               (setq rime-posframe-style 'vertical)))
 
 
 
