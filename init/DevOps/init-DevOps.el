@@ -9,15 +9,12 @@
 
 ;;; [ ssh-deploy ] -- deployment via Tramp, global or per directory.
 
-(use-package ssh-deploy
-  :ensure t
-  :after hydra
-  :defer t
-  :commands (ssh-deploy-after-save ssh-deploy-find-file)
-  :hook ((after-save . ssh-deploy-after-save)
-         (find-file . ssh-deploy-find-file))
-  :config (ssh-deploy-line-mode)
-  (ssh-deploy-hydra "C-c C-z"))
+;; (use-package ssh-deploy
+;;   :ensure t
+;;   :hook ((after-save . ssh-deploy-after-save)
+;;          (find-file . ssh-deploy-find-file))
+;;   :config (ssh-deploy-hydra "C-c C-z")
+;;   (ssh-deploy-line-mode 1))
 
 ;;; [ Virtualization ]
 
