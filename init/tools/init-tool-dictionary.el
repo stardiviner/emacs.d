@@ -74,6 +74,18 @@
   
   ;; enable proxy for translate.google.com
   ;; (add-to-list 'url-proxy-services '("no_proxy" . "^.*(?!translate\\.google\\.com).*$"))
+
+  ;; translate web page URL link.
+  (defun google-translate-webpage (url)
+    "Translate web page URL and open in web browser."
+    (interactive (list (read-from-minibuffer
+                        "URL: "
+                        (or (thing-at-point 'url)
+                            (funcall interprogram-paste-function)))))
+    (browse-url
+     (format "http://translate.google.com/translate?js=n&sl=auto&tl=zh-CN&u=%s" url)))
+  
+  (define-key dictionary-prefix (kbd "u") 'google-translate-webpage)
   )
 
 ;;; [ ob-translate ] -- allows you to translate blocks of text within org-mode.
