@@ -18,6 +18,15 @@
   :commands (goldendict-dwim)
   :bind (:map dictionary-prefix ("d" . goldendict-dwim)))
 
+;;; [ multi-translate ] -- Translate word or region at point with multiple translation services.
+
+(use-package multi-translate
+  :ensure t
+  :commands (multi-translate-at-point)
+  :bind (:map dictionary-prefix ("m" . multi-translate-at-point))
+  :config (add-to-list 'display-buffer-alist
+                       '("^\\*Multi Translate\\*" (display-buffer-below-selected))))
+
 ;;; [ google-translate ] -- Emacs interface to Google Translate.
 
 (use-package google-translate
