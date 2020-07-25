@@ -46,8 +46,8 @@
              "~/Org/Myself/"            ; about Myself tasks
              )))))
   
-  ;; include `diary-file' from `calendar'
-  (setq org-agenda-include-diary nil
+  ;; Calendar/Diary integration
+  (setq org-agenda-include-diary nil ; use "Diary-style expression entries" directly instead.
         diary-file (concat org-directory "/Calendars/Anniversary.org")
         org-agenda-diary-file (concat org-directory "/Calendars/Anniversary.org")
         ;; org-agenda-insert-diary-strategy 'date-tree

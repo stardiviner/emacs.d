@@ -65,7 +65,7 @@
   :defer t
   :commands (impatient-mode))
 
-;;; [ ob-browser-chrome ] -- Export Org HTML SRC blocks as PNG files using Chrome in "headless" mode.
+;;; [ ob-html-chrome ] -- Export Org HTML SRC blocks as PNG files using Chrome in "headless" mode.
 
 (use-package ob-html-chrome
   :quelpa (ob-html-chrome :fetcher github :repo "stardiviner/ob-html-chrome")

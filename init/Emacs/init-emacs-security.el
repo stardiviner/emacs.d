@@ -25,9 +25,10 @@
   :no-require t
   :config
   (autoload '-filter "dash")
-  (setq auth-sources (-filter #'file-exists-p
-                              `(,(concat user-emacs-directory "secrets/.authinfo.gpg")
-                                "~/.authinfo.gpg" "~/.authinfo" "~/.netrc")))
+  (setq auth-sources
+        (-filter #'file-exists-p
+                 `(,(concat user-emacs-directory "secrets/.authinfo.gpg")
+                   "~/.authinfo.gpg" "~/.authinfo" "~/.netrc")))
 
   (defun my:auth-source-get (query-key query-value get-key)
     "Get :secret of QUERY matched auth-source entries.

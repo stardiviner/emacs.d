@@ -1,6 +1,6 @@
 ;;; init-prog-vcs-changelog.el ---  -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-02-14 14:19:16 stardiviner>
+;;; Time-stamp: <2020-07-19 11:43:20 stardiviner>
 
 ;;; Commentary:
 
@@ -11,6 +11,7 @@
 ;;; [ add-log ] -- change log maintenance commands for Emacs. [C-x 4 a]
 
 (use-package add-log
+  ;; :custom (add-log-keep-changes-together t)
   :config
   (defun my:change-log-mode-setup ()
     (setq-local fill-column 72)

@@ -79,7 +79,7 @@
           ("http://www.kali.org/feed/" Kali Linux Subscribe) ; Kali Linux Blog
           ;; Subscribe
           ("https://github.com/blog/all.atom" GitHub SubScribe) ; GitHub Blog
-          ("http://www.salttiger.com/feed/" Ebook) ; Salttiger
+          ("http://www.salttiger.com/feed/" ebook) ; Salttiger
           ;; Podcasts
           ("https://feeds.pacific-content.com/commandlineheroes" Programming) ; Command-line Heros podcast
           ))

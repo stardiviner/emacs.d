@@ -113,15 +113,21 @@ by creating or altering keymaps stored in buffer-local
 
 ;;; [ Screen ]
 
+;; (display-mm-width)
+
 ;;; a helper function to detect HiDPI screen resolution.
 (defun screen-get-monitor-attributes-by-name (name)
   "Get the display monitor attributes by NAME."
   (car (delete nil
-               (mapcar (lambda (monitor)     ; support multiple display screens
+               (mapcar (lambda (monitor)    ; support multiple display screens
                          (when (string-equal name (cdr (assq 'name monitor)))
                            monitor))
                        (display-monitor-attributes-list)))))
 
+;; (defun get-text-scale ()
+;;   (expt text-scale-mode-step text-scale-mode-amount))
+
+;;; - `window-text-pixel-size'
 (defun screen-hidpi-p ()
   "A helper function to detect HiDPI screen resolution."
   (let* ((attrs (screen-get-monitor-attributes-by-name "eDP1"))
@@ -130,6 +136,8 @@ by creating or altering keymaps stored in buffer-local
          (display-width (display-pixel-width))
          (display-height (display-pixel-height)))
     (if (>= (or display-width (cadr resolution)) 1600) t nil)))
+
+(defvar high-resolution-p (>= (car (window-fringes)) 16))
 
 ;;; [ Network ]
 

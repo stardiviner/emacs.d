@@ -8,8 +8,7 @@
 ;;; Code:
 
 (use-package ox-latex
-  :defer t
-  :init
+  :config
   ;; - 'divpng :: faster but don't support Chinese by default.
   ;; - 'imagemagick :: slower but support Chinese by default.
   ;; - 'dvisvgm ::  ; generate SVG for better image.

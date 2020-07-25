@@ -60,6 +60,9 @@
 ;;       default-sendmail-coding-system 'utf-8-unix
 ;;       default-terminal-coding-system 'utf-8-unix)
 
+;;; open file with specified default encoding.
+;; (add-to-list 'file-coding-system-alist '("\\.extension???" . utf-8))
+
 ;;; time
 
 (setq system-time-locale "C") ; make timestamps in org-mode appear in English.
