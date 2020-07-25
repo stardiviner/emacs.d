@@ -7,9 +7,10 @@
 
 ;;; Code:
 
-;;; [ Status ]
-
 ;;; statistics -> [1/10] or [15%]
+(setq org-checkbox-hierarchical-statistics nil)
+
+;;; todo task dependencies
 
 ;; Org-mode built-in TODOs dependencies, enforce parent and sub-tasks DONE.
 (setq org-enforce-todo-dependencies t)
