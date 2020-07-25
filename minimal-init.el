@@ -59,10 +59,6 @@
   :config
   (global-set-key (kbd "C-x C-j") 'ace-window))
 
-(use-package which-key
-  :ensure
-  :config (which-key-mode 1))
-
 (require 'init-ivy)
 (require 'init-company-mode)
 
