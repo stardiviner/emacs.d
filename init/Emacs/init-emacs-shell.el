@@ -30,10 +30,10 @@
                '("^\\*shell\\*$" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
                '("^\\*Shell Command Output\\*$"
-                 (display-buffer-reuse-window display-buffer-below-selected)))
+                 (display-buffer-no-window)))
   (add-to-list 'display-buffer-alist
                '("^\\*Async Shell Command\\*"
-                 (display-buffer-reuse-window display-buffer-below-selected)))
+                 (display-buffer-no-window)))
   
   ;; a helper function to run sudo Shell command.
   (defun sudo-shell-command (command)
