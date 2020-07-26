@@ -415,7 +415,9 @@ With value selected from a list of available sessions."
 
 (use-package clojure-essential-ref
   :ensure t
-  :commands (clojure-essential-ref clojure-essential-ref-web)
+  :ensure clojure-essential-ref-nov
+  :commands (clojure-essential-ref clojure-essential-ref-web clojure-essential-ref-nov)
+  :custom (clojure-essential-ref-default-browse-fn #'clojure-essential-ref-nov-browse)
   :bind (
          :map cider-mode-map
          ("C-c h c" . clojure-essential-ref)
