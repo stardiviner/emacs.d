@@ -13,7 +13,9 @@
   :ensure t
   :defer t
   :commands (clojure-add-arity)
-  :init (setq clojure-align-forms-automatically t)
+  :custom ((clojure-align-forms-automatically t))
+  :mode (("\\.\\(clj\\|dtm\\|edn\\)\\'" . clojure-mode)
+         ("\\(?:build\\|profile\\)\\.boot\\'" . clojure-mode))
   :config
   (autoload 'my-lisp-common-settings "init-prog-lang-lisp.el")
   (add-hook 'clojure-mode-hook #'my-lisp-common-settings)
