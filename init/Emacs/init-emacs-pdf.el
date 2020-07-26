@@ -71,11 +71,12 @@
   (add-to-list 'display-buffer-alist
                '("\\*PDF-Occur\\*" . (display-buffer-reuse-window display-buffer-below-selected))))
 
-;;; [ pdf-view-restore ] -- support for opening last known pdf position in pdf-view-mode.
+;;; [ saveplace-pdf-view ] -- saveplace support in pdf-view buffers for Emacs.
 
-(use-package pdf-view-restore
+(use-package saveplace-pdf-view
   :ensure t
-  :hook ((pdf-view-mode . pdf-view-restore-mode)))
+  :demand t
+  :init (save-place-mode 1))
 
 ;; [ org-noter ] -- Emacs document annotator, using Org-mode.
 
