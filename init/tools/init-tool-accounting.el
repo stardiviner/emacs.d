@@ -16,6 +16,13 @@
   :defer t
   :mode ("\\.ledger\\'" . ledger-mode))
 
+(use-package company-ledger
+  :ensure t
+  :config
+  (defun my-company-ledger-setup ()
+    (my-company-add-backend-locally 'company-ledger))
+  (add-hook 'ledger-mode-hook #'my-company-ledger-setup))
+
 (use-package flycheck-ledger
   :ensure t
   :defer t
