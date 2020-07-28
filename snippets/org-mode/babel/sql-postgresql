@@ -4,8 +4,7 @@
 # group: babel.sql.postgresql
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
-${1:#+NAME: ${2:src block name}
-}#+headers: :cmdline -h ${3:localhost} -p ${4:5432} -U ${5:$$(yas-choose-value '("postgres" "stardiviner"))} -w${6: -d ${7:dbname}}
+#+headers: :cmdline -h ${1:localhost} -p ${2:5432} -U ${3:$$(yas-choose-value '("postgres" "stardiviner"))} -w${4: -d ${5:dbname}}
 #+begin_src sql :engine postgresql
 $0
 #+end_src

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: header-argument :dir sudo relative path
+# key: header-argument-dir-sudo-relative
+# group: header-argument.dir.sudo
+# --
+:dir (concat "/sudo::" (expand-file-name "${1:data/code}")) $0
