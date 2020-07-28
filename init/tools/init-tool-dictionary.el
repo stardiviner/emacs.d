@@ -46,8 +46,8 @@
            (google-translate--tkk-url "https://translate.google.cn/")
            (google-translate-show-phonetic t)
            (google-translate-pop-up-buffer-set-focus t)
-           (google-translate-default-source-language "en") ; "auto", "en"
-           (google-translate-default-target-language "zh-CN") ; `google-translate-supported-languages'
+           (google-translate-default-source-language "auto") ; "auto", "en"
+           ;; (google-translate-default-target-language "zh-CN") ; `google-translate-supported-languages'
            (google-translate-translation-directions-alist '(("en" . "zh-CN")
                                                             ("zh-CN" . "en")
                                                             ("zh-CN" . "ja")
