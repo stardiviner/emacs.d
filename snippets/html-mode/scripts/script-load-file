@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: script-load-file
-# key: script-load-file
-# group: javascript.script
+# name: script-src
+# key: script-src
+# group: script.javascript
 # --
-<script type="text/javascript" src="${1:/path/to/js}"></script>
+script type="text/javascript" src="${1:/path/to/js}"></script>

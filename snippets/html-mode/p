@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: p
+# key: p
+# group: html
+# --
+p>$0</p>

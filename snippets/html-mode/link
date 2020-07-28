@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: link
+# key: link
+# group: link
+# --
+link rel="${1:stylesheet}" href="${2:stylesheets/${3:styles}.css}">$0
