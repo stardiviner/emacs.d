@@ -141,7 +141,7 @@
     (setq-local company-idle-delay 0.3)
     (setq-local company-tooltip-idle-delay 0.2)
     (flyspell-mode -1)
-    (electric-pair-mode -1))
+    (electric-pair-local-mode -1))
   (add-hook 'ejc-sql-mode-hook #'my/ejc-sql-company-setup)
 
   ;; enable `ejc-sql' in `sql-interactive-mode'.
