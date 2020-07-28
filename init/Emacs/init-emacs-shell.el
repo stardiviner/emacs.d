@@ -12,7 +12,7 @@
 (use-package shell
   :defer t
   :commands (shell)
-  :init (setq shell-file-name "/usr/bin/bash")
+  :init (setq shell-file-name (executable-find "bash"))
   ;; [M-x shell] is a nice shell interface to use, let's make it colorful.
   (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
   (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
