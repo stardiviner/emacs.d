@@ -27,8 +27,8 @@
 
 ;; (use-package gcmh
 ;;   :ensure t
-;;   :init (setq gcmh-high-cons-threshold #x20000000)
-;;   :config (gcmh-mode 1))
+;;   :custom (gcmh-high-cons-threshold #x20000000)
+;;   :init (gcmh-mode 1))
 
 
 (provide 'init-emacs-performance)

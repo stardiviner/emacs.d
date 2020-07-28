@@ -11,29 +11,28 @@
   (define-prefix-command 'tags-prefix))
 (global-set-key (kbd "M-g t") 'tags-prefix)
 
+;;; [ tags settings ]
 
-(setq tags-table-files nil
-      tags-table-list nil)
+(setq tags-add-tables t ; always add new tags to tables
+      tags-revert-without-query t
+      tags-apropos-verbose t)
 
 ;;; [ xref ]
 
-(require 'xref)
-
-;; disable the following elements to avoid jump to other window when xref.
-(setq xref-prompt-for-identifier '(not xref-find-definitions
-                                       ;; xref-find-definitions-other-window
-                                       ;; xref-find-definitions-other-frame
-                                       ))
-
-(add-to-list 'display-buffer-alist
-             '("^\\*xref\\*$" (display-buffer-below-selected)))
+(use-package xref
+  ;; disable the following elements to avoid jump to other window when xref.
+  :custom (xref-prompt-for-identifier '(not xref-find-definitions
+                                            ;; xref-find-definitions-other-window
+                                            ;; xref-find-definitions-other-frame
+                                            ))
+  :config (add-to-list 'display-buffer-alist
+                       '("^\\*xref\\*$" (display-buffer-below-selected))))
 
 ;;; [ helm-xref ] -- Helm interface for xref results.
 
 ;; (use-package helm-xref
 ;;   :ensure t
-;;   :config
-;;   (setq xref-show-xrefs-function 'helm-xref-show-xrefs))
+;;   :custom (xref-show-xrefs-function 'helm-xref-show-xrefs))
 
 ;;; [ dumb-jump ] -- An Emacs "jump to definition" package using ag, ripgrep etc.
 
@@ -47,10 +46,8 @@
 ;;               ("o" . dumb-jump-go-other-window)
 ;;               ("x" . dumb-jump-go-prefer-external)
 ;;               ("z" . dumb-jump-go-prefer-external-other-window))
-;;   :config
-;;   ;; (setq dumb-jump-selector 'popup) 'ivy
-;;   (dumb-jump-mode 1)
-;;   )
+;;   :custom (dumb-jump-selector 'popup) ; 'ivy
+;;   :config (dumb-jump-mode 1))
 
 ;;; [ Imenu ] -- [M-x imenu]
 
@@ -58,16 +55,6 @@
   :ensure t
   :bind (([remap imenu] . counsel-imenu) ; [C-x j]: `helm-imenu', `counsel-imenu'.
          ("C-c ." . helm-imenu)))
-
-;;; [ tags settings ]
-
-(setq tags-add-tables t ; always add new tags to tables
-      ;; tags-included-tables
-      ;; tags-table-list (list
-      ;;                  (expand-file-name "/usr/share/lib/TAGS"))
-      tags-revert-without-query t
-      ;; tags-completion-table
-      tags-apropos-verbose t)
 
 ;; NOTE: use etags & gtags, because company-mode support.
 ;; (require 'init-etags)
