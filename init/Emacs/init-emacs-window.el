@@ -110,17 +110,17 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
 
 ;;; [ zoom ] -- Fixed and automatic balanced window layout.
 
-;; (use-package zoom
-;;   :ensure t
-;;   :delight 'zoom-mode
-;;   :hook (after-init . zoom-mode)
-;;   :config (setq zoom-size '(0.618 . 0.618))
-;;   (add-to-list 'zoom-ignored-major-modes 'helm-major-mode)
-;;   ;; fix `(set (make-local-variable 'track-mouse) t)' in `dap-tooltip-mode'.
-;;   (defun undo-local-track-mouse(&optional ignored)
-;;     (kill-local-variable 'track-mouse))
-;;   (advice-add 'zoom--get-frame-snapshot :before 'undo-local-track-mouse)
-;;   (advice-add 'zoom--handler :before 'undo-local-track-mouse))
+(use-package zoom
+  :ensure t
+  :delight 'zoom-mode
+  :hook (after-init . zoom-mode)
+  :config (setq zoom-size '(0.618 . 0.618))
+  (add-to-list 'zoom-ignored-major-modes 'helm-major-mode)
+  ;; fix `(set (make-local-variable 'track-mouse) t)' in `dap-tooltip-mode'.
+  (defun undo-local-track-mouse(&optional ignored)
+    (kill-local-variable 'track-mouse))
+  (advice-add 'zoom--get-frame-snapshot :before 'undo-local-track-mouse)
+  (advice-add 'zoom--handler :before 'undo-local-track-mouse))
 
 ;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
 
