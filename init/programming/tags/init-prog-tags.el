@@ -34,21 +34,6 @@
 ;;   :ensure t
 ;;   :custom (xref-show-xrefs-function 'helm-xref-show-xrefs))
 
-;;; [ dumb-jump ] -- An Emacs "jump to definition" package using ag, ripgrep etc.
-
-;; (use-package dumb-jump
-;;   :ensure t
-;;   :init
-;;   :bind (:map tags-prefix
-;;               ("j" . dumb-jump-go)
-;;               ("k" . dumb-jump-back)
-;;               ("q" . dumb-jump-quick-look)
-;;               ("o" . dumb-jump-go-other-window)
-;;               ("x" . dumb-jump-go-prefer-external)
-;;               ("z" . dumb-jump-go-prefer-external-other-window))
-;;   :custom (dumb-jump-selector 'popup) ; 'ivy
-;;   :config (dumb-jump-mode 1))
-
 ;;; [ Imenu ] -- [M-x imenu]
 
 (use-package imenu
