@@ -141,7 +141,27 @@
 
 %(my/org-capture-elfeed-content)"
                  :empty-lines 1
-                 :jump-to-captured t)))
+                 :jump-to-captured t))
+
+  ;; download with youtube-dl
+  (defun youtube-dl-cmd-wrapper (url)
+    "Downloads the URL with youtube-dl in an async shell"
+    (let ((default-directory "~/Videos"))
+      (async-shell-command (format "youtube-dl %s" url))))
+
+  (defun elfeed-youtube-dl (&optional use-generic-p)
+    "youtube-dl link"
+    (interactive "P")
+    (let ((entries (elfeed-search-selected)))
+      (cl-loop for entry in entries
+               do (elfeed-untag entry 'unread)
+               when (elfeed-entry-link entry)
+               do (youtube-dl-cmd-wrapper it))
+      (mapc #'elfeed-search-update-entry entries)
+      (unless (use-region-p) (forward-line))))
+
+  (define-key elfeed-search-mode-map (kbd "d") 'elfeed-youtube-dl)
+  )
 
 
 (provide 'init-elfeed)
