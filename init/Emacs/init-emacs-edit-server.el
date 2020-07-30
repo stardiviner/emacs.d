@@ -73,19 +73,10 @@
 (use-package with-editor
   :ensure t
   :defer t
-  :init
-  (add-hook 'shell-mode-hook  'with-editor-export-editor)
-  (add-hook 'term-mode-hook   'with-editor-export-editor)
-  (add-hook 'term-exec-hook   'with-editor-export-editor)
-  (add-hook 'eshell-mode-hook 'with-editor-export-editor)
-
-  ;; Some variants of this function exist, these two forms are
-  ;; equivalent:
-
-  ;; (add-hook 'shell-mode-hook
-  ;;           (apply-partially 'with-editor-export-editor "GIT_EDITOR"))
-  ;; (add-hook 'shell-mode-hook 'with-editor-export-git-editor)
-  )
+  :hook ((shell-mode . with-editor-export-editor)
+         (term-mode . with-editor-export-editor)
+         (term-exec . with-editor-export-editor)
+         (eshell-mode . with-editor-export-editor)))
 
 
 (provide 'init-emacs-edit-server)
