@@ -45,6 +45,8 @@
              "~/Org/Calendars/Anniversary.org"
              "~/Org/Myself/"            ; about Myself tasks
              )))))
+
+  (setq org-agenda-skip-archived-trees nil) ; don't skip recently archived items in Org archive file.
   
   ;; Calendar/Diary integration
   (setq org-agenda-include-diary nil ; use "Diary-style expression entries" directly instead.
