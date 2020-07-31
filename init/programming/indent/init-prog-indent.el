@@ -51,11 +51,7 @@
 
 (use-package aggressive-indent
   :ensure t
-  :defer t
   :delight aggressive-indent-mode
-  :commands (aggressive-indent-mode global-aggressive-indent-mode)
-  :preface (setq global-aggressive-indent-mode t)
-  :init (global-aggressive-indent-mode -1) ; don't enable globally by default.
   :config
   ;; enable on mode locally
   (defun my/aggressive-indent-enable ()
@@ -77,6 +73,8 @@
   (add-to-list 'aggressive-indent-dont-electric-modes 'html-mode)
   (add-to-list 'aggressive-indent-dont-electric-modes 'web-mode)
 
+  (global-aggressive-indent-mode 1)
+  
   ;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
   ;; **don't** want indentation to happen.  For instance, if you think it's
   ;; annoying that lines jump around in `c++-mode' because you haven't typed the
