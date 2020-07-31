@@ -24,6 +24,13 @@
     :program "isort"
     :args '("--apply" "-")))
 
+
+;;; [ prettier ] -- Prettier code formatting for Emacs. $ npm install prettier
+
+(use-package prettier
+  :ensure t
+  :init (global-prettier-mode 1))
+
 
 
 (provide 'init-prog-reformat)
