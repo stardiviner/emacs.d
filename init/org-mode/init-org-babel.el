@@ -138,10 +138,11 @@ but `delete-file' is ignored."
     (org-babel-tangle '(4))))
 (define-key org-babel-map (kbd "M-t") 'my/org-babel-tangle-append)
 
+;;; NOTE: This advice caused long suspend on babel source block suspend.
 ;;; auto re-display inline images when source block generate graphics image file link result.
-(defun my/org-redisplay-inline-images (&optional arg info params)
-  (org-redisplay-inline-images))
-(advice-add 'org-babel-execute-src-block :after #'my/org-redisplay-inline-images)
+;; (defun my/org-redisplay-inline-images (&optional arg info params)
+;;   (org-redisplay-inline-images))
+;; (advice-add 'org-babel-execute-src-block :after #'my/org-redisplay-inline-images)
 
 ;;; interactively insert noweb of completing named src blocks. [C-c C-v M-q]
 (defun my/org-babel-insert-noweb-of-named-src-block (&optional template)
