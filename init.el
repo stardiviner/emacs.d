@@ -201,6 +201,7 @@
 ;; (require 'init-tool-subtitle)
 ;; (require 'init-tool-podcast)
 ;; (require 'init-tool-audio)
+(require 'init-tool-video)
 ;; (require 'init-tool-screenshot)
 ;; (require 'init-tool-screencast)
 ;; (require 'init-stack-exchange)
