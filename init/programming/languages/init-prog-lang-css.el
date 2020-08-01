@@ -23,7 +23,7 @@
   :defer t
   :mode "\\.css\\'"
   :init (setq css-indent-offset 2)
-  :hook (css-mode . electric-pair-mode))
+  :hook (css-mode . electric-pair-local-mode))
 
 ;;; [ company-css ]
 
