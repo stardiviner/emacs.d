@@ -290,7 +290,7 @@ That's it.
     ;; interactively select Org default directory or current directory.
     (interactive (list (completing-read "Dir: " `(,(expand-file-name org-directory)
                                                   ,default-directory))))
-    (let* ((command (rg-files-construct-command directory)))
+    (let* ((command (rg-files-construct-command (shell-quote-argument directory))))
       ;; FIXME rg report 0 match, but the result has matches.
       ;; dive into rg.el source code to figure out.
       ;; use `rg-define-search'
