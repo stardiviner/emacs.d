@@ -119,6 +119,7 @@ Optional for Org-mode file: `LINK'."
                    ("\\.mp3\\'" . "mpv %s")
                    ("\\.ogg\\'" . "mpv %s")
                    ("\\.wav\\'" . "mpv %s")
+                   ("\\.m4a\\'" . "mpv %s")
                    ("\\.midi\\'" . "timidity %s")))
      (add-to-list 'org-file-apps pair))
 
