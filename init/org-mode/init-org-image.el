@@ -50,7 +50,7 @@
 (advice-add 'org-link-make-string :around #'my/org-insert-link-as-inline-image)
 
 ;;; Only display inline images under current subtree.
-(defun org-display-subtree-inline-images ()
+(defun org-display-subtree-inline-images (&optional state)
   "Toggle the display of inline images under current subtree.
 INCLUDE-LINKED is passed to `org-display-inline-images'."
   (interactive)
@@ -61,20 +61,34 @@ INCLUDE-LINKED is passed to `org-display-inline-images'."
              (end (point-max))
              (image-overlays (cl-intersection
                               org-inline-image-overlays
-                              (overlays-in beg end))))
-        (if image-overlays
-            (progn
-              (org-remove-inline-images)
-              (message "Inline image display turned off"))
-          (org-display-inline-images t t beg end)
-          (setq image-overlays (cl-intersection
-                                org-inline-image-overlays
-                                (overlays-in beg end)))
-          (if (and (org-called-interactively-p) image-overlays)
-              (message "%d images displayed inline"
-                       (length image-overlays))))))))
+                              (overlays-in beg end)))
+             (display-inline-images-local
+              (lambda ()
+                (org-display-inline-images t t beg end)
+                (setq image-overlays (cl-intersection
+                                      org-inline-image-overlays
+                                      (overlays-in beg end)))
+                (if (and (org-called-interactively-p) image-overlays)
+                    (message "%d images displayed inline"
+                             (length image-overlays)))))
+             (hide-inline-images-local
+              (lambda ()
+                (org-remove-inline-images)
+                (message "Inline image display turned off"))))
+        (if state
+            (pcase state
+              ('subtree
+               (funcall display-inline-images-local))
+              ('folded
+               (funcall hide-inline-images-local)))
+          (if image-overlays
+              (funcall display-inline-images-local)
+            (funcall hide-inline-images-local)))))))
 
 (define-key org-mode-map (kbd "C-c C-x C-v") 'org-display-subtree-inline-images)
+
+;;; auto display inline images on Org TAB cycle expand headlines.
+(add-hook 'org-cycle-hook #'org-display-subtree-inline-images)
 
 
 
