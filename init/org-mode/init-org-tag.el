@@ -36,7 +36,7 @@
 (add-to-list 'org-default-properties "PRESS")
 
 (setq org-tag-alist
-      '((:startgroup) ("Org" . ?o) ("idea" . ?i) (:endgroup)
+      '((:startgroup) ("Org" . ?o) ("idea" . ?i) ("suggested") (:endgroup)
 
         ;; Task
         (:startgrouptag) ("@task" . ?t) (:grouptags)
