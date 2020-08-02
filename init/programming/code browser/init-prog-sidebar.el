@@ -44,6 +44,12 @@
 ;;   (setq ibuffer-sidebar-use-custom-font nil)
 ;;   (setq ibuffer-sidebar-face `(:family "Helvetica" :height 140)))
 
+;;; [ treemacs ] -- A tree style file explorer package.
+
+(use-package treemacs
+  :ensure t
+  :ensure treemacs-all-the-icons)
+
 
 
 (provide 'init-prog-sidebar)
