@@ -34,7 +34,7 @@
   :ensure t
   :defer t
   :commands (org-tree-slide-mode)
-  :bind (:map Org-prefix ("s" . org-tree-slide-mode))
+  :bind (:map Org-prefix ("M-s" . org-tree-slide-mode))
   :init (setq org-tree-slide-skip-done nil
               org-tree-slide-heading-emphasis t)
   :config
