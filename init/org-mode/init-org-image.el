@@ -84,8 +84,8 @@ INCLUDE-LINKED is passed to `org-display-inline-images'."
               ('folded
                (funcall hide-inline-images-local)))
           (if image-overlays
-              (funcall display-inline-images-local)
-            (funcall hide-inline-images-local)))))))
+              (funcall hide-inline-images-local)
+            (funcall display-inline-images-local)))))))
 
 (define-key org-mode-map (kbd "C-c C-x C-v") 'org-display-subtree-inline-images)
 
