@@ -16,9 +16,9 @@
 
 ;;; [ esonify ] -- An Emacs extension that sonifies your code.
 
-(use-package esonify
-  :ensure t
-  :commands (esonify-mode))
+;; (use-package esonify
+;;   :ensure t
+;;   :commands (esonify-mode))
 
 ;;; [ rainbow-fart ] -- 程序猿鼓励师
 
