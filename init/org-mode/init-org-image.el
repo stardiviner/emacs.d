@@ -79,6 +79,8 @@ INCLUDE-LINKED is passed to `org-display-inline-images'."
             (pcase state
               ('subtree
                (funcall display-inline-images-local))
+              ('children
+               (funcall display-inline-images-local))
               ('folded
                (funcall hide-inline-images-local)))
           (if image-overlays
