@@ -9,29 +9,20 @@
 
 (use-package ox-latex
   :config
-  ;; - 'divpng :: faster but don't support Chinese by default.
+  ;; `org-preview-latex-process-alist'
+  ;; - 'dvipng :: faster but don't support Chinese by default.
   ;; - 'imagemagick :: slower but support Chinese by default.
   ;; - 'dvisvgm ::  ; generate SVG for better image.
   (setq org-preview-latex-default-process 'dvisvgm)
 
-  ;; (setq org-preview-latex-default-process 'dvisvgm-xetex)
-  ;; (add-to-list 'org-preview-latex-process-alist
-  ;;              '(dvisvgm-xetex
-  ;;                :programs ("xetex" "dvisvgm")
-  ;;                :description "dvi > svg"
-  ;;                :message "you need to install the programs: latex and dvisvgm."
-  ;;                :use-xcolor t
-  ;;                :image-input-type "dvi"
-  ;;                :image-output-type "svg"
-  ;;                :image-size-adjust (1.7 . 1.5)
-  ;;                :latex-compiler ("xelatex -8bit --shell-escape -interaction=nonstopmode -output-directory %o %f")
-  ;;                :image-converter ("dvisvgm %f -n -b min -c %S -o %O")))
-
-  (setq org-latex-image-default-width "1.5\\linewidth")
-  (setq org-format-latex-options ; adjust LaTeX preview image size.
-        `(plist-put org-format-latex-options :scale ,(* 1.5 (if (screen-hidpi-p) 2 1))))
-  (setq org-format-latex-options ; adjust HTML exporting LaTeX image size.
-        `(plist-put org-format-latex-options :html-scale ,(* 2.0 (if (screen-hidpi-p) 2 1))))
+  (setq org-latex-images-centered t)
+  (setq org-latex-image-default-width "1.5\\linewidth"
+        org-latex-image-default-scale "3.0"
+        org-latex-image-default-height "300")
+  (setq org-format-latex-options        ; adjust LaTeX preview image size.
+        (plist-put org-format-latex-options :scale (* 1.5 (if (screen-hidpi-p) 1.5 1))))
+  (setq org-format-latex-options       ; adjust HTML exporting LaTeX image size.
+        (plist-put org-format-latex-options :html-scale (* 2.0 (if (screen-hidpi-p) 2 1))))
 
   (setq org-latex-prefer-user-labels t))
 
