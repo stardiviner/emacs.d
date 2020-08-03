@@ -379,20 +379,37 @@ and append it."
 
 ;;; `geo:'
 ;; [geo:37.786971,-122.399677;u=35]
+;; [[geo:58.397813,15.576063]]
+;; [[geo:9FCQ9HXG+4CG]]
+
+;;; Open Location Code library
+(use-package olc
+  :ensure t
+  :commands (olc-encode olc-decode))
 
 (defcustom org-geo-link-application-command "gnome-maps"
   "Specify the program name for openning geo: link."
   :type 'string)
 
-(defun org-geo-link-open (uri)
+(defun org-geo-link-open (link)
   "Open Geography location `URI' like \"geo:25.5889136,100.2208514\" in Map application."
-  (if (executable-find "gnome-maps")
-      (start-process
-       "org-geo-link-open"
-       "*org-geo-link-open*"
-       org-geo-link-application-command
-       (shell-quote-wildcard-pattern uri))
-    (browse-url uri)))
+  (let ((location (cond
+                   ;; (string-match-p "\\,.*" "25.5889136,100.2208514")
+                   ((string-match-p "\\,.*" link)
+                    link)
+                   ;; (string-match-p "\\+.*" "9FCQ9HXG+4CG")
+                   ((string-match-p "\\+.*" link)
+                    (format "%s,%s"
+                            (olc-area-lat (olc-decode link))
+                            (olc-area-lon (olc-decode link))))
+                   (t (user-error "Your link is not Geo location or Open Location Code!")))))
+    (if (executable-find org-geo-link-application-command)
+        (start-process
+         "org-geo-link-open"
+         "*org-geo-link-open*"
+         org-geo-link-application-command
+         (shell-quote-wildcard-pattern location))
+      (browse-url location))))
 
 (org-link-set-parameters "geo" :follow #'org-geo-link-open)
 
