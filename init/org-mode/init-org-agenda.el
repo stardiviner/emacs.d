@@ -87,7 +87,8 @@
         org-agenda-clockreport-parameter-plist '(:scope agenda-with-archives
                                                         :maxlevel 5
                                                         :block today
-                                                        :fileskip0 t))
+                                                        :fileskip0 t
+                                                        :link nil))
 
   (setq org-agenda-block-separator ?=
         org-agenda-compact-blocks t)
