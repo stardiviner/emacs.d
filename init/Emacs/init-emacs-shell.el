@@ -11,6 +11,7 @@
 
 (use-package shell
   :defer t
+  :mode (("\\.\\(xinitrc\\|xsessionrc\\|xsession\\|xprofile\\)\\'" . sh-mode))
   :commands (shell)
   :init (setq shell-file-name (executable-find "bash"))
   ;; [M-x shell] is a nice shell interface to use, let's make it colorful.
