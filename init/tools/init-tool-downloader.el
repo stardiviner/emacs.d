@@ -19,7 +19,9 @@
   :load-path "~/Code/Emacs/youtube-dl/"
   :defer t
   :commands (youtube-dl youtube-dl-list)
-  :custom (youtube-dl-directory "~/Downloads/")
+  :custom ((youtube-dl-directory "~/Downloads/")
+           (youtube-dl-proxy "socks5://127.0.0.1:1086")
+           (youtube-dl-proxy-url-list '("youtube.com")))
   :config
   (add-to-list 'display-buffer-alist
                '("^\\*youtube-dl list\\*" .
