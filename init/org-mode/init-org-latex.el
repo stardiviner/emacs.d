@@ -7,6 +7,9 @@
 
 ;;; Code:
 
+;;; auto preview latex on cycle expanding subtree.
+(add-hook 'org-cycle-hook #'org-latex-preview)
+
 (use-package ox-latex
   :config
   ;; `org-preview-latex-process-alist'
