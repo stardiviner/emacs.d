@@ -37,6 +37,7 @@
 
 (use-package blimp
   :ensure t
+  :commands (blimp-interface)
   :bind (:map image-mode-map ("C-c C-i" . blimp-interface))
   :config (add-hook 'image-mode-hook 'blimp-mode))
 
