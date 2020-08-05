@@ -14,6 +14,11 @@
   :load-path "~/Code/Emacs/ffmpeg.el"
   :commands (ffmpeg-cut-clip))
 
+;;; [ vlc ] -- VideoLAN VLC Media Player Control through the Web Interface's API.
+
+(use-package vlc
+  :ensure t)
+
 
 
 (provide 'init-tool-video)
