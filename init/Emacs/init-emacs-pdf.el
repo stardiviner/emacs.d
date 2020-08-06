@@ -69,7 +69,16 @@
   (add-to-list 'display-buffer-alist
                '("\\*Outline .*pdf\\*" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("\\*PDF-Occur\\*" . (display-buffer-reuse-window display-buffer-below-selected))))
+               '("\\*PDF-Occur\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
+  ;; close all opened PDFs by pdf-tools to save read positions before kill Emacs.
+  ;; `pdf-view-restore-save'
+  (defun pdf-tools-save-positions-before-kill ()
+    "Save all opened pdf-view-mode files positions before kill Emacs."
+    (dolist (buffer (buffer-list))
+      (with-current-buffer buffer
+        (when (derived-mode-p 'pdf-view-mode)
+          (kill-buffer-and-window)))))
+  (add-hook 'kill-emacs-hook #'pdf-tools-save-positions-before-kill))
 
 ;;; [ saveplace-pdf-view ] -- saveplace support in pdf-view buffers for Emacs.
 
