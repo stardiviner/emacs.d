@@ -39,7 +39,7 @@
 
 ;; (advice-add 'org-store-link :before #'org-store-link-set-headline-custom-id)
 
-(add-hook 'org-follow-link-hook #'sound-tick)
+;; (add-hook 'org-follow-link-hook #'sound-tick)
 
 ;;; Open and play GIF image in Emacs buffer.
 (defun my/open-and-play-gif-image (file &optional link)
