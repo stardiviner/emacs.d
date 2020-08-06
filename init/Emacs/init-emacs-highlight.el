@@ -60,8 +60,7 @@
                                     ('light
                                      (color-darken-name (face-background 'default) 10))
                                     ('dark
-                                     (color-darken-name (face-background 'default) 5))))
-  )
+                                     (color-darken-name (face-background 'default) 5)))))
 
 
 (provide 'init-emacs-highlight)

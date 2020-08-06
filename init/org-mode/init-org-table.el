@@ -17,7 +17,8 @@
 ;;; [ valign ] -- Pixel alignment for Org table.
 
 (use-package valign
-  :quelpa (valign :fetcher github :repo "casouri/valign")
+  :ensure t
+  :delight valign-mode
   :commands (valign-mode)
   :hook (org-mode . valign-mode))
 
