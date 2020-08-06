@@ -69,7 +69,8 @@
       (use-package org
         :pin org
         :ensure t
-        :mode (("\\.org\\'" . org-mode))
+        :mode (("\\.org\\'" . org-mode)
+               ("\\.org_archive\\'" . org-mode))
         :custom ((org-modules nil) ; disable all extra org-mode modules to speed-up Org-mode file opening.
                  (org-startup-folded t)
                  (org-agenda-inhibit-startup t)))
