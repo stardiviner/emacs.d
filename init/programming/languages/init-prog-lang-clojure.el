@@ -71,7 +71,6 @@
 
 (use-package clojure-mode-extra-font-locking
   :ensure t
-  :defer t
   :after clojure-mode)
 
 ;; `subword-mode' is quite useful since we often have to deal with Java class
