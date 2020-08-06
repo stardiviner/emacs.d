@@ -71,16 +71,16 @@
           ))
   (setq org-agenda-scheduled-leaders '("Scheduled: " "%3d days | "))
 
-  (setq org-agenda-show-log t)
-
   ;; speedup Org Agenda
   (setq org-agenda-inhibit-startup nil
         org-agenda-dim-blocked-tasks nil ; don't dim blocked tasks: past deadline, etc
         )
 
   ;; toggle log mode in agenda buffer. Press [l] in org-agenda buffer.
+  (setq org-agenda-show-log t)
   (setq org-agenda-start-with-log-mode '(closed clock)
         org-agenda-log-mode-items '(closed clock))
+  (setq org-agenda-log-mode-add-notes nil) ; fix `org-link-beautify' caused suspend on agenda generating.
 
   ;; clock report mode
   (setq org-agenda-start-with-clockreport-mode t
