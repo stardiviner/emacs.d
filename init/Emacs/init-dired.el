@@ -99,14 +99,16 @@
     :ensure t
     :defer t
     :after image-dired
-    :bind (:map image-dired-thumbnail-mode-map
+    :commands (image-dired image-dired-show-all-from-dir image-dired-slideshow-start)
+    :bind (:map image-dired-minor-mode-map
+                ("C-t d" . image-dired-show-all-from-dir)
+                ("C-t D" . image-dired-display-thumbs)
+                ("C-t s" . image-dired-slideshow-start)
+                :map image-dired-thumbnail-mode-map
                 ("C-n" . image-diredx-next-line)
                 ("C-p" . image-diredx-previous-line)
-                ("g" . revert-buffer)
                 ("D" . image-diredx-flagged-delete)
-                :map image-dired-minor-mode-map
-                ("C-t D" . image-dired-show-all-from-dir)
-                ("C-t s" . image-dired-slideshow-start))
+                ("g" . revert-buffer))
     :init (setq image-dired-track-movement nil) ; suppress unknown cursor movements.
     (add-to-list 'display-buffer-alist
                  '("^\\*image-dired\\*" (display-buffer-same-window)))
