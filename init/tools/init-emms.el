@@ -100,6 +100,9 @@
   (define-key emms-mpd-prefix (kbd "P") 'emms-player-mpd-pause)
   (define-key emms-mpd-prefix (kbd "S") 'emms-player-mpd-stop)
 
+  ;; [ MPV ]
+  (require 'emms-player-mpv)
+  
   ;; [ BBT: SBaGen ]
   (define-emms-simple-player sbagen '(file) (emms-player-simple-regexp "sbg") "sbagen")
   )
