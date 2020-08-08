@@ -17,6 +17,18 @@
 
 (setq password-cache-expiry nil) ; (* 60 15), nil: don't expire password cache.
 
+;;; [ password-mode ] -- hide sensitive information in buffers (passwords) using overlays.
+
+(use-package password-mode
+  :ensure t
+  :hook (text-mode . password-mode)
+  :custom ((password-mode-password-prefix-regexs
+            '("[Pp]assword:?[[:space:]]+"
+              "[Pp]assword(.*):?[[:space:]]+" ; Org :PASSWORD(.*): property
+              ))
+           ;; (password-mode-password-regex "\\([[:graph:]]*\\)")
+           ))
+
 ;;; [ auth-source ] -- Emacs built-in authentication sources for Gnus and Emacs.
 
 (use-package auth-source
