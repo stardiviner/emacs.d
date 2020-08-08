@@ -16,28 +16,12 @@
 (define-key org-mode-map (kbd "M-,") 'org-mark-ring-goto)
 
 ;;; use :ID: property for org linking.
-;; (require 'org-id)
-;; (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id
-;;       org-id-track-globally t
-;;       org-id-locations-file (convert-standard-filename
-;; 				                     (expand-file-name ".org-id-locations" user-emacs-directory)))
+;; (use-package org-id
+;;   :init
+;;   (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id
+;;         org-id-track-globally t
+;;         org-id-locations-file (expand-file-name ".org-id-locations" user-emacs-directory)))
 
-;;; use :CUSTOM_ID: property for org headlines linking.
-(defun org-store-link-set-headline-custom-id (arg &optional interactive?)
-  "Set property :CUSTOM_ID: for `org-store-link' on headline."
-  (when (and (equal major-mode 'org-mode) ; handle case `org-store-link' not in org-mode file.
-             (not (org-before-first-heading-p)) ; handle case point is in org-mode buffer ahead of first headline.
-             ;; (org-on-heading-p t) ; detect whether on a headline
-             ;; (re-search-backward (concat "^\\(?:" outline-regexp "\\)") nil t) ; detect whether under a headline?
-             (not (region-active-p)) ; handle `org-drill' capture word case.
-             (not (org-entry-get nil "CUSTOM_ID")))
-    (if (yes-or-no-p "Set property :CUSTOM_ID: ? ")
-        (org-set-property
-         "CUSTOM_ID"
-         (read-from-minibuffer "Property :CUSTOM_ID: value: "
-                               (substring-no-properties (org-get-heading t t)))))))
-
-;; (advice-add 'org-store-link :before #'org-store-link-set-headline-custom-id)
 
 ;; (add-hook 'org-follow-link-hook #'sound-tick)
 
