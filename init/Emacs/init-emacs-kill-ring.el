@@ -9,19 +9,19 @@
 
 ;;; [ undo-tree ] -- treat undo history as a tree.
 
-;; (use-package undo-tree
-;;   :ensure t
-;;   :init (global-undo-tree-mode 1)
-;;   (setq undo-tree-visualizer-diff t
-;;         undo-tree-visualizer-relative-timestamps t
-;;         undo-tree-enable-undo-in-region t)
-;;   (add-to-list 'display-buffer-alist
-;;                '("^ \\*undo-tree\\*"
-;;                  display-buffer-reuse-window display-buffer-in-side-window
-;;                  (reusable-frames . visible)
-;;                  (side . right)
-;;                  (slot . 1)
-;;                  (window-width . 0.5))))
+(use-package undo-tree
+  :ensure t
+  :delight undo-tree-mode
+  :custom ((undo-tree-visualizer-diff t)
+           (undo-tree-enable-undo-in-region t))
+  :init (global-undo-tree-mode 1)
+  (add-to-list 'display-buffer-alist
+               '("^ \\*undo-tree\\*"
+                 (display-buffer-reuse-window display-buffer-in-side-window)
+                 (reusable-frames . visible)
+                 (side . bottom)
+                 (slot . 1)
+                 (window-height . 0.3))))
 
 
 (provide 'init-emacs-kill-ring)

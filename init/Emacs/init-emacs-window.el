@@ -116,6 +116,7 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
   :hook (after-init . zoom-mode)
   :config (setq zoom-size '(0.618 . 0.618))
   (add-to-list 'zoom-ignored-major-modes 'helm-major-mode)
+  (add-to-list 'zoom-ignored-major-modes 'undo-tree-visualizer-mode)
   ;; fix `(set (make-local-variable 'track-mouse) t)' in `dap-tooltip-mode'.
   (defun undo-local-track-mouse(&optional ignored)
     (kill-local-variable 'track-mouse))
