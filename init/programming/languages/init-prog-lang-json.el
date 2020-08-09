@@ -12,16 +12,18 @@
 (use-package json-mode
   :ensure t
   :defer t
-  :commands (json-mode-show-path
-             json-mode-beautify jsons-print-path jsons-print-path-jq)
-  :config
-  (setq json-reformat:indent-width 2
-        json-reformat:pretty-string? t ; decode some special characters. like \u00e4.
-        ;; json-reformat:special-chars-as-pretty-string '((?\" . ?\")
-        ;;                                                (?\\ . ?\\))
-        ))
+  :custom (js-indent-level 2)
+  :commands (json-mode-show-path json-mode-beautify))
 
-;;; [ jq-format ] -- Reformat JSON and JSONLines using jq.
+;;; [ json-reformat ] -- Reformatting tool for JSON.
+
+(use-package json-reformat
+  :ensure t
+  :commands (json-reformat-region)
+  :custom ((json-reformat:indent-width 2)
+           (json-reformat:pretty-string? t)))
+
+;;; [ jq-format ] -- Reformat JSON and JSONLines using "jq".
 
 (use-package jq-format
   :ensure t
@@ -29,9 +31,9 @@
   :after json-mode
   :commands (jq-format-json-on-save-mode
              jq-format-json-buffer jq-format-json-region
-             jq-format-jsonlines-on-save-mode
              jq-format-jsonlines-buffer jq-format-jsonlines-region)
-  :init (setq jq-format-command "jq"))
+  :hook ((json-mode . jq-format-json-on-save-mode)
+         (json-mode . jq-format-jsonlines-on-save-mode)))
 
 ;;; [ json-snatcher ]
 

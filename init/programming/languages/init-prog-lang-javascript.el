@@ -11,6 +11,7 @@
 (use-package js
   :mode (("\\.js\\'" . js-mode)
          ("\\.jsx\\'" . js-jsx-mode))
+  :custom (js-indent-level 2)
   :config
   ;; fix `js-find-symbol' [M-.] overriding other packages' keybinding.
   (substitute-key-definition 'js-find-symbol 'xref-find-definitions js-mode-map))
