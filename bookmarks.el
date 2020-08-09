@@ -2,7 +2,57 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("dap-mode.org"
+(("Religion.org"
+ (filename . "~/Org/Wiki/Religion/Religion.org")
+ (front-context-string . "#+TITLE: Religio")
+ (rear-context-string)
+ (position . 1))
+("The Manual in Love.org"
+ (filename . "~/Org/Wiki/Love/Data/Manuals/The Manual in Love/The Manual in Love.org")
+ (front-context-string . "#+TITLE: The Man")
+ (rear-context-string)
+ (position . 1))
+("PowerShell.org"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Microsoft Windows/PowerShell/PowerShell.org")
+ (front-context-string . "#+TITLE: PowerSh")
+ (rear-context-string)
+ (position . 1))
+("Psychology.org"
+ (filename . "~/Org/Wiki/Psychology/Psychology.org")
+ (front-context-string . "#+TITLE: Psychol")
+ (rear-context-string)
+ (position . 1))
+("Ubuntu Linux dotfiles.org"
+ (filename . "~/Org/dotfiles/Linux/Ubuntu/Ubuntu Linux dotfiles.org")
+ (front-context-string . "#+TITLE: Ubuntu ")
+ (rear-context-string)
+ (position . 1))
+("My CSS Development Manual.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/CSS/Data/Manuals/My CSS Development Manual/My CSS Development Manual.org")
+ (front-context-string . "#+TITLE: My CSS ")
+ (rear-context-string)
+ (position . 1))
+("Decoration.org"
+ (filename . "~/Org/Wiki/Architecture/Decoration/Decoration.org")
+ (front-context-string . "#+TITLE: Decorat")
+ (rear-context-string)
+ (position . 1))
+("PHP.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/PHP/PHP.org")
+ (front-context-string . "#+TITLE: PHP Pro")
+ (rear-context-string)
+ (position . 1))
+("Privacy.org"
+ (filename . "~/Org/Wiki/Sociology/Privacy/Privacy.org")
+ (front-context-string . "#+TITLE: Privacy")
+ (rear-context-string)
+ (position . 1))
+("Mathematics.org"
+ (filename . "~/Org/Wiki/Mathematics/Mathematics.org")
+ (front-context-string . "#+TITLE: Mathema")
+ (rear-context-string)
+ (position . 1))
+("dap-mode.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/dap-mode.org")
  (front-context-string . "* Intro\n\nDebug A")
  (rear-context-string)
@@ -157,16 +207,6 @@
  (front-context-string . "#+TITLE: Artific")
  (rear-context-string)
  (position . 1))
-("OpenCL.org"
- (filename . "~/Org/Wiki/Computer Technology/Softwares/OpenCL/OpenCL.org")
- (front-context-string . "#+TITLE: OpenCL\n")
- (rear-context-string)
- (position . 1))
-("OpenCV.org"
- (filename . "~/Org/Wiki/Computer Technology/Softwares/OpenCV/OpenCV.org")
- (front-context-string . "#+TITLE: OpenCV\n")
- (rear-context-string)
- (position . 1))
 ("Management.org"
  (filename . "~/Org/Wiki/Commercial Science/Management/Management.org")
  (front-context-string . "#+TITLE: Managem")
@@ -280,11 +320,6 @@
 ("Cooking.org"
  (filename . "~/Org/Wiki/Cooking/Cooking.org")
  (front-context-string . "#+TITLE: Cooking")
- (rear-context-string)
- (position . 1))
-("Home.org"
- (filename . "~/Org/Wiki/Architecture/Home/Home.org")
- (front-context-string . "#+TITLE: Home (\345\256\266")
  (rear-context-string)
  (position . 1))
 ("Healthcare.org"
@@ -667,11 +702,6 @@
  (front-context-string . "#+TITLE: GraphQL")
  (rear-context-string)
  (position . 1))
-("Unity.org"
- (filename . "~/Org/Wiki/Computer Technology/Softwares/Unity/Unity.org")
- (front-context-string . "#+TITLE: Unity\n\n")
- (rear-context-string)
- (position . 1))
 ("Vega.org"
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Vega.org")
  (front-context-string . "#+TITLE: Vega & ")
@@ -822,11 +852,6 @@
  (front-context-string . "#+TITLE: Copyrig")
  (rear-context-string)
  (position . 1))
-("Solidity.org"
- (filename . "~/Org/Wiki/Computer Technology/Softwares/Solidity/Solidity.org")
- (front-context-string . "#+TITLE: Solidit")
- (rear-context-string)
- (position . 1))
 ("My Strategy Manual.org"
  (filename . "~/Org/Wiki/Strategy/Data/Manuals/My Strategy Manual/My Strategy Manual.org")
  (front-context-string . "#+TITLE: My Stra")
@@ -895,16 +920,6 @@
 ("BSD.org"
  (filename . "~/Org/Wiki/Computer Technology/Operating System/BSD/BSD.org")
  (front-context-string . "#+TITLE: BSD\n\n* ")
- (rear-context-string)
- (position . 1))
-("My PowerShell Examples.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/PowerShell/Data/Manuals/My PowerShell Examples/My PowerShell Examples.org")
- (front-context-string . "#+TITLE: My Powe")
- (rear-context-string)
- (position . 1))
-("My PowerShell Syntax Reference.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/PowerShell/Data/Manuals/My PowerShell Syntax Reference/My PowerShell Syntax Reference.org")
- (front-context-string . "#+TITLE: My Powe")
  (rear-context-string)
  (position . 1))
 ("My SQL Theory Explained.org"
@@ -1010,11 +1025,6 @@
 ("Education.org"
  (filename . "~/Org/Wiki/Education/Education.org")
  (front-context-string . "#+TITLE: Educati")
- (rear-context-string)
- (position . 1))
-("SuperCollider.org"
- (filename . "~/Org/Wiki/Computer Technology/Softwares/SuperCollider/SuperCollider.org")
- (front-context-string . "#+TITLE: SuperCo")
  (rear-context-string)
  (position . 1))
 ("E-Commerce.org"
@@ -1245,11 +1255,6 @@
 ("My Arduino Examples.org"
  (filename . "~/Org/Wiki/Computer Technology/Hardware/Dev Board/Single Board Computer/Arduino/Data/Manuals/My Arduino Examples/My Arduino Examples.org")
  (front-context-string . "#+TITLE: My Ardu")
- (rear-context-string)
- (position . 1))
-("Terraform.org"
- (filename . "~/Org/Wiki/Computer Technology/Softwares/Terraform/Terraform.org")
- (front-context-string . "#+TITLE: Terrafo")
  (rear-context-string)
  (position . 1))
 ("My MySQL Syntax Reference.org"
@@ -1761,12 +1766,6 @@
    (idx 273))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Implementations.org")
  (front-context-string . "#+TITLE: Impleme")
- (rear-context-string)
- (position . 1))
-(#("GnuPG.org" 0 1
-   (idx 274))
- (filename . "~/Org/Wiki/Computer Technology/Softwares/GnuPG.org")
- (front-context-string . "#+TITLE: GnuPG\n\n")
  (rear-context-string)
  (position . 1))
 (#("Markdown.org" 0 1
@@ -2639,12 +2638,6 @@
  (front-context-string . "* My Info\n\n[[fil")
  (rear-context-string)
  (position . 1))
-(#("Strategy" 0 1
-   (idx 629))
- (filename . "~/Org/Wiki/Strategy/Strategy.org")
- (front-context-string . "* Intro\n\n** \345\220\215\345\217\245\346\200\235\346\203\263")
- (rear-context-string)
- (position . 1))
 (#("Travel" 0 1
    (idx 630))
  (filename . "~/Org/Wiki/Travel/Travel.org")
@@ -2699,12 +2692,6 @@
  (front-context-string)
  (rear-context-string . "* Data\n\n** Books")
  (position . 27))
-(#("Kung Fu (Org)" 0 1
-   (idx 654))
- (filename . "~/Org/Wiki/Kung Fu/Kung Fu.org")
- (front-context-string . "* Urgent \346\230\223\347\255\213\347\273\217 (mu")
- (rear-context-string)
- (position . 1))
 (#("Reading (Org)" 0 1
    (idx 657))
  (filename . "~/Org/Wiki/Reading/Reading.org")
@@ -2717,22 +2704,4 @@
  (front-context-string . "[[file:Reading/R")
  (rear-context-string . "\n* Reading (\351\230\205\350\257\273)\n")
  (position . 59))
-(#("INDEX (Org)" 0 1
-   (idx 660))
- (filename . "~/Org/INDEX.org")
- (front-context-string . "* Learning (\345\255\246\344\271\240)\n")
- (rear-context-string . "  =\347\262\276\344\272\216\345\277\203, \347\256\200\344\272\216\345\275\242.=\n\n\n")
- (position . 164))
-(#("Programming Language Design.org<2>" 0 1
-   (idx 53))
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Programming Language Design/Programming Language Design.org")
- (front-context-string . "#+TITLE: Program")
- (rear-context-string)
- (position . 1))
-(#("Quantum Information System.org<2>" 0 1
-   (idx 168))
- (filename . "~/Org/Wiki/Physics/Quantum Theory/Quantum Information System/Quantum Information System.org")
- (front-context-string . "#+TITLE: Quantum")
- (rear-context-string)
- (position . 1))
 )
