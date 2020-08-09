@@ -21,7 +21,12 @@
                  (reusable-frames . visible)
                  (side . bottom)
                  (slot . 1)
-                 (window-height . 0.3))))
+                 (window-height . 0.3)))
+  :config
+  ;; disable `zoom' before launch `undo-tree'.
+  (when (featurep 'zoom)
+    (advice-add 'undo-tree-visualize :before 'zoom--off)
+    (advice-add 'undo-tree-visualizer-quit :after 'zoom--on)))
 
 
 (provide 'init-emacs-kill-ring)
