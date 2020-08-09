@@ -120,7 +120,8 @@
         mml-secure-openpgp-sign-with-sender t)
   ;; auto sign email
   ;; (add-hook 'message-send-hook 'mml-secure-message-sign-pgpauto)
-  (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-sign-pgpauto)
+  ;; (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-sign-pgpauto)
+  ;; (add-hook 'mu4e-compose-mode-hook #'mml-secure-message-sign-pgpmime)
   ;; auto encrypt outgoing message
   ;; (add-hook 'message-send-hook 'mml-secure-message-encrypt-pgpauto)
   ;; (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-encrypt-pgpauto)
