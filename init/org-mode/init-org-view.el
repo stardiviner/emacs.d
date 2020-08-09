@@ -67,7 +67,7 @@
     (add-to-list 'shr-external-rendering-functions '(pre . shr-tag-pre-highlight))))
 
 ;;===============================================================================
-
+;;; NOTE: This setting will cause read-only-mode keybinding overriding.
 (setq view-read-only t) ; enable view mode after enabled `read-only-mode' [C-x C-q].
 
 
