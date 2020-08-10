@@ -147,22 +147,20 @@
 
 ;;; [ company-box ] -- A company front-end with icons.
 
-;; (use-package company-box
-;;   :ensure t
-;;   ;; :quelpa (company-box :fetcher github :repo "stardiviner/company-box" :files (:defaults "images"))
-;;   ;; :load-path "~/Code/Emacs/company-box"
-;;   :ensure all-the-icons
-;;   :after (company all-the-icons)
-;;   :defer t
-;;   :commands (company-box-mode)
-;;   :hook (company-mode . company-box-mode)
-;;   :config
-;;   (setq company-idle-delay 0.5 ; increase delay to avoid fast input slow down company speed.
-;;         company-box-doc-delay 0.5
-;;         ;; company-box-show-single-candidate t ; for still can use doc popup keybinding.
-;;         company-box-doc-enable nil ; disable auto `company-box-doc' timer.
-;;         company-box-icons-image-size 25)
-;;   (setq company-box-icons-alist 'company-box-icons-images))
+(use-package company-box
+  :ensure t
+  :ensure all-the-icons
+  :delight company-box-mode
+  :after (company all-the-icons)
+  :defer t
+  :commands (company-box-mode)
+  :hook (company-mode . company-box-mode)
+  :custom (;; (company-idle-delay 0.5) ; increase delay to avoid fast input slow down company speed.
+           (company-box-doc-delay 0.5)
+           ;; (company-box-show-single-candidate t) ; for still can use doc popup keybinding.
+           ;; (company-box-doc-enable nil) ; disable auto `company-box-doc' timer.
+           ;; (company-box-icons-image-size 25)
+           ))
 
 ;; [ company-tabnine ] -- A company-mode backend for TabNine, the all-language autocompleter.
 
