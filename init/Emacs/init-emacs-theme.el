@@ -62,12 +62,12 @@
   :hook (after-init . circadian-setup))
 
 ;;; Use large font for function name only in programming modes.
-
-(defun my-enlarge-function-name ()
-  "Use large font for function name only in programming modes."
-  (face-remap-add-relative 'font-lock-function-name-face :height 120))
-
-(add-hook 'prog-mode-hook #'my-enlarge-function-name)
+;;
+;; (defun my-enlarge-function-name ()
+;;   "Use large font for function name only in programming modes."
+;;   (face-remap-add-relative 'font-lock-function-name-face :height 120))
+;;
+;; (add-hook 'prog-mode-hook #'my-enlarge-function-name)
 
 
 (provide 'init-emacs-theme)
