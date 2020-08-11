@@ -149,11 +149,7 @@
 
 (use-package company-box
   :ensure t
-  :ensure all-the-icons
   :delight company-box-mode
-  :after (company all-the-icons)
-  :defer t
-  :commands (company-box-mode)
   :hook (company-mode . company-box-mode)
   :custom (;; (company-idle-delay 0.5) ; increase delay to avoid fast input slow down company speed.
            (company-box-doc-delay 0.5)
