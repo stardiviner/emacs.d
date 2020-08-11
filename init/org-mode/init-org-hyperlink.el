@@ -184,18 +184,6 @@ Optional for Org-mode file: `LINK'."
 ;; `org-link-types'
 ;; `org-link-set-parameters'
 
-;;; fontify invalid `file:' link.
-(defun org--file-link-type-fontify (link)
-  (let* ((path (org-link-unescape link)))
-    (if (and (not (file-remote-p path))
-             (file-exists-p (expand-file-name path)))
-        'org-link 'org-warning)))
-
-(org-link-set-parameters
- "file"
- :face #'org--file-link-type-fontify)
-
-
 (setq org-link-frame-setup
       '((vm . vm-visit-folder-other-frame)
         (vm-imap . vm-visit-imap-folder-other-frame)
