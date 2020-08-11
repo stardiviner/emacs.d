@@ -24,33 +24,27 @@
   :defer t
   :mode ("\\.sc\\'" . sclang-mode)
   :commands (sclang-mode sclang-start)
+  :custom (;; (sclang-extension-path '("/usr/share/SuperCollider/Extensions"
+           ;;                          "~/.local/share/SuperCollider/Extensions"))
+           ;; Sclang Interface
+           (sclang-auto-scroll-post-buffer t)
+           (sclang-show-workspace-on-startup nil)
+           (sclang-use-symbol-table t)
+           (sclang-main-run nil)
+           (sclang-main-stop nil)
+           ;; Sclang mode
+           (sclang-indent-level 2)
+           )
   :config
-  ;; (setq sclang-extension-path '("/usr/share/SuperCollider/Extensions"
-  ;;                               "~/.local/share/SuperCollider/Extensions"))
-
-  ;; Sclang Interface
-  (setq sclang-auto-scroll-post-buffer t
-        sclang-show-workspace-on-startup nil
-        sclang-use-symbol-table t
-        sclang-main-run nil
-        sclang-main-stop nil)
-
-  ;; Sclang mode
-  (setq sclang-indent-level 2)
-
   ;; Sclang minor mode
 
   ;; auto-complete for SuperCollider
   ;; (add-hook 'sclang-mode-hook
-  ;;           (lambda ()
-  ;;             (company-mode -1)
-  ;;             (setq-local ac-auto-start 1)
-  ;;             ))
+  ;;           (lambda () (company-mode -1) (setq-local ac-auto-start 1)))
 
   ;; company-mode for SuperCollider
   (add-hook 'sclang-mode-hook
-            (lambda ()
-              (add-hook 'completion-at-point-functions 'sclang-complete-symbol nil t)))
+            (lambda () (add-hook 'completion-at-point-functions 'sclang-complete-symbol nil t)))
 
   (define-key sclang-mode-map (kbd "C-c M-r") 'sclang-main-run)
   (define-key sclang-mode-map (kbd "C-c M-s") 'sclnag-main-stop)
@@ -74,17 +68,16 @@
 
   (add-to-list 'display-buffer-alist
                '("\\*SCLang:PostBuffer\\*" .
-                 (display-buffer-reuse-window display-buffer-below-selected)))
+                 (display-buffer-reuse-window display-buffer-below-selected))))
 
-  ;; [ sclang-extensions ] -- A collection of minor modes that improve your SuperCollider experience within Emacs.
-  (use-package sclang-extensions
-    :ensure t
-    :init
-    (setq sclang-bury-post-on-start? t
-          ;; run SuperCollider process will mute System sound.
-          sclang-run-supercollider-if-not-active? nil)
-    (add-hook 'sclang-mode-hook 'sclang-extensions-mode))
-  )
+;; [ sclang-extensions ] -- A collection of minor modes that improve your SuperCollider experience within Emacs.
+(use-package sclang-extensions
+  :ensure t
+  :init
+  (setq sclang-bury-post-on-start? t
+        ;; run SuperCollider process will mute System sound.
+        sclang-run-supercollider-if-not-active? nil)
+  (add-hook 'sclang-mode-hook 'sclang-extensions-mode))
 
 ;;; [ ob-sclang ] -- SuperCollider (sclang) with Org-mode Babel.
 
