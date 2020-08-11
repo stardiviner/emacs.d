@@ -58,7 +58,8 @@
 ;;; [ gradle-mode ] -- Gradle integration with Emacs' `compile'.
 
 (use-package gradle-mode
-  :ensure t)
+  :ensure t
+  :delight gradle-mode)
 
 ;;; [ sdkman ] -- Software Development Kit
 
