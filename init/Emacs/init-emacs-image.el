@@ -7,12 +7,24 @@
 
 ;;; Code:
 
-;;; [ image-mode ]
+;;; [ image-mode ] -- support for visiting image files.
 
-(setq image-use-external-converter t)
+(use-package image-mode
+  :custom (image-use-external-converter t)
+  :config
+  (define-key image-mode-map (kbd "q") 'kill-current-buffer)
 
-(with-eval-after-load 'image-mode
-  (define-key image-mode-map (kbd "q") 'kill-current-buffer))
+  (defun image-delete-file ()
+    "Delete current image file in image-mode."
+    (interactive)
+    (unless (derived-mode-p 'image-mode)
+      (error "The buffer is not in Image mode"))
+    (unless buffer-file-name
+      (error "The current image is not associated with a file"))
+    (delete-file (buffer-file-name))
+    (image-next-file))
+
+  (define-key image-mode-map (kbd "D") 'image-delete-file))
 
 ;;; [ auto-image-file-mode ]
 
