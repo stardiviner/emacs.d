@@ -203,87 +203,21 @@ Optional for Org-mode file: `LINK'."
         (file . find-file)
         (wl . wl-other-frame)))
 
-;;; `eshell:'
-;; (require 'org-eshell)
+;;; [ ol-eshell ] -- org-link `eshell:' support for EShell
+
+(use-package org-eshell)
+(use-package ol-eshell)
 
 ;; `elisp:'
 (setq org-confirm-elisp-link-function 'yes-or-no-p)
 ;; `shell:'
 (setq org-confirm-shell-link-function 'yes-or-no-p)
 
-;; Email: `mailto:' link open with Emacs internal extension like message-mode, mu4e.
-;; `mail-user-agent'
-;; (setq browse-url-mailto-function 'browse-url-mail)
-
-(when (featurep 'org-contacts)
-  (defun ol-mailto-org-contacts-complete ()
-    ;; this completion code is from `org-contacts.el'
-    (let ((completion-list (cl-loop for contact in (org-contacts-filter)
-                                    ;; The contact name is always the car of the assoc-list
-                                    ;; returned by `org-contacts-filter'.
-                                    for contact-name = (car contact)
-
-                                    ;; Build the list of the email addresses which has
-                                    ;; been expired
-                                    for ignore-list = (org-contacts-split-property
-                                                       (or (cdr (assoc-string org-contacts-ignore-property
-                                                                              (nth 2 contact))) ""))
-                                    ;; Build the list of the user email addresses.
-                                    for email-list = (org-contacts-remove-ignored-property-values
-                                                      ignore-list
-                                                      (org-contacts-split-property
-                                                       (or (cdr (assoc-string org-contacts-email-property
-                                                                              (nth 2 contact))) "")))
-                                    ;; If the user has email addresses…
-                                    if email-list
-                                    ;; … append a list of USER <EMAIL>.
-                                    nconc (cl-loop for email in email-list
-                                                   collect (org-contacts-format-email contact-name (org-contacts-strip-link email))))))
-      (let* ((contact (completing-read "org-contacts: " completion-list))
-             (match-start (1+ (string-match "<.*>" contact)))
-             (length (1- (length contact)))
-             (email (substring contact match-start length))
-             (name (substring-no-properties contact 0 (- match-start 2)))
-             (description (concat (format "Send mail to %s" name)))
-             (link (concat "mailto:" email)))
-        (kill-new description) ; copy contact name to kill-ring for later insert into link description.
-        link)))
-
-  (defun ol-mailto-org-contacts-store ()
-    (let* ((contact (ol-mailto-org-contacts-complete))
-           (match-start (1+ (string-match "<.*>" contact)))
-           (length (1- (length contact)))
-           (email (substring contact match-start length))
-           (link (concat "mailto:" email))
-           (description (format "Send mail to %s" email)))
-      (org-link-store-props
-       :type "mailto"
-       :link link
-       :description description)))
-
-  (defun ol-mailto-org-contacts-follow (email)
-    (browse-url (concat "mailto" ":" email)))
-
-  (org-link-set-parameters "mailto"
-                           :store 'ol-mailto-org-contacts-store
-                           :follow 'ol-mailto-org-contacts-follow
-                           :complete 'ol-mailto-org-contacts-complete))
-
 ;; IRC: `irc:'
 (use-package ol-irc
   :defer t
   :init (setq org-irc-client 'erc)
   :config (if (and (featurep 'erc)) (require 'init-erc)))
-
-;;; Telnet:
-;;  telnet://ptt.cc
-(org-link-set-parameters "telnet" :follow #'telnet)
-
-;; RSS
-(defun org-rss-link-open (uri)
-  "Open rss:// URI link."
-  (eww uri))
-(org-link-set-parameters "rss" :follow #'org-rss-link-open)
 
 ;;; `info:' link.
 (use-package org-info)
@@ -312,15 +246,6 @@ Optional for Org-mode file: `LINK'."
   (grep-compute-defaults)
   (rgrep regexp "*" (expand-file-name "./")))
 (org-link-set-parameters "grep" :follow #'org-grep-link-open)
-
-
-;;; `tag:'
-;; e.g. [[tag:work+phonenumber-boss][Optional Description]]
-(defun org-tag-link-open (tag)
-  "Display a list of TODO headlines with tag TAG.
-With prefix argument, also display headlines without a TODO keyword."
-  (org-tags-view (null current-prefix-arg) tag))
-(org-link-set-parameters "tag" :follow #'org-tag-link-open)
 
 ;;; [ Git ]
 
@@ -353,101 +278,6 @@ and append it."
 
 (use-package orgit-forge
   :ensure t)
-
-;;; `track:' for OSM Maps
-;; [[track:((9.707032442092896%2052.37033874553582)(9.711474180221558%2052.375238282987))data/images/org-osm-link.svg][Open this link will generate svg, png image for track link on map]]
-
-;; (use-package org-osm-link
-;;   :quelpa (org-osm-link :fetcher github :repo "emacsattic/org-osm-link")
-;;   :init (setq osm-do-cache t))
-
-;;; `geo:'
-;; [geo:37.786971,-122.399677;u=35]
-;; [[geo:58.397813,15.576063]]
-;; [[geo:9FCQ9HXG+4CG]]
-
-;;; Open Location Code library
-(use-package olc
-  :ensure t
-  :commands (olc-encode olc-decode))
-
-(defcustom org-geo-link-application-command "gnome-maps"
-  "Specify the program name for openning geo: link."
-  :type 'string)
-
-(defun org-geo-link-open (link)
-  "Open Geography location `URI' like \"geo:25.5889136,100.2208514\" in Map application."
-  (let ((location (cond
-                   ;; (string-match-p "\\,.*" "25.5889136,100.2208514")
-                   ((string-match-p "\\,.*" link)
-                    link)
-                   ;; (string-match-p "\\+.*" "9FCQ9HXG+4CG")
-                   ((string-match-p "\\+.*" link)
-                    (format "%s,%s"
-                            (olc-area-lat (olc-decode link))
-                            (olc-area-lon (olc-decode link))))
-                   (t (user-error "Your link is not Geo location or Open Location Code!")))))
-    (if (executable-find org-geo-link-application-command)
-        (start-process
-         "org-geo-link-open"
-         "*org-geo-link-open*"
-         org-geo-link-application-command
-         (shell-quote-wildcard-pattern location))
-      (browse-url location))))
-
-(org-link-set-parameters "geo" :follow #'org-geo-link-open)
-
-
-;;; [[video:/path/to/file.mp4::00:13:20]]
-
-(defcustom org-video-link-open-command "mplayer"
-  "Specify the program for openning video: link."
-  :type 'string)
-
-(defvar org-video-link-extension-list '("avi" "rmvb" "ogg" "mp4" "mkv"))
-
-(defun org-video-link-open (uri)
-  "Open video file `URI' with video player."
-  (let* ((list (split-string uri "::"))
-         (path (car list))
-         (start-timstamp (cadr list)))
-    (make-process
-     :command (list org-video-link-open-command
-                    "-ss" start-timstamp
-                    (expand-file-name (org-link-unescape path)))
-     :name "org-video-link")))
-
-(defun org-video-complete-link (&optional arg)
-  "Create a video link using completion."
-  (let ((file (read-file-name "Video: " nil nil nil nil
-                              #'(lambda (file)
-                                  (seq-contains-p
-                                   org-video-link-extension-list
-                                   (file-name-extension file)))))
-        (pwd (file-name-as-directory (expand-file-name ".")))
-        (pwd1 (file-name-as-directory (abbreviate-file-name
-                                       (expand-file-name ".")))))
-    (cond ((equal arg '(16))
-           (concat "video:"
-                   (abbreviate-file-name (expand-file-name file))))
-          ((string-match
-            (concat "^" (regexp-quote pwd1) "\\(.+\\)") file)
-           (concat "video:" (match-string 1 file)))
-          ((string-match
-            (concat "^" (regexp-quote pwd) "\\(.+\\)")
-            (expand-file-name file))
-           (concat "video:"
-                   (match-string 1 (expand-file-name file))))
-          (t (concat "video:" file)))))
-
-(org-link-set-parameters "video"
-                         :follow #'org-video-link-open
-                         :complete #'org-video-complete-link)
-
-;;; [ ol-eshell ] -- org-link support for EShell
-
-(use-package ol-eshell
-  :after eshell)
 
 
 ;;; [ Link abbreviations ]
