@@ -18,7 +18,9 @@
          ("k" . dired-previous-line)
          ("g" . dired-do-redisplay)
          ("F" . find-name-dired))
-  :init (setq dired-auto-revert-buffer t) ; auto refresh dired when file changes
+  :custom ((dired-auto-revert-buffer t) ; auto refresh dired when file changes
+           (dired-listing-switches (concat dired-listing-switches "h")) ; human-readable size
+           )
   :config
   (add-hook 'dired-mode-hook #'turn-on-auto-revert-mode)
   (add-hook 'dired-mode-hook #'toggle-truncate-lines) ; don't wrap long lines to break single line
