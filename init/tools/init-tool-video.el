@@ -8,6 +8,15 @@
 
 ;;; Code:
 
+;;; [ mpv ] -- control mpv for easy note-taking. A potpourri of helper functions to control a mpv process via its IPC interface.
+
+(use-package mpv
+  :ensure t
+  :commands (mpv-play mpv-pause mpv-kill
+                      mpv-seek-forward mpv-seek-backward
+                      mpv-speed-increase mpv-speed-decrease
+                      mpv-insert-playback-position mpv-seek-to-position-at-point))
+
 ;;; [ ffmpeg ] -- ffmpeg command wrapper for Emacs.
 
 (use-package ffmpeg
