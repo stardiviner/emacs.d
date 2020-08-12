@@ -24,7 +24,15 @@
   ;; [ web browser ]
   
   ;; use EAF as default web browser for Emacs.
-  ;; (setq browse-url-browser-function 'eaf-open-browser)
+  (defun eaf-toggle-default-browser ()
+    "Toggle overriding default web browser with EAF web browser."
+    (interactive)
+    (if (eq browse-url-browser-function (default-value 'browse-url-browser-function))
+        (progn
+          (setq browse-url-browser-function 'eaf-open-browser)
+          (message "Now setting default browser to EAF Web Browser."))
+      (setq browse-url-browser-function (default-value 'browse-url-browser-function))
+      (message "Now revert default browser to your default function.")))
   ;; let `eaf-open-browser' support HiDPI screen
   (eaf-setq eaf-browser-default-zoom  "2")
 
