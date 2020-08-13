@@ -48,16 +48,11 @@
   :hook ((arduino-mode . irony-mode)
          (arduino-mode . company-arduino-turn-on))
   :config
-  (defun my/company-arduino-setup ()
-    (my-company-add-backend-locally 'company-irony)
+  ;; workaround for Arduino v17 new libraries location.
+  (add-to-list 'irony-arduino-includes-options (format "-I%s" (expand-file-name "~/Arduino/libraries")))
 
-    ;; (setq-local irony-arduino-includes-options)
-    
-    ;; temporary workaround for Arduino v17 new libraries location.
-    ;; (setq-local company-arduino-includes-dirs '())
-    ;; (add-to-list 'company-arduino-includes-dirs '("~/Arduino/libraries/"))
-    ;; (add-to-list 'company-backends 'company-c-headers)
-    )
+  (defun my/company-arduino-setup ()
+    (my-company-add-backend-locally 'company-irony))
   (add-hook 'arduino-mode-hook #'my/company-arduino-setup))
 
 ;;; [ arduino-cli-mode ] -- Emacs support for the arduino-cli.
@@ -65,7 +60,7 @@
 (use-package arduino-cli-mode ; [C-c C-a]
   :ensure t
   :defer t
-  :commands (arduino-cli-board-list)
+  :commands (arduino-cli-new-sketch arduino-cli-board-list)
   :hook (arduino-mode . arduino-cli-mode))
 
 ;;; [ platformio-mode ] -- PlatformIO integration for Emacs
