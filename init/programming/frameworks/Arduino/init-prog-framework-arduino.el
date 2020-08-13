@@ -34,21 +34,19 @@
 ;;; [ company-arduino ] -- code completion support for arduino-mode.
 
 (use-package company-arduino
-  ;; :ensure t
+  :ensure t
   :ensure company-c-headers
-  :load-path "~/Code/Emacs/company-arduino"
   :defer t
   :after arduino-mode
   :preface (setq company-arduino-home
                  (setenv "ARDUINO_HOME" (expand-file-name "~/Arduino/")))
-  :commands (company-arduino-turn-on)
-  :config
   ;; Turn-on irony-mode on arduino-mode (on .ino file).
   (with-eval-after-load 'irony
     (add-to-list 'irony-supported-major-modes 'arduino-mode))
-  (add-hook 'arduino-mode-hook #'irony-mode)
-  (add-hook 'arduino-mode-hook #'company-arduino-turn-on)
-  
+  :commands (company-arduino-turn-on)
+  :hook ((arduino-mode . irony-mode)
+         (arduino-mode . company-arduino-turn-on))
+  :config
   (defun my/company-arduino-setup ()
     (my-company-add-backend-locally 'company-irony)
 
