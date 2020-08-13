@@ -474,8 +474,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;; ---------------------------------------------------------
 
 (use-package org-notify
-  :defer t
-  :init (setq org-notify-audible nil)
+  :custom (org-notify-audible nil)
   :config
   (org-notify-add 'default
                   '(:time "1h" :period "1h" :duration 8
