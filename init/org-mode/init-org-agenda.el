@@ -62,13 +62,12 @@
   (setq org-agenda-align-tags-to-column (- (- (/ (/ (display-pixel-width) 2) 10) 3))
         org-agenda-tags-column (- (- (/ (/ (display-pixel-width) 2) 10) 3)))
   (setq org-agenda-prefix-format
-        '((agenda . " %i %-12:c %? e %?-12t % s")
+        '((agenda . " %i %-12c %? e %?-12t % s")
           (timeline . " % s")
           (effort . " %e %(or (org-entry-get (point) \"Effort\") \"0:00\")")
-          (todo . " %i %-12:c")
-          (search . " %i %-12:c")
-          (tags . " %i %-12:c")
-          ))
+          (todo . " %i %-12c")
+          (search . " %i %-12c")
+          (tags . " %i %-12c")))
   (setq org-agenda-scheduled-leaders '("Scheduled: " "%3d days | "))
 
   ;; speedup Org Agenda
