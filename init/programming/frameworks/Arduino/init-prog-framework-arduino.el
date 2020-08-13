@@ -38,8 +38,9 @@
   :ensure company-c-headers
   :defer t
   :after arduino-mode
-  :preface (setq company-arduino-home
-                 (setenv "ARDUINO_HOME" (expand-file-name "~/Arduino/")))
+  :preface
+  (unless (getenv "ARDUINO_HOME")
+    (setq company-arduino-home (setenv "ARDUINO_HOME" (expand-file-name "/usr/share/arduino"))))
   ;; Turn-on irony-mode on arduino-mode (on .ino file).
   (with-eval-after-load 'irony
     (add-to-list 'irony-supported-major-modes 'arduino-mode))
