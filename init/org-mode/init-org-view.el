@@ -33,6 +33,8 @@
 (use-package org-superstar
   :ensure t
   :hook (org-mode . org-superstar-mode)
+  :custom ((org-hide-leading-stars nil)        ; --| hide headline
+           (org-superstar-leading-bullet ?\s)) ; --| leading stars
   :config
   (with-eval-after-load 'all-the-icons
     ;; (setq org-superstar-headline-bullets-list
