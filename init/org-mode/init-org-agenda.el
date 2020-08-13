@@ -218,7 +218,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   ;; Show Org Agenda tasks with heigh spacing based on clock time with `org-agenda-log-mode'.
   ;; https://emacs-china.org/t/org-agenda/8679
   ;; work with org-agenda dispatcher [c] "Today Clocked Tasks" to view today's clocked tasks.
-  (setq org-agenda-remove-tags t)
+  (setq org-agenda-use-tag-inheritance '(search agenda))
   (defun org-agenda-clock-colorize-block ()
     "Set different line spacing based on clock time duration."
     (save-excursion
@@ -238,7 +238,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
             ;; larger duration bar height
             (let ((line-height (if (< duration 15) 1.0 (+ 0.5 (/ duration 30))))
                   (ov (make-overlay (point-at-bol) (1+ (point-at-eol)))))
-              (overlay-put ov 'face `(:background ,(car colors) :foreground "black"))
+              (overlay-put ov 'face `(:background ,(car colors) :foreground "black" :extend t))
               (setq colors (cdr colors))
               (overlay-put ov 'line-height line-height)
               (overlay-put ov 'line-spacing (1- line-height))))))))
