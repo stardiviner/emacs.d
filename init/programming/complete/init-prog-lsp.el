@@ -107,6 +107,39 @@
   :ensure t
   :defer t)
 
+;;; [ lsp-sonarlint ] -- SonarLint™ is free IDE extension that lets you fix coding issues before they exist!
+
+(use-package lsp-sonarlint
+  :ensure t
+  :custom ((lsp-sonarlint-server-path (expand-file-name
+                                       "lsp/lsp-sonarlint/server/sonarlint-language-server.jar"
+                                       user-emacs-directory)))
+  :config
+  (require 'lsp-sonarlint-python)
+  (setq lsp-sonarlint-python-enabled t)
+  (setq lsp-sonarlint-python-analyzer-path
+        (expand-file-name "lsp/lsp-sonarlint/languages" user-emacs-directory))
+
+  (require 'lsp-sonarlint-javascript)
+  (setq lsp-sonarlint-javascript-enabled t)
+  (setq lsp-sonarlint-javascript-analyzer-path
+        (expand-file-name "lsp/lsp-sonarlint/languages" user-emacs-directory))
+
+  (require 'lsp-sonarlint-java)
+  (setq lsp-sonarlint-java-enabled t)
+  (setq lsp-sonarlint-java-analyzer-path
+        (expand-file-name "lsp/lsp-sonarlint/languages" user-emacs-directory))
+
+  (require 'lsp-sonarlint-html)
+  (setq lsp-sonarlint-html-enabled t)
+  (setq lsp-sonarlint-html-analyzer-path
+        (expand-file-name "lsp/lsp-sonarlint/languages" user-emacs-directory))
+
+  (require 'lsp-sonarlint-php)
+  (setq lsp-sonarlint-php-enabled t)
+  (setq lsp-sonarlint-php-analyzer-path
+        (expand-file-name "lsp/lsp-sonarlint/languages" user-emacs-directory)))
+
 
 (provide 'init-prog-lsp)
 
