@@ -15,7 +15,7 @@
   :defer t
   :mode (("CMakeLists\\.txt\\'" . cmake-mode)
          ("\\.cmake\\'" . cmake-mode))
-  :init
+  :config
   (defun my/company-cmake-setup ()
     (my-company-add-backend-locally 'company-cmake))
   (add-hook 'cmake-mode-hook #'my/company-cmake-setup))
@@ -39,7 +39,16 @@
 (use-package cmake-project
   :ensure t
   :defer t
-  :hook (cmake-mode . cmake-project-mode))
+  :hook (cmake-mode . cmake-project-mode)
+  :config
+  ;; auto enable `cmake-project-mode' in project contains "CMakeLists.txt".
+  (defun maybe-cmake-project-mode ()
+    (if (or (file-exists-p "CMakeLists.txt")
+            (file-exists-p (expand-file-name "CMakeLists.txt" (car (project-roots (project-current))))))
+        (cmake-project-mode)))
+  
+  (add-hook 'c-mode-hook 'maybe-cmake-project-mode)
+  (add-hook 'c++-mode-hook 'maybe-cmake-project-mode))
 
 
 (provide 'init-cmake)
