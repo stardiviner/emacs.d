@@ -48,12 +48,12 @@
 
 ;;; [ explain-pause-mode ] -- Emacs minor mode that watches for long pauses and reports them.
 
-;; (use-package explain-pause-mode
-;;   :quelpa (explain-pause-mode :fetcher github :repo "lastquestion/explain-pause-mode")
-;;   :defer t
-;;   :commands (explain-pause-mode explain-pause-top)
-;;   ;; :hook (after-init . explain-pause-mode)
-;;   )
+(use-package explain-pause-mode
+  :ensure t
+  :defer t
+  :commands (explain-pause-mode explain-pause-top)
+  ;; :hook (after-init . explain-pause-mode)
+  )
 
 
 
