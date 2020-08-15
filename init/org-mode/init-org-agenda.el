@@ -218,7 +218,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   ;; Show Org Agenda tasks with heigh spacing based on clock time with `org-agenda-log-mode'.
   ;; https://emacs-china.org/t/org-agenda/8679
   ;; work with org-agenda dispatcher [c] "Today Clocked Tasks" to view today's clocked tasks.
-  (setq org-agenda-use-tag-inheritance '(search agenda))
   (defun org-agenda-clock-colorize-block ()
     "Set different line spacing based on clock time duration."
     (save-excursion
