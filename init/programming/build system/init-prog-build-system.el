@@ -11,7 +11,7 @@
 (global-set-key (kbd "<f6>") 'build-system-prefix)
 
 (require 'init-make)
-;; (require 'init-cmake)
+(require 'init-cmake)
 
 ;;; [ build-helper ] -- Utilities to help build code.
 
