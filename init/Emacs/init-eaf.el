@@ -27,12 +27,12 @@
   (defun eaf-toggle-default-browser ()
     "Toggle overriding default web browser with EAF web browser."
     (interactive)
-    (if (eq browse-url-browser-function (default-value 'browse-url-browser-function))
+    (if (eq browse-url-browser-function 'eaf-open-browser)
         (progn
-          (setq browse-url-browser-function 'eaf-open-browser)
-          (message "Now setting default browser to EAF Web Browser."))
-      (setq browse-url-browser-function (default-value 'browse-url-browser-function))
-      (message "Now revert default browser to your default function.")))
+          (setq browse-url-browser-function 'browse-url-firefox)
+          (message "Now revert default browser to your default function."))
+      (setq browse-url-browser-function 'eaf-open-browser)
+      (message "Now setting default browser to EAF Web Browser.")))
   ;; let `eaf-open-browser' support HiDPI screen
   (eaf-setq eaf-browser-default-zoom  "2")
 
