@@ -36,10 +36,10 @@
 
 ;;; [ cmake-project ] -- Integrates CMake build process with Emacs.
 
-;; (use-package cmake-project
-;;   :ensure t
-;;   :defer t
-;;   :hook (cmake-mode-hook . cmake-project-mode))
+(use-package cmake-project
+  :ensure t
+  :defer t
+  :hook (cmake-mode . cmake-project-mode))
 
 
 (provide 'init-cmake)
