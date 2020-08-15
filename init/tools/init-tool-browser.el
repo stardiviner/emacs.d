@@ -30,14 +30,14 @@
    (setq browse-url-chrome-program (executable-find "google-chrome-unstable"))
    (setq browse-url-firefox-program (executable-find "firefox"))
    ;; set generic browser program for `browse-url-generic'
-   (setq browse-url-browser-function 'browse-url-firefox)
-   (setq browse-url-generic-program browse-url-firefox-program))
+   (setq-default browse-url-browser-function 'browse-url-firefox)
+   (setq-default browse-url-generic-program browse-url-firefox-program))
   ('darwin
    (setq browse-url-chrome-program "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
    (setq browse-url-firefox-program "/Applications/Firefox.app/Contents/MacOS/firefox")
    ;; set generic browser program for `browse-url-generic'
-   (setq browse-url-browser-function 'browse-url-chrome)
-   (setq browse-url-generic-program browse-url-chrome-program)))
+   (setq-default browse-url-browser-function 'browse-url-chrome)
+   (setq-default browse-url-generic-program browse-url-chrome-program)))
 
 
 (require 'init-eww)
