@@ -169,6 +169,12 @@
 ;;   ;; (flycheck-add-next-checker 'c/c++-clang '(warning . cstyle))
 ;;   )
 
+(use-package yaml-mode
+  :ensure t
+  :defer t
+  :mode (("\\.clangd$" . yaml-mode))
+  :custom (yaml-indent-offset 4))
+
 (require 'init-prog-tags)
 
 
