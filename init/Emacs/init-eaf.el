@@ -41,24 +41,25 @@
   (eaf-setq eaf-pdf-dark-mode "follow")
   
   ;; set EAF web browser proxy
-  (defvar eaf-proxy-enabled nil)
-  (defun eaf-toggle-proxy ()
-    "Toggle EAF proxy."
-    (interactive)
-    (if eaf-proxy-enabled
-        (progn
-          (eaf-setq eaf-proxy-type nil)
-          (eaf-setq eaf-proxy-host nil)
-          (eaf-setq eaf-proxy-port nil)
-          (setq eaf-proxy-enabled nil)
-          (message "EAF proxy disabled."))
-      (progn
-        (eaf-setq eaf-proxy-type "socks5")
-        (eaf-setq eaf-proxy-host "127.0.0.1")
-        (eaf-setq eaf-proxy-port "1086")
-        (setq eaf-proxy-enabled t)
-        (message "EAF proxy enabled."))))
-
+  (defun eaf-toggle-proxy (&optional proxy)
+    "Toggle proxy for EAF."
+    (interactive (if (and (null eaf-proxy-type) (null eaf-proxy-host))
+                     (list (completing-read
+                            "Select Proxy: "
+                            '("socks5:127.0.0.1:1086" "http:127.0.0.1:8118")))
+                   nil))
+    (if proxy
+        (let* ((list (split-string proxy ":"))
+               (proxy-type (car list))
+               (proxy-host (cadr list))
+               (proxy-port (caddr list)))
+          (setq eaf-proxy-type proxy-type
+                eaf-proxy-host proxy-host
+                eaf-proxy-port proxy-port))
+      (setq eaf-proxy-type nil
+            eaf-proxy-host nil
+            eaf-proxy-port nil)))
+  
   ;; exclude EAF buffers from `desktop-save-mode'.
   (with-eval-after-load 'desktop
     (add-to-list 'desktop-modes-not-to-save 'eaf-mode))
