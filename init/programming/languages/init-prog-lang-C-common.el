@@ -67,6 +67,7 @@
 
 (use-package modern-cpp-font-lock
   :ensure t
+  :delight modern-c++-font-lock-mode
   :hook (c++-mode . modern-c++-font-lock-mode))
 
 ;;; [ ob-C ]
@@ -91,6 +92,7 @@
 
 (use-package irony
   :ensure t
+  :delight irony-mode
   :hook ((c-mode c++-mode objc-mode) . irony-mode)
   :config
   ;; find the compile flag options automatically:
