@@ -476,7 +476,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   :custom (org-notify-audible nil)
   :config
   (org-notify-add 'default
-                  '(:time "1h" :period "1h" :duration 8
+                  '(:time "1h" :period "30m" :duration 8
                           :actions (-ding -notify/window)
                           :audible t))
   ;; NOTE: org-notify dbus cause KDE/Plasma high system resources.
