@@ -87,6 +87,11 @@
           mu4e-update-interval (* 60 30)
           mu4e-display-update-status-in-modeline t
           mu4e-hide-index-messages t))
+
+  ;; [ Index ]
+  ;; speed-up mu4e (re)index
+  (setq mu4e-index-lazy-check t)
+  ;; (setq mu4e-index-cleanup nil)
   
   ;; [ Compose ]
   (add-hook 'mu4e-compose-mode-hook #'turn-on-auto-fill)
@@ -160,6 +165,7 @@
   (add-hook 'mu4e-compose-mode-hook
             (lambda () (define-key org-mode-map (kbd "C-c M-m") 'message-mark-inserted-region)))
 
+  ;; [ HTML Email ]
   ;; use #=begin_export html ... #+end_export
   ;; (setq org-mu4e-convert-to-html t)
 
