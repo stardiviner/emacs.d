@@ -277,7 +277,13 @@
               (setq-local completion-at-point-functions
                           '(mu4e~compose-complete-contact
                             mail-completion-at-point-function
-                            message-completion-function)))))
+                            message-completion-function))))
+  ;; For mail completion, only consider emails that have been seen in the last 6
+  ;; months. This gets rid of legacy mail addresses of people.
+  (setq mu4e-compose-complete-only-after
+        (format-time-string "%Y-%m-%d" (time-subtract (current-time) (days-to-time 150))))
+  )
+
 
 ;;; [ mu4e-overview ] -- show overview of maildirs.
 
