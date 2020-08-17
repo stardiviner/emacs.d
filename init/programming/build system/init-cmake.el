@@ -39,7 +39,6 @@
 (use-package cmake-project
   :ensure t
   :defer t
-  :hook (cmake-mode . cmake-project-mode)
   :config
   ;; auto enable `cmake-project-mode' in project contains "CMakeLists.txt".
   (defun maybe-cmake-project-mode ()
