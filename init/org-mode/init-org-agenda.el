@@ -79,7 +79,7 @@
   (setq org-agenda-show-log t)
   (setq org-agenda-start-with-log-mode '(closed clock)
         org-agenda-log-mode-items '(closed clock))
-  (setq org-agenda-log-mode-add-notes nil) ; fix `org-link-beautify' caused suspend on agenda generating.
+  (setq org-agenda-log-mode-add-notes t)
 
   ;; clock report mode
   (setq org-agenda-start-with-clockreport-mode t
