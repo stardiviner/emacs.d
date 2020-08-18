@@ -19,6 +19,13 @@
   :commands (vlf vlf-ediff-files vlf-ediff-buffers)
   :config (vlf-setup))
 
+;;; [ so-long ] -- Say farewell to performance problems with minified code.
+
+(use-package so-long
+  :ensure t
+  ;; Avoid performance issues in files with very long lines.
+  :init (global-so-long-mode 1))
+
 ;;; [ openwith ] -- Open files with external programs.
 
 ;;; FIXME: it cause Emacs auto display Org inline images with external command `display'.
