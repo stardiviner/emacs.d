@@ -21,13 +21,19 @@
 
 (use-package password-mode
   :ensure t
-  :hook (text-mode . password-mode)
+  :delight password-mode
   :custom ((password-mode-password-prefix-regexs
             '("[Pp]assword:?[[:space:]]+"
               "[Pp]assword(.*):?[[:space:]]+" ; Org :PASSWORD(.*): property
               ))
            ;; (password-mode-password-regex "\\([[:graph:]]*\\)")
-           ))
+           )
+  :config
+  ;; only enable `password-mode' in encrypted `*.org.gpg' files.
+  (add-hook 'org-mode-hook
+            #'(lambda ()
+                (when (string-equal (file-name-extension (buffer-file-name)) "gpg")
+                  (password-mode 1)))))
 
 ;;; [ auth-source ] -- Emacs built-in authentication sources for Gnus and Emacs.
 
