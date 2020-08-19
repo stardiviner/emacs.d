@@ -23,7 +23,7 @@
 
 ;; (add-to-list 'display-buffer-alist
 ;;              '("^ \\*undo-tree\\*"
-;;                display-buffer-reuse-window display-buffer-in-side-window
+;;                (display-buffer-reuse-window display-buffer-in-side-window)
 ;;                (reusable-frames . visible)
 ;;                (side . right)
 ;;                (slot . 1)
