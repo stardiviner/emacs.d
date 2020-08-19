@@ -41,10 +41,9 @@
   :ensure t
   :defer t
   :commands (run-geiser run-guile)
-  :preface
   ;; 'guile, 'racket, 'chicken
-  (setq geiser-default-implementation 'guile)
-  :init (add-hook 'scheme-mode-hook #'geiser-mode)
+  :custom ((geiser-default-implementation 'guile))
+  :hook (scheme-mode . geiser-mode)
   :config
   ;; company-backend
   (defun my/geiser-company-setup ()
