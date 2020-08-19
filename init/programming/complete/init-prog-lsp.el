@@ -17,14 +17,14 @@
 (use-package lsp-mode
   :ensure t
   :defer t
-  :load (lsp-clients) ; load `lsp-clients' for auto configuration of language server clients.
   :commands (lsp lsp-describe-session)
   ;; :hook (prog-mode . lsp)
   :bind (:map lsp-mode-map
               ("C-c C-d" . lsp-describe-thing-at-point)
               ("M-RET"   . lsp-execute-code-action))
   ;; speed-up lsp-mode performance
-  :custom ((lsp-log-io nil)             ; for Debug
+  :custom (; (lsp-client-packages '())
+           (lsp-log-io nil)             ; for Debug
            ;; (lsp-enable-folding nil)
            ;; (lsp-diagnostic-package :none) ; no real-time syntax check
            ;; (lsp-enable-snippet nil) ; handle yasnippet by myself
