@@ -16,7 +16,8 @@
 ;;; [ aria2 ] -- a major mode for controlling aria2c RPC daemon downloader.
 
 (use-package aria2
-  :ensure t
+  ;; :ensure t
+  :load-path "~/Code/Emacs/aria2"
   :commands (aria2-downloads-list)
   :custom ((aria2-download-directory (expand-file-name "~/Downloads"))))
 
