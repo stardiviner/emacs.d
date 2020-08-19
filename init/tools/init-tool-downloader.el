@@ -24,7 +24,7 @@
            (youtube-dl-proxy-url-list '("youtube.com")))
   :config
   (add-to-list 'display-buffer-alist
-               '("^\\*youtube-dl list\\*" .
+               '("^ \\*youtube-dl list\\*" .
                  (display-buffer-reuse-window display-buffer-below-selected))))
 
 
