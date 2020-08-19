@@ -16,6 +16,8 @@
 (use-package keycast
   :ensure t
   :defer t
+  :custom (keycast-remove-tail-elements nil)
+  :commands (keycast-mode)
   :bind (:map screencast-prefix ("k" . keycast-mode)))
 
 ;;; [ keypression ] -- Keystroke visualizer.
