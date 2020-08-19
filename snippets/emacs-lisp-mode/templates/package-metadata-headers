@@ -4,7 +4,7 @@
 # group: template.package
 # --
 ;; Authors: ${2:stardiviner <numbchild@gmail.com>}
-${3:;; Package-Requires: ((emacs "25.1")${4})}
+${3:;; Package-Requires: ((emacs "26.1")${4})}
 ;; Package-Version: ${5:0.1}
 ;; Keywords: ${6:keywords separated by comma}
 ;; homepage: ${7:homepage}
@@ -25,5 +25,9 @@ ${3:;; Package-Requires: ((emacs "25.1")${4})}
 
 ;;; Commentary:
 
-${8}
+;; Usage
+;;
+;; ${8:usage}
+
+${0}
 
