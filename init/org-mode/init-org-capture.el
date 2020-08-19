@@ -19,7 +19,7 @@
          entry (file "")
          ;; select todo keyword interactively from `org-todo-keywords'.
          ;; The `org-todo-keywords-for-agenda' variable is fullfilled with value AFTER generated Agenda.
-         "* %(completing-read \"Todo keyword: \" org-todo-keywords-for-agenda nil t) %^{Capture} [/] \n:PROPERTIES:\n:TIME: %U\n:END: \n%i\n%a\n\n%?"
+         "* %(completing-read \"Todo keyword: \" org-todo-keywords-for-agenda nil t) %^{Capture} [/] \n:PROPERTIES:\n:TIME: %U\n:END: \n%i\n%a\n\n%?\n"
          ;; :time-prompt t
          :empty-lines-before 1
          :empty-lines-after 1
