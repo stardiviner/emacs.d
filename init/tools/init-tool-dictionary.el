@@ -25,7 +25,8 @@
   :commands (multi-translate-at-point)
   :bind (:map dictionary-prefix ("m" . multi-translate-at-point))
   :config (add-to-list 'display-buffer-alist
-                       '("^\\*Multi Translate\\*" (display-buffer-below-selected))))
+                       '("^\\*Multi Translate\\*" (display-buffer-below-selected)))
+  (define-key multi-translate-mode-map (kbd "q") 'delete-window))
 
 ;;; [ google-translate ] -- Emacs interface to Google Translate.
 
