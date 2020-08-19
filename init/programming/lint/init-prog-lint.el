@@ -31,6 +31,7 @@
                                         lisp-mode clojure-mode
                                         sql-mode))
            (flycheck-check-syntax-automatically '(save idle-change new-line))
+           (flycheck-display-errors-delay 0.3)
            ;; let flycheck use the current `load-path'.
            ;; don't error about "free variable" without (require ??).
            (flycheck-emacs-lisp-load-path 'inherit))
