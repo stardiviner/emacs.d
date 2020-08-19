@@ -66,6 +66,10 @@
           ((buffer-file-name)
            (or (file-name-nondirectory (buffer-file-name)) "%b"))))))
 
+;;; [ scroll bar ]
+
+;; (scroll-bar-mode 1)
+
 ;;; [ Emacs window border ]
 
 ;; frame internal border width
