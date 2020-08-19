@@ -46,15 +46,9 @@
               ("M-g M-p" . flycheck-previous-error)
               ("M-g M-l" . flycheck-list-errors))
   :config
-  ;; (add-to-list 'display-buffer-alist
-  ;;              '("^\\*Flycheck errors\\*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
                `(,(rx bos "*Flycheck errors*" eos)
-                 (display-buffer-reuse-window
-                  display-buffer-in-side-window)
-                 (side            . bottom)
-                 (reusable-frames . visible)
-                 (window-height   . 0.15)))
+                 (display-buffer-reuse-window display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
                '("^\\*Flycheck checker\\*" (display-buffer-below-selected)))
   ;; checker `proselint' for `org-mode', `markdown-mode', `gfm-mode'.
