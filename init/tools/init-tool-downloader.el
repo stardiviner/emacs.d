@@ -22,10 +22,8 @@
   :custom ((youtube-dl-directory "~/Downloads/")
            (youtube-dl-proxy "socks5://127.0.0.1:1086")
            (youtube-dl-proxy-url-list '("youtube.com" "pornhub.com")))
-  :config
-  (add-to-list 'display-buffer-alist
-               '("^ \\*youtube-dl list\\*" .
-                 (display-buffer-reuse-window display-buffer-below-selected))))
+  :config (add-to-list 'display-buffer-alist
+                       '("^ \\*youtube-dl list\\*" . (display-buffer-below-selected))))
 
 
 (provide 'init-tool-downloader)
