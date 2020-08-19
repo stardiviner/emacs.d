@@ -23,6 +23,7 @@
 (use-package multi-translate
   :ensure t
   :commands (multi-translate-at-point)
+  :commands (multi-translate multi-translate-at-point multi-translate-amend-query)
   :bind (:map dictionary-prefix ("m" . multi-translate-at-point))
   :config (add-to-list 'display-buffer-alist
                        '("^\\*Multi Translate\\*" (display-buffer-below-selected)))
