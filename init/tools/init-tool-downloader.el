@@ -13,6 +13,13 @@
   :ensure t
   :commands (download-region-as-url))
 
+;;; [ aria2 ] -- a major mode for controlling aria2c RPC daemon downloader.
+
+(use-package aria2
+  :ensure t
+  :commands (aria2-downloads-list)
+  :custom ((aria2-download-directory (expand-file-name "~/Downloads"))))
+
 ;;; [ youtube-dl ] -- A youtube-dl download manager for Emacs.
 
 (use-package youtube-dl
