@@ -40,7 +40,7 @@
            (kiwix-server-port 8089)
            (kiwix-default-library "wikipedia_en_all_2016-02.zim") ; "wikipedia_zh_all_2015-11.zim"
            (kiwix-default-browser-function 'eaf-open-browser))
-  :init (require 'org-kiwix))
+  :hook (org-load . org-kiwix-setup-link))
 
 
 (provide 'init-prog-document-wikipedia)
