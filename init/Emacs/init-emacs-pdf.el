@@ -87,34 +87,7 @@
   :demand t
   :init (save-place-mode 1))
 
-;; [ org-noter ] -- Emacs document annotator, using Org-mode.
-
-(use-package org-noter
-  :ensure t
-  :commands (org-noter)
-  :preface (unless (boundp 'Org-prefix) (define-prefix-command 'Org-prefix))
-  :bind (:map Org-prefix ("n" . org-noter))
-  :init (setq org-noter-auto-save-last-location t))
-
-;; [ paperless ] -- Emacs assisted PDF document filing.
-
-;; (use-package paperless
-;;   :ensure t
-;;   :defer t
-;;   :commands (paperless)
-;;   :init (setq paperless-capture-directory "~/Downloads"
-;;               paperless-root-directory "~/Org"))
-
-;;; [ org-pdftools ] -- A custom org link type for pdf-tools.
-
-;; (use-package org-pdftools
-;;   :ensure t
-;;   ;; :load-path "~/Code/Emacs/org-pdftools"
-;;   :init
-;;   (with-eval-after-load 'org
-;;     (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdftools-open link))))))
-
-;;; [ org-pdfview ] --
+;;; [ org-pdfview ] -- Support for links to documents in pdfview mode.
 
 (use-package org-pdfview
   :ensure t
@@ -128,18 +101,39 @@
   (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdfview-open link))))
   (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . (lambda (file link) (org-pdfview-open link)))))
 
-;; [ pdf-tools-org ] -- integrate pdf-tools annotations to exporting/importing with Org Mode.
+;;; [ org-pdftools ] -- Support for links to documents in pdfview mode.
 
-(use-package pdf-tools-org
+(use-package org-pdftools
   :ensure t
-  :defer t
-  :after pdf-tools
-  :commands (pdf-tools-org-export-to-org pdf-tools-org-import-from-org)
+  :hook (org-load . org-pdftools-setup-link))
+
+;; [ org-noter ] -- Emacs document annotator, using Org-mode.
+
+(use-package org-noter
+  :ensure t
+  :commands (org-noter)
+  :preface (unless (boundp 'Org-prefix) (define-prefix-command 'Org-prefix))
+  :bind (:map Org-prefix ("n" . org-noter))
+  :init (setq org-noter-auto-save-last-location t))
+
+;;; [ org-noter-pdftools ] -- Integration between org-pdftools and org-noter
+
+(use-package org-noter-pdftools
+  :ensure t
+  :after org-noter
   :config
-  (defun my/pdf-tools-org-setup ()
-    (when (eq major-mode 'pdf-view-mode)
-      (pdf-tools-org-export-to-org)))
-  (add-hook 'after-save-hook #'my/pdf-tools-org-setup))
+  (with-eval-after-load 'pdf-annot
+    (add-hook 'pdf-annot-activate-handler-functions #'org-noter-pdftools-jump-to-note)))
+
+;; [ paperless ] -- Emacs assisted PDF document filing.
+
+;; (use-package paperless
+;;   :ensure t
+;;   :defer t
+;;   :commands (paperless)
+;;   :init (setq paperless-capture-directory "~/Downloads"
+;;               paperless-root-directory "~/Org"))
+
 
 ;;; [ pdfgrep ] -- Grep PDF for searching PDF.
 
