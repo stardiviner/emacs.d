@@ -62,12 +62,13 @@
   :hook (flycheck-mode . flycheck-inline-mode)
   :config
   ;; use `quick-peek' instead of default overlay.
-  (setq flycheck-inline-display-function (lambda (msg &optional pos err)
-                                           (let* ((ov (quick-peek-overlay-ensure-at pos))
-                                                  (contents (quick-peek-overlay-contents ov)))
-                                             (setf (quick-peek-overlay-contents ov)
-                                                   (concat contents (when contents "\n") msg))
-                                             (quick-peek-update ov)))
+  (defun flycheck-inline-quick-peek (msg &optional pos err)
+    (let* ((ov (quick-peek-overlay-ensure-at pos))
+           (contents (quick-peek-overlay-contents ov)))
+      (setf (quick-peek-overlay-contents ov)
+            (concat contents (when contents "\n") msg))
+      (quick-peek-update ov)))
+  (setq flycheck-inline-display-function #'flycheck-inline-quick-peek
         flycheck-inline-clear-function #'quick-peek-hide))
 
 ;;; [ flycheck-popup-tip ] -- displaying errors from Flycheck using popup.el.
