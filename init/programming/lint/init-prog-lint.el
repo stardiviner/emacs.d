@@ -39,8 +39,7 @@
   ;; cause high CPU. especially big source code file.
   :hook ((prog-mode . flycheck-mode-on-safe)
          (org-mode . flycheck-mode-on-safe)
-         ;; (after-init . global-flycheck-mode)
-         )
+         (after-init . global-flycheck-mode))
   :bind (:map linter-prefix ("!" . flycheck-mode)
               :map flycheck-mode-map
               ("M-g M-n" . flycheck-next-error)
