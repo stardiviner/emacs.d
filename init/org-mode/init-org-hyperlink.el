@@ -403,7 +403,7 @@ and append it."
 ;;; [ org-link-beautify ] -- beautify org links with intuitive icons.
 
 (use-package org-link-beautify
-  :quelpa (org-link-beautify :fetcher github :repo "stardiviner/org-link-beautify")
+  :ensure t
   :commands (org-link-beautify-mode)
   :init (org-link-beautify-mode 1))
 
