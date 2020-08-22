@@ -122,9 +122,9 @@
 (use-package quelpa-use-package
   :ensure t
   :demand t
-  :commands (quelpa-upgrade quelpa-self-upgrade)
-  :init (setq quelpa-checkout-melpa-p nil
-  	      quelpa-update-melpa-p nil))
+  :commands (quelpa-upgrade quelpa-upgrade-all quelpa-self-upgrade)
+  :custom ((quelpa-checkout-melpa-p nil)
+           (quelpa-update-melpa-p nil)))
 
 
 
