@@ -37,9 +37,10 @@
            (flycheck-emacs-lisp-load-path 'inherit))
   ;; NOTE: ONLY enable `flycheck-mode' MANUALLY. automatically checking will
   ;; cause high CPU. especially big source code file.
-  :hook ((prog-mode . flycheck-mode-on-safe)
-         (org-mode . flycheck-mode-on-safe)
-         (after-init . global-flycheck-mode))
+  :hook ((after-init . global-flycheck-mode)
+         ;; (prog-mode . flycheck-mode-on-safe)
+         ;; (org-mode . flycheck-mode-on-safe)
+         )
   :bind (:map linter-prefix ("!" . flycheck-mode)
               :map flycheck-mode-map
               ("M-g M-n" . flycheck-next-error)
@@ -58,7 +59,8 @@
 
 (use-package flycheck-inline
   :ensure t
-  :hook (flycheck-mode . flycheck-inline-mode)
+  :hook ((flycheck-mode . flycheck-inline-mode)
+         (after-init . global-flycheck-inline-mode))
   :config
   ;; use `quick-peek' instead of default overlay.
   (defun flycheck-inline-quick-peek (msg &optional pos err)
