@@ -301,7 +301,7 @@ That's it.
 ;;; [ org-recoll ] -- A lightweight Emacs Org Mode wrapper for the recoll full-text search engine.
 
 ;; (use-package org-recoll
-;;   :load-path "~/Code/Emacs/org-recoll/"
+;;   :quelpa (org-recoll :fetcher github :repo "alraban/org-recoll")
 ;;   :defer t
 ;;   :commands (org-recoll-search org-recoll-update-index)
 ;;   :bind (:map Org-prefix ("C-s" . org-recoll-search)
@@ -309,7 +309,7 @@ That's it.
 ;;               ("M-n" . org-recoll-next-page)
 ;;               ("M-p" . org-recoll-previous-page)
 ;;               ("q" . delete-window))
-;;   :init
+;;   :config
 ;;   (add-to-list 'display-buffer-alist
 ;;                '("^\\*org-recoll-index\\*" (display-buffer-below-selected)))
 ;;   (add-to-list 'display-buffer-alist

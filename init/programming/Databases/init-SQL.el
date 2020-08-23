@@ -100,8 +100,7 @@
 ;;; [ ob-sql-mode ] -- SQL code blocks evaluated by sql-mode.
 
 ;; (use-package ob-sql-mode
-;;   ;; :ensure t
-;;   :load-path "~/Code/Emacs/ob-sql-mode"
+;;   :ensure t
 ;;   :defer t
 ;;   :commands (org-babel-execute:sql-mode)
 ;;   :config

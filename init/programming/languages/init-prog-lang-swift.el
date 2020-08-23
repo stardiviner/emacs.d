@@ -29,7 +29,7 @@
 
 (use-package ob-swift
   ;; :ensure t
-  :load-path "~/Code/Emacs/ob-swift"
+  :quelpa (ob-swift :fetcher github :repo "stardiviner/ob-swift")
   :defer t
   :commands (org-babel-execute:swift)
   :config

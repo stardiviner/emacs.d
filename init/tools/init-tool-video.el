@@ -20,7 +20,7 @@
 ;;; [ ffmpeg ] -- ffmpeg command wrapper for Emacs.
 
 (use-package ffmpeg
-  :load-path "~/Code/Emacs/ffmpeg.el"
+  :quelpa (ffmpeg :fetcher github :repo "stardiviner/ffmpeg.el")
   :commands (ffmpeg-cut-clip))
 
 ;;; [ vlc ] -- VideoLAN VLC Media Player Control through the Web Interface's API.

@@ -117,15 +117,12 @@
 
 (use-package emms-bilibili
   ;; :ensure t
-  :load-path "~/Code/Emacs/emms-bilibili"
+  :quelpa (emms-bilibili :fetcher github :repo "stardiviner/emms-bilibili" :branch "develop")
   :defer t
   :after emms
   :commands (emms-bilibili)
-  :config (setq emms-bilibili-mid
-                (string-to-number (my/json-read-value my/account-file 'emms-bilibili))
-                emms-bilibili-use-popup t)
-  (use-package youtube-dl
-    :load-path "~/Code/Emacs/youtube-dl-emacs/"))
+  :custom ((emms-bilibili-mid (string-to-number (my/json-read-value my/account-file 'emms-bilibili)))
+           (emms-bilibili-use-popup t)))
 
 
 (provide 'init-emms)

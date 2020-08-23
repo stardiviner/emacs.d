@@ -34,7 +34,9 @@
 ;;; [ company-arduino ] -- code completion support for arduino-mode.
 
 (use-package company-arduino
-  :ensure t
+  ;; :ensure t
+  :quelpa (company-arduino :fetcher github :repo "stardiviner/company-arduino"
+                           :branch "feature/support-Arduino-v17-path")
   :ensure company-c-headers
   :defer t
   :after arduino-mode

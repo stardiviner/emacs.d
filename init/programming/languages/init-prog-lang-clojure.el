@@ -287,11 +287,9 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 ;;; [ debux.el ] -- Integrate Clojure/ClojureScript debugger "Debux" into Emacs.
 
-;; TODO: https://github.com/philoskim/debux
+;; https://github.com/philoskim/debux
 ;; (use-package debux
-;;   :load-path "~/Code/Emacs/debux/"
-;;   ;; :config
-;;   )
+;;   :quelpa (debux :fetcher github :repo "philoskim/debux"))
 
 ;;; [ flycheck-clojure, squiggly-clojure ] --
 

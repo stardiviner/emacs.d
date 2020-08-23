@@ -35,7 +35,7 @@
 ;;; [ multi-screens ] -- Minor mode to controlling frames for multiple screens.
 
 (use-package multi-screens
-  :load-path "~/Code/Emacs/multi-screens.el"
+  :quelpa (multi-screens :fetcher github :repo "stardiviner/multi-screens.el")
   :hook (after-init . multi-screens-mode))
 
 

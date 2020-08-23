@@ -33,28 +33,22 @@
 
 ;;; [ distel ] -- Erlang IDE (Distributed Emacs Lisp for Erlang)
 
-;; (use-package distel-completion-lib
-;;   :load-path "/usr/share/distel/elisp/"
-;;   :defer t
-;;   :init
-;;   (add-hook 'erlang-mode-hook 'distel-erlang-mode-hook)
-;;   :config
-;;   ;; (distel-setup)
-;;   )
-
 ;; [ distel-completion-lib ] -- Erlang/distel completion backend for both auto-complete and company-mode.
 
 (use-package distel-completion-lib
   :ensure t
+  :hook (erlang-mode . distel-erlang-mode-hook)
+  :config (distel-setup))
+
+;; [ company-distel ] -- Erlang/distel completion backend for company-mode.
+
+(use-package company-distel
+  :ensure t
+  :custom (company-distel-popup-help t)
   :init
-  ;; [ company-distel ] -- Erlang/distel completion backend for company-mode.
-  (use-package company-distel
-    :ensure t
-    :init
-    (defun my/company-distel-setup ()
-      (my-company-add-backend-locally 'company-distel))
-    (add-hook 'erlang-mode-hook #'my/company-distel-setup)
-    :config (setq company-distel-popup-help t)))
+  (defun my/company-distel-setup ()
+    (my-company-add-backend-locally 'company-distel))
+  (add-hook 'erlang-mode-hook #'my/company-distel-setup))
 
 
 (provide 'init-prog-lang-erlang)

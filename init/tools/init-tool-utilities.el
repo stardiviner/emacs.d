@@ -1,6 +1,6 @@
 ;;; init-tool-utilities.el --- init file of utilities -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-06-27 10:58:32 stardiviner>
+;;; Time-stamp: <2020-08-23 07:30:52 stardiviner>
 
 ;;; Commentary:
 
@@ -10,10 +10,9 @@
 
 ;;; [ qr-native ] -- libqr binding of Emacs Lisp.
 
-(use-package qr-native
-  ;; :quelpa (qr-native :fetcher github :repo "syohex/emacs-qr-native")
-  :load-path "~/Code/Emacs/qr-native"
-  :commands (qr-native-display-string))
+;; (use-package qr-native
+;;   :quelpa (qr-native :fetcher github :repo "syohex/emacs-qr-native")
+;;   :commands (qr-native-display-string))
 
 
 

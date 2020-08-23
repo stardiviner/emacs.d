@@ -21,8 +21,8 @@
 ;;; [ multi-translate ] -- Translate word or region at point with multiple translation services.
 
 (use-package multi-translate
-  :ensure t
-  :commands (multi-translate-at-point)
+  ;; :ensure t
+  :quelpa (multi-translate :fetcher github :repo "twlz0ne/multi-translate.el")
   :commands (multi-translate multi-translate-at-point multi-translate-amend-query)
   :bind (:map dictionary-prefix ("m" . multi-translate-at-point))
   :config (add-to-list 'display-buffer-alist
@@ -93,7 +93,8 @@
 ;;; [ ob-translate ] -- allows you to translate blocks of text within org-mode.
 
 (use-package ob-translate
-  :ensure t
+  ;; :ensure t
+  :quelpa (ob-translate :fetcher github :repo "stardiviner/ob-translate" :branch "develop")
   :defer t
   :commands (org-babel-execute:translate)
   :config
