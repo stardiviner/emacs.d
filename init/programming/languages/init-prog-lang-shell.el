@@ -7,13 +7,14 @@
 
 ;;; Code:
 
-;;; [ `sh-mode' (shell-script-mode ]
+;;; [ `sh-mode' (`sh-script') ]
 
-(setq sh-indentation 2
-      sh-basic-offset 2)
-
-;;; Make << insert a HERE document skeleton.
-(add-hook 'shell-mode-hook #'sh-electric-here-document-mode)
+(use-package sh-script
+  :custom ((sh-indentation 2)
+           (sh-basic-offset 2))
+  :config
+  ;; Make << insert a HERE document skeleton.
+  (add-hook 'shell-mode-hook #'sh-electric-here-document-mode))
 
 ;;; [ Bash ]
 
