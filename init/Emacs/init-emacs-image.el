@@ -7,6 +7,16 @@
 
 ;;; Code:
 
+;;; [ image-file ] -- support for visiting image files.
+
+(use-package image-file
+  :init (add-to-list 'image-file-name-extensions "webp" 'append)
+  :config
+  ;; NOTE: this will open image file with "actual size" instead of fit window width.
+  ;; auto display image
+  ;; (auto-image-file-mode t)
+  )
+
 ;;; [ image-mode ] -- support for visiting image files.
 
 (use-package image-mode
@@ -25,14 +35,6 @@
     (image-next-file))
 
   (define-key image-mode-map (kbd "D") 'image-delete-file))
-
-;;; [ auto-image-file-mode ]
-
-(add-to-list 'image-file-name-extensions "webp" 'append)
-
-;; auto display image
-;; (auto-image-file-mode t) ; NOTE: this will open image file with "actual size" instead of fit window width.
-
 
 ;;; [ iimage ] -- inline image minor mode.
 
