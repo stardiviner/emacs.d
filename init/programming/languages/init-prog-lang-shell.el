@@ -7,32 +7,26 @@
 
 ;;; Code:
 
-;;; [ `sh-mode' (`sh-script') ]
+;;; [ `sh-mode' (`sh-script') ] -- shell-script editing commands for Emacs.
 
 (use-package sh-script
+  :mode (("\\.zsh\\'" . sh-mode)
+         ("\\.zsh-theme\\'" . sh-mode))
   :custom ((sh-indentation 2)
            (sh-basic-offset 2))
   :config
   ;; Make << insert a HERE document skeleton.
-  (add-hook 'shell-mode-hook #'sh-electric-here-document-mode))
+  (add-hook 'shell-mode-hook #'sh-electric-here-document-mode)
 
-;;; [ Bash ]
-
-;;; [ Zsh ]
-
-(add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
-(add-to-list 'auto-mode-alist '("\\.zsh-theme\\'" . sh-mode))
-
-;; A programmatic way of selecting a flavor when you don't want to use the
-;; shebang is doing this in a sh-mode buffer:
-(defun my-sh-mode-zsh-setup ()
-  "Setup `sh-mode' engine to Zsh."
-  (interactive)
-  (if (and (buffer-file-name) ; filer out non-file buffers which will returns nil
-           (string-match "\\.zsh$" (buffer-file-name)))
-      (sh-set-shell "zsh")))
-
-(add-hook 'sh-mode-hook #'my-sh-mode-zsh-setup)
+  ;; A programmatic way of selecting a flavor when you don't want to use the
+  ;; shebang is doing this in a sh-mode buffer:
+  (defun my/sh-mode-zsh-setup ()
+    "Setup `sh-mode' engine to Zsh."
+    (interactive)
+    (if (and (buffer-file-name) ; filer out non-file buffers which will returns nil
+             (string-match "\\.zsh$" (buffer-file-name)))
+        (sh-set-shell "zsh")))
+  (add-hook 'sh-mode-hook #'my/sh-mode-zsh-setup))
 
 ;;; [ company-shell ] -- company-mode backend for shell script completion.
 
