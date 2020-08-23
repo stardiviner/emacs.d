@@ -46,22 +46,17 @@
 ;;       socks-noproxy '("localhost")
 ;;       socks-server '("Default server" "127.0.0.1" 1086 5))
 
-;;; [ proxy-mode ] A global minor mode to toggle proxy inside of Emacs.
+;;; [ use-proxy ] -- Easy way to enable/disable proxies in Emacs and Elisp.
 
-(use-package proxy-mode
+(use-package use-proxy
   :ensure t
-  :defer t
-  :commands (proxy-mode)
-  :init (setq proxy-mode-socks-proxy '("Default server" "127.0.0.1" 1086 5)))
-
-;;; [ with-proxy ] -- Evaluate expressions within Proxy.
-
-(use-package with-proxy
-  :ensure t
-  :defer t
-  :commands (with-proxy with-proxy-url with-proxy-shell)
-  ;; Privoxy
-  :config (setq with-proxy-http-server "127.0.0.1:8118"))
+  :commands (use-proxy-toggle-proto-proxy
+             use-proxy-toggle-proxies-global
+             use-proxy-with-custom-proxies
+             use-proxy-with-specified-proxies)
+  :custom ((use-proxy-http-proxy "localhost:8118")
+           (use-proxy-https-proxy "localhost:8118")
+           (use-proxy-no-proxy (regexp-opt '("localhost" "baidu.com")))))
 
 
 (provide 'init-emacs-network)
