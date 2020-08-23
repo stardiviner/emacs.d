@@ -115,14 +115,14 @@
 
 ;; [ emms-bilibili ] -- Play Bilibili user favourite videos in EMMS.
 
-(use-package emms-bilibili
-  ;; :ensure t
-  :quelpa (emms-bilibili :fetcher github :repo "stardiviner/emms-bilibili" :branch "develop")
-  :defer t
-  :after emms
-  :commands (emms-bilibili)
-  :custom ((emms-bilibili-mid (string-to-number (my/json-read-value my/account-file 'emms-bilibili)))
-           (emms-bilibili-use-popup t)))
+;; (use-package emms-bilibili
+;;   ;; :ensure t
+;;   :quelpa (emms-bilibili :fetcher github :repo "stardiviner/emms-bilibili" :branch "develop")
+;;   :defer t
+;;   :after emms
+;;   :commands (emms-bilibili)
+;;   :custom ((emms-bilibili-mid (string-to-number (my/json-read-value my/account-file 'emms-bilibili)))
+;;            (emms-bilibili-use-popup t)))
 
 
 (provide 'init-emms)
