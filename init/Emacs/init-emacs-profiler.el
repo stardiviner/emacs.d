@@ -53,7 +53,7 @@
   :defer t
   :commands (explain-pause-mode explain-pause-top)
   ;; :hook (after-init . explain-pause-mode)
-  )
+  :init (explain-pause-mode -1))
 
 
 
