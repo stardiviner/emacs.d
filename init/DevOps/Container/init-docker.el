@@ -135,6 +135,12 @@ For Org-babel header argument :dir /docker:<name>:."
   :ensure t
   :defer t)
 
+;;; [ kubel ] -- extension for controlling Kubernetes with limited permissions.
+
+(use-package kubel
+  :ensure t
+  :commands (kubel))
+
 
 (provide 'init-docker)
 
