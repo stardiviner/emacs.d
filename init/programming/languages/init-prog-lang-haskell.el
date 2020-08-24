@@ -169,17 +169,16 @@
   :ensure t
   :defer t
   :init
+  ;; [ company-ghci ] -- company backend which uses the current ghci process.
+  (use-package company-ghci
+    :ensure t)
   (defun my/haskell-company-backends-setup ()
     (interactive)
     (my-company-add-backend-locally 'company-ghc)
     (my-company-add-backend-locally 'company-ghci))
   (add-hook 'haskell-mode-hook #'my/haskell-company-backends-setup)
-  :config (setq company-ghc-show-info t
-                company-ghc-show-module t)
-
-  ;; [ company-ghci ] -- company backend which uses the current ghci process.
-  (use-package company-ghci
-    :ensure t))
+  :custom ((company-ghc-show-info t)
+           (company-ghc-show-module t)))
 
 ;;; [ company-cabal ] -- company-mode back-end for haskell-cabal-mode.
 
