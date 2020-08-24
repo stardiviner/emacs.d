@@ -13,7 +13,10 @@
   :ensure t
   :defer t
   :delight company-mode
-  :custom ((company-etags-modes nil) ; disable `company-etags'
+  ;; disable initialize loading all company backends.
+  :preface (setq company-backends nil)
+  :commands (global-company-mode)
+  :custom ((company-etags-modes nil)    ; disable `company-etags'
            (company-minimum-prefix-length 3)
            (completion-ignore-case t) ; complete candidates ignore case-sensitive when typing.
            (company-idle-delay 0)
@@ -33,7 +36,7 @@
                                 company-echo-metadata-frontend
                                 ;; company-preview-common-frontend
                                 ))
-           (company-backends '((company-capf         ; `completion-at-point-functions'
+           (company-backends '((company-capf ; `completion-at-point-functions'
                                 :separate company-yasnippet
                                 ;; :separate company-tempo  ; tempo: flexible template insertion
                                 :separate company-keywords)
@@ -41,9 +44,6 @@
                                company-files))
            (company-dabbrev-other-buffers t) ; only from same major-mode
            )
-  ;; disable initialize loading all company backends.
-  :preface (setq company-backends nil)
-  :commands (global-company-mode)
   :hook (after-init . global-company-mode)
   :config  
   (defun my-company-add-backend-locally (backend)
