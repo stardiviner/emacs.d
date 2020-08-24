@@ -60,6 +60,11 @@
   :ensure t
   :hook (rust-mode . lsp))
 
+;;; [ ron-mode ] -- Rusty Object Notation mode.
+
+(use-package ron-mode
+  :ensure t)
+
 
 (provide 'init-prog-lang-rust)
 
