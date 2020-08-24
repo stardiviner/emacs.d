@@ -39,6 +39,13 @@
   :ensure t
   :defer t)
 
+;;; [ magrant ] -- A Vagrant porcelain in Emacs.
+
+(use-package magrant
+  :ensure t
+  :defer t
+  :commands (magrant magrant-boxes magrant-machines))
+
 
 (provide 'init-vagrant)
 
