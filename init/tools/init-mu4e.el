@@ -65,6 +65,21 @@
         mu4e-headers-first-child-prefix '("\\" . "↳ ")
         mu4e-headers-duplicate-prefix '("=" . "≡ "))
 
+  ;; mailing list thread fancy threading characters
+  (setq mu4e-headers-thread-child-prefix         '("├>" . "├─➤ ")
+        mu4e-headers-thread-last-child-prefix    '("└>" . "└─➤ ")
+        mu4e-headers-thread-orphan-prefix        '("┬>" . "┬─➤ ")
+        mu4e-headers-thread-single-orphan-prefix '("─>" . "──➤ ")
+        ;; The following two should have the same width.
+        mu4e-headers-thread-connection-prefix    '("│" . "│ ")
+        mu4e-headers-thread-blank-prefix         '(" " . "  "))
+
+  ;; (setq mu4e-headers-thread-child-prefix '("├>" . "├▶ ")
+  ;;       mu4e-headers-thread-last-child-prefix '("└>" . "└▶ ")
+  ;;       mu4e-headers-thread-connection-prefix '("│" . "│ ")
+  ;;       mu4e-headers-thread-orphan-prefix '("┬>" . "┬▶ ")
+  ;;       mu4e-headers-thread-single-orphan-prefix '("─>" . "─▶ "))
+
   ;; only show thread subject once
   (setq mu4e-headers-fields
         '((:flags .  6)
