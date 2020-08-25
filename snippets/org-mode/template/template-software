@@ -13,30 +13,26 @@ $3
 ** Demos
 
 
-* Data
+* Help
 
-** Help
-
-*** websites
+** websites
 
 $1
 
-*** documentations
+** documentations
 
-*** community
+** community
 
-*** source code
+** source code
 
-** Wiki
-
-*** Installation
+* Installation
 
 $2
 
-*** Configuration
+* Configuration
 
-*** Usage
+* Usage
 
-**** workflow
+** workflow
 
 $0
