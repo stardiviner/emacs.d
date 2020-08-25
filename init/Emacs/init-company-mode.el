@@ -28,14 +28,10 @@
            (company-tooltip-align-annotations t) ; align annotations to the right tooltip border.
            (company-show-numbers nil)
            (company-search-regexp-function #'company-search-flex-regexp)
-           (company-frontends `(company-pseudo-tooltip-frontend
-                                ;; ,(if (zerop company-tooltip-idle-delay)
-                                ;;      'company-pseudo-tooltip-unless-just-one-frontend
-                                ;;    'company-pseudo-tooltip-unless-just-one-frontend-with-delay)
-                                company-preview-if-just-one-frontend
+           (company-frontends '(company-pseudo-tooltip-frontend
+                                ;; company-preview-if-just-one-frontend
                                 company-echo-metadata-frontend
-                                ;; company-preview-common-frontend
-                                ))
+                                company-preview-common-frontend))
            (company-backends '((company-capf ; `completion-at-point-functions'
                                 :separate company-yasnippet
                                 ;; :separate company-tempo  ; tempo: flexible template insertion
