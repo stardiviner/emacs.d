@@ -38,7 +38,8 @@
           (:maildir   "/Clojure"                :key ?c)
           (:maildir   "/ClojureScript"          :key ?C)
           (:maildir   "/JavaScript"             :key ?j)
-          (:maildir   "/SQL/PostgreSQL/general" :key ?p)))
+          (:maildir   "/SQL/PostgreSQL/general" :key ?p)
+          (:maildir   "/NoSQL/Neo4j"            :key ?n)))
 
   ;; main-view
   (setq mu4e-main-hide-fully-read t)
@@ -47,16 +48,16 @@
   (setq mu4e-use-fancy-chars t
         ;; email prefix
         mu4e-headers-new-mark '("N" . " ")
-        mu4e-headers-unread-mark '("u" . "∘") ; · • ∘ ⋄
+        mu4e-headers-unread-mark '("u" . "○") ; · • ∘ ∘ ⋄
         mu4e-headers-seen-mark '("S" . " ")
-        mu4e-headers-signed-mark '("s" . "✩")
+        mu4e-headers-signed-mark    '("s" . "✍") ; ✩
         mu4e-headers-encrypted-mark '("x" . "✡")
         mu4e-headers-draft-mark '("D" . "✍")
-        mu4e-headers-attach-mark '("a" . "▣")
-        mu4e-headers-passed-mark '("P" . "❯") ; my email in thread.
+        mu4e-headers-attach-mark '("a" . "▣") ; ◇
+        mu4e-headers-passed-mark '("P" . "⇉") ; ❯ (my email in thread)
         mu4e-headers-flagged-mark '("F" . "⚑")
-        mu4e-headers-replied-mark '("R" . "◫")
-        mu4e-headers-trashed-mark '("T" . "↻")
+        mu4e-headers-replied-mark '("R" . "↵") ; ↻ ◫
+        mu4e-headers-trashed-mark   '("T" . "×")
         ;; thread prefix marks
         mu4e-headers-default-prefix '("|" . "│ ")
         mu4e-headers-has-child-prefix '("+" . "◼ ")     ; "Parent" ╰
