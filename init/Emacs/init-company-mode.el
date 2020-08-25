@@ -22,8 +22,9 @@
            (company-idle-delay 0)
            (company-tooltip-idle-delay 0)
            (company-echo-delay 0)
+           ;; decide when to auto commit insertion of the selected completion candidate.
            ;; (company-auto-complete t)
-           ;; (company-auto-complete-chars '(?\  ?\) ?. ?#)) ; '(?_ ?\( ?w ?. ?\" ?$ ?\' ?/ ?| ?! ?#)
+           ;; (company-auto-complete-chars '(?\  ?\) ?.))
            (company-selection-wrap-around t) ; loop over candidates
            (company-tooltip-align-annotations t) ; align annotations to the right tooltip border.
            (company-show-numbers nil)
