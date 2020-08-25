@@ -16,14 +16,16 @@
 ;;; [ aria2 ] -- a major mode for controlling aria2c RPC daemon downloader.
 
 (use-package aria2
-  :quelpa (aria2 :fetcher github :repo "stardiviner/aria2")
+  ;; :quelpa (aria2 :fetcher github :repo "stardiviner/aria2")
+  :load-path "~/Code/Emacs/aria2"
   :commands (aria2-downloads-list)
   :custom ((aria2-download-directory (expand-file-name "~/Downloads"))))
 
 ;;; [ youtube-dl ] -- A youtube-dl download manager for Emacs.
 
 (use-package youtube-dl
-  :quelpa (youtube-dl :fetcher github :repo "stardiviner/youtube-dl.el")
+  ;; :quelpa (youtube-dl :fetcher github :repo "stardiviner/youtube-dl.el")
+  :load-path "~/Code/Emacs/youtube-dl"
   :defer t
   :commands (youtube-dl youtube-dl-list)
   :custom ((youtube-dl-directory "~/Downloads/")

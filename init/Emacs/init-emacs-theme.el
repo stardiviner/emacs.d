@@ -40,15 +40,15 @@
 ;;; [ leuven-theme ]
 
 (use-package leuven-theme
-  :quelpa (leuven-theme :fetcher github :repo "stardiviner/leuven-theme")
-  ;; :load-path "~/Code/Emacs/leuven-theme/"
+  ;; :quelpa (leuven-theme :fetcher github :repo "stardiviner/leuven-theme")
+  :load-path "~/Code/Emacs/leuven-theme/"
   :config (load-theme 'leuven t))
 
 ;;; [ one-themes ] -- One color scheme.
 
 (use-package one-themes
-  :quelpa (one-themes :fetcher github :repo "stardiviner/emacs-one-themes")
-  ;; :load-path "~/Code/Emacs/one-themes"
+  ;; :quelpa (one-themes :fetcher github :repo "stardiviner/emacs-one-themes")
+  :load-path "~/Code/Emacs/one-themes"
   :config (load-theme 'one-dark t))
 
 ;;; [ circadian ] -- Theme-switching based on daytime.

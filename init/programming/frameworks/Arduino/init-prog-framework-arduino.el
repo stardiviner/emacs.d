@@ -35,8 +35,9 @@
 
 (use-package company-arduino
   ;; :ensure t
-  :quelpa (company-arduino :fetcher github :repo "stardiviner/company-arduino"
-                           :branch "feature/support-Arduino-v17-path")
+  ;; :quelpa (company-arduino :fetcher github :repo "stardiviner/company-arduino"
+  ;;                          :branch "feature/support-Arduino-v17-path")
+  :load-path "~/Code/Emacs/company-arduino"
   :ensure company-c-headers
   :defer t
   :after arduino-mode

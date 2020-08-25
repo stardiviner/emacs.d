@@ -61,7 +61,8 @@
 
 (use-package org-password-manager
   ;; :ensure t
-  :quelpa (org-password-manager :fetcher github :repo "stardiviner/org-password-manager")
+  ;; :quelpa (org-password-manager :fetcher github :repo "stardiviner/org-password-manager")
+  :load-path "~/Code/Emacs/org-password-manager"
   :bind (:map org-password-prefix
               ("u" . org-password-manager-get-username)
               ("p" . org-password-manager-get-password)

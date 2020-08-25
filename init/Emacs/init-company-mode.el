@@ -146,6 +146,7 @@
 
 (use-package company-box
   :ensure t
+  ;; :load-path "~/Code/Emacs/company-box"
   :delight company-box-mode
   :hook (company-mode . company-box-mode)
   :custom (;; (company-idle-delay 0.5) ; increase delay to avoid fast input slow down company speed.

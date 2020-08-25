@@ -94,7 +94,8 @@
 
 (use-package ob-translate
   ;; :ensure t
-  :quelpa (ob-translate :fetcher github :repo "stardiviner/ob-translate" :branch "develop")
+  ;; :quelpa (ob-translate :fetcher github :repo "stardiviner/ob-translate" :branch "develop")
+  :load-path "~/Code/Emacs/ob-translate"
   :defer t
   :commands (org-babel-execute:translate)
   :config

@@ -81,7 +81,8 @@
 ;;; [ hl-sexp ] -- highlight the current sexp.
 
 (use-package hl-sexp
-  :quelpa (hl-sexp :fetcher github :repo "stardiviner/hl-sexp")
+  ;; :quelpa (hl-sexp :fetcher github :repo "stardiviner/hl-sexp")
+  :load-path "~/Code/Emacs/hl-sexp"
   :defer t
   :commands (global-hl-sexp-mode hl-sexp-mode)
   ;; NOTE: don't enable `global-hl-sexp-mode' automatically to enabled in Org Mode.
