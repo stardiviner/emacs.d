@@ -37,6 +37,7 @@
           (:maildir   "/Lisp/"                  :key ?l)
           (:maildir   "/Clojure"                :key ?c)
           (:maildir   "/ClojureScript"          :key ?C)
+          (:maildir   "/Newsletter/Clojure"     :key ?a)
           (:maildir   "/JavaScript"             :key ?j)
           (:maildir   "/SQL/PostgreSQL/general" :key ?p)
           (:maildir   "/NoSQL/Neo4j"            :key ?n)))
@@ -278,7 +279,9 @@
           (:name "Big messages" :key ?B
                  :query "size:5M..500M")
           (:name "Emacs mailbox" :key ?e
-                 :query "maildir:/Emacs/help")))
+                 :query "maildir:/Emacs/help")
+          (:name "Emacs mu4e mailbox" :key ?m
+                 :query "maildir:/Emacs/mu")))
 
   ;; Marking
   (define-key mu4e-headers-mode-map (kbd "f") 'mu4e-headers-mark-for-flag)
