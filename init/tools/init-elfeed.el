@@ -32,8 +32,8 @@
           ("https://sachachua.com/blog/feed/atom/" Blog Emacs) ; Sacha Chua Blog
           ("https://www.bytedude.com/feed.xml" Blog Emacs) ; ByteDude
           ;; Web
-          ("https://blog.mozilla.org/feed/" Mozilla) ; Mozilla Blog
-          ("http://hacks.mozilla.org/feed/" Mozilla Web) ; Mozilla Hacks
+          ;; ("https://blog.mozilla.org/feed/" Mozilla) ; Mozilla Blog
+          ;; ("http://hacks.mozilla.org/feed/" Mozilla Web) ; Mozilla Hacks
           ;; Linux
           ;; ("https://www.linux.com/rss/feeds.php" Linux)
           ;; ("http://lwn.net/headlines/newrss" Linux)
@@ -51,7 +51,7 @@
           ("http://fullcirclemagazine.org/feed" Linux) ; Full Circle Magazine
           ;; Podcasts
           ;; Common Lisp
-          ("http://planet.lisp.org/rss20.xml" LISP) ; Lisp Planet
+          ;; ("http://planet.lisp.org/rss20.xml" LISP) ; Lisp Planet
           ;; Clojure
           ("http://insideclojure.org/feed.xml" Clojure) ; Inside Clojure
           ("http://planet.clojure.in/atom.xml" Clojure) ; Planet Clojure
@@ -64,7 +64,7 @@
           ("https://www.spacjer.com/feed.xml" Clojure Blog) ; Rafal Spacjer Blog
           ("https://dragan.rocks/feed.xml" Clojure Blog) ; dragan.rocks
           ;; PostgreSQL
-          ("https://planet.postgresql.org/rss20.xml" PostgreSQL) ; Planet PostgreSQL
+          ;; ("https://planet.postgresql.org/rss20.xml" PostgreSQL) ; Planet PostgreSQL
           ;; Programmer Blogs
           ("http://feed.williamlong.info/" Blog News) ; 月光博客
           ("http://www.ruanyifeng.com/blog/atom.xml" Blog) ; 阮一峰
