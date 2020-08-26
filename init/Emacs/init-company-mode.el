@@ -151,9 +151,7 @@
   :hook (company-mode . company-box-mode)
   :custom (;; (company-idle-delay 0.5) ; increase delay to avoid fast input slow down company speed.
            (company-box-doc-delay 0.5)
-           ;; (company-box-show-single-candidate t) ; for still can use doc popup keybinding.
            ;; (company-box-doc-enable nil) ; disable auto `company-box-doc' timer.
-           ;; (company-box-icons-image-size 25)
            ))
 
 ;; [ company-tabnine ] -- A company-mode backend for TabNine, the all-language autocompleter.
