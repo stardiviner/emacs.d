@@ -263,7 +263,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 ;;; [ clj-refactor ] -- A collection of commands for refactoring Clojure code.
 
-(use-package clj-refactor ; [C-c C-m]
+(use-package clj-refactor               ; [C-c C-m]
   :ensure t
   :ensure cljr-ivy
   :defer t
@@ -279,9 +279,10 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
     (define-key clj-refactor-map (kbd "C-c RET") #'hydra-cljr-help-menu/body))
   (add-hook 'clojure-mode-hook #'my:clj-refactor-setup)
   (add-hook 'cider-repl-mode-hook #'my:clj-refactor-setup)
+
   ;; FIXME: temporary solution for clj-refactor.
-  (with-eval-after-load "clj-refactor"
-    (remove-hook 'find-file-hook #'cljr--ensure-no-dashes-in-filename))
+  (remove-hook 'find-file-hook #'cljr--ensure-no-dashes-in-filename)
+  
   (add-to-list 'display-buffer-alist
                '("^\\*cljr-*\\*" . (display-buffer-below-selected)))
 
