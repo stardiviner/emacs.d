@@ -18,8 +18,9 @@
   (setq-local company-idle-delay 0.3)
   (setq-local company-tooltip-idle-delay 0)
 
-  (make-local-variable 'company-auto-complete-chars)
-  (setq company-auto-complete-chars '(?\( ?. ?#))
+  (when (boundp 'company-auto-commit-chars)
+    (make-local-variable 'company-auto-commit-chars)
+    (setq company-auto-commit-chars '(?\( ?. ?#)))
   
   (make-local-variable 'company-backends)
   (setq company-backends
