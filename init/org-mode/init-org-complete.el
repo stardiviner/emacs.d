@@ -19,11 +19,11 @@
   (setq-local company-tooltip-idle-delay 0)
   
   (make-local-variable 'company-backends)
-  (setq company-backends
-        '((company-capf :with company-yasnippet
-                        :separate company-tempo)
-          company-keywords
-          company-files)))
+  (setq-local company-backends
+              '((company-capf :with company-yasnippet
+                              :separate company-tempo)
+                company-keywords
+                company-files)))
 
 (add-hook 'org-mode-hook #'my/org-mode-completion-setting)
 
