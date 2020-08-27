@@ -17,10 +17,6 @@
   (setq-local company-minimum-prefix-length 3)
   (setq-local company-idle-delay 0.3)
   (setq-local company-tooltip-idle-delay 0)
-
-  (when (boundp 'company-auto-commit-chars)
-    (make-local-variable 'company-auto-commit-chars)
-    (setq company-auto-commit-chars '(?\( ?. ?#)))
   
   (make-local-variable 'company-backends)
   (setq company-backends
