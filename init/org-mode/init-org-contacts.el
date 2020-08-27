@@ -81,6 +81,12 @@
         (user-error "`mu4e~contacts' is available after mu4e initialized.")))
     (add-to-list 'org-property-set-functions-alist '("EMAIL" . org-property-email-complete))))
 
+;;; [ helm-org-contacts ] -- A helm source address books in org-contacts format.
+
+(use-package helm-org-contacts
+  :quelpa (helm-org-contacts :fetcher github :repo "tmalsburg/helm-org-contacts")
+  :commands (helm-org-contacts))
+
 (use-package helm-org-rifle
   :ensure t
   :init
