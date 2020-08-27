@@ -11,7 +11,7 @@
   :ensure t
   :defer t
   :commands (eww)
-  :custom ((browse-url-browser-function 'eww-browse-url) ; set to "internal" Emacs Web Wowser
+  :custom (;; (browse-url-browser-function 'eww-browse-url) ; set to "internal" Emacs Web Wowser
            (eww-bookmarks-directory (expand-file-name "eww/bookmarks/" user-emacs-directory))
            (eww-download-directory "~/Downloads/")
            (eww-form-checkbox-symbol "[ ]")
