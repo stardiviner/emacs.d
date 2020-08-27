@@ -31,19 +31,18 @@
   :custom ((youtube-dl-directory "~/Downloads/")
            (youtube-dl-proxy "socks5://127.0.0.1:1086")
            (youtube-dl-proxy-url-list '("youtube.com" "pornhub.com")))
+  :init
+  (add-to-list 'display-buffer-alist
+               '("^ \\*youtube-dl list\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^ \\*youtube-dl log\\*" . (display-buffer-below-selected)))
   :config
   ;; auto download and embed subtitles of video
   (add-to-list 'youtube-dl-arguments "--write-sub")
   (add-to-list 'youtube-dl-arguments "--write-auto-sub")
   (add-to-list 'youtube-dl-arguments "--embed-subs")
   (add-to-list 'youtube-dl-arguments "--sub-lang" t)
-  (add-to-list 'youtube-dl-arguments "en,zh-Hans" t)
-  (add-to-list 'display-buffer-alist
-               '("^ \\*youtube-dl list\\*" .
-                 (display-buffer-reuse-window display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^ \\*youtube-dl log\\*" .
-                 (display-buffer-reuse-window display-buffer-below-selected))))
+  (add-to-list 'youtube-dl-arguments "en,zh-Hans" t))
 
 
 (provide 'init-tool-downloader)
