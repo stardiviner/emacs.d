@@ -12,9 +12,8 @@
   :preface (autoload 'LilyPond-mode "lilypond-mode" "LilyPond Editing Mode" t)
   :mode (("\\.ly$" . LilyPond-mode)
          ("\\.ily$" . LilyPond-mode))
-  :init (add-hook 'LilyPond-mode-hook (lambda () (turn-on-font-lock)))
-  (add-to-list 'display-buffer-alist
-               '("\\*lilypond\\*" . (display-buffer-reuse-window display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("\\*lilypond\\*" . (display-buffer-below-selected)))
+  :hook (LilyPond-mode . turn-on-font-lock))
 
 ;;; [ ob-lilypond ]
 

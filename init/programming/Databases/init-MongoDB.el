@@ -17,9 +17,8 @@
   :ensure t
   :defer t
   :commands (inf-mongo)
-  :init (setq inf-mongo-command (concat (executable-find "mongo") " 127.0.0.1:27017"))
-  (add-to-list 'display-buffer-alist '("^\\*mongo\\*" (display-buffer-below-selected))))
-
+  :custom (inf-mongo-command (concat (executable-find "mongo") " 127.0.0.1:27017"))
+  :init (add-to-list 'display-buffer-alist '("^\\*mongo\\*" . (display-buffer-below-selected))))
 
 ;; [ ob-mongo ] -- Org-mode Babel for MongoDB
 

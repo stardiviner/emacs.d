@@ -10,10 +10,10 @@
 (use-package go-mode
   :ensure t
   :defer t
-  :init (setq godoc-use-completing-read t)
-  (add-to-list 'display-buffer-alist '("^\\*godoc .*\\*" . (display-buffer-below-selected)))
+  :custom (godoc-use-completing-read t)
+  :init (add-to-list 'display-buffer-alist '("^\\*godoc .*\\*" . (display-buffer-below-selected)))
+  :hook (before-save . gofmt-before-save)
   :config
-  (add-hook 'before-save-hook #'gofmt-before-save)
   (defun my-go-mode-settings ()
     ;; go-import [C-c C-a]
     ;; gofmt

@@ -12,14 +12,16 @@
 (use-package pdf-tools
   :ensure t
   ;; :preface (pdf-loader-install)
-  :mode  ("\\.pdf\\'" . pdf-view-mode)
+  :mode ("\\.pdf\\'" . pdf-view-mode)
   ;; :magic ("%PDF" . pdf-view-mode) ; for PDF binary header byte.
-  ;; :init (pdf-tools-install-noverify) ; (pdf-tools-install)
+  :custom ((pdf-view-use-scaling t) ; open PDF scaled to fit page.
+           ;; speed-up pdf-tools by don't try to find unicode.
+           (pdf-view-use-unicode-ligther nil))
+  :init ;; (pdf-tools-install-noverify) ; (pdf-tools-install)
+  ;; (add-to-list 'display-buffer-alist '("\\.pdf\\(<[^>]+>\\)?$" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("\\*Outline .*pdf\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("\\*PDF-Occur\\*" . (display-buffer-below-selected)))
   :config
-  (setq pdf-view-use-scaling t ; open PDF scaled to fit page.
-        ;; speed-up pdf-tools by don't try to find unicode.
-        pdf-view-use-unicode-ligther nil)
-  
   ;; helpful accessibility shortcuts
   (define-key pdf-view-mode-map (kbd "q") 'kill-current-buffer)
 
@@ -63,13 +65,7 @@
     (pdf-outline-minor-mode 1)
     (pdf-isearch-minor-mode 1))
   (add-hook 'pdf-view-mode-hook #'my-pdf-tools-setup)
-  
-  ;; (add-to-list 'display-buffer-alist
-  ;;              '("\\.pdf\\(<[^>]+>\\)?$" . (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("\\*Outline .*pdf\\*" . (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("\\*PDF-Occur\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
+
   ;; close all opened PDFs by pdf-tools to save read positions before kill Emacs.
   ;; `pdf-view-restore-save'
   (defun pdf-tools-save-positions-before-kill ()

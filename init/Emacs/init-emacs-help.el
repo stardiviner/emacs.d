@@ -9,33 +9,25 @@
 
 
 ;;; NOTE: disable split window performance slow for `company-box-doc'.
-(add-to-list 'display-buffer-alist
-             '("^\\*Help\\*$" (display-buffer-reuse-window display-buffer-below-selected)))
-(add-to-list 'display-buffer-alist
-             '("^\\*Apropos\\*$" (display-buffer-reuse-window display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist '("^\\*Help\\*$" . (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist '("^\\*Apropos\\*$" . (display-buffer-below-selected)))
 
 ;;; open source code link file on Help buffer in current window.
 (add-to-list 'display-buffer-alist
-             '((lambda (&rest _)
-                 (memq this-command '(push-button)))
-               (display-buffer-reuse-window display-buffer-same-window)
-               (inhibit-same-window . nil)))
+             '((lambda (&rest _) (memq this-command '(push-button))) . ((display-buffer-same-window) (inhibit-same-window . nil))))
 
 ;;; [ Info ]
 
 (use-package info
   :bind (("C-h i" . info-display-manual)
-         :map Info-mode-map
-         ("M-g n" . Info-search-next))
-  :init
-  (add-to-list 'display-buffer-alist
-               '("\\*info\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
-  :config
+         :map Info-mode-map ("M-g n" . Info-search-next))
+  :custom (Info-isearch-search t) ; let `[s]' search like =isearch= for incremental search.
+  :init (add-to-list 'display-buffer-alist '("\\*info\\*" . (display-buffer-below-selected)))
+  ;; :config
   ;; - `Info-default-directory-list'
   ;; (add-to-list 'Info-directory-list
   ;;              (expand-file-name "info/" user-emacs-directory))
-  ;; let `[s]' search like =isearch= for incremental search.
-  (setq Info-isearch-search t))
+  )
 
 ;;; [ info-rename-buffer ] -- Rename Info buffers to match manuals.
 

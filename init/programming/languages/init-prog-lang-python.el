@@ -14,21 +14,19 @@
   :defer t
   :commands (run-python python-mode)
   :bind (:map python-mode-map ("C-c C-s" . run-python))
-  :init (setq python-shell-interpreter "python")
+  :custom ((python-shell-interpreter "python")
+           (python-shell-completion-native-enable nil))
+  :init
   (cl-case python-shell-interpreter
     ("python"
      (setq python-shell-interpreter-args "-i"))
     ("ipython"
      (setq python-shell-interpreter-args "--simple-prompt --pprint")
      (setenv "IPY_TEST_SIMPLE_PROMPT" "1")))
-  (setq python-shell-completion-native-enable nil)
+  (add-to-list 'display-buffer-alist '("^\\*Python\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^\\*Python Doc\\*" . (display-buffer-below-selected)))
   :config
   (add-hook 'python-mode-hook #'electric-pair-local-mode)
-  
-  (add-to-list 'display-buffer-alist
-               '("^\\*Python\\*" (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^\\*Python Doc\\*" (display-buffer-below-selected)))
   (add-hook 'python-mode-hook #'flymake-mode-off 'append))
 
 ;;; [ ob-python ]

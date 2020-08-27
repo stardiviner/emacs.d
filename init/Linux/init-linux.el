@@ -32,9 +32,7 @@
   :ensure t
   :defer t
   :commands (daemons)
-  :config
-  (add-to-list 'display-buffer-alist
-               '("^\\*daemons.*\\*" (display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("^\\*daemons.*\\*" . (display-buffer-below-selected))))
 
 ;;; [ helm-systemd ] -- Helm's systemd interface.
 

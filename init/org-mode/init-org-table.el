@@ -7,8 +7,7 @@
 
 ;;; Code:
 
-(add-to-list 'display-buffer-alist
-             '("\^\\*Org Table Edit Field\\*" (display-buffer-reuse-window display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist '("\^\\*Org Table Edit Field\\*" . (display-buffer-below-selected)))
 
 ;;; display table header when invisible.
 ;;; Activate `org-table-electric-header-mode' by default?

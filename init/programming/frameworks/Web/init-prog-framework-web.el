@@ -183,7 +183,6 @@
                   (unless robe-mode (robe-mode))
                 (if robe-mode (robe-mode -1))
                 )))))
-    
     )
 
   ;; auto newline after inserting specific characters.

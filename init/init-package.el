@@ -41,9 +41,7 @@
 
 (package-initialize)
 
-(add-to-list 'display-buffer-alist
-             '("^\\*package-build-result\\*"
-               (display-buffer-reuse-window display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist '("^\\*package-build-result\\*" . (display-buffer-below-selected)))
 
 
 ;;; Load `use-package' ahead before `package-initialize' for (use-package org :pin manual ...).

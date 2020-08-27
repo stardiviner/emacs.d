@@ -40,9 +40,9 @@
   :defer t
   :commands (fd-dired)
   :hook (fd-dired-display-in-current-window nil)
-  :init (defalias 'fd-search-async 'fd-dired)
-  :bind (:map find-prefix ("s" . fd-search-async))
-  :config (add-to-list 'display-buffer-alist '("^\\*Fd .*\\*" (display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("^\\*Fd .*\\*" (display-buffer-below-selected)))
+  (defalias 'fd-search-async 'fd-dired)
+  :bind (:map find-prefix ("s" . fd-search-async)))
 
 ;;; [ find-file-in-project ] -- Find file/directory and review Diff/Patch/Commit efficiently.
 

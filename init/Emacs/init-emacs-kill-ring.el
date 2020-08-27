@@ -16,12 +16,12 @@
            (undo-tree-enable-undo-in-region t))
   :init (global-undo-tree-mode 1)
   (add-to-list 'display-buffer-alist
-               '("^ \\*undo-tree\\*"
-                 (display-buffer-reuse-window display-buffer-in-side-window)
-                 (reusable-frames . visible)
-                 (side . bottom)
-                 (slot . 1)
-                 (window-height . 0.3)))
+               '("^ \\*undo-tree\\*" .
+                 ((display-buffer-in-side-window)
+                  (reusable-frames . visible)
+                  (side . bottom)
+                  (slot . 1)
+                  (window-height . 0.3))))
   :config
   ;; disable `zoom' before launch `undo-tree'.
   (when (featurep 'zoom)

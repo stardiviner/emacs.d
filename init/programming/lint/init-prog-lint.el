@@ -46,12 +46,10 @@
               ("M-g M-n" . flycheck-next-error)
               ("M-g M-p" . flycheck-previous-error)
               ("M-g M-l" . flycheck-list-errors))
+  :init
+  (add-to-list 'display-buffer-alist `(,(rx bos "*Flycheck errors*" eos) . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^\\*Flycheck checker\\*" . (display-buffer-below-selected)))
   :config
-  (add-to-list 'display-buffer-alist
-               `(,(rx bos "*Flycheck errors*" eos)
-                 (display-buffer-reuse-window display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^\\*Flycheck checker\\*" (display-buffer-below-selected)))
   ;; checker `proselint' for `org-mode', `markdown-mode', `gfm-mode'.
   (add-to-list 'flycheck-checkers 'proselint))
 

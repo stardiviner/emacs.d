@@ -119,9 +119,7 @@
               ("d" . org-board-delete-all)
               ("f" . org-board-diff)
               ("3" . org-board-diff3))
-  :config
-  (add-to-list 'display-buffer-alist
-               '("org-board-wget-call" (display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("org-board-wget-call" . (display-buffer-below-selected))))
 
 
 (provide 'init-org-attach)

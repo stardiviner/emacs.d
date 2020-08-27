@@ -143,9 +143,8 @@
 ;; (use-package playonline
 ;;   :ensure t
 ;;   :commands (playonline)
-;;   :init (define-key eval-prefix (kbd "o") 'playonline)
-;;   (add-to-list 'display-buffer-alist
-;;                '("^\\*playonline\\*" (display-buffer-below-selected)))
+;;   :bind (:map eval-prefix ("o" . playonline))
+;;   :init (add-to-list 'display-buffer-alist '("^\\*playonline\\*" . (display-buffer-below-selected)))
 ;;   (use-package ob-playonline
 ;;     :quelpa (ob-playonline :fetcher github :repo "twlz0ne/ob-playonline")
 ;;     :demand t))

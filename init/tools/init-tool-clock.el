@@ -22,8 +22,7 @@
 
 (define-key tools-prefix (kbd "t") 'display-time-world)
 
-(add-to-list 'display-buffer-alist
-             '("\\*wclock\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist '("\\*wclock\\*" . (display-buffer-below-selected)))
 
 ;;; [ alarm-clock ] -- An alarm clock for Emacs.
 

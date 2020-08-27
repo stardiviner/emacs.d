@@ -26,8 +26,7 @@
              elp-instrument-function
              elp-instrument-list
              elp-results)
-  :init (add-to-list 'display-buffer-alist
-                     '("\\*ELP Profiling Results\\*" . (display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("\\*ELP Profiling Results\\*" . (display-buffer-below-selected))))
 
 ;;; [ benchmark ] -- support for benchmarking code.
 
@@ -36,8 +35,7 @@
 
 ;;; [ trace ] -- tracing facility for Emacs Lisp functions.
 
-;; (add-to-list 'display-buffer-alist
-;;              '("\\*trace-output\\*" . (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist '("\\*trace-output\\*" . (display-buffer-below-selected)))
 
 ;;; [ memory-usage ] -- Analyze the memory usage of Emacs in various ways.
 

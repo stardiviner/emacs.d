@@ -11,9 +11,7 @@
 (setq org-babel-hash-show-time t) ; header argument: :cache yes.
 (setq org-src-tab-acts-natively nil)
 
-(add-to-list 'display-buffer-alist
-             '("^\\*Org-Babel Results\\*" .
-               (display-buffer-reuse-window display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist '("^\\*Org-Babel Results\\*" . (display-buffer-below-selected)))
 
 ;;; add org-babel header-args property into default properties list.
 (add-to-list 'org-default-properties "header-args")
@@ -44,12 +42,9 @@
       org-edit-src-content-indentation 0)
 
 ;;; Manage org-babel popup buffers with `display-buffer-alist'.
-(add-to-list 'display-buffer-alist
-             '("^\\*Org- Src.*\\*" (display-buffer-below-selected)))
-(add-to-list 'display-buffer-alist
-             '("^\\*Org-Babel Preview.*\\*" (display-buffer-below-selected)))
-(add-to-list 'display-buffer-alist
-             '("^\\*Org-Babel Error Output\\*" (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist '("^\\*Org- Src.*\\*" . (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist '("^\\*Org-Babel Preview.*\\*" . (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist '("^\\*Org-Babel Error Output\\*" . (display-buffer-below-selected)))
 
 ;;; [ inline source block: src_{lang}[switchs,flags]{body} ]
 

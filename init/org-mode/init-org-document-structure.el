@@ -123,8 +123,7 @@
 
 ;; (require 'org-lint)
 
-(add-to-list 'display-buffer-alist
-             '("^\\*Org Lint\\*" . (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist '("^\\*Org Lint\\*" . (display-buffer-below-selected)))
 
 
 (provide 'init-org-document-structure)

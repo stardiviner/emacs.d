@@ -14,12 +14,10 @@
   :defer t
   :commands (run-lua)
   :bind (:map lua-mode-map ("C-c C-s" . run-lua))
-  :init
-  (setq lua-documentation-function 'eww
-        ;; lua-indent-string-contents t
-        )
-  (add-to-list 'display-buffer-alist
-               '("^\\*lua\\*" (display-buffer-below-selected)))
+  :custom ((lua-documentation-function 'eww)
+           ;; (lua-indent-string-contents t)
+           )
+  :init (add-to-list 'display-buffer-alist '("^\\*lua\\*" . (display-buffer-below-selected)))
   :config
   ;; Fix Lua indentation lisp lisp-y error
   (defun lua-busted-fuckups-fix ()

@@ -10,15 +10,20 @@
 ;;; [ Shell ] -- [M-x shell]
 
 (use-package shell
-  :defer t
-  :mode (("\\.\\(xinitrc\\|xsessionrc\\|xsession\\|xprofile\\)\\'" . sh-mode))
-  :commands (shell)
-  :init (setq shell-file-name (executable-find "bash"))
+  :preface
   ;; [M-x shell] is a nice shell interface to use, let's make it colorful.
   (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
   (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
   ;; If you need a terminal emulator rather than just a shell, consider [M-x term]
   ;; instead.
+  :defer t
+  :mode (("\\.\\(xinitrc\\|xsessionrc\\|xsession\\|xprofile\\)\\'" . sh-mode))
+  :custom (shell-file-name (executable-find "bash"))
+  :commands (shell)
+  :init 
+  (add-to-list 'display-buffer-alist '("^\\*shell\\*$" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^\\*Shell Command Output\\*$" . (display-buffer-no-window)))
+  (add-to-list 'display-buffer-alist '("^\\*Async Shell Command\\*" . (display-buffer-no-window)))
   :config
   ;; fix ignore case caused slow performance on shell commands completion by company-mode.
   (add-hook 'sh-mode-hook
@@ -26,15 +31,6 @@
   
   ;; for auto nifty command substitution [!!] and ^a^b.
   (define-key shell-mode-map (kbd "SPC") 'comint-magic-space)
-
-  (add-to-list 'display-buffer-alist ; open shell buffer in current window
-               '("^\\*shell\\*$" . (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^\\*Shell Command Output\\*$"
-                 (display-buffer-no-window)))
-  (add-to-list 'display-buffer-alist
-               '("^\\*Async Shell Command\\*"
-                 (display-buffer-no-window)))
   
   ;; a helper function to run sudo Shell command.
   (defun sudo-shell-command (command)

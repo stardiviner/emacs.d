@@ -13,7 +13,8 @@
 (use-package eaf
   :load-path "~/Code/Emacs/emacs-application-framework/"
   :diminish eaf-mode
-  ;; :init (setq eaf-enable-debug t)
+  ;; :custom (eaf-enable-debug t)
+  :init (add-to-list 'display-buffer-alist '("\\*eaf pdf outline\\*" . (display-buffer-below-selected)))
   :config
   (eaf-setq eaf-camera-save-path "~")
 
@@ -85,8 +86,7 @@
   (define-key eaf-interleave-app-mode-map (kbd "C-c M-q") 'eaf-interleave-quit)
   
 
-  (add-to-list 'display-buffer-alist
-               '("\\*eaf pdf outline\\*" . (display-buffer-below-selected))))
+  )
 
 
 

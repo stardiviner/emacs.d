@@ -20,9 +20,9 @@
 
 ;;; [ vc ]
 
-(setq vc-handled-backends '(Git))
-(add-to-list 'display-buffer-alist
-             '("\\*vc-diff\\*" . (display-buffer-below-selected)))
+(use-package vc
+  :custom (vc-handled-backends '(Git))
+  :init (add-to-list 'display-buffer-alist '("\\*vc-diff\\*" . (display-buffer-below-selected))))
 
 (require 'init-prog-vcs-git)
 

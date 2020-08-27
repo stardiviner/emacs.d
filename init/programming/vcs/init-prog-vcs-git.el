@@ -96,18 +96,13 @@
            (magit-prefix-use-buffer-arguments 'always)
            (magit-diff-refine-hunk t)   ; `magit-diff-toggle-refine-hunk'
            )
-  :config
+  :init
   ;; manage popup buffers.
-  (add-to-list 'display-buffer-alist
-               '("\\`magit:.*\\'" (display-buffer-reuse-window display-buffer-same-window)))
-  (add-to-list 'display-buffer-alist
-               '("^magit-diff.*" (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^magit-revision.*" (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^magit-log.*" (display-buffer-same-window)))
-  (add-to-list 'display-buffer-alist
-               '("^magit-process.*" (display-buffer-same-window))))
+  (add-to-list 'display-buffer-alist '("\\`magit:.*\\'" . (display-buffer-same-window)))
+  (add-to-list 'display-buffer-alist '("^magit-diff.*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^magit-revision.*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^magit-log.*" . (display-buffer-same-window)))
+  (add-to-list 'display-buffer-alist '("^magit-process.*" . (display-buffer-same-window))))
 
 ;;; [ magit-pretty-graph ] -- A prettier graph for Magit drawn in Emacs.
 
@@ -115,8 +110,7 @@
   :quelpa (magit-pretty-graph :fetcher github :repo "georgek/magit-pretty-graph")
   :defer t
   :commands (magit-pg-repo)
-  :init (add-to-list 'display-buffer-alist
-                     '("^\\*magit-prettier-graph\\*" (display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("^\\*magit-prettier-graph\\*" . (display-buffer-below-selected))))
 
 ;;; [ magit-delta ] -- Use Delta when displaying diffs in Magit.
 
@@ -216,12 +210,9 @@
 ;;   :commands (flower-open
 ;;              flower-org-show-task-info
 ;;              flower-list-tasks flower-show-task-info)
-;;   :init (setq flower-tracker-queries
-;;               [("https://github.com/stardiviner/arduino-mode" nil nil)
-;;                ("https://github.com/stardiviner/kiwix.el" nil nil)])
-;;   (add-to-list 'display-buffer-alist
-;;                '("^\\*flower\\*"
-;;                  (display-buffer-reuse-window display-buffer-below-selected))))
+;;   :custom (flower-tracker-queries [("https://github.com/stardiviner/arduino-mode" nil nil)
+;;                                    ("https://github.com/stardiviner/kiwix.el" nil nil)])
+;;   :init (add-to-list 'display-buffer-alist '("^\\*flower\\*" . (display-buffer-below-selected))))
 
 ;;==============================================================================
 
@@ -273,9 +264,8 @@
               ("m c" . git-gutter+-commit)
               ("m C" . git-gutter+-stage-and-commit)
               ("m u" . git-gutter:update-all-windows))
+  :init (add-to-list 'display-buffer-alist '("\\*git-gutter+-diff\\*" . (display-buffer-below-selected)))
   :config
-  (add-to-list 'display-buffer-alist
-               '("\\*git-gutter+-diff\\*" . (display-buffer-below-selected)))
   (defun git-gutter+-turn-on--around-advice (orig-func &rest args)
     (unless (and (buffer-file-name)
                  (file-remote-p (buffer-file-name)))

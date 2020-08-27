@@ -84,9 +84,10 @@
   :ensure t
   :defer t
   :commands (run-ruby inf-ruby)
-  :init (setq inf-ruby-default-implementation "ruby"
-              inf-ruby-prompt-read-only t)
-  (add-hook 'ruby-mode-hook #'inf-ruby-minor-mode)
+  :custom ((inf-ruby-default-implementation "ruby")
+           (inf-ruby-prompt-read-only t))
+  :hook (ruby-mode . inf-ruby-minor-mode)
+  :init (add-to-list 'display-buffer-alist '("^\\*ruby\\*" . (display-buffer-below-selected)))
   :config
   (add-to-list 'inf-ruby-implementations
                '("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8"))
@@ -113,11 +114,7 @@
   (with-eval-after-load 'ruby-mode
     (define-key ruby-mode-map (kbd "C-c C-s") 'inf-ruby))
   (with-eval-after-load 'enh-ruby-mode
-    (define-key enh-ruby-mode-map (kbd "C-c C-s") 'inf-ruby))
-
-  (add-to-list 'display-buffer-alist
-               '("^\\*ruby\\*" (display-buffer-below-selected)))
-  )
+    (define-key enh-ruby-mode-map (kbd "C-c C-s") 'inf-ruby)))
 
 
 ;;; [ Robe ] -- Code navigation, documentation lookup and completion for Ruby.

@@ -309,11 +309,9 @@ That's it.
 ;;               ("M-n" . org-recoll-next-page)
 ;;               ("M-p" . org-recoll-previous-page)
 ;;               ("q" . delete-window))
-;;   :config
-;;   (add-to-list 'display-buffer-alist
-;;                '("^\\*org-recoll-index\\*" (display-buffer-below-selected)))
-;;   (add-to-list 'display-buffer-alist
-;;                '("^\\*org-recoll-results\\*" (display-buffer-below-selected))))
+;;   :init
+;;   (add-to-list 'display-buffer-alist '("^\\*org-recoll-index\\*" . (display-buffer-below-selected)))
+;;   (add-to-list 'display-buffer-alist '("^\\*org-recoll-results\\*" . (display-buffer-below-selected))))
 
 ;;; [ org-ql ] -- An Org-mode query language, search command, and agenda-like view.
 
@@ -325,9 +323,7 @@ That's it.
   :bind (([remap org-goto] . helm-org-ql)
          ;; :map org-mode-map ("M-s" . org-ql-search)
          )
-  :config
-  (add-to-list 'display-buffer-alist
-               '("^\\*Org QL.*\\*" (display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("^\\*Org QL.*\\*" . (display-buffer-below-selected))))
 
 
 

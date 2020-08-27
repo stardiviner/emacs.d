@@ -13,8 +13,18 @@
   :ensure t
   :defer t
   :commands (sly sly-mode)
-  :preface (setq sly-default-lisp 'sbcl)
-  :init ; (setq sly-auto-start 'always)
+  :preface
+  (setq sly-default-lisp 'sbcl)
+  :custom (;; (sly-auto-start 'always)
+           (sly-default-lisp 'sbcl)
+           ;; for `ob-lisp'
+           (org-babel-lisp-eval-fn #'sly-eval))
+  :init
+  (add-to-list 'display-buffer-alist '("^\\*sly-mrepl.*\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^\\*sly-connections\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^\\*sly-threads.*\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^\\*sly-description\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^\\*sly-apropos.*\\*" . (display-buffer-below-selected)))
   :config
   ;; setup the `sly-contribs' before starting SLY via [M-x sly].
   (setq sly-contribs `(sly-fancy sly-scratch sly-mrepl sly-autodoc))
@@ -49,21 +59,7 @@
   (defun hyperspec-lookup--eww-browser (orig-func &rest args)
     (let ((browse-url-browser-function 'eww-browse-url))
       (apply orig-func args)))
-  (advice-add 'hyperspec-lookup :around #'hyperspec-lookup--eww-browser)
-
-  ;; (add-to-list 'display-buffer-alist
-  ;;              '("^\\*sly-mrepl.*\\*" (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^\\*sly-connections\\*" (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^\\*sly-threads.*\\*" (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^\\*sly-description\\*" (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^\\*sly-apropos.*\\*" (display-buffer-below-selected)))
-
-  ;; [ ob-lisp ]
-  (setq org-babel-lisp-eval-fn #'sly-eval))
+  (advice-add 'hyperspec-lookup :around #'hyperspec-lookup--eww-browser))
 
 ;;; [ sly-repl-ansi-color ] -- Add ANSI colors support to the sly mrepl.
 

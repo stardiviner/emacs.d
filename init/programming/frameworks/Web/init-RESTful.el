@@ -118,10 +118,8 @@
 (use-package walkman ; [C-c C-'] in Org Mode
   :ensure t
   :defer t
-  :init (walkman-setup)
-  :config
-  (add-to-list 'display-buffer-alist
-               '("^\\*walkman\\*" (display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("^\\*walkman\\*" . (display-buffer-below-selected)))
+  (walkman-setup))
 
 
 

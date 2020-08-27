@@ -9,38 +9,35 @@
 
 ;;; [ sql.el ] -- specialized comint.el for SQL interpreters.
 
-(require 'sql)
-
-;;; add "postgres" as alias of "postgresql".
-;;; Basically copy the `postgres' entry in `sql-product-alist' and add it as `postgresql'.
-(let ((pg (cdr (assq 'postgres sql-product-alist))))  ; Make a copy of the postgres plist
-  (add-to-list 'sql-product-alist                     ; Add as a new entry under postgresql
-               (cons 'postgresql (plist-put pg :name "PostgreSQL"))))
-
-;;; fix MySQL/MariaDB prompt incompatible.
-(sql-set-product-feature 'mysql :prompt-regexp "^\\(MariaDB\\|MySQL\\) \\[[_a-zA-Z]*\\]> ")
-
-(add-to-list 'display-buffer-alist
-             '("^\\*SQL:.*\\*" (display-buffer-below-selected)))
-
-(add-hook 'sql-mode-hook #'sql-indent-enable)
-;;; enable () pairs auto insert in SQL buffer.
-(add-hook 'sql-mode-hook #'electric-pair-local-mode)
-
-;;; for command `sql-connect'.
-(setq sql-connection-alist
-      '((postgresql-test (sql-product 'postgres)
-                         (sql-server "localhost")
-                         (sql-port 5432)
-                         (sql-user "postgres")
-                         (sql-password "324324")
-                         (sql-database "test"))
-        (mysql-test (sql-product 'mysql)
-                    (sql-server "localhost")
-                    (sql-port 3306)
-                    (sql-user "root")
-                    (sql-password "324324")
-                    (sql-database "test"))))
+(use-package sql
+  :init (add-to-list 'display-buffer-alist '("^\\*SQL:.*\\*" . (display-buffer-below-selected)))
+  :hook ((sql-mode . sql-indent-enable)
+         (sql-mode . electric-pair-local-mode))
+  :commands (sql-connect)
+  :config
+  ;; add "postgres" as alias of "postgresql".
+  ;; Basically copy the `postgres' entry in `sql-product-alist' and add it as `postgresql'.
+  (let ((pg (cdr (assq 'postgres sql-product-alist))))  ; Make a copy of the postgres plist
+    (add-to-list 'sql-product-alist                     ; Add as a new entry under postgresql
+                 (cons 'postgresql (plist-put pg :name "PostgreSQL"))))
+  
+  ;; fix MySQL/MariaDB prompt incompatible.
+  (sql-set-product-feature 'mysql :prompt-regexp "^\\(MariaDB\\|MySQL\\) \\[[_a-zA-Z]*\\]> ")
+  
+  ;; for command `sql-connect'.
+  (setq sql-connection-alist
+        '((postgresql-test (sql-product 'postgres)
+                           (sql-server "localhost")
+                           (sql-port 5432)
+                           (sql-user "postgres")
+                           (sql-password "324324")
+                           (sql-database "test"))
+          (mysql-test (sql-product 'mysql)
+                      (sql-server "localhost")
+                      (sql-port 3306)
+                      (sql-user "root")
+                      (sql-password "324324")
+                      (sql-database "test")))))
 
 ;;; [ sql-sqlline ] -- Adds SQLLine support to SQLi mode.
 
@@ -126,10 +123,8 @@
   :init
   (with-eval-after-load 'ob-async
     (add-to-list 'ob-async-no-async-languages-alist "sql"))
+  (add-to-list 'display-buffer-alist '("^\\*ejc-sql-output\\*" . (display-buffer-below-selected)))
   :config
-  (add-to-list 'display-buffer-alist
-               '("^\\*ejc-sql-output\\*" (display-buffer-below-selected)))
-
   (add-hook 'sql-mode-hook #'ejc-sql-mode)
   (add-hook 'ejc-sql-mode-hook #'ejc-eldoc-setup)
   (require 'ejc-company)

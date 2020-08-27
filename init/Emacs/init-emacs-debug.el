@@ -13,21 +13,17 @@
 ;; (setq debug-on-error t)
 ;; (add-hook 'after-init-hook #'(lambda () (setq debug-on-error nil)))
 
-(add-to-list 'display-buffer-alist
-             '("^\\*Warnings\\*" (display-buffer-below-selected)))
-(add-to-list 'display-buffer-alist
-             '("^\\*Backtrace\\*" (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist '("^\\*Warnings\\*" . (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist '("^\\*Backtrace\\*" . (display-buffer-below-selected)))
 
 ;;; [ Edebug ] -- Edebug is a source level debugger.
 
 (use-package edebug
-  ;; :bind (:map emacs-lisp-mode-map ("C-c d e" . edebug-mode))
-  :init (add-to-list 'display-buffer-alist
-                     '("^\\*edebug-trace\\*" (display-buffer-below-selected)))
-  :config
   ;; show full edebug value result instead of truncated.
-  (setq edebug-print-length 500)
-  (setq edebug-print-level  500))
+  :custom ((edebug-print-length 500)
+           (edebug-print-level  500))
+  ;; :bind (:map emacs-lisp-mode-map ("C-c d e" . edebug-mode))
+  :init (add-to-list 'display-buffer-alist '("^\\*edebug-trace\\*" . (display-buffer-below-selected))))
 
 ;;; [ edebug-x ] -- Extensions for Edebug.
 
@@ -35,12 +31,10 @@
   :ensure t
   :defer t
   :commands (edebug-x-mode)
-  ;; :init (setq edebug-x-stop-point-overlay t)
-  :config
-  (add-to-list 'display-buffer-alist
-               '("^\\*Instrumented Functions\\*" (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^\\*Edebug Breakpoints\\*" (display-buffer-below-selected))))
+  ;; :custom (edebug-x-stop-point-overlay t)
+  :init
+  (add-to-list 'display-buffer-alist '("^\\*Instrumented Functions\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^\\*Edebug Breakpoints\\*" . (display-buffer-below-selected))))
 
 ;;; [ edebug-inline-result ] -- Show Edebug result inline.
 

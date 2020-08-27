@@ -19,9 +19,7 @@
              dotnet-publish
              dotnet-test dotnet-test-rerun
              dotnet-sln-new dotnet-sln-add dotnet-sln-remove dotnet-sln-list)
-  :config
-  (add-to-list 'display-buffer-alist
-               '("^\\*dotnet\\*" (display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("^\\*dotnet\\*" . (display-buffer-below-selected))))
 
 ;;; [ csproj-mode ] -- Work with .NET project files (csproj, vbproj).
 
@@ -53,6 +51,12 @@
 (use-package omnisharp
   :ensure t
   :defer t
+  :preface
+  (setq omnisharp-server-executable-path
+        (let ((omnisharp-run-source (expand-file-name "~/Code/.NET/omnisharp-roslyn/run")) ; source code compiled
+              (omnisharp-run-binary (expand-file-name "~/Code/.NET/omnisharp-linux-x86/run"))) ; pre-compiled binary
+          (if (file-exists-p omnisharp-run-source)
+              omnisharp-run-source omnisharp-run-binary)))
   :bind (:map omnisharp-mode-map
               ("M-." . omnisharp-go-to-definition)
               ("C-c /" . omnisharp-helm-find-symbols)
@@ -64,33 +68,16 @@
               ("C-c C-t p" . omnisharp-unit-test-at-point)
               ("C-c C-t b" . omnisharp-unit-test-buffer)
               ("C-c C-t l" . omnisharp-unit-test-last))
-  :init (setq omnisharp-server-executable-path
-              (let ((omnisharp-run-source (expand-file-name "~/Code/.NET/omnisharp-roslyn/run")) ; source code compiled
-                    (omnisharp-run-binary (expand-file-name "~/Code/.NET/omnisharp-linux-x86/run"))) ; pre-compiled binary
-                (if (file-exists-p omnisharp-run-source)
-                    omnisharp-run-source omnisharp-run-binary)))
-  (setq omnisharp-company-begin-after-member-access t
-        omnisharp-company-do-template-completion t
-        omnisharp-company-template-use-yasnippet t
-        omnisharp-company-ignore-case t
-        omnisharp-auto-complete-popup-help-delay nil
-        omnisharp-auto-complete-want-documentation t
-        omnisharp-auto-complete-popup-persist-help t
-        omnisharp-eldoc-support t
-        omnisharp-imenu-support t
-        ;; omnisharp-auto-complete-want-importable-types t
-        )
-  (add-hook 'csharp-mode-hook 'omnisharp-mode)
+  ;; :custom ((omnisharp-auto-complete-want-importable-types t))
+  :hook (csharp-mode . omnisharp-mode)
+  :init
+  (add-to-list 'display-buffer-alist '("^\\* OmniSharp : Usages \\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^\\* OmniSharp : Implementations \\*" . (display-buffer-below-selected)))
   :config
   (defun my-omnisharp-setup ()
     (setq-local completion-ignore-case t)
     (my-company-add-backend-locally 'company-omnisharp))
-  (add-hook 'omnisharp-mode-hook 'my-omnisharp-setup)
-
-  (add-to-list 'display-buffer-alist
-               '("^\\* OmniSharp : Usages \\*" (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^\\* OmniSharp : Implementations \\*" (display-buffer-below-selected))))
+  (add-hook 'omnisharp-mode-hook 'my-omnisharp-setup))
 
 ;;; [ ob-csharp ] -- org-babel functions for csharp evaluation.
 

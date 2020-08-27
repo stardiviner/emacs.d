@@ -12,7 +12,9 @@
   :ensure t
   :defer t
   :mode ("\\.es$" . es-mode)
-  :init
+  :custom (es-always-pretty-print t)
+  ;; ES Results Buffers
+  :init (add-to-list 'display-buffer-alist '("^\\*ES:.*\\*" . (display-buffer-below-selected)))
   (use-package ob-elasticsearch
     :defer t
     :commands (org-babel-execute:elasticsearch)
@@ -24,14 +26,8 @@
     ;; (add-to-list 'org-babel-default-header-args:es '(:tablify . nil))
     )
   :config
-  (setq es-always-pretty-print t)
-
   ;; yasnippet support.
   (es-mode-snippets-initialize)
-  
-  ;; ES Results Buffers
-  (add-to-list 'display-buffer-alist
-               '("^\\*ES:.*\\*" . (display-buffer-below-selected)))
   ;; using hide-show mode in results buffers.
   (add-hook 'es-result-mode-hook 'hs-minor-mode))
 

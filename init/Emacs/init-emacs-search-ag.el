@@ -17,7 +17,15 @@
   :ensure t
   :defer t
   :commands (ag ag-regexp ag-project ag-regexp-project-at-point ag-dired ag-files ag-kill-buffers)
-  :init
+  :custom ((ag-highlight-search t)
+           (ag-group-matches t)
+           (ag-context-lines nil)
+           (ag-reuse-buffers t)
+           (ag-reuse-window nil) ; nil, or 't. (I use value `nil' for popwin to capture)
+           ;; (ag-arguments)
+           )
+  :init (add-to-list 'display-buffer-alist '("^\\*ag search\\*" . (display-buffer-below-selected)))
+  :config
   (define-key ag-prefix (kbd "a") 'ag)
   (define-key ag-prefix (kbd "r") 'ag-regexp)
   (define-key ag-prefix (kbd "p") 'ag-project) ; `ag-project-files', `ag-project-regexp', `ag-project-dired'
@@ -26,22 +34,10 @@
   (define-key ag-prefix (kbd "f") 'ag-files)
   (define-key ag-prefix (kbd "k") 'ag-kill-buffers) ; `ag-kill-other-buffers'
 
-  (setq ag-highlight-search t
-        ag-group-matches t
-        ag-context-lines nil
-        ag-reuse-buffers t
-        ag-reuse-window nil ; nil, or 't. (I use value `nil' for popwin to capture)
-        ;; ag-arguments
-        )
-
-  ;; display result buffer bellow current window.
-  (add-to-list 'display-buffer-alist
-               '("^\\*ag search\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
   ;; auto jump to result buffer window.
   (add-hook 'ag-search-finished-hook
             (lambda () (pop-to-buffer next-error-last-buffer)))
   
-  ;; :config
   ;; This will auto open search results in other window.
   ;; (add-hook 'ag-mode-hook #'next-error-follow-minor-mode) ; so you can navigate with 'n' & 'p'.
   )
@@ -59,16 +55,11 @@
 (use-package helm-ag
   :ensure t
   :defer t
-  :init
-  (setq helm-follow-mode-persistent t)
-  (define-key ag-prefix (kbd "h") 'helm-ag)
-  (define-key ag-prefix (kbd "M-h") 'helm-do-ag)
-  :config
-  (setq helm-ag-base-command "ag --nocolor --nogroup --ignore-case"
-        ;; helm-ag-command-option "--all-text"
-        helm-ag-insert-at-point 'symbol
-        )
-  )
+  :bind (:map ag-prefix ("h" . helm-ag) ("M-h" . helm-do-ag))
+  :custom ((helm-follow-mode-persistent t)
+           (helm-ag-base-command "ag --nocolor --nogroup --ignore-case")
+           ;; (helm-ag-command-option "--all-text")
+           (helm-ag-insert-at-point 'symbol)))
 
 
 (provide 'init-emacs-search-ag)

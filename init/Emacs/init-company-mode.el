@@ -42,6 +42,7 @@
            (company-dabbrev-other-buffers t) ; only from same major-mode
            )
   :hook (after-init . global-company-mode)
+  :init (add-to-list 'display-buffer-alist '("^\\*company-documentation\\*" . (display-buffer-below-selected)))
   :config  
   (defun my-company-add-backend-locally (backend)
     "Add a backend in my custom way.
@@ -121,10 +122,7 @@
     (company-mode 1)
     (setq-local company-tooltip-limit 4)
     (setq-local company-tooltip-minimum 1))
-  (add-hook 'eval-expression-minibuffer-setup-hook 'company-mode-minibuffer-setup)
-  
-  (add-to-list 'display-buffer-alist
-               '("^\\*company-documentation\\*" . (display-buffer-below-selected))))
+  (add-hook 'eval-expression-minibuffer-setup-hook 'company-mode-minibuffer-setup))
 
 ;;; [ company-posframe ] -- Use a posframe as company candidate menu.
 

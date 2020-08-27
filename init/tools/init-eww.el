@@ -11,30 +11,23 @@
   :ensure t
   :defer t
   :commands (eww)
-  :config
-  ;; set to "internal" Emacs Web Wowser
-  ;; (setq browse-url-browser-function 'eww-browse-url)
-
-  (setq eww-bookmarks-directory (expand-file-name "eww/bookmarks/" user-emacs-directory)
-        eww-download-directory "~/Downloads/"
-        eww-form-checkbox-symbol "[ ]"
-        eww-form-checkbox-selected-symbol "[X]"
-        shr-use-fonts t ; [F] `eww-toggle-fonts' don't use web page variable-pitch font.
-        shr-use-colors nil ; don't use webpage's color.
-        shr-external-browser 'browse-url-generic
-        eww-header-line-format "%t: %u"   ; title: url.
-        ;; - DuckDuckGo :: "https://duckduckgo.com/html/?q="
-        ;; - Google :: "http://www.google.com/search?q=%s"
-        ;; - Bing :: "http://bing.com/search?q="
-        ;; search engine
-        eww-search-prefix "https://www.google.com/search?q=%s"
-        ;; eww-use-external-browser-for-content-type "\\`\\(video/\\|audio/\\|application/ogg\\)"
-        )
-
-  ;; don't open eww in current window that will override original buffer.
-  (add-to-list 'display-buffer-alist
-               '("^\\*eww\\*" (display-buffer-below-selected)))
-  
+  :custom ((browse-url-browser-function 'eww-browse-url) ; set to "internal" Emacs Web Wowser
+           (eww-bookmarks-directory (expand-file-name "eww/bookmarks/" user-emacs-directory))
+           (eww-download-directory "~/Downloads/")
+           (eww-form-checkbox-symbol "[ ]")
+           (eww-form-checkbox-selected-symbol "[X]")
+           (shr-use-fonts t) ; [F] `eww-toggle-fonts' don't use web page variable-pitch font.
+           (shr-use-colors nil) ; don't use webpage's color.
+           (shr-external-browser 'browse-url-generic)
+           (eww-header-line-format "%t: %u")   ; title: url.
+           ;; - DuckDuckGo :: "https://duckduckgo.com/html/?q="
+           ;; - Google :: "http://www.google.com/search?q=%s"
+           ;; - Bing :: "http://bing.com/search?q="
+           ;; search engine
+           (eww-search-prefix "https://www.google.com/search?q=%s")
+           ;; eww-use-external-browser-for-content-type "\\`\\(video/\\|audio/\\|application/ogg\\)"
+           )
+  :init (add-to-list 'display-buffer-alist '("^\\*eww\\*" . (display-buffer-below-selected)))
   :config
   ;; keybindings
   (define-key eww-mode-map (kbd "o") 'eww) ; prompt for a URL.
@@ -63,8 +56,7 @@
   (define-key eww-mode-map (kbd "C-M-h") 'eww-parse-headers)
   (define-key eww-mode-map (kbd "C-r") 'eww-readable)
   
-  (define-key eww-mode-map (kbd "<enter>") 'eww-submit)
-  )
+  (define-key eww-mode-map (kbd "<enter>") 'eww-submit))
 
 ;;; [ eww-lnum ] -- Conkeror-like functionality for eww.
 

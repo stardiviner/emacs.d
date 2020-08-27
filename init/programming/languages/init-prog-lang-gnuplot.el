@@ -9,8 +9,7 @@
 (use-package gnuplot
   :ensure t
   :defer t
-  :init (add-to-list 'display-buffer-alist
-		     '("\\*gnuplot\\*" . (display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("\\*gnuplot\\*" . (display-buffer-below-selected))))
 
 
 ;;; [ gnuplot-mode ]

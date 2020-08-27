@@ -30,10 +30,8 @@
 (use-package racer
   :ensure t
   :hook (rust-mode . racer-mode)
-  :config
-  (define-key racer-mode-map (kbd "C-c C-d C-d") 'racer-describe)
-  (add-to-list 'display-buffer-alist
-               '("^\\*Racer Help\\*" . (display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("^\\*Racer Help\\*" . (display-buffer-below-selected)))
+  :config (define-key racer-mode-map (kbd "C-c C-d C-d") 'racer-describe))
 
 ;;; [ cargo ] -- Emacs Cargo client.
 

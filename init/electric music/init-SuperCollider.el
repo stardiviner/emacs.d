@@ -33,8 +33,8 @@
            (sclang-main-run nil)
            (sclang-main-stop nil)
            ;; Sclang mode
-           (sclang-indent-level 2)
-           )
+           (sclang-indent-level 2))
+  :init (add-to-list 'display-buffer-alist '("\\*SCLang:PostBuffer\\*" . (display-buffer-below-selected)))
   :config
   ;; Sclang minor mode
 
@@ -64,11 +64,7 @@
       (sclang-start)))
 
   ;; (add-hook 'sclang-mode-hook #'my-sclang-auto-start)
-  (define-key sclang-mode-map (kbd "C-c C-s") 'my-sclang-auto-start)
-
-  (add-to-list 'display-buffer-alist
-               '("\\*SCLang:PostBuffer\\*" .
-                 (display-buffer-reuse-window display-buffer-below-selected))))
+  (define-key sclang-mode-map (kbd "C-c C-s") 'my-sclang-auto-start))
 
 ;; [ sclang-extensions ] -- A collection of minor modes that improve your SuperCollider experience within Emacs.
 (use-package sclang-extensions

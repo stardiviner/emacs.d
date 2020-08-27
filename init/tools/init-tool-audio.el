@@ -20,8 +20,7 @@
     (sit-for 2))
   (message "Recording sound to file '~/sox-recording.wav' in background."))
 
-(add-to-list 'display-buffer-alist
-             '("^\\*SoX recording\\*" (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist '("^\\*SoX recording\\*" . (display-buffer-below-selected)))
 
 (define-key audio-prefix (kbd "r") 'sox-record-sound)
 
@@ -37,9 +36,7 @@
 ;; (use-package sox
 ;;   :quelpa (sox :fetcher github :repo "vxe/SoX.el")
 ;;   :commands (sox)
-;;   :config
-;;   (add-to-list 'display-buffer-alist
-;;                '("^\\*sox\\*.*" (display-buffer-below-selected))))
+;;   :init (add-to-list 'display-buffer-alist '("^\\*sox\\*.*" . (display-buffer-below-selected))))
 
 ;;; ----------------------------------------------------------------------------
 

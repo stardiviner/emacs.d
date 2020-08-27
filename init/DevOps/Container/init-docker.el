@@ -31,24 +31,14 @@
               ("C-s" . docker-container-shell)
               ("C-d" . docker-container-dired)
               ("C-f" . docker-container-find-file))
-  :init (setq docker-containers-show-all t)
+  :custom (docker-containers-show-all t)
+  :init 
+  (add-to-list 'display-buffer-alist '("\\*docker-images\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("\\*docker-containers\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("\\*docker-machines\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("\\*docker-volumes\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("\\*docker-networks\\*" . (display-buffer-below-selected)))
   :config
-  (add-to-list 'display-buffer-alist
-               '("\\*docker-images\\*" .
-                 (display-buffer-reuse-window display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("\\*docker-containers\\*" .
-                 (display-buffer-reuse-window display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("\\*docker-machines\\*" .
-                 (display-buffer-reuse-window display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("\\*docker-volumes\\*" .
-                 (display-buffer-reuse-window display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("\\*docker-networks\\*" .
-                 (display-buffer-reuse-window display-buffer-below-selected)))
-  
   (with-eval-after-load 'all-the-icons
     (add-to-list 'all-the-icons-mode-icon-alist
                  '(docker-images-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))

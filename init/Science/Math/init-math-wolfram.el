@@ -12,12 +12,10 @@
 (use-package wolfram
   :ensure t
   :defer t
+  :commands (walfram-alpha)
   :bind (:map document-prefix ("A" . wolfram-alpha))
-  :init (add-to-list 'display-buffer-alist
-                     '("\\*WolframAlpha\\*" . (display-buffer-below-selected)))
-  :config
-  (setq wolfram-alpha-app-id "YX2WUR-2J7GPTXY44")
-  )
+  :init (add-to-list 'display-buffer-alist '("\\*WolframAlpha\\*" . (display-buffer-below-selected)))
+  :custom (wolfram-alpha-app-id "YX2WUR-2J7GPTXY44"))
 
 ;;; [ wolfram-mode ] -- Mathematica editing and inferior mode.
 

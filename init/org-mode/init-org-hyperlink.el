@@ -392,8 +392,7 @@ and append it."
   :ensure t
   :defer t
   :commands (org-kindle-send-to-device org-kindle-sync-notes)
-  :init (add-to-list 'display-buffer-alist
-                     '("^\\*org-kindle:.*\\*" (display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("^\\*org-kindle:.*\\*" . (display-buffer-below-selected))))
 
 ;;; [ org-screen ] -- Integrate Org Mode with screen.
 

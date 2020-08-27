@@ -19,21 +19,21 @@
                org-babel-execute:jupyter-clojure
                org-babel-execute:jupyter-julia
                org-babel-execute:jupyter-ruby)
-    :init (when (featurep 'ob-async)
-            (with-eval-after-load 'ob-async
-              (add-to-list 'ob-async-no-async-languages-alist "jupyter-python")
-              (add-to-list 'ob-async-no-async-languages-alist "jupyter-clojure")
-              (add-to-list 'ob-async-no-async-languages-alist "jupyter-julia")
-              (add-to-list 'ob-async-no-async-languages-alist "jupyter-ruby")
-              (add-to-list 'ob-async-no-async-languages-alist "jupyter-sql"))
-            (use-package ob-python
-              :commands (org-babel-variable-assignments:python)))
-    (setq jupyter-long-timeout 25) ; for Clojure Clojupyter long time startup.
+    :custom (jupyter-long-timeout 25) ; for Clojure Clojupyter long time startup.
+    :init
+    (when (featurep 'ob-async)
+      (with-eval-after-load 'ob-async
+        (add-to-list 'ob-async-no-async-languages-alist "jupyter-python")
+        (add-to-list 'ob-async-no-async-languages-alist "jupyter-clojure")
+        (add-to-list 'ob-async-no-async-languages-alist "jupyter-julia")
+        (add-to-list 'ob-async-no-async-languages-alist "jupyter-ruby")
+        (add-to-list 'ob-async-no-async-languages-alist "jupyter-sql"))
+      (use-package ob-python
+        :commands (org-babel-variable-assignments:python)))
+    (add-to-list 'display-buffer-alist '("^\\*jupyter-repl.*\\*" . (display-buffer-below-selected)))
     :config
     (add-to-list 'org-babel-load-languages '(jupyter . t) 'append)
-    (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-    (add-to-list 'display-buffer-alist
-                 '("^\\*jupyter-repl.*\\*" (display-buffer-below-selected))))
+    (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
   (use-package jupyter-org-extensions
     :defer t
     :commands (jupyter-org-interaction-mode

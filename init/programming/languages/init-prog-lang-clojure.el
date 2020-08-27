@@ -87,8 +87,7 @@
   :defer t
   :commands (inf-clojure)
   :init
-  (add-to-list 'display-buffer-alist
-               '("^\\*inf-clojure*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^\\*inf-clojure*\\*" . (display-buffer-below-selected)))
   ;; (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
   ;; :config
   ;; fix `inf-clojure-minor-mode' conflict wiith `cider-imode' in Clojure buffer of `ob-clojure'.
@@ -112,10 +111,8 @@
   :commands (cider-jack-in)
   :init
   ;; manage CIDER popup buffers.
-  (add-to-list 'display-buffer-alist
-               '("^\\*cider-.*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^\\*nrepl-.*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^\\*cider-.*\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^\\*nrepl-.*\\*" . (display-buffer-below-selected)))
   :config
   ;; Frequently used connections
   ;; TODO: need to know how to run Docker container REPL with specific port.
@@ -272,6 +269,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   :custom ((cljr-suppress-middleware-warnings t)
            (cljr-warn-on-eval nil))
   :bind (:map clojure-mode-map ("M-RET" . cljr-ivy))
+  :init (add-to-list 'display-buffer-alist '("^\\*cljr-*\\*" . (display-buffer-below-selected)))
   :config
   (defun my:clj-refactor-setup ()
     (clj-refactor-mode 1)
@@ -282,9 +280,6 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
   ;; FIXME: temporary solution for clj-refactor.
   (remove-hook 'find-file-hook #'cljr--ensure-no-dashes-in-filename)
-  
-  (add-to-list 'display-buffer-alist
-               '("^\\*cljr-*\\*" . (display-buffer-below-selected)))
 
   ;; fix "/" does not trigger `company-mode' auto popup.
   (add-to-list 'company-begin-commands 'cljr-slash))

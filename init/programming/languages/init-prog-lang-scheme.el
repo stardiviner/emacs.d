@@ -14,6 +14,9 @@
   :defer t
   :custom (scheme-program-name "guile")
   :commands (run-scheme)
+  :init
+  (add-to-list 'display-buffer-alist '("\\* Guile REPL \\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("\\* Racket REPL \\*" . (display-buffer-below-selected)))
   :config
   (add-hook 'scheme-mode-hook #'my-lisp-common-settings)
   (define-key scheme-mode-map (kbd "C-c C-s") 'run-scheme)
@@ -29,11 +32,7 @@
       ;; (switch-to-buffer scheme-buffer)
       ))
   ;; (add-hook 'scheme-mode-hook 'run-scheme-auto-create)
-
-  (add-to-list 'display-buffer-alist
-               '("\\* Guile REPL \\*" . (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("\\* Racket REPL \\*" . (display-buffer-below-selected))))
+  )
 
 ;;; [ geiser ] -- Scheme completion.
 

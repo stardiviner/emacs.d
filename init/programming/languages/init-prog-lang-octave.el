@@ -14,24 +14,20 @@
   :defer t
   :mode ("\\.m\\'" . octave-mode)
   :commands (run-octave)
+  :custom ((octave-auto-indent t)
+           (octave-auto-newline t)
+           (octave-blink-matching-block t)
+           (octave-block-offset 2)
+           (octave-continuation-offset 4)
+           (octave-continuation-string "...")
+           (octave-send-echo-input t)
+           (octave-send-show-buffer t))
+  :init
+  (add-to-list 'display-buffer-alist '("\\*Inferior Octave\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("\\*Octave Help\\*" . (display-buffer-same-window)))
   :config
-  (setq octave-auto-indent t
-        octave-auto-newline t
-        octave-blink-matching-block t
-        octave-block-offset 2
-        octave-continuation-offset 4
-        octave-continuation-string "..."
-        octave-send-echo-input t
-        octave-send-show-buffer t
-        )
-
   (define-key octave-mode-map (kbd "C-c C-d") 'octave-help)
-  (define-key inferior-octave-mode-map (kbd "C-c C-d") 'octave-help)
-  (add-to-list 'display-buffer-alist
-               '("\\*Inferior Octave\\*" . (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("\\*Octave Help\\*" . (display-buffer-same-window)))
-  )
+  (define-key inferior-octave-mode-map (kbd "C-c C-d") 'octave-help))
 
 ;;; [ ac-octave ] -- auto-complete source for Octave.
 

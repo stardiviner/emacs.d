@@ -25,9 +25,8 @@
   :quelpa (multi-translate :fetcher github :repo "twlz0ne/multi-translate.el")
   :commands (multi-translate multi-translate-at-point multi-translate-amend-query)
   :bind (:map dictionary-prefix ("m" . multi-translate-at-point))
-  :config (add-to-list 'display-buffer-alist
-                       '("^\\*Multi Translate\\*" (display-buffer-below-selected)))
-  (define-key multi-translate-mode-map (kbd "q") 'delete-window))
+  :init (add-to-list 'display-buffer-alist '("^\\*Multi Translate\\*" . (display-buffer-below-selected)))
+  :config (define-key multi-translate-mode-map (kbd "q") 'delete-window))
 
 ;;; [ google-translate ] -- Emacs interface to Google Translate.
 
@@ -57,7 +56,7 @@
            (google-translate-listen-program (executable-find "mpv"))
            (google-translate-pop-up-buffer-set-focus t)
            (google-translate-result-to-kill-ring t))
-  :init
+  :init (add-to-list 'display-buffer-alist '("^\\*Google Translate\\*" . (display-buffer-below-selected)))
   ;; translate web page URL link.
   (defun google-translate-webpage (url)
     "Translate web page URL and open in web browser."
@@ -80,11 +79,6 @@
       (with-current-buffer buffer
         (deactivate-mark))))
   (advice-add 'google-translate-at-point :around #'my/google-translate-mark-pdf-view-page)
-  
-  :config
-  (add-to-list 'display-buffer-alist
-               '("^\\*Google Translate\\*"
-                 (display-buffer-reuse-window display-buffer-below-selected)))
   
   ;; enable proxy for translate.google.com
   ;; (add-to-list 'url-proxy-services '("no_proxy" . "^.*(?!translate\\.google\\.com).*$"))
@@ -109,15 +103,10 @@
 (use-package baidu-translate
   :ensure t
   :defer t
+  :custom ((baidu-translate-appid (my/json-read-value my/account-file 'baidu-translate-appid))
+           (baidu-translate-security (my/json-read-value my/account-file 'baidu-translate-security)))
   :commands (baidu-translate-zh-mark baidu-translate-zh-whole-buffer)
-  :config
-  (setq baidu-translate-appid
-        (my/json-read-value my/account-file 'baidu-translate-appid)
-        baidu-translate-security
-        (my/json-read-value my/account-file 'baidu-translate-security))
-  (add-to-list 'display-buffer-alist
-               '("^\\*baidu-translate\\*" .
-                 (display-buffer-reuse-window display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("^\\*baidu-translate\\*" . (display-buffer-below-selected))))
 
 
 (provide 'init-tool-dictionary)

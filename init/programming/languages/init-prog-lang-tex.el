@@ -13,11 +13,12 @@
   :ensure t
   :no-require t
   :requires (tex latex)
+  :custom ((TeX-auto-save t)
+           (TeX-parse-self t))
+  ;; TeX engine compile output buffer
+  :init (add-to-list 'display-buffer-alist '("^\\*.* output\\*" . (display-buffer-below-selected)))
   :config
-  (setq TeX-auto-save t)
-  (setq TeX-parse-self t)
   (setq-default TeX-master nil)
-
   (setq-default LaTeX-command  "latex -shell-escape --synctex=1")
 
   ;; Use `xetex' engine for better TeX compilation for Chinese.
@@ -126,12 +127,7 @@ character(s), in which case it deletes the space(s) first."
 
   (dolist (hook '(TeX-mode-hook
                   LaTeX-mode-hook))
-    (add-hook hook #'my:tex-mode-setup))
-
-  ;; TeX engine compile output buffer
-  (add-to-list 'display-buffer-alist
-               '("^\\*.* output\\*" (display-buffer-below-selected)))
-  )
+    (add-hook hook #'my:tex-mode-setup)))
 
 (use-package company-auctex
   :ensure t
@@ -163,8 +159,7 @@ character(s), in which case it deletes the space(s) first."
   :defer t
   :hook ((LaTeX-mode . cdlatex-mode)
          (org-mode . org-cdlatex-mode))
-  :config (add-to-list 'display-buffer-alist
-                       '("^\\*CDLaTeX Help\\*" (display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("^\\*CDLaTeX Help\\*" . (display-buffer-below-selected))))
 
 ;;; [ magic-latex-buffer ] -- magical syntax highlighting for LaTeX-mode buffers.
 

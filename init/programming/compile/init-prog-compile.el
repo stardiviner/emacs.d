@@ -9,33 +9,29 @@
 (use-package compile
   :defer t
   :commands (compile)
-  :init (setq compilation-ask-about-save t ; save without asking.
-              compilation-skip-threshold 2 ; don't stop on info or warnings.
-              compilation-window-height 7
-              compilation-scroll-output 'first-error ; 'first-error ; stop on first error.
-              compilation-auto-jump-to-first-error nil ; jump to error file position.
-              compilation-auto-jump-to-next nil)
-  :config
-  (add-to-list 'display-buffer-alist
-               '("^\\*compilation\\*" (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^\\*Compile-Log\\*" (display-buffer-below-selected)))
-
+  :custom ((compilation-ask-about-save t) ; save without asking.
+           (compilation-skip-threshold 2) ; don't stop on info or warnings.
+           (compilation-window-height 7)
+           (compilation-scroll-output 'first-error) ; 'first-error ; stop on first error.
+           (compilation-auto-jump-to-first-error nil) ; jump to error file position.
+           (compilation-auto-jump-to-next nil))
+  :init
+  (add-to-list 'display-buffer-alist '("^\\*compilation\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^\\*Compile-Log\\*" . (display-buffer-below-selected)))
   ;; make `compile-goto-error' open result target in current window.
   (add-to-list 'display-buffer-alist
-               '((lambda (&rest _)
-                   (eq this-command 'compile-goto-error))
-                 (display-buffer-reuse-window display-buffer-same-window)
-                 (inhibit-same-window . nil))))
+               '((lambda (&rest _) (eq this-command 'compile-goto-error)) .
+                 ((display-buffer-same-window)
+                  (inhibit-same-window . nil)))))
 
 ;;; [ quickrun ] -- Run command quickly.
 
 (use-package quickrun
   :ensure t
   :bind ([f5] . quickrun)
+  :custom (quickrun-focus-p t)
+  :init (add-to-list 'display-buffer-alist '("^\\*quickrun\\*" . (display-buffer-below-selected)))
   :config
-  (setq quickrun-focus-p t)
-
   (quickrun-set-default "c" "c/clang")
   (quickrun-set-default "c++" "c++/clang++")
 
@@ -58,12 +54,7 @@
     '((:command . "google-chrome-stable")
       (:exec    . ("%c %s"))
       :default "browser"))
-  (quickrun-set-default "html" "browser/firefox")
-
-  ;; manage quickrun popup buffers.
-  (add-to-list 'display-buffer-alist
-               '("^\\*quickrun\\*" (display-buffer-below-selected)))
-  )
+  (quickrun-set-default "html" "browser/firefox"))
 
 
 (provide 'init-prog-compile)

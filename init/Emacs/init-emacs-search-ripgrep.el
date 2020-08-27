@@ -17,9 +17,8 @@
   :ensure t
   :defer t
   :after projectile
-  :custom (rg-keymap-prefix nil)
-  :preface (setq rg-keymap-prefix rg-prefix)
-  ;; (setq rg-command-line-flags '("--debug"))
+  :preface
+  (add-to-list 'exec-path (or (concat (getenv "CARGO_HOME") "/bin") (expand-file-name "~/.cargo/bin/")))
   :commands (rg rg-literal rg-dwim rg-dwim-current-dir rg-dwim-project-dir)
   :bind (:map search-prefix ("s" . rg)
               :map rg-prefix
@@ -33,17 +32,15 @@
               ;; swap `projectile-ag' keybinding.
               ("s s" . rg-project)
               ("s a" . projectile-ag))
-  :init (rg-enable-default-bindings)
-  ;; (add-to-list 'exec-path (or (getenv "CARGO_HOME") (expand-file-name "~/.cargo/bin/")))
-  ;; (setq rg-executable (executable-find "rga"))
-  (setq rg-group-result t)
-  (if (null rg-command-line-flags)
-      (setq rg-command-line-flags '("-j 4"))
-    (add-to-list 'rg-command-line-flags "-j 4"))
-  :config (if (fboundp 'wgrep-rg-setup)
-              (add-hook 'rg-mode-hook #'wgrep-rg-setup))
-  (add-to-list 'display-buffer-alist
-               '("^\\*rg\\*" (display-buffer-reuse-window display-buffer-below-selected)))
+  :custom (;; (rg-command-line-flags '("--debug"))
+           (rg-keymap-prefix nil)
+           (rg-group-result t)
+           (rg-command-line-flags '("-j 4")))
+  :init
+  (rg-enable-default-bindings)
+  (add-to-list 'display-buffer-alist '("^\\*rg\\*" . (display-buffer-below-selected)))
+  :config
+  (if (fboundp 'wgrep-rg-setup) (add-hook 'rg-mode-hook #'wgrep-rg-setup))
 
   ;; automatically "reveal context" when opening matches in org buffers.
   (defun rg-reveal-org ()

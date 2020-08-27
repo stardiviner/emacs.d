@@ -25,8 +25,7 @@
                                             ;; xref-find-definitions-other-window
                                             ;; xref-find-definitions-other-frame
                                             ))
-  :config (add-to-list 'display-buffer-alist
-                       '("^\\*xref\\*$" (display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("^\\*xref\\*$" . (display-buffer-below-selected))))
 
 ;;; [ helm-xref ] -- Helm interface for xref results.
 

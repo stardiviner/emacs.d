@@ -24,10 +24,7 @@
            (projectile-use-git-grep t)
            (projectile-create-missing-test-files t))
   :init (projectile-global-mode 1)
-  :config
-  (add-to-list 'display-buffer-alist
-               '("^\\*Projectile Commander Help\\*"
-                 (display-buffer-reuse-window display-buffer-below-selected))))
+  (add-to-list 'display-buffer-alist '("^\\*Projectile Commander Help\\*" . (display-buffer-below-selected))))
 
 ;;; [ projectile-variable ] -- store project local variables.
 

@@ -50,11 +50,9 @@
   :ensure t
   :defer t
   :commands (ielm)
-  :init
-  (setq ielm-dynamic-return t
-        ielm-dynamic-multiline-inputs t)
-  (add-to-list 'display-buffer-alist
-               '("^\\*ielm\\*" (display-buffer-below-selected)))
+  :custom ((ielm-dynamic-return t)
+           (ielm-dynamic-multiline-inputs t))
+  :init (add-to-list 'display-buffer-alist '("^\\*ielm\\*" . (display-buffer-below-selected)))
   :config
   (add-hook 'ielm-mode-hook #'my-lisp-repl-common-settings)
   (defun my/ielm-company-setup ()

@@ -35,9 +35,7 @@
 ;;   (require 'inferior-coq) ; TODO: a temporary fix workaround.
 ;;   ;; (autoload 'coq-mode "gallina" "Major mode for editing Coq vernacular." t)
 ;;   (autoload 'run-coq "inferior-coq" "Run an inferior Coq process." t)
-;;   (add-to-list 'display-buffer-alist
-;;                '("\\*coq\\*" . (display-buffer-below-selected)))
-;;   )
+;;   (add-to-list 'display-buffer-alist '("\\*coq\\*" . (display-buffer-below-selected))))
 
 ;; [ company-coq ]
 (use-package company-coq

@@ -25,9 +25,7 @@
              floobits-follow-user
              floobits-follow-mode-toggle
              floobits-clear-highlights)
-  :init (add-to-list 'display-buffer-alist
-                     '("\\*Floobits\\*"
-                       (display-buffer-reuse-window display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("\\*Floobits\\*" . (display-buffer-below-selected))))
 
 
 

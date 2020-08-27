@@ -76,13 +76,11 @@ column.  Place the point after the comment box."
   :bind (("C-c '" . poporg-dwim)
          :map prog-comment-prefix ("'" . poporg-dwim)
          :map poporg-mode-map ([remap save-buffer] . poporg-edit-exit))
-  :config
+  :init
   ;; display poporg popup buffer below the selected window with 0.3 height.
   (add-to-list 'display-buffer-alist
-               '("\\*poporg:\ .*?\\*" ; *poporg: init-emacs-window.el*
-                 (display-buffer-reuse-window
-                  display-buffer-below-selected)
-                 (window-height . 0.3)))
+               '("\\*poporg:\ .*?\\*" . ((display-buffer-below-selected) (window-height . 0.3))))
+  :config
   (set-face-attribute 'poporg-edited-face nil
                       :foreground "chocolate"
                       :background (cl-case (alist-get 'background-mode (frame-parameters))

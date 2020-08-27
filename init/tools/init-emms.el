@@ -17,10 +17,9 @@
 (use-package emms
   :ensure t
   :defer t
+  :custom (emms-source-file-default-directory "~/Music/")
   :bind (:map emms-prefix ("e" . emms))
-  :init (add-to-list 'display-buffer-alist
-                     '("^\\*EMMS Playlist\\*" (display-buffer-below-selected)))
-  (setq emms-source-file-default-directory "~/Music/")
+  :init (add-to-list 'display-buffer-alist '("^\\*EMMS Playlist\\*" . (display-buffer-below-selected)))
   :config
   (emms-all)
   ;; [ players ]

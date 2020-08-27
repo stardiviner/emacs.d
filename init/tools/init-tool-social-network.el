@@ -9,18 +9,13 @@
 
 (use-package mastodon
   :ensure t
-  :bind (:map tools-prefix ("S" . mastodon))
-  :init
-  (add-to-list 'display-buffer-alist
-               '("^\\*new toot\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
-  :commands (mastodon mastodon-toot)
-  :config
   ;; - "https://social.bytesexual.net/"
   ;; - "https://mastodon.social"
-  (setq mastodon-instance-url "https://mastodon.social"
-        ;; mastodon-token-file (concat user-emacs-directory "mastodon.plstore")
-        )
-  )
+  :custom ((mastodon-instance-url "https://mastodon.social")
+           (mastodon-token-file (concat user-emacs-directory "mastodon.plstore")))
+  :bind (:map tools-prefix ("S" . mastodon))
+  :commands (mastodon mastodon-toot)
+  :init (add-to-list 'display-buffer-alist '("^\\*new toot\\*" . (display-buffer-below-selected))))
 
 (provide 'init-tool-social-network)
 
