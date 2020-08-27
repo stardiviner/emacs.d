@@ -53,14 +53,14 @@
               ("q" . symbol-overlay-query-replace)
               ("P" . symbol-overlay-switch-backward)
               ("N" . symbol-overlay-switch-forward))
-  :config
-  (set-face-attribute 'symbol-overlay-default-face nil
-                      :inherit t :foreground nil
-                      :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('light
-                                     (color-darken-name (face-background 'default) 10))
-                                    ('dark
-                                     (color-darken-name (face-background 'default) 5)))))
+  :custom-face
+  (symbol-overlay-default-face
+   ((t (:inherit t :foreground nil
+                 :background (cl-case (alist-get 'background-mode (frame-parameters))
+                               ('light
+                                (color-darken-name (face-background 'default) 10))
+                               ('dark
+                                (color-darken-name (face-background 'default) 5))))))))
 
 
 (provide 'init-emacs-highlight)

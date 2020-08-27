@@ -25,15 +25,11 @@
   (use-package spaceline-all-the-icons
     :ensure t
     :after spaceline
+    :custom ((anzu-cons-mode-line-p nil)
+             (spaceline-all-the-icons-separator-type 'arrow)
+             (spaceline-all-the-icons-icon-set-modified 'chain))
+    :custom-face (spaceline-highlight-face (( t(:background "LightSteelBlue"))))
     :config
-    (setq anzu-cons-mode-line-p nil)
-    
-    (setq spaceline-all-the-icons-separator-type 'arrow)
-    (setq spaceline-all-the-icons-icon-set-modified 'chain)
-
-    ;; (set-face-attribute 'spaceline-highlight-face nil
-    ;;                     :background "LightSteelBlue")
-
     (spaceline-toggle-all-the-icons-time-off)
     (spaceline-toggle-all-the-icons-buffer-path-off)
     (spaceline-toggle-all-the-icons-eyebrowse-workspace-on)

@@ -317,6 +317,7 @@
   :defer t
   :commands (mu4e-overview)
   :bind (:map tools-prefix ("M-m" . mu4e-overview))
+  :custom-face (mu4e-overview-unread ((t (:foreground "lime green"))))
   :config
   ;; auto enable `mu4e-overview' when open `mu4e'. This is working with `mu4e-overview-action' function.
   (defun mu4e-enable-mu4e-overview (&optional args)
@@ -325,11 +326,7 @@
     (mu4e-headers-search "maildir:/INBOX flag:unread")
     ;; (delete-window (get-buffer-window " *mu4e-main*"))
     (mu4e-overview))
-
-  (advice-add 'mu4e :after #'mu4e-enable-mu4e-overview)
-
-  (set-face-attribute 'mu4e-overview-unread nil
-                      :foreground "lime green"))
+  (advice-add 'mu4e :after #'mu4e-enable-mu4e-overview))
 
 
 
