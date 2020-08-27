@@ -16,10 +16,9 @@
 ;;; [ show-paren-mode ] -- highlight matched parentheses.
 
 ;; (use-package paren
-;;   :init (show-paren-mode 1)
-;;   :config (setq show-paren-style 'parenthesis)
-;;   (set-face-attribute 'show-paren-match nil
-;;                       :background "green yellow"))
+;;   :custom (show-paren-style 'parenthesis)
+;;   :custom-face (show-paren-match ((t (:background "green yellow"))))
+;;   :init (show-paren-mode 1))
 
 ;;; [ smartparens ] -- deals with parens pairs and tries to be smart about it.
 
@@ -27,6 +26,7 @@
 ;;   :ensure t
 ;;   :defer t
 ;;   :delight smartparens-mode
+;;   :custom-face (sp-show-pair-match-face ((t (:background "green yellow"))))
 ;;   :config
 ;;   (add-to-list 'sp-ignore-modes-list 'org-mode) ;`smartparens' is heavy in `org-self-insert-command'.
 ;;   (add-to-list 'sp-ignore-modes-list 'emacs-lisp-mode)
@@ -49,13 +49,10 @@
 ;;   (sp-with-modes '(rhtml-mode) (sp-local-pair "<%" "%>"))
 ;;
 ;;   (sp-with-modes '(markdown-mode gfm-mode rst-mode)
-;;     (sp-local-pair "*" "*" :bind "C-*")
-;;     (sp-local-tag "2" "**" "**")
-;;     (sp-local-tag "s" "```scheme" "```")
-;;     (sp-local-tag "<"  "<_>" "</_>" :transform 'sp-match-sgml-tags))
-;;
-;;   ;; (set-face-attribute 'sp-show-pair-match-face nil
-;;   ;;                     :background "green yellow")
+;;                  (sp-local-pair "*" "*" :bind "C-*")
+;;                  (sp-local-tag "2" "**" "**")
+;;                  (sp-local-tag "s" "```scheme" "```")
+;;                  (sp-local-tag "<"  "<_>" "</_>" :transform 'sp-match-sgml-tags))
 ;;
 ;;   ;; NOTE: to make `sp-ignore-modes-list' work, put `smartparens-mode' at the end.
 ;;   (smartparens-global-mode t)

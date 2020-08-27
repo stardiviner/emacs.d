@@ -124,22 +124,6 @@
     (setq-local company-tooltip-minimum 1))
   (add-hook 'eval-expression-minibuffer-setup-hook 'company-mode-minibuffer-setup))
 
-;;; [ company-posframe ] -- Use a posframe as company candidate menu.
-
-;; (use-package company-posframe
-;;   :ensure t
-;;   :init (company-posframe-mode)
-;;   (setq company-posframe-show-indicator nil
-;;         company-posframe-show-metadata nil
-;;         company-posframe-quickhelp-show-header nil
-;;         company-posframe-quickhelp-delay nil)
-;;   :config
-;;   (with-eval-after-load 'desktop
-;;     (push '(company-posframe-mode . nil) desktop-minor-mode-table))
-;;   (set-face-attribute 'company-posframe-quickhelp nil
-;;                       :background (face-background 'company-tooltip)
-;;                       :foreground (face-foreground 'company-tooltip)))
-
 ;;; [ company-box ] -- A company front-end with icons.
 
 (use-package company-box
