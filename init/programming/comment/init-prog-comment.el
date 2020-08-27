@@ -73,21 +73,21 @@ column.  Place the point after the comment box."
 (use-package poporg
   :ensure t
   :defer t
+  :custom-face
+  (poporg-edited-face
+   ((t (:foreground "chocolate"
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 10))
+                                  ('dark
+                                   (color-darken-name (face-background 'default) 5)))))))
   :bind (("C-c '" . poporg-dwim)
          :map prog-comment-prefix ("'" . poporg-dwim)
          :map poporg-mode-map ([remap save-buffer] . poporg-edit-exit))
   :init
   ;; display poporg popup buffer below the selected window with 0.3 height.
   (add-to-list 'display-buffer-alist
-               '("\\*poporg:\ .*?\\*" . ((display-buffer-below-selected) (window-height . 0.3))))
-  :config
-  (set-face-attribute 'poporg-edited-face nil
-                      :foreground "chocolate"
-                      :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('light
-                                     (color-darken-name (face-background 'default) 10))
-                                    ('dark
-                                     (color-darken-name (face-background 'default) 5)))))
+               '("\\*poporg:\ .*?\\*" . ((display-buffer-below-selected) (window-height . 0.3)))))
 
 
 (provide 'init-prog-comment)

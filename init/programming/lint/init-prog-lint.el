@@ -60,30 +60,6 @@
   :hook ((flycheck-mode . flycheck-inline-mode)
          (after-init . global-flycheck-inline-mode)))
 
-;;; [ flycheck-popup-tip ] -- displaying errors from Flycheck using popup.el.
-
-;; (use-package flycheck-popup-tip
-;;   :ensure t
-;;   :defer t
-;;   :after flycheck
-;;   :init
-;;   (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
-
-;;; [ flycheck-posframe ] -- Show flycheck error messages using posframe.el
-
-;; (use-package flycheck-posframe
-;;   :ensure t
-;;   :init (add-hook 'flycheck-mode-hook 'flycheck-posframe-mode)
-;;   :config
-;;   (set-face-attribute 'flycheck-posframe-background-face nil
-;;                       :background (cl-case (alist-get 'background-mode (frame-parameters))
-;;                                     ('light
-;;                                      (color-darken-name (face-background 'default) 10))
-;;                                     ('dark
-;;                                      (color-lighten-name (face-background 'default) 5)))
-;;                       )
-;;   )
-
 
 
 (provide 'init-prog-lint)
