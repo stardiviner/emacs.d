@@ -2,24 +2,36 @@
 
 ;;; Commentary:
 
-
+;; the value is in 1/10pt, so 100 will give you 10pt, etc
+;;
+;; - [C-u C-x =]
+;; - [M-x describe-font]
+;; - [M-x describe-fontset]
+;; - from command: $ fc-list
+;;
+;; Emacs set font functions:
+;;
+;; - `set-face-attribute'
+;; - `set-frame-font'
+;;
+;; - "DejaVu Sans Mono"
+;; - "Hack"
+;; - "Fira Sans"
+;; - "Sarasa Mono SC"
+;; - "Sarasa Nerd"
 
 ;;; Code:
 
 ;;; [ variable-pitch ] -- support for displaying proportional fonts.
 
-(set-face-attribute 'variable-pitch nil
-                    :family "DejaVu Sans Mono"
-                    :height 100
-                    :weight 'normal :slant 'normal)
-(set-face-attribute 'fixed-pitch nil
-                    :family "Hack"
-                    :height 100
-                    :weight 'normal :slant 'normal)
-(set-face-attribute 'fixed-pitch-serif nil
-                    :family "DejaVu Serif"
-                    :height 100
-                    :weight 'normal :slant 'italic)
+(use-package faces
+  :custom (face-font-family-alternatives
+           '(("DejaVu Sans Mono" "Hack" "Fira Sans" "Consolas" "Monaco" "Monospace")))
+  :custom-face
+  (variable-pitch ((t (:family "DejaVu Sans Mono"))))
+  (fixed-pitch ((t (:family "Hack"))))
+  (fixed-pitch-serif ((t (:family "DejaVu Serif"))))
+  (default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :height 90)))))
 
 
 

@@ -10,32 +10,6 @@
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-;;; [ font ]
-
-;; the value is in 1/10pt, so 100 will give you 10pt, etc
-;;
-;; - [C-u C-x =]
-;; - [M-x describe-font]
-;; - [M-x describe-fontset]
-;; - from command: $ fc-list
-
-;; Emacs set font functions:
-;;
-;; - `set-face-attribute'
-;; - `set-frame-font'
-;;
-;; - "DejaVu Sans Mono"
-;; - "Hack"
-;; - "Fira Sans"
-;; - "Sarasa Mono SC"
-;; - "Sarasa Nerd"
-
-(set-face-attribute 'default nil
-                    :family "DejaVu Sans Mono"
-                    :font "DejaVu Sans Mono"
-                    :foundry "PfEd"
-                    :height 90)
-
 ;;; [ Transparent ]
 
 (defun my:set-transparency-alpha (alpha)
