@@ -32,6 +32,12 @@
 
 ;; (setq help-at-pt-display-when-idle t)
 
+;;; [ eldoc-box ] -- Display eldoc documentation in childframe.
+
+(use-package eldoc-box
+  :ensure t
+  :hook (eldoc-mode . eldoc-box-hover-at-point-mode))
+
 ;;; [ eldoc-eval ] -- Enable eldoc support when minibuffer is in use.
 
 ;; (use-package eldoc-eval
