@@ -20,6 +20,7 @@
         "Open EAF browser application given a URL and ARGUMENTS."
         (eaf-open (eaf-wrap-url url) "browser" arguments))
       (setq engine/browser-function 'eaf-browse-url)))
+  
   ;; general search engines
   (defengine google
     ;; "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
@@ -237,6 +238,18 @@
     "http://www.faxin.cn/"
     :docstring "法信"
     :keybinding "L")
+
+  (defun engine-search-engines (&optional name query)
+    "A fast interactive entry of all defined search engines."
+    (interactive (list
+                  (completing-read
+                   "Select Search Engine: "
+                   (mapcar
+                    (lambda (str) (replace-regexp-in-string "engine\/search-" "" (symbol-name str)))
+                    (apropos-internal "engine/search-")))
+                  (read-string "Input Search Query: ")))
+    (let ((engine (intern (format "engine/search-%s" name))))
+      (funcall engine query)))
   )
 
 ;;; [ counsel-web ] -- Search the Web using Ivy.
