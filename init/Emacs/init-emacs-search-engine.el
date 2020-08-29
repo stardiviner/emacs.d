@@ -12,7 +12,7 @@
 (use-package engine-mode
   :ensure t
   :defer t
-  :init (engine-mode t)
+  ;; :init (engine-mode t)
   :config
   (when (featurep 'eaf)
     (with-eval-after-load 'eaf
@@ -250,8 +250,9 @@
                   (read-string "Input Search Query: ")))
     (let ((engine (intern (format "engine/search-%s" name))))
       (funcall engine query)))
-  )
 
+  (engine-mode -1)
+  (global-set-key (kbd "C-x /") 'engine-search-engines))
 
 
 (provide 'init-emacs-search-engine)
