@@ -28,15 +28,16 @@
   :delight eldoc-overlay-mode
   :hook (eldoc-mode . eldoc-overlay-mode))
 
+;;; [ eldoc-box ] -- Display eldoc documentation in childframe.
+
+;; (use-package eldoc-box
+;;   :ensure t
+;;   :delight eldoc-box-hover-at-point-mode
+;;   :hook (eldoc-mode . eldoc-box-hover-at-point-mode))
+
 ;;; [ help-at-pt ] -- local help through the keyboard.
 
 ;; (setq help-at-pt-display-when-idle t)
-
-;;; [ eldoc-box ] -- Display eldoc documentation in childframe.
-
-(use-package eldoc-box
-  :ensure t
-  :hook (eldoc-mode . eldoc-box-hover-at-point-mode))
 
 ;;; [ eldoc-eval ] -- Enable eldoc support when minibuffer is in use.
 
