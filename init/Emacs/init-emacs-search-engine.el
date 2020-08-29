@@ -252,14 +252,6 @@
       (funcall engine query)))
   )
 
-;;; [ counsel-web ] -- Search the Web using Ivy.
-
-(use-package counsel-web
-  :ensure t
-  :commands (counsel-web-suggest counsel-web-search)
-  :config
-  (setq counsel-web-search-action #'eaf-open) ; open web EAF
-  )
 
 
 (provide 'init-emacs-search-engine)
