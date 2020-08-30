@@ -19,7 +19,8 @@
   ;; :quelpa (aria2 :fetcher github :repo "stardiviner/aria2")
   :load-path "~/Code/Emacs/aria2"
   :commands (aria2-downloads-list)
-  :custom ((aria2-download-directory (expand-file-name "~/Downloads"))))
+  :custom ((aria2-download-directory (expand-file-name "~/Downloads")))
+  :init (add-to-list 'display-buffer-alist '("\\*aria2: downloads list\\*" . (display-buffer-below-selected))))
 
 ;;; [ youtube-dl ] -- A youtube-dl download manager for Emacs.
 
