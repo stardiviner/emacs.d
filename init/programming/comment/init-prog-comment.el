@@ -75,12 +75,12 @@ column.  Place the point after the comment box."
   :defer t
   :custom-face
   (poporg-edited-face
-   ((t (:foreground "chocolate"
-                    :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light
-                                   (color-darken-name (face-background 'default) 10))
-                                  ('dark
-                                   (color-darken-name (face-background 'default) 5)))))))
+   ((t `(:foreground "chocolate"
+                     :background ,(cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('light
+                                     (color-darken-name (face-background 'default) 10))
+                                    ('dark
+                                     (color-darken-name (face-background 'default) 5)))))))
   :bind (("C-c '" . poporg-dwim)
          :map prog-comment-prefix ("'" . poporg-dwim)
          :map poporg-mode-map ([remap save-buffer] . poporg-edit-exit))
