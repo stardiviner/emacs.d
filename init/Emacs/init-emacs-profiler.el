@@ -42,7 +42,8 @@
 (use-package memory-usage
   :ensure t
   :defer t
-  :commands (memory-usage))
+  :commands (memory-usage)
+  :init (add-to-list 'display-buffer-alist '("^\\*Buffer Details\\*" . (display-buffer-below-selected))))
 
 ;;; [ explain-pause-mode ] -- Emacs minor mode that watches for long pauses and reports them.
 
