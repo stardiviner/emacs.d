@@ -331,6 +331,20 @@
     (mu4e-overview))
   (advice-add 'mu4e :after #'mu4e-enable-mu4e-overview))
 
+;;; [ mu4e-views ] -- View emails in mu4e using xwidget-webkit.
+
+(use-package mu4e-views
+  :ensure t
+  :after mu4e
+  :bind (:map mu4e-headers-mode-map
+	            ("v" . mu4e-views-mu4e-select-view-msg-method)
+	            ("M-n" . mu4e-views-cursor-msg-view-window-down)
+	            ("M-p" . mu4e-views-cursor-msg-view-window-up))
+  :custom ((mu4e-views-completion-method 'ivy)
+           (mu4e-views-default-view-method "html")
+           (mu4e-views-next-previous-message-behaviour 'stick-to-current-window))
+  :init (mu4e-views-mu4e-use-view-msg-method "html"))
+
 
 
 (provide 'init-mu4e)
