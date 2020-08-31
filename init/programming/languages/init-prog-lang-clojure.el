@@ -78,7 +78,8 @@
 (use-package subword
   :ensure t
   :defer t
-  :init (add-hook 'clojure-mode-hook 'subword-mode))
+  :hook ((clojure-mode . subword-mode)
+         (cider-repl-mode . subword-mode)))
 
 ;;; [ inf-clojure ] -- Run an external Clojure process in an Emacs buffer.
 
@@ -86,20 +87,16 @@
   :ensure t
   :defer t
   :commands (inf-clojure)
-  :init
-  (add-to-list 'display-buffer-alist '("^\\*inf-clojure*\\*" . (display-buffer-below-selected)))
-  ;; (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
+  :hook ((inf-clojure-mode . eldoc-mode)
+         (inf-clojure-mode . subword-mode)
+         (clojure-mode . inf-clojure-minor-mode))
+  :init (add-to-list 'display-buffer-alist '("^\\*inf-clojure*\\*" . (display-buffer-below-selected)))
   ;; :config
   ;; fix `inf-clojure-minor-mode' conflict wiith `cider-imode' in Clojure buffer of `ob-clojure'.
   ;; (defun inf-clojure-disable-clojure (&optional arg)
   ;;   (cider-mode -1)
   ;;   (inf-clojure-minor-mode 1))
   ;; (advice-add 'org-edit-special :after 'inf-clojure-disable-clojure)
-  ;; (add-hook 'inf-clojure-mode-hook #'subword-mode)
-
-  ;; FIXME: it caused auto add newlines.
-  ;; (add-hook 'inf-clojure-mode-hook #'eldoc-mode)
-  ;; manage inf-clojure popup buffers.
   )
 
 ;;; [ CIDER ] -- CIDER is a Clojure IDE and REPL for Emacs
@@ -109,21 +106,35 @@
   :defer t
   :after clojure-mode
   :commands (cider-jack-in)
+  :custom ((cider-font-lock-dynamically '(macro core deprecated function))
+           (cider-repl-result-prefix ";; => ")
+           (cider-eldoc-display-context-dependent-info t))
+  :hook (;; auto completion with company-mode support
+         ;; `cider-complete-at-point' in `completion-at-point-functions'
+         (cider-repl-mode . company-mode)
+         (cider-mode . company-mode)
+         ;; enable `eldoc' in relevant buffers.
+         (cider-mode . eldoc-mode)
+         (cider-repl-mode . eldoc-mode)
+         ;; require common functions like doc, source, etc.
+         (cider-repl-mode . cider-repl-require-repl-utils)
+         ;; support CIDER fuzzy completion style like: `n-m', `j.l.S' etc.
+         ;; (cider-repl-mode . cider-company-enable-fuzzy-completion)
+         ;; (cider-mode . cider-company-enable-fuzzy-completion)
+         )
   :init
   ;; manage CIDER popup buffers.
   (add-to-list 'display-buffer-alist '("^\\*cider-.*\\*" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist '("^\\*nrepl-.*\\*" . (display-buffer-below-selected)))
+  (use-package cider-hydra
+    :ensure t
+    :hook ((cider-mode . cider-hydra-mode)
+           (cider-repl-mode . cider-hydra-mode)))
   :config
   ;; Frequently used connections
   ;; TODO: need to know how to run Docker container REPL with specific port.
   ;; $ docker run --name clojure -p :7788 -it clojure:tools-deps clj
   ;; (setq cider-known-endpoints '(("docker-clojure" "127.0.0.1" "7888")))
-  
-  (setq cider-font-lock-dynamically '(macro core deprecated function)
-        ;; cider-prefer-local-resources t
-        ;; cider-dynamic-indentation nil
-        cider-repl-result-prefix ";; => "
-        cider-result-overlay-position 'at-eol)
 
   ;; Enlighten faces
   ;; NOTE `cider-enlighten-mode' will extremely slow down Clojure/CIDER evaluation.
@@ -135,31 +146,11 @@
   ;;   (unless (buffer-file-name)
   ;;     (cider-enlighten-mode)))
   ;; (add-hook 'cider-mode-hook #'my/cider-enlighten-mode-enable)
-
-  ;; auto completion with company-mode support
-  ;; `cider-complete-at-point' in `completion-at-point-functions'
-  (add-hook 'cider-repl-mode-hook #'company-mode)
-  (add-hook 'cider-mode-hook #'company-mode)
-
-  ;; (use-package cider-hydra
-  ;;   :ensure t
-  ;;   :config
-  ;;   (add-hook 'cider-mode-hook #'cider-hydra-mode)
-  ;;   (add-hook 'cider-repl-mode-hook #'cider-hydra-mode))
-  
-  ;; enable `eldoc' in relevant buffers.
-  (add-hook 'cider-mode-hook #'eldoc-mode)
-  (add-hook 'cider-repl-mode-hook #'eldoc-mode)
-  ;; (add-hook 'cider-repl-mode-hook #'cider-repl-require-repl-utils) ; require common functions like doc, source, etc.
-  (setq cider-eldoc-display-for-symbol-at-point t
-        cider-eldoc-display-context-dependent-info t)
   
   ;; [M-.] jump to symbol definition]
   (add-to-list 'cider-jdk-src-paths '"/usr/lib/jvm/default/src.zip" :append)
   
   ;; (setq cider-jump-to-pop-to-buffer-actions '((display-buffer-reuse-window (window-height . 0.3))))
-
-  (add-hook 'cider-repl-mode-hook #'subword-mode)
   
   ;; auto inject Clojure dependencies.
   ;; (cider-add-to-alist 'cider-jack-in-dependencies "org.clojure/tools.nrepl" "0.2.13")
@@ -172,12 +163,6 @@
   ;; auto add incanter as dependency for Org Mode clojure Babel generate plot image result.
   ;; (add-to-list 'cider-jack-in-dependencies '("incanter" "1.9.2"))
   ;; Check out function `cljr--inject-jack-in-dependencies'.
-  
-  ;; notify user CIDER is connected.
-  ;; (add-hook 'cider-connected-hook
-  ;;           (lambda ()
-  ;;             (notifications-notify :title "CIDER connected"
-  ;;                                   :body "CIDER process connected.")))
 
   ;; [ cider-profile ] [C-c C-=]
   
@@ -256,7 +241,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   :bind (:map cider-doc-map
               ("c" . helm-cider-cheatsheet)
               ("C-c" . helm-cider-cheatsheet))
-  :init (add-hook 'cider-mode-hook #'helm-cider-mode))
+  :hook (cider-mode . helm-cider-mode))
 
 ;;; [ clj-refactor ] -- A collection of commands for refactoring Clojure code.
 
@@ -348,7 +333,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   :defer t
   :after clojure-mode
   :commands (org-babel-execute:clojure)
-  :init (setq org-babel-clojure-backend 'cider)
+  :custom (org-babel-clojure-backend 'cider)
   :config
   (add-to-list 'org-babel-load-languages '(clojure . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
@@ -407,6 +392,7 @@ With value selected from a list of available sessions."
 (use-package helm-clojuredocs
   :ensure t
   :after cider
+  :commands (helm-clojuredocs)
   :bind (:map cider-doc-map ("M-d" . helm-clojuredocs)))
 
 ;;; [ clojure-essential-ref ] -- `cider-doc' to "Clojure, The Essential Reference".
