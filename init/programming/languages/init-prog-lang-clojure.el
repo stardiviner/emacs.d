@@ -116,8 +116,6 @@
          ;; enable `eldoc' in relevant buffers.
          (cider-mode . eldoc-mode)
          (cider-repl-mode . eldoc-mode)
-         ;; require common functions like doc, source, etc.
-         (cider-repl-mode . cider-repl-require-repl-utils)
          ;; support CIDER fuzzy completion style like: `n-m', `j.l.S' etc.
          ;; (cider-repl-mode . cider-company-enable-fuzzy-completion)
          ;; (cider-mode . cider-company-enable-fuzzy-completion)
