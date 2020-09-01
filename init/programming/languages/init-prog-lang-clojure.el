@@ -146,7 +146,7 @@
   ;; (add-hook 'cider-mode-hook #'my/cider-enlighten-mode-enable)
   
   ;; [M-.] jump to symbol definition]
-  (add-to-list 'cider-jdk-src-paths '"/usr/lib/jvm/default/src.zip" :append)
+  (add-to-list 'cider-jdk-src-paths '"/usr/lib/jvm/default/lib/src.zip" :append)
   
   ;; (setq cider-jump-to-pop-to-buffer-actions '((display-buffer-reuse-window (window-height . 0.3))))
   
