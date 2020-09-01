@@ -133,8 +133,9 @@
     (add-to-list 'company-backends '(ejc-company-backend :separate company-yasnippet))
     (setq-local company-minimum-prefix-length 3)
     (setq-local company-idle-delay 0.3)
-    (setq-local company-tooltip-idle-delay 0.2)
+    (setq-local company-tooltip-idle-delay 0.4)
     (flyspell-mode -1)
+    (flycheck-mode -1)
     (electric-pair-local-mode -1))
   (add-hook 'ejc-sql-mode-hook #'my/ejc-sql-company-setup)
 
