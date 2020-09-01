@@ -189,7 +189,8 @@
 (use-package forge
   :ensure t
   :defer t
-  :after magit)
+  :after magit
+  :init (add-to-list 'display-buffer-alist '("\\*forge: .*\\*" . (display-buffer-below-selected))))
 
 ;;; [ magit-reviewboard ] -- integrate the ReviewBoard review software into magit.
 
