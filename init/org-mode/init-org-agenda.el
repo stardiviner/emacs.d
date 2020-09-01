@@ -42,6 +42,7 @@
              "~/Org/Contacts/Contacts.org"
              "~/Org/Calendars/Anniversary.org"
              "~/Org/Myself/"            ; about Myself tasks
+             "~/Org/Beauty/"
              )))))
 
   (setq org-agenda-skip-archived-trees nil) ; don't skip recently archived items in Org archive file.
