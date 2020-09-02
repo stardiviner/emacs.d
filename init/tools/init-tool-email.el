@@ -30,9 +30,14 @@
            (mail-host-address user-mail-address)
            
            ;; send mail
-           ;; send mail from localhost, NOTE: for Gmail will be in Junk Spam folder.
+           ;; send email with `sendmail'
            (message-send-mail-function 'message-send-mail-with-sendmail)
-           ;; send email with SMTP
+           (sendmail-program (executable-find "msmtp"))
+           (mail-specify-envelope-from t)
+           (mail-envelope-from 'header)
+	         (message-sendmail-envelope-from 'header)
+           
+           ;; send email with `smtpmail'
            ;; (message-send-mail-function 'message-smtpmail-send-it)
            )
   :init
