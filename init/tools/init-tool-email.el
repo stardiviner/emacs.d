@@ -21,6 +21,14 @@
            ;; 'message-user-agent, 'mail-user-agent, 'gnus-user-agent, 'mu4e-user-agent,
            (mail-user-agent 'message-user-agent)
 
+           (user-mail-address "numbchild@gmail.com")
+           (user-full-name  "stardiviner")
+           
+           ;; It is important to set the mail-host-address otherwise emacs will
+           ;; set the Message-Id header to something like “Message-ID:
+           ;; 8737m2q8na.fsf@localhost.i-did-not-set--mail-host-address--so-tickle-me”.
+           (mail-host-address user-mail-address)
+           
            ;; send mail
            ;; send mail from localhost, NOTE: for Gmail will be in Junk Spam folder.
            (message-send-mail-function 'message-send-mail-with-sendmail)
@@ -128,6 +136,7 @@
 ;;
 ;; (use-package sendmail
 ;;   :custom ((send-mail-function 'smtpmail-send-it)
+;;            (mail-host-address user-mail-address)
 ;;            (mail-default-reply-to user-mail-address)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
