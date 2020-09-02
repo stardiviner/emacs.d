@@ -13,29 +13,25 @@
 (define-key tools-prefix (kbd "m") 'email-prefix)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Reading Mail [ Mail User Agent ] (MTA)                                           ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(require 'init-mu4e)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Composing Mail [ Mail User Agent ] (MTA)                                         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package message
-  :init
-  ;; user agent
-  ;; 'message-user-agent, 'mail-user-agent, 'gnus-user-agent, 'mu4e-user-agent,
-  (setq mail-user-agent 'message-user-agent)
+  :custom (;; user agent
+           ;; 'message-user-agent, 'mail-user-agent, 'gnus-user-agent, 'mu4e-user-agent,
+           (mail-user-agent 'message-user-agent)
 
+           ;; send mail
+           ;; send mail from localhost, NOTE: for Gmail will be in Junk Spam folder.
+           ;; (message-send-mail-function 'message-send-mail-with-sendmail)
+           ;; send email with SMTP
+           (message-send-mail-function 'message-smtpmail-send-it))
+  :init
   (defun my/message-mode-setup ()
     ;; add email name complete support
-    (add-hook 'completion-at-point-functions
-              'mail-completion-at-point-function nil t)
-    (add-hook 'completion-at-point-functions
-              'message-completion-function nil t)
+    (add-hook 'completion-at-point-functions 'mail-completion-at-point-function nil t)
+    (add-hook 'completion-at-point-functions 'message-completion-function nil t)
     (footnote-mode 1))
-
   (add-hook 'message-mode-hook #'my/message-mode-setup)
   :config
   ;; cite region in message-mode.
@@ -106,44 +102,35 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package sendmail
-  :init
+  :custom
   ;; use `postfix' `sendmail' server instead of `smtpmail'.
   ;; (setq send-mail-function 'sendmail-send-it)
   ;; use SMTP remote mail host instead of local machine.
-  (setq send-mail-function 'smtpmail-send-it)
-  (setq mail-default-reply-to user-mail-address))
+  ((send-mail-function 'smtpmail-send-it)
+   (mail-default-reply-to user-mail-address)))
 
 ;;; [ smtpmail ] -- send email to remote mail host
 
 ;;; [[info:smtpmail#Top][info:smtpmail#Top]]
 
 (use-package smtpmail
-  :init
-  ;; debug
-  ;; (setq smtpmail-debug-info t
-  ;;       smtpmail-debug-verb t)
-
-  (setq send-mail-function 'smtpmail-send-it
-	      message-send-mail-function send-mail-function
-	      smtpmail-smtp-server "smtp.gmail.com"
-        smtpmail-default-smtp-server smtpmail-smtp-server
-	      ;; smtpmail-stream-type 'ssl
-	      smtpmail-smtp-service 587 ; "smtp": 25, "smtps": 587
-	      smtpmail-smtp-user "numbchild@gmail.com"
-        ;; smtpmail-auth-credentials (expand-file-name (car auth-sources))
-        smtpmail-local-domain "gmail.com")
-  
-  ;; (setq smtpmail-queue-mail t
-  ;;       smtpmail-queue-dir "~/Mails/queue/")
-  )
-
-(use-package message
-  :init
-  ;; send mail
-  ;; send mail from localhost, NOTE: for Gmail will be in Junk Spam folder.
-  ;; (setq message-send-mail-function 'message-send-mail-with-sendmail)
-  ;; send email with SMTP
-  (setq message-send-mail-function 'message-smtpmail-send-it))
+  :custom (;; for debug
+           ;; (smtpmail-debug-info t)
+           ;; (smtpmail-debug-verb t)
+           (send-mail-function 'smtpmail-send-it)
+	         (message-send-mail-function send-mail-function)
+	         ;; configure Gmail SMTP server
+           (smtpmail-smtp-server "smtp.gmail.com")
+           (smtpmail-default-smtp-server smtpmail-smtp-server)
+	         ;; (smtpmail-stream-type 'ssl)
+           (smtpmail-smtp-service 587)   ; "smtp": 25, "smtps": 587
+           (smtpmail-smtp-user "numbchild@gmail.com")
+           ;; (smtpmail-auth-credentials (expand-file-name (car auth-sources)))
+           (smtpmail-local-domain "gmail.com")
+           ;; queue sending email
+           ;; (smtpmail-queue-mail t)
+           ;; (smtpmail-queue-dir "~/Mails/queue/")
+           ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Retrieve Mail                                                                    ;;
@@ -153,6 +140,12 @@
 (add-to-list 'auto-mode-alist '("\\.procmailrc\\'" . conf-mode))
 ;; getmail
 (add-to-list 'auto-mode-alist '("\\.getmailrc\\'" . conf-mode))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Reading Mail [ Mail User Agent ] (MTA)                                           ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'init-mu4e)
 
 
 
