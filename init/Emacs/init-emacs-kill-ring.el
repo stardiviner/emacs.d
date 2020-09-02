@@ -19,7 +19,7 @@
                '("^ \\*undo-tree\\*" .
                  ((display-buffer-in-side-window)
                   (reusable-frames . visible)
-                  (side . bottom)
+                  (side . right)
                   (slot . 1)
                   (window-height . 0.3))))
   :config

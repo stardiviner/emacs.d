@@ -110,16 +110,27 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
 (use-package zoom
   :ensure t
   :delight 'zoom-mode
+  :custom (zoom-size '(0.618 . 0.618))
   :hook (after-init . zoom-mode)
-  :config (setq zoom-size '(0.618 . 0.618))
+  :config
   (add-to-list 'zoom-ignored-major-modes 'helm-major-mode)
-  (add-to-list 'zoom-ignored-major-modes 'undo-tree-visualizer-mode)
-  (add-to-list 'zoom-ignored-buffer-names undo-tree-visualizer-buffer-name)
+  (with-eval-after-load 'undo-tree
+    (add-to-list 'zoom-ignored-major-modes 'undo-tree-visualizer-mode)
+    (add-to-list 'zoom-ignored-buffer-names undo-tree-visualizer-buffer-name))
   ;; fix `(set (make-local-variable 'track-mouse) t)' in `dap-tooltip-mode'.
   (defun undo-local-track-mouse(&optional ignored)
     (kill-local-variable 'track-mouse))
   (advice-add 'zoom--get-frame-snapshot :before 'undo-local-track-mouse)
-  (advice-add 'zoom--handler :before 'undo-local-track-mouse))
+  (advice-add 'zoom--handler :before 'undo-local-track-mouse)
+
+  ;; disable `zoom-mode' before toggle `undo-tree'.
+  (when (featurep 'zoom)
+    (defvar undo-tree--zoom-mode-status nil)
+    (advice-add 'undo-tree-visualize :before
+                (lambda (&optional b)
+                  (setq dired-sidebar--zoom-mode-status zoom-mode)
+                  (zoom--off)))
+    (advice-add 'undo-tree-visualizer-quit :after #'zoom--on)))
 
 ;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
 
