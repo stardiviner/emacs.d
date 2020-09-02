@@ -32,7 +32,7 @@
            ;; send mail
            ;; send email with `sendmail'
            (message-send-mail-function 'message-send-mail-with-sendmail)
-           (sendmail-program (executable-find "msmtp"))
+           (sendmail-program (or (executable-find "msmtp") (executable-find "sendmail")))
            (mail-specify-envelope-from t)
            (mail-envelope-from 'header)
 	         (message-sendmail-envelope-from 'header)
