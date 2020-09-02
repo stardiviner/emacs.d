@@ -101,14 +101,6 @@
 ;; Send Mail [ Mail Sending Agent ] (MSA)                                           ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(use-package sendmail
-  :custom
-  ;; use `postfix' `sendmail' server instead of `smtpmail'.
-  ;; (setq send-mail-function 'sendmail-send-it)
-  ;; use SMTP remote mail host instead of local machine.
-  ((send-mail-function 'smtpmail-send-it)
-   (mail-default-reply-to user-mail-address)))
-
 ;;; [ smtpmail ] -- send email to remote mail host
 
 ;;; [[info:smtpmail#Top][info:smtpmail#Top]]
@@ -117,8 +109,9 @@
   :custom (;; for debug
            ;; (smtpmail-debug-info t)
            ;; (smtpmail-debug-verb t)
+           ;; specify sending mail agent
+           (message-send-mail-function send-mail-function)
            (send-mail-function 'smtpmail-send-it)
-	         (message-send-mail-function send-mail-function)
 	         ;; configure Gmail SMTP server
            (smtpmail-smtp-server "smtp.gmail.com")
            (smtpmail-default-smtp-server smtpmail-smtp-server)
@@ -131,6 +124,10 @@
            ;; (smtpmail-queue-mail t)
            ;; (smtpmail-queue-dir "~/Mails/queue/")
            ))
+
+(use-package sendmail
+  :custom ((send-mail-function 'smtpmail-send-it)
+           (mail-default-reply-to user-mail-address)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Retrieve Mail                                                                    ;;
