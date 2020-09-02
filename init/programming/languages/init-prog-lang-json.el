@@ -32,8 +32,7 @@
   :commands (jq-format-json-on-save-mode
              jq-format-json-buffer jq-format-json-region
              jq-format-jsonlines-buffer jq-format-jsonlines-region)
-  :hook ((json-mode . jq-format-json-on-save-mode)
-         (json-mode . jq-format-jsonlines-on-save-mode)))
+  :hook (json-mode . jq-format-json-on-save-mode))
 
 ;;; [ json-snatcher ]
 
