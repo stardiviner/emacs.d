@@ -119,8 +119,6 @@
 
 ;;; [[info:smtpmail#Top][info:smtpmail#Top]]
 
-;;; NOTE: need to set `url.el' library proxy `url-proxy-services'.
-
 (use-package smtpmail
   :custom (;; for debug
            ;; (smtpmail-debug-info t)
@@ -145,6 +143,23 @@
   :custom ((send-mail-function 'smtpmail-send-it)
            (mail-host-address user-mail-address)
            (mail-default-reply-to user-mail-address)))
+
+;;; NOTE: need to set `url.el' library proxy `url-proxy-services'.
+
+(defun smtpmail-send-email-with-proxy ()
+  (cond
+   ((featurep 'use-proxy)
+    (use-proxy-with-specified-proxies
+     '(("http" . "localhost:8118")
+       ("https" . "localhost:8118"))
+     (smtpmail-send-it)))
+   ((featurep 'with-proxy)
+    (with-proxy-url
+     :http-server "127.0.0.1:8118"
+     :https-server "127.0.0.1:8118"
+     (smtpmail-send-it)))))
+
+(setq send-mail-function 'smtpmail-send-email-with-proxy)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Retrieve Mail                                                                    ;;
