@@ -390,14 +390,9 @@
 ;;; If yes, like `bug-hunter' is running. Then don't load session.
 
 (defun how-many-emacs ()
-  (require 'seq)
-  (length (mapcar
-           #'string-to-number
-           (seq-filter
-            (lambda (str) (not (string-empty-p str)))
-            (split-string
-             (shell-command-to-string "ps -C emacs -o pid=")
-             "\n")))))
+  (let*((ps-outp (shell-command-to-string "ps -C emacs -o pid="))
+        (ps-lst (split-string ps-outp)))
+    (length ps-lst)))
 
 (let ((emacs-processes (how-many-emacs)))
   (when (<= emacs-processes 1)
