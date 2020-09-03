@@ -135,9 +135,8 @@
            ;; (smtpmail-auth-credentials (expand-file-name (car auth-sources)))
            (smtpmail-local-domain "gmail.com")
            ;; queue sending email
-           ;; (smtpmail-queue-mail t)
-           ;; (smtpmail-queue-dir "~/Mails/queue/")
-           ))
+           (smtpmail-queue-mail t)
+           (smtpmail-queue-dir "~/Mails/queue/")))
 
 (use-package sendmail
   :custom ((send-mail-function 'smtpmail-send-it)
