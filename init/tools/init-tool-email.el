@@ -119,30 +119,32 @@
 
 ;;; [[info:smtpmail#Top][info:smtpmail#Top]]
 
-;; (use-package smtpmail
-;;   :custom (;; for debug
-;;            ;; (smtpmail-debug-info t)
-;;            ;; (smtpmail-debug-verb t)
-;;            ;; specify sending mail agent
-;;            (message-send-mail-function send-mail-function)
-;;            (send-mail-function 'smtpmail-send-it)
-;; 	         ;; configure Gmail SMTP server
-;;            (smtpmail-smtp-server "smtp.gmail.com")
-;;            (smtpmail-default-smtp-server smtpmail-smtp-server)
-;; 	         ;; (smtpmail-stream-type 'ssl)
-;;            (smtpmail-smtp-service 587)   ; "smtp": 25, "smtps": 587
-;;            (smtpmail-smtp-user "numbchild@gmail.com")
-;;            ;; (smtpmail-auth-credentials (expand-file-name (car auth-sources)))
-;;            (smtpmail-local-domain "gmail.com")
-;;            ;; queue sending email
-;;            ;; (smtpmail-queue-mail t)
-;;            ;; (smtpmail-queue-dir "~/Mails/queue/")
-;;            ))
-;;
-;; (use-package sendmail
-;;   :custom ((send-mail-function 'smtpmail-send-it)
-;;            (mail-host-address user-mail-address)
-;;            (mail-default-reply-to user-mail-address)))
+;;; NOTE: need to set `url.el' library proxy `url-proxy-services'.
+
+(use-package smtpmail
+  :custom (;; for debug
+           ;; (smtpmail-debug-info t)
+           ;; (smtpmail-debug-verb t)
+           ;; specify sending mail agent
+           (message-send-mail-function send-mail-function)
+           (send-mail-function 'smtpmail-send-it)
+	         ;; configure Gmail SMTP server
+           (smtpmail-smtp-server "smtp.gmail.com")
+           (smtpmail-default-smtp-server smtpmail-smtp-server)
+	         ;; (smtpmail-stream-type 'ssl)
+           (smtpmail-smtp-service 587)  ; "smtp": 25, "smtps": 587
+           (smtpmail-smtp-user "numbchild@gmail.com")
+           ;; (smtpmail-auth-credentials (expand-file-name (car auth-sources)))
+           (smtpmail-local-domain "gmail.com")
+           ;; queue sending email
+           ;; (smtpmail-queue-mail t)
+           ;; (smtpmail-queue-dir "~/Mails/queue/")
+           ))
+
+(use-package sendmail
+  :custom ((send-mail-function 'smtpmail-send-it)
+           (mail-host-address user-mail-address)
+           (mail-default-reply-to user-mail-address)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Retrieve Mail                                                                    ;;
