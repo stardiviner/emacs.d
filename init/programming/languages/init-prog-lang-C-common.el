@@ -102,7 +102,7 @@
     :ensure t
     :ensure company-irony-c-headers
     :custom (company-irony-ignore-case t)
-    :config
+    :init
     (defun my/company-irony-setup ()
       ;; (optional) adds CC special commands to `company-begin-commands'
       ;; in order to trigger completion at interesting places, such as
@@ -110,8 +110,13 @@
       ;;     std::|
       (company-irony-setup-begin-commands)
       (make-local-variable 'company-backends)
-      (my-company-add-backend-locally 'company-irony)
-      (add-to-list 'company-backends 'company-irony-c-headers)
+      (setq-local company-backends
+                  (list
+                   '(company-irony-c-headers
+                     :separate company-irony
+                     :separate company-tabnine
+                     :separate company-capf)
+                   (delete 'company-capf company-backends)))
       (setq-local company-minimum-prefix-length 1))
 
     (dolist (hook '(c-mode-hook
@@ -122,12 +127,12 @@
   (use-package irony-eldoc
     :ensure t
     :after irony
-    :init (add-hook 'irony-mode-hook #'irony-eldoc))
+    :hook (irony-mode . irony-eldoc))
 
   (use-package flycheck-irony
     :ensure t
     :after irony
-    :init (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
+    :hook (flycheck-mode . flycheck-irony-setup)))
 
 ;;; [ cquery ] -- Low-latency language server supporting multi-million line C++ code-bases, powered by libclang.
 
