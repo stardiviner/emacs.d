@@ -50,8 +50,9 @@
 
 (use-package use-proxy
   :ensure t
-  :commands (use-proxy-toggle-proto-proxy
+  :commands (use-proxy-mode
              use-proxy-toggle-proxies-global
+             use-proxy-toggle-proto-proxy
              use-proxy-with-custom-proxies
              use-proxy-with-specified-proxies)
   :custom ((use-proxy-http-proxy "localhost:8118")
