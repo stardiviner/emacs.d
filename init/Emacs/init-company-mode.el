@@ -138,21 +138,28 @@
 
 ;; [ company-tabnine ] -- A company-mode backend for TabNine, the all-language autocompleter.
 
-;; (use-package company-tabnine
-;;   :ensure t
-;;   :defer t
-;;   :config
-;;   (add-to-list 'company-backends #'company-tabnine)
-;;   ;; The free version of TabNine is good enough,
-;;   ;; and below code is recommended that TabNine not always
-;;   ;; prompt me to purchase a paid version in a large project.
-;;   (defadvice company-echo-show (around disable-tabnine-upgrade-message activate)
-;;     (let ((company-message-func (ad-get-arg 0)))
-;;       (when (and company-message-func
-;;                  (stringp (funcall company-message-func)))
-;;         (unless (string-match "The free version of TabNine only indexes up to"
-;;                               (funcall company-message-func))
-;;           ad-do-it)))))
+(use-package company-tabnine
+  :ensure t
+  :defer t
+  :config
+  ;; The free version of TabNine is good enough,
+  ;; and below code is recommended that TabNine not always
+  ;; prompt me to purchase a paid version in a large project.
+  (defadvice company-echo-show (around disable-tabnine-upgrade-message activate)
+    (let ((company-message-func (ad-get-arg 0)))
+      (when (and company-message-func
+                 (stringp (funcall company-message-func)))
+        (unless (string-match "The free version of TabNine only indexes up to"
+                              (funcall company-message-func))
+          ad-do-it))))
+
+  ;; only enable `company-tabnine' in some modes.
+  ;; (defun company-tabnine-enable ()
+  ;;   (make-local-variable 'company-backends)
+  ;;   (add-to-list 'company-backends 'company-tabnine))
+  ;; (dolist (hook '(c-mode-hook c++-mode-hook java-mode-hook))
+  ;;   (add-hook hook #'company-tabnine-enable))
+  )
 
 
 (provide 'init-company-mode)
