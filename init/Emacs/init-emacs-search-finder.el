@@ -38,9 +38,10 @@
   ;; :quelpa (fd-dired :fetcher github :repo "stardiviner/fd-dired")
   :load-path "~/Code/Emacs/fd-dired"
   :defer t
+  :custom (fd-dired-display-in-current-window nil)
   :commands (fd-dired)
   :hook (fd-dired-display-in-current-window nil)
-  :init (add-to-list 'display-buffer-alist '("^\\*Fd .*\\*" (display-buffer-below-selected)))
+  :init (add-to-list 'display-buffer-alist '("^\\*Fd.*\\*" . (display-buffer-below-selected)))
   (defalias 'fd-search-async 'fd-dired)
   :bind (:map find-prefix ("s" . fd-search-async)))
 
