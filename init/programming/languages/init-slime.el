@@ -13,6 +13,9 @@
   :ensure t
   :defer t
   :commands (slime)
+  :hook ((slime-repl-mode . paredit-mode)
+         (slime-repl-mode . hl-sexp-mode)
+         (slime-repl-mode . rainbow-delimiters-mode))
   :init
   ;; disable slime in `lisp-mode-hook'. except other derived modes.
   (remove-hook 'lisp-mode-hook 'slime-lisp-mode-hook)
@@ -70,8 +73,6 @@
   ;; (setq slime-enable-evaluate-in-emacs t)
 
   ;; (setq slime-auto-start 'always)
-
-  (add-hook 'slime-repl-mode-hook #'my-lisp-repl-common-settings)
 
   (add-hook 'common-lisp-mode-hook
             (lambda ()

@@ -9,8 +9,6 @@
 
 (put 'emacs-lisp-mode 'derived-mode-parent 'prog-mode)
 
-(add-hook 'emacs-lisp-mode-hook #'my-lisp-common-settings)
-(add-hook 'inferior-emacs-lisp-mode-hook #'my-lisp-repl-common-settings)
 (add-hook 'emacs-lisp-mode-hook #'(lambda () (add-to-list 'electric-pair-pairs '(?\` . ?\'))))
 
 ;; Recompile your elc when saving an elisp file.
@@ -53,8 +51,9 @@
   :custom ((ielm-dynamic-return t)
            (ielm-dynamic-multiline-inputs t))
   :init (add-to-list 'display-buffer-alist '("^\\*ielm\\*" . (display-buffer-below-selected)))
+  :hook ((ielm-mode . paredit-mode)
+         (ielm-mode . hl-sexp-mode))
   :config
-  (add-hook 'ielm-mode-hook #'my-lisp-repl-common-settings)
   (defun my/ielm-company-setup ()
     (my-company-add-backend-locally 'company-elisp))
   (add-hook 'ielm-mode-hook #'my/ielm-company-setup))

@@ -33,10 +33,6 @@
         "cl-lookup-ppcre"          ; e.g. cl-ppcre:parse-tree-synonym
         ))
 
-(add-hook 'lisp-mode-hook #'my-lisp-common-settings)
-(add-hook 'lisp-interaction-mode-hook #'my-lisp-repl-common-settings)
-(add-hook 'common-lisp-mode-hook #'my-lisp-common-settings)
-
 ;;; [ cl-font-lock ] -- Pretty Common Lisp font locking.
 
 (use-package cl-font-lock
@@ -62,7 +58,8 @@
 
 (use-package lisp-mode
   ;; the SBCL configuration file is in Common Lisp
-  :mode ("\\.sbclrc\\'" . lisp-mode))
+  :mode ("\\.sbclrc\\'" . lisp-mode)
+  :custom (inferior-lisp-program "sbcl"))
 
 ;;; [ Quick Lisp ]
 

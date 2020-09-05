@@ -250,7 +250,7 @@
 
 (require 'init-prog-lang-lisp)
 (require 'init-prog-lang-emacs-lisp)
-;; (require 'init-prog-lang-common-lisp)
+(require 'init-prog-lang-common-lisp)
 (require 'init-prog-lang-scheme)
 ;; (require 'init-prog-lang-racket)
 ;; (require 'init-prog-lang-newLisp)

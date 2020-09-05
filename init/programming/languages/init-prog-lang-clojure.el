@@ -16,13 +16,11 @@
   :custom ((clojure-align-forms-automatically t))
   :mode (("\\.\\(clj\\|dtm\\|edn\\)\\'" . clojure-mode)
          ("\\(?:build\\|profile\\)\\.boot\\'" . clojure-mode))
+  :hook ((clojure-mode . paredit-mode)
+         (clojure-mode . hl-sexp-mode)
+         (clojure-mode . rainbow-delimiters-mode))
   :config
-  (autoload 'my-lisp-common-settings "init-prog-lang-lisp.el")
-  (add-hook 'clojure-mode-hook #'my-lisp-common-settings)
   (add-hook 'clojure-mode-hook #'(lambda () (add-to-list 'electric-pair-pairs '(?\` . ?\`))))
-  
-  (autoload 'my-lisp-repl-common-settings "init-prog-lang-lisp.el")
-  (add-hook 'cider-repl-mode-hook #'my-lisp-repl-common-settings)
 
   ;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
 
@@ -109,7 +107,10 @@
   :custom ((cider-font-lock-dynamically '(macro core deprecated function))
            (cider-repl-result-prefix ";; => ")
            (cider-eldoc-display-context-dependent-info t))
-  :hook (;; auto completion with company-mode support
+  :hook ((cider-repl-mode . paredit-mode)
+         (cider-repl-mode . hl-sexp-mode)
+         (cider-repl-mode . rainbow-delimiters-mode)
+         ;; auto completion with company-mode support
          ;; `cider-complete-at-point' in `completion-at-point-functions'
          (cider-repl-mode . company-mode)
          (cider-mode . company-mode)

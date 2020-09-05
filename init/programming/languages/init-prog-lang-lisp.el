@@ -23,6 +23,13 @@
   :ensure t
   :defer t
   :delight paredit-mode
+  :hook ((emacs-lisp-mode . paredit-mode)
+         (lisp-mode . paredit-mode)
+         (lisp-interactive-mode . paredit-mode)
+         (common-lisp-mode . paredit-mode)
+         (scheme-mode . paredit-mode)
+         (clojure-mode . paredit-mode)
+         (clojurescript-mode . paredit-mode))
   :config
   ;; remove following keybindings
   (dolist (binding (list (kbd "C-<left>") (kbd "C-<right>")
@@ -76,7 +83,13 @@
   :ensure t
   :defer t
   :delight rainbow-delimiters-mode
-  :init (rainbow-delimiters-mode 1))
+  :hook ((emacs-lisp-mode . rainbow-delimiters-mode)
+         (lisp-mode . rainbow-delimiters-mode)
+         (lisp-interaction-mode . rainbow-delimiters-mode)
+         (common-lisp-mode . rainbow-delimiters-mode)
+         (scheme-mode . rainbow-delimiters-mode)
+         (clojure-mode . rainbow-delimiters-mode)
+         (clojurescript-mode . rainbow-delimiters-mode)))
 
 ;;; [ hl-sexp ] -- highlight the current sexp.
 
@@ -85,8 +98,14 @@
   :load-path "~/Code/Emacs/hl-sexp"
   :defer t
   :commands (global-hl-sexp-mode hl-sexp-mode)
-  ;; NOTE: don't enable `global-hl-sexp-mode' automatically to enabled in Org Mode.
-  :init (global-hl-sexp-mode -1))
+  :hook ((emacs-lisp-mode . hl-sexp-mode)
+         (lisp-mode . hl-sexp-mode)
+         (common-lisp-mode . hl-sexp-mode)
+         (scheme-mode . hl-sexp-mode)
+         (clojure-mode . hl-sexp-mode)
+         (clojurescript-mode . hl-sexp-mode))
+  ;; :custom-face (hl-sexp-face ((t (:background ,(color-darken-name (face-background 'default) 5)))))
+  )
 
 ;;; [ rainbow-blocks-bg ] -- rainbow background highlighting of code blocks.
 
@@ -124,46 +143,8 @@
 ;;          ("M-m" . mark-sexp)
 ;;          ("M-j" . parinfer-transpose-sexps)
 ;;          ("M-k" . parinfer-reverse-transpose-sexps))
-;;   :init
-;;   (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
-;;   (add-hook 'clojure-mode-hook #'parinfer-mode)
-;;   )
-
-
-(defun my-lisp-common-settings ()
-  "Common settings for all Lisp dialects."
-  (interactive)
-  (rainbow-delimiters-mode 1)
-
-  ;; (with-eval-after-load 'smartparens
-  ;;   (if (fboundp 'smartparens-strict-mode)
-  ;;       (smartparens-strict-mode 1)))
-
-  (electric-pair-local-mode 1)
-  
-  (paredit-mode 1)
-  (if (fboundp 'parinfer-mode)
-      (parinfer-mode 1))
-  (if (fboundp 'hl-sexp-mode)
-      (hl-sexp-mode 1)))
-
-(defun my-lisp-repl-common-settings ()
-  "Common settings for all Lisp dialects REPL."
-  (interactive)
-  (paredit-mode 1)
-  (rainbow-delimiters-mode 1)
-  (if (fboundp 'hl-sexp-mode)
-      (hl-sexp-mode 1))
-  (eldoc-mode 1))
-
-;; I already set upper Lisp common settings function in separately init files.
-;; (dolist (hook '(lisp-mode-hook
-;;                 emacs-lisp-mode-hook
-;;                 clojure-mode-hook
-;;                 ))
-;;   (add-hook hook
-;;             (lambda ()
-;;               (my-lisp-common-settings))))
+;;   :hook ((emacs-lisp-mode . parinfer-mode)
+;;          (clojure-mode . parinfer-mode)))
 
 
 (provide 'init-prog-lang-lisp)

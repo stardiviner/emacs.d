@@ -18,7 +18,6 @@
   (add-to-list 'display-buffer-alist '("\\* Guile REPL \\*" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist '("\\* Racket REPL \\*" . (display-buffer-below-selected)))
   :config
-  (add-hook 'scheme-mode-hook #'my-lisp-common-settings)
   (define-key scheme-mode-map (kbd "C-c C-s") 'run-scheme)
   
   ;; auto run `run-scheme' for scheme buffer.

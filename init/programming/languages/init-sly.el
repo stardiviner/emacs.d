@@ -13,8 +13,6 @@
   :ensure t
   :defer t
   :commands (sly sly-mode)
-  :preface
-  (setq sly-default-lisp 'sbcl)
   :custom (;; (sly-auto-start 'always)
            (sly-default-lisp 'sbcl)
            ;; for `ob-lisp'
@@ -25,6 +23,9 @@
   (add-to-list 'display-buffer-alist '("^\\*sly-threads.*\\*" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist '("^\\*sly-description\\*" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist '("^\\*sly-apropos.*\\*" . (display-buffer-below-selected)))
+  :hook ((sly-mrepl-mode . paredit-mode)
+         (sly-mrepl-mode . hl-sexp-mode)
+         (sly-mrepl-mode . rainbow-delimiters-mode))
   :config
   ;; setup the `sly-contribs' before starting SLY via [M-x sly].
   (setq sly-contribs `(sly-fancy sly-scratch sly-mrepl sly-autodoc))
@@ -42,8 +43,6 @@
   (mapc
    (lambda (hook) (add-hook hook #'my-sly-setup))
    '(sly-mode-hook sly-mrepl-mode-hook lisp-mode-hook lisp-interaction-mode-hook))
-
-  (add-hook 'sly-mrepl-mode-hook #'my-lisp-repl-common-settings)
 
   ;; `sly-simple-completions', `sly-flex-completions'
   ;; (setq sly-complete-symbol-function #'sly-simple-completions)
