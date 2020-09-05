@@ -243,7 +243,14 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   
   (add-hook 'org-agenda-finalize-hook #'org-agenda-clock-colorize-block)
 
-  (define-key org-agenda-mode-map (kbd "M-s") 'org-search-view))
+  (define-key org-agenda-mode-map (kbd "M-s") 'org-search-view)
+
+  ;; auto refresh update `*Org Agenda*' buffer.
+  (defun my/org-agenda-auto-refresh ()
+    "Rebuild all agenda views buffers."
+    (org-agenda-redo-all t))
+  (run-with-idle-timer (* 60 20) t #'my/org-agenda-auto-refresh)
+  )
 
 
 ;;; display icon for Org Agenda category
