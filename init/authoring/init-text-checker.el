@@ -63,11 +63,13 @@
 
 ;;; [ flyspell-correct ] -- correcting words with flyspell via custom interface.
 
-;; (use-package flyspell-correct
-;;   :ensure t
-;;   :defer t
-;;   :after flyspell
-;;   :bind (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper)))
+(use-package flyspell-correct
+  :ensure t
+  :defer t
+  :after flyspell
+  :bind (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper))
+  ;; :init (flyspell-correct-auto-mode 1)
+  )
 
 ;;; [ flycheck-grammarly ] -- Grammarly support for Flycheck.
 
