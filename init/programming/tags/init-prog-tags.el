@@ -13,9 +13,11 @@
 
 ;;; [ tags settings ]
 
-(setq tags-add-tables t ; always add new tags to tables
-      tags-revert-without-query t
-      tags-apropos-verbose t)
+(use-package etags
+  :defer t
+  :custom ((tags-add-tables t)          ; always add new tags to tables
+           (tags-revert-without-query t)
+           (tags-apropos-verbose t)))
 
 ;;; [ xref ]
 

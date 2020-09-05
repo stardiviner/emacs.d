@@ -124,9 +124,9 @@
   (with-eval-after-load 'ob-async
     (add-to-list 'ob-async-no-async-languages-alist "sql"))
   (add-to-list 'display-buffer-alist '("^\\*ejc-sql-output\\*" . (display-buffer-below-selected)))
+  :hook ((sql-mode . ejc-sql-mode)
+         (ejc-sql-mode . ejc-eldoc-setup))
   :config
-  (add-hook 'sql-mode-hook #'ejc-sql-mode)
-  (add-hook 'ejc-sql-mode-hook #'ejc-eldoc-setup)
   (require 'ejc-company)
   (defun my/ejc-sql-company-setup ()
     (make-local-variable 'company-backends)
