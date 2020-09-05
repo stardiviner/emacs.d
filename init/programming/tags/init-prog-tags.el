@@ -40,6 +40,14 @@
   :bind (([remap imenu] . counsel-imenu) ; [C-x j]: `helm-imenu', `counsel-imenu'.
          ("C-c ." . helm-imenu)))
 
+;;; [ imenu-list ] -- Show imenu entries in a separate buffer.
+
+(use-package imenu-list
+  :ensure t
+  :commands (imenu-list)
+  :bind (([remap imenu] . imenu-list))
+  :init (add-to-list 'display-buffer-alist '("^\\*Ilist*\\'" . (display-buffer-in-side-window))))
+
 ;; NOTE: use etags & gtags, because company-mode support.
 ;; (require 'init-etags)
 ;; (require 'init-gtags)
