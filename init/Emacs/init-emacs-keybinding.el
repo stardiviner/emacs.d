@@ -33,6 +33,9 @@
 (global-unset-key [next]) ; PageDown
 (global-unset-key [prior]) ; PageUp
 
+;;; disable [Ctrl-Mouse-Left/Right-Click]
+(global-unset-key [C-down-mouse-1])
+(global-unset-key [C-down-mouse-2])
 
 ;;; bind some useful commands to keybindings.
 
