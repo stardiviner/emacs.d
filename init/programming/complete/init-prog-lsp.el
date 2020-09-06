@@ -26,7 +26,7 @@
   :custom (; (lsp-client-packages '())
            (lsp-log-io nil)             ; for Debug
            ;; (lsp-enable-folding nil)
-           ;; (lsp-diagnostic-package :none) ; no real-time syntax check
+           ;; (lsp-diagnostics-provider :none) ; no real-time syntax check
            ;; (lsp-enable-snippet nil) ; handle yasnippet by myself
            (lsp-enable-symbol-highlighting nil)
            (lsp-enable-links nil))
