@@ -87,7 +87,8 @@
   :commands (inf-clojure)
   :hook ((inf-clojure-mode . eldoc-mode)
          (inf-clojure-mode . subword-mode)
-         (clojure-mode . inf-clojure-minor-mode))
+         ;; (clojure-mode . inf-clojure-minor-mode) ; NOTE: `inf-clojure-minor-mode' will add `inf-clojure-completion-at-point' to `completion-at-point-functions' (capf).
+         )
   :init (add-to-list 'display-buffer-alist '("^\\*inf-clojure*\\*" . (display-buffer-below-selected)))
   ;; :config
   ;; fix `inf-clojure-minor-mode' conflict wiith `cider-imode' in Clojure buffer of `ob-clojure'.
