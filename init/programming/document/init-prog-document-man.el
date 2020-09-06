@@ -7,18 +7,11 @@
 
 ;;; Code:
 
-;; (unless (boundp 'man-prefix)
-;;   (define-prefix-command 'man-prefix))
-;; (define-key document-prefix (kbd "m") 'man-prefix)
-
-(define-key document-prefix (kbd "m") 'manual-entry)
-
-(add-to-list 'display-buffer-alist '("\\*Man.*\\*" . (display-buffer-below-selected)))
-
 ;;; [ Man ]
 
-;; (use-package man
-;;   :bind (:map document-prefix ("m" . man-follow) ("M" . man)))
+(use-package man
+  :bind (:map document-prefix ("m" . man) ("M" . man-follow))
+  :init (add-to-list 'display-buffer-alist '("^\\*Man .*\\*\\'" . (display-buffer-below-selected))))
 
 ;;; [ women ]
 
