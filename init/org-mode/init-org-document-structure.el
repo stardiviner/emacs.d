@@ -121,9 +121,9 @@
 
 ;;; [ org-lint ] -- Org-mode linter. [M-x org-lint]
 
-;; (require 'org-lint)
-
-(add-to-list 'display-buffer-alist '("^\\*Org Lint\\*" . (display-buffer-below-selected)))
+(use-package org-lint
+  :commands (org-lint)
+  :init (add-to-list 'display-buffer-alist '("^\\*Org Lint\\*" . (display-buffer-below-selected))))
 
 
 (provide 'init-org-document-structure)
