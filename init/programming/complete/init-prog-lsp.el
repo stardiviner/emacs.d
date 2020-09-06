@@ -30,7 +30,7 @@
            ;; (lsp-enable-snippet nil) ; handle yasnippet by myself
            (lsp-enable-symbol-highlighting nil)
            (lsp-enable-links nil))
-  :init (add-to-list 'display-buffer-alist '("^\\*lsp-help\\*" . (display-buffer-below-selected)))
+  :init (add-to-list 'display-buffer-alist '("^\\*lsp.*\\*" . (display-buffer-below-selected)))
   :config
   ;; disable some lsp clients
   ;; (add-to-list 'lsp-disabled-clients 'ccls)
