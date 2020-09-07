@@ -151,12 +151,16 @@
     (use-proxy-with-specified-proxies
      '(("http" . "localhost:8118")
        ("https" . "localhost:8118"))
-     (smtpmail-send-it)))
+     (if smtpmail-queue-mail
+         (smtpmail-send-queued-mail)
+       (smtpmail-send-it))))
    ((featurep 'with-proxy)
     (with-proxy-url
      :http-server "127.0.0.1:8118"
      :https-server "127.0.0.1:8118"
-     (smtpmail-send-it)))))
+     (if smtpmail-queue-mail
+         (smtpmail-send-queued-mail)
+       (smtpmail-send-it))))))
 
 (setq send-mail-function 'smtpmail-send-email-with-proxy)
 
