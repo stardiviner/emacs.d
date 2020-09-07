@@ -47,13 +47,13 @@
 
 ;;; [ which-key ] -- Display available keybindings in popup.
 
-;; (use-package which-key
-;;   :ensure t
-;;   :defer t
-;;   :delight which-key-mode
-;;   :commands (which-key-mode)
-;;   :bind ("C-h C-h" . which-key-show-top-level)
-;;   :init (which-key-mode 1))
+(use-package which-key
+  :ensure t
+  :defer t
+  :delight which-key-mode
+  :commands (which-key-mode)
+  :bind ("C-h C-h" . which-key-show-top-level)
+  :init (which-key-mode 1))
 
 ;;; [ hydra ] -- tie related commands into a family of short bindings with a common prefix - a Hydra.
 
