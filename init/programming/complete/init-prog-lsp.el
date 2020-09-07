@@ -22,14 +22,15 @@
   :bind (:map lsp-mode-map
               ("C-c C-d" . lsp-describe-thing-at-point)
               ("M-RET"   . lsp-execute-code-action))
-  ;; speed-up lsp-mode performance
   :custom (; (lsp-client-packages '())
+           ;; speed-up lsp-mode performance
            (lsp-log-io nil)             ; for Debug
-           ;; (lsp-enable-folding nil)
-           ;; (lsp-diagnostics-provider :none) ; no real-time syntax check
+           (lsp-enable-folding nil)
+           (lsp-diagnostics-provider :none) ; no real-time syntax check
            ;; (lsp-enable-snippet nil) ; handle yasnippet by myself
            (lsp-enable-symbol-highlighting nil)
-           (lsp-enable-links nil))
+           ;; (lsp-enable-links nil)
+           )
   :init (add-to-list 'display-buffer-alist '("^\\*lsp.*\\*" . (display-buffer-below-selected)))
   :config
   ;; disable some lsp clients
