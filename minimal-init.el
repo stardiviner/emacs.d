@@ -6,90 +6,80 @@
 
 ;;; Code:
 
+;;; [ package.el ] -- Emacs Lisp Package Archive (ELPA)
+(require 'package)
+
+(setq package-enable-at-startup nil)
+(setq package-menu-async t)
+(setq package-user-dir (expand-file-name "elpa" user-emacs-directory))
+
 (package-initialize)
 
-;;; [ Debug ]
-(setq debug-on-error t
-      debug-on-signal nil
-      debug-on-quit nil)
+;;; Load `use-package' ahead before `package-initialize' for (use-package org :pin manual ...).
 
-;;; add my init files directory
+;;; [ use-package ]
+(eval-when-compile
+  (require 'use-package))
+(require 'bind-key)                     ; if you use any `:bind' variant
+(use-package delight                    ; if you use `:delight'
+  :ensure t)
+(setq use-package-verbose t ; 'debug: any evaluation errors report to `*use-package*` buffer.
+      use-package-always-ensure nil)
 
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/")
+;;; [ Org Mode (source code) ]
+(if (not (file-exists-p "~/Code/Emacs/org-mode/lisp/"))
+    (progn
+      (use-package org
+        :pin org
+        :ensure t
+        :mode (("\\.org\\'" . org-mode)
+               ("\\.org_archive\\'" . org-mode))
+        :custom ((org-modules nil) ; disable all extra org-mode modules to speed-up Org-mode file opening.
+                 (org-startup-folded t)
+                 (org-agenda-inhibit-startup t)))
+      (use-package org-plus-contrib
+        :pin org
+        :ensure t))
 
-(if (version<= emacs-version "27")
- (setq user-emacs-directory (expand-file-name "~/.config/emacs/")))
+  ;; disable Emacs built-in Org Mode
+  (delete (format "/usr/local/share/emacs/%s/lisp/org" emacs-version) load-path)
+  (delete "/usr/share/emacs/site-lisp/org/" load-path)
+  
+  (use-package org
+    :pin manual
+    :load-path "~/Code/Emacs/org-mode/lisp/"
+    :defer t
+    :mode (("\\.org\\'" . org-mode))
+    :custom ((org-modules nil) ; disable all extra org-mode modules to speed-up Org-mode file opening.
+             (org-startup-folded t)
+             (org-agenda-inhibit-startup t))
+    ;; load org before org-mode init files settings.
+    :init (require 'org))
+  (use-package org-plus-contrib
+    :pin manual
+    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :defer t
+    :no-require t)
+  ;; add source code version Org-mode Info into Emacs.
+  (if (file-exists-p "~/Code/Emacs/org-mode/doc/org")
+      (with-eval-after-load 'info
+        (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/")
+        (info-initialize))))
 
-(add-to-list 'load-path (expand-file-name "init" user-emacs-directory))
-
-;; recursively load init files.
-(let ((default-directory (expand-file-name "init" user-emacs-directory)))
-  (setq load-path
-        (append
-         (let ((load-path (copy-sequence load-path))) ; shadow
-           (append
-            (copy-sequence (normal-top-level-add-to-load-path '(".")))
-            (normal-top-level-add-subdirs-to-load-path)))
-         load-path)))
-
-(setq load-prefer-newer t)
-
-;;; [ package.el ]
-(load (expand-file-name "init/init-package.el" user-emacs-directory))
-(require 'init-package)
-
-(setq visible-bell nil)
-;;; disable Emacs built-in bell when [C-g]
-(setq ring-bell-function 'ignore)
-
-(require 'color)
-
-;;; my custom functions
-(require 'init-library)
-(require 'init-functions)
-
+;;=============================== helpful packages ==============================
 ;;; add your customizations from here
-
-(use-package one-themes
-  :load-path "~/Code/Emacs/one-themes"
-  :config (load-theme 'one-dark t))
 
 (use-package ace-window
   :ensure t
-  :config
-  (global-set-key (kbd "C-x C-j") 'ace-window))
+  :bind ("C-x C-j" . ace-window))
 
-(require 'init-ivy)
-(require 'init-company-mode)
+;;=========================== minimal config required for debugging===============
 
-;; (require 'init-org-mode)
-
-;;; Org-mode Babel
-(setq org-confirm-babel-evaluate nil)
-(setq org-babel-no-eval-on-ctrl-c-ctrl-c nil)
-(setq org-confirm-shell-link-function 'yes-or-no-p)
-(setq org-confirm-elisp-link-function 'yes-or-no-p)
-
-;; babel src block editing
-(setq org-src-fontify-natively t
-      ;; nil: preserve org indent, t: preserve export indent.
-      org-src-preserve-indentation nil
-      ;; 0: fix `diff' babel syntax highlighting invalid issue.
-      org-edit-src-content-indentation 0
-      org-src-tab-acts-natively nil ; make [Tab] work native as in major mode.
-      org-src-window-setup 'current-window ; 'reorganize-frame, 'current-window
-      org-src-ask-before-returning-to-edit-buffer nil
-      org-edit-src-auto-save-idle-delay 0 ; 0: don't auto save.
-      )
+(setq org-src-fontify-natively t)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((emacs-lisp . t) (org . t)
-   (shell . t)
-   (lisp . t) (clojure . t)
-   (js . t)))
-
-;; (require 'init-prog-lang-clojure)
+ '((emacs-lisp . t)))
 
 
 
