@@ -67,11 +67,7 @@
       (use-package org
         :pin org
         :ensure t
-        :mode (("\\.org\\'" . org-mode)
-               ("\\.org_archive\\'" . org-mode))
-        :custom ((org-modules nil) ; disable all extra org-mode modules to speed-up Org-mode file opening.
-                 (org-startup-folded t)
-                 (org-agenda-inhibit-startup t)))
+        :mode (("\\.org\\'" . org-mode)))
       (use-package org-plus-contrib
         :pin org
         :ensure t))
@@ -79,27 +75,26 @@
   ;; disable Emacs built-in Org Mode
   (delete (format "/usr/local/share/emacs/%s/lisp/org" emacs-version) load-path)
   (delete "/usr/share/emacs/site-lisp/org/" load-path)
-  
   (use-package org
     :pin manual
     :load-path "~/Code/Emacs/org-mode/lisp/"
     :defer t
     :mode (("\\.org\\'" . org-mode))
-    :custom ((org-modules nil) ; disable all extra org-mode modules to speed-up Org-mode file opening.
-             (org-startup-folded t)
-             (org-agenda-inhibit-startup t))
     ;; load org before org-mode init files settings.
-    :init (require 'org))
-  (use-package org-plus-contrib
-    :pin manual
-    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-    :defer t
-    :no-require t)
-  ;; add source code version Org-mode Info into Emacs.
-  (if (file-exists-p "~/Code/Emacs/org-mode/doc/org")
-      (with-eval-after-load 'info
-        (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/")
-        (info-initialize))))
+    :init (require 'org)
+    ;; add source code version Org-mode Info into Emacs.
+    (if (file-exists-p "~/Code/Emacs/org-mode/doc/org")
+        (with-eval-after-load 'info
+          (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/")
+          (info-initialize)))
+    (use-package org-plus-contrib
+      :pin manual
+      :load-path "~/Code/Emacs/org-mode/contrib/lisp"
+      :no-require t)))
+
+(setq org-modules nil) ; disable all extra org-mode modules to speed-up Org-mode file opening.
+(setq org-startup-folded t)
+(setq org-agenda-inhibit-startup t)
 
 ;;; [ package-lint ] -- A linting library for elisp package authors.
 
