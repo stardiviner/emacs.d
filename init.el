@@ -216,7 +216,6 @@
 (require 'init-prog-license)
 (require 'init-prog-code)
 (require 'init-prog-comment)
-(require 'init-prog-electric)
 (require 'init-prog-indent)
 (require 'init-prog-folding)
 (require 'init-prog-complete)
