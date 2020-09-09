@@ -58,9 +58,9 @@
 ;;; [ eshell-syntax-highlighting ] -- Syntax highlighting for Eshell.
 
 (use-package eshell-syntax-highlighting
-  :quelpa (eshell-syntax-highlighting :fetcher github :repo "akreisher/eshell-syntax-highlighting")
+  :ensure t
   :after esh-mode
-  :config (eshell-syntax-highlighting-enable))
+  :init (eshell-syntax-highlighting-global-mode 1))
 
 
 (provide 'init-eshell)
