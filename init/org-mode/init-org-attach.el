@@ -9,23 +9,17 @@
 
 ;;; [ org-attach ] -- Manage file attachments to org-mode tasks.
 
+;; store link auto with `org-store-link' using `file:' link type or `attachment:' link type.
+;; use `file:' to avoid `attachment:' problems especially on exporters.
+
 (use-package org-attach
   :defer t
-  :init
-  ;; store link auto with `org-store-link' using `file:' link type or `attachment:' link type.
-  ;; use `file:' to avoid `attachment:' problems especially on exporters.
-  (setq org-attach-store-link-p 'file)
-;;; use related path for attachment.
-  (setq org-attach-dir-relative t)
-  ;; don't auto add tag "ATTACH"
-  (setq org-attach-auto-tag nil)
-  (setq org-attach-archive-delete 'query)
-  ;; attach property using ":DIR:". This new behavior will ask for directory
-  ;; path if no :DIR: property specified, the input path will be automatically
-  ;; created if does not exist.
-  (setq org-attach-preferred-new-method 'ask)
-  (add-to-list 'org-default-properties "DIR")
-  )
+  :custom ((org-attach-store-link-p 'file)
+           (org-attach-dir-relative t)  ; use relative path to attach dir
+           (org-attach-auto-tag nil)    ; don't auto add tag "ATTACH"
+           (org-attach-archive-delete 'query)
+           (org-attach-preferred-new-method 'ask))
+  :init (add-to-list 'org-default-properties "DIR"))
 
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
