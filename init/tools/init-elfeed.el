@@ -128,11 +128,12 @@
                     (org-web-tools--html-to-org-with-pandoc content)))
               (insert content))))))
 
-  (add-to-list 'org-capture-templates
-               `("R" ,(format "%s\tcapture elfeed RSS feed content to Org buffer"
-                              (all-the-icons-faicon "rss" :face 'all-the-icons-blue-alt))
-                 entry (file "")
-                 "* %(my/org-capture-elfeed-title)
+  (with-eval-after-load 'org-capture
+    (add-to-list 'org-capture-templates
+                 `("R" ,(format "%s\tcapture elfeed RSS feed content to Org buffer"
+                                (all-the-icons-faicon "rss" :face 'all-the-icons-blue-alt))
+                   entry (file "")
+                   "* %(my/org-capture-elfeed-title)
 :PROPERTIES:
 :SOURCE: %(my/org-capture-elfeed-source)
 :DATE(original): %(my/org-capture-elfeed-date)
@@ -140,8 +141,8 @@
 :END:
 
 %(my/org-capture-elfeed-content)"
-                 :empty-lines 1
-                 :jump-to-captured t))
+                   :empty-lines 1
+                   :jump-to-captured t)))
 
   ;; download with youtube-dl
   (defun youtube-dl-cmd-wrapper (url)

@@ -121,11 +121,12 @@ In ~%s~:
        code-snippet))))
 
 ;; use region select to capture.
-(add-to-list 'org-capture-templates
-             `("s" ,(format "%s\tcreate new code snippet"
-                            (all-the-icons-faicon "code" :face 'all-the-icons-cyan :v-adjust 0.05))
-               entry (file (lambda () (concat org-directory "/Programming Code/Code Snippets/snippets.org")))
-               "* %?\n%(my/org-capture-code-snippet \"%F\")"))
+(with-eval-after-load 'org-capture
+  (add-to-list 'org-capture-templates
+               `("s" ,(format "%s\tcreate new code snippet"
+                              (all-the-icons-faicon "code" :face 'all-the-icons-cyan :v-adjust 0.05))
+                 entry (file (lambda () (concat org-directory "/Programming Code/Code Snippets/snippets.org")))
+                 "* %?\n%(my/org-capture-code-snippet \"%F\")")))
 
 ;;; [ org-sync-snippets ] -- simple extension to export snippets to org-mode and vice versa.
 
@@ -146,18 +147,19 @@ In ~%s~:
 ;;   :ensure t
 ;;   :defer t
 ;;   :commands (code-archive-save-code code-archive-insert-org-block code-archive-goto-src)
-;;   :init (setq code-archive-dir (concat org-directory "/Programming Code/Code Snippets/"))
-;;   :config
-;;   (add-to-list 'org-capture-templates
-;;                `("s" ,(format "%s\tcode snippet archive"
-;;                               (all-the-icons-faicon "code" :face 'all-the-icons-cyan))
-;;                  entry
-;;                  (file (lambda () (concat code-archive-dir "snippets.org")))
-;;                  "* %? %(code-archive-org-src-tag \"%F\")
+;;   :custom (code-archive-dir (concat org-directory "/Programming Code/Code Snippets/"))
+;;   :init
+;;   (with-eval-after-load 'org-capture
+;;     (add-to-list 'org-capture-templates
+;;                  `("s" ,(format "%s\tcode snippet archive"
+;;                                 (all-the-icons-faicon "code" :face 'all-the-icons-cyan))
+;;                    entry
+;;                    (file (lambda () (concat code-archive-dir "snippets.org")))
+;;                    "* %? %(code-archive-org-src-tag \"%F\")
 ;; :PROPERTIES:
 ;; :FILE:  %F
 ;; :END:
-;; %(code-archive-do-org-capture \"%F\")")))
+;; %(code-archive-do-org-capture \"%F\")"))))
 
 
 (provide 'init-prog-snippet)
