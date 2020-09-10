@@ -20,7 +20,7 @@
   :load-path "~/Code/Emacs/aria2"
   :commands (aria2-downloads-list)
   :custom ((aria2-download-directory (expand-file-name "~/Downloads")))
-  :init (add-to-list 'display-buffer-alist '("\\*aria2: downloads list\\*" . (display-buffer-reuse-window display-buffer-below-selected))))
+  :init (add-to-list 'display-buffer-alist '("\\*aria2: downloads list\\*" . (display-buffer-below-selected))))
 
 ;;; [ youtube-dl ] -- A youtube-dl download manager for Emacs.
 
@@ -33,8 +33,8 @@
            (youtube-dl-proxy "socks5://127.0.0.1:1086")
            (youtube-dl-proxy-url-list '("youtube.com" "pornhub.com")))
   :init
-  (add-to-list 'display-buffer-alist '("^ \\*youtube-dl list\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist '("^ \\*youtube-dl log\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^ \\*youtube-dl list\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^ \\*youtube-dl log\\*" . (display-buffer-below-selected)))
   :config
   ;; auto download and embed subtitles of video
   (add-to-list 'youtube-dl-arguments "--write-sub")
