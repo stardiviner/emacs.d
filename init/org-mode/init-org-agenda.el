@@ -17,7 +17,7 @@
            (org-agenda-sticky t)        ; don't kill *Org Agenda* buffer by [q].
            (org-agenda-remove-tags t)   ; don't display tags in Org Agenda
            )
-  :init (add-to-list 'display-buffer-alist '("^\\*Org Agenda(.*)\\*" . (display-buffer-below-selected)))
+  :init (add-to-list 'display-buffer-alist '("^\\*Org Agenda(.*)\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
   :config
   ;; `org-agenda-files'
   (autoload '-flatten "dash")
