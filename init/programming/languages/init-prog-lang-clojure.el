@@ -20,15 +20,17 @@
          (clojure-mode . hl-sexp-mode)
          (clojure-mode . rainbow-delimiters-mode))
   :config
-  (add-hook 'clojure-mode-hook #'(lambda () (add-to-list 'electric-pair-pairs '(?\` . ?\`))))
+  (defun clojure-mode-add-electric-pair-for-inline-code ()
+    (add-to-list 'electric-pair-pairs '(?\` . ?\`)))
+  (add-hook 'clojure-mode-hook #'clojure-mode-add-electric-pair-for-inline-code)
 
   ;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
 
   ;; treat `foo-bar' or `:baz' as a symbol.
-  ;; (add-hook 'clojure-mode-hook
-  ;;           (lambda ()
-  ;;             (dolist (c (string-to-list ":_-?!#*"))
-  ;;               (modify-syntax-entry c "w" clojure-mode-syntax-table))))
+  (defun clojure-mode-extend-symbol-syntax ()
+    (dolist (c (string-to-list ":_-?!#*"))
+      (modify-syntax-entry c "w" clojure-mode-syntax-table)))
+  (add-hook 'clojure-mode-hook #'clojure-mode-extend-symbol-syntax)
 
   (with-eval-after-load 'clojure-mode
     (font-lock-add-keywords
@@ -65,7 +67,10 @@
     )
 
   ;; make the [M-;] and `banner-comment' works correct.
-  (add-hook 'clojure-mode-hook (lambda () (setq-local comment-start ";;"))))
+  (defun clojure-mode-set-comment-char ()
+    (setq-local comment-start ";;"))
+  (add-hook 'clojure-mode-hook #'clojure-mode-set-comment-char)
+  )
 
 (use-package clojure-mode-extra-font-locking
   :ensure t
@@ -195,11 +200,10 @@ Optional argument NS, if not provided, defaults to
   (define-key cider-inspect-prefix (kbd "m") 'cider-metadata)
 
   ;; bind keybindings to some not-bind wrapping functions in clojure-mode locally.
-  (add-hook 'clojure-mode-hook
-            (lambda ()
-              (define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square)
-              (define-key paredit-mode-map (kbd "M-{") 'paredit-wrap-curly))
-            nil 'local)
+  (defun clojure-mode-setup-paredit-keybindings ()
+    (define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square)
+    (define-key paredit-mode-map (kbd "M-{") 'paredit-wrap-curly))
+  (add-hook 'clojure-mode-hook #'clojure-mode-setup-paredit-keybindings nil 'local)
 
   ;; REPL history
   (define-key cider-repl-mode-map (kbd "M-r") 'cider-repl-history)
