@@ -401,16 +401,13 @@ With value selected from a list of available sessions."
 
 ;;; [ clojure-essential-ref ] -- `cider-doc' to "Clojure, The Essential Reference".
 
-(use-package clojure-essential-ref
+(use-package clojure-essential-ref-nov
   :ensure t
-  :ensure clojure-essential-ref-nov
   :commands (clojure-essential-ref clojure-essential-ref-web clojure-essential-ref-nov)
-  :custom (clojure-essential-ref-default-browse-fn #'clojure-essential-ref-nov-browse)
-  :bind (
-         :map cider-mode-map
-         ("C-c h c" . clojure-essential-ref)
-         :map cider-repl-mode-map
-         ("C-c h c" . clojure-essential-ref)))
+  :custom ((clojure-essential-ref-nov-epub-path
+            (expand-file-name "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure, The Essential Reference.epub")))
+  :bind (:map cider-mode-map ("C-c h c" . clojure-essential-ref-nov)
+              :map cider-repl-mode-map ("C-c h c" . clojure-essential-ref-nov)))
 
 ;;; [ elein ] -- running Leiningen commands from Emacs.
 
