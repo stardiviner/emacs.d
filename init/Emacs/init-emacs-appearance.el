@@ -46,23 +46,23 @@
 
 ;;; [ Emacs window border ]
 
-;; frame internal border width
-(set-frame-parameter nil 'internal-border-width 5)
-
 (setq-default indicate-buffer-boundaries 'left)
 
-;;; margin
-(setq-default left-margin-width 1
-              right-margin-width 0)
-;;; fringe
-(if (screen-hidpi-p)
-    (progn
-      (set-fringe-style '(20 . 10))
-      (setq-default left-fringe-width 20
-                    right-fringe-width 10))
-  (set-fringe-style '(10 . 5))
-  (setq-default left-fringe-width 10
-                right-fringe-width 5))
+(defun my/set-frame-border-width ()
+  "Set frame default fringe, margin, border width."
+  (let* ((hidpi-p (screen-hidpi-p))
+         (fringe-width (if hidpi-p 8 4))
+         (margin-width (if hidpi-p 1 0))
+         (border-width (if hidpi-p 2 1)))
+    (set-fringe-style (cons fringe-width fringe-width))
+    (setq-default left-fringe-width fringe-width
+                  right-fringe-width fringe-width)
+    (setq-default left-margin-width margin-width
+                  right-margin-width margin-width)
+    (set-frame-parameter nil 'internal-border-width border-width)))
+
+(my/set-frame-border-width)
+
 ;;; `fringe-indicator-alist'
 (setq fringe-indicator-alist
       '((truncation left-arrow right-arrow)
