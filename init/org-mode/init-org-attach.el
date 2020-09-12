@@ -77,7 +77,7 @@
         org-download-backend t ; url-retrieve (t), wget, curl.
         org-download-image-dir "data/images" ; nil: default to "."
         )
-  :config (org-download-enable))
+  :init (org-download-enable))
 
 ;;; [ org-web-tools ] -- retrieving web page content and processing it into Org-mode content.
 

@@ -39,6 +39,7 @@
 
 (use-package imenu
   :ensure t
+  :custom (imenu-auto-rescan t)
   :bind (([remap imenu] . counsel-imenu) ; [C-x j]: `helm-imenu', `counsel-imenu'.
          ("C-c ." . helm-imenu)))
 

@@ -11,7 +11,7 @@
 
 ;;; display table header when invisible.
 ;;; Activate `org-table-electric-header-mode' by default?
-(setq org-table-header-line-p nil)
+;; (setq org-table-header-line-p t)
 
 ;;; [ valign ] -- Pixel alignment for Org table.
 

@@ -22,8 +22,7 @@
   (unbind-key (kbd "C-x w i") hi-lock-map)
   (unbind-key (kbd "C-x w l") hi-lock-map)
   (unbind-key (kbd "C-x w p") hi-lock-map)
-  (unbind-key (kbd "C-x w r") hi-lock-map)
-  )
+  (unbind-key (kbd "C-x w r") hi-lock-map))
 
 ;; rebind commands
 (define-key highlight-prefix (kbd "M-p") 'highlight-symbol-at-point)

@@ -479,6 +479,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;; ---------------------------------------------------------
 
 (use-package org-notify
+  :after org-agenda
   :custom (org-notify-audible nil)
   :config
   (org-notify-add 'default

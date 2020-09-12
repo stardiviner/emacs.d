@@ -89,6 +89,7 @@
 				                   (nth 6 element)) ;utf-8
 			             element))
 	          :require-match t
+            ;; Ivy [M-o]
 	          :action '(1
 		                  ("u" (lambda (element) (insert (nth 6 (cdr element)))) "utf-8")
 		                  ("o" (lambda (element) (insert "\\" (cadr element))) "org-entity")
