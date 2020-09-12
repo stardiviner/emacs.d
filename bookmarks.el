@@ -2,7 +2,92 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Religion.org"
+(("Kung Fu.org"
+ (filename . "~/Org/Wiki/Kung Fu/Kung Fu.org")
+ (front-context-string . "#+TITLE: Kung Fu")
+ (rear-context-string)
+ (position . 1))
+("mu4e.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/mu4e.org")
+ (front-context-string . "* Intro\n\nStartin")
+ (rear-context-string)
+ (position . 1))
+("Game Development.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Game Development/Game Development.org")
+ (front-context-string . "#+TITLE: Game De")
+ (rear-context-string)
+ (position . 1))
+("Front-End Web.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Front-End Web/Front-End Web.org")
+ (front-context-string . "#+TITLE: Front-E")
+ (rear-context-string)
+ (position . 1))
+("My Privacy Experience Records.org"
+ (filename . "~/Org/Wiki/Sociology/Privacy/Data/Manuals/My Privacy Experience Records/My Privacy Experience Records.org")
+ (front-context-string . "#+TITLE: My Priv")
+ (rear-context-string)
+ (position . 1))
+("jQuery.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/JavaScript Packages/jQuery/jQuery.org")
+ (front-context-string . "#+TITLE: jQuery\n")
+ (rear-context-string)
+ (position . 1))
+("China Politics.org"
+ (filename . "~/Org/Wiki/Countries/China/China Politics/China Politics.org")
+ (front-context-string . "#+TITLE: China P")
+ (rear-context-string)
+ (position . 1))
+("Internet Advertising.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Internet Advertising/Internet Advertising.org")
+ (front-context-string . "#+TITLE: Interne")
+ (rear-context-string)
+ (position . 1))
+("Blender.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Blender/Blender.org")
+ (front-context-string . "#+TITLE: Blender")
+ (rear-context-string)
+ (position . 1))
+("R.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/R/R.org")
+ (front-context-string . "#+TITLE: R Progr")
+ (rear-context-string)
+ (position . 1))
+("Porn Stars Reference.org"
+ (filename . "~/Org/Wiki/Pornography/Porn/Porn Stars/Data/Porn Stars Reference/Porn Stars Reference.org")
+ (front-context-string . "#+TITLE: Porn St")
+ (rear-context-string)
+ (position . 1))
+("macOS.org"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/macOS/macOS.org")
+ (front-context-string . "#+TITLE: macOS\n\n")
+ (rear-context-string)
+ (position . 1))
+("org-capture-last-stored-marker"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Algorithm/Algorithm.org")
+ (front-context-string . "*** TikTok 披露其推荐")
+ (rear-context-string . "\n** Trend News\n\n")
+ (position . 7497))
+("org-refile-last-stored"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Algorithm/Algorithm.org")
+ (front-context-string . "*** TikTok 披露其推荐")
+ (rear-context-string . "\n** Trend News\n\n")
+ (position . 7497))
+("org-capture-last-stored"
+ (filename . "~/Org/Tasks/Tasks.org")
+ (front-context-string . "* TikTok 披露其推荐算法")
+ (rear-context-string . "12:20]\n  :END:\n\n")
+ (position . 366))
+("Novel Books.org"
+ (filename . "~/Org/Wiki/Countries/China/Chinese Literature/Novel/Data/Novel Books/Novel Books.org")
+ (front-context-string . "#+TITLE: Novel B")
+ (rear-context-string)
+ (position . 1))
+("Chinese Literature.org"
+ (filename . "~/Org/Wiki/Countries/China/Chinese Literature/Chinese Literature.org")
+ (front-context-string . "#+TITLE: Chinese")
+ (rear-context-string)
+ (position . 1))
+("Religion.org"
  (filename . "~/Org/Wiki/Religion/Religion.org")
  (front-context-string . "#+TITLE: Religio")
  (rear-context-string)
@@ -117,11 +202,6 @@
  (front-context-string . "#+TITLE: Microse")
  (rear-context-string)
  (position . 1))
-("Novel Books.org"
- (filename . "~/Org/Wiki/Literature/Countries Literature/Chinese Literature/Novel/Data/Novel Books/Novel Books.org")
- (front-context-string . "#+TITLE: Novel B")
- (rear-context-string)
- (position . 1))
 ("Information Technology.org"
  (filename . "~/Org/Wiki/Information Science/Information Technology/Information Technology.org")
  (front-context-string . "#+TITLE: Informa")
@@ -190,16 +270,6 @@
 ("Finance.org"
  (filename . "~/Org/Wiki/Commercial Science/Finance/Finance.org")
  (front-context-string . "#+TITLE: Finance")
- (rear-context-string)
- (position . 1))
-("Poem.org"
- (filename . "~/Org/Wiki/Literature/Countries Literature/Chinese Literature/Poem/Poem.org")
- (front-context-string . "#+TITLE: Poem (\350\257\227")
- (rear-context-string)
- (position . 1))
-("Chinese Literature.org"
- (filename . "~/Org/Wiki/Literature/Countries Literature/Chinese Literature/Chinese Literature.org")
- (front-context-string . "#+TITLE: Chinese")
  (rear-context-string)
  (position . 1))
 ("Artificial Neural Network.org"
