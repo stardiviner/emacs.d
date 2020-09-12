@@ -32,15 +32,15 @@
 
 ;;; [ indent-guide ] -- show vertical lines to guide indentation.
 
-;; (use-package indent-guide
-;;   :ensure t
-;;   :defer t
-;;   :delight indent-guide-mode
-;;   :custom ((indent-guide-recursive t)
-;;            (indent-guide-threshold 0)
-;;            (indent-guide-char "│")
-;;            (line-spacing 0))
-;;   :hook (prog-mode . indent-guide-mode))
+(use-package indent-guide
+  :ensure t
+  :defer t
+  :delight indent-guide-mode
+  :custom ((indent-guide-recursive t)
+           (indent-guide-threshold 0)
+           (indent-guide-char "│")
+           (line-spacing 0))
+  :hook (prog-mode . indent-guide-mode))
 
 ;;; [ aggressive-indent-mode ] -- Minor mode to aggressively keep your code always indented.
 
