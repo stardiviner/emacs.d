@@ -125,6 +125,13 @@
 ;;   :quelpa (guess-word :fetcher github :repo "Qquanwei/emacs-guess-word-game")
 ;;   :commands (guess-word))
 
+;;; [ anki ] -- Yet Another Anki Emacs Client.
+
+(use-package anki
+  :quelpa (anki :fetcher github :repo "chenyanming/anki.el")
+  :commands (anki-browser)
+  :custom ((anki-collection-dir "~/.local/share/Anki2/stardiviner")))
+
 
 (provide 'init-org-drill)
 
