@@ -35,8 +35,7 @@
 
 (use-package fd-dired
   ;; :ensure t
-  ;; :quelpa (fd-dired :fetcher github :repo "stardiviner/fd-dired")
-  :load-path "~/Code/Emacs/fd-dired"
+  :quelpa (fd-dired :fetcher github :repo "stardiviner/fd-dired" :branch "develop")
   :defer t
   :custom (fd-dired-display-in-current-window nil)
   :commands (fd-dired)
