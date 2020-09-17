@@ -10,6 +10,9 @@
 
 ;;; [ libelcouch ] -- Elisp library to communication with CouchDB.
 
+(use-package libelcouch
+  :ensure t)
+
 ;;; [ elcouch ] -- View and manipulate CouchDB databases.
 
 (use-package elcouch
