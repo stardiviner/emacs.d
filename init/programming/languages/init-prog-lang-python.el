@@ -84,6 +84,12 @@
 ;;   :commands (poetry)
 ;;   :hook (python-mode . poetry-tracking-mode))
 
+;;; [ live-py-mode ] -- Python Live Coding in Emacs.
+
+(use-package live-py-mode
+  :ensure t
+  :commands (live-py-mode))
+
 ;;; [ pygen ] -- Python code generation in Emacs with Elpy and python-mode.
 
 ;; (use-package pygen
