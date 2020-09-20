@@ -1,6 +1,6 @@
 ;;; init-mermaid.el --- init for mermaid
 
-;;; Time-stamp: <2019-03-17 15:48:27 stardiviner>
+;;; Time-stamp: <2020-09-20 11:01:38 stardiviner>
 
 ;;; Commentary:
 
@@ -14,11 +14,11 @@
   :ensure t
   :defer t
   :commands (org-babel-execute:mermaid)
-  :init
-  ;; for local installation: "npm install mermaid"
-  ;; (setq ob-mermaid-cli-path "~/node_modules/.bin/mmdc")
-  ;; for global installation: "npm install -g mermaid"
-  (setq ob-mermaid-cli-path "~/Libraries/node_modules/bin/mmdc"))
+  :custom (;; for local installation: "npm install mermaid"
+           (ob-mermaid-cli-path "~/node_modules/.bin/mmdc")
+           ;; for global installation: "npm install -g mermaid"
+           ;; (ob-mermaid-cli-path "~/Libraries/node_modules/bin/mmdc")
+           ))
 
 
 
