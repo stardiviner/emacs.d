@@ -63,15 +63,12 @@
       use-package-always-ensure nil)
 
 (if (not (file-exists-p "~/Code/Emacs/org-mode/lisp/"))
-    (progn
-      (use-package org
-        :pin org
-        :ensure t
-        :mode (("\\.org\\'" . org-mode)))
-      (use-package org-plus-contrib
-        :pin org
-        :ensure t))
-
+    (use-package org
+      :pin org
+      :ensure t
+      :ensure org-plus-contrib
+      :mode (("\\.org\\'" . org-mode)))
+  
   ;; disable Emacs built-in Org Mode
   (delete (format "/usr/local/share/emacs/%s/lisp/org" emacs-version) load-path)
   (delete "/usr/share/emacs/site-lisp/org/" load-path)
