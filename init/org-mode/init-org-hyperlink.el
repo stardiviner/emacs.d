@@ -121,7 +121,7 @@ Optional for Org-mode file: `LINK'."
                    ("\\.m4a\\'" . "mpv %s")
                    ("\\.midi\\'" . "timidity %s")))
      (add-to-list 'org-file-apps pair))
-
+   
    ;; (add-to-list 'org-file-apps '("\\.swf\\'" . "gnash %s"))
    )
 
@@ -191,9 +191,7 @@ Optional for Org-mode file: `LINK'."
   (add-to-list 'org-file-apps '("\\.ogv\\'" . my/org-open-video-file))
   (add-to-list 'org-file-apps '("\\.webm\\'" . my/org-open-video-file)))
 
-;;; [ ol-eshell ] -- org-link `eshell:' support for EShell
-
-(use-package org-eshell)
+;;; `eshell:' org-link `eshell:' support for EShell
 (use-package ol-eshell)
 
 ;; `elisp:'
@@ -201,24 +199,22 @@ Optional for Org-mode file: `LINK'."
 ;; `shell:'
 (setq org-confirm-shell-link-function 'yes-or-no-p)
 
-;; IRC: `irc:'
+;; `irc:'
 (use-package ol-irc
-  :defer t
-  :init (setq org-irc-client 'erc)
+  :custom (org-irc-client 'erc)
   :config (if (and (featurep 'erc)) (require 'init-erc)))
 
 ;;; `info:' link.
 (use-package org-info)
 
-;; append "`man:'" protocol.
-;; `[[man:(section: 7 or 3r)gv][gv (man page)]]'
+;; `man:'
+;; [[man:(section: 7 or 3r)gv][gv (man page)]]
 (use-package ol-man
   :after org
   :custom (org-man-command 'man))
 
-;;; `occur:'
-;;   occur:my-file.txt#regex
-;; to open a file and run occur with the regex on it.
+;; `occur:'
+;; [[occur:my-file.txt#regex]] :: to open a file and run occur with the regex on it.
 (defun org-occur-link-open (uri)
   "Visit the file specified by `URI', and run `occur' on the fragment.
   \(anything after the first '#') in the `URI'."
@@ -235,14 +231,11 @@ Optional for Org-mode file: `LINK'."
   (rgrep regexp "*" (expand-file-name "./")))
 (org-link-set-parameters "grep" :follow #'org-grep-link-open)
 
-;;; [ Git ]
-
-(use-package org-git-link
-  :defer t
+;; `git:'
+(use-package ol-git-link
   :init
   ;; add file path completion support for `git:' and `gitbare:'
   (org-link-set-parameters "git" :complete 'org-git-complete-link)
-
   ;; TODO: add a function to complete git: link. parse git repo metadata, show in available candidates.
   (defun org-git-complete-link ()
     "Use the existing file name completion for file.
@@ -257,20 +250,22 @@ and append it."
             (read-from-minibuffer "line:" "1"))))
 
 ;;; [ orgit ] -- support for Org links to Magit buffers.
-
+;;; `orgit:'
+;;; `orgit-log:'
+;;; `orgit-rev:'
 (use-package orgit
   :ensure t
   :custom (orgit-log-save-arguments t))
 
 ;;; [ orgit-forge ] -- Org links to Magit Forge issue buffers.
-
+;;; `orgit-topic:'
 (use-package orgit-forge
   :ensure t)
 
 
 ;;; [ Link abbreviations ]
 
-;; NOTE: you can not contain chinese string in "link name". Org-mode does not
+;; NOTE: you can NOT contain chinese string in "link name". Org-mode does not
 ;; support it.
 
 ;; [C-c C-l] insert link completion.
