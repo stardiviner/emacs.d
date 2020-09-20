@@ -11,8 +11,8 @@
 (use-package autorevert
   :defer t
   :delight auto-revert-mode
-  :init (setq auto-revert-interval 30)
-  :config (global-auto-revert-mode 1))
+  :custom (auto-revert-interval 30)
+  :init (global-auto-revert-mode 1))
 
 ;;; [ ibuffer ]
 

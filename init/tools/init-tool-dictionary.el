@@ -100,13 +100,13 @@
 
 ;;; [ baidu-translate ] -- A emacs plugin using baidu-translate-api.
 
-(use-package baidu-translate
-  :ensure t
-  :defer t
-  :custom ((baidu-translate-appid (my/json-read-value my/account-file 'baidu-translate-appid))
-           (baidu-translate-security (my/json-read-value my/account-file 'baidu-translate-security)))
-  :commands (baidu-translate-zh-mark baidu-translate-zh-whole-buffer)
-  :init (add-to-list 'display-buffer-alist '("^\\*baidu-translate\\*" . (display-buffer-below-selected))))
+;; (use-package baidu-translate
+;;   :ensure t
+;;   :defer t
+;;   :custom ((baidu-translate-appid (my/json-read-value my/account-file 'baidu-translate-appid))
+;;            (baidu-translate-security (my/json-read-value my/account-file 'baidu-translate-security)))
+;;   :commands (baidu-translate-zh-mark baidu-translate-zh-whole-buffer)
+;;   :init (add-to-list 'display-buffer-alist '("^\\*baidu-translate\\*" . (display-buffer-below-selected))))
 
 
 (provide 'init-tool-dictionary)

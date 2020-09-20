@@ -36,6 +36,7 @@
 
 (use-package multi-screens
   :quelpa (multi-screens :fetcher github :repo "stardiviner/multi-screens.el")
+  :defer t
   :hook (after-init . multi-screens-mode))
 
 

@@ -48,7 +48,9 @@
 
 (use-package treemacs
   :ensure t
-  :ensure treemacs-all-the-icons)
+  :ensure treemacs-all-the-icons
+  :defer t
+  :commands (treemacs))
 
 
 

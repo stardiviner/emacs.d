@@ -12,8 +12,6 @@
   :ensure t
   :defer t
   :commands (circe)
-  :bind (:map tools-prefix ("i" . circe))
-  ;; user and servers info
   :custom ((circe-default-nick "stardiviner")
            (circe-network-options `(("Freenode"
                                      :user "stardiviner"

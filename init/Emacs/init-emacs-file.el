@@ -23,6 +23,7 @@
 
 (use-package so-long
   :ensure t
+  :defer t
   ;; Avoid performance issues in files with very long lines.
   :init (global-so-long-mode 1))
 

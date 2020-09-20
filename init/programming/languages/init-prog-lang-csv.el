@@ -1,6 +1,6 @@
 ;;; init-prog-lang-csv.el --- init file for CSV -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-06-26 17:52:44 stardiviner>
+;;; Time-stamp: <2020-09-20 13:16:39 stardiviner>
 
 ;;; Commentary:
 
@@ -12,11 +12,9 @@
 
 (use-package csv-mode
   :ensure t
-  :config
-  (defun my/csv-align-setup ()
-    (csv-align-mode)
-    (csv-header-line))
-  (add-hook 'csv-mode-hook #'my/csv-align-setup))
+  :defer t
+  :hook ((csv-mode . csv-align-mode)
+         (csv-mode . csv-header-line)))
 
 
 

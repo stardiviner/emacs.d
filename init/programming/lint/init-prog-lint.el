@@ -25,6 +25,7 @@
 
 (use-package flycheck
   :ensure t
+  :defer t
   :commands (flycheck-mode flycheck-next-error flycheck-previous-error flycheck-list-errors)
   :custom ((flycheck-global-modes '(not emacs-lisp-mode
                                         text-mode markdown-mode org-mode

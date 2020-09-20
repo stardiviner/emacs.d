@@ -120,6 +120,7 @@
 ;;; [[info:smtpmail#Top][info:smtpmail#Top]]
 
 (use-package smtpmail
+  :defer t
   :custom (;; for debug
            ;; (smtpmail-debug-info t)
            ;; (smtpmail-debug-verb t)

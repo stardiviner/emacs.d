@@ -88,6 +88,7 @@
 
 (use-package live-py-mode
   :ensure t
+  :defer t
   :commands (live-py-mode))
 
 ;;; [ pygen ] -- Python code generation in Emacs with Elpy and python-mode.

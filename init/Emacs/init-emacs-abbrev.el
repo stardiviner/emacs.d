@@ -8,6 +8,7 @@
 ;;; [ abbrev-mode ]
 
 (use-package abbrev
+  :defer t
   :delight abbrev-mode
   ;; setup my abbrevs file custom path.
   :custom ((abbrev-file-name (expand-file-name "abbrev_defs" user-emacs-directory))

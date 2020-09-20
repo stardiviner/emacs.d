@@ -21,6 +21,7 @@
 
 (use-package password-mode
   :ensure t
+  :defer t
   :delight password-mode
   :custom ((password-mode-password-prefix-regexs
             '("[Pp]assword:?[[:space:]]+"
@@ -28,7 +29,7 @@
               ))
            ;; (password-mode-password-regex "\\([[:graph:]]*\\)")
            )
-  :config
+  ;; :config
   ;; only enable `password-mode' in encrypted `*.org.gpg' files.
   (add-hook 'org-mode-hook
             #'(lambda ()
@@ -63,6 +64,7 @@ Usage: (my:auth-source-get :host \"api.heroku.com\" :user)"
 
 (use-package auth-source-xoauth2
   :ensure t
+  :defer t
   :init (auth-source-xoauth2-enable))
 
 ;; [ oauth2 ] -- OAuth 2.0 Authorization Protocol

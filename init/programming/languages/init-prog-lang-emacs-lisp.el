@@ -98,6 +98,7 @@
 
 (use-package dash
   :ensure t
+  :defer t
   ;; syntax highlighting of dash functions.
   :init (eval-after-load 'dash '(dash-enable-font-lock)))
 

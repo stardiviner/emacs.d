@@ -46,8 +46,8 @@
 (use-package savehist
   :ensure t
   :defer t
-  :init (setq savehist-autosave-interval (* 60 100))
-  (savehist-mode 1))
+  :custom (savehist-autosave-interval (* 60 100))
+  :hook (after-init . savehist-mode))
 
 ;;; [ minibuffer completion ]
 

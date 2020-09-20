@@ -16,11 +16,13 @@
 
 (use-package bump-version
   :quelpa (bump-version :fetcher github :repo "atykhonov/emacs-bump-version")
+  :defer t
   :commands (bump-version-patch bump-version-minor bump-version-major bump-version-release))
 
 ;;; [ vc ]
 
 (use-package vc
+  :defer t
   :custom (vc-handled-backends '(Git))
   :init (add-to-list 'display-buffer-alist '("\\*vc-diff\\*" . (display-buffer-below-selected))))
 

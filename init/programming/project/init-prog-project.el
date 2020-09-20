@@ -23,8 +23,8 @@
            (projectile-switch-project-action #'projectile-commander)
            (projectile-use-git-grep t)
            (projectile-create-missing-test-files t))
-  :init (projectile-global-mode 1)
-  (add-to-list 'display-buffer-alist '("^\\*Projectile Commander Help\\*" . (display-buffer-below-selected))))
+  :hook (after-init . projectile-mode)
+  :init (add-to-list 'display-buffer-alist '("^\\*Projectile Commander Help\\*" . (display-buffer-below-selected))))
 
 ;;; [ projectile-variable ] -- store project local variables.
 

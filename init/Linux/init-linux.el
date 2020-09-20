@@ -17,7 +17,8 @@
 ;;; [ systemd-mode ] -- Emacs major mode for editing systemd units.
 
 (use-package systemd
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ journalctl-mode ] -- Major mode to view journalctl's output in Emacs.
 

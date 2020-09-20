@@ -101,7 +101,8 @@
 
 (use-package org-pdftools
   :ensure t
-  :hook (org-load . org-pdftools-setup-link))
+  :defer t
+  :init (org-pdftools-setup-link))
 
 ;; [ org-noter ] -- Emacs document annotator, using Org-mode.
 

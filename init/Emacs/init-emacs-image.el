@@ -10,16 +10,16 @@
 ;;; [ image-file ] -- support for visiting image files.
 
 (use-package image-file
+  :defer t
   :init (add-to-list 'image-file-name-extensions "webp" 'append)
-  :config
   ;; NOTE: this will open image file with "actual size" instead of fit window width.
-  ;; auto display image
   ;; (auto-image-file-mode t)
   )
 
 ;;; [ image-mode ] -- support for visiting image files.
 
 (use-package image-mode
+  :defer t
   :custom (image-use-external-converter t)
   :config
   (define-key image-mode-map (kbd "q") 'kill-current-buffer)
@@ -51,9 +51,10 @@
 
 (use-package blimp
   :ensure t
+  :defer t
   :commands (blimp-interface)
   :bind (:map image-mode-map ("C-c C-i" . blimp-interface))
-  :config (add-hook 'image-mode-hook 'blimp-mode))
+  :hook (image-mode . blimp-mode))
 
 
 (provide 'init-emacs-image)

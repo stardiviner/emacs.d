@@ -20,10 +20,8 @@
 
 (use-package realgud
   :ensure t
-  :config
-  ;; [ realgud-lldb ] -- realgud front-end to lldb.
-  (use-package realgud-lldb
-    :ensure t))
+  :ensure realgud-lldb
+  :defer t)
 
 ;;; [ moonshot ] -- Run executable file, debug and build commands on project +projectile, compilation-mode, ivy, realgud.
 

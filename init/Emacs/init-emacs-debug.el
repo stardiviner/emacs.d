@@ -40,8 +40,9 @@
 
 (use-package edebug-inline-result
   :quelpa (edebug-inline-result :fetcher github :repo "stardiviner/edebug-inline-result")
-  :init (setq edebug-inline-result-backend 'posframe)
-  :config (edebug-inline-result-mode))
+  :defer t
+  :custom (edebug-inline-result-backend 'posframe)
+  :hook (edebug-mode . edebug-inline-result-mode))
 
 ;;; [ bug-hunter ] -- Hunt down errors in elisp files.
 

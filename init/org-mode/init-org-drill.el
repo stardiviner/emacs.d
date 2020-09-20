@@ -129,7 +129,8 @@
 
 (use-package anki
   :quelpa (anki :fetcher github :repo "chenyanming/anki.el")
-  :commands (anki-browser)
+  :defer t
+  :commands (anki)
   :custom ((anki-collection-dir "~/.local/share/Anki2/stardiviner")))
 
 

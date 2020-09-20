@@ -241,10 +241,9 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 (use-package helm-cider
   :ensure t
+  :defer t
   :after cider
-  :bind (:map cider-doc-map
-              ("c" . helm-cider-cheatsheet)
-              ("C-c" . helm-cider-cheatsheet))
+  :bind (:map cider-doc-map ("c" . helm-cider-cheatsheet) ("C-c" . helm-cider-cheatsheet))
   :hook (cider-mode . helm-cider-mode))
 
 ;;; [ clj-refactor ] -- A collection of commands for refactoring Clojure code.
@@ -298,8 +297,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 (use-package midje-mode
   :ensure t
   :defer t
-  :after clojure-mode
-  :commands (midje-mode))
+  :hook (clojure-mode . midje-mode))
 
 ;;; [ Emidje ] -- Test runner, report viewer and formatting tool for Midje within Emacs.
 
@@ -395,6 +393,7 @@ With value selected from a list of available sessions."
 
 (use-package helm-clojuredocs
   :ensure t
+  :defer t
   :after cider
   :commands (helm-clojuredocs)
   :bind (:map cider-doc-map ("M-d" . helm-clojuredocs)))
@@ -403,6 +402,7 @@ With value selected from a list of available sessions."
 
 (use-package clojure-essential-ref-nov
   :ensure t
+  :defer t
   :commands (clojure-essential-ref clojure-essential-ref-web clojure-essential-ref-nov)
   :custom ((clojure-essential-ref-nov-epub-path
             (expand-file-name "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure, The Essential Reference.epub")))
