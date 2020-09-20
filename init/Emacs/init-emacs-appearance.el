@@ -12,21 +12,11 @@
 
 ;;; [ Transparent ]
 
-(defun my:set-transparency-alpha (alpha)
-  "Loop through transparency `ALPHA' settings."
-  (interactive (list
-                (completing-read "Transparency Alpha: "
-                                 '("unset" "100" "95" "90" "80" "70" "60"))))
-  (if (string= alpha "unset")
-      (progn
-        (set-frame-parameter (selected-frame) 'alpha (list 100 100))
-        (add-to-list 'default-frame-alist (cons 'alpha (list 100 100))))
-    (let* ((active-alpha (string-to-number alpha))
-           (inactive-alpha (- active-alpha 20)))
-      (set-frame-parameter (selected-frame) 'alpha (list active-alpha inactive-alpha))
-      (add-to-list 'default-frame-alist (cons 'alpha (list active-alpha inactive-alpha))))))
+;;; [ transwin ] -- Make window/frame transparent.
 
-(my:set-transparency-alpha "95")
+;; (use-package transwin
+;;   :ensure t
+;;   :init (transwin-ask-set-transparency 95))
 
 ;;; [ Title ]
 
