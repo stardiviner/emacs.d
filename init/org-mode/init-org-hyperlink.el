@@ -47,6 +47,21 @@ Optional for Org-mode file: `LINK'."
         (remote . emacs)
         (t . default)))
 
+;;; Links are now customizable
+;;
+;; Links can now have custom colors, tooltips, keymaps, display behavior, etc.
+;; Links are now centralized in `org-link-parameters'.
+;; (add-to-list 'org-link-parameters '())
+;; `org-link-types'
+;; `org-link-set-parameters'
+
+(setq org-link-frame-setup
+      '((vm . vm-visit-folder-other-frame)
+        (vm-imap . vm-visit-imap-folder-other-frame)
+        (gnus . org-gnus-no-new-news)
+        (file . find-file)
+        (wl . wl-other-frame)))
+
 (cl-case system-type
   ('gnu/linux
    (add-to-list 'org-file-apps
@@ -175,21 +190,6 @@ Optional for Org-mode file: `LINK'."
   (add-to-list 'org-file-apps '("\\.mov\\'" . my/org-open-video-file))
   (add-to-list 'org-file-apps '("\\.ogv\\'" . my/org-open-video-file))
   (add-to-list 'org-file-apps '("\\.webm\\'" . my/org-open-video-file)))
-
-;;; Links are now customizable
-;;
-;; Links can now have custom colors, tooltips, keymaps, display behavior, etc.
-;; Links are now centralized in `org-link-parameters'.
-;; (add-to-list 'org-link-parameters '())
-;; `org-link-types'
-;; `org-link-set-parameters'
-
-(setq org-link-frame-setup
-      '((vm . vm-visit-folder-other-frame)
-        (vm-imap . vm-visit-imap-folder-other-frame)
-        (gnus . org-gnus-no-new-news)
-        (file . find-file)
-        (wl . wl-other-frame)))
 
 ;;; [ ol-eshell ] -- org-link `eshell:' support for EShell
 
