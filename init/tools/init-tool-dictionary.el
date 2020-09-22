@@ -108,6 +108,13 @@
 ;;   :commands (baidu-translate-zh-mark baidu-translate-zh-whole-buffer)
 ;;   :init (add-to-list 'display-buffer-alist '("^\\*baidu-translate\\*" . (display-buffer-below-selected))))
 
+;;; [ org-translate ] -- Org-based translation environment.
+
+(use-package org-translate
+  :ensure t
+  :defer t
+  :commands (org-translate-mode))
+
 
 (provide 'init-tool-dictionary)
 
