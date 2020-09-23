@@ -23,7 +23,8 @@
               '((company-capf :with company-yasnippet
                               :separate company-tempo)
                 company-keywords
-                company-files)))
+                company-files
+                company-ispell)))
 
 (add-hook 'org-mode-hook #'my/org-mode-completion-setting)
 
