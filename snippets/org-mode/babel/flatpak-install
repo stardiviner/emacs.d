@@ -5,5 +5,5 @@
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
 #+begin_src sh :async
-flatpak install -y --noninteractive ${1:flathub }${2:com.uploadedlobster.peek}
+flatpak install --system -y --noninteractive ${1:flathub }${2:com.uploadedlobster.peek}
 #+end_src
