@@ -96,43 +96,43 @@
   :hook ((c-mode c++-mode objc-mode) . irony-mode)
   :config
   ;; find the compile flag options automatically:
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 
-  (use-package company-irony
-    :ensure t
-    :ensure company-irony-c-headers
-    :custom (company-irony-ignore-case t)
-    :init
-    (defun my/company-irony-setup ()
-      ;; (optional) adds CC special commands to `company-begin-commands'
-      ;; in order to trigger completion at interesting places, such as
-      ;; after scope operator.
-      ;;     std::|
-      (company-irony-setup-begin-commands)
-      (make-local-variable 'company-backends)
-      (setq-local company-backends
-                  (list
-                   '(company-irony-c-headers
-                     :separate company-irony
-                     :separate company-tabnine
-                     :separate company-capf)
-                   (delete 'company-capf company-backends)))
-      (setq-local company-minimum-prefix-length 1))
+(use-package company-irony
+  :ensure t
+  :ensure company-irony-c-headers
+  :custom (company-irony-ignore-case t)
+  :init
+  (defun my/company-irony-setup ()
+    ;; (optional) adds CC special commands to `company-begin-commands'
+    ;; in order to trigger completion at interesting places, such as
+    ;; after scope operator.
+    ;;     std::|
+    (company-irony-setup-begin-commands)
+    (make-local-variable 'company-backends)
+    (setq-local company-backends
+                (list
+                 '(company-irony-c-headers
+                   :separate company-irony
+                   :separate company-tabnine
+                   :separate company-capf)
+                 (delete 'company-capf company-backends)))
+    (setq-local company-minimum-prefix-length 1))
 
-    (dolist (hook '(c-mode-hook
-                    c++-mode-hook
-                    objc-mode-hook))
-      (add-hook hook #'my/company-irony-setup)))
+  (dolist (hook '(c-mode-hook
+                  c++-mode-hook
+                  objc-mode-hook))
+    (add-hook hook #'my/company-irony-setup)))
 
-  (use-package irony-eldoc
-    :ensure t
-    :after irony
-    :hook (irony-mode . irony-eldoc))
+(use-package irony-eldoc
+  :ensure t
+  :after irony
+  :hook (irony-mode . irony-eldoc))
 
-  (use-package flycheck-irony
-    :ensure t
-    :after irony
-    :hook (flycheck-mode . flycheck-irony-setup)))
+(use-package flycheck-irony
+  :ensure t
+  :after irony
+  :hook (flycheck-mode . flycheck-irony-setup))
 
 ;;; [ cquery ] -- Low-latency language server supporting multi-million line C++ code-bases, powered by libclang.
 
