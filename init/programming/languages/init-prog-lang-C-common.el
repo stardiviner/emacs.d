@@ -129,11 +129,6 @@
   :after irony
   :hook (irony-mode . irony-eldoc))
 
-(use-package flycheck-irony
-  :ensure t
-  :after irony
-  :hook (flycheck-mode . flycheck-irony-setup))
-
 ;;; [ cquery ] -- Low-latency language server supporting multi-million line C++ code-bases, powered by libclang.
 
 ;; (use-package cquery
@@ -157,24 +152,6 @@
   (with-eval-after-load 'projectile
     (add-to-list 'projectile-project-root-files-top-down-recurring "compile_commands.json")
     (add-to-list 'projectile-project-root-files-top-down-recurring ".ccls")))
-
-;;; [ flycheck-clang-analyzer ] -- Integrate Clang Static Analyzer with flycheck for on-the-fly static analysis in Emacs.
-
-(use-package flycheck-clang-analyzer
-  :ensure t
-  :after flycheck
-  :hook ((c-mode c++-mode objc-mode) . flycheck-clang-analyzer-setup))
-
-;;; [ flycheck-cstyle ] -- Integrate cstyle with flycheck.
-
-;; (use-package flycheck-cstyle
-;;   :ensure t
-;;   :after flycheck
-;;   :hook ((c-mode c++-mode objc-mode) . flycheck-cstyle-setup)
-;;   :config (flycheck-add-next-checker 'c/c++-cppcheck '(warning . cstyle))
-;;   ;; If you do not use cppcheck then chain after whichever checker you do use (ie. clang / gcc / irony etc).
-;;   ;; (flycheck-add-next-checker 'c/c++-clang '(warning . cstyle))
-;;   )
 
 (use-package yaml-mode
   :ensure t
