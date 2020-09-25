@@ -22,7 +22,7 @@
   ;; setting the `org-crypt-tag-matcher' variable.
   (add-to-list 'org-default-properties "CRYPTKEY")
   ;; add `org-crypt' required tag to default persistent tag list.
-  (add-to-list 'org-tag-persistent-alist '("crypt" . ?b))
+  (add-to-list 'org-tag-persistent-alist '("crypt" . ?z))
   ;; set keybindings for org-crypt functions.
   (define-key org-mode-map (kbd "C-c C-r") 'org-encrypt-entry)
   (define-key org-mode-map (kbd "C-c M-r") 'org-decrypt-entry)

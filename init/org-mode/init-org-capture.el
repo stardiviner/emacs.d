@@ -46,10 +46,10 @@
          :jump-to-captured t)
         
         ;; Bookmark
-        ("u" ,(format "%s\tAdd an URL to Bookmarks database"
+        ("b" ,(format "%s\tAdd an URL to Bookmarks database"
                       (all-the-icons-faicon "bookmark" :face 'all-the-icons-yellow :v-adjust 0.05))
          entry (file "~/Org/Bookmarks/Bookmarks.org")
-         "* [[%^C][%^{link description}]]\n:PROPERTIES:\n:URL: %^C\n:DATE: %t\n:END: \n\n%?\n\n"
+         "* %^{bookmark description}\n:PROPERTIES:\n:URL: %^C\n:DATE: %t\n:END: \n\n%?\n\n"
          :empty-lines 1
          :jump-to-captured t)
         
@@ -61,7 +61,7 @@
          :empty-lines-before 1
          :empty-lines-after 1)
         
-        ("B" ,(format "%s\tRecord to Beauty"
+        ("W" ,(format "%s\tRecord to Beauty"
                       (all-the-icons-faicon "picture-o" :face 'all-the-icons-pink :v-adjust 0.05))
          entry (file "~/Org/Beauty/Beauty.org")
          "* %^{Name}\n   %^{DATE}p %^{GENDER}p %^{NAME(Chinese)}p %^{Name(English)}p %^{Constellation}p %^{Birthday}p %^{Address(Birth)}p %^{IMDb}p %^{Douban}p"

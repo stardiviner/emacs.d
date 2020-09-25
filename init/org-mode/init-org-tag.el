@@ -20,7 +20,7 @@
         ("outdated" . ?O)))
 
 ;; auto add tag "LOG" for [C-c C-z] add log note.
-(add-to-list 'org-tag-persistent-alist '("LOG" . ?z))
+(add-to-list 'org-tag-persistent-alist '("LOG"))
 (defun my/org-add-note--auto-add-tag ()
   "Auto add tag 'NOTE' when add note log."
   (org-back-to-heading)
@@ -53,7 +53,7 @@
         ("bee") ("coffee")
         ("hospital") ("medical") ("health")
         ("law") ("government") ("censorship") ("complaint")
-        ("watch") ("book" . ?h) ("bookmark") ("note") ("paperclip")
+        ("watch") ("book" . ?h) ("bookmark" . ?b) ("note") ("paperclip")
         ("file") ("archive") ("document") ("word") ("excel") ("powerpoint") ("pdf")
         ("image") ("video") ("audio")
         ("search") ("download") ("email") ("reply") ("share") ("rss")
