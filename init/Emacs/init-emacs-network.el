@@ -46,6 +46,12 @@
 ;;       socks-noproxy '("localhost")
 ;;       socks-server '("Default server" "127.0.0.1" 1086 5))
 
+;;; [ proxy-mode ] -- A minor mode to toggle proxy.
+
+(use-package proxy-mode
+  :ensure t
+  :commands (proxy-mode))
+
 ;;; [ use-proxy ] -- Easy way to enable/disable proxies in Emacs and Elisp.
 
 (use-package use-proxy
