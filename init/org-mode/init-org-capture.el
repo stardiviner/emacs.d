@@ -64,7 +64,7 @@
         ("W" ,(format "%s\tRecord to Beauty"
                       (all-the-icons-faicon "picture-o" :face 'all-the-icons-pink :v-adjust 0.05))
          entry (file "~/Org/Beauty/Beauty.org")
-         "* %^{Name}\n   %^{DATE}p %^{GENDER}p %^{NAME(Chinese)}p %^{Name(English)}p %^{Constellation}p %^{Birthday}p %^{Address(Birth)}p %^{IMDb}p %^{Douban}p"
+         "* %^{Name}\n   %^{DATE}p %^{GENDER}p %^{NAME(Chinese)}p %^{NAME(English)}p %^{Constellation}p %^{Birthday}p %^{Address(Birth)}p %^{IMDb}p %^{Douban}p"
          :empty-lines 1
          :jump-to-captured t)
         
