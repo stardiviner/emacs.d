@@ -38,6 +38,8 @@
 
 (setq-default indicate-buffer-boundaries 'left)
 
+;;; [[info:elisp#Layout Parameters][info:elisp#Layout Parameters]]
+
 (defun my/set-frame-border-width ()
   "Set frame default fringe, margin, border width."
   (let* ((hidpi-p (screen-hidpi-p))
@@ -49,7 +51,14 @@
                   right-fringe-width fringe-width)
     (setq-default left-margin-width margin-width
                   right-margin-width margin-width)
-    (set-frame-parameter nil 'internal-border-width border-width)))
+    (set-frame-parameter nil 'internal-border-width border-width)
+    (set-frame-parameter nil 'vertical-scroll-bars nil)
+    (set-frame-parameter nil 'horizontal-scroll-bars nil)
+    (set-frame-parameter nil 'scroll-bars-width nil)
+    (set-frame-parameter nil 'left-fringe nil)
+    (set-frame-parameter nil 'right-fringe nil)
+    (set-frame-parameter nil 'right-divider-width 0)
+    (set-frame-parameter nil 'bottom-divider-width 0)))
 
 (my/set-frame-border-width)
 
