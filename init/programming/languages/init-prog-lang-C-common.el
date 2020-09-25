@@ -25,8 +25,8 @@
   
   ;; indent
   (setq-default c-syntactic-indentation t
-                c-basic-offset 2
-                tab-width 2
+                c-basic-offset 4
+                tab-width 4
                 indent-tabs-mode nil    ; never use tab, always use space only.
                 tab-always-indent t ; make tab key always call a indent command.
                 )
