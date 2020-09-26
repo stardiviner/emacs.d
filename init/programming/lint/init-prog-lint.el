@@ -58,8 +58,7 @@
 
 (use-package flycheck-inline
   :ensure t
-  :hook ((flycheck-mode . flycheck-inline-mode)
-         (after-init . global-flycheck-inline-mode)))
+  :hook (flycheck-mode . flycheck-inline-mode))
 
 
 
