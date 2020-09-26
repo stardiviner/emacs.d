@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: EOF-2
+# key: EOF-2
+# group: output
+# --
+cat >> ${1:output file} << "EOF"
+$0
+EOF

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: org-mode ML mark as bug
+# key: org-mode-ML-mark-as-bug
+# group: mailing-list
+# --
+X-Woof-Bug: confirmed

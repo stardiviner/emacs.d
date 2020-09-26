@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: org-translate template
+# key: org-translate-template
+# group: org-translate
+# --
+* ${1:project name - source} :source:
+
+$0
+
+* ${2:project name - translation} :translation:
+
+* Glossary

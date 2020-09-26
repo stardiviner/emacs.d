@@ -7,5 +7,5 @@
 **** Clojure CLI/deps.edn
 
 #+begin_src sh :async
-clj -Sdeps '{:deps \{${1:${2:name} \{:mvn/version "${3:version}"\}}$0\}\}'
+clj -Sdeps '{:deps \{${1:${2:name} \{:mvn/version "${3:version}"\}}\}\}'
 #+end_src
