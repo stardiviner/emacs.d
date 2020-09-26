@@ -7,6 +7,8 @@
 
 ;;; Code:
 
+(setq search-invisible t) ; search for Org Mode invisible text.
+
 (setq org-occur-case-fold-search 'smart)
 
 ;;; org-agenda [C-c a s] / `org-search-view' search view.
