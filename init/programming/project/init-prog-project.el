@@ -41,6 +41,13 @@
 ;;   :preface (setq project-shells-keymap-prefix "C-c p M-!")
 ;;   :init (global-project-shells-mode 1))
 
+;;; [ ptemplate ] -- Powerful project (directory) templates for Emacs.
+
+(use-package ptemplate
+  :ensure t
+  :commands (ptemplate-new-project)
+  :config (add-to-list 'ptemplate-template-dirs (expand-file-name "ptemplate" user-emacs-directory)))
+
 
 (provide 'init-prog-project)
 
