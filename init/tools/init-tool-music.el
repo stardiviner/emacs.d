@@ -14,7 +14,7 @@
 
 ;;; [ EMMS ]
 
-(require 'init-emms)
+;; (require 'init-emms)
 
 ;;; [ mingus ] -- MPD Interface.
 
