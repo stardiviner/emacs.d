@@ -45,8 +45,15 @@
 
 (use-package ptemplate
   :ensure t
+  ;; :load-path "~/Code/Emacs/ptemplate"
   :commands (ptemplate-new-project)
   :config (add-to-list 'ptemplate-template-dirs (expand-file-name "ptemplate" user-emacs-directory)))
+
+(use-package ptemplate-templates
+  :load-path "~/Code/Emacs/ptemplate-templates"
+  :no-require t
+  :after ptemplate
+  :config (add-to-list 'ptemplate-template-dirs "~/Code/Emacs/ptemplate-templates/project-templates"))
 
 
 (provide 'init-prog-project)
