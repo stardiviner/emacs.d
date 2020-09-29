@@ -1,6 +1,6 @@
 ;;; init-eaf.el --- init for emacs-application-framework -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-09-28 12:26:07 stardiviner>
+;;; Time-stamp: <2020-09-29 18:48:44 stardiviner>
 
 ;;; Commentary:
 
@@ -12,14 +12,13 @@
 
 (use-package eaf
   :load-path "~/Code/Emacs/emacs-application-framework/"
-  :diminish eaf-mode
+  :demand t
   ;; :custom (eaf-enable-debug t)
   ;; [ `eaf-org' ] Org Mode integration
   ;; set overriding option before loading `eaf-org' to execute if condition.
-  :custom ((eaf-org-override-pdf-links t))
-  :requires (eaf-org)
-  :init (add-to-list 'display-buffer-alist '("\\*eaf pdf outline\\*" . (display-buffer-below-selected)))
   :config
+  (add-to-list 'display-buffer-alist '("\\*eaf pdf outline\\*" . (display-buffer-below-selected)))
+  
   (eaf-setq eaf-camera-save-path "~")
 
   ;; [ Dired ]
@@ -69,6 +68,10 @@
   (with-eval-after-load 'desktop
     (add-to-list 'desktop-modes-not-to-save 'eaf-mode))
 
+  ;; eaf-org
+  (require 'eaf-org)
+  (setq eaf-org-override-pdf-links t)
+  
   ;; eaf-interleave integration
   (add-hook 'eaf-pdf-viewer-hook 'eaf-interleave-app-mode)
   (add-hook 'eaf-browser-hook 'eaf-interleave-app-mode)
