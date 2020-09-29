@@ -16,28 +16,24 @@
 
 ;;; [ browse-url ] -- default browser function
 
-;; system default browser: (`browser-url-browser-function')
-;; - `browse-url-generic'
-;; - `browse-url-default-browser'
-;; - `browse-url-chrome'
-;; - `browse-url-firefox'
-;; - `browse-url-conkeror'
-;; - `eww-browse-url' (EWW)
-;; - `xwidget-webkit-browse-url'
+;;; [C-h P browse-url] to check out package description.
 
-(cl-case system-type
-  ('gnu/linux
-   (setq browse-url-chrome-program (executable-find "google-chrome-unstable"))
-   (setq browse-url-firefox-program (executable-find "firefox"))
-   ;; set generic browser program for `browse-url-generic'
-   (setq-default browse-url-browser-function 'browse-url-firefox)
-   (setq-default browse-url-generic-program browse-url-firefox-program))
-  ('darwin
-   (setq browse-url-chrome-program "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
-   (setq browse-url-firefox-program "/Applications/Firefox.app/Contents/MacOS/firefox")
-   ;; set generic browser program for `browse-url-generic'
-   (setq-default browse-url-browser-function 'browse-url-chrome)
-   (setq-default browse-url-generic-program browse-url-chrome-program)))
+(use-package browse-url
+  :defer t
+  :init
+  (cl-case system-type
+    ('gnu/linux
+     (setq browse-url-chrome-program (executable-find "google-chrome-unstable"))
+     (setq browse-url-firefox-program (executable-find "firefox"))
+     ;; set generic browser program for `browse-url-generic'
+     (setq-default browse-url-browser-function 'browse-url-firefox)
+     (setq-default browse-url-generic-program browse-url-firefox-program))
+    ('darwin
+     (setq browse-url-chrome-program "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+     (setq browse-url-firefox-program "/Applications/Firefox.app/Contents/MacOS/firefox")
+     ;; set generic browser program for `browse-url-generic'
+     (setq-default browse-url-browser-function 'browse-url-chrome)
+     (setq-default browse-url-generic-program browse-url-chrome-program))))
 
 
 (require 'init-eww)
