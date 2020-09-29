@@ -20,7 +20,7 @@
   :custom (;; user agent
            ;; 'message-user-agent, 'mail-user-agent, 'gnus-user-agent, 'mu4e-user-agent,
            (mail-user-agent 'message-user-agent)
-
+           
            (user-mail-address "numbchild@gmail.com")
            (user-full-name  "stardiviner")
            
@@ -35,7 +35,7 @@
            (sendmail-program (or (executable-find "msmtp") (executable-find "sendmail")))
            (mail-specify-envelope-from t)
            (mail-envelope-from 'header)
-	         (message-sendmail-envelope-from 'header)
+           (message-sendmail-envelope-from 'header)
            
            ;; send email with `smtpmail'
            ;; (message-send-mail-function 'message-smtpmail-send-it)
@@ -115,56 +115,35 @@
 ;; Send Mail [ Mail Sending Agent ] (MSA)                                           ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; [ smtpmail ] -- send email to remote mail host
-
-;;; [[info:smtpmail#Top][info:smtpmail#Top]]
-
-(use-package smtpmail
-  :defer t
-  :custom (;; for debug
-           ;; (smtpmail-debug-info t)
-           ;; (smtpmail-debug-verb t)
-           ;; specify sending mail agent
-           (message-send-mail-function send-mail-function)
-           (send-mail-function 'smtpmail-send-it)
-	         ;; configure Gmail SMTP server
-           (smtpmail-smtp-server "smtp.gmail.com")
-           (smtpmail-default-smtp-server smtpmail-smtp-server)
-	         ;; (smtpmail-stream-type 'ssl)
-           (smtpmail-smtp-service 587)  ; "smtp": 25, "smtps": 587
-           (smtpmail-smtp-user "numbchild@gmail.com")
-           ;; (smtpmail-auth-credentials (expand-file-name (car auth-sources)))
-           (smtpmail-local-domain "gmail.com")
-           ;; queue sending email
-           ;; (smtpmail-queue-mail t)
-           ;; (smtpmail-queue-dir "~/Mails/queue/")
-           ))
-
 (use-package sendmail
   :custom ((send-mail-function 'smtpmail-send-it)
            (mail-host-address user-mail-address)
            (mail-default-reply-to user-mail-address)))
 
-;;; NOTE: need to set `url.el' library proxy `url-proxy-services'.
+;;; [ smtpmail ] -- send email to remote mail host
 
-(defun smtpmail-send-email-with-proxy ()
-  (cond
-   ((featurep 'use-proxy)
-    (use-proxy-with-specified-proxies
-     '(("http" . "localhost:8118")
-       ("https" . "localhost:8118"))
-     (if smtpmail-queue-mail
-         (smtpmail-send-queued-mail)
-       (smtpmail-send-it))))
-   ((featurep 'with-proxy)
-    (with-proxy-url
-     :http-server "127.0.0.1:8118"
-     :https-server "127.0.0.1:8118"
-     (if smtpmail-queue-mail
-         (smtpmail-send-queued-mail)
-       (smtpmail-send-it))))))
+;;; [[info:smtpmail#Top][info:smtpmail#Top]]
 
-(setq send-mail-function 'smtpmail-send-email-with-proxy)
+;; (use-package smtpmail
+;;   :defer t
+;;   :custom (;; for debug
+;;            ;; (smtpmail-debug-info t)
+;;            ;; (smtpmail-debug-verb t)
+;;            ;; specify sending mail agent
+;;            (message-send-mail-function send-mail-function)
+;;            (send-mail-function 'smtpmail-send-it)
+;; 	         ;; configure Gmail SMTP server
+;;            (smtpmail-smtp-server "smtp.gmail.com")
+;;            (smtpmail-default-smtp-server smtpmail-smtp-server)
+;; 	         ;; (smtpmail-stream-type 'ssl)
+;;            (smtpmail-smtp-service 587)  ; "smtp": 25, "smtps": 587
+;;            (smtpmail-smtp-user "numbchild@gmail.com")
+;;            ;; (smtpmail-auth-credentials (expand-file-name (car auth-sources)))
+;;            (smtpmail-local-domain "gmail.com")
+;;            ;; queue sending email
+;;            ;; (smtpmail-queue-mail t)
+;;            ;; (smtpmail-queue-dir "~/Mails/queue/")
+;;            ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Retrieve Mail                                                                    ;;
