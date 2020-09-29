@@ -7,8 +7,30 @@
 
 ;;; Code:
 
-;;; auto preview latex on cycle expanding subtree.
-(add-hook 'org-cycle-hook #'org-latex-preview)
+;;; auto preview latex on cycle current TAB cycle expanded "visible" subtree.
+(defun org-display-subtree-with-latex-preview (&optional state)
+  "Toggle the preview of LaTeX under current expanded visible subtree."
+  (interactive)
+  (if (and (display-graphic-p)
+           (derived-mode-p 'org-mode)
+           (memq state '(children subtree))
+           ;; (not (memq state '(overview folded contents)))
+           )
+      (save-excursion
+        (save-restriction
+          (org-narrow-to-subtree)
+          (let* ((beg (point-min))
+                 (end (save-excursion (org-next-visible-heading 1) (point))))
+            (org--latex-preview-region beg end))))
+    (save-excursion
+      (save-restriction
+        (org-narrow-to-subtree)
+        (let* ((beg (point-min))
+               (end (save-excursion (org-next-visible-heading 1) (point))))
+          (org-clear-latex-preview  beg end))))))
+
+(add-hook 'org-cycle-hook #'org-display-subtree-with-latex-preview)
+
 
 (use-package ox-latex
   :config
