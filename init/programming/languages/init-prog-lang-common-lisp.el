@@ -69,16 +69,6 @@
 ;;     (load (expand-file-name "~/quicklisp/slime-helper.el"))
 ;;   (message "%s" "SLIME is not installed. Use Quicklisp to install it."))
 
-;;; [ Quickdocs ] -- Library Documentation Hosting for Common Lisp
-;; http://quickdocs.org/
-(use-package engine-mode
-  :ensure t
-  :defer t
-  :config
-  (defengine quickdocs
-    "http://quickdocs.org/search?q=%s"
-    :docstring "Quickdocs")
-  (define-key lisp-mode-map (kbd "C-h d q") 'engine/search-quickdocs))
 
 ;; (require 'init-slime)
 (require 'init-sly)
