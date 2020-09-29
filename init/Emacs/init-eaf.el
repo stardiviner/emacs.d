@@ -42,7 +42,7 @@
 
   ;; EAF app follow Emacs theme
   (eaf-setq eaf-browser-dark-mode "follow")
-  (eaf-setq eaf-pdf-dark-mode "follow")
+  (eaf-setq eaf-pdf-dark-mode "ignore")
   
   ;; set EAF web browser proxy
   (defun eaf-toggle-proxy (&optional proxy)
