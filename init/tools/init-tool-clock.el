@@ -7,6 +7,8 @@
 
 ;;; Code:
 
+;;; [ timeclock ] -- mode for keeping track of how much you work similar with `org-clock-in' and `org-clock-out'.
+
 ;;; [ World Clock ]
 
 ;;; Emacs default `display-time-mode' has this world clock list support.

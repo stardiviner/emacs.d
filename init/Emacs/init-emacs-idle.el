@@ -7,6 +7,10 @@
 
 ;;; Code:
 
+;;; [ type-break ] -- encourage rests from typing at appropriate intervals.
+
+;;; [M-x type-break]
+
 ;;; [ Zone out ]
 
 ;;; Usage:
