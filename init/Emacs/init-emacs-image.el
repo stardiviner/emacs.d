@@ -31,8 +31,10 @@
       (error "The buffer is not in Image mode"))
     (unless buffer-file-name
       (error "The current image is not associated with a file"))
-    (delete-file (buffer-file-name))
-    (image-next-file))
+    (let ((file (buffer-file-name)))
+      (image-next-file 1)
+      (delete-file file)
+      (message "Image file deleted.")))
 
   (define-key image-mode-map (kbd "D") 'image-delete-file))
 
