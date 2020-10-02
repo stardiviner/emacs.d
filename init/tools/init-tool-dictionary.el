@@ -115,6 +115,13 @@
   :defer t
   :commands (org-translate-mode))
 
+;;; [ english-teacher ] -- translate sentence following point.
+
+(use-package english-teacher
+  :load-path "~/Code/Emacs/english-teacher"
+  :commands (english-teacher-smart-translate)
+  :hook ((Info-mode Man-mode Woman-Mode elfeed-show-mode eww-mode) . english-teacher-follow-mode))
+
 
 (provide 'init-tool-dictionary)
 
