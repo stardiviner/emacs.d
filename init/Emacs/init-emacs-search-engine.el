@@ -18,6 +18,8 @@
         (append
          '(;; Search Engines
            ("Google" . [simple-query "google.com" "https://www.google.com.tw/search?safe=off&q=" ""])
+           ("DuckDuckGo" . [simple-query "duckduckgo.com" "https://duckduckgo.com/?q=" ""])
+           ("DogeDoge" . [simple-query "dogedoge.com" "https://www.dogedoge.com/results?q=" ""])
            ("Blekko" . [simple-query "blekko.com" "https://blekko.com/#?q=" ""])
            ("Bing" . [simple-query "bing.com" "http://cn.bing.com/search?q=" ""])
            ("Baidu 百度" . [simple-query "baidu.com" "http://www.baidu.com/s?wd=" ""])
