@@ -50,6 +50,13 @@
 ;;   :ensure t
 ;;   :config (load-theme 'poet t))
 
+;;; [ binder ] -- Emacs global minor mode facilitating multi-file writing projects.
+
+(use-package binder
+  :ensure t
+  :requires (binder-tutorial)            ; optional
+  :commands (binder-mode binder-toggle-sidebar))
+
 
 (provide 'init-authoring)
 
