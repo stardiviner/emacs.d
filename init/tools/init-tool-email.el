@@ -160,6 +160,16 @@
 
 (require 'init-mu4e)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Mailing List Archives                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package hyperkitty
+  :ensure t
+  :defer t
+  :commands (hyperkitty)
+  :custom (hyperkitty-mlists '(("test@mailman3.org" . "https://lists.mailman3.org/archives"))))
+
 
 
 (provide 'init-tool-email)
