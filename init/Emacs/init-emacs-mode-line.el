@@ -24,7 +24,8 @@ current window."
                         " " mode-line-buffer-identification
                         " " mode-line-position
                         " " '(vc-mode vc-mode)
-                        " " mode-line-process))
+                        ;; " " mode-line-process
+                        ))
                  (format-mode-line
                   (list " " mode-line-misc-info
                         " " mode-line-modes
