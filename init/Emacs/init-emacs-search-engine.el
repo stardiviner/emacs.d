@@ -80,6 +80,8 @@
            ("Facebook" . [simple-query "facebook.com" "https://www.facebook.com/" ""])
            ;; Law
            ("法信" . "http://www.faxin.cn/")
+           ;; Papers
+           ("arXiv e-Print archives" . [simple-query "arxiv.org" "https://arxiv.org/search/?query=" "&searchtype=all&abstracts=show&order=-announced_date_first&size=50"])
            )
          webjump-sample-sites)))
 
