@@ -12,13 +12,11 @@
 (use-package podcaster
   :ensure t
   :defer t
-  :bind (:map tools-prefix
-              ("P" . podcaster))
-  :config
-  (setq podcaster-feeds-urls
-        '("https://ipn.li/kernelpanic/feed"
-          "http://sachachua.com/blog/tag/emacs-chat/podcast"))
-  )
+  :commands (podcaster)
+  :bind (:map tools-prefix ("P" . podcaster))
+  :custom (podcaster-feeds-urls
+           '("https://ipn.li/kernelpanic/feed"
+             "http://sachachua.com/blog/tag/emacs-chat/podcast")))
 
 
 (provide 'init-tool-podcast)
