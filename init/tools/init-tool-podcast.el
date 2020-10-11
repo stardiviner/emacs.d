@@ -18,6 +18,18 @@
            '("https://ipn.li/kernelpanic/feed"
              "http://sachachua.com/blog/tag/emacs-chat/podcast")))
 
+;;; [ eradio ] -- A simple Internet radio player for Emacs.
+
+(use-package eradio
+  :ensure t
+  :commands (eradio-play eradio-stop)
+  :custom (eradio-channels '(("def con - soma fm" . "https://somafm.com/defcon256.pls") ; electronica with defcon-speaker bumpers
+                             ("metal - soma fm"   . "https://somafm.com/metal130.pls") ; \m/
+                             ("cyberia - lainon"  . "https://lainon.life/radio/cyberia.ogg.m3u") ; cyberpunk-esque electronica
+                             ("cafe - lainon"     . "https://lainon.life/radio/cafe.ogg.m3u") ; boring ambient, but with lain
+                             ))
+  )
+
 
 (provide 'init-tool-podcast)
 
