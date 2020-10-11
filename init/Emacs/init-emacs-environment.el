@@ -63,6 +63,13 @@
 ;;; open file with specified default encoding.
 ;; (add-to-list 'file-coding-system-alist '("\\.extension???" . utf-8))
 
+;;; [ unicad ] -- An elisp port of Mozilla Universal Charset Auto Detector.
+
+(use-package unicad
+  :ensure t
+  :delight 'unicad-mode
+  :init (unicad-mode))
+
 ;;; time
 
 (setq system-time-locale "C") ; make timestamps in org-mode appear in English.
