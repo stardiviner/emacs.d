@@ -23,6 +23,7 @@
            ("Blekko" . [simple-query "blekko.com" "https://blekko.com/#?q=" ""])
            ("Bing" . [simple-query "bing.com" "http://cn.bing.com/search?q=" ""])
            ("Baidu 百度" . [simple-query "baidu.com" "http://www.baidu.com/s?wd=" ""])
+           ("Magi" . [simple-query "magi.com" "https://magi.com/search?q=" ""])
            ;; wiki
            ("Wikipedia (zh-CN) 维基百科" . [simple-query "wikipedia.org" "http://www.wikipedia.org/search-redirect.php?language=zh&go=Go&search=" ""])
            ("Baidu·Baike 百度百科" . [simple-query "baike.baidu.com" "http://baike.baidu.com/search/none?word=" ""])
