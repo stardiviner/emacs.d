@@ -323,6 +323,13 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;;   :defer t
 ;;   :commands (cider-decompile-func cider-decompile-ns-func))
 
+;;; [ clj-decompile ] -- Small wrapper for clj-java-decompiler in GNU Emacs on top of CIDER.
+
+(use-package clj-decompiler
+  :ensure t
+  :commands (clj-decompiler-decompile)
+  :init (clj-decompiler-setup))
+
 ;;; [ cider-spy ] -- Spy on CIDER to get Info.
 
 ;; (use-package cider-spy
