@@ -21,6 +21,13 @@
              dotnet-sln-new dotnet-sln-add dotnet-sln-remove dotnet-sln-list)
   :init (add-to-list 'display-buffer-alist '("^\\*dotnet\\*" . (display-buffer-below-selected))))
 
+;;; [ sharper ] -- .NET Core (dotnet CLI wrapper) for Emacs (via transient).
+
+(use-package sharper
+  :ensure t
+  :defer t
+  :commands (sharper-main-transient))
+
 ;;; [ csproj-mode ] -- Work with .NET project files (csproj, vbproj).
 
 (use-package csproj-mode
