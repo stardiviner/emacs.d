@@ -36,6 +36,7 @@
 (require 'init-org-agenda)
 (require 'init-org-project-management)
 (require 'init-org-export)
+(require 'init-org-import)
 (if (and (file-exists-p "~/org-publish/")
          (file-exists-p "~/Org/Website/"))
     (require 'init-org-publish))
