@@ -77,6 +77,7 @@
 
 (use-package doc-view
   :defer t
+  :mode ("\\.doc\\'" . doc-view-mode)
   :commands (doc-view-mode))
 
 ;;; [ exif ] -- parsing Exif data in JPEG images.
