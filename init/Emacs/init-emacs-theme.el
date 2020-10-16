@@ -37,46 +37,6 @@
 
 (advice-add 'load-theme :around #'load-theme-hook-wrapper)
 
-;;; [ modus-themes ] -- Accessible themes for GNU Emacs, conforming with the highest accessibility standard for colour contrast between background and foreground values (WCAG AAA standard).
-
-;; (use-package modus-vivendi-theme
-;;   :ensure t
-;;   :custom ((modus-vivendi-theme-slanted-constructs t)
-;;            (modus-vivendi-theme-bold-constructs t)
-;;            (modus-vivendi-theme-variable-pitch-headings t)
-;;            (modus-vivendi-theme-scale-headings t)
-;;            (modus-vivendi-theme-fringes ' subtle)
-;;            (modus-vivendi-theme-distinct-org-blocks t)
-;;            (modus-vivendi-theme-org-blocks 'rainbow)
-;;            (modus-vivendi-theme-3d-modeline t)
-;;            (modus-vivendi-theme-mode-line '3d)
-;;            (modus-vivendi-theme-diffs 'desaturated)
-;;            (modus-vivendi-theme-completions 'moderate)
-;;            (modus-vivendi-theme-prompts 'intense)
-;;            (modus-vivendi-theme-intense-hl-line t)
-;;            (modus-vivendi-theme-intense-paren-match t)
-;;            (modus-vivendi-theme-faint-syntax t))
-;;   :config (load-theme 'modus-vivendi t))
-
-;; (use-package modus-operandi-theme
-;;   :ensure t
-;;   :custom ((modus-operandi-theme-slanted-constructs t)
-;;            (modus-operandi-theme-bold-constructs t)
-;;            (modus-operandi-theme-variable-pitch-headings t)
-;;            (modus-operandi-theme-scale-headings t)
-;;            (modus-operandi-theme-fringes ' subtle)
-;;            (modus-operandi-theme-distinct-org-blocks t)
-;;            (modus-operandi-theme-org-blocks 'rainbow)
-;;            (modus-operandi-theme-3d-modeline t)
-;;            (modus-operandi-theme-mode-line '3d)
-;;            (modus-operandi-theme-diffs 'desaturated)
-;;            (modus-operandi-theme-completions 'moderate)
-;;            (modus-operandi-theme-prompts 'intense)
-;;            (modus-operandi-theme-intense-hl-line t)
-;;            (modus-operandi-theme-intense-paren-match t)
-;;            (modus-operandi-theme-faint-syntax t))
-;;   :config (load-theme 'modus-operandi t))
-
 ;;; [ leuven-theme ]
 
 (use-package leuven-theme
