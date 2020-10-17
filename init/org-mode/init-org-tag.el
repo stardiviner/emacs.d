@@ -189,6 +189,7 @@
           ("deprecated" . ,(all-the-icons-faicon "bell-slash-o"))
           ("crypt" . ,(all-the-icons-faicon "lock"))
           ("private" . ,(all-the-icons-faicon "eye-slash"))
+          ("suggested" . ,(all-the-icons-faicon "flag-checkered"))
           ;; -----------------------------------------------------
           ("Org" . ,(all-the-icons-fileicon "org"))
           ("Emacs" . ,(all-the-icons-fileicon "emacs"))
@@ -253,7 +254,7 @@
           ("map" . ,(all-the-icons-faicon "map"))
           ("map_pin" . ,(all-the-icons-faicon "map-pin"))
           ("street_view" . ,(all-the-icons-faicon "street-view"))
-          ("location" . ,(all-the-icons-faicon "map-marker"))
+          ("location" . ,(all-the-icons-faicon "map-marker")) ; "location-arrow", "map-o", "map-pin", "map-signs"
           ("bee" . ,(all-the-icons-faicon "beer"))
           ("coffee" . ,(all-the-icons-faicon "coffee"))
           ("bicycle" . ,(all-the-icons-faicon "bicycle"))
@@ -264,6 +265,7 @@
           ("plane" . ,(all-the-icons-faicon "plane"))
           ("travel" . ,(all-the-icons-faicon "suitcase"))
           ("child" . ,(all-the-icons-faicon "child"))
+          ("recycle" . ,(all-the-icons-faicon "recycle"))
           ;; -----------------------------------------------------
           ("file" . ,(all-the-icons-faicon "file-text-o"))
           ("archive" . ,(all-the-icons-faicon "file-archive-o"))
@@ -547,6 +549,9 @@
           ("daoism" . ,(all-the-icons-fileicon "yin-yang"))
           ("tree" . ,(all-the-icons-fileicon "devicetree"))
           ("empire" . ,(all-the-icons-faicon "empire"))
+          ;; Finance
+          ("digital_currency" . ,(all-the-icons-faicon "btc"))
+          ("btc" . ,(all-the-icons-faicon "btc"))
           )))
 
 
