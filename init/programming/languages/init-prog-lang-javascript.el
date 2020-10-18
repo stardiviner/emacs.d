@@ -25,8 +25,7 @@
   (add-to-list 'org-babel-load-languages '(js . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("js" . "js"))
-  (add-to-list 'org-babel-default-header-args:js
-               '(:results . "output"))
+  (add-to-list 'org-babel-default-header-args:js '(:results . "output"))
 
   (defun ob-js-insert-session-header-arg (session)
     "Insert ob-js `SESSION' header argument.
@@ -45,6 +44,20 @@
        ("skewer-mode" "\"*skewer-repl*\"")
        ("indium" "\"*JS REPL*\""))))
   (define-key org-babel-map (kbd "J") 'ob-js-insert-session-header-arg))
+
+;;; [ ob-deno ] -- Babel Functions for Javascript/TypeScript with Deno.
+
+(use-package ob-deno
+  :ensure t
+  :commands (org-babel-execute:deno)
+  :config
+  (add-to-list 'org-babel-load-languages '(deno . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("deno" . "js"))
+  (add-to-list 'org-babel-default-header-args:deno '(:results . "output"))
+  ;; optional (require the typescript.el)
+  ;; (add-to-list 'org-src-lang-modes '("deno" . typescript))
+  )
 
 ;;; [ nvm ] -- Manage Node versions within Emacs.
 
