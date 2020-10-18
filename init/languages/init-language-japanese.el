@@ -27,7 +27,7 @@
 ;;; [ kana ] -- Learn Japanese kana (仮名，五十音) in Emacs.
 
 (use-package kana
-  :quelpa (kana :fetcher github :repo "chenyanming/kana")
+  :ensure t
   :commands (kana))
 
 
