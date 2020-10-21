@@ -31,12 +31,12 @@
 (use-package ess
   :ensure t
   :after org
-  :preface
-  (define-obsolete-variable-alias 'inferior-julia-program-name 'inferior-julia-program)
+  :preface (define-obsolete-variable-alias 'inferior-julia-program-name 'inferior-julia-program)
   :custom (inferior-julia-program (or (executable-find "julia-basic") "julia"))
   :init
   (use-package ob-julia
     :defer t
+    :custom (org-babel-julia-command "julia")
     :commands (org-babel-execute:julia)
     :config
     (add-to-list 'org-babel-load-languages '(julia . t))
