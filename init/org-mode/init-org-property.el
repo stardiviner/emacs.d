@@ -37,6 +37,37 @@
 (add-to-list 'org-default-properties "ISBN")
 (add-to-list 'org-default-properties "Douban")
 
+;;===============================================================================
+;;; auto evaluate inline source block in property "EVAL".
+
+(defcustom org-property-eval-keywords-list '("EVAL")
+  "A list of property keywords for evaluate code."
+  :type 'list
+  :safe #'listp
+  :group 'org)
+
+(defun org-property-eval-code (&optional state)
+  "Evaluate Org inline source block in property value."
+  (when (memq state '(children subtree))
+    ;; TODO: detect property keywords in `org-property-eval-keywords-list'.
+    ;; (require 'seq nil t)
+    ;; (seq-intersection ... org-property-eval-keywords-list)
+    (if-let ((inline-src-block (org-entry-get nil "EVAL" nil)))
+        (with-temp-buffer
+          (insert inline-src-block)
+          (goto-char (point-min))
+          (require 'ob-async nil t)
+          (setq-local org-babel-default-inline-header-args
+                      '((:results . "silent") (:async . t)))
+          (let* ((context (org-element-context))
+                 (src-block-info (org-babel-get-src-block-info nil context))
+                 (type (org-element-type context)))
+            (when (eq type 'inline-src-block)
+              ;; ob-async: `org-babel-execute-src-block:async'
+              (org-babel-execute-src-block nil src-block-info)))))))
+
+(add-hook 'org-cycle-hook #'org-property-eval-code)
+
 
 (provide 'init-org-property)
 
