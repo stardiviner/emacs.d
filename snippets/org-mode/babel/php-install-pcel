@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: php-install-pcel
+# key: php-install-pcel
+# group: babel.install.php
+# --
+** PECL
+
+#+begin_src sh
+pecl install $0
+#+end_src
