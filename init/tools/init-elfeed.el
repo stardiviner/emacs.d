@@ -92,11 +92,13 @@
   (define-key elfeed-search-mode-map (kbd "m") 'elfeed-search-toggle-all-star)
   
   (defun elfeed-quit ()
+    "Close elfeed buffers."
     (interactive)
     (elfeed-db-save)
-    (if (get-buffer "*elfeed-search*")
-        (with-current-buffer "*elfeed-search*"
-          (kill-buffer))))
+    (dolist (buffer '("*elfeed-log*" "*elfeed-search*"))
+      (when (buffer-live-p (get-buffer buffer))
+        (with-current-buffer buffer
+          (kill-buffer)))))
   (define-key elfeed-search-mode-map (kbd "q") 'elfeed-quit)
   (add-hook 'kill-emacs-hook #'elfeed-quit)
 
