@@ -25,8 +25,8 @@
            (user-full-name  "stardiviner"))
   :bind (:map tools-prefix ("m" . mu4e))
   :init
-  (add-to-list 'display-buffer-alist '("^ \\*mu4e-main*\\*" . (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist '("^ \\*mu4e-proc*\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^ \\*mu4e-main\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^ \\*mu4e-proc\\*" . (display-buffer-below-selected)))
   :config
   ;; the maildirs you use frequently; access them with 'j' ('jump')
   (setq mu4e-maildir-shortcuts
