@@ -28,14 +28,26 @@
   ;; next: 'emms-next-noerror
   ;; random: 'emms-random
   ;; only play current song: 'emms-stop
-  (setq emms-player-next-function 'emms-stop)
+  (setq emms-player-next-function 'emms-next-noerror)
 
   ;; [ Playlist ]
   ;; format
   (setq emms-browser-info-title-format "%i%T %t - %a"
         emms-browser-playlist-info-title-format emms-browser-info-title-format)
 
-  ;; (setq emms-repeat-playlist nil) ; don't repeat the playlist after the last track.
+  ;; for playlist like `emms-player-mpd'.
+  (setq emms-track-description-function 'my/emms-info-track-description)
+  (defun my/emms-info-track-description (track)
+    "Return a description of TRACK."
+    (let ((artist (emms-track-get track 'info-artist))
+          (title  (emms-track-get track 'info-title)))
+      (cond
+       ((and artist title)
+        (format "[ %s ] - %s" artist title))
+       (title
+        title)
+       (t
+        (emms-track-simple-description track)))))
   
   ;; [ Track ]
   
