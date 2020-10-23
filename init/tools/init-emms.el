@@ -31,10 +31,9 @@
   (setq emms-player-next-function 'emms-next-noerror)
 
   ;; [ Playlist ]
-  ;; format
-  (setq emms-browser-info-title-format "%i%T %t - %a"
-        emms-browser-playlist-info-title-format emms-browser-info-title-format)
+  ;; (setq emms-repeat-playlist nil) ; don't repeat the playlist after the last track.
 
+  ;; custom playlist track format
   ;; for playlist like `emms-player-mpd'.
   (setq emms-track-description-function 'my/emms-info-track-description)
   (defun my/emms-info-track-description (track)
