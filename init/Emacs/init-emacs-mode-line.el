@@ -44,14 +44,14 @@ current window."
 
 ;;; [ doom-modeline ] -- A minimal and modern mode-line.
 
-;; (use-package doom-modeline
-;;   :ensure t
-;;   :custom ((doom-modeline-buffer-file-name-style 'buffer-name)
-;;            (doom-modeline-icon t) ; don't use icon will be faster
-;;            (doom-modeline-github nil)
-;;            ;; Fix the laggy issue, by don't compact font caches during GC.
-;;            (inhibit-compacting-font-caches t))
-;;   :hook (after-init . doom-modeline-mode))
+(use-package doom-modeline
+  :ensure t
+  :custom (;; (doom-modeline-buffer-file-name-style 'buffer-name)
+           ;; (doom-modeline-icon nil) ; don't use icon will be faster
+           ;; (doom-modeline-github t) ; display GitHub notifications
+           ;; Fix the laggy issue, by don't compact font caches during GC.
+           (inhibit-compacting-font-caches t))
+  :hook (after-init . doom-modeline-mode))
 
 
 (provide 'init-emacs-mode-line)
