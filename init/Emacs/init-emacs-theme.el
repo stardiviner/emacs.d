@@ -51,6 +51,12 @@
   :load-path "~/Code/Emacs/one-themes"
   :config (load-theme 'one-dark t))
 
+;;; [ doom-themes ] -- an opinionated pack of modern color-themes.
+
+(use-package doom-themes
+  :ensure t
+  :config (load-theme 'doom-palenight t))
+
 ;;; [ circadian ] -- Theme-switching based on daytime.
 
 (use-package circadian
@@ -60,7 +66,7 @@
            (calendar-latitude 29.72)
            (calendar-longitude 120.20)
            (circadian-themes '((:sunrise . leuven)
-                               (:sunset . one-dark))))
+                               (:sunset . doom-palenight))))
   :hook (after-init . circadian-setup))
 
 ;;; Use large font for function name only in programming modes.
