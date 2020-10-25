@@ -62,6 +62,13 @@
               ("C-c C-j" . lsp-ui-imenu))
   :preface (if (featurep 'xwidget-internal) (setq lsp-ui-doc-use-webkit t)))
 
+;;; [ lsp-ivy ] -- LSP Ivy integration.
+
+(use-package lsp-ivy
+  :ensure t
+  :commands (lsp-ivy-workspace-symbol lsp-ivy-global-workspace-symbol)
+  :bind (:map lsp-command-map ("g G" . lsp-ivy-workspace-symbol)))
+
 ;;; [ lsp-treemacs ] -- LSP treemacs
 
 (use-package lsp-treemacs
@@ -91,13 +98,6 @@
   :custom (dap-auto-configure-features '(sessions locals controls tooltip))
   :init (dap-mode t) (dap-ui-mode t)
   :config (add-hook 'dap-stopped-hook (lambda (arg) (call-interactively #'dap-hydra))))
-
-;;; [ lsp-ivy ] -- LSP Ivy integration.
-
-(use-package lsp-ivy
-  :ensure t
-  :commands (lsp-ivy-workspace-symbol lsp-ivy-global-workspace-symbol)
-  :bind (:map lsp-command-map ("g G" . lsp-ivy-workspace-symbol)))
 
 ;;; [ lsp-docker ] -- lsp-mode uses lsp-docker to run language servers using in Docker containers.
 
