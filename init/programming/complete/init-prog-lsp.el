@@ -74,7 +74,8 @@
 (use-package lsp-treemacs
   :ensure t
   :hook (lsp-mode . lsp-treemacs-sync-mode)
-  :commands (lsp-treemacs-quick-fix
+  :commands (lsp-treemacs-errors-list
+             lsp-treemacs-quick-fix
              lsp-treemacs-symbols-list
              lsp-treemacs-references
              lsp-treemacs-implementations
