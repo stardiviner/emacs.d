@@ -94,31 +94,31 @@ Optional for Org-mode file: `LINK'."
                    ("\\.mm\\'" . "freeplane %s")
                    ;; Office
                    ;; Open Text Document
-                   ("\\.odt\\'" . "libreoffice %s")  ; Text Documentation
-                   ("\\.ods\\'" . "libreoffice %s")  ; Spreadsheet
-                   ("\\.odp\\'" . "libreoffice %s")  ; Presentation
-                   ("\\.odf\\'" . "libreoffice %s")  ; Database / Formula
+                   ("\\.odt\\'"  . "libreoffice %s")  ; Text Documentation
+                   ("\\.ods\\'"  . "libreoffice %s")  ; Spreadsheet
+                   ("\\.odp\\'"  . "libreoffice %s")  ; Presentation
+                   ("\\.odf\\'"  . "libreoffice %s")  ; Database / Formula
                    ;; Windows Office
-                   ("\\.doc\\'" . "libreoffice %s")
-                   ("\\.ppt\\'" . "libreoffice %s")
-                   ("\\.xls\\'" . "libreoffice %s")
+                   ("\\.doc\\'"  . "libreoffice %s")
+                   ("\\.ppt\\'"  . "libreoffice %s")
+                   ("\\.xls\\'"  . "libreoffice %s")
                    ("\\.docx\\'" . "libreoffice %s")
                    ("\\.pptx\\'" . "libreoffice %s")
                    ("\\.xlsx\\'" . "libreoffice %s")
                    ;; Video
-                   ("\\.mp4\\'" . "mpv %s")
-                   ("\\.mkv\\'" . "mpv %s")
-                   ("\\.mov\\'" . "mpv %s")
-                   ("\\.ogv\\'" . "mpv %s")
-                   ("\\.webm\\'" . "mpv %s")
-                   ("\\.flv\\'" . "mpv %s")
-                   ("\\.f4v\\'" . "mpv %s")
-                   ("\\.rmvb\\'" . "mpv %s")
+                   ("\\.mp4\\'"  . "mpv --slang=zho %s")
+                   ("\\.mkv\\'"  . "mpv --slang=zho %s")
+                   ("\\.mov\\'"  . "mpv --slang=zho %s")
+                   ("\\.ogv\\'"  . "mpv --slang=zho %s")
+                   ("\\.webm\\'" . "mpv --slang=zho %s")
+                   ("\\.flv\\'"  . "mpv --slang=zho %s")
+                   ("\\.f4v\\'"  . "mpv --slang=zho %s")
+                   ("\\.rmvb\\'" . "mpv --slang=zho %s")
                    ;; Audio
-                   ("\\.mp3\\'" . "mpv %s")
-                   ("\\.ogg\\'" . "mpv %s")
-                   ("\\.wav\\'" . "mpv %s")
-                   ("\\.m4a\\'" . "mpv %s")
+                   ("\\.mp3\\'"  . "mpv %s")
+                   ("\\.ogg\\'"  . "mpv %s")
+                   ("\\.wav\\'"  . "mpv %s")
+                   ("\\.m4a\\'"  . "mpv %s")
                    ("\\.midi\\'" . "timidity %s")))
      (add-to-list 'org-file-apps pair))
    
@@ -173,16 +173,19 @@ Optional for Org-mode file: `LINK'."
       ("mpv" (start-process
               (format "mpv %s" name)
               (format "*mpv %s*" name)
-              "mpv" file))
+              "mpv"
+              "--slang=zho" file))
       ("EAF" (eaf-open file))
       ("SMPlayer" (start-process
                    (format "smplayer %s" name)
                    (format "*smplayer %s*" name)
-                   "smplayer" file))
+                   "smplayer"
+                   file))
       ("MPlayer" (start-process
                   (format "mplayer %s" name)
                   (format "*mplayer %s*" name)
-                  "mplayer" file)))))
+                  "mplayer"
+                  "-slang=zh" file)))))
 (with-eval-after-load 'org
   (add-to-list 'org-file-apps '("\\.avi\\'" . my/org-open-video-file))
   (add-to-list 'org-file-apps '("\\.mp4\\'" . my/org-open-video-file))
