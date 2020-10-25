@@ -53,9 +53,9 @@
 
 ;;; [ doom-themes ] -- an opinionated pack of modern color-themes.
 
-(use-package doom-themes
-  :ensure t
-  :config (load-theme 'doom-palenight t))
+;; (use-package doom-themes
+;;   :ensure t
+;;   :config (load-theme 'doom-palenight t))
 
 ;;; [ circadian ] -- Theme-switching based on daytime.
 
@@ -66,7 +66,7 @@
            (calendar-latitude 29.72)
            (calendar-longitude 120.20)
            (circadian-themes '((:sunrise . leuven)
-                               (:sunset . doom-palenight))))
+                               (:sunset . one-dark))))
   :hook (after-init . circadian-setup))
 
 ;;; Use large font for function name only in programming modes.
