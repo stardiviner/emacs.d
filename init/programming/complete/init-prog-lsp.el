@@ -17,8 +17,8 @@
 (use-package lsp-mode
   :ensure t
   :defer t
-  :commands (lsp lsp-describe-session)
-  ;; :hook (prog-mode . lsp)
+  :commands (lsp lsp-deferred lsp-describe-session)
+  :hook (prog-mode . lsp-deferred)
   :bind (:map lsp-mode-map
               ("C-c C-d" . lsp-describe-thing-at-point)
               ("M-RET"   . lsp-execute-code-action))
