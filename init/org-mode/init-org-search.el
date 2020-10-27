@@ -200,23 +200,14 @@
   ;; NOTE very slow!!!
   ;; (define-key reference-prefix (kbd "i") 'rifle-Implementations-ref)
 
-  ;; Computer Technology Glossary
-  (defun rifle-Computer-ref ()
+  ;; Computer Science Glossary
+  (defun rifle-Computer-Science-ref ()
     (interactive)
     (let ((my-implements-reference-dir
            (concat org-directory
-                   "/Wiki/Computer Technology/Data/Manuals/My Computer Technology Glossary/")))
+                   "/Wiki/Computer Technology/Computer Science/Data/Manuals/Computer Science Glossary/")))
       (helm-org-rifle-directories (list my-implements-reference-dir))))
-  (define-key reference-prefix (kbd "M-c") 'rifle-Computer-ref)
-
-  ;; Programming Glossary
-  (defun rifle-Programming-ref ()
-    (interactive)
-    (let ((my-implements-reference-dir
-           (concat org-directory
-                   "/Wiki/Computer Technology/Programming/Data/Manuals/My Programming Glossary/")))
-      (helm-org-rifle-directories (list my-implements-reference-dir))))
-  (define-key reference-prefix (kbd "P") 'rifle-Programming-ref)
+  (define-key reference-prefix (kbd "M-c") 'rifle-Computer-Science-ref)
   
   ;; Mathematics
   (defun rifle-Math-ref ()
