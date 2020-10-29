@@ -189,7 +189,8 @@
           ("deprecated" . ,(all-the-icons-faicon "bell-slash-o"))
           ("crypt" . ,(all-the-icons-faicon "lock"))
           ("private" . ,(all-the-icons-faicon "eye-slash"))
-          ("suggested" . ,(all-the-icons-faicon "flag-checkered"))
+          ("suggested" . ,(all-the-icons-faicon "thumbs-o-up"))
+          ("idea" . ,(all-the-icons-faicon "lightbulb-o"))
           ("translation" . ,(all-the-icons-faicon "language"))
           ;; -----------------------------------------------------
           ("Org" . ,(all-the-icons-fileicon "org"))
