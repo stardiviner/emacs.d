@@ -36,10 +36,10 @@
 (add-to-list 'org-default-properties "PRESS")
 
 (setq org-tag-alist
-      '((:startgroup) ("Org" . ?o) ("idea" . ?i) ("suggested") (:endgroup)
+      '((:startgroup) ("Org" . ?o) ("translation" . ?t) ("idea" . ?i) ("suggested") (:endgroup)
 
         ;; Task
-        (:startgrouptag) ("@task" . ?t) (:grouptags)
+        (:startgrouptag) ("@task" . nil) (:grouptags)
         ("event") ("check") ("alert") ("flag") ("tag") ("question") ("info") ("quote")
         ("star") ("heart") ("smile") ("like") ("trash")
         ("lock") ("unlock") ("key")
@@ -190,6 +190,7 @@
           ("crypt" . ,(all-the-icons-faicon "lock"))
           ("private" . ,(all-the-icons-faicon "eye-slash"))
           ("suggested" . ,(all-the-icons-faicon "flag-checkered"))
+          ("translation" . ,(all-the-icons-faicon "language"))
           ;; -----------------------------------------------------
           ("Org" . ,(all-the-icons-fileicon "org"))
           ("Emacs" . ,(all-the-icons-fileicon "emacs"))
