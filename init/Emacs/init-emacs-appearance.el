@@ -517,6 +517,15 @@
                '(mu4e-compose-mode all-the-icons-material "email" :height 1.0 :v-adjust -0.5 :face all-the-icons-lyellow))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(slack-message-buffer-mode all-the-icons-faicon "slack" :v-adjust 0.0 :face all-the-icons-purple))
+
+  ;;=============================================================================
+  (add-to-list 'all-the-icons-icon-alist '("\\.webm" all-the-icons-faicon "file-video-o" :face all-the-icons-blue))
+  (add-to-list 'all-the-icons-icon-alist '("\\.opus" all-the-icons-faicon "file-audio-o" :v-adjust 0.0 :face all-the-icons-blue))
+  (add-to-list 'all-the-icons-icon-alist '("\\.pdf" all-the-icons-faicon "file-pdf-o" :v-adjust 0.0 :face all-the-icons-dred))
+  (add-to-list 'all-the-icons-icon-alist '("\\.djvu" all-the-icons-faicon "file-pdf-o" :v-adjust 0.0 :face all-the-icons-blue))
+  (add-to-list 'all-the-icons-icon-alist '("\\.epub" all-the-icons-faicon "file-text" :v-adjust 0.0 :face all-the-icons-blue))
+  (add-to-list 'all-the-icons-icon-alist '("\\.mobi" all-the-icons-faicon "file-text" :v-adjust 0.0 :face all-the-icons-blue))
+  (add-to-list 'all-the-icons-icon-alist '("\\.azw3" all-the-icons-faicon "file-text" :v-adjust 0.0 :face all-the-icons-blue))
   )
 
 ;;; [ beacon ] -- Highlight the cursor whenever the window scrolls.
