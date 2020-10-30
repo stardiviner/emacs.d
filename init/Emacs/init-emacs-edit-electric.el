@@ -12,6 +12,10 @@
 ;; (electric-indent-mode) ; globally
 (add-hook 'prog-mode-hook #'electric-indent-local-mode) ; mode locally
 
+;;; [ electric-quote-mode ]
+
+(add-hook 'prog-mode-hook #'electric-quote-local-mode)
+
 ;;; [ electric-pair-mode ]
 
 ;; (electric-pair-mode) ; globally
