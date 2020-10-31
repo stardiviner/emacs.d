@@ -7,17 +7,18 @@
 
 ;;; Code:
 
-;; emms prefix keybinding map
-(unless (boundp 'emms-prefix)
-  (define-prefix-command 'emms-prefix))
-(define-key tools-prefix (kbd "e") 'emms-prefix)
-
 ;;; [ EMMS ]
 
 (use-package emms
   :ensure t
   :defer t
+  :preface
+  ;; emms prefix keybinding map
+  (unless (boundp 'emms-prefix)
+    (define-prefix-command 'emms-prefix))
+  (define-key tools-prefix (kbd "e") 'emms-prefix)
   :custom (emms-source-file-default-directory "~/Music/")
+  :commands (emms emms-stop)
   :bind (:map emms-prefix ("e" . emms))
   :init (add-to-list 'display-buffer-alist '("^\\*EMMS Playlist\\*" . (display-buffer-below-selected)))
   :config
