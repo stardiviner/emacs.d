@@ -46,6 +46,9 @@
   :safe #'listp
   :group 'org)
 
+(dolist (prop org-property-eval-keywords-list)
+  (add-to-list 'org-default-properties prop))
+
 (defun org-property-eval-code (&optional state)
   "Evaluate Org inline source block in property value."
   (when (memq state '(children subtree))
