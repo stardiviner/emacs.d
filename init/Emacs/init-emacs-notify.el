@@ -29,6 +29,12 @@
         alert-persist-idle-time 900
         alert-fade-time 5))
 
+;;; [ ednc ] -- Emacs Desktop Notification Center.
+
+(use-package ednc
+  :ensure t
+  :hook (after-init . ednc-mode))
+
 
 (provide 'init-emacs-notify)
 
