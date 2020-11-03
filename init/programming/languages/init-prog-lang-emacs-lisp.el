@@ -38,8 +38,6 @@
   ;; (add-to-list 'org-babel-default-header-args:emacs-lisp
   ;;              '(:lexical . "yes"))
   (add-to-list 'org-babel-default-header-args:emacs-lisp
-               '(:results . "verbatim"))
-  (add-to-list 'org-babel-default-header-args:emacs-lisp
                '(:noweb . "yes")))
 
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
