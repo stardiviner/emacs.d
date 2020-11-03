@@ -21,6 +21,7 @@
 (require 'init-org-view)
 (require 'init-org-keybindings)
 (require 'init-org-complete)
+(require 'init-org-macro)
 (require 'init-org-table)
 (require 'init-org-hyperlink)
 ;; (require 'init-org-bibliography)
