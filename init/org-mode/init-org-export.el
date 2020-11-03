@@ -10,12 +10,13 @@
 
 (use-package ox
   :defer t
-  :init (setq org-export-with-clocks t
-              org-export-with-drawers t
-              org-export-with-properties t
-              org-export-with-planning t
-              ;; don't raise error exception when handling broken link to interrupt exporting process.
-              org-export-with-broken-links 'mark)
+  :init
+  (setq org-export-with-clocks t
+        org-export-with-drawers t
+        org-export-with-properties t
+        org-export-with-planning t
+        ;; don't raise error exception when handling broken link to interrupt exporting process.
+        org-export-with-broken-links 'mark)
 
   ;; Org-mode Babel
   ;; preserve spacing in src blocks when export LaTeX to PDF.
@@ -43,7 +44,8 @@
               org-html-use-infojs t ; 'when-configured
               org-html-htmlize-output-type 'inline-css ; make HTML self-containing
               org-html-wrap-src-lines t ; wrap individual lines into <code> element.
-              ))
+              )
+  :config (add-to-list 'org-export-global-macros '("kbd" . "@@html:<kbd>$1</kbd>")))
 
 ;;; Exporting JavaScript babel code block into <script> tag in HTML export.
 
