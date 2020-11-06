@@ -20,6 +20,7 @@
 (add-to-list 'org-default-properties "AUTHOR")
 (add-to-list 'org-default-properties "EMAIL")
 (add-to-list 'org-default-properties "URL")
+(add-to-list 'org-default-properties "SCORE")
 
 (add-to-list 'org-default-properties "Source-Code")
 (add-to-list 'org-default-properties "ISSUE")
