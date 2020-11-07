@@ -7,34 +7,24 @@
 
 ;;; Code:
 
-;;; [ vhdl-mode ]
+;;; [ vhdl-mode ] -- major mode for editing VHDL code.
 
 (use-package vhdl-mode
-  :ensure t
-  :init
-  (autoload 'vhdl-mode "vhdl-mode" "VHDL Mode" t)
-  (push '("\\.vhdl?\\'" . vhdl-mode) auto-mode-alist)
-  )
+  :defer t
+  :mode "\\.vhdl?\\'")
 
-
-;;; [ vhdl-capf ]
+;;; [ vhdl-capf ] -- Completion at point function (capf) for vhdl-mode.
 
 (use-package vhdl-capf
   :ensure t
-  :config
-  (vhdl-capf-enable)
-  )
+  :commands (vhdl-capf-enable)
+  :init (vhdl-capf-enable))
 
-
-;;; [ vhdl-tools ]
+;;; [ vhdl-tools ] -- Utilities for navigating vhdl sources.
 
 (use-package vhdl-tools
   :ensure t
-  :init
-  (add-hook 'vhdl-mode-hook
-            (lambda ()
-              (vhdl-tools-mode 1)))
-  )
+  :hook (vhdl-mode . vhdl-tools-mode))
 
 
 (provide 'init-prog-lang-HDL)
