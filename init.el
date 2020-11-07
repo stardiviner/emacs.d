@@ -200,7 +200,7 @@
 ;; (require 'init-communication)
 (require 'init-tool-music)
 ;; (require 'init-tool-subtitle)
-;; (require 'init-tool-audio)
+(require 'init-tool-audio)
 (require 'init-tool-video)
 ;; (require 'init-tool-screenshot)
 ;; (require 'init-tool-screencast)
