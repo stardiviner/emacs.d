@@ -226,7 +226,7 @@
 (require 'init-prog-template)
 (require 'init-prog-sidebar)
 (require 'init-prog-document)
-;; (require 'init-prog-eval)
+(require 'init-prog-eval)
 (require 'init-prog-compile)
 (require 'init-prog-build-system)
 (require 'init-prog-lint)
