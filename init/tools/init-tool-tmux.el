@@ -11,9 +11,9 @@
 
 (use-package emamux
   :ensure t
-  :config
-  (setq emamux:completing-read-type 'normal)
-  )
+  :defer t
+  :custom (emamux:completing-read-type 'normal)
+  :commands (emamux:run-command))
 
 
 (provide 'init-tool-tmux)
