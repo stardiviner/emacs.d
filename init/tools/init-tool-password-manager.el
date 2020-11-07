@@ -8,7 +8,7 @@
 
 ;;; [ pass ] -- packages around command line utility "pass".
 
-(require 'init-pass)
+;; (require 'init-pass)
 
 
 
