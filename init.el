@@ -370,7 +370,7 @@
 ;;; Authoring & Writing
 
 (require 'init-text-checker)
-;; (require 'init-authoring)
+(require 'init-authoring)
 
 ;;; Chef
 
