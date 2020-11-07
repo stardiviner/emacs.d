@@ -342,7 +342,7 @@
 
 ;;; Data Science
 
-;; (require 'init-data-science)
+(require 'init-data-science)
 
 
 (require 'init-log-tools)
