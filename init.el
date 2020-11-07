@@ -219,7 +219,7 @@
 (require 'init-prog-indent)
 (require 'init-prog-folding)
 (require 'init-prog-complete)
-;; (require 'init-prog-sense)
+(require 'init-prog-sense)
 ;; (require 'init-prog-parser)
 ;;; fix issue which `company-rtags' backend is before `company-irony'.
 (require 'init-prog-snippet)
