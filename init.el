@@ -237,7 +237,7 @@
 (require 'init-prog-profiler)
 (require 'init-prog-test)
 ;; (require 'init-prog-test-coverage)
-;; (require 'init-prog-reformat)
+(require 'init-prog-reformat)
 ;; (require 'init-prog-refactor)
 (require 'init-prog-project)
 (require 'init-prog-vcs)
