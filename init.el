@@ -314,7 +314,7 @@
 ;; (require 'init-NewSQL)
 (require 'init-NoSQL)
 ;; (require 'init-CQL)
-;; (require 'init-GraphQL)
+(require 'init-GraphQL)
 
 
 ;;; Programming Tools
