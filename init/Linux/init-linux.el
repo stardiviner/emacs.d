@@ -42,6 +42,12 @@
   :defer t
   :commands (helm-systemd))
 
+;;; [ ini-mode ] -- Major mode for Windows-style .ini files.
+
+(use-package ini-mode
+  :ensure t
+  :mode "\\.ini\\'")
+
 ;;; [ nginx-mode ]
 
 (use-package nginx-mode
