@@ -140,7 +140,7 @@
 (require 'init-emacs-shell)
 (require 'init-emacs-comint)
 (require 'init-emacs-subprocess)
-;; (require 'init-emacs-rpc)
+(require 'init-emacs-rpc)
 (require 'init-emacs-network)
 ;; (require 'init-emacs-xwidget)
 (require 'init-emacs-accessibility)
