@@ -19,21 +19,24 @@
   :ensure t
   :defer t
   :commands (nhexl-mode)
-  :hook (hexl-mode . nhexl-mode))
+  :hook (hexl-mode . nhexl-mode)
+  :config
+  ;; hexl-isearch: Let isearch search the binary instead of the hexl buffer.
+  (with-eval-after-load 'hexl-mode
+    (load (expand-file-name "init/extensions/hexl-isearch.el" user-emacs-directory))))
 
 ;;; [ hexview-mode ]
 
 ;; (use-package hexview-mode
 ;;   :ensure t
-;;   :config
-;;   (define-key prog-code-prefix (kbd "h") 'hexview-find-file)
-;;   )
-
+;;   :defer t
+;;   :config (define-key prog-code-prefix (kbd "h") 'hexview-find-file))
 
 ;;; [ elf-mode ] -- Show symbols in binaries.
 
 (use-package elf-mode
   :ensure t
+  :defer t
   :mode ("\\.\\(?:a\\|so\\)\\'" . elf-mode))
 
 ;;; [ intel-hex-mode ] -- An Emacs mode for Intel hex files.
@@ -41,12 +44,6 @@
 (use-package intel-hex-mode
   :ensure t
   :defer t)
-
-;;; [ hexl-isearch ] -- Let isearch search the binary instead of the hexl buffer.
-
-(with-eval-after-load 'hexl-mode
-  (load (expand-file-name "init/extensions/hexl-isearch.el" user-emacs-directory)))
-
 
 (provide 'init-tool-hex)
 

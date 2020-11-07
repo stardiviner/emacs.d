@@ -179,7 +179,7 @@
 (require 'init-tool-keyboard)
 (require 'init-SSH)
 ;; (require 'init-tool-tmux)
-;; (require 'init-tool-hex)
+(require 'init-tool-hex)
 (require 'init-tool-file)
 (require 'init-tool-diagram)
 (require 'init-tool-ascii)
