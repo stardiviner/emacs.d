@@ -18,6 +18,8 @@
 
 (use-package company-ledger
   :ensure t
+  :after ledger-mode
+  :defer t
   :config
   (defun my-company-ledger-setup ()
     (my-company-add-backend-locally 'company-ledger))
@@ -25,6 +27,7 @@
 
 (use-package flycheck-ledger
   :ensure t
+  :after ledger-mode
   :defer t
   :hook (ledger-mode . flycheck-mode)
   :config (add-hook 'ledger-mode-hook (lambda () (flycheck-select-checker 'ledger))))
