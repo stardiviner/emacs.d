@@ -184,7 +184,7 @@
 (require 'init-tool-diagram)
 (require 'init-tool-ascii)
 (require 'init-tool-painting)
-;; (require 'init-tool-network)
+(require 'init-tool-network)
 (require 'init-tool-browser)
 (require 'init-tool-downloader)
 (require 'init-tool-sync)
