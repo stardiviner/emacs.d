@@ -34,8 +34,7 @@
 ;;; [ fd-dired ] -- find-dired alternative using fd.
 
 (use-package fd-dired
-  ;; :ensure t
-  :quelpa (fd-dired :fetcher github :repo "stardiviner/fd-dired" :branch "develop")
+  :ensure t
   :defer t
   :custom (fd-dired-display-in-current-window nil)
   :commands (fd-dired)
