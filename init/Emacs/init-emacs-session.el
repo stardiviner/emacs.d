@@ -23,6 +23,13 @@
   (add-to-list 'desktop-path (expand-file-name "desktop-save" user-emacs-directory))
   (desktop-save-mode 1))
 
+;;; [ burly ] -- Save and restore window configurations and their buffers.
+
+;; (use-package burly
+;;   :ensure t
+;;   :defer t
+;;   :commands (burly-bookmark-frames burly-bookmark-windows burly-open-bookmark burly-open-url))
+
 
 (provide 'init-emacs-session)
 
