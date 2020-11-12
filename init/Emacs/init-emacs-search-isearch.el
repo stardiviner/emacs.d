@@ -79,13 +79,13 @@
 
 ;;; [ Swpier ] -- gives you an overview as you search for a regex.
 
-;; (use-package swiper
-;;   :ensure t
-;;   :defer t
-;;   ;; :bind ("C-s" . swiper)
-;;   :bind ("C-s" . counsel-grep-or-swiper)
-;;   :custom (counsel-grep-base-command "grep -E -i -n -e %s %s")
-;;   :custom-face (swiper-line-face ((t (:inherit nil :foreground nil)))))
+(use-package swiper
+  :ensure t
+  :defer t
+  ;; :custom-face (swiper-line-face ((t (:inherit nil :foreground nil))))
+  ;; :custom (counsel-grep-base-command "grep -E -i -n -e %s %s")
+  ;; :bind ("C-s" . counsel-grep-or-swiper)
+  :bind ("C-s" . swiper))
 
 
 (provide 'init-emacs-search-isearch)
