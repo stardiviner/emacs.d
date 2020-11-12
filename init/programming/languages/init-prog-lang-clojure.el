@@ -131,10 +131,10 @@
   ;; manage CIDER popup buffers.
   (add-to-list 'display-buffer-alist '("^\\*cider-.*\\*" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist '("^\\*nrepl-.*\\*" . (display-buffer-below-selected)))
-  (use-package cider-hydra
-    :ensure t
-    :hook ((cider-mode . cider-hydra-mode)
-           (cider-repl-mode . cider-hydra-mode)))
+  ;; (use-package cider-hydra
+  ;;   :ensure t
+  ;;   :hook ((cider-mode . cider-hydra-mode)
+  ;;          (cider-repl-mode . cider-hydra-mode)))
   :config
   ;; Frequently used connections
   ;; TODO: need to know how to run Docker container REPL with specific port.
