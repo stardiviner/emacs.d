@@ -28,9 +28,9 @@
               ("D" . vagrant-destroy)
               ("p" . vagrant-provision)
               ("e" . vagrant-edit))
-  :init (setq vagrant-project-directory "~/Code/Vagrant/Arch")
-  ;; (setq vagrant-up-options "")
-  )
+  :custom ((vagrant-project-directory "~/Code/Vagrant/Arch")
+           ;; (vagrant-up-options "")
+           ))
 
 
 ;;; [ vagrant-tramp ] -- Vagrant method for TRAMP.

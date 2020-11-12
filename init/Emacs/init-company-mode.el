@@ -114,7 +114,9 @@
   ;; NOTE: disable customize `company-transformers' to fix python-mode company candidates
   ;; sorting.
   ;; (setq company-transformers '(company-sort-by-backend-importance
-  ;;                              company-sort-prefer-same-case-prefix))
+  ;;                              company-sort-prefer-same-case-prefix
+  ;;                              ;; company-sort-by-occurrence
+  ;;                              ))
   
   ;; [ company-mode in minibuffer `M-:' ]
   (defun company-mode-minibuffer-setup ()
@@ -128,12 +130,12 @@
 
 (use-package company-box
   :ensure t
-  ;; :load-path "~/Code/Emacs/company-box"
   :delight company-box-mode
   :hook (company-mode . company-box-mode)
   :custom (;; (company-idle-delay 0.5) ; increase delay to avoid fast input slow down company speed.
            (company-box-doc-delay 0.5)
            ;; (company-box-doc-enable nil) ; disable auto `company-box-doc' timer.
+           ;; (company-box-icons-alist 'company-box-icons-all-the-icons)
            ))
 
 ;; [ company-tabnine ] -- A company-mode backend for TabNine, the all-language autocompleter.

@@ -62,7 +62,7 @@
 (setq org-footnote-auto-label 'confirm
       org-footnote-auto-adjust t
       org-footnote-define-inline nil ; t: define foot inline, instead of separate section.
-      org-footnote-section nil       ; let footnotes can be under any headline section.
+      org-footnote-section nil ; let footnotes can be under any headline section.
       org-footnote-fill-after-inline-note-extraction t)
 
 ;;; [ Structure Templates ] --  ; expand snippet <[s]

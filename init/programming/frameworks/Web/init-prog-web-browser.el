@@ -7,10 +7,10 @@
 
 ;;; Code:
 
-;;; [ dom ]
+;;; [ dom ] -- XML/HTML (etc.) DOM manipulation and searching functions.
 
 ;; (use-package dom
-;;   :ensure t)
+;;   :defer t)
 
 ;;; [ kite ] -- Emacs front end for the WebKit Inspector.
 

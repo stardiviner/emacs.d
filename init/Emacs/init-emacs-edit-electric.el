@@ -30,7 +30,7 @@
 ;;; [ show-paren-mode ] -- highlight matched parentheses.
 
 ;; (use-package paren
-;;   :custom (show-paren-style 'parenthesis)
+;;   :custom (show-paren-style 'parenthesis) ; 'expression
 ;;   :custom-face (show-paren-match ((t (:background "green yellow"))))
 ;;   :init (show-paren-mode 1))
 
