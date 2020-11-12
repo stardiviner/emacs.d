@@ -1,6 +1,6 @@
 # key: main
 # name: main
 # --
-int main(${1:}) {
+int main(${1:int argc, char const *argv[]}) {
   $0
 }
