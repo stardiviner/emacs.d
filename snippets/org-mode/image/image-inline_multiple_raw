@@ -2,18 +2,12 @@
 # name: image-inline_multiple_raw
 # key: image-inline_multiple_raw
 # group: image
+# expand-env: ((yas-indent-line 'auto))
 # --
-#+NAME: ${2:image-list-name}
-#+begin_src sh :results output table
-ls ${1:/path/to/images/dir/}
-#+end_src
-
-#+begin_src ruby :var list=$2 :results output raw
-list.each do |file|
-  puts "#+ATTR_ORG: :width ${3:200/250/300/400/500/600}"
-  puts "#+ATTR_LATEX: :width ${3:$(/ (string-to-number yas-text) 100.0)}in"
-  puts "#+ATTR_HTML: :width $3px"
-  # here image is an Array. you need to access element with image[0].
-  puts "[[file:#{file[0]}]]\n\n"
-end
+#+begin_src emacs-lisp :results value replace raw :var dir="${1:/path/to/dir}"
+(let ((files (directory-files dir nil ".flv"))
+      (link-str ""))
+  (dolist (pic files)
+    (setq link-str (concat link-str (format "[[file:%s/%s]]\n\n" dir pic))))
+  link-str)
 #+end_src
