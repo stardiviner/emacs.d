@@ -4,7 +4,7 @@
 # group: defn.defn
 # --
 defn${6:-} ${1:function-name}
-  ${2:doc-string?
+  ${2:"doc-string?"
   }${3:metadata-map?
   }[${4:arg-list*}]
   ${5:conditions-map?}$0
