@@ -76,10 +76,16 @@
 
 ;;; [ ivy-posframe ] -- Using posframe to show Ivy.
 
-;; (use-package ivy-posframe
-;;   :ensure t
-;;   :after ivy
-;;   :hook (after-init . ivy-posframe-mode))
+(use-package ivy-posframe
+  :ensure t
+  :after ivy
+  :custom (;; (ivy-posframe-style 'window-bottom-left)
+           (ivy-posframe-display-functions-alist
+            '((swiper          . ivy-posframe-display-at-point)
+              (complete-symbol . ivy-posframe-display-at-point)
+              (counsel-M-x     . ivy-posframe-display-at-window-bottom-left)
+              (t               . ivy-posframe-display))))
+  :hook (after-init . ivy-posframe-mode))
 
 
 (provide 'init-ivy)
