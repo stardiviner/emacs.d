@@ -49,7 +49,7 @@
         ;; Life
         (:startgrouptag) ("@life" . nil) (:grouptags)
         ("talk") ("call") ("shopping") ("express")
-        ("finance") ("money") ("credit_card") ("btc")
+        ("finance") ("money") ("credit_card") ("PayPal") ("btc")
         ("bee") ("coffee")
         ("hospital") ("medical") ("health")
         ("law") ("government") ("censorship") ("complaint")
@@ -239,7 +239,7 @@
           ("credit_card" . ,(all-the-icons-faicon "credit-card-alt"))
           ("visa" . ,(all-the-icons-faicon "cc-visa"))
           ("mastercard" . ,(all-the-icons-faicon "cc-mastercard"))
-          ("paypal" . ,(all-the-icons-faicon "cc-paypal"))
+          ("PayPal" . ,(all-the-icons-faicon "paypal"))
           ("stripe" . ,(all-the-icons-faicon "cc-stripe"))
           ("gratipay" . ,(all-the-icons-faicon "gratipay"))
           ("btc" . ,(all-the-icons-faicon "btc"))
