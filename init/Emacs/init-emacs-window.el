@@ -66,7 +66,8 @@
   :bind ("C-x C-j" . ace-window)
   :init (setq aw-background nil)
   ;; refresh eldoc after ace-window selecting window.
-  :config (with-eval-after-load 'eldoc (eldoc-add-command 'ace-window)))
+  :config (with-eval-after-load 'eldoc (eldoc-add-command 'ace-window))
+  :custom-face (aw-leading-char-face ((t (:inherit nil :height 250 :foreground "red")))))
 
 ;;; [ hydra ]
 
