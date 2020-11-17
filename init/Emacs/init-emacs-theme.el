@@ -57,6 +57,12 @@
 ;;   :ensure t
 ;;   :config (load-theme 'doom-palenight t))
 
+;;; [ dracula-theme ] -- Dark theme for Emacs and 137+ apps.
+
+;; (use-package dracula-theme
+;;   :ensure t
+;;   :config (load-theme 'dracula t))
+
 ;;; [ circadian ] -- Theme-switching based on daytime.
 
 (use-package circadian
