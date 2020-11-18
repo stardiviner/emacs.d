@@ -15,17 +15,18 @@
 (use-package benchmark-init
   :if my/emacs-benchmark-toggle
   :ensure t
-  :commands (benchmark-init/show-durations-tree
-             benchmark-init/show-durations-tabulated)
+  :defer t
+  :commands (benchmark-init/show-durations-tree benchmark-init/show-durations-tabulated)
   :init (benchmark-init/activate)
   ;; increase to fix error on `benchmark-init/show-durations-tree'
-  :config (setq max-specpdl-size 2500))
+  :custom (max-specpdl-size 2500))
 
 ;;; [ esup ] -- the Emacs StartUp Profiler
 
 (use-package esup
   :if my/emacs-benchmark-toggle
   :ensure t
+  :defer t
   :commands (esup))
 
 
