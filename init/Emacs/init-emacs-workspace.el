@@ -13,11 +13,10 @@
   :defer t
   :custom (eyebrowse-keymap-prefix (kbd "C-x w"))
   :hook (after-init . eyebrowse-mode)
-  :init
-  (setq eyebrowse-new-workspace t
-        eyebrowse-close-window-config-prompt t
-        ;; it has very often invoked by `posn-at-point' affect performance.
-        eyebrowse-mode-line-style 'current)
+  :custom ((eyebrowse-new-workspace t)
+           (eyebrowse-close-window-config-prompt t)
+           ;; it has very often invoked by `posn-at-point' affect performance.
+           (eyebrowse-mode-line-style 'current))
   :config
   ;; Fix side-window issue.
   ;; also save side and slot windows configuration.
