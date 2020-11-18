@@ -1,6 +1,6 @@
 ;;; init-eaf.el --- init for emacs-application-framework -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-09-29 18:48:44 stardiviner>
+;;; Time-stamp: <2020-11-18 18:29:04 stardiviner>
 
 ;;; Commentary:
 
@@ -12,8 +12,9 @@
 
 (use-package eaf
   :load-path "~/Code/Emacs/emacs-application-framework/"
-  :demand t
+  :defer t
   ;; :custom (eaf-enable-debug t)
+  :commands (eaf-open)
   ;; [ `eaf-org' ] Org Mode integration
   ;; set overriding option before loading `eaf-org' to execute if condition.
   :config

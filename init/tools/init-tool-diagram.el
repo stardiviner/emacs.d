@@ -29,19 +29,17 @@
              ((equal color-name "green") "GRE")
              ((equal color-name "yellow") "YEL")
              ((equal color-name "blue") "BLU")
-             ((equal color-name "pink") "PNK")
-             )))
-      
+             ((equal color-name "pink") "PNK"))))
       (artist-text-insert-overwrite (current-column) (1- (count-lines 1 (point)))
-                                    (concat "c" color-value))
-      ))
+                                    (concat "c" color-value))))
 
   (define-key artist-mode-map (kbd "C-c C-a C-c") 'artist-select-colors)
   (define-key artist-mode-map (kbd "C-c C-o") 'artist-select-operation))
 
-;;; [ picture-mode ]
+;;; [ picture ] -- "Picture mode" -- editing using quarter-plane screen model.
 
-(require 'picture)
+(use-package picture
+  :defer t)
 
 ;;; [ asymptote ] -- A vector graphics language (like metapost).
 

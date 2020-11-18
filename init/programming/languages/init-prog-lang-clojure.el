@@ -327,8 +327,9 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 (use-package clj-decompiler
   :ensure t
+  :defer t
   :commands (clj-decompiler-decompile)
-  :init (clj-decompiler-setup))
+  :hook (cider-mode . clj-decompiler-setup))
 
 ;;; [ cider-spy ] -- Spy on CIDER to get Info.
 

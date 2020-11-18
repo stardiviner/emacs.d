@@ -15,7 +15,6 @@
 (use-package benchmark-init
   :if my/emacs-benchmark-toggle
   :ensure t
-  :defer t
   :commands (benchmark-init/show-durations-tree benchmark-init/show-durations-tabulated)
   :init (benchmark-init/activate)
   ;; increase to fix error on `benchmark-init/show-durations-tree'

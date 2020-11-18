@@ -23,6 +23,8 @@
 
 (use-package ob-graphql
   :ensure t
+  :defer t
+  :commands (org-babel-execute:graphql)
   :config
   (add-to-list 'org-babel-load-languages '(graphql . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))

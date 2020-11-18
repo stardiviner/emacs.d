@@ -87,7 +87,8 @@
 
 (use-package company-web
   :ensure t
-  :config
+  :defer t
+  :init
   (defun my:html-mode-company-add ()
     "Add company-mode backend like `company-web-html' for completion."
     (make-variable-buffer-local 'company-backends)

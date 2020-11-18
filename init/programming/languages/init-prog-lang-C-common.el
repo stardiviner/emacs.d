@@ -101,6 +101,7 @@
 (use-package company-irony
   :ensure t
   :ensure company-irony-c-headers
+  :defer t
   :custom (company-irony-ignore-case t)
   :init
   (defun my/company-irony-setup ()

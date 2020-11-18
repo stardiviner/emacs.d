@@ -11,9 +11,13 @@
 
 (use-package tramp
   :defer t
+  :custom ((tramp-default-method "ssh")
+           ;; speed-up tramp.
+           (tramp-completion-reread-directory-timeout nil))
   :config
   ;; Shell `/ssh:' etc methods
   (use-package tramp-sh
+    :defer t
     :init (add-to-list 'tramp-remote-path "~/bin"))
   
   ;; `/sudoedit:' method
@@ -23,22 +27,15 @@
   ;; Android `/adb:' method
   (use-package tramp-adb
     :defer t)
-
-  ;; <default method>
-  (setq tramp-default-method "ssh")
-  ;; speed-up tramp.
-  (setq tramp-completion-reread-directory-timeout nil)
+  
   ;; change SHELL environment variable to solve Tramp hangs issue.
   ;; (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
   ;; fix /bin/zsh no such file or directory issue on remote host.
   ;; (setq explicit-shell-file-name "/bin/bash")
+  
   ;; for verbose debug
   ;; (setq tramp-verbose 10) ; for debug TRAMP
-  :config
-  (setq tramp-auto-save-directory "/tmp")
-  (with-eval-after-load 'tramp-cache
-    (setq tramp-persistency-file-name (concat user-emacs-directory "tramp")))
-  
+
   (add-to-list 'tramp-default-method-alist '(nil "%" "smb"))
 
   ;; <default user>
