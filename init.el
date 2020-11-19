@@ -301,6 +301,7 @@
 ;; (require 'init-prog-lang-toml)
 ;; (require 'init-prog-lang-prolog)
 ;; (require 'init-prog-lang-ocaml)
+;; (require 'init-prog-lang-fortran)
 ;; (require 'init-prog-lang-verilog)
 ;; (require 'init-prog-lang-assembly)
 ;; (require 'init-prog-lang-forth)
