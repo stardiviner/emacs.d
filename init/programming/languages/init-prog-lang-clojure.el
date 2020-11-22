@@ -270,7 +270,8 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   (remove-hook 'find-file-hook #'cljr--ensure-no-dashes-in-filename)
 
   ;; fix "/" does not trigger `company-mode' auto popup.
-  (add-to-list 'company-begin-commands 'cljr-slash))
+  (with-eval-after-load 'company
+    (add-to-list 'company-begin-commands 'cljr-slash)))
 
 ;;; [ debux.el ] -- Integrate Clojure/ClojureScript debugger "Debux" into Emacs.
 
