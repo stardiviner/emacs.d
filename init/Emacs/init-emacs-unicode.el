@@ -34,7 +34,14 @@
 
 (define-key global-map [remap insert-char] 'ucs-utils-ucs-insert) ; [C-x 8 RET]
 
+;;; [ insert-char-preview ] -- Insert Unicode char via insert-char-preview
+;;; similar to insert-char command, but with character preview in completion
+;;; prompt.
 
+(use-package insert-char-preview
+  :ensure t
+  :commands (insert-char-preview)
+  :bind ("C-x 8 RET" . insert-char-preview))
 
 (provide 'init-emacs-unicode)
 
