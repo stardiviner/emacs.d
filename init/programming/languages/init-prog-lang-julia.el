@@ -32,15 +32,17 @@
   :ensure t
   :after org
   :preface (define-obsolete-variable-alias 'inferior-julia-program-name 'inferior-julia-program)
-  :custom (inferior-julia-program (or (executable-find "julia-basic") "julia"))
-  :init
-  (use-package ob-julia
-    :defer t
-    :custom (org-babel-julia-command "julia")
-    :commands (org-babel-execute:julia)
-    :config
-    (add-to-list 'org-babel-load-languages '(julia . t))
-    (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)))
+  :custom (inferior-julia-program (or (executable-find "julia-basic") "julia")))
+
+(use-package ob-ess-julia
+  :ensure t
+  :defer t
+  :commands (org-babel-execute:ess-julia)
+  :config
+  (add-to-list 'org-babel-load-languages '(ess-julia . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  ;; Link this language to ess-julia-mode (although it should be done by default):
+  (add-to-list 'org-src-lang-modes '("ess-julia" . ess-julia)))
 
 ;;; [ julia-shell ] -- Emacs major mode for an interactive Julia shell.
 
