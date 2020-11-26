@@ -87,10 +87,11 @@
 (use-package tramp-auto-auth
   :ensure t
   :defer t
+  :commands (tramp-auto-auth-mode)
+  :init (tramp-auto-auth-mode 1)
   :config
   (add-to-list 'tramp-auto-auth-alist '("root@localhost" . (:host "localhost" :user "root" :port "ssh")))
-  (add-to-list 'tramp-auto-auth-alist '("root@dark" . (:host "dark" :user "root" :port "ssh")))
-  (tramp-auto-auth-mode 1))
+  (add-to-list 'tramp-auto-auth-alist '("root@dark" . (:host "dark" :user "root" :port "ssh"))))
 
 ;;; [ counsel-tramp ] -- Tramp with Ivy/counsel interface.
 
