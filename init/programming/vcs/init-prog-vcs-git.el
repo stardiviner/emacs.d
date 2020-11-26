@@ -9,6 +9,10 @@
   (define-prefix-command 'prog-vcs-git-prefix))
 (define-key 'prog-vcs-prefix (kbd "g") 'prog-vcs-git-prefix)
 
+;;; [ vc-git ]
+
+(use-package vc-git
+  :defer t)
 
 ;; [ Git modes ] -- front end wrapper for vc-git.
 
