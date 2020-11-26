@@ -28,16 +28,16 @@
           ;; Emacs
           ("https://planet.emacslife.com/atom.xml" Emacs) ; EmacsLife Planet
           ;; ("https://www.reddit.com/r/emacs/.rss" Emacs Reddit) ; Reddit r/Emacs
-          ;; ("https://www.reddit.com/r/orgmode/.rss" Emacs Org-mode Reddit) ; Reddit r/Org-mode
+          ;; ("https://www.reddit.com/r/orgmode/.rss" Org-mode Reddit) ; Reddit r/Org-mode
           ("https://sachachua.com/blog/feed/atom/" Blog Emacs) ; Sacha Chua Blog
           ("https://www.bytedude.com/feed.xml" Blog Emacs) ; ByteDude
           ;; Web
           ;; ("https://blog.mozilla.org/feed/" Mozilla) ; Mozilla Blog
           ;; ("http://hacks.mozilla.org/feed/" Mozilla Web) ; Mozilla Hacks
           ;; Linux
-          ;; ("https://www.linux.com/rss/feeds.php" Linux)
-          ;; ("http://lwn.net/headlines/newrss" Linux)
-          ;; ("http://linux.cn/rss.xml" Linux)
+          ;; ("https://www.linux.com/rss/feeds.php" Linux) ; linux.com
+          ;; ("http://lwn.net/headlines/newrss" Linux) ; lwn.net
+          ;; ("http://linux.cn/rss.xml" Linux) ; Linux.cn
           ;; Arch Linux
           ("https://archlinux.org/feeds/planet" Arch Linux) ; Arch Linux RSS
           ;; DevOps
@@ -75,6 +75,7 @@
           ("https://shibumi.dev/posts/index.xml" Blog) ; shibumi
           ("https://cireu.github.io/rss.xml" Blog) ; cireu
           ("http://feeds.feedburner.com/felixcat" Blog) ; Felix (felixonmars)
+          ("http://blog.binchen.org/rss.xml" Blog) ; chen bin
           ;; Kali Linux
           ("http://www.kali.org/feed/" Kali Linux Subscribe) ; Kali Linux Blog
           ;; Subscribe
