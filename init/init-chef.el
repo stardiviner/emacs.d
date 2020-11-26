@@ -14,7 +14,8 @@
                  (file (concat org-directory
                                "/Wiki/Chef/Recipes/Data/Manuals/My Recipes Reference/My Recipes Reference.org"))
                  "* %^{Recipe Name}"
-                 :empty-lines 1)))
+                 :empty-lines 1)
+               :append))
 
 
 ;;; [ org-chef ] -- A package for making a cookbook and managing recipes with Org-mode.
@@ -30,7 +31,8 @@
 ;;                    entry
 ;;                    (file "~/Org/Wiki/Chef/Recipes/Data/Manuals/My Recipes Reference/My Recipes Reference.org")
 ;;                    "%(org-chef-get-recipe-from-url)"
-;;                    :empty-lines 1))))
+;;                    :empty-lines 1)
+;;                  :append)))
 
 
 

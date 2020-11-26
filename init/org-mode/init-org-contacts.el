@@ -47,7 +47,8 @@
 :Hobbies: %^{Hobbies|Reading|Music|Movie|Travel}
 :END:"
                  :empty-lines 0
-                 :jump-to-captured t))
+                 :jump-to-captured t)
+               :append)
 
   (setq org-contacts-matcher
         "NAME<>\"\"|EMAIL<>\"\"|Mailing-List<>\"\"|ALIAS<>\"\"|RELATIONSHIP<>\"\"|PHONE<>\"\"|ADDRESS<>\"\"|BIRTHDAY<>\"\"|PROGRAMMING-SKILLS<>\"\"|SKILLS<>\"\"|EDUCATION<>\"\"|JOBS<>\"\"|NOTE"

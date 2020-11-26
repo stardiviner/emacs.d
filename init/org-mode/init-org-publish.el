@@ -29,7 +29,8 @@
                    :empty-lines 1
                    :prepend t
                    :immediate-finish t
-                   :jump-to-captured t)))
+                   :jump-to-captured t)
+                 :append))
   :config
   (use-package ox-html
     :init

@@ -46,7 +46,8 @@
 
 (with-eval-after-load 'org-capture
   (setq org-capture-templates
-        (append `(("l" ,(format "%s\tledger" (all-the-icons-faicon "money" :face 'all-the-icons-green)))
+        (append org-capture-templates
+                `(("l" ,(format "%s\tledger" (all-the-icons-faicon "money" :face 'all-the-icons-green)))
                   ;; Expense
                   ("le" ,(format "%s\tExpenses 支出"
                                  (all-the-icons-faicon "minus-circle" :face 'all-the-icons-green)))
@@ -146,8 +147,7 @@
                    plain
                    (file (lambda () (concat org-directory "/Accounting/finances.ledger")))
                    "%(org-read-date) %^{Event}\n assets:online-account:%^{ZhiFuBao}  %^{Amount}\n%?"
-                   :empty-lines-before 1))
-                org-capture-templates)))
+                   :empty-lines-before 1)))))
 
 ;;; [ hledger-mode ] -- Major mode for editing hledger.
 

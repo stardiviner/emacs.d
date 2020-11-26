@@ -55,7 +55,8 @@
 
 %c
 "
-                 :empty-lines 1))
+                 :empty-lines 1)
+               :append)
 
   (defun my-org-drill-word-exist-p (word)
     "Check word exist in Words.org file?"

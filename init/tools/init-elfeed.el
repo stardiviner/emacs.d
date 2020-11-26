@@ -144,7 +144,8 @@
 
 %(my/org-capture-elfeed-content)"
                    :empty-lines 1
-                   :jump-to-captured t)))
+                   :jump-to-captured t)
+                 :append))
 
   ;; download with youtube-dl
   (defun youtube-dl-cmd-wrapper (url)

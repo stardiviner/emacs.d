@@ -19,7 +19,8 @@
 
   ;; [ org-protocol capture ]
   (setq org-capture-templates
-        (append `(("P" ,(format "%s\torg-protocol"
+        (append org-capture-templates
+                `(("P" ,(format "%s\torg-protocol"
                                 (all-the-icons-faicon "external-link" :face 'all-the-icons-orange)))
                   ("PP" ,(format "%s\tProtocol"
                                  (all-the-icons-faicon "chrome" :face 'all-the-icons-orange))
@@ -33,8 +34,7 @@
                    "* [[%:link][%:description]]\n:PROPERTIES:\n:DATE: %U \n:END:\n %?"
                    :prepend t
                    :empty-lines 1
-                   :jump-to-captured t))
-                org-capture-templates))
+                   :jump-to-captured t))))
 
   
   ;; ;; TODO: setup this option.
@@ -63,7 +63,8 @@
                  "* [[%:link][%:description]]\n:PROPERTIES:\n:DATE: %U \n:END:\n %? \n%:initial"
                  :prepend t
                  :empty-lines 1
-                 :jump-to-captured t)))
+                 :jump-to-captured t)
+               :append))
 
 
 (provide 'init-org-protocol)

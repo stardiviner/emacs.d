@@ -126,7 +126,8 @@ In ~%s~:
                `("s" ,(format "%s\tcreate new code snippet"
                               (all-the-icons-faicon "code" :face 'all-the-icons-cyan :v-adjust 0.05))
                  entry (file (lambda () (concat org-directory "/Programming Code/Code Snippets/snippets.org")))
-                 "* %?\n%(my/org-capture-code-snippet \"%F\")")))
+                 "* %?\n%(my/org-capture-code-snippet \"%F\")")
+               :append))
 
 ;;; [ org-sync-snippets ] -- simple extension to export snippets to org-mode and vice versa.
 
@@ -159,7 +160,8 @@ In ~%s~:
 ;; :PROPERTIES:
 ;; :FILE:  %F
 ;; :END:
-;; %(code-archive-do-org-capture \"%F\")"))))
+;; %(code-archive-do-org-capture \"%F\")")
+;;                  :append)))
 
 
 (provide 'init-prog-snippet)
