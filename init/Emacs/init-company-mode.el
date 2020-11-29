@@ -19,8 +19,8 @@
   :custom ((company-etags-modes nil)    ; disable `company-etags'
            (company-minimum-prefix-length 3)
            (completion-ignore-case t) ; complete candidates ignore case-sensitive when typing.
-           (company-idle-delay 0)
-           (company-tooltip-idle-delay 0)
+           (company-idle-delay 0.3)
+           (company-tooltip-idle-delay 0.3)
            (company-echo-delay 0)
            ;; decide when to auto commit insertion of the selected completion candidate.
            ;; (company-auto-commit t)
