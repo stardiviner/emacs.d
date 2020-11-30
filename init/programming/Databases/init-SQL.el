@@ -117,6 +117,7 @@
 (use-package ejc-sql
   :ensure t
   :defer t
+  :custom (ejc-complete-on-dot t)
   :commands (ejc-connect
              ejc-connect-existing-repl ejc-connect-interactive ejc-sql-mode
              ejc-get-temp-editor-buffer)
