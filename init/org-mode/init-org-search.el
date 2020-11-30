@@ -310,6 +310,7 @@ That's it.
 
 (use-package org-ql
   :ensure t
+  :ensure helm-org-ql
   :demand t
   :requires (helm-org-ql)
   :commands (helm-org-ql org-ql-sparse-tree org-ql-search org-ql-view)
