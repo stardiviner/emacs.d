@@ -82,7 +82,7 @@
                       (when (stringp method)
                         (member method '("su" "sudo")))))))))
 
-;;; [ tramp-auto-auth ] -- TRAMP automatic authentication library.
+;;; [ tramp-auto-auth ] -- TRAMP automatic authentication library for ‘authsource’.
 
 (use-package tramp-auto-auth
   :ensure t
@@ -91,7 +91,9 @@
   :init (tramp-auto-auth-mode 1)
   :config
   (add-to-list 'tramp-auto-auth-alist '("root@localhost" . (:host "localhost" :user "root" :port "ssh")))
-  (add-to-list 'tramp-auto-auth-alist '("root@dark" . (:host "dark" :user "root" :port "ssh"))))
+  (add-to-list 'tramp-auto-auth-alist '("root@dark" . (:host "dark" :user "root" :port "ssh")))
+  (add-to-list 'tramp-auto-auth-alist '("pi@192.168.31.36" . (:host "192.168.31.36" :user "pi" :port "ssh")))
+  (add-to-list 'tramp-auto-auth-alist '("pi@192.168.31.37" . (:host "192.168.31.36" :user "pi" :port "ssh"))))
 
 ;;; [ counsel-tramp ] -- Tramp with Ivy/counsel interface.
 
