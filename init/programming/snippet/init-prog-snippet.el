@@ -59,12 +59,13 @@ $0`(yas-escape-text yas-selected-text)`"
 
   (define-key yas-minor-mode-map (kbd "C-c \\") 'yas-insert-snippet)
   
-  ;; project local snippets
+  ;; project local snippets "<project>/.snippets/*.snippet"
   (defun yasnippet-project-local ()
     (interactive)
     (make-local-variable 'yas-snippet-dirs)
     (add-to-list 'yas-snippet-dirs
                  (concat (projectile-project-root) ".snippets")))
+  (add-hook 'projectile-mode-hook #'yasnippet-project-local)
   (add-hook 'projectile-find-file-hook #'yasnippet-project-local)
 
   ;; beacon animation when snippet exit hook
