@@ -10,7 +10,7 @@
 ;;; [ org-protocol ] -- intercept calls from emacsclient to trigger custom actions.
 
 (use-package org-protocol
-  :config
+  :init
   (with-eval-after-load 'org-protocol
     (unless (featurep 'server)
       (require 'server))
@@ -55,7 +55,8 @@
 
 (use-package org-protocol-capture-html
   :ensure t
-  :config
+  :defer t
+  :init
   (add-to-list 'org-capture-templates
                `("PH" ,(format "%s\torg-protocol-capture-html"
                                (all-the-icons-faicon "html5" :face 'all-the-icons-pink))
