@@ -328,6 +328,9 @@
 
 ;; (blink-cursor-mode 1)
 
+;;; NOTE: ‘blink-cursor-mode’ caused in-buffer picture blink.
+(blink-cursor-mode -1)
+
 ;;; [ truncate continuous line & word wrap ]
 
 ;;; `toggle-truncate-lines'
