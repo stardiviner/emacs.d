@@ -42,6 +42,7 @@
          ("M-%" . vr/query-replace)
          :map search-prefix
          ("s" . vr/isearch-forward)
+         ("C-s" . vr/isearch-forward)
          ("M-s" . vr/isearch-backward)
          ("r" . vr/query-replace)
          ("R" . vr/replace))
