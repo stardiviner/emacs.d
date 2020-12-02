@@ -25,13 +25,13 @@
                   ("PP" ,(format "%s\tProtocol"
                                  (all-the-icons-faicon "chrome" :face 'all-the-icons-orange))
                    entry (file ,(concat org-directory "/Tasks/Tasks.org"))
-                   "* %^{Title}\nSource: %u, %c\n#+begin_quote\n%i\n#+end_quote\n\n\n%?"
+                   "* %^{Title}\n:PROPERTIES:\n:URL: %:link\n:TIME: %U\n:END:\n\n#+begin_quote\n%i\n#+end_quote\n\n%?"
                    :prepend t
                    :empty-lines 1)
                   ("PL" ,(format "%s\tSave Link to Bookmarks"
                                  (all-the-icons-faicon "external-link" :face 'all-the-icons-orange))
                    entry (file ,(concat org-directory "/Bookmarks/Bookmarks.org"))
-                   "* [[%:link][%:description]]\n:PROPERTIES:\n:DATE: %U \n:END:\n %?"
+                   "* [[%:link][%:description]]\n:PROPERTIES:\n:TIME: %U\n:END:\n\n%?"
                    :prepend t
                    :empty-lines 1
                    :jump-to-captured t))))
@@ -61,7 +61,7 @@
                `("PH" ,(format "%s\torg-protocol-capture-html"
                                (all-the-icons-faicon "html5" :face 'all-the-icons-pink))
                  entry (file ,(concat org-directory "/Bookmarks/Bookmarks.org"))
-                 "* [[%:link][%:description]]\n:PROPERTIES:\n:DATE: %U \n:END:\n %? \n%:initial"
+                 "* [[%:link][%:description]]\n:PROPERTIES:\n:TIME: %U \n:END:\n %? \n%:initial"
                  :prepend t
                  :empty-lines 1
                  :jump-to-captured t)
