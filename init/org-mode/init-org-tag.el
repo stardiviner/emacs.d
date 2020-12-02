@@ -94,7 +94,7 @@
         (:endgrouptag)
         
         (:startgrouptag) ("@programming") (:grouptags)
-        ("code" . ?C) ("source_code") ("bug") ("Emacs" . ?e) ("git" . ?G) ("GitHub") ("GitLab")
+        ("code" . ?C) ("source_code") ("bug") ("vulnerability") ("Emacs" . ?e) ("git" . ?G) ("GitHub") ("GitLab")
         (:startgroup)
         ("hardware") ("usb") ("disk") ("terminal") ("cloud") ("DevOps") ("docker")
         ("security")
@@ -583,6 +583,7 @@
           ("code" . ,(all-the-icons-faicon "code"))
           ("source_code" . ,(all-the-icons-faicon "file-code-o"))
           ("bug" . ,(all-the-icons-faicon "bug"))
+          ("vulnerability" . ,(all-the-icons-faicon "bug"))
           ("patch" . ,(all-the-icons-fileicon "patch"))
           ("diff" . ,(all-the-icons-fileicon "diff"))
           ("coding" . ,(all-the-icons-faicon "keyboard-o"))
