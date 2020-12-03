@@ -1,4 +1,5 @@
 ;;; init-prog-vcs-git.el --- init Git for Emacs
+;; -*- lexical-binding: t -*-
 ;;
 ;;; Commentary:
 
@@ -13,6 +14,54 @@
 
 (use-package vc-git
   :defer t)
+
+;;; Clone git repo from clipboard
+;;
+;; Cloning git repositories is a pretty common task. For me, it typically goes something like:
+;;
+;; 1. Copy git repo URL from browser.
+;; 2. Drop to Emacs eshell.
+;; 3. Change current directory.
+;; 4. Type "git clone ".
+;; 5. Paste git repo URL.
+;; 6. Run git command.
+;; 7. Change directory to cloned repo.
+;; 8. Open dired.
+
+(defun git-clone-from-clipboard-url ()
+  "Clone git URL in clipboard asynchronously and open in dired when finished."
+  (interactive)
+  (cl-assert (string-match-p "^\\(http\\|https\\|ssh\\)://" (current-kill 0)) nil "No URL in clipboard")
+  (let* ((url (current-kill 0))
+         (download-dir (expand-file-name "~/Downloads/"))
+         (project-dir (concat (file-name-as-directory download-dir)
+                              (file-name-base url)))
+         (default-directory download-dir)
+         (command (format "git clone %s" url))
+         (buffer (generate-new-buffer (format "*%s*" command)))
+         (proc))
+    (when (file-exists-p project-dir)
+      (if (y-or-n-p (format "%s exists. delete?" (file-name-base url)))
+          (delete-directory project-dir t)
+        (user-error "Bailed")))
+    (switch-to-buffer buffer)
+    (setq proc (start-process-shell-command (nth 0 (split-string command)) buffer command))
+    (with-current-buffer buffer
+      (setq default-directory download-dir)
+      (shell-command-save-pos-or-erase)
+      (require 'shell)
+      (shell-mode)
+      (view-mode +1))
+    (set-process-sentinel proc (lambda (process state)
+                                 (let ((output (with-current-buffer (process-buffer process)
+                                                 (buffer-string))))
+                                   (kill-buffer (process-buffer process))
+                                   (if (= (process-exit-status process) 0)
+                                       (progn
+                                         (message "finished: %s" command)
+                                         (dired project-dir))
+                                     (user-error (format "%s\n%s" command output))))))
+    (set-process-filter proc #'comint-output-filter)))
 
 ;; [ Git modes ] -- front end wrapper for vc-git.
 
