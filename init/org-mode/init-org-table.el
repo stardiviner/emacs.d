@@ -18,6 +18,7 @@
 (use-package valign
   :ensure t
   :delight valign-mode
+  :custom (valign-fancy-bar t)
   :commands (valign-mode)
   :hook (org-mode . valign-mode))
 
