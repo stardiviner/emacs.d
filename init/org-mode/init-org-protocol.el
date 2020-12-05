@@ -31,7 +31,7 @@
                   ("PL" ,(format "%s\tSave Link to Bookmarks"
                                  (all-the-icons-faicon "external-link" :face 'all-the-icons-orange))
                    entry (file ,(concat org-directory "/Bookmarks/Bookmarks.org"))
-                   "* [[%:link][%:description]]\n:PROPERTIES:\n:TIME: %U\n:END:\n\n%?"
+                   "* [[%:link][%:description]] :bookmark:%^g \n:PROPERTIES:\n:URL: %:link\n:TIME: %U\n:DESCRIPTION: %^{description}\n:END:\n\n%?"
                    :prepend t
                    :empty-lines 1
                    :jump-to-captured t))))
