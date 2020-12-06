@@ -16,6 +16,15 @@
   ;; [ `eaf-org' ] Org Mode integration
   ;; set overriding option before loading `eaf-org' to execute if condition.
   :config
+  ;; advice on ‘find-file’ [C-x C-f] to open PDF/Epub files with ‘eaf-open’.
+  (defun adviser-find-file (orig-fn file &rest args)
+    (let ((fn (if (commandp 'eaf-open) 'eaf-open orig-fn)))
+      (pcase (file-name-extension file)
+        ("pdf"  (apply fn file nil))
+        ("epub" (apply fn file nil))
+        (_      (apply orig-fn file args)))))
+  (advice-add 'find-file :around #'adviser-find-file)
+  
   (add-to-list 'display-buffer-alist '("\\*eaf pdf outline\\*" . (display-buffer-below-selected)))
   
   (eaf-setq eaf-camera-save-path "~")
