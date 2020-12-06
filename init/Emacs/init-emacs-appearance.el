@@ -553,15 +553,6 @@
 ;;         beacon-color "light sky blue")
 ;;   (beacon-mode 1))
 
-;;; [ goggles ] -- Goggles highlights the modified region using pulse. Currently the commands undo, yank, kill and delete are supported.
-
-(use-package goggles
-  :ensure t
-  :defer t
-  :custom (goggles-pulse t)             ; set to nil to disable pulsing
-  :commands (goggles-mode)
-  :init (goggles-mode 1))
-
 
 
 (provide 'init-emacs-appearance)
