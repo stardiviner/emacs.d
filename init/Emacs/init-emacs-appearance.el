@@ -531,6 +531,11 @@
   (add-to-list 'all-the-icons-icon-alist '("\\.azw3" all-the-icons-faicon "file-text" :v-adjust 0.0 :face all-the-icons-blue))
   )
 
+;;; [ pulse ] -- Pulsing Overlays.
+
+(use-package pulse
+  :defer t)
+
 ;;; [ beacon ] -- Highlight the cursor whenever the window scrolls.
 
 ;; (use-package beacon
