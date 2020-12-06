@@ -534,7 +534,14 @@
 ;;; [ pulse ] -- Pulsing Overlays.
 
 (use-package pulse
-  :defer t)
+  :defer t
+  :commands (pulse-momentary-highlight-one-line
+             pulse-momentary-highlight-region
+             pulse-momentary-highlight-overlay)
+  :config
+  (setq pulse-command-advice-flag t)
+  (add-hook 'org-babel-pre-tangle-hook #'pulse-line-hook-function)
+  (add-hook 'org-babel-after-execute-hook #'pulse-line-hook-function))
 
 ;;; [ beacon ] -- Highlight the cursor whenever the window scrolls.
 
