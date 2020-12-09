@@ -1,4 +1,5 @@
 ;;; init-emacs-emoji.el --- init Emoji for Emacs.
+;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
 
@@ -25,17 +26,15 @@
   :commands (global-emojify-mode)
   :init (global-emojify-mode 1))
 
-;;; [ company-emoji ] -- company-mode backend providing completion for emoji. 🆒💦
+;;; [ company-emoji ] -- company-mode backend providing completion for emoji.
 
 (use-package company-emoji
   :ensure t
-  :init
-  (dolist (hook '(org-mode-hook
-                  markdown-mode-hook
-                  tex-mode-hook
-                  latex-mode-hook))
-    (add-hook hook
-              (lambda () (add-to-list 'company-backends 'company-emoji 'append)))))
+  :defer t
+  :commands (company-emoji)
+  :init (setq-default company-backends
+                      (let ((default-value (default-value 'company-backends)))
+                        (cons 'company-emoji default-value))))
 
 ;;; [ ivy-emoji ] -- Insert emojis with Ivy.
 
