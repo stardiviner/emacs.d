@@ -13,6 +13,12 @@
   :ensure t
   :mode "\\.ini\\'")
 
+;;; [ basic-mode ] -- Major mode for editing BASIC code.
+
+(use-package basic-mode
+  :ensure t
+  :mode "\\.vb\\'")
+
 ;;; [ Batch Script ]
 
 (require 'init-bat)
