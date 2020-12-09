@@ -35,6 +35,13 @@
     (add-hook hook
               (lambda () (add-to-list 'company-backends 'company-emoji 'append)))))
 
+;;; [ ivy-emoji ] -- Insert emojis with Ivy.
+
+(use-package ivy-emoji
+  :ensure t
+  :defer t
+  :commands (ivy-emoji))
+
 
 ;;; ----------------------------------------------------------------------------
 
