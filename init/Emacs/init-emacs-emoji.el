@@ -26,7 +26,7 @@
   :commands (global-emojify-mode)
   :init (global-emojify-mode 1))
 
-;;; [ company-emoji ] -- company-mode backend providing completion for emoji.
+;;; [ company-emoji ] -- company-mode backend providing completion for emoji.🆒💖
 
 (use-package company-emoji
   :ensure t
