@@ -25,14 +25,6 @@
   :commands (flycheck-rust-setup)
   :hook ((rust-mode . flycheck-mode) (flycheck-mode . flycheck-rust-setup)))
 
-;;; [ racer ] -- code completion, goto-definition and docs browsing for Rust via racer.
-
-(use-package racer
-  :ensure t
-  :hook (rust-mode . racer-mode)
-  :init (add-to-list 'display-buffer-alist '("^\\*Racer Help\\*" . (display-buffer-below-selected)))
-  :config (define-key racer-mode-map (kbd "C-c C-d C-d") 'racer-describe))
-
 ;;; [ cargo ] -- Emacs Cargo client.
 
 (use-package cargo
@@ -51,6 +43,14 @@
   (add-to-list 'org-babel-load-languages '(rust . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("rust" . "rs")))
+
+;;; [ racer ] -- code completion, goto-definition and docs browsing for Rust via racer.
+
+;; (use-package racer
+;;   :ensure t
+;;   :hook (rust-mode . racer-mode)
+;;   :init (add-to-list 'display-buffer-alist '("^\\*Racer Help\\*" . (display-buffer-below-selected)))
+;;   :config (define-key racer-mode-map (kbd "C-c C-d C-d") 'racer-describe))
 
 ;;; [ lsp-rust ] Rust support for lsp-mdoe.
 
