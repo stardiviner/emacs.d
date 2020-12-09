@@ -18,10 +18,12 @@
 
 (use-package emojify
   :ensure t
-  :init (setq emojify-emojis-dir (concat user-emacs-directory "emojis")
-              ;; emojify-program-contexts '(comments string)
-              emojify-display-style 'unicode)
-  :config (global-emojify-mode 1))
+  :defer t
+  :custom ((emojify-emojis-dir (concat user-emacs-directory "emojis"))
+           (emojify-program-contexts '(comments string))
+           emojify-display-style 'unicode)
+  :commands (global-emojify-mode)
+  :init (global-emojify-mode 1))
 
 ;;; [ company-emoji ] -- company-mode backend providing completion for emoji. 🆒💦
 
