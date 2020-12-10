@@ -12,9 +12,9 @@
 (use-package rust-mode
   :ensure t
   :defer t
-  :init (setq rust-indent-method-chain t
-              rust-indent-where-clause t
-              rust-match-angle-brackets t))
+  :custom ((rust-indent-method-chain t)
+           (rust-indent-where-clause t)
+           (rust-match-angle-brackets t)))
 
 ;;; [ flycheck-rust ]
 
