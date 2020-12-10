@@ -66,6 +66,7 @@ column.  Place the point after the comment box."
   (add-to-list 'hl-todo-keyword-faces '("DEBUG" . "#ff8c00"))
   (add-to-list 'hl-todo-keyword-faces '("TEST" . "tomato"))
   (add-to-list 'hl-todo-keyword-faces '("PERFORMANCE" . "#5f7f5f"))
+  (add-to-list 'hl-todo-keyword-faces '("PATCH" . "dodger blue"))
   (add-to-list 'hl-todo-activate-in-modes 'conf-mode 'append))
 
 ;; [ poporg ] -- Editing program comments or strings in text mode.
