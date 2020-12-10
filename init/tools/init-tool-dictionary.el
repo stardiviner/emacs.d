@@ -11,7 +11,7 @@
   (define-prefix-command 'dictionary-prefix))
 (define-key tools-prefix (kbd "d") 'dictionary-prefix)
 
-;;; [ Goldendict ]
+;;; [ Goldendict ] -- Query word smartly with Goldendict.
 
 (use-package goldendict
   :ensure t
@@ -20,13 +20,13 @@
 
 ;;; [ multi-translate ] -- Translate word or region at point with multiple translation services.
 
-(use-package multi-translate
-  ;; :ensure t
-  :quelpa (multi-translate :fetcher github :repo "twlz0ne/multi-translate.el")
-  :commands (multi-translate multi-translate-at-point multi-translate-amend-query)
-  :bind (:map dictionary-prefix ("m" . multi-translate-at-point))
-  :init (add-to-list 'display-buffer-alist '("^\\*Multi Translate\\*" . (display-buffer-below-selected)))
-  :config (define-key multi-translate-mode-map (kbd "q") 'delete-window))
+;; (use-package multi-translate
+;;   ;; :ensure t
+;;   :quelpa (multi-translate :fetcher github :repo "twlz0ne/multi-translate.el")
+;;   :commands (multi-translate multi-translate-at-point multi-translate-amend-query)
+;;   :bind (:map dictionary-prefix ("m" . multi-translate-at-point))
+;;   :init (add-to-list 'display-buffer-alist '("^\\*Multi Translate\\*" . (display-buffer-below-selected)))
+;;   :config (define-key multi-translate-mode-map (kbd "q") 'delete-window))
 
 ;;; [ google-translate ] -- Emacs interface to Google Translate.
 
@@ -97,6 +97,18 @@
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   ;; add translate special block into structure template alist.
   (add-to-list 'org-structure-template-alist '("t" . "src translate")))
+;;; [ go-translate ] -- Improved Google Translate interface with asynchronous request and better user experience.
+
+;; (use-package go-translate
+;;   :ensure t
+;;   :custom ((go-translate-base-url "https://translate.google.cn/")
+;;            (go-translate-local-language "en")
+;;            (go-translate-target-language "zh-CN")
+;;            (go-translate-buffer-follow-p t)
+;;            (go-translate-buffer-source-fold-p t)
+;;            (go-translate-buffer-window-config
+;;             '((display-buffer-reuse-window display-buffer-below-selected))))
+;;   :commands (go-translate go-translate-popup))
 
 ;;; [ baidu-translate ] -- A emacs plugin using baidu-translate-api.
 
@@ -117,10 +129,10 @@
 
 ;;; [ english-teacher ] -- translate sentence following point.
 
-(use-package english-teacher
-  :load-path "~/Code/Emacs/english-teacher"
-  :commands (english-teacher-smart-translate)
-  :hook ((Info-mode Man-mode Woman-Mode elfeed-show-mode eww-mode) . english-teacher-follow-mode))
+;; (use-package english-teacher
+;;   :load-path "~/Code/Emacs/english-teacher"
+;;   :commands (english-teacher-smart-translate)
+;;   :hook ((Info-mode Man-mode Woman-Mode elfeed-show-mode eww-mode) . english-teacher-follow-mode))
 
 
 (provide 'init-tool-dictionary)
