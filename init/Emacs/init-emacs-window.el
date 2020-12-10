@@ -52,10 +52,22 @@
 
 ;;; [ winner ] -- Restore old window configurations.
 
-;; (use-package winner
-;;   :ensure t
-;;   :defer t
-;;   :init (winner-mode 1))
+(use-package winner
+  :ensure t
+  :hook (after-init . winner-mode)
+  :config
+  (defun transient-winner-undo ()
+    "Transient version of `winner-undo'."
+    (interactive)
+    (let ((echo-keystrokes nil))
+      (winner-undo)
+      (message "Winner: [u]ndo [r]edo")
+      (set-transient-map
+       (let ((map (make-sparse-keymap)))
+         (define-key map [?u] #'winner-undo)
+         (define-key map [?r] #'winner-redo)
+         map)
+       t))))
 
 ;;; [ ace-window ] -- Quickly switch windows in Emacs.
 
