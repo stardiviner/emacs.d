@@ -43,7 +43,7 @@
           (let ((kotlin-ls-executable (expand-file-name
                                        (concat "~/Code/Kotlin/kotlin-language-server/"
                                                "server/build/install/server/bin/kotlin-language-server"))))
-            (setq lsp-kotlin-language-server-path kotlin-ls-executable)
+            (setq lsp-clients-kotlin-server-executable kotlin-ls-executable)
             (add-to-list 'exec-path (file-name-directory kotlin-ls-executable)))))
 
 
