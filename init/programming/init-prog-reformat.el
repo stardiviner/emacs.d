@@ -1,6 +1,6 @@
 ;;; init-prog-reformat.el --- init for reformatters
 
-;;; Time-stamp: <2019-03-18 18:39:21 stardiviner>
+;;; Time-stamp: <2020-11-30 16:55:38 stardiviner>
 
 ;;; Commentary:
 
@@ -26,11 +26,11 @@
 
 ;;; [ prettier ] -- Prettier code formatting for Emacs. $ npm install prettier
 
-(use-package prettier
-  :ensure t
-  :defer t
-  :commands (prettier-prettify)
-  :hook (prog-mode . prettier-mode))
+;; (use-package prettier
+;;   :ensure t
+;;   :defer t
+;;   :commands (prettier-prettify)
+;;   :hook (prog-mode . prettier-mode))
 
 
 
