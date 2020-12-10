@@ -42,6 +42,7 @@
 (use-package leuven-theme
   ;; :quelpa (leuven-theme :fetcher github :repo "stardiviner/leuven-theme")
   :load-path "~/Code/Emacs/leuven-theme/"
+  :demand t
   :config (load-theme 'leuven t))
 
 ;;; [ one-themes ] -- One color scheme.
@@ -49,6 +50,7 @@
 (use-package one-themes
   ;; :quelpa (one-themes :fetcher github :repo "stardiviner/emacs-one-themes")
   :load-path "~/Code/Emacs/one-themes"
+  :demand t
   :config (load-theme 'one-dark t))
 
 ;;; [ doom-themes ] -- an opinionated pack of modern color-themes.
