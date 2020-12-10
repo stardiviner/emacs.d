@@ -22,7 +22,8 @@
   :bind (:map lsp-mode-map
               ("C-c C-d" . lsp-describe-thing-at-point)
               ("M-RET"   . lsp-execute-code-action))
-  :custom (; (lsp-client-packages '())
+  :custom (;; (lsp-auto-configure nil) ; disable auto prepend `company-capf' backend.
+           ;; (lsp-client-packages '())
            ;; speed-up lsp-mode performance
            (lsp-log-io nil)             ; for Debug
            (lsp-enable-folding nil)
@@ -113,6 +114,8 @@ See https://github.com/emacs-lsp/lsp-mode."
   :custom (dap-auto-configure-features '(sessions locals controls tooltip))
   :init (dap-mode t) (dap-ui-mode t)
   :config (add-hook 'dap-stopped-hook (lambda (arg) (call-interactively #'dap-hydra))))
+
+;; (use-package dap-LANGUAGE) to load the dap adapter for your language
 
 ;;; [ lsp-docker ] -- lsp-mode uses lsp-docker to run language servers using in Docker containers.
 
