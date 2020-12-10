@@ -10,7 +10,7 @@
 (use-package mu4e
   :load-path "~/Code/Emacs/mu/mu4e/"    ; compile from source code
   :defer t
-  :commands (mu4e mu4e-org-open mu4e-org-store-link)
+  :commands (mu4e)
   ;; :preface (setq mu4e-mu-debug t)
   :custom ((mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
            ;; Maildir
@@ -27,6 +27,10 @@
   :init
   (add-to-list 'display-buffer-alist '("^ \\*mu4e-main\\*" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist '("^ \\*mu4e-proc\\*" . (display-buffer-below-selected)))
+  ;; support `org-store-link' in mu4e
+  (require 'mu4e-org)                   ; for [[mu4e:..]] links.
+  (setq mu4e-org-link-query-in-headers-mode t)
+
   :config
   ;; the maildirs you use frequently; access them with 'j' ('jump')
   (setq mu4e-maildir-shortcuts
@@ -173,10 +177,6 @@
                '("SMark as spam" . mu4e-view-register-msg-as-spam) t)
   (add-to-list 'mu4e-view-actions
                '("HMark as ham" . mu4e-view-register-msg-as-ham) t)
-
-  ;; support `org-store-link' in mu4e
-  (require 'mu4e-org)                   ; for [[mu4e:..]] links.
-  (setq mu4e-org-link-query-in-headers-mode t)
   
   ;; enable Org Mode for editing in `mu4e-compose-mode'.
   (require 'org-mu4e)
