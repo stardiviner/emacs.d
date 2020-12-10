@@ -31,6 +31,7 @@
 
 (use-package ob-ruby
   :defer t
+  ;; :custom (org-babel-ruby-command "ruby")
   :commands (org-babel-execute:ruby)
   :config
   (add-to-list 'org-babel-load-languages '(ruby . t))
