@@ -20,6 +20,7 @@
            ;; (elfeed-log-level 'debug)
            )
   :init (advice-add 'elfeed :after #'elfeed-update) ; auto update after entering elfeed.
+  (run-at-time nil (* 4 60 60) #'elfeed-update) ; auto update elfeed every 4 hours.
   :config
   (setq elfeed-feeds
         '(;; Programming
