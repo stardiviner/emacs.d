@@ -2,7 +2,67 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Family.org"
+(("lsp-mode.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/lsp-mode.org")
+ (front-context-string . "* Intro\n  :PROPE")
+ (rear-context-string)
+ (position . 1))
+("Excel.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Excel/Excel.org")
+ (front-context-string . "#+TITLE: Excel\n\n")
+ (rear-context-string)
+ (position . 1))
+("Enterprise.org"
+ (filename . "~/Org/Wiki/Commercial Science/Enterprise/Enterprise.org")
+ (front-context-string . "#+TITLE: Enterpr")
+ (rear-context-string)
+ (position . 1))
+("Linux Configurations.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Linux Configurations.org")
+ (front-context-string . "#+TITLE: Linux C")
+ (rear-context-string)
+ (position . 1))
+("Patent.org"
+ (filename . "~/Org/Wiki/Patent/Patent.org")
+ (front-context-string . "#+TITLE: Patent\n")
+ (rear-context-string)
+ (position . 1))
+("Spirituality.org"
+ (filename . "~/Org/Wiki/Spirituality/Spirituality.org")
+ (front-context-string . "#+TITLE: Spiritu")
+ (rear-context-string)
+ (position . 1))
+("YOGA.org"
+ (filename . "~/Org/Wiki/Kung Fu/YOGA/YOGA.org")
+ (front-context-string . "#+TITLE: YOGA (\347\221\234")
+ (rear-context-string)
+ (position . 1))
+("\345\233\275\345\255\246.org"
+ (filename . "~/Org/Wiki/Countries/China/Chinese Culture/\345\233\275\345\255\246/\345\233\275\345\255\246.org")
+ (front-context-string . "#+TITLE: \345\233\275\345\255\246\n\n* I")
+ (rear-context-string)
+ (position . 1))
+("Web Technologies.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web Development/Web Technologies/Web Technologies.org")
+ (front-context-string . "#+TITLE: Web Tec")
+ (rear-context-string)
+ (position . 1))
+("iOS.org"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/iOS/iOS.org")
+ (front-context-string . "#+TITLE: iOS\n\n* ")
+ (rear-context-string)
+ (position . 1))
+("R Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/R/Data/R Packages/R Packages.org")
+ (front-context-string . "#+TITLE: R Packa")
+ (rear-context-string)
+ (position . 1))
+("Korea.org"
+ (filename . "~/Org/Wiki/Countries/Korea/Korea.org")
+ (front-context-string . "#+TITLE: Korea (")
+ (rear-context-string)
+ (position . 1))
+("Family.org"
  (filename . "~/Org/Wiki/Family/Family.org")
  (front-context-string . "#+TITLE: Family ")
  (rear-context-string)
@@ -167,17 +227,17 @@
  (position . 1))
 ("org-capture-last-stored-marker"
  (filename . "~/Org/Wiki/World Grid Information/World Grid Information.org")
- (front-context-string . "*** 印度再禁 43 款中国手")
- (rear-context-string . "me][都越来越相似了]]。\n\n")
- (position . 108434))
+ (front-context-string . "*** \347\276\216\345\233\275\346\263\225\345\256\230\344\270\213\344\273\244\351\230\273\346\255\242\347\276\216\345\225\206\345\212\241\351\203\250")
+ (rear-context-string . " \344\274\201\344\270\232\347\224\237\344\272\247\347\242\263\345\214\226\347\241\205\347\232\204\346\243\200\346\265\213\345\267\245\345\205\267\343\200\202\n\n")
+ (position . 116645))
 ("org-refile-last-stored"
  (filename . "~/Org/Wiki/World Grid Information/World Grid Information.org")
- (front-context-string . "*** 印度再禁 43 款中国手")
- (rear-context-string . "me][都越来越相似了]]。\n\n")
- (position . 108434))
+ (front-context-string . "*** \347\276\216\345\233\275\346\263\225\345\256\230\344\270\213\344\273\244\351\230\273\346\255\242\347\276\216\345\225\206\345\212\241\351\203\250")
+ (rear-context-string . " \344\274\201\344\270\232\347\224\237\344\272\247\347\242\263\345\214\226\347\241\205\347\232\204\346\243\200\346\265\213\345\267\245\345\205\267\343\200\202\n\n")
+ (position . 116645))
 ("org-capture-last-stored"
  (filename . "~/Org/Tasks/Tasks.org")
- (front-context-string . "* 印度再禁 43 款中国手机应")
+ (front-context-string . "* \347\276\216\345\233\275\346\263\225\345\256\230\344\270\213\344\273\244\351\230\273\346\255\242\347\276\216\345\225\206\345\212\241\351\203\250\345\257\271T")
  (rear-context-string . "12:20]\n  :END:\n\n")
  (position . 393))
 ("Chinese Literature.org"
