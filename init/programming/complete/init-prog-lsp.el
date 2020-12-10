@@ -42,7 +42,21 @@
     (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
   
   ;; don't scan 3rd party javascript libraries
-  (push "[/\\\\][^/\\\\]*\\.\\(json\\|html\\|jade\\)$" lsp-file-watch-ignored))
+  (push "[/\\\\][^/\\\\]*\\.\\(json\\|html\\|jade\\)$" lsp-file-watch-ignored)
+
+  ;; Fix ‘lsp-org’ error: flycheck-add-mode: lsp is not a valid syntax checker.
+  (with-eval-after-load 'lsp-diagnostics
+    (flycheck-define-generic-checker 'lsp
+      "A syntax checker using the Language Server Protocol (LSP)
+provided by lsp-mode.
+See https://github.com/emacs-lsp/lsp-mode."
+      :start #'lsp-diagnostics--flycheck-start
+      :modes '(lsp-placeholder-mode) ;; placeholder
+      :predicate (lambda () lsp-mode)
+      :error-explainer (lambda (e)
+                         (cond ((string-prefix-p "clang-tidy" (flycheck-error-message e))
+                                (lsp-cpp-flycheck-clang-tidy-error-explainer e))
+                               (t (flycheck-error-message e)))))))
 
 ;; [ lsp-ui ] -- UI modules for lsp-mode.
 
