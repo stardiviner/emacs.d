@@ -126,6 +126,8 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
   :custom (zoom-size '(0.618 . 0.618))
   :hook (after-init . zoom-mode)
   :config
+  ;; don’t ‘zoom--update’, ‘zoom--handler’ when ‘company-box’.
+  (add-to-list 'zoom-ignored-buffer-name-regexps "^ *company-box-")
   (add-to-list 'zoom-ignored-major-modes 'helm-major-mode)
   (with-eval-after-load 'undo-tree
     (add-to-list 'zoom-ignored-major-modes 'undo-tree-visualizer-mode)
