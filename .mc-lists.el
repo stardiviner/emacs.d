@@ -14,8 +14,10 @@
         fill-paragraph
         forward-sexp
         indent-for-tab-command
+        insert-parentheses
         ivy-done
         kill-region
+        kmacro-start-macro-or-insert-counter
         lispy-braces
         lispy-brackets
         lispy-delete
@@ -43,6 +45,7 @@
         org-return-and-maybe-indent
         org-return-indent
         org-self-insert-command
+        org-set-property
         org-set-tags-command
         org-shiftleft
         org-shiftright
