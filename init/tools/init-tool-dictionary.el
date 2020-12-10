@@ -92,11 +92,14 @@
   :load-path "~/Code/Emacs/ob-translate"
   :defer t
   :commands (org-babel-execute:translate)
+  :init
+  ;; add translate special block into structure template alist.
+  (with-eval-after-load 'org
+    (add-to-list 'org-structure-template-alist '("t" . "translate")))
   :config
   (add-to-list 'org-babel-load-languages '(translate . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  ;; add translate special block into structure template alist.
-  (add-to-list 'org-structure-template-alist '("t" . "src translate")))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
+
 ;;; [ go-translate ] -- Improved Google Translate interface with asynchronous request and better user experience.
 
 ;; (use-package go-translate
