@@ -62,9 +62,7 @@
 ;; (use-package yatemplate
 ;;   :ensure t
 ;;   :defer t
-;;   :init
-;;   (setq yatemplate-dir (locate-user-emacs-file "templates"))
-;;   )
+;;   :custom (yatemplate-dir (locate-user-emacs-file "templates")))
 
 ;;; [ time-stamp ] -- auto-update last change time stamps in files edited by Emacs.
 
