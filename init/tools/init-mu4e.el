@@ -9,7 +9,7 @@
 
 (use-package mu4e
   :load-path "~/Code/Emacs/mu/mu4e/"    ; compile from source code
-  :defer t
+  :demand t
   :commands (mu4e)
   ;; :preface (setq mu4e-mu-debug t)
   :custom ((mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
