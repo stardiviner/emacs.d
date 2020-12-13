@@ -91,7 +91,16 @@
               ("t" . gitignore-templates-insert)
               ("n" . gitignore-templates-new-file)))
 
-(use-package git-commit ; edit Git commit messages.
+;;; [ gitignore-snippets ] -- Gitignore.io templates for Yasnippet.
+
+(use-package gitignore-snippets
+  :ensure t
+  :after yasnippet
+  :init
+  ;; Make sure to call `gitignore-snippets-init' after yasnippet loaded.
+  (gitignore-snippets-init))
+
+(use-package git-commit                 ; edit Git commit messages.
   :ensure t
   :defer t
   :config
