@@ -50,7 +50,7 @@
         ;; Life
         (:startgrouptag) ("@life" . nil) (:grouptags)
         ("talk") ("call") ("shopping") ("express")
-        ("finance") ("money") ("credit_card") ("PayPal") ("btc")
+        ("finance") ("money") ("credit_card") ("PayPal") ("bitcoin") ("btc")
         ("bee") ("coffee")
         ("hospital") ("medical") ("health")
         ("industry")
@@ -510,7 +510,9 @@
           ("PayPal" . ,(all-the-icons-faicon "paypal"))
           ("stripe" . ,(all-the-icons-faicon "cc-stripe"))
           ("gratipay" . ,(all-the-icons-faicon "gratipay"))
+          ("digital_currency" . ,(all-the-icons-faicon "btc"))
           ("btc" . ,(all-the-icons-faicon "btc"))
+          ("bitcoin" . ,(all-the-icons-faicon "btc"))
           ("watch" . ,(all-the-icons-faicon "eye"))
           ("hospital" . ,(all-the-icons-faicon "hospital-o"))
           ("industry" . ,(all-the-icons-faicon "industry"))
@@ -832,8 +834,6 @@
           ("tree" . ,(all-the-icons-fileicon "devicetree"))
           ("empire" . ,(all-the-icons-faicon "empire"))
           ;; Finance
-          ("digital_currency" . ,(all-the-icons-faicon "btc"))
-          ("btc" . ,(all-the-icons-faicon "btc"))
           ))
 
   ;; countries flags icons
