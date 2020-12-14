@@ -40,6 +40,8 @@
             [simple-query "wolframalpha.com" "http://www.wolframalpha.com/input/?i=" ""])
            ("Google Translate" .
             [simple-query "translate.google.com" "https://translate.google.com/?q=" ""])
+           ("Google Translate URL" .
+            [simple-query "translate.google.com" "https://translate.google.com.hk/translate?hl=&sl=auto&tl=zh-CN&u=" "&sandbox=1"])
            ;; Languages
            ("TeX/LaTeX CTAN" . [simple-query "ctan.org" "https://www.ctan.org/search/?phrase=" ""])
            ;; Programming Docs: API
@@ -133,6 +135,10 @@
             [simple-query "arxiv.org"
                           "https://arxiv.org/search/?query="
                           "&searchtype=all&abstracts=show&order=-announced_date_first&size=50"])
+           ;; Shopping
+           ("淘宝 taobao.com" . [simple-query "taobao.com" "https://s.taobao.com/search?q=" "&s_from=newHeader&ssid=s5-e&search_type=item&sourceId=tb.item"])
+           ;; Porn
+           ("PornHub" . [simple-query "pornhub.com" "https://www.pornhub.com/video/search?search=" ""])
            )
          webjump-sample-sites)))
 
