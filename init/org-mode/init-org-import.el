@@ -18,6 +18,12 @@
   (require 'org-pandoc-import-transient)
   (org-pandoc-import-transient-mode 1))
 
+;;; [ xmind-org ] -- Generate Org mode outlines from an XMind mindmap file.
+
+(use-package xmind-org
+  :ensure t
+  :commands (xmind-org-insert-file))
+
 
 
 (provide 'init-org-import)
