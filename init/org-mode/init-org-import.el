@@ -11,8 +11,12 @@
 ;;; [ org-pandoc-import ] -- Save yourself from non-org formats, thanks to pandoc.
 
 (use-package org-pandoc-import
-  :quelpa (org-pandoc-import :fetcher github :repo "tecosaur/org-pandoc-import" :files ("*.el" "filters" "preprocessors"))
-  :commands (org-pandoc-import-transient-mode org-pandoc-import-to-org))
+  ;; :quelpa (org-pandoc-import :fetcher github :repo "tecosaur/org-pandoc-import" :files ("*.el" "filters" "preprocessors"))
+  :load-path "~/Code/Emacs/org-pandoc-import"
+  :commands (org-pandoc-import-as-org org-pandoc-import-to-org)
+  :config
+  (require 'org-pandoc-import-transient)
+  (org-pandoc-import-transient-mode 1))
 
 
 
