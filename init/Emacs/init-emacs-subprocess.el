@@ -7,6 +7,15 @@
 
 ;;; Code:
 
+;;; [ Proced ] -- operate on system processes like dired.
+
+(use-package proced
+  :defer t
+  :custom ((proced-auto-update-flag t)
+           (proced-auto-update-interval 3))
+  :commands (proced)
+  :init (add-to-list 'display-buffer-alist '("^\\*Proced\\*" . (display-buffer-below-selected))))
+
 ;;; [ prodigy ] -- Manage external services from within Emacs.
 
 (use-package prodigy
