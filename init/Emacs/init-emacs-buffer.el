@@ -43,7 +43,8 @@
   :custom ((recentf-save-file (expand-file-name ".temp/recentf" user-emacs-directory))
            ;; (recentf-auto-cleanup 'mode) ; 'mode, 'never.
            (recentf-exclude '("/tmp/" "/ssh:")))
-  :hook (after-init . recentf-mode))
+  :hook (after-init . recentf-mode)
+  :config (add-to-list 'recentf-filename-handlers 'abbreviate-file-name))
 
 ;;; [ saveplace ] -- save visited files' point positions.
 
