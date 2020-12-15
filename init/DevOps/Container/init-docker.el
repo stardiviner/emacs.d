@@ -117,9 +117,10 @@ For Org-babel header argument :dir /docker:<name>:."
 (use-package kubernetes
   :ensure t
   :defer t
-  :commands (kubernetes-display-pods kubernetes-display-configmaps))
+  :commands (kubernetes-overview kubernetes-display-pods kubernetes-display-configmaps)
+  :init (add-to-list 'display-buffer-alist '("^\\*kubernetes overview\\*" . (display-buffer-below-selected))))
 
-;;; [ kubernetes-tramp ] -- offers a TRAMP method for Docker containers deployed in a Kubernetes cluster.
+;;; [ kubernetes-tramp ] -- offers a TRAMP method (kuberctl:) for Docker containers deployed in a Kubernetes cluster.
 
 (use-package kubernetes-tramp
   :ensure t
@@ -129,7 +130,8 @@ For Org-babel header argument :dir /docker:<name>:."
 
 (use-package kubel
   :ensure t
-  :commands (kubel))
+  :commands (kubel)
+  :init (add-to-list 'display-buffer-alist '("^\\*kubel.*\\*" . (display-buffer-below-selected))))
 
 
 (provide 'init-docker)
