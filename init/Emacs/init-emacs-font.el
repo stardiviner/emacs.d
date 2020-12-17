@@ -1,6 +1,6 @@
 ;;; init-emacs-font.el --- init for Emacs font settings -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-12-10 12:47:32 stardiviner>
+;;; Time-stamp: <2020-12-10 16:50:30 stardiviner>
 
 ;;; Commentary:
 
@@ -34,13 +34,25 @@
 ;;                       :family "DejaVu Sans Mono")))
 
 
-;;; [ display Unicode Emoji ]
+;; (set-fontset-font nil 'unicode
+;;                   (font-spec :name "Symbola") nil 'append)
 
+;;; [ display Unicode Emoji ]
 ;;; A font that supports emoji is needed. The best results are obtained with
 ;;; "Noto Color Emoji" or "Symbola". It might be necessary to instruct Emacs to
 ;;; use such font with a line like the following.
 (set-fontset-font t 'symbol
                   (font-spec :family "Noto Color Emoji") nil 'prepend)
+
+(dolist (charset '(greek
+                   ;; symbol
+                   ))
+  (set-fontset-font nil charset
+                    (font-spec :name "Symbola") nil 'prepend))
+
+(dolist (charset '(kana han cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font) charset
+                    (font-spec :family "Source Han Sans CN") nil 'append))
 
 
 
