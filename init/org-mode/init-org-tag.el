@@ -70,8 +70,19 @@
         
         ;; SEX
         (:startgrouptag) ("@SEX" . ?X) (:grouptags)
-        ("date") ("pickup")
+        ("date") ("pickup") ("PUA")
+        ("creampie") ("blowjob") ("orgasm") ("masturbation") ("dildo") ("lick_pussy") ("clit") ("handjob")
+        ("beauty") ("pretty") ("young") ("handsome") ("beautiful_boy") ("teen") ("girl")
+        ("ride_face") ("ride_dick") ("massage") ("shower") ("pillow") ("public") ("naked") ("night")
+        ("SM") ("extreme_exhibition") ("car")
+        ("anal") ("trans") ("gay") ("couple") ("amateur") ("deepthroat") ("squirt") ("cum")
+        ("homemade") ("kitchen") ("pussy") ("cosplay") ("oral") ("female") ("back") ("asian") ("hard")
+        ("dog") ("slow_motion") ("erotic") ("oil") ("blonde")
+        ("close_up") ("big_cock") ("footjob") ("threesome") ("OL") ("office") ("exchange_student")
+        ("scene") ("BBC") ("black_big_cock") ("group") ("foursome")
+        ("woman_on_top") ("cowgirl")
         (:endgrouptag)
+        
         ;; Time
         (:startgroup) ("today" . nil) ("tomorrow" . nil) ("future" . nil) (:endgroup)
         ;; Places
