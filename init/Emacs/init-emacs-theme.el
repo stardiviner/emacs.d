@@ -45,6 +45,13 @@
   :demand t
   :config (load-theme 'leuven t))
 
+;;; [ modus-themes ] -- Highly accessible themes (WCAG AAA)
+
+;; (use-package modus-themes
+;;   :ensure t
+;;   :demand t
+;;   :config (load-theme 'modus-vivendi t))
+
 ;;; [ one-themes ] -- One color scheme.
 
 (use-package one-themes
