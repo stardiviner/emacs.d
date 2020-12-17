@@ -32,7 +32,10 @@
 (add-to-list 'org-default-properties "Programming-Language")
 (add-to-list 'org-default-properties "PAPER")
 (add-to-list 'org-default-properties "PUBLISHER")
+(add-to-list 'org-default-properties "PUBLISHER(China)")
 (add-to-list 'org-default-properties "PRESS")
+(add-to-list 'org-default-properties "Series")
+(add-to-list 'org-default-properties "YEAR")
 
 (add-to-list 'org-default-properties "IMDb")
 (add-to-list 'org-default-properties "ISBN")
