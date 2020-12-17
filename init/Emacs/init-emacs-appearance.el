@@ -10,6 +10,13 @@
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+;;; [ maximum Emacs frame ]
+;;
+;; the t parameter apends to the hook, instead of prepending
+;; this means it'd be run after other hooks that might fiddle
+;; with the frame size
+(add-hook 'window-setup-hook 'toggle-frame-maximized t)
+
 ;;; [ Transparent ]
 
 ;;; [ transwin ] -- Make window/frame transparent.
