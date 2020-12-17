@@ -115,6 +115,13 @@
         (:endgroup)
         (:endgrouptag)
         
+        (:startgrouptag) ("license") (:grouptags)
+        ("GNU") ("open_source") ("GPL")
+        (:startgroup)
+        ("GNU_General_Public_License_v3") ("GNU_General_Public_License_v2") ("GNU_Affero_General_Public_license") ("GNU_Lesser_General_Public_license") ("MIT_License") ("Apache_License") ("BSD_License") ("Creative_Commons_License") ("Eclipse_Public_License") ("Mozilla_Public_License")
+        (:endgroup)
+        (:endgrouptag)
+        
         (:startgroup)
         (:startgrouptag) ("@family") (:grouptags)
         ("sister") ("father") ("mother")
