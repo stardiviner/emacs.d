@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: vscode install extension
+# key: babel-install-vscode-extension
+# group: babel.install
+# --
+#+begin_src sh :async
+code --install-extension $0
+#+end_src
