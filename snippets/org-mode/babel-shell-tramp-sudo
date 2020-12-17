@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: tramp with sudo hop
+# key: babel-shell-tramp-sudo
+# group: tramp.sudo
+# --
+#+begin_src sh :dir /ssh:${1:user}@${2:remote}|sudo::
+$0
+#+end_src
