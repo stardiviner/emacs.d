@@ -1,6 +1,6 @@
 ;;; init-emacs-typography.el --- init for Typography.
 
-;;; Time-stamp: <2020-10-03 19:54:52 stardiviner>
+;;; Time-stamp: <2020-11-29 16:13:45 stardiviner>
 
 ;;; Commentary:
 
@@ -10,7 +10,7 @@
 
 ;;; setence end require one/two spaces after a sentence periods.
 ;;; [[info:emacs#Sentences][info:emacs#Sentences]]
-(setq-default sentence-end-double-space t)
+(setq-default sentence-end-double-space nil)
 
 
 
