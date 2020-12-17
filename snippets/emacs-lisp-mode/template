@@ -4,7 +4,9 @@
 # --
 ;;; ${1:$$(file-name-base (buffer-file-name))}.el --- $2 -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-03-17 12:24:11 stardiviner>
+;;; Time-stamp: <2020-12-17 08:00:40 stardiviner>
+
+;; Copyright (C) 2009-2020  ${4:Free Software Foundation, Inc.}
 
 ;;; Commentary:
 
