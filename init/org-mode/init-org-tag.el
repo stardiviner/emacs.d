@@ -41,7 +41,7 @@
         ;; Task
         (:startgrouptag) ("@task" . nil) (:grouptags)
         ("table")
-        ("event") ("check") ("alert") ("flag") ("tag") ("question") ("info") ("quote")
+        ("event") ("check") ("alert") ("important") ("flag") ("tag") ("question") ("info") ("quote")
         ("star") ("heart") ("smile") ("like") ("trash")
         ("lock") ("unlock") ("key")
         ("refresh") ("repeat") ("inprogress") ("fragment")
@@ -470,6 +470,7 @@
           ("event" . ,(all-the-icons-faicon "calendar-check-o" :face '(:foreground "CornflowerBlue")))
           ("check" . ,(all-the-icons-faicon "check-square-o" :face '(:foreground "CornflowerBlue")))
           ("alert" . ,(all-the-icons-faicon "bell-o" :face '(:foreground "red")))
+          ("important" . ,(all-the-icons-faicon "exclamation" :face '(:foreground "red")))
           ("flag" . ,(all-the-icons-faicon "flag-o" :face '(:foreground "gold")))
           ("tag" . ,(all-the-icons-fileicon "tag" :face '(:foreground "gold")))
           ("question" . ,(all-the-icons-faicon "question-circle-o" :face '(:foreground "YellowGreen")))
@@ -491,7 +492,8 @@
           ;; ("@life" . ,(all-the-icons-faicon ""))
           ("talk" . ,(all-the-icons-faicon "comments-o" :face '(:foreground "NavajoWhite")))
           ("call" . ,(all-the-icons-faicon "phone-square" :face '(:foreground "NavajoWhite")))
-          ("@SEX" . ,(all-the-icons-faicon "female" :face '(:foreground "purple")))
+          ("user" . ,(all-the-icons-faicon "user" :face '(:foreground "purple")))
+          ("contact" . ,(all-the-icons-faicon "user" :face '(:foreground "purple")))
           ("female" . ,(all-the-icons-faicon "female" :face '(:foreground "purple")))
           ("male" . ,(all-the-icons-faicon "male" :face '(:foreground "purple")))
           ("neuter" . ,(all-the-icons-faicon "neuter" :face '(:foreground "purple")))
@@ -501,7 +503,7 @@
           ("meal" . ,(all-the-icons-faicon "cutlery" :face '(:foreground "khaki")))
           ("home" . ,(all-the-icons-faicon "home" :face '(:foreground "khaki")))
           ("repair" . ,(all-the-icons-faicon "wrench" :face '(:foreground "khaki")))
-          ("shopping" . ,(all-the-icons-faicon "shopping-cart" :face '(:foreground "khaki")))
+          ("shopping" . ,(all-the-icons-faicon "shopping-cart" :face '(:foreground "khaki"))) ; "shopping-basket" "shopping-bag"
           ("express" . ,(all-the-icons-faicon "truck" :face '(:foreground "PaleTurquoise")))
           ("money" . ,(all-the-icons-faicon "money" :face '(:foreground "CornflowerBlue")))
           ("credit_card" . ,(all-the-icons-faicon "credit-card-alt" :face '(:foreground "CornflowerBlue")))
@@ -536,7 +538,9 @@
           ("bus" . ,(all-the-icons-faicon "bus" :face '(:foreground "LightGray")))
           ("taxi" . ,(all-the-icons-faicon "taxi" :face '(:foreground "LightGray")))
           ("subway" . ,(all-the-icons-faicon "subway" :face '(:foreground "LightGray")))
+          ("train" . ,(all-the-icons-faicon "train" :face '(:foreground "LightGray")))
           ("plane" . ,(all-the-icons-faicon "plane" :face '(:foreground "LightGray")))
+          ("ship" . ,(all-the-icons-faicon "ship" :face '(:foreground "LightGray")))
           ("travel" . ,(all-the-icons-faicon "suitcase" :face '(:foreground "LightSeaGreen")))
           ("child" . ,(all-the-icons-faicon "child" :face '(:foreground "LightGoldenrod")))
           ("recycle" . ,(all-the-icons-faicon "recycle" :face '(:foreground "LimeGreen")))
@@ -676,7 +680,7 @@
           ("Apple" . ,(all-the-icons-faicon "apple" :face '(:foreground "white")))
           ("macOS" . ,(all-the-icons-faicon "apple" :face '(:foreground "white")))
           ("Windows" . ,(all-the-icons-faicon "windows" :face '(:foreground "RoyalBlue")))
-          ("Android" . ,(all-the-icons-faicon "android" :face '(:foreground "MediumSeaGreen")))
+          ("Android" . ,(all-the-icons-material "android" :face '(:foreground "MediumSeaGreen")))
           ("VirtualBox" . ,(all-the-icons-fileicon "virtualbox" :face '(:foreground "CornflowerBlue")))
           ("VMWare" . ,(all-the-icons-fileicon "vmware" :face '(:foreground "SandyBrown")))
           ("man" . ,(all-the-icons-fileicon "man-page" :face '(:foreground "white")))
@@ -787,6 +791,7 @@
           ;; Open Source
           ("GNU" . ,(all-the-icons-fileicon "gnu" :face '(:foreground "gray")))
           ("free" . ,(all-the-icons-fileicon "freemarker" :face '(:foreground "gray")))
+          ;; ("license" . ,(all-the-icons-faicon "" :face '(:foreground "SteelBlue")))
           ("copyright" . ,(all-the-icons-faicon "copyright" :face '(:foreground "SteelBlue")))
           ("registered" . ,(all-the-icons-faicon "registered" :face '(:foreground "gold")))
           ("CC" . ,(all-the-icons-faicon "cc" :face '(:foreground "WhiteSmoke")))
@@ -832,8 +837,11 @@
           ("stock" . ,(all-the-icons-faicon "money" :face '(:foreground "SeaGreen")))
           ;; philosophy
           ("daoism" . ,(all-the-icons-fileicon "yin-yang" :face '(:foreground "DimGray")))
-          ("tree" . ,(all-the-icons-fileicon "devicetree" :face '(:foreground "ForestGreen")))
+          ("tree" . ,(all-the-icons-faicon "tree" :face '(:foreground "ForestGreen")))
           ("empire" . ,(all-the-icons-faicon "empire" :face '(:foreground "gold")))
+          ;; SEX
+          ("@SEX" . ,(all-the-icons-faicon "female" :face '(:foreground "purple")))
+          ("H" . ,(all-the-icons-faicon "header" :face '(:foreground "yellow")))
           ))
 
   ;; countries flags icons
