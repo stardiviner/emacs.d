@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: template org-mode
+# key: template-org-mode
+# group: template
+# --
+${1:ob-python.el}: ${2:Fix session initiation when using python-mode.el}
+
+* ${3:lisp/ob-python.el} (${4:org-babel-python-initiate-session-by-key}): ${5:Fixes
+new session initiation when org-babel-python-mode is
+python-mode.el.}
+$0
