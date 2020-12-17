@@ -6,4 +6,5 @@
 # --
 #+begin_src sh :dir "data/code" :var project="${2:project}" :results file link :file "$2/deps.edn"
 clj -A:new app ${1:groupId}/"$project"
+cd $project && git init && git add . && git commit -m "initial commit"
 #+end_src
