@@ -70,7 +70,7 @@
                  (src-block-info (org-babel-get-src-block-info nil context))
                  (type (org-element-type context)))
             (when (eq type 'inline-src-block)
-              ;; ob-async: `org-babel-execute-src-block:async'
+              ;; ob-async: advice `org-babel-execute-src-block:async' on ‘org-babel-execute-src-block’
               (org-babel-execute-src-block nil src-block-info)))))))
 
 (add-hook 'org-cycle-hook #'org-property-eval-code)
