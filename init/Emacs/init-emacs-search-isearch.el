@@ -83,6 +83,7 @@
 (use-package swiper
   :ensure t
   :defer t
+  :commands (swiper swiper-multi swiper-all)
   ;; :custom-face (swiper-line-face ((t (:inherit nil :foreground nil))))
   ;; :custom (counsel-grep-base-command "grep -E -i -n -e %s %s")
   ;; :bind ("C-s" . counsel-grep-or-swiper)
