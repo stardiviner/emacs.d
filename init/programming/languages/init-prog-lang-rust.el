@@ -14,7 +14,8 @@
   :defer t
   :custom ((rust-indent-method-chain t)
            (rust-indent-where-clause t)
-           (rust-match-angle-brackets t)))
+           (rust-match-angle-brackets t))
+  :config (add-hook 'rust-mode-hook (lambda () (setq-local compile-command "cargo build"))))
 
 ;;; [ flycheck-rust ]
 
