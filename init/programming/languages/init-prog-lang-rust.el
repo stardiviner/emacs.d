@@ -57,12 +57,17 @@
 
 (use-package lsp-mode
   :ensure t
-  :hook (rust-mode . lsp))
+  :defer t
+  :hook (rust-mode . lsp)
+  ;; disable cargo watch to improve performance
+  :custom ((lsp-rust-analyzer-cargo-watch-enable nil)))
 
 ;;; [ ron-mode ] -- Rusty Object Notation mode.
 
 (use-package ron-mode
-  :ensure t)
+  :ensure t
+  :defer t
+  :mode (("\\.ron" . ron-mode)))
 
 
 (provide 'init-prog-lang-rust)
