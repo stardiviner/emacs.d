@@ -10,12 +10,7 @@
 ;;; [ org-contacts ] -- Contacts management in Org-mode.
 
 (use-package org-contacts
-  :defer t
-  :commands (org-contacts org-contacts-anniversaries)
-  :preface (unless (boundp 'Org-prefix)
-             (define-prefix-command 'Org-prefix))
-  :bind (:map Org-prefix ("M-c" . org-contacts)) ; create agenda view for contacts matching NAME.
-  :init
+  :config
   (setq org-contacts-files (list (concat org-directory "/Contacts/Contacts.org")))
   (add-to-list 'org-capture-templates
                `("C" ,(format "%s\tContacts"
@@ -63,8 +58,10 @@
   (dolist (hook '(message-mode-hook
                   mu4e-compose-mode-hook))
     (add-hook hook 'org-contacts-setup-completion-at-point))
+
+  (unless (boundp 'Org-prefix) (define-prefix-command 'Org-prefix))
+  (define-key Org-prefix (kbd "M-c") 'org-contacts) ; create agenda view for contacts matching NAME.
   
-  :config
   ;; [C-c C-x p] add "EMAIL" property complete with `mu4e~contacts' source.
   (when (and (featurep 'mu4e) (not (null mu4e~contacts)))
     (defun org-property-email-complete (prompt &rest args)
@@ -78,7 +75,7 @@
                      (name (substring-no-properties contact 0 (- match-start 2))))
                 (kill-new name)
                 email)
-            contact) ; the contact value is the email when no name.
+            contact)              ; the contact value is the email when no name.
         (user-error "`mu4e~contacts' is available after mu4e initialized.")))
     (add-to-list 'org-property-set-functions-alist '("EMAIL" . org-property-email-complete))))
 
