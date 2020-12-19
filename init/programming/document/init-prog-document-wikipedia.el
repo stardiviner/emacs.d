@@ -34,8 +34,8 @@
 (use-package kiwix
   :ensure t
   :after org
-  :commands (kiwix-launch-server kiwix-at-point-interactive)
-  :bind (:map document-prefix ("w" . kiwix-at-point-interactive))
+  :commands (kiwix-launch-server kiwix-at-point)
+  :bind (:map document-prefix ("w" . kiwix-at-point))
   :custom ((kiwix-server-use-docker t)
            (kiwix-server-port 8089)
            (kiwix-default-library "wikipedia_en_all_2016-02.zim") ; "wikipedia_zh_all_2015-11.zim"
