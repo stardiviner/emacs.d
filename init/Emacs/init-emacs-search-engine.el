@@ -26,8 +26,7 @@
            ("Magi" . [simple-query "magi.com" "https://magi.com/search?q=" ""])
            ;; wiki
            ("Wikipedia (zh-CN) 维基百科" .
-            [simple-query "wikipedia.org"
-                          "http://www.wikipedia.org/search-redirect.php?language=zh&go=Go&search=" ""])
+            [simple-query "wikipedia.org" "http://www.wikipedia.org/search-redirect.php?language=zh&go=Go&search=" ""])
            ("Baidu·Baike 百度百科"
             . [simple-query "baike.baidu.com" "http://baike.baidu.com/search/none?word=" ""])
            ;; Q&A
@@ -51,17 +50,18 @@
            ("Mozilla Developer" .
             [simple-query "developer.mozilla.org" "https://developer.mozilla.org/en-US/search?q=" ""])
            ("RFC" .
-            [simple-query "ietf.org"
-                          "https://datatracker.ietf.org/doc/search/?activedrafts=on&rfcs=on&name=" ""])
+            [simple-query "ietf.org" "https://datatracker.ietf.org/doc/search/?activedrafts=on&rfcs=on&name=" ""])
            ("Emacs Wiki" . [simple-query "emacswiki.org" "www.emacswiki.org/emacs?search=" ""])
            ("Stack Exchange · Emacs" .
             [simple-query "emacs.stackexchange.com" "http://emacs.stackexchange.com/search?q=" ""])
+           ("Emacs China Forum" . [simple-query "emacs-china.org" "https://emacs-china.org/search?q=" ""])
            ("Lisp doc" . [simple-query "lispdoc.com" "http://lispdoc.com/?q=" ""])
+	       ("cljdoc: documentation for Clojure/ClojureScript libraries" .
+	        [simple-query "cljdoc.org" "https://cljdoc.org/search?q=require" ""])
            ("Clojure Docs" . [simple-query "clojuredocs.org" "http://clojuredocs.org/search?q=" ""])
            ("CrossClj" . "https://crossclj.info")
            ("Java Docs" .
-            [simple-query "docs.oracle.com"
-                          "https://docs.oracle.com/apps/search/search.jsp?category=java&q=" ""])
+            [simple-query "docs.oracle.com" "https://docs.oracle.com/apps/search/search.jsp?category=java&q=" ""])
            ("clojars" . [simple-query "clojars.org" "https://clojars.org/search?q=" ""])
            ("Maven" . [simple-query "search.maven.org" "https://search.maven.org/search?q=" ""])
            ;; Library Documentation Hosting for Common Lisp
@@ -72,6 +72,8 @@
             [simple-query "ruby-doc.com" "http://ruby-doc.com/search.html?q=" ""])
            ("Python 3 Docs" .
             [simple-query "docs.python.org" "http://docs.python.org/3/search.html?q=" ""])
+           ("Python pip packages search" .
+            [simple-query "pypi.org" "https://pypi.org/search/?q=" ""])
            ("Perl CPAN" .
             [simple-query "search.cpan.org" "http://search.cpan.org/search?mode=all&query=" ""])
            ("PHP Doc" . [simple-query "cn2.php.net" "http://cn2.php.net/results.php?q=" ""])
@@ -91,6 +93,7 @@
            ("Archlinux Wiki" .
             [simple-query "wiki.archlinux.org"
                           "https://wiki.archlinux.org/index.php/Special:Search&fulltext=Search?search=" ""])
+           ("Docker Hub" . [simple-query "hub.docker.com" "https://hub.docker.com/search?q=" "&type=image"])
            ;; Mailing Lists
            ("emacs-help mailing list" .
             [simple-query "lists.gnu.org"
@@ -105,8 +108,10 @@
            ("The Pirate Bay 海盗湾" .
             [simple-query "thepiratebay.org" "https://thepiratebay.org/search/" ""])
            ;; Documents
-           ("Z-Library (book4you.org)" . [simple-query "book4you.org" "https://book4you.org/s/" ""])
-           ("Z-Library (b-ok.global)" . [simple-query "b-ok.global" "https://b-ok.global/s/" ""])
+           ("Z-Library (zlibraryexau2g3p.onion Tor version)" . [simple-query "1lib.org" "https://1lib.org/s/" ""])
+           ;; ("Z-Library (book4you.org Premium member only)" . [simple-query "book4you.org" "https://book4you.org/s/" ""])
+           ;; ("Z-Library (b-ok.global)" . [simple-query "b-ok.global" "https://b-ok.global/s/" ""])
+           ("Z-Library (1lib.org Books)" . [simple-query "1lib.org" "https://1lib.org/s/" ""])
            ("鸠摩 文档搜索引擎 jiumodiary" . "https://www.jiumodiary.com/")
            ("蓝菊花 lanjuhua" . "http://www.lanjuhua.com/")
            ("深度开源 · 文库" . [simple-query "open-open.com" "https://www.open-open.com/wenku/?kw=" ""])
@@ -132,9 +137,7 @@
            ("法信 faxin.cn" . "http://www.faxin.cn/")
            ;; Papers
            ("arXiv e-Print archives" .
-            [simple-query "arxiv.org"
-                          "https://arxiv.org/search/?query="
-                          "&searchtype=all&abstracts=show&order=-announced_date_first&size=50"])
+            [simple-query "arxiv.org" "https://arxiv.org/search/?query=" "&searchtype=all&abstracts=show&order=-announced_date_first&size=50"])
            ;; Shopping
            ("淘宝 taobao.com" . [simple-query "taobao.com" "https://s.taobao.com/search?q=" "&s_from=newHeader&ssid=s5-e&search_type=item&sourceId=tb.item"])
            ;; Porn
