@@ -1,6 +1,6 @@
 ;;; init-emacs-profiler.el --- init profilers for Emacs.
 
-;;; Time-stamp: <2020-11-18 11:52:13 stardiviner>
+;;; Time-stamp: <2020-12-20 09:11:08 stardiviner>
 
 ;;; Commentary:
 
@@ -53,6 +53,13 @@
   :commands (explain-pause-mode explain-pause-top)
   ;; :hook (after-init . explain-pause-mode)
   :init (explain-pause-mode -1))
+
+
+(defmacro +measure-time (&rest body)
+  "Measure the time it takes to evaluate BODY."
+  `(let ((time (current-time)))
+     ,@body
+     (message "%.06fs" (float-time (time-since time)))))
 
 
 

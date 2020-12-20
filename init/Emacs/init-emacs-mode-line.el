@@ -32,6 +32,12 @@ current window."
                         ;; " " mode-name minor-mode-alist
                         " " mode-line-end-spaces)))))
 
+;;; [ benchmarking mode-line rendering ]
+
+;; (+measure-time
+;;  (format-mode-line mode-line-format))
+;;; => "0.000341s"
+
 ;;; [ powerline ] -- Rewrite of Powerline.
 
 ;; (require 'init-powerline)
