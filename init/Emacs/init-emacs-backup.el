@@ -52,6 +52,7 @@
 (setq auto-save-list-file-prefix (expand-file-name ".auto-save-list/.saves-" user-emacs-directory)
       auto-save-interval (* 60 10)
       ;; delete-auto-save-files nil ; don't delete auto-save file when a buffer is saved or killed.
+      auto-save-no-message t
       )
 (auto-save-mode 1)
 
