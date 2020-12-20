@@ -12,7 +12,7 @@
 (use-package migemo
   :ensure t
   :defer t
-  :commands (migemo)
+  :commands (migemo migemo-init)
   :custom ((migemo-command "cmigemo")
            (migemo-options '("-q" "--emacs")))
   :bind (:map language-search-prefix ("j" . migemo-isearch-toggle-migemo))
