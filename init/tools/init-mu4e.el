@@ -9,6 +9,7 @@
 
 (use-package mu4e
   :load-path "~/Code/Emacs/mu/mu4e/"    ; compile from source code
+  ;; :load-path "/usr/local/share/emacs/site-lisp/mu4e"
   :demand t
   :commands (mu4e)
   ;; :preface (setq mu4e-mu-debug t)
