@@ -46,7 +46,7 @@
                `("w" ,(format "%s\torg-drill words"
                               (all-the-icons-material "check_box" :face 'all-the-icons-lyellow))
                  entry (file ,my-org-drill-words-file)
-                 "* %i :drill:
+                 "* %(downcase \"%i\") :drill:
 :PROPERTIES:
 :DRILL_CARD_TYPE: %^{Drill Difficulty|simple|twosided|multisided|hide1cloze}
 :END:
