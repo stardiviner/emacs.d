@@ -40,6 +40,7 @@
           (:maildir   "/Trash"                  :key ?t)
           (:maildir   "/Work"                   :key ?w)
           (:maildir   "/Emacs/help"             :key ?e)
+          (:maildir   "/Emacs/devel"            :key ?E)
           (:maildir   "/Emacs/Org-mode"         :key ?O)
           (:maildir   "/Lisp/"                  :key ?l)
           (:maildir   "/Clojure"                :key ?c)
@@ -237,8 +238,8 @@
         (lambda (msg)
           (cond
            ;; mu discuss Google Groups
-           ((mu4e-message-contact-field-matches msg
-                                                :to "mu-discuss@googlegroups.com")
+           ((mu4e-message-contact-field-matches
+             msg :to "mu-discuss@googlegroups.com")
             "/Emacs/mu")
            ;; delete all Cron getmail error messages which is network
            ;; unavailable error.
@@ -281,9 +282,11 @@
                  :query "date:1w..now")
           (:name "Big messages" :key ?B
                  :query "size:5M..500M")
-          (:name "Emacs mailbox" :key ?e
+          (:name "Emacs-help mailbox" :key ?e
                  :query "maildir:/Emacs/help")
-          (:name "Emacs mu4e mailbox" :key ?m
+          (:name "Emacs-devel mailbox" :key ?E
+                 :query "maildir:/Emacs/devel")
+          (:name "mu4e mailbox" :key ?m
                  :query "maildir:/Emacs/mu")))
 
   ;; Marking
