@@ -217,6 +217,7 @@
         ;; From: field. or press [M-RET] to view.
         mu4e-view-show-addresses t)
   (setq mu4e-view-scroll-to-next nil) ; don't open next email when SPC scroll to bottom of message.
+  (setq mu4e-view-use-gnus t) ; fix opening signed attachment emails very long time issue.
 
   ;; [ Cite ]
   ;; (add-hook 'mu4e-view-mode-hook 'mu4e-view-toggle-hide-cited)
