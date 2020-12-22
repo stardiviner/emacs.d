@@ -275,7 +275,7 @@
           (:name "Passed  messages" :key ?d
                  :query "flag:passed")
           (:name "Flagged messages" :key ?f
-                 :query "flag:flagged")
+                 :query "flag:flagged flag:unread")
           (:name "Today's new messages" :key ?n
                  :query "date:today..now flag:new")
           (:name "Today's messages" :key ?d
