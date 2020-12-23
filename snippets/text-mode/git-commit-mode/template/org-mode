@@ -3,9 +3,7 @@
 # key: template-org-mode
 # group: template
 # --
-${1:ob-python.el}: ${2:Fix session initiation when using python-mode.el}
+${1:filename}.el: ${2:main short description}
 
-* ${3:lisp/ob-python.el} (${4:org-babel-python-initiate-session-by-key}): ${5:Fixes
-new session initiation when org-babel-python-mode is
-python-mode.el.}
+* ${3:path/to/file}.el (${4:function/variable}): ${5:description}
 $0
