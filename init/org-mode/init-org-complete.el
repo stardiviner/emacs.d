@@ -24,7 +24,8 @@
                               :separate company-tempo)
                 company-keywords
                 company-files
-                company-ispell)))
+                ;; company-ispell
+                )))
 
 (add-hook 'org-mode-hook #'my/org-mode-completion-setting)
 
