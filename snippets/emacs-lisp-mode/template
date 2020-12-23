@@ -5,13 +5,13 @@
 ;;; ${1:$$(file-name-base (buffer-file-name))}.el --- $2 -*- lexical-binding: t; -*-
 ;; -*- coding: utf-8 -*-
 
-;;; Time-stamp: <2020-12-19 14:46:53 stardiviner>
+;;; Time-stamp: <2020-12-23 14:05:27 stardiviner>
 
-;; Copyright (C) 2009-2020  ${4:Free Software Foundation, Inc.}
+;; Copyright (C) 2020-2021 ${3:$$(yas-choose-value '("Christopher M. Miles, all rights reserved." "Free Software Foundation, Inc."))}
 
 ;;; Commentary:
 
-$3
+$4
 
 ;;; Code:
 
