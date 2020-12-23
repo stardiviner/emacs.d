@@ -126,7 +126,17 @@
     (define-key dired-mode-map (kbd "C-c C-p") 'wdired-change-to-wdired-mode)
     (setq wdired-allow-to-change-permissions t))
 
-  (use-package dired-x ; extra Dired functionality
+  ;; [ diredc ] -- dired extensions and convenience features inspired from "midnight commander".
+  ;; (use-package diredc
+  ;;   :ensure t
+  ;;   :defer t
+  ;;   :commands (diredc)
+  ;;   :bind (([remap dired-other-frame] . diredc)
+  ;;          ;; ([remap dired] . diredc)
+  ;;          ;; ("S-<f11>" . diredc)
+  ;;          ))
+  
+  (use-package dired-x                  ; extra Dired functionality
     :defer t
     ;; don't bind [C-x C-j] from `dired-x'. (conflict with `ace-window')
     :preface (setq dired-bind-jump nil)
