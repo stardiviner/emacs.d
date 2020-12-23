@@ -19,7 +19,7 @@
   ;; :preface (pdf-loader-install)
   :mode ("\\.pdf\\'" . pdf-view-mode)
   ;; :magic ("%PDF" . pdf-view-mode) ; for PDF binary header byte.
-  :custom ((pdf-view-use-scaling t) ; open PDF scaled to fit page.
+  :custom ((pdf-view-use-scaling t)     ; open PDF scaled to fit page.
            ;; speed-up pdf-tools by don't try to find unicode.
            (pdf-view-use-unicode-ligther nil))
   :init ;; (pdf-tools-install-noverify) ; (pdf-tools-install)
@@ -106,8 +106,7 @@
 
 (use-package org-pdftools
   :ensure t
-  :defer t
-  :init (org-pdftools-setup-link))
+  :hook (org-load-hook . org-pdftools-setup-link))
 
 ;; [ org-noter ] -- Emacs document annotator, using Org-mode.
 
