@@ -48,7 +48,8 @@
            (ielm-dynamic-multiline-inputs t))
   :init (add-to-list 'display-buffer-alist '("^\\*ielm\\*" . (display-buffer-below-selected)))
   :hook ((ielm-mode . paredit-mode)
-         (ielm-mode . hl-sexp-mode))
+         (ielm-mode . hl-sexp-mode)
+         (ielm-mode . eldoc-mode))
   :config
   (defun my/ielm-company-setup ()
     (my-company-add-backend-locally 'company-elisp))
