@@ -14,7 +14,8 @@
   :defer t
   :delight eldoc-mode
   :preface (setq global-eldoc-mode t)
-  :hook (prog-mode . eldoc-mode)
+  :hook ((prog-mode . eldoc-mode)
+         (minibuffer-setup . eldoc-mode))
   :init (global-eldoc-mode -1) ; don't enable `global-eldoc-mode'
   :config
   ;; ElDoc with most `paredit' command.
@@ -44,9 +45,9 @@
 ;; (use-package eldoc-eval
 ;;   :ensure t
 ;;   :defer t
+;;   :custom (eldoc-show-in-mode-line-delay 1)
 ;;   :commands (eldoc-eval-expression)
-;;   :bind ("M-:" . eldoc-eval-expression)
-;;   :init (setq eldoc-show-in-mode-line-delay 1))
+;;   :bind ("M-:" . eldoc-eval-expression))
 
 
 (provide 'init-prog-document-eldoc)
