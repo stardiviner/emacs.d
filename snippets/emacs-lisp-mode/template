@@ -3,8 +3,9 @@
 # key: template
 # --
 ;;; ${1:$$(file-name-base (buffer-file-name))}.el --- $2 -*- lexical-binding: t; -*-
+;; -*- coding: utf-8 -*-
 
-;;; Time-stamp: <2020-12-17 08:00:40 stardiviner>
+;;; Time-stamp: <2020-12-19 14:46:53 stardiviner>
 
 ;; Copyright (C) 2009-2020  ${4:Free Software Foundation, Inc.}
 
