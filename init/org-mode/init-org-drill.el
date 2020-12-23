@@ -134,6 +134,13 @@
   :commands (anki)
   :custom ((anki-collection-dir "~/.local/share/Anki2/stardiviner")))
 
+;;; [ org-anki ] -- Synchronize Org Mode entries to Anki.
+
+(use-package org-anki
+  :ensure t
+  :defer t
+  :commands (org-anki-sync-entry org-anki-delete-entry))
+
 
 (provide 'init-org-drill)
 
