@@ -7,9 +7,13 @@
 
 ;;; Code:
 
-(put 'emacs-lisp-mode 'derived-mode-parent 'prog-mode)
-
-(add-hook 'emacs-lisp-mode-hook #'(lambda () (add-to-list 'electric-pair-pairs '(?\` . ?\'))))
+(use-package elisp-mode
+  :init (put 'emacs-lisp-mode 'derived-mode-parent 'prog-mode)
+  :config
+  (add-hook 'emacs-lisp-mode-hook
+            #'(lambda ()
+                (make-local-variable 'electric-pair-pairs)
+                (add-to-list 'electric-pair-pairs '(?\` . ?\')))))
 
 ;; Recompile your elc when saving an elisp file.
 ;; (add-hook 'after-save-hook
@@ -69,8 +73,8 @@
   :ensure t
   :defer t
   :commands (macrostep-expand)
-  :init (setq macrostep-expand-in-separate-buffer nil
-              macrostep-expand-compiler-macros t))
+  :custom ((macrostep-expand-in-separate-buffer nil)
+           (macrostep-expand-compiler-macros t)))
 
 ;;; [ elmacro ] -- display keyboard macros or latest interactive commands as emacs lisp.
 
