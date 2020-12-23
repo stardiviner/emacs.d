@@ -163,7 +163,7 @@
 (require 'init-languages)
 (require 'init-language-english)
 (require 'init-language-chinese)
-(require 'init-language-japanese)
+;; (require 'init-language-japanese)
 
 
 ;;; Tools
