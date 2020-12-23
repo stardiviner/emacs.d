@@ -7,14 +7,7 @@
 
 ;;; Code:
 
-(use-package elisp-mode
-  :preface (put 'emacs-lisp-mode 'derived-mode-parent 'prog-mode)
-  :hook ((emacs-lisp-mode . eldoc-mode))
-  :config
-  (add-hook 'emacs-lisp-mode-hook
-            #'(lambda ()
-                (make-local-variable 'electric-pair-pairs)
-                (add-to-list 'electric-pair-pairs '(?\` . ?\')))))
+(use-package elisp-mode)
 
 ;; Recompile your elc when saving an elisp file.
 ;; (add-hook 'after-save-hook
