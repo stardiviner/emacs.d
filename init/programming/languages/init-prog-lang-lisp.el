@@ -91,11 +91,17 @@
          (clojure-mode . rainbow-delimiters-mode)
          (clojurescript-mode . rainbow-delimiters-mode)))
 
+;;; [ rainbow-blocks-bg ] -- rainbow background highlighting of code blocks.
+
+;; (use-package rainbow-blocks-bg
+;;   :quelpa (rainbow-blocks-bg :fetcher github :repo "seanirby/rainbow-blocks-bg")
+;;   :hook (clojure-mode . rainbow-blocks-bg-mode))
+
 ;;; [ hl-sexp ] -- highlight the current sexp.
 
 (use-package hl-sexp
   ;; :quelpa (hl-sexp :fetcher github :repo "stardiviner/hl-sexp")
-  :load-path "~/Code/Emacs/hl-sexp"
+  :load-path "~/Code/Emacs/hl-sexp" ; use my modified fork
   :defer t
   :commands (global-hl-sexp-mode hl-sexp-mode)
   :hook ((emacs-lisp-mode . hl-sexp-mode)
@@ -107,29 +113,17 @@
   ;; :custom-face (hl-sexp-face ((t (:background ,(color-darken-name (face-background 'default) 5)))))
   )
 
-;;; [ rainbow-blocks-bg ] -- rainbow background highlighting of code blocks.
-
-;; (use-package rainbow-blocks-bg
-;;   :quelpa (rainbow-blocks-bg :fetcher github :repo "seanirby/rainbow-blocks-bg")
-;;   :no-require t
-;;   :commands (rainbow-blocks-bg)
-;;   :config (add-hook 'clojure-mode-hook 'rainbow-blocks-bg-mode))
-
 ;;; [ eval-sexp-fu ] -- highlighting the sexps during evaluation in action.
 
 ;; (use-package eval-sexp-fu
 ;;   :ensure t
 ;;   :defer t
-;;   :config
-;;   (setq eval-sexp-fu-flash-duration 0.5
-;;         eval-sexp-fu-flash-error-duration 1.5
-;;         ;; eval-sexp-fu-flash-function
-;;         ;; eval-sexp-fu-flash-doit-function
-;;         )
-;;
-;;   (eval-sexp-fu-flash-mode 1)
-;;   )
-
+;;   :custom ((eval-sexp-fu-flash-duration 0.5)
+;;            (eval-sexp-fu-flash-error-duration 1.5)
+;;            ;; (eval-sexp-fu-flash-function)
+;;            ;; (eval-sexp-fu-flash-doit-function)
+;;            )
+;;   :init (eval-sexp-fu-flash-mode))
 
 ;;; [ parinfer-mode ] -- Parinfer on Emacs with oakmac's parinfer-elisp.
 
