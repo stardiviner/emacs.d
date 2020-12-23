@@ -9,6 +9,7 @@
 
 (use-package elisp-mode
   :init (put 'emacs-lisp-mode 'derived-mode-parent 'prog-mode)
+  :hook ((emacs-lisp-mode . eldoc-mode))
   :config
   (add-hook 'emacs-lisp-mode-hook
             #'(lambda ()
