@@ -7,6 +7,11 @@
 
 ;;; Code:
 
+;;; [ doc-view ] -- Document viewer for Emacs.
+
+(use-package doc-view
+  :hook (doc-view-minor-mode-hook . doc-view-fit-width-to-window))
+
 ;;; [ pdf-tools ] -- Emacs support library for PDF files.
 
 (use-package pdf-tools
