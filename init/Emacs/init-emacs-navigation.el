@@ -32,6 +32,14 @@
 
 (setq recenter-positions '(top middle bottom))
 
+;;; [ centered-cursor-mode ] -- cursor stays vertically centered.
+
+(use-package centered-cursor-mode
+  :ensure t
+  :defer t
+  :commands (global-centered-cursor-mode centered-cursor-mode)
+  :hook (after-init . global-centered-cursor-mode))
+
 ;;; [ movement ]
 
 (setq track-eol t) ; always track end of line when moving at end of line.
