@@ -68,14 +68,14 @@
         ("child")
         (:endgrouptag)
         
-        ;; SEX
+        ;; SEX & Porn
         (:startgrouptag) ("@SEX" . ?X) (:grouptags)
-        ("date") ("pickup") ("PUA")
-        ("creampie") ("blowjob") ("orgasm") ("masturbation") ("dildo") ("lick_pussy") ("clit") ("handjob")
+        ("date") ("pickup") ("PUA") ("uncensored")
+        ("creampie") ("blowjob") ("orgasm") ("masturbation") ("dildo") ("lick_pussy") ("clit") ("handjob") ("moan")
         ("beauty") ("pretty") ("young") ("handsome") ("beautiful_boy") ("teen") ("girl")
         ("ride_face") ("ride_dick") ("massage") ("shower") ("pillow") ("public") ("naked") ("night")
         ("SM") ("extreme_exhibition") ("car")
-        ("anal") ("trans") ("gay") ("couple") ("amateur") ("deepthroat") ("squirt") ("cum")
+        ("anal") ("trans") ("gay") ("couple") ("amateur") ("selfie") ("stealthie") ("live_stream") ("real") ("deepthroat") ("squirt") ("cum")
         ("homemade") ("kitchen") ("pussy") ("cosplay") ("oral") ("female") ("back") ("asian") ("hard")
         ("dog") ("slow_motion") ("erotic") ("oil") ("blonde")
         ("close_up") ("big_cock") ("footjob") ("threesome") ("OL") ("office") ("exchange_student")
@@ -90,7 +90,6 @@
         ;; Devices
         (:startgroup)
         ("computer") ("laptop") ("mobile")
-        ("firefox") ("chrome")
         (:endgroup)
         ;; Work
         (:startgrouptag) ("@work" . ?w) (:grouptags)
@@ -116,13 +115,13 @@
         ("Java" . ?j) ("C") ("cpp") ("Go") ("Rust") ("Swift") ("C#" . ?#)
         ("Shell" . ?S) ("Python" . ?p) ("Ruby" . ?r)
         ("Web") ("JavaScript" . ?J) ("HTML") ("HTML5") ("CSS") ("CSS3")
-        ("Firefox") ("Chrome") ("Edge") ("Safari")
+        ("Firefox") ("Chromium") ("Chrome") ("Edge") ("Safari")
         ("database" . ?d) ("SQL") ("PostgreSQL") ("MySQL") ("MariaDB") ("Oracle") ("SQLite") ("DB2")
         ("TeX") ("LaTeX") ("Markdown") ("reStructuredText") ("AsciiDoc") ("YAML") ("TOML") ("CWL")
         ;; Internet
-        ("Internet") ("Google") ("Facebook") ("Twitter") ("Microsoft") ("Amazon")
+        ("Internet") ("Google") ("Facebook") ("Twitter") ("Microsoft") ("Amazon") ("Mozilla")
         ("YouTube") ("PornHub") ("Instagram") ("Dribbble") ("Dropbox") ("whatsapp")
-        ("Baidu") ("Tencent") ("weixin") ("wechat") ("weibo")
+        ("Alibaba") ("Baidu") ("Tencent") ("weixin") ("wechat") ("weibo") ("ByteDance") ("Bilibili")
         (:endgroup)
         (:endgrouptag)
         
@@ -636,6 +635,7 @@
           ("WiFi" . ,(all-the-icons-faicon "wifi" :face '(:foreground "DarkGray")))
           ("Nvidia" . ,(all-the-icons-fileicon "nvidia" :face '(:foreground "SteelBlue")))
           ("Firefox" . ,(all-the-icons-faicon "firefox" :face '(:foreground "OrangeRed")))
+          ("Chromium" . ,(all-the-icons-faicon "chrome" :face '(:foreground "LightSkyBlue")))
           ("Chrome" . ,(all-the-icons-faicon "chrome" :face '(:foreground "OrangeRed")))
           ("Edge" . ,(all-the-icons-fileicon "edge" :face '(:foreground "DodgerBlue")))
           ("Safari" . ,(all-the-icons-faicon "safari" :face '(:foreground "LightSkyBlue")))
@@ -832,6 +832,7 @@
           ("Facebook" . ,(all-the-icons-faicon "facebook-official" :face '(:foreground "DodgerBlue")))
           ("Twitter" . ,(all-the-icons-faicon "twitter" :face '(:foreground "DarkTurquoise")))
           ("Amazon" . ,(all-the-icons-faicon "amazon" :face '(:foreground "goldenrod")))
+          ("Mozilla" . ,(all-the-icons-faicon "firefox" :face '(:foreground "OrangeRed")))
           ("GitHub" . ,(all-the-icons-faicon "github" :face '(:foreground "DimGray")))
           ("GitLab" . ,(all-the-icons-fileicon "gitlab" :face '(:foreground "orange")))
           ("hacker_news" . ,(all-the-icons-faicon "hacker-news" :face '(:foreground "DarkOrange")))
