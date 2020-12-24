@@ -21,7 +21,7 @@
            ;; 'message-user-agent, 'mail-user-agent, 'gnus-user-agent, 'mu4e-user-agent,
            (mail-user-agent 'message-user-agent)
            
-           (user-mail-address "numbchild@gmail.com")
+           (user-mail-address "numbchild@gmail.com") ; "stardiviner@outlook.com"
            (user-full-name  "stardiviner")
            
            ;; It is important to set the mail-host-address otherwise emacs will
@@ -124,26 +124,42 @@
 
 ;;; [[info:smtpmail#Top][info:smtpmail#Top]]
 
-;; (use-package smtpmail
-;;   :defer t
-;;   :custom (;; for debug
-;;            ;; (smtpmail-debug-info t)
-;;            ;; (smtpmail-debug-verb t)
-;;            ;; specify sending mail agent
-;;            (message-send-mail-function send-mail-function)
-;;            (send-mail-function 'smtpmail-send-it)
-;; 	         ;; configure Gmail SMTP server
-;;            (smtpmail-smtp-server "smtp.gmail.com")
-;;            (smtpmail-default-smtp-server smtpmail-smtp-server)
-;; 	         ;; (smtpmail-stream-type 'ssl)
-;;            (smtpmail-smtp-service 587)  ; "smtp": 25, "smtps": 587
-;;            (smtpmail-smtp-user "numbchild@gmail.com")
-;;            ;; (smtpmail-auth-credentials (expand-file-name (car auth-sources)))
-;;            (smtpmail-local-domain "gmail.com")
-;;            ;; queue sending email
-;;            ;; (smtpmail-queue-mail t)
-;;            ;; (smtpmail-queue-dir "~/Mails/queue/")
-;;            ))
+(use-package smtpmail
+  :defer t
+  :custom (;; for debug
+           ;; (smtpmail-debug-info t)
+           ;; (smtpmail-debug-verb t)
+           ;; specify sending mail agent
+           (message-send-mail-function send-mail-function)
+           (send-mail-function 'smtpmail-send-it)
+           
+	       ;; ;; configure Gmail SMTP server
+           ;; (smtpmail-smtp-server "smtp.gmail.com")
+           ;; (smtpmail-default-smtp-server smtpmail-smtp-server)
+	       ;; ;; (smtpmail-stream-type 'ssl)
+           ;; (smtpmail-smtp-service 587)  ; "smtp": 25, "smtps": 587
+           ;; (smtpmail-smtp-user "numbchild@gmail.com")
+           ;; ;; (smtpmail-auth-credentials (expand-file-name (car auth-sources)))
+           ;; (smtpmail-local-domain "gmail.com")
+           ;; (user-mail-address "numbchild@gmail.com")
+           ;; (mail-default-reply-to "numbchild@gmail.com")
+           
+           ;; configure Microsoft Outlook SMTP server
+           (smtpmail-smtp-server "smtp.office365.com")
+           (smtpmail-default-smtp-server smtpmail-smtp-server)
+	       (smtpmail-stream-type 'starttls)
+           (smtpmail-smtp-service 587)
+           (smtpmail-smtp-user "stardiviner@outlook.com")
+           ;; (smtpmail-auth-credentials (expand-file-name (car auth-sources)))
+           ;; (smtpmail-local-domain "outlook.com")
+           (user-mail-address "stardiviner@outlook.com")
+           (mail-default-reply-to "stardiviner@outlook.com")
+           (mu4e-compose-reply-to-address "stardiviner@outlook.com")
+           
+           ;; queue sending email
+           ;; (smtpmail-queue-mail t)
+           ;; (smtpmail-queue-dir "~/Mails/queue/")
+           ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Retrieve Mail                                                                    ;;

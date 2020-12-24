@@ -18,11 +18,7 @@
            (mu4e-drafts-folder "/Drafts")
            ;; (mu4e-refile-folder "/Archives")
            (mu4e-trash-folder "/Trash")
-           (mu4e-completing-read-function 'completing-read)
-           ;; my personal email
-           (mu4e-compose-reply-to-address "numbchild@gmail.com")
-           (user-mail-address "numbchild@gmail.com")
-           (user-full-name  "stardiviner"))
+           (mu4e-completing-read-function 'completing-read))
   :commands (mu4e)
   :bind (:map tools-prefix ("m" . mu4e))
   :init
@@ -269,7 +265,9 @@
           (:name "My participated threads" :key ?b
                  :query (concat "maildir:\"/Send\" AND flag:unread "
                                 " OR contact:/.*stardiviner/ "
-                                " OR contact:/.*numbchild@gmail.com/ "))
+                                " OR contact:/.*numbchild@gmail.com/ "
+                                " OR contact:/.*stardiviner@outlook.com/ "
+                                " OR contact:/.*stardiviner@icloud.com/ "))
           (:name "Replied messages" :key ?r
                  :query "flag:replied")
           (:name "Passed  messages" :key ?d
