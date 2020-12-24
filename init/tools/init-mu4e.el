@@ -11,7 +11,6 @@
   :load-path "~/Code/Emacs/mu/mu4e/"    ; compile from source code
   ;; :load-path "/usr/local/share/emacs/site-lisp/mu4e"
   :demand t
-  :commands (mu4e)
   ;; :preface (setq mu4e-mu-debug t)
   :custom ((mail-user-agent 'mu4e-user-agent) ; use mu4e as default for compose [C-x m].
            ;; Maildir
@@ -24,6 +23,7 @@
            (mu4e-compose-reply-to-address "numbchild@gmail.com")
            (user-mail-address "numbchild@gmail.com")
            (user-full-name  "stardiviner"))
+  :commands (mu4e)
   :bind (:map tools-prefix ("m" . mu4e))
   :init
   (add-to-list 'display-buffer-alist '("^ \\*mu4e-main\\*" . (display-buffer-below-selected)))
@@ -101,20 +101,20 @@
   
   ;; [ Get/Update Mail ] -- [C-c C-u]
   ;; program to get mail: alternatives are 'fetchmail', 'getmail',
-  ;; 'isync' or your own shellscript.
+  ;; 'isync' or your own shell script.
 
   ;; disable mu4e auto fetch and update if you use systemd timer unit.
+  (setq mu4e-display-update-status-in-modeline t)
   (unless (string-equal (string-trim
                          (shell-command-to-string
                           "systemctl --user is-enabled getmail.timer"))
                         "enabled")
     (setq mu4e-get-mail-command
-          "proxychains getmail --rcfile numbchild@gmail.com --rcfile stardiviner@outlook.com --rcfile stardiviner@qq.com"
-          mu4e-update-interval (* 60 30)
-          mu4e-display-update-status-in-modeline t
-          mu4e-hide-index-messages t))
+          "proxychains getmail --rcfile numbchild@gmail.com --rcfile stardiviner@qq.com"
+          mu4e-update-interval (* 60 30)))
 
   ;; [ Index ]
+  (setq mu4e-hide-index-messages t)
   ;; speed-up mu4e (re)index
   (setq mu4e-index-lazy-check t)
   ;; (setq mu4e-index-cleanup nil)
