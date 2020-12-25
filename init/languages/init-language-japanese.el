@@ -21,10 +21,11 @@
 (use-package ivy-migemo
   :ensure t
   :after ivy
-  :init
+  ;; :init
   ;; Toggle migemo and fuzzy by command.
-  (define-key ivy-minibuffer-map (kbd "M-f") #'ivy-migemo-toggle-fuzzy)
-  (define-key ivy-minibuffer-map (kbd "M-m") #'ivy-migemo-toggle-migemo)
+  ;; FIXME: [M-f] [M-m] conflict with navigation in Ivy minibuffer.
+  ;; (define-key ivy-minibuffer-map (kbd "M-f") #'ivy-migemo-toggle-fuzzy)
+  ;; (define-key ivy-minibuffer-map (kbd "M-m") #'ivy-migemo-toggle-migemo)
   ;; :config
   ;; ;; If you want to defaultly use migemo on swiper and counsel-find-file:
   ;; (setq ivy-re-builders-alist '((t . ivy--regex-plus)
