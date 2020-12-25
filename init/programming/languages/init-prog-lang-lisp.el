@@ -97,11 +97,47 @@
 ;;   :quelpa (rainbow-blocks-bg :fetcher github :repo "seanirby/rainbow-blocks-bg")
 ;;   :hook (clojure-mode . rainbow-blocks-bg-mode))
 
+;;; [ highlight-blocks-bg ]
+
+(use-package highlight-blocks
+  :ensure t
+  ;; :config
+  ;; (defun highlight-blocks--rainbow-colors (theme)
+  ;;   "Set highlight-blocks background colors list based on color theme light or dark."
+  ;;   (cl-case (alist-get 'background-mode (frame-parameters))
+  ;;     ('light
+  ;;      (setq highlight-blocks--rainbow-colors
+  ;;            '("#BAFFFF" "#FFCACA" "#FFFFBA" "#CACAFF" "#CAFFCA" "#FFBAFF")))
+  ;;     ('dark
+  ;;      (setq highlight-blocks--rainbow-colors
+  ;;            '("#002200" "#00"
+  ;;              ;; "grey55" "#93a8c6" "#b0b1a3" "#97b098" "#aebed8"
+  ;;              ;; "#b0b0b3" "#90a890" "#a2b6da" "#9cb6ad"
+  ;;              )))))
+  ;;
+  ;; (add-hook 'circadian-after-load-theme-hook #'highlight-blocks--rainbow-colors)
+  ;;
+  ;; (setq highlight-blocks-max-face-count
+  ;;       (length highlight-blocks--rainbow-colors))
+  ;;
+  ;; (defun highlight-blocks--define-rainbow-colors (colors)
+  ;;   (dotimes (i (length colors))
+  ;;     (face-spec-set
+  ;;      (intern (format "highlight-blocks-depth-%d-face" (1+ i)))
+  ;;      `((((class color) (background dark))  :background ,(nth i colors))
+  ;;        (((class color) (background light)) :background ,(nth i colors)))
+  ;;      'face-defface-spec)))
+  ;;
+  ;; (highlight-blocks--define-rainbow-colors highlight-blocks--rainbow-colors)
+  ;;
+  ;; (highlight-blocks-mode 1)
+  )
+
 ;;; [ hl-sexp ] -- highlight the current sexp.
 
 (use-package hl-sexp
   ;; :quelpa (hl-sexp :fetcher github :repo "stardiviner/hl-sexp")
-  :load-path "~/Code/Emacs/hl-sexp" ; use my modified fork
+  :load-path "~/Code/Emacs/hl-sexp"     ; use my modified fork
   :defer t
   :commands (global-hl-sexp-mode hl-sexp-mode)
   :hook ((emacs-lisp-mode . hl-sexp-mode)
