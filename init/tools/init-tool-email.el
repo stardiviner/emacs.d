@@ -180,11 +180,11 @@
 ;; Mailing List Archives                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(use-package hyperkitty
-  :ensure t
-  :defer t
-  :commands (hyperkitty)
-  :custom (hyperkitty-mlists '(("test@mailman3.org" . "https://lists.mailman3.org/archives"))))
+;; (use-package hyperkitty
+;;   :ensure t
+;;   :defer t
+;;   :commands (hyperkitty)
+;;   :custom (hyperkitty-mlists '(("test@mailman3.org" . "https://lists.mailman3.org/archives"))))
 
 
 
