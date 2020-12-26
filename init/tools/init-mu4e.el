@@ -106,7 +106,7 @@
                           "systemctl --user is-enabled getmail.timer"))
                         "enabled")
     (setq mu4e-get-mail-command
-          "proxychains getmail --rcfile numbchild@gmail.com --rcfile stardiviner@qq.com"
+          "proxychains getmail --rcfile numbchild@gmail.com --rcfile stardiviner@outlook.com --rcfile stardiviner@icloud.com --rcfile stardiviner@qq.com"
           mu4e-update-interval (* 60 30)))
 
   ;; [ Index ]
