@@ -101,13 +101,12 @@
 
   ;; disable mu4e auto fetch and update if you use systemd timer unit.
   (setq mu4e-display-update-status-in-modeline t)
-  (unless (string-equal (string-trim
-                         (shell-command-to-string
-                          "systemctl --user is-enabled getmail.timer"))
-                        "enabled")
-    (setq mu4e-get-mail-command
-          "proxychains getmail --rcfile numbchild@gmail.com --rcfile stardiviner@outlook.com --rcfile stardiviner@icloud.com --rcfile stardiviner@qq.com"
-          mu4e-update-interval (* 60 30)))
+  (setq mu4e-get-mail-command "proxychains getmail --rcfile numbchild@gmail.com --rcfile stardiviner@outlook.com --rcfile stardiviner@icloud.com --rcfile stardiviner@qq.com")
+  (setq mu4e-update-interval (unless (string-equal (string-trim
+                                                    (shell-command-to-string
+                                                     "systemctl --user is-enabled getmail.timer"))
+                                                   "enabled")
+                               (* 60 30)))
 
   ;; [ Index ]
   (setq mu4e-hide-index-messages t)
