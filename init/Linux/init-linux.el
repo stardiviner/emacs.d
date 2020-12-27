@@ -7,6 +7,8 @@
 
 ;;; Code:
 
+;;; [ conf-mode ] -- Simple major mode for editing conf/ini/properties files.
+
 ;;; [ helm-system-packages ] -- Helm UI wrapper for system package managers.
 
 (use-package helm-system-packages

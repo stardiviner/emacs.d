@@ -165,10 +165,9 @@
 ;; Retrieve Mail                                                                    ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; procmail
-(add-to-list 'auto-mode-alist '("\\.procmailrc\\'" . conf-mode))
-;; getmail
-(add-to-list 'auto-mode-alist '("\\.getmailrc\\'" . conf-mode))
+(use-package conf-mode
+  :mode (("\\procmailrc\\'" . conf-mode)
+         ("\\getmailrc\\'" . conf-mode)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Reading Mail [ Mail User Agent ] (MTA)                                           ;;
