@@ -58,7 +58,9 @@
   (add-hook 'projectile-rails-mode-hook 'helm-dash-buffer-local-rails-docsets)
   ;; Python
   (defun helm-dash-buffer-local-python-docsets ()
-    (my/dash-docs-local-docsets '("Python_3")))
+    (my/dash-docs-local-docsets '("Python_3" "Python_zh_cn"))
+    (my/dash-docs-local-docsets '("Qt_5" "Qt_for_Python" "pyside2") t)
+    (my/dash-docs-local-docsets '("TensorFlow 2" "PyTorch") t))
   (add-hook 'python-mode-hook 'helm-dash-buffer-local-python-docsets)
   ;; Web
   (with-eval-after-load 'web-mode
@@ -69,8 +71,14 @@
   ;; JavaScript
   (defun helm-dash-buffer-local-javascript-docsets ()
     (my/dash-docs-local-docsets '("JavaScript" "NodeJS" "jQuery"))
-    (my/dash-docs-local-docsets '("React" "VueJS" "Angular" "BackboneJS" "Express" "Bootstrap_4" "D3JS") t))
+    (my/dash-docs-local-docsets '("React" "VueJS" "Angular" "BackboneJS" "Express" "Bootstrap_4" "D3JS") t)
+    (my/dash-docs-local-docsets '("electron") t)
+    (my/dash-docs-local-docsets '("Chrome_Extension_API") t))
   (add-hook 'js-mode-hook 'helm-dash-buffer-local-javascript-docsets)
+  ;; HTTP
+  (defun helm-dash-buffer-local-http-docsets ()
+    (my/dash-docs-local-docsets '("HTTP")))
+  (add-hook 'restclient-mode-hook 'helm-dash-buffer-local-http-docsets)
   ;; HTML
   (defun helm-dash-buffer-local-html-docsets ()
     (my/dash-docs-local-docsets '("HTML" "JavaScript" "jQuery"))
@@ -88,7 +96,8 @@
   ;; Clojure
   (defun helm-dash-buffer-local-clojure-docsets ()
     (my/dash-docs-local-docsets '("Clojure" "Java"))
-    (my/dash-docs-local-docsets '("ClojureDocs") t))
+    (my/dash-docs-local-docsets '("ClojureDocs") t)
+    (my/dash-docs-local-docsets '("RxJava") t))
   (add-hook 'clojure-mode-hook 'helm-dash-buffer-local-clojure-docsets)
   ;; ClojureScript
   (defun helm-dash-buffer-local-clojurescript-docsets ()
@@ -104,6 +113,10 @@
       (my/dash-docs-local-docsets '("Clojure" "ClojureScript" "JavaScript"))
       (my/dash-docs-local-docsets '("ClojureDocs") t)))
   (add-hook 'cider-repl-mode-hook 'helm-dash-buffer-local-cider-docsets)
+  ;; Kotlin
+  (defun helm-dash-buffer-local-kotlin-docsets ()
+    (my/dash-docs-local-docsets '("Kotlin")))
+  (add-hook 'kotlin-mode-hook 'helm-dash-buffer-local-kotlin-docsets)
   ;; C
   (defun helm-dash-buffer-local-C-docsets ()
     (my/dash-docs-local-docsets '("C"))
@@ -112,15 +125,25 @@
   ;; C++
   (defun helm-dash-buffer-local-C++-docsets ()
     (my/dash-docs-local-docsets '("C++"))
-    (my/dash-docs-local-docsets '("GNU Make" "CMake" "LLVM" "Clang" "GLib") t))
+    (my/dash-docs-local-docsets '("LLVM" "Clang" "GLib") t)
+    (my/dash-docs-local-docsets '("Qt_5") t))
   (add-hook 'c++-mode-hook 'helm-dash-buffer-local-C++-docsets)
+  ;; GNU Make
+  (defun helm-dash-buffer-local-make-docsets ()
+    (my/dash-docs-local-docsets '("GNU Make")))
+  (add-hook 'make-mode-hook 'helm-dash-buffer-local-make-docsets)
+  ;; CMake
+  (defun helm-dash-buffer-local-cmake-docsets ()
+    (my/dash-docs-local-docsets '("CMake")))
+  (add-hook 'cmake-mode-hook 'helm-dash-buffer-local-cmake-docsets)
   ;; Go
   (defun helm-dash-buffer-local-go-docsets ()
     (my/dash-docs-local-docsets '("Go")))
   (add-hook 'go-mode-hook 'helm-dash-buffer-local-go-docsets)
   ;; Java
   (defun helm-dash-buffer-local-java-docsets ()
-    (my/dash-docs-local-docsets '("Java")))
+    (my/dash-docs-local-docsets '("Java"))
+    (my/dash-docs-local-docsets '("RxJava" "JavaFx") t))
   (add-hook 'java-mode-hook 'helm-dash-buffer-local-java-docsets)
   ;; SQL
   (defun helm-dash-buffer-local-sql-docsets ()
@@ -133,10 +156,18 @@
       ('mysql (my/dash-docs-local-docsets '("MySQL")))))
   (add-hook 'sql-mode-hook 'helm-dash-buffer-local-sql-docsets)
   (add-hook 'sql-interactive-mode-hook 'helm-dash-buffer-local-sql-docsets)
+  ;; MongoDB
+  (defun helm-dash-buffer-local-mongodb-docsets ()
+    (my/dash-docs-local-docsets '("MongoDB")))
+  (add-hook 'inf-mongo-mode-hook 'helm-dash-buffer-local-mongodb-docsets)
   ;; Redis
   (defun helm-dash-buffer-local-redis-docsets ()
     (my/dash-docs-local-docsets '("Redis")))
   (add-hook 'redis-mode-hook 'helm-dash-buffer-local-redis-docsets)
+  ;; Neo4j
+  (defun helm-dash-buffer-local-neo4j-docsets ()
+    (my/dash-docs-local-docsets '("Neo4j")))
+  (add-hook 'cypher-mode-hook 'helm-dash-buffer-local-neo4j-docsets)
   ;; LaTeX
   (defun helm-dash-buffer-local-latex-docsets ()
     (my/dash-docs-local-docsets '("LaTeX")))
