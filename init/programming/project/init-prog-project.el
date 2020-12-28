@@ -16,7 +16,8 @@
 (use-package projectile
   :ensure t
   :defer t
-  :delight projectile-mode
+  :delight '(:eval (concat " [" (projectile-project-name) "]"))
+  ;; :delight projectile-mode
   :commands (projectile-mode)
   :bind-keymap ("C-c p" . projectile-command-map)
   :custom ((projectile-completion-system 'ivy)
