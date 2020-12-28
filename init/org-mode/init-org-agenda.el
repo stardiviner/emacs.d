@@ -250,6 +250,13 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
     "Rebuild all agenda views buffers."
     (org-agenda-redo-all t))
   (run-with-idle-timer (* 60 20) t #'my/org-agenda-auto-refresh)
+
+  ;; auto initialize Org Agenda after Emacs startup
+  ;; TODO: open in a new window.
+  (defun my/org-agenda-initialize ()
+    "Initialize Org Agenda after Emacs startup."
+    (org-agenda nil "a"))
+  (add-hook 'after-init-hook #'my/org-agenda-initialize)
   )
 
 
