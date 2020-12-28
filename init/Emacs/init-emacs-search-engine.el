@@ -37,10 +37,17 @@
            ;; Tools
            ("Wolfram Alpha (Mathematica)" .
             [simple-query "wolframalpha.com" "http://www.wolframalpha.com/input/?i=" ""])
+           ;; Translate
+           ("DeepL Translate" .
+            [simple-query "deepl.com" "https://www.deepl.com/en/translator#auto/zh/" ""])
            ("Google Translate" .
             [simple-query "translate.google.com" "https://translate.google.com/?q=" ""])
-           ("Google Translate URL" .
-            [simple-query "translate.google.com" "https://translate.google.com.hk/translate?hl=&sl=auto&tl=zh-CN&u=" "&sandbox=1"])
+           ("Google Translate URL (suggested)" .
+            [simple-query "translate.google.com" "https://translate.google.com/website?sl=auto&tl=zh-CN&u=" ""])
+           ;; ("Google Translate URL" .
+           ;;  [simple-query "translate.google.com" "https://translate.google.com.hk/translate?hl=&sl=auto&tl=zh-CN&u=" "&sandbox=1"])
+           ("百度翻译 Baidu Translate" .
+            [simple-query "fanyi.baidu.com" "https://fanyi.baidu.com/#en/zh/" ""])
            ;; Languages
            ("TeX/LaTeX CTAN" . [simple-query "ctan.org" "https://www.ctan.org/search/?phrase=" ""])
            ;; Programming Docs: API
@@ -72,7 +79,7 @@
             [simple-query "ruby-doc.com" "http://ruby-doc.com/search.html?q=" ""])
            ("Python 3 Docs" .
             [simple-query "docs.python.org" "http://docs.python.org/3/search.html?q=" ""])
-           ("Python pip packages search" .
+           ("PyPi: Python pip package search" .
             [simple-query "pypi.org" "https://pypi.org/search/?q=" ""])
            ("Perl CPAN" .
             [simple-query "search.cpan.org" "http://search.cpan.org/search?mode=all&query=" ""])
@@ -104,6 +111,9 @@
            ("org-mode mailing list" .
             [simple-query "lists.gnu.org"
                           "https://lists.gnu.org/archive/cgi-bin/namazu.cgi?submit=Search&idxname=emacs-orgmode&max=20&result=normal&sort=score&query=" ""])
+           ;; Web Browser Extensions
+           ("Firefox Addons Extensions" .
+            [simple-query "addons.mozilla.org" "https://addons.mozilla.org/en-US/firefox/search/?platform=linux&q=" ""])
            ;; Downloads
            ("The Pirate Bay 海盗湾" .
             [simple-query "thepiratebay.org" "https://thepiratebay.org/search/" ""])
@@ -126,6 +136,9 @@
             [simple-query "movie.douban.com" "http://movie.douban.com/subject_search?search_text=" ""])
            ("IMDb" . [simple-query "imdb.com" "http://www.imdb.com/title/" ""])
            ("电影狗 dianyinggou.com" . [simple-query "dianyinggou.com" "http://www.dianyinggou.com/so/" ""])
+           ("btbtdy.com" . [simple-query "btbtdy.com" "http://btbtdy3.com/search/" ".html"])
+           ;; Subtitle
+           ("字幕库" . [simple-query "zimuku.la" "http://www.zimuku.la/search?q=" ""])
            ;; Musics
            ("NetEase 163 Music | 网易云音乐" .
             [simple-query "music.163.com" "http://music.163.com/#/search/m/?s=" ""])
@@ -140,6 +153,7 @@
             [simple-query "arxiv.org" "https://arxiv.org/search/?query=" "&searchtype=all&abstracts=show&order=-announced_date_first&size=50"])
            ;; Shopping
            ("淘宝 taobao.com" . [simple-query "taobao.com" "https://s.taobao.com/search?q=" "&s_from=newHeader&ssid=s5-e&search_type=item&sourceId=tb.item"])
+           ("淘宝规则 rule.taobao.com" . [simple-query "rule.taobao.com" "https://rule.taobao.com/search.htm?key=" ""])
            ;; Porn
            ("PornHub" . [simple-query "pornhub.com" "https://www.pornhub.com/video/search?search=" ""])
            )
