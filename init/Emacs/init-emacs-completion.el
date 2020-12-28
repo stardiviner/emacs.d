@@ -18,6 +18,7 @@
               ;; completion-cycle-threshold t
               completion-ignore-case t)
 
+(setq tab-always-indent 'complete) ; first try indent, if already, then try to complete.
 
 
 (provide 'init-emacs-completion)
