@@ -135,6 +135,16 @@
 ;;   :init (setq paperless-capture-directory "~/Downloads"
 ;;               paperless-root-directory "~/Org"))
 
+;;; Org Mode helper command to insert PDF current page link to Org.
+(defun my/pdf-tools-insert-org-link-of-current-pdf-page ()
+  "Org Mode helper command to insert a link of PDF current page."
+  (interactive)
+  (pdf-tools-assert-pdf-buffer)
+  (let ((page (number-to-string (pdf-view-current-page)))
+        (file (pdf-view-buffer-file-name)))
+    (kill-new
+     (format "[[pdfview:%s::%s][%s at %s]]."
+             file page (car (last (s-split "/" file))) page))))
 
 ;;; [ pdfgrep ] -- Grep PDF for searching PDF.
 
