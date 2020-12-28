@@ -159,7 +159,7 @@
   
   (ejc-create-connection
    "PostgreSQL-db-postgres"
-   :dependencies [[org.postgresql/postgresql "42.2.5.jre7"]]
+   :dependencies [[org.postgresql/postgresql "42.2.16.jre7"]]
    :classname "org.postgresql.Driver"
    :connection-uri "jdbc:postgresql://localhost:5432/test"
    :user "postgres"
