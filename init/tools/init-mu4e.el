@@ -39,6 +39,7 @@
           (:maildir   "/Emacs/help"             :key ?e)
           (:maildir   "/Emacs/devel"            :key ?E)
           (:maildir   "/Emacs/Org-mode"         :key ?O)
+          (:maildir   "/Emacs/mu"               :key ?m)
           (:maildir   "/Lisp/"                  :key ?l)
           (:maildir   "/Clojure"                :key ?c)
           (:maildir   "/ClojureScript"          :key ?C)
