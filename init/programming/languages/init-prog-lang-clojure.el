@@ -167,6 +167,7 @@
   (add-to-list 'cider-jack-in-dependencies '("criterium/criterium" "0.4.5"))
   ;; auto add incanter as dependency for Org Mode clojure Babel generate plot image result.
   ;; (add-to-list 'cider-jack-in-dependencies '("incanter" "1.9.2"))
+  (add-to-list 'cider-jack-in-dependencies '("net.mikera/core.matrix" "0.62.0"))
   ;; Check out function `cljr--inject-jack-in-dependencies'.
 
   ;; [ cider-profile ] [C-c C-=]
