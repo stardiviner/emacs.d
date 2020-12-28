@@ -64,6 +64,7 @@
         '((agenda . " %i %-12c %? e %?-12t % s")
           (timeline . " % s")
           (effort . " %e %(or (org-entry-get (point) \"Effort\") \"0:00\")")
+          (clock . " %i %-12c %? e %?-12t")
           (todo . " %i %-12c")
           (search . " %i %-12c")
           (tags . " %i %-12c")))
