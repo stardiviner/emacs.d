@@ -86,9 +86,9 @@
 
 ;;; [ org-sticky-header ] -- Show off-screen Org heading at top of window.
 
-(use-package org-sticky-header
-  :ensure t
-  :hook (org-mode . org-sticky-header-mode))
+;; (use-package org-sticky-header
+;;   :ensure t
+;;   :hook (org-mode . org-sticky-header-mode))
 
 ;;; [ shrface ] -- It is a shr faces package. Org Like faces for shr, dash-docs, eww, nov.el, mu4e and more!
 
