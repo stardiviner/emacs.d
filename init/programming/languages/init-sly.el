@@ -15,6 +15,7 @@
   :commands (sly sly-mode)
   :custom (;; (sly-auto-start 'always)
            (sly-default-lisp 'sbcl)
+           ;; (sly-complete-symbol-function 'sly-flex-completions) ; `sly-simple-completions’, `sly-flex-completions’
            ;; for `ob-lisp'
            (org-babel-lisp-eval-fn #'sly-eval))
   :init
