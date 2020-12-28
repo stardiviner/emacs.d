@@ -845,7 +845,7 @@
           ("Dribbble" . ,(all-the-icons-faicon "dribbble" :face '(:foreground "salmon")))
           ("Dropbox" . ,(all-the-icons-faicon "dropbox" :face '(:foreground "LightSkyBlue")))
           ("Baidu" . ,(all-the-icons-faicon "paw" :face '(:foreground "blue")))
-          ("Tencent" . ,(all-the-icons-faicon "qq" :face '(:foreground "DarkGreen")))
+          ("Tencent" . ,(all-the-icons-faicon "qq" :face '(:foreground "CornflowerBlue")))
           ("QQ" . ,(all-the-icons-faicon "qq" :face '(:foreground "DimGray")))
           ("weixin" . ,(all-the-icons-faicon "weixin" :face '(:foreground "LawnGreen")))
           ("wechat" . ,(all-the-icons-faicon "weixin" :face '(:foreground "LawnGreen")))
