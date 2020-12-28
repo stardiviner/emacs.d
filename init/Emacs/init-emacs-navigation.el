@@ -34,11 +34,12 @@
 
 ;;; [ centered-cursor-mode ] -- cursor stays vertically centered.
 
-(use-package centered-cursor-mode
-  :ensure t
-  :defer t
-  :commands (global-centered-cursor-mode centered-cursor-mode)
-  :hook (after-init . global-centered-cursor-mode))
+;;; FIXME: centered-cursor-mode in minibuffer caused [C-v] remapped.
+;; (use-package centered-cursor-mode
+;;   :ensure t
+;;   :defer t
+;;   :commands (global-centered-cursor-mode centered-cursor-mode)
+;;   :hook (after-init . global-centered-cursor-mode))
 
 ;;; [ movement ]
 
