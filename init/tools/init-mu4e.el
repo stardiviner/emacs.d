@@ -138,13 +138,19 @@
   (define-key mu4e-view-mode-map (kbd "r") 'mu4e-compose-reply)
   (define-key mu4e-view-mode-map (kbd "R") 'mu4e-view-mark-for-refile)
 
+  ;; sign & encrypt
   (require 'mml)
   (require 'mml2015)
   (require 'epg-config)
   (setq mml2015-use 'epg
         epg-user-id "5AE89AC3"
-        mml-secure-openpgp-encrypt-to-self t
-        mml-secure-openpgp-sign-with-sender t)
+        ;; sign and encrypt with specified sender self’s key in GnuPG.
+        mml-secure-openpgp-signers '("5AE89AC3")
+        mml-secure-openpgp-encrypt-to-self nil
+        mml-secure-openpgp-sign-with-sender nil)
+  
+  (setq mu4e-compose-crypto-policy '(sign-all-messages encrypt-all-message))
+  ;; OR:
   ;; auto sign email
   ;; (add-hook 'message-send-hook 'mml-secure-message-sign-pgpauto)
   ;; (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-sign-pgpauto)
