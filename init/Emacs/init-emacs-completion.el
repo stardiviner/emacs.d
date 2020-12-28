@@ -19,6 +19,9 @@
               completion-ignore-case t)
 
 (setq tab-always-indent 'complete) ; first try indent, if already, then try to complete.
+
+(setq history-delete-duplicates t)
+
 
 
 (provide 'init-emacs-completion)
