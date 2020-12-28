@@ -8,7 +8,7 @@
 ;;; Code:
 
 (require 'init-Redis)
-;; (require 'init-MongoDB)
+(require 'init-MongoDB)
 ;; (require 'init-CouchDB)
 
 ;;; Graph Databases
