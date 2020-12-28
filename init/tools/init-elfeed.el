@@ -21,6 +21,8 @@
            )
   :init (advice-add 'elfeed :after #'elfeed-update) ; auto update after entering elfeed.
   (run-at-time nil (* 4 60 60) #'elfeed-update) ; auto update elfeed every 4 hours.
+  ;; FIXME: `elfeed' use `switch-to-buffer'.
+  (add-to-list 'display-buffer-alist '("^\\*elfeed-search\\*" . (display-buffer-below-selected)))
   :config
   (setq elfeed-feeds
         '(;; Programming
