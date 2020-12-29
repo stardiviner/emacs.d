@@ -316,6 +316,27 @@
   ;; months. This gets rid of legacy mail addresses of people.
   (setq mu4e-compose-complete-only-after
         (format-time-string "%Y-%m-%d" (time-subtract (current-time) (days-to-time 150))))
+  ;; org-capture template for contact in email.
+  (add-to-list 'org-capture-templates
+               `("E" ,(format "%s\tcapture mu4e Email contact into org-contacts"
+                              (all-the-icons-material "contacts" :face 'all-the-icons-blue-alt))
+                 entry (file ,my-org-drill-words-file)
+                 ;; FIXME: void variable ‘mu4e~headers-from-or-to’
+                 "* %(with-current-buffer mu4e~view-buffer-name (let ((mu4e-headers-from-or-to-prefix nil)) (mu4e~headers-from-or-to (mu4e-message-at-point))))
+:PROPERTIES:
+:NAME(English): %(with-current-buffer mu4e~view-buffer-name (mu4e~headers-from-or-to (mu4e-message-at-point)))
+:NICK:
+:GENDER: %^{Gender|Transgender|Male|Female}
+:EMAIL: %(with-current-buffer mu4e~view-buffer-name (cdr-safe (mu4e-message-field (mu4e-message-at-point) :from)))
+:RELATIONSHIP: %^{Relationship|Internet|Meet|Friend|Good Friend|Boy Friend|Girl Friend|Workmate|Classmate|Schoolmate}
+:FIRST-MEET: First time see him in mailing list \" %(with-current-buffer mu4e~view-buffer-name (caar (mu4e-message-field (mu4e-message-at-point) :to))) \".
+:SKILLS: %^{Skills|Programming|Economy}
+:Programming-Skills: %^{Programming Skills|Emacs|Web|Computer System|Cloud Computation}
+:Programming-Languages: %^{Programming Languages|LISP|Common Lisp|Clojure|Emacs Lisp|Java|C/C++|Python|Ruby|PHP}
+:END:
+"
+                 :empty-lines 1)
+               :append)  
   )
 
 
