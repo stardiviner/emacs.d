@@ -253,9 +253,9 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   (run-with-idle-timer (* 60 20) t #'my/org-agenda-auto-refresh)
 
   ;; auto initialize Org Agenda after Emacs startup
-  ;; TODO: open in a new window.
   (defun my/org-agenda-initialize ()
     "Initialize Org Agenda after Emacs startup."
+    (split-window-vertically)
     (org-agenda nil "a"))
   (add-hook 'after-init-hook #'my/org-agenda-initialize)
   )
