@@ -22,7 +22,7 @@
            (mail-user-agent 'message-user-agent)
            
            (user-mail-address "numbchild@gmail.com") ; "stardiviner@outlook.com"
-           (user-full-name  "stardiviner")
+           (user-full-name  "Christopher M. Miles")
            
            ;; It is important to set the mail-host-address otherwise emacs will
            ;; set the Message-Id header to something like “Message-ID:
