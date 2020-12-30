@@ -7,18 +7,29 @@
 
 ;;; Code:
 
-;;; [ php-mode ]
+;;; [ php-mode ] -- Major mode for editing PHP code.
 
-(use-package php-mode
+;; (use-package php-mode
+;;   :ensure t
+;;   :defer t
+;;   :mode (("\\.php\\'" . php-mode)
+;;          ("\\(pages\\|snippets\\|templates\\)/.*\\.php?$" . web-mode))
+;;   :custom ((indent-tabs-mode nil)
+;;            (c-basic-offset 2)
+;;            (php-template-compatibility nil)
+;;            (php-search-documentation-browser-function t)))
+
+;;; [ phps-mode ] -- Major mode for PHP with Semantic integration.
+
+(use-package phps-mode
   :ensure t
   :defer t
-  :mode (("\\.php\\'" . php-mode)
-         ("\\(pages\\|snippets\\|templates\\)/.*\\.php?$" . web-mode))
-  :commands (php-mode)
-  :init (setq indent-tabs-mode nil
-              c-basic-offset 2
-              php-template-compatibility nil
-              php-search-documentation-browser-function t))
+  :mode ("\\.php\\'" "\\.phtml\\'")
+  :custom ((phps-mode-async-process t)                  ; Asynchronous lexer
+           (phps-mode-async-process-using-async-el nil) ; Asynchronous lexer via threads
+           ;; (phps-mode-async-process-using-async-el t) ; Asynchronous lexer via async.el processes
+           )
+  :config (phps-mode-flycheck-setup))
 
 ;;; [ php-eldoc ]
 
