@@ -11,6 +11,7 @@
 
 (use-package company
   :ensure t
+  :ensure company-emoji
   :defer t
   :delight company-mode
   ;; disable initialize loading all company backends.
@@ -36,7 +37,8 @@
            (company-backends '((company-capf ; `completion-at-point-functions'
                                 :separate company-yasnippet
                                 ;; :separate company-tempo  ; tempo: flexible template insertion
-                                :separate company-keywords)
+                                :separate company-keywords
+                                :separate company-emoji)
                                (company-dabbrev-code :with company-abbrev)
                                company-files))
            (company-dabbrev-other-buffers t) ; only from same major-mode

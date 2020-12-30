@@ -32,10 +32,12 @@
   :ensure t
   :defer t
   :commands (company-emoji)
-  :init (with-eval-after-load 'company
-          (setq-default company-backends
-                        (let ((default-value (default-value 'company-backends)))
-                          (cons 'company-emoji default-value)))))
+  ;; :init (with-eval-after-load 'company
+  ;;         (setq-default company-backends
+  ;;                       (let ((default-value (default-value 'company-backends)))
+  ;;                         (add-to-list 'company-backends 'company-emoji 'append)
+  ;;                         )))
+  )
 
 ;;; [ ivy-emoji ] -- Insert emojis with Ivy.
 
