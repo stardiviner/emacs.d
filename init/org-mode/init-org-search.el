@@ -308,13 +308,13 @@ That's it.
 
 ;;; [ microfts ] -- Small and fast FTS (full text search) for Org Mode files.
 
-(use-package org-fts
-  :load-path "~/Code/Emacs/microfts/elisp"
-  :commands (ivy-org-fts-search ivy-org-fts-find-org-file)
-  :bind (:map Org-prefix ("C-s" . ivy-org-fts-search))
-  :custom ((org-fts-program "~/Code/Emacs/microfts/microfts")
-           (org-fts-db (file-truename (format "%sorg-fts.db" user-emacs-directory))))
-  :init (require 'ivy-org-fts))
+;; (use-package org-fts
+;;   :load-path "~/Code/Emacs/microfts/elisp"
+;;   :commands (ivy-org-fts-search ivy-org-fts-find-org-file)
+;;   :bind (:map Org-prefix ("C-s" . ivy-org-fts-search))
+;;   :custom ((org-fts-program "~/Code/Emacs/microfts/microfts")
+;;            (org-fts-db (file-truename (format "%sorg-fts.db" user-emacs-directory))))
+;;   :init (require 'ivy-org-fts))
 
 ;;; [ org-ql ] -- An Org-mode query language, search command, and agenda-like view.
 
