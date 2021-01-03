@@ -145,6 +145,7 @@
            ;; (mail-default-reply-to "numbchild@gmail.com")
            
            ;; configure Microsoft Outlook SMTP server
+           ;; $ ping -c 5 smtp.office365.com
            (smtpmail-smtp-server "smtp.office365.com")
            (smtpmail-default-smtp-server smtpmail-smtp-server)
 	       (smtpmail-stream-type 'starttls)
@@ -152,9 +153,13 @@
            (smtpmail-smtp-user "stardiviner@outlook.com")
            ;; (smtpmail-auth-credentials (expand-file-name (car auth-sources)))
            ;; (smtpmail-local-domain "outlook.com")
-           (user-mail-address "stardiviner@outlook.com")
-           (mail-default-reply-to "stardiviner@outlook.com")
-           (mu4e-compose-reply-to-address "stardiviner@outlook.com")
+           ;;====================================================================
+           ;; Use Microsoft Outlook SMTP Server, but still reply to my Gmail account.
+           (user-mail-address "numbchild@gmail.com")
+           (mail-default-reply-to "numbchild@gmail.com")
+           (mu4e-compose-reply-to-address "numbchild@gmail.com")
+           (mail-specify-envelope-from t)
+           (mail-envelope-from nil)
            
            ;; queue sending email
            ;; (smtpmail-queue-mail t)
