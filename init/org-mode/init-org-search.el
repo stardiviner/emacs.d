@@ -306,16 +306,6 @@ That's it.
 ;;   (add-to-list 'display-buffer-alist '("^\\*org-recoll-index\\*" . (display-buffer-below-selected)))
 ;;   (add-to-list 'display-buffer-alist '("^\\*org-recoll-results\\*" . (display-buffer-below-selected))))
 
-;;; [ microfts ] -- Small and fast FTS (full text search) for Org Mode files.
-
-;; (use-package org-fts
-;;   :load-path "~/Code/Emacs/microfts/elisp"
-;;   :commands (ivy-org-fts-search ivy-org-fts-find-org-file)
-;;   :bind (:map Org-prefix ("C-s" . ivy-org-fts-search))
-;;   :custom ((org-fts-program "~/Code/Emacs/microfts/microfts")
-;;            (org-fts-db (file-truename (format "%sorg-fts.db" user-emacs-directory))))
-;;   :init (require 'ivy-org-fts))
-
 ;;; [ org-ql ] -- An Org-mode query language, search command, and agenda-like view.
 
 (use-package org-ql
