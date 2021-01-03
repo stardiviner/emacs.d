@@ -55,28 +55,31 @@
 (use-package org-download
   :ensure t
   :defer t
-  :init
+  :preface
   (unless (boundp 'org-download-prefix)
     (define-prefix-command 'org-download-prefix))
   (define-key Org-prefix (kbd "d") 'org-download-prefix)
-
-  (define-key org-download-prefix (kbd "i") 'org-download-image)
-  (define-key org-download-prefix (kbd "s") 'org-download-screenshot)
-  (define-key org-download-prefix (kbd "y") 'org-download-yank)
-  (define-key org-download-prefix (kbd "d") 'org-download-delete)
-  (define-key org-download-prefix (kbd "e") 'org-download-edit)
-
-  (define-key org-mode-map (kbd "<drag-n-drop>") 'org-download-dnd)
-  (define-key org-mode-map (kbd "<C-drag-n-drop>") 'org-download-dnd)
-  (define-key org-mode-map (kbd "<M-drag-n-drop>") 'org-download-dnd)
-
-  (setq org-download-screenshot-method "scrot -s %s"
-        org-download-method 'attach ; 'attach, 'directory,
-        ;; if you don't want the #+DOWNLOADED: annotation in your Org document
-        org-download-annotate-function (lambda (_) "")
-        org-download-backend t ; url-retrieve (t), wget, curl.
-        org-download-image-dir "data/images" ; nil: default to "."
-        )
+  :commands (org-download-image
+             org-download-screenshot org-download-yank
+             org-download-delete org-download-edit
+             org-download-dnd)
+  :bind (:map org-download-prefix
+              ("i" . org-download-image)
+              ("s" . org-download-screenshot)
+              ("y" . org-download-yank)
+              ("d" . org-download-delete)
+              ("e" . org-download-edit)
+              :map org-mode-map
+              ("<drag-n-drop>" . org-download-dnd)
+              ("<C-drag-n-drop>" . org-download-dnd)
+              ("<M-drag-n-drop>" . org-download-dnd))
+  :custom ((org-download-screenshot-method "flameshot gui --raw > %s")
+           (org-download-method 'attach) ; 'attach, 'directory,
+           ;; if you don't want the #+DOWNLOADED: annotation in your Org document
+           (org-download-annotate-function (lambda (_) ""))
+           (org-download-backend t) ; url-retrieve (t), wget, curl.
+           (org-download-image-dir "data/images")
+           )
   :init (org-download-enable))
 
 ;;; [ org-web-tools ] -- retrieving web page content and processing it into Org-mode content.
