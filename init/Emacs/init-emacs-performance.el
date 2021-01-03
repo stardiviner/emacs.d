@@ -30,6 +30,10 @@
 ;;   :custom (gcmh-high-cons-threshold #x20000000)
 ;;   :init (gcmh-mode 1))
 
+;;; performance issue on long line.
+(require 'so-long)
+(global-so-long-mode 1)
+
 
 (provide 'init-emacs-performance)
 
