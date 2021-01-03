@@ -5,7 +5,7 @@
 # expand-env: ((yas-indent-line 'auto))
 # --
 #+begin_src emacs-lisp :results value replace raw :var dir="${1:/path/to/dir}"
-(let ((files (directory-files dir nil ".flv"))
+(let ((files (directory-files dir nil ".${2:jpg|png}"))
       (link-str ""))
   (dolist (pic files)
     (setq link-str (concat link-str (format "[[file:%s/%s]]\n\n" dir pic))))
