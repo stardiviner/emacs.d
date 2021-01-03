@@ -254,7 +254,7 @@
                                        (mapcar 'car (rg-get-type-aliases))
                                        nil nil "org"))
            (file-type-exts (assq file-type (rg-get-type-aliases))))
-      (case (length words)
+      (cl-case (length words)
         (1 (format "rg %s" (car words)))
         (2 (concat (rg-files-with-matches-beginning dir file-type (car words))
                    (rg-files-with-matches-end (cdr words))))

@@ -78,23 +78,23 @@
   "Insert an org-entity using Ivy."
   (interactive)
   (ivy-read "Entity: "
-            (loop for element in (append org-entities org-entities-user)
-			            when (not (stringp element))
-			            collect
-			            (cons
-			             (format "%10s | %s | %s | %s"
-				                   (car element) ;name
-				                   (nth 1 element) ; latex
-				                   (nth 3 element) ; html
-				                   (nth 6 element)) ;utf-8
-			             element))
-	          :require-match t
+            (cl-loop for element in (append org-entities org-entities-user)
+			         when (not (stringp element))
+			         collect
+			         (cons
+			          (format "%10s | %s | %s | %s"
+				              (car element) ;name
+				              (nth 1 element) ; latex
+				              (nth 3 element) ; html
+				              (nth 6 element)) ;utf-8
+			          element))
+	        :require-match t
             ;; Ivy [M-o]
-	          :action '(1
-		                  ("u" (lambda (element) (insert (nth 6 (cdr element)))) "utf-8")
-		                  ("o" (lambda (element) (insert "\\" (cadr element))) "org-entity")
-		                  ("l" (lambda (element) (insert (nth 1 (cdr element)))) "latex")
-		                  ("h" (lambda (element) (insert (nth 3 (cdr element)))) "html"))))
+	        :action '(1
+		              ("u" (lambda (element) (insert (nth 6 (cdr element)))) "utf-8")
+		              ("o" (lambda (element) (insert "\\" (cadr element))) "org-entity")
+		              ("l" (lambda (element) (insert (nth 1 (cdr element)))) "latex")
+		              ("h" (lambda (element) (insert (nth 3 (cdr element)))) "html"))))
 
 ;;; [ Table Of Contents (TOC) ]
 
