@@ -3,8 +3,8 @@
 # key: mariadb
 # group: babel.mariadb
 # --
-#+NAME: ${1}
-#+headers: :cmdline -h ${2:localhost} -u ${3:root} -p${4:324324}
+${1:#+NAME: ${2}
+}#+headers: :cmdline -h ${3:localhost} -u ${4:root} -p${5:324324}
 #+begin_src sql :engine mysql
 $0
 #+end_src
