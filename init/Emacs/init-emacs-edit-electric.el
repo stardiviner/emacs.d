@@ -14,7 +14,8 @@
 
 ;;; [ electric-quote-mode ]
 
-(add-hook 'prog-mode-hook #'electric-quote-local-mode)
+;;; NOTE: This will cause Elisp quote `' been replaced by ‘’.
+;; (add-hook 'prog-mode-hook #'electric-quote-local-mode)
 
 ;;; [ electric-pair-mode ]
 
