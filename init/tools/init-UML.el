@@ -11,7 +11,11 @@
 (use-package plantuml-mode
   :ensure t
   :defer t
-  :init (setq plantuml-jar-path (locate-user-emacs-file "init/extra/plantuml.jar")))
+  :custom ((plantuml-jar-path (locate-user-emacs-file "init/extra/plantuml.jar"))
+           (plantuml-default-exec-mode 'jar))
+  :config
+  (when (executable-find "plantuml")
+    (setq plantuml-default-exec-mode 'executable)))
 
 ;; [ ob-plantuml ]
 
