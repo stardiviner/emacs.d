@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: main
+# key: main
+# --
+fun main(args: Array<String>) {
+    $0
+}
