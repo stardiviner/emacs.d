@@ -65,13 +65,14 @@
   :ensure t
   :defer t
   :config
-  (add-to-list 'company-keywords-alist
-               '(dockerfile-mode "FROM"
-                                 "ADD" "COPY"
-                                 "RUN" "CMD" "ENTRYPOINT"
-                                 "VOLUME" "ENV" "EXPOSE"  "LABEL" "ARG"
-                                 "STOPSIGNAL" "USER"  "WORKDIR"
-                                 "ONBUILD" "HEALTHCHECK" "SHELL")))
+  (with-eval-after-load 'company-keywords
+    (add-to-list 'company-keywords-alist
+                 '(dockerfile-mode "FROM"
+                                   "ADD" "COPY"
+                                   "RUN" "CMD" "ENTRYPOINT"
+                                   "VOLUME" "ENV" "EXPOSE"  "LABEL" "ARG"
+                                   "STOPSIGNAL" "USER"  "WORKDIR"
+                                   "ONBUILD" "HEALTHCHECK" "SHELL"))))
 
 ;;; [ docker-compose-mode ] -- Major mode for editing `docker-compose.yml'.
 
