@@ -272,6 +272,9 @@
   ;; Attachments
   (setq mu4e-attachment-dir (expand-file-name "~/Downloads"))
 
+  ;; Apply patch in email body
+  (add-to-list 'mu4e-view-actions '("git am" . mu4e-action-git-apply-mbox))
+
   ;; Refiling -- [r]
   (setq mu4e-refile-folder              ; dynamic refiling
         (lambda (msg)
