@@ -51,6 +51,9 @@
   ;; main-view
   (setq mu4e-main-hide-fully-read t)
 
+  ;; Use precise (but relatively slow) alignment for columns.
+  (setq mu4e-headers-precise-alignment t)
+  
   ;; better customized unicode symbols for headers
   (setq mu4e-use-fancy-chars t
         ;; email prefix
