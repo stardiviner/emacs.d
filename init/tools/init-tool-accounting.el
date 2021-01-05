@@ -14,6 +14,9 @@
 (use-package ledger-mode
   :ensure t
   :defer t
+  :hook (ledger-mode . outline-minor-mode)
+  :bind (:map ledger-mode-map ("TAB" . org-cycle))
+  :config (font-lock-add-keywords 'ledger-mode outline-font-lock-keywords)
   :mode ("\\.ledger\\'" . ledger-mode))
 
 (use-package company-ledger
