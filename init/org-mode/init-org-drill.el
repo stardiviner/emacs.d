@@ -126,6 +126,15 @@
 ;;   :quelpa (guess-word :fetcher github :repo "Qquanwei/emacs-guess-word-game")
 ;;   :commands (guess-word))
 
+;;; [ mybigword ] -- Vocabulary builder using Zipf to extract English big words.
+
+;; (use-package mybigword
+;;   :ensure t
+;;   :custom (mybigword-data-file "~/Org/Drills/mybigword-english.zipf")
+;;   :commands (mybigword-show-big-words-from-file
+;;              mybigword-show-big-words-from-current-buffer
+;;              mybigword-play-video-of-word-at-point))
+
 ;;; [ anki ] -- Yet Another Anki Emacs Client.
 
 (use-package anki
