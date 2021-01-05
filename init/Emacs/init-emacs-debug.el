@@ -51,6 +51,14 @@
   :defer t
   :commands (bug-hunter-file bug-hunter-init-file))
 
+;;; print and insert Emacs version info
+(defun emacs-version-commit-insert ()
+  "Insert version of Emacs and 7 characters of the commit hash."
+  (interactive)
+  (insert
+   (format "GNU Emacs %s (commit %s)"
+	       emacs-version (substring emacs-repository-version 0 7))))
+
 
 (provide 'init-emacs-debug)
 
