@@ -153,8 +153,11 @@
            (smtpmail-smtp-user "stardiviner@outlook.com")
            ;; (smtpmail-auth-credentials (expand-file-name (car auth-sources)))
            ;; (smtpmail-local-domain "outlook.com")
-           ;;====================================================================
-           ;; Use Microsoft Outlook SMTP Server, but still reply to my Gmail account.
+           ;; ====================================================================
+           ;; Use Microsoft Outlook SMTP Server, but still reply to my Gmail
+           ;; account by setting "To:" header. This is because Google Groups
+           ;; require member permission to send email. Otherwise deliver
+           ;; rejected by Google Groups.
            (user-mail-address "numbchild@gmail.com")
            (mail-default-reply-to "numbchild@gmail.com")
            (mu4e-compose-reply-to-address "numbchild@gmail.com")
