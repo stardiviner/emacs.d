@@ -175,7 +175,9 @@
 
 (use-package conf-mode
   :mode (("\\procmailrc\\'" . conf-mode)
-         ("\\getmailrc\\'" . conf-mode)))
+         (".*/procmail/.*\\'" . conf-mode)
+         ("\\getmailrc\\'" . conf-mode)
+         (".*/getmail/.*\\'" . conf-mode)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Reading Mail [ Mail User Agent ] (MTA)                                           ;;
