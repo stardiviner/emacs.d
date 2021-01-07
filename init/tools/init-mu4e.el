@@ -146,10 +146,7 @@
   ;; background update & indexing
   (setq mu4e-update-interval (* 60 30))
   (setq mu4e-hide-index-messages t)
-  ;; speed-up mu4e (re)index
-  (setq mu4e-index-lazy-check t)
-  ;; (setq mu4e-index-cleanup nil)
-  
+
   ;; [ Compose ]
   (add-hook 'mu4e-compose-mode-hook #'turn-on-auto-fill)
   (add-hook 'mu4e-compose-mode-hook #'turn-on-flyspell)
