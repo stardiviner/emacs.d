@@ -125,7 +125,6 @@
 ;;; [[info:smtpmail#Top][info:smtpmail#Top]]
 
 (use-package smtpmail
-  :defer t
   :custom (;; for debug
            ;; (smtpmail-debug-info t)
            ;; (smtpmail-debug-verb t)
@@ -134,8 +133,7 @@
            (send-mail-function 'smtpmail-send-it)
            
 	       ;; ;; configure Gmail SMTP server
-           ;; (smtpmail-smtp-server "smtp.gmail.com")
-           ;; (smtpmail-default-smtp-server smtpmail-smtp-server)
+           ;; (smtpmail-default-smtp-server "smtp.gmail.com")
 	       ;; ;; (smtpmail-stream-type 'ssl)
            ;; (smtpmail-smtp-service 587)  ; "smtp": 25, "smtps": 587
            ;; (smtpmail-smtp-user "numbchild@gmail.com")
@@ -146,8 +144,7 @@
            
            ;; configure Microsoft Outlook SMTP server
            ;; $ ping -c 5 smtp.office365.com
-           (smtpmail-smtp-server "smtp.office365.com")
-           (smtpmail-default-smtp-server smtpmail-smtp-server)
+           (smtpmail-default-smtp-server "smtp.office365.com")
 	       (smtpmail-stream-type 'starttls)
            (smtpmail-smtp-service 587)
            (smtpmail-smtp-user "stardiviner@outlook.com")
