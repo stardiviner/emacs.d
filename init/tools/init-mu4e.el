@@ -24,8 +24,8 @@
   :init
   (add-to-list 'display-buffer-alist '("^ \\*mu4e-main\\*" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist '("^ \\*mu4e-proc\\*" . (display-buffer-below-selected)))
-  ;; support `org-store-link' in mu4e
-  (require 'mu4e-org)                   ; for [[mu4e:..]] links.
+  ;; support `org-store-link' in mu4e for [[mu4e:..]] links.
+  (require 'mu4e-org)
   (setq mu4e-org-link-query-in-headers-mode t)
 
   :config
@@ -100,7 +100,7 @@
                                               (all-the-icons-material "message")
                                               'face `(:family ,(all-the-icons-material-family))))
         mu4e-headers-has-child-prefix `("+" . ,(propertize ; "Parent" ╰
-                                                (all-the-icons-material "expand_more")
+                                                (all-the-icons-material "details")
                                                 'face `(:family ,(all-the-icons-material-family))))
         mu4e-headers-empty-parent-prefix `("-" . ,(propertize ; "Orphan"
                                                    (all-the-icons-material "navigate_before")
@@ -140,7 +140,6 @@
   ;; [ Get/Update Mail ] -- [C-c C-u]
   ;; program to get mail: alternatives are 'fetchmail', 'getmail',
   ;; 'isync' or your own shell script.
-
   (setq mu4e-display-update-status-in-modeline t)
   (setq mu4e-get-mail-command "proxychains getmail --rcfile numbchild@gmail.com --rcfile stardiviner@outlook.com --rcfile stardiviner@qq.com")
 
@@ -174,6 +173,7 @@
   (define-key mu4e-headers-mode-map (kbd "R") 'mu4e-headers-mark-for-refile)
   (define-key mu4e-view-mode-map (kbd "r") 'mu4e-compose-reply)
   (define-key mu4e-view-mode-map (kbd "R") 'mu4e-view-mark-for-refile)
+  (define-key mu4e-headers-mode-map (kbd "N") 'mu4e-headers-next-unread)
 
   ;; sign & encrypt
   (require 'mml)
@@ -195,8 +195,6 @@
   ;; auto encrypt outgoing message
   ;; (add-hook 'message-send-hook 'mml-secure-message-encrypt-pgpauto)
   ;; (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-encrypt-pgpauto)
-
-  (define-key mu4e-headers-mode-map (kbd "N") 'mu4e-headers-next-unread)
 
   ;; [ Search ] -- [s/S]  [:references [regexp]] in search query.
   (add-to-list 'mu4e-header-info-custom
@@ -222,9 +220,9 @@
   ;; enable Org Mode for editing in `mu4e-compose-mode'.
   (require 'org-mu4e)
   (add-hook 'mu4e-compose-mode-hook #'org-mu4e-compose-org-mode)
-
   (add-hook 'mu4e-compose-mode-hook
-            (lambda () (define-key org-mode-map (kbd "C-c M-m") 'message-mark-inserted-region)))
+            (lambda () (define-key org-mode-map (kbd "C-c M-m") 'message-mark-inserted-region))
+            nil 'local)
 
   ;; [ HTML Email ]
   ;; use #=begin_export html ... #+end_export
