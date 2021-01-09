@@ -17,15 +17,15 @@
   :custom ((python-shell-interpreter "python")
            (python-shell-completion-native-enable nil))
   :init
+  (add-to-list 'display-buffer-alist '("^\\*Python\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^\\*Python Doc\\*" . (display-buffer-below-selected)))
+  :config
   (cl-case python-shell-interpreter
     ("python"
      (setq python-shell-interpreter-args "-i"))
     ("ipython"
      (setq python-shell-interpreter-args "--simple-prompt --pprint")
      (setenv "IPY_TEST_SIMPLE_PROMPT" "1")))
-  (add-to-list 'display-buffer-alist '("^\\*Python\\*" . (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist '("^\\*Python Doc\\*" . (display-buffer-below-selected)))
-  :config
   (add-hook 'python-mode-hook #'electric-pair-local-mode)
   (add-hook 'python-mode-hook #'flymake-mode-off 'append))
 
