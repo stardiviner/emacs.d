@@ -97,7 +97,8 @@
 
 (use-package package-lint
   :ensure t
-  :defer t)
+  :defer t
+  :init (add-to-list 'display-buffer-alist '("^\\*Package-Lint\\*\\'" . (display-buffer-below-selected))))
 
 ;;; [ flycheck-package ] -- A Flycheck checker for elisp package authors.
 
