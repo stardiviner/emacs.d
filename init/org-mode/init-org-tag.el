@@ -137,7 +137,7 @@
         ("database" . ?d) ("SQL") ("PostgreSQL") ("MySQL") ("MariaDB") ("Oracle") ("SQLite") ("DB2")
         ("TeX") ("LaTeX") ("Markdown") ("reStructuredText") ("AsciiDoc") ("YAML") ("TOML") ("CWL")
         ;; Internet
-        ("Internet") ("Google") ("Facebook") ("Twitter") ("Microsoft") ("Amazon") ("Mozilla")
+        ("Internet") ("Google") ("Facebook") ("Twitter") ("Microsoft") ("Amazon") ("Mozilla") ("Reddit")
         ("YouTube") ("PornHub") ("Instagram") ("Dribbble") ("Dropbox") ("whatsapp")
         ("Alibaba") ("Baidu") ("Tencent") ("weixin") ("wechat") ("weibo") ("ByteDance") ("Bilibili")
         (:endgroup)
@@ -930,6 +930,7 @@
           ("Facebook" . ,(all-the-icons-faicon "facebook-official" :face '(:foreground "DodgerBlue")))
           ("Twitter" . ,(all-the-icons-faicon "twitter" :face '(:foreground "DarkTurquoise")))
           ("Amazon" . ,(all-the-icons-faicon "amazon" :face '(:foreground "goldenrod")))
+          ("Reddit" . ,(all-the-icons-faicon "reddit" :face '(:foreground "OrangeRed")))
           ("Mozilla" . ,(all-the-icons-faicon "firefox" :face '(:foreground "OrangeRed")))
           ("GitHub" . ,(all-the-icons-faicon "github" :face '(:foreground "DimGray")))
           ("GitLab" . ,(all-the-icons-fileicon "gitlab" :face '(:foreground "orange")))
