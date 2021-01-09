@@ -54,63 +54,9 @@
   (setq mu4e-main-hide-fully-read t)
   
   ;; better customized unicode symbols for headers
-  (setq mu4e-use-fancy-chars t
-        ;; email prefix
-        mu4e-headers-seen-mark `("S" . ,(propertize
-                                         (all-the-icons-material "mail_outline")
-                                         'face `(:family ,(all-the-icons-material-family)
-                                                         :foreground ,(face-background 'default))))
-        mu4e-headers-new-mark `("N" . ,(propertize
-                                        (all-the-icons-material "markunread")
-                                        'face `(:family ,(all-the-icons-material-family)
-                                                        :foreground ,(face-background 'default))))
-        mu4e-headers-unread-mark `("u" . ,(propertize
-                                           (all-the-icons-material "notifications_none")
-                                           'face 'mu4e-unread-face))
-        mu4e-headers-signed-mark `("s" . ,(propertize
-                                           (all-the-icons-material "check")
-                                           'face `(:family ,(all-the-icons-material-family)
-                                                           :foreground "DarkCyan")))
-        mu4e-headers-encrypted-mark `("x" . ,(propertize
-                                              (all-the-icons-material "enhanced_encryption")
-                                              'face `(:family ,(all-the-icons-material-family)
-                                                              :foreground "CornflowerBlue")))
-        mu4e-headers-draft-mark `("D" . ,(propertize
-                                          (all-the-icons-material "drafts")
-                                          'face 'mu4e-draft-face))
-        mu4e-headers-attach-mark `("a" . ,(propertize
-                                           (all-the-icons-material "attachment")
-                                           'face 'mu4e-attach-number-face))
-        mu4e-headers-passed-mark `("P" . ,(propertize ; ❯ (I'm participated in thread)
-                                           (all-the-icons-material "center_focus_weak")
-                                           'face `(:family ,(all-the-icons-material-family)
-                                                           :foreground "yellow")))
-        mu4e-headers-flagged-mark `("F" . ,(propertize
-                                            (all-the-icons-material "flag")
-                                            'face 'mu4e-flagged-face))
-        mu4e-headers-replied-mark `("R" . ,(propertize
-                                            (all-the-icons-material "reply_all")
-                                            'face 'mu4e-replied-face))
-        mu4e-headers-trashed-mark `("T" . ,(propertize
-                                            (all-the-icons-material "delete_forever")
-                                            'face 'mu4e-trashed-face))
-        ;; thread prefix marks
-        mu4e-headers-default-prefix `("|" . ,(propertize
-                                              (all-the-icons-material "message")
-                                              'face `(:family ,(all-the-icons-material-family))))
-        mu4e-headers-has-child-prefix `("+" . ,(propertize ; "Parent" ╰
-                                                (all-the-icons-material "details")
-                                                'face `(:family ,(all-the-icons-material-family))))
-        mu4e-headers-empty-parent-prefix `("-" . ,(propertize ; "Orphan"
-                                                   (all-the-icons-material "navigate_before")
-                                                   'face `(:family ,(all-the-icons-material-family))))
-        mu4e-headers-first-child-prefix `("\\" . ,(propertize
-                                                   (all-the-icons-material "navigate_next")
-                                                   'face `(:family ,(all-the-icons-material-family))))
-        mu4e-headers-duplicate-prefix `("=" . ,(propertize
-                                                (all-the-icons-material "content_copy")
-                                                'face `(:family ,(all-the-icons-material-family)
-                                                                :foreground "siennan"))))
+  (use-package mu4e-marker-icons
+    :ensure t
+    :init (mu4e-marker-icons-mode 1))
 
   ;; mailing list thread fancy threading characters
   ;; (setq mu4e-headers-thread-child-prefix         '("├>" . "├─➤ ")
