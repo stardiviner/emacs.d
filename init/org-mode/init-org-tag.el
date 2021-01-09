@@ -486,6 +486,13 @@
   :init (setq org-tag-faces nil)
   :hook (after-init . org-pretty-tags-global-mode))
 
+;;; [ org-tag-beautify ] -- Beautify Org tags with lot of icons.
+
+(use-package org-tag-beautify
+  :ensure t
+  :after org-pretty-tags
+  :hook (org-pretty-tags-mode-hook . org-tag-beautify-mode))
+
 
 (provide 'init-org-tag)
 
