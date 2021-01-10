@@ -22,7 +22,8 @@
   :defer t
   :custom ((emojify-emojis-dir (concat user-emacs-directory "emojis"))
            (emojify-program-contexts '(comments string))
-           emojify-display-style 'unicode)
+           ;; emojify-display-style 'unicode
+           )
   :commands (global-emojify-mode)
   :init (global-emojify-mode 1))
 

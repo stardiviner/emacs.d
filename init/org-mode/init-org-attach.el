@@ -78,8 +78,7 @@
            ;; if you don't want the #+DOWNLOADED: annotation in your Org document
            (org-download-annotate-function (lambda (_) ""))
            (org-download-backend t) ; url-retrieve (t), wget, curl.
-           (org-download-image-dir "data/images")
-           )
+           (org-download-image-dir "data/images"))
   :init (org-download-enable))
 
 ;;; [ org-web-tools ] -- retrieving web page content and processing it into Org-mode content.

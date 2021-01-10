@@ -9,6 +9,7 @@
 ;; - [C-u C-x =]
 ;; - [M-x describe-font]
 ;; - [M-x describe-fontset]
+;; - ‘font-family-list’
 ;; - from command: $ fc-list
 ;;
 ;; Emacs set font functions:

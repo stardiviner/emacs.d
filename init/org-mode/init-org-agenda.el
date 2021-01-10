@@ -222,10 +222,10 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
     "Set different line spacing based on clock time duration."
     (save-excursion
       (let* ((colors (cl-case (alist-get 'background-mode (frame-parameters))
-		                   ('light
-		                    (list "#F6B1C3" "#FFFF9D" "#BEEB9F" "#ADD5F7"))
-		                   ('dark
-		                    (list "#aa557f" "DarkGreen" "DarkSlateGray" "DarkSlateBlue"))))
+		               ('light
+		                (list "#F6B1C3" "#FFFF9D" "#BEEB9F" "#ADD5F7"))
+		               ('dark
+		                (list "#aa557f" "DarkGreen" "DarkSlateGray" "DarkSlateBlue"))))
              pos
              duration)
         (nconc colors colors)
