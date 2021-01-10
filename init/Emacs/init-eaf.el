@@ -53,12 +53,11 @@
   (eaf-setq eaf-pdf-dark-mode "ignore")
   
   ;; set EAF web browser proxy
+  (defvar eaf-proxy-list '("socks5:127.0.0.1:1086" "http:127.0.0.1:8118"))
   (defun eaf-toggle-proxy (&optional proxy)
     "Toggle proxy for EAF."
     (interactive (if (and (null eaf-proxy-type) (null eaf-proxy-host))
-                     (list (completing-read
-                            "Select Proxy: "
-                            '("socks5:127.0.0.1:1086" "http:127.0.0.1:8118")))
+                     (list (completing-read "Select Proxy: " eaf-proxy-list))
                    nil))
     (if proxy
         (let* ((list (split-string proxy ":"))
