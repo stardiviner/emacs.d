@@ -491,7 +491,7 @@
 (use-package org-tag-beautify
   :ensure t
   :after org-pretty-tags
-  :hook (org-pretty-tags-mode-hook . org-tag-beautify-mode))
+  :init (org-tag-beautify-mode 1))
 
 
 (provide 'init-org-tag)
