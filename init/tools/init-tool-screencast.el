@@ -17,8 +17,32 @@
   :ensure t
   :defer t
   :custom (keycast-remove-tail-elements nil)
-  :commands (keycast-mode)
-  :bind (:map screencast-prefix ("k" . keycast-mode)))
+  :commands (keycast-mode keycast-log-mode)
+  :bind (:map screencast-prefix
+              ("k" . keycast-mode)
+              ("K" . keycast-log-mode))
+  :custom-face
+  (keycast-key ((t (:weight bold))))
+  (keycast-command ((t (:slant italic))))
+  :init
+  (when (fboundp 'doom-modeline-mode)
+    (define-minor-mode keycast-mode
+      "Show current command and its key binding in the mode line."
+      :global t
+      (if keycast-mode
+          (add-hook 'pre-command-hook 'keycast--update)
+        (remove-hook 'pre-command-hook 'keycast--update)))
+    
+    (setq keycast-window-predicate 'selected-window)
+    
+    (defun doom-modeline--toggle-keycast (orig-func &rest args)
+      "Toggle keycast-mode fragment in doom-modeline."
+      (if keycast-mode
+          (setq global-mode-string (delete '("" mode-line-keycast " ") global-mode-string))
+        (add-to-list 'global-mode-string '("" mode-line-keycast " ")))
+      (apply orig-func args))
+    
+    (advice-add 'keycast-mode :around #'doom-modeline--toggle-keycast)))
 
 ;;; [ keypression ] -- Keystroke visualizer.
 
