@@ -19,14 +19,14 @@
         ("deprecated" . ?D)
         ("outdated" . ?O)))
 
-;; auto add tag "comment" for [C-c C-z] add log note.
-(add-to-list 'org-tag-persistent-alist '("comment"))
+;; auto add tag "LOG" for [C-c C-z] add log note.
+(add-to-list 'org-tag-persistent-alist '("LOG"))
 (defun my/org-add-note--auto-add-tag ()
-  "Auto add tag 'comment' when add note log."
+  "Auto add tag 'LOG' when add note log."
   (org-back-to-heading)
   ;; remove multiple same "comment" tags
   (autoload 'seq-uniq "seq.el")
-  (org-set-tags (seq-uniq (cons "comment" (org-get-tags nil t)))))
+  (org-set-tags (seq-uniq (cons "LOG" (org-get-tags nil t)))))
 (advice-add 'org-add-note :after #'my/org-add-note--auto-add-tag)
 
 ;;; for Org Book reading journal. Mark an headline as a book
