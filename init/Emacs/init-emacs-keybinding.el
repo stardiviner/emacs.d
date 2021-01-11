@@ -74,6 +74,13 @@
   :ensure t
   :defer t)
 
+;;; [ transient ]
+
+(use-package transient
+  :ensure t
+  :ensure transient-posframe
+  :init (transient-posframe-mode 1))
+
 ;;; [ emaps ] -- Emaps provides utilities for working with keymaps and keybindings in Emacs.
 
 (use-package emaps
