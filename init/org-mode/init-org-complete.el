@@ -25,7 +25,7 @@
                 company-keywords
                 company-files
                 ;; company-ispell
-                )))
+                company-emoji)))
 
 (add-hook 'org-mode-hook #'my/org-mode-completion-setting)
 
