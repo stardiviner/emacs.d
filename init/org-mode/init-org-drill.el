@@ -24,19 +24,14 @@
   
   ;; add org-drill topic property into default properties list.
   (add-to-list 'org-default-properties "DRILL_CARD_TYPE")
-  (setq org-tag-alist
-        (append '((:startgroup . nil) ("drill" . ?d) (:endgroup . nil))
-                org-tag-alist))
-  (add-to-list 'org-tag-faces
-               '("drill" :foreground "coral"))
+  (add-to-list 'org-tag-persistent-alist '("drill" . ?d))
+  (add-to-list 'org-tag-faces '("drill" :foreground "coral"))
 
   (defun my-org-drill ()
     "My wrapper helper function around `org-drill'."
     (interactive)
     (find-file my-org-drill-words-file)
-    (if (org-drill-entries-pending-p)
-        (org-drill-resume)
-      (org-drill)))
+    (if (org-drill-entries-pending-p) (org-drill-resume) (org-drill)))
   (define-key Org-prefix (kbd "w") 'my-org-drill)
 
   ;; record (GoldenDict) queried words to Org-mode drill files for memory.
