@@ -15,12 +15,10 @@
 
 (use-package pinentry
   :ensure t
-  :defer t
   :hook (after-init . pinentry-start))
 
 (use-package epa
   :ensure t
-  :defer t
   ;; force Emacs to use its own internal password prompt instead of an external
   ;; pin entry program.
   :preface (setenv "GPG_AGENT_INFO" nil)
@@ -37,8 +35,7 @@
   (add-to-list 'display-buffer-alist '("^\\*Keys\\*" . (display-buffer-below-selected)))
   :config
   ;; Decrypt to load session at Emacs startup beginning to avoid pause prompt.
-  ;; (my/json-read-value my/account-file 'ejc-sql-postgresql)
-  )
+  (my/json-read-value my/account-file 'ejc-sql-postgresql))
 
 
 
