@@ -10,6 +10,11 @@
   (define-prefix-command 'project-prefix))
 (global-set-key (kbd "C-c p") 'project-prefix)
 
+;;; [ project ] -- Operations on the current project.
+
+(use-package project
+  :defer t
+  :commands (project-switch-project))
 
 ;;; [ projectile ] -- minor mode to assist project management and navigation.
 
