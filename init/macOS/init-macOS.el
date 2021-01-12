@@ -76,6 +76,10 @@
   :defer t
   :commands (sysctl))
 
+;;; [ org-mac-link ] -- Insert/open org-mode links to items selected in various Mac apps.
+
+(require 'org-mac-link)
+
 
 (provide 'init-macOS)
 
