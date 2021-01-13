@@ -142,6 +142,12 @@
   ;; :config (add-to-list 'company-box-frame-parameters '(font . "DejaVu Sans Mono-10"))
   )
 
+;;; [ company-prescient ] -- prescient.el + company.
+
+(use-package company-prescient
+  :ensure t
+  :config (company-prescient-mode 1))
+
 ;; [ company-tabnine ] -- A company-mode backend for TabNine, the all-language autocompleter.
 
 (use-package company-tabnine

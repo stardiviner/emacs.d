@@ -49,15 +49,6 @@
   :custom (savehist-autosave-interval (* 60 100))
   :hook (after-init . savehist-mode))
 
-;;; [ minibuffer completion ]
-
-(require 'init-helm)
-(require 'init-ivy)
-
-;; (use-package snails ; A modern, easy-to-expand fuzzy search framework.
-;;   :require t
-;;   :quelpa (snails :fetcher github :repo "manateelazycat/snails"))
-
 
 (provide 'init-emacs-minibuffer)
 
