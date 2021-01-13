@@ -53,7 +53,7 @@
         ("camera") ("vlog") ("record") ("mic") ("news")
         ("map") ("map_pin") ("location") ("street_view")
         ("search") ("download") ("upload") ("link") ("email")("rss") ("cloud")
-        ("settings") ("save") ("sync") ("backup") ("restore") ("security")
+        ("settings") ("save") ("sync") ("backup") ("restore") ("security") ("forensic") ("computer_forensic")
         ("reply") ("send") ("share") ("screen_share") ("cast")
         (:endgrouptag)
         
