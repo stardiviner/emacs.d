@@ -18,12 +18,14 @@
 
 ;;; [ mingus ] -- MPD Interface.
 
-;; (use-package mingus
-;;   :ensure t
-;;   :defer t
-;;   :commands (mingus)
-;;   :custom (mingus-playlist-directory "~/Music")
-;;   :init (add-to-list 'display-buffer-alist '("^\\*Mingus\\*" . (display-buffer-below-selected))))
+(use-package mingus
+  :ensure t
+  :defer t
+  :custom ((mingus-mpd-config-file "~/.mpd/mpd.conf")
+           (mingus-dired-add-keys t))
+  :commands (mingus mingus-browse)
+  :bind (:map tools-prefix ("M" . mingus))
+  :init (add-to-list 'display-buffer-alist '("^\\*Mingus\\*" . (display-buffer-below-selected))))
 
 ;;; [ PulseAudio ]
 
