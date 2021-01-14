@@ -7,7 +7,7 @@
 ${3:;; Package-Requires: ((emacs "26.1")${4})}
 ;; Package-Version: ${5:0.1}
 ;; Keywords: ${6:keywords separated by comma}
-;; homepage: ${7:homepage}
+;; Homepage: ${7:homepage}
 
 ;; ${1:package name} is free software; you can redistribute it and/or modify it
 ;; under the terms of the GNU General Public License as published by
