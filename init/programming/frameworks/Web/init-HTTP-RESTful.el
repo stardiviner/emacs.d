@@ -1,4 +1,4 @@
-;;; init-RESTful.el --- init for RESTful
+;;; init-HTTP-RESTful.el --- init for HTTP RESTful
 
 ;;; Commentary:
 
@@ -123,6 +123,6 @@
 
 
 
-(provide 'init-RESTful)
+(provide 'init-HTTP-RESTful)
 
-;;; init-RESTful.el ends here
+;;; init-HTTP-RESTful.el ends here
