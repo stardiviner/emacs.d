@@ -136,6 +136,8 @@
         ("Firefox") ("Chromium") ("Chrome") ("Edge") ("Safari")
         ("database" . ?d) ("SQL") ("PostgreSQL") ("MySQL") ("MariaDB") ("Oracle") ("SQLite") ("DB2")
         ("TeX") ("LaTeX") ("Markdown") ("reStructuredText") ("AsciiDoc") ("YAML") ("TOML") ("CWL")
+        ;; frameworks
+        ("Vue") ("React")
         ;; Internet
         ("Internet") ("Google") ("Facebook") ("Twitter") ("Microsoft") ("Amazon") ("Mozilla") ("Reddit")
         ("YouTube") ("PornHub") ("Instagram") ("Dribbble") ("Dropbox") ("whatsapp")
