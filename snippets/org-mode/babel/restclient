@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: babel-restclient
-# key: babel-restclient
+# name: babel-http-restclient
+# key: babel-http-restclient
 # group: babel
 # --
 #+begin_src restclient

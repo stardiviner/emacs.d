@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: babel-restclient-complex
-# key: babel-restclient-complex
+# name: babel-http-restclient-complex
+# key: babel-http-restclient-complex
 # group: babel
 # --
 #+begin_src restclient${2: :var term="${3:QUERY}"}
