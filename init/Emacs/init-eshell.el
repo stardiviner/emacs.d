@@ -15,7 +15,8 @@
   :bind ("C-x !" . eshell)
   :preface (setenv "PAGER" "cat") ; change PAGER from `less' to `cat'.
   :custom ((eshell-visual-subcommands '(("git" "log" "diff" "show")))
-           (eshell-prompt-function (lambda () (if (= (user-uid) 0) " # " " $ ")))))
+           (eshell-prompt-function (lambda () (if (= (user-uid) 0) " # " " $ "))))
+  :init (add-to-list 'display-buffer-alist '("^\\*eshell\\*\\'" . (display-buffer-below-selected))))
 
 ;;; [ eshell-toggle ] -- Show/hide eshell at the bottom of active window with directory of its buffer.
 
