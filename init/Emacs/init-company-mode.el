@@ -135,12 +135,7 @@
   :delight company-box-mode
   :hook (company-mode . company-box-mode)
   :custom (;; (company-idle-delay 0.5) ; increase delay to avoid fast input slow down company speed.
-           (company-box-doc-delay 0.5)
-           ;; (company-box-doc-enable nil) ; disable auto `company-box-doc' timer.
-           ;; (company-box-icons-alist 'company-box-icons-all-the-icons)
-           )
-  ;; :config (add-to-list 'company-box-frame-parameters '(font . "DejaVu Sans Mono-10"))
-  )
+           (company-box-doc-delay 0.5)))
 
 ;;; [ company-prescient ] -- prescient.el + company.
 
