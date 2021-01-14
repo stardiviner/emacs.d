@@ -1,6 +1,6 @@
 ;;; init-emacs-font.el --- init for Emacs font settings -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-12-10 16:50:30 stardiviner>
+;;; Time-stamp: <2021-01-14 23:32:59 stardiviner>
 
 ;;; Commentary:
 
@@ -55,23 +55,8 @@
   (set-fontset-font (frame-parameter nil 'font) charset
                     (font-spec :family "Source Han Sans CN") nil 'append))
 
-;;; setting default font based on my preferred priority.
-(defvar font-prefered-fonts
-  '("DejaVu Sans Mono" "Noto Sans Mono" "Fira Code" "SF Mono" "Source Code Pro" "Hack"
-    "Menlo" "Monaco" "Consolas"))
-
-(defun font-available-p (font)
-  "Detect font available?"
-  (if (stringp font)
-      (member font (font-family-list))
-    (warn "Argument FONT should be string!")))
-
-(if (eq system-type 'windows-nt)
-    (add-to-list 'font-prefered-fonts "Sarasa Mono SC"))
-
-(cl-loop for font in font-prefered-fonts
-         when (font-available-p font)
-         return (set-face-attribute 'default nil :family font))
+;;; setting default font
+(set-face-attribute 'default nil :family "DejaVu Sans Mono")
 
 
 
