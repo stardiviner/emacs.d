@@ -23,6 +23,7 @@
            ("Blekko" . [simple-query "blekko.com" "https://blekko.com/#?q=" ""])
            ("Bing" . [simple-query "bing.com" "http://cn.bing.com/search?q=" ""])
            ("Baidu 百度" . [simple-query "baidu.com" "http://www.baidu.com/s?wd=" ""])
+           ("Douban 豆瓣" . [simple-query "douban.com" "https://www.douban.com/search?source=suggest&q=" ""])
            ("Magi" . [simple-query "magi.com" "https://magi.com/search?q=" ""])
            ;; wiki
            ("Wikipedia (zh-CN) 维基百科" .
@@ -41,7 +42,7 @@
            ("DeepL Translate" .
             [simple-query "deepl.com" "https://www.deepl.com/en/translator#auto/zh/" ""])
            ("Google Translate" .
-            [simple-query "translate.google.com" "https://translate.google.com/?q=" ""])
+            [simple-query "translate.google.com" "https://translate.google.com/?q=" "&sl=auto&tl=zh-CN&op=translate"])
            ("Google Translate URL (suggested)" .
             [simple-query "translate.google.com" "https://translate.google.com/website?sl=auto&tl=zh-CN&u=" ""])
            ;; ("Google Translate URL" .
@@ -81,6 +82,8 @@
             [simple-query "docs.python.org" "http://docs.python.org/3/search.html?q=" ""])
            ("PyPi: Python pip package search" .
             [simple-query "pypi.org" "https://pypi.org/search/?q=" ""])
+           ("npm package search" .
+            [simple-query "npmjs.com" "https://www.npmjs.com/search?q=" ""])
            ("Perl CPAN" .
             [simple-query "search.cpan.org" "http://search.cpan.org/search?mode=all&query=" ""])
            ("PHP Doc" . [simple-query "cn2.php.net" "http://cn2.php.net/results.php?q=" ""])
@@ -96,10 +99,12 @@
                           "https://marketplace.visualstudio.com/search?term="
                           "&target=VSCode&category=All%20categories&sortBy=Relevance"])
            ;; Linux
-           ("Linux pkgs.org searching" . [simple-query "pkgs.org" "https://pkgs.org/search/?q=" ""])
+           ("Linux pkgs.org package searching" . [simple-query "pkgs.org" "https://pkgs.org/search/?q=" ""])
            ("Archlinux Wiki" .
             [simple-query "wiki.archlinux.org"
                           "https://wiki.archlinux.org/index.php/Special:Search&fulltext=Search?search=" ""])
+           ("Ubuntu Packages Search" . [simple-query "packages.ubuntu.com/" "https://packages.ubuntu.com/search?suite=all&searchon=names&keywords=" ""])
+           ;; Docker
            ("Docker Hub" . [simple-query "hub.docker.com" "https://hub.docker.com/search?q=" "&type=image"])
            ;; Mailing Lists
            ("emacs-help mailing list" .
@@ -138,7 +143,8 @@
            ("电影狗 dianyinggou.com" . [simple-query "dianyinggou.com" "http://www.dianyinggou.com/so/" ""])
            ("btbtdy.com" . [simple-query "btbtdy.com" "http://btbtdy3.com/search/" ".html"])
            ;; Subtitle
-           ("字幕库" . [simple-query "zimuku.la" "http://www.zimuku.la/search?q=" ""])
+           ("zimuku 字幕库 subtitle download"
+            . [simple-query "zimuku.la" "http://www.zimuku.la/search?q=" ""])
            ;; Musics
            ("NetEase 163 Music | 网易云音乐" .
             [simple-query "music.163.com" "http://music.163.com/#/search/m/?s=" ""])
