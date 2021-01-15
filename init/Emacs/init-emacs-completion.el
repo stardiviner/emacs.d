@@ -56,6 +56,7 @@
          ([remap switch-to-buffer-other-frame] . consult-buffer-other-frame)
          ([remap yank-pop] . consult-yank)
          ([remap apropos] . consult-apropos)
+         ("C-c ." . imenu)
          ([remap imenu] . consult-imenu)
          ([remap grep] . consult-grep)
          ([remap vc-git-grep] . consult-git-grep)
