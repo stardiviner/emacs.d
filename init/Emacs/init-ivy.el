@@ -19,8 +19,7 @@
               ivy-virtual-abbreviate 'full ; use 'full to fix bookmarks uniquify issue.
               ivy-fixed-height-minibuffer t
               ivy-height 7)
-  ;; :hook (after-init . ivy-mode)
-  )
+  :hook (after-init . ivy-mode))
 
 ;;; [ ivy-rich ] -- More friendly display transformer for ivy.
 
@@ -43,9 +42,9 @@
   :ensure t
   :defer t
   :delight counsel-mode
-  :bind (;; ([remap yank-pop] . counsel-yank-pop)
+  :bind (([remap yank-pop] . counsel-yank-pop)
          ([remap menu-bar-open] . counsel-tmm) ; [F10] text menu access
-         ;; ([remap apropos] . counsel-apropos)
+         ([remap apropos] . counsel-apropos)
          ("C-x c p" . counsel-list-processes) ; [C-x c p]
          ("C-x c t" . cancel-function-timers) ; [C-x c t]
          ([remap list-colors-display] . counsel-colors-emacs)
@@ -57,7 +56,7 @@
          ;; ([remap switch-to-buffer] . counsel-buffer-or-recentf) ; [C-x b]
          ("M-t" . counsel-git) ; [M-t]
          ("C-c v g g" . counsel-git-grep)
-         ;; ([remap grep] . counsel-grep) ; [C-s g]
+         ([remap grep] . counsel-grep) ; [C-s g]
          ;; ("" . counsel-switch-to-shell-buffer) ; switch to a shell buffer, or create one
          ;; ([remap org-goto] . counsel-org-goto) ; [C-c C-j] completion for Org headings
          ;; ( . counsel-org-goto-all) ; completion for Org headings in all open buffers
@@ -65,7 +64,7 @@
          ;; ([remap org-agenda-set-tags] . counsel-org-tag-agenda) ; [:]
          ;; ([remap org-capture] . counsel-org-capture)
          ([remap org-attach-open] . counsel-org-file) ; browse all attachments for the current Org file
-         ;; ([remap locate] . counsel-locate)
+         ([remap locate] . counsel-locate)
          ("C-x c #" . counsel-linux-app)
          ;; :map read-expression-map ("C-r" . counsel-minibuffer-history) ; in [M-:]
          ;; :map ivy-minibuffer-map ("M-y" . ivy-next-line)
@@ -74,8 +73,7 @@
   (define-key search-prefix (kbd "M-g") 'counsel-grep)
   (define-key search-prefix (kbd "M-r") 'counsel-rg) ; [C-u] prompt for dir support
   :init (setq counsel-mode-override-describe-bindings t)
-  ;; :hook (ivy-mode . counsel-mode)
-  )
+  :hook (ivy-mode . counsel-mode))
 
 ;;; [ ivy-posframe ] -- Using posframe to show Ivy.
 
