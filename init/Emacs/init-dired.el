@@ -207,6 +207,12 @@
     :commands (dired-narrow)
     :bind (:map dired-mode-map ("/" . dired-narrow)))
 
+  (use-package dired-quick-sort ; Persistent quick sorting of dired buffers in various ways.
+    :ensure t
+    :defer t
+    :commands (dired-quick-sort)
+    :init (dired-quick-sort-setup))
+
   ;; [ make-it-so ] -- Transform files with Makefile recipes.
   ;; (use-package make-it-so
   ;;   :ensure t
