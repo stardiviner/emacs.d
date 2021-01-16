@@ -65,7 +65,7 @@ See https://github.com/emacs-lsp/lsp-mode."
   :ensure t
   :commands (lsp-ui-mode)
   :hook (lsp-mode . lsp-ui-mode)
-  :custom ((lsp-ui-doc-enable nil)
+  :custom ((lsp-ui-doc-enable t)
            (lsp-ui-doc-header nil)
            (lsp-ui-doc-include-signature t)
            (lsp-ui-doc-position 'at-point)
