@@ -113,7 +113,10 @@ See https://github.com/emacs-lsp/lsp-mode."
   ;; enable only some features
   :custom (dap-auto-configure-features '(sessions locals controls tooltip))
   :init (dap-mode t) (dap-ui-mode t)
-  :config (add-hook 'dap-stopped-hook (lambda (arg) (call-interactively #'dap-hydra))))
+  :config
+  (defun dap-mode-call-dap-hydra ()
+    (call-interactively #'dap-hydra))
+  (add-hook 'dap-stopped-hook #'dap-mode-call-dap-hydra))
 
 ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
 
