@@ -21,9 +21,9 @@
 
 ;;; [ transwin ] -- Make window/frame transparent.
 
-;; (use-package transwin
-;;   :ensure t
-;;   :init (transwin-ask-set-transparency 95))
+(use-package transwin
+  :ensure t
+  :init (transwin-ask-set-transparency 90))
 
 ;;; [ Title ]
 
