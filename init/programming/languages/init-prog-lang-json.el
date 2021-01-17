@@ -12,7 +12,6 @@
 (use-package json-mode
   :ensure t
   :defer t
-  :custom (js-indent-level 2)
   :commands (json-mode-show-path json-mode-beautify))
 
 ;;; [ json-reformat ] -- Reformatting tool for JSON.
