@@ -12,13 +12,7 @@
 
 (use-package profiler
   :defer t
-  :commands (profiler-start profiler-report profiler-stop)
-  :custom 
-  ;; make profiler report line length longer
-  ((profiler-report-cpu-line-format '((70 left)
-                                      (24 right ((19 right) (5 right)))))
-   (profiler-report-memory-line-format '((70 left)
-                                         (19 right ((14 right profiler-format-number) (5 right)))))))
+  :commands (profiler-start profiler-report profiler-stop))
 
 ;;; [ elp ] -- Emacs Lisp profiler.
 
