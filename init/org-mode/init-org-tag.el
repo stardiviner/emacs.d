@@ -58,7 +58,7 @@
         (:endgrouptag)
         
         ;; Task
-        (:startgrouptag) ("@task" . nil) (:grouptags)
+        (:startgrouptag) ("task" . nil) (:grouptags)
         ("event") ("event_available") ("event_busy") ("fragment")
         ("today") ("tomorrow") ("future") ("schedule") ("inprogress") ("timer") ("snooze") ("notification") ("alarm")
         (:endgrouptag)
@@ -86,13 +86,13 @@
         (:endgrouptag)
         
         ;; Work
-        (:startgrouptag) ("@work" . ?w) (:grouptags)
+        (:startgrouptag) ("work" . ?w) (:grouptags)
         ("appointment" . ?a) ("meeting" . ?m) ("urgent" . ?u)
         ("print") ("business_trip")
         (:endgrouptag)
         
         ;; SEX & Porn
-        (:startgrouptag) ("@SEX" . ?X) (:grouptags)
+        (:startgrouptag) ("SEX" . ?X) (:grouptags)
         ("H")
         ("date") ("pickup") ("PUA") ("uncensored")
         ("creampie") ("blowjob") ("orgasm") ("masturbation") ("dildo") ("lick_pussy") ("clit") ("handjob") ("moan")
@@ -154,18 +154,18 @@
         (:endgrouptag)
         
         (:startgroup)
-        (:startgrouptag) ("@family") (:grouptags)
+        (:startgrouptag) ("family") (:grouptags)
         ("sister") ("father") ("mother")
         (:endgrouptag)
-        (:startgrouptag) ("@relative") (:endgrouptag)
-        (:startgrouptag) ("@girlfriend") (:endgrouptag)
-        (:startgrouptag) ("@workmate") (:endgrouptag)
-        (:startgrouptag) ("@friend") (:grouptags)
-        ("good_friend") ("friend") ("person_who_knows")
+        (:startgrouptag) ("relative") (:endgrouptag)
+        (:startgrouptag) ("girlfriend") (:endgrouptag)
+        (:startgrouptag) ("workmate") (:endgrouptag)
+        (:startgrouptag) ("friend") (:grouptags)
+        ("good_friend") ("person_who_knows")
         (:endgrouptag)
         (:endgroup)
         
-        (:startgrouptag) ("@project") (:grouptags)
+        (:startgrouptag) ("project") (:grouptags)
         ("agriculture")
         (:endgrouptag)
         
@@ -447,9 +447,9 @@
         ("fragment" :foreground "LightGray" :weight bold)
         ("computer" :foreground "green")
         ("@life" :foreground "black")
-        ("@work" :foreground "DeepSkyBlue")
-        ("@SEX" :foreground "deep pink" :weight bold)
-        ("@Programming" :foreground "lawn green" :weight bold)
+        ("work" :foreground "DeepSkyBlue")
+        ("SEX" :foreground "deep pink" :weight bold)
+        ("programming" :foreground "lawn green" :weight bold)
         ("Linux" :foreground "yellow" :weight bold)
         ("Mac" :foreground "#444444" :weight bold)
         ("Emacs" :foreground "dodger blue" :weight bold)
