@@ -66,9 +66,9 @@
 
 ;;; [ time-stamp ] -- auto-update last change time stamps in files edited by Emacs.
 
-(use-package time-stamp
-  :defer t
-  :hook (before-save . time-stamp))
+;; (use-package time-stamp
+;;   :defer t
+;;   :hook (before-save . time-stamp))
 
 
 (provide 'init-prog-template)
