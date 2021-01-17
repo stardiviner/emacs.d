@@ -1,7 +1,5 @@
 ;;; init-AWS.el --- init file for Amazon AWS
 
-;;; Time-stamp: <2020-01-09 22:29:40 stardiviner>
-
 ;;; Commentary:
 
 

@@ -1,7 +1,5 @@
 ;;; init-prog-lang-ML.el --- init for ML.
 
-;;; Time-stamp: <2019-03-17 16:20:37 stardiviner>
-
 ;;; Commentary:
 
 

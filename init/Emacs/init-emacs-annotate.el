@@ -1,7 +1,5 @@
 ;;; init-emacs-annotate.el --- init for Emacs annotate.
 
-;;; Time-stamp: <2019-09-09 09:24:03 stardiviner>
-
 ;;; Commentary:
 
 

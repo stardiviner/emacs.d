@@ -1,7 +1,5 @@
 ;;; init-eaf.el --- init for emacs-application-framework -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-12-06 21:14:45 stardiviner>
-
 ;;; Commentary:
 
 

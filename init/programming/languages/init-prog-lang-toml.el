@@ -1,7 +1,5 @@
 ;;; init-prog-lang-toml.el --- init file for TOML
 
-;;; Time-stamp: <2019-12-31 21:48:43 stardiviner>
-
 ;;; Commentary:
 
 

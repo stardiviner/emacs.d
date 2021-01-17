@@ -1,7 +1,5 @@
 ;;; init-org-import.el --- Org Mode importer -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-10-15 08:35:53 stardiviner>
-
 ;;; Commentary:
 
 

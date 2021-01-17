@@ -1,7 +1,5 @@
 ;;; init-prog-reformat.el --- init for reformatters
 
-;;; Time-stamp: <2020-11-30 16:55:38 stardiviner>
-
 ;;; Commentary:
 
 

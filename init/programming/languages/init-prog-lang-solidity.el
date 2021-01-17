@@ -1,7 +1,5 @@
 ;;; init-prog-lang-solidity.el --- init for Solidity
 
-;;; Time-stamp: <2018-11-26 15:17:37 stardiviner>
-
 ;;; Commentary:
 
 

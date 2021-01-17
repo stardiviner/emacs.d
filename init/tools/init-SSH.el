@@ -1,7 +1,5 @@
 ;;; init-SSH.el --- init for SSH. -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-05-18 10:25:25 stardiviner>
-
 ;;; Commentary:
 
 

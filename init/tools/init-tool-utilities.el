@@ -1,7 +1,5 @@
 ;;; init-tool-utilities.el --- init file of utilities -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-08-23 07:30:52 stardiviner>
-
 ;;; Commentary:
 
 

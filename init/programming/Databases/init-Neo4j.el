@@ -1,7 +1,5 @@
 ;;; init-Neo4j.el --- init for Neo4j.
 
-;;; Time-stamp: <2020-01-21 12:54:18 stardiviner>
-
 ;;; Commentary:
 
 

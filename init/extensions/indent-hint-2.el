@@ -1,7 +1,5 @@
 ;; -*- encoding: utf-8-unix; -*-
 ;; File-name:    <20_indent-vline.el>
-;; Create:       <2012-01-18 00:53:10 ran9er>
-;; Time-stamp:   <2012-09-09 21:52:50 ran9er>
 ;; Mail:         <2999am@gmail.com>
 
 (setq indent-hint-prefix "il-"

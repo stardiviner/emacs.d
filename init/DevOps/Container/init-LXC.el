@@ -1,7 +1,5 @@
 ;;; init-LXC.el --- init for LXC
 
-;;; Time-stamp: <2019-01-18 09:26:12 stardiviner>
-
 ;;; Commentary:
 
 

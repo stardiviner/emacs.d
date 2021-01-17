@@ -1,7 +1,5 @@
 ;;; init-prog-vcs-changelog.el ---  -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-07-19 11:43:20 stardiviner>
-
 ;;; Commentary:
 
 

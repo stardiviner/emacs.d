@@ -1,7 +1,5 @@
 ;;; init-tool-sync.el --- Emacs tools for sync -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-03-22 09:43:32 stardiviner>
-
 ;;; Commentary:
 
 

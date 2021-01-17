@@ -1,7 +1,5 @@
 ;;; init-powershell.el --- init for PowerShell. -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-02-15 21:44:16 stardiviner>
-
 ;;; Commentary:
 
 

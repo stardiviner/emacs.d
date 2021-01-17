@@ -1,8 +1,6 @@
 ;;; init-org-roam.el --- init for org-roam -*- lexical-binding: t; -*-
 ;; -*- coding: utf-8 -*-
 
-;;; Time-stamp: <2021-01-05 20:47:21 stardiviner>
-
 ;; Copyright (C) 2020-2021 Christopher M. Miles, all rights reserved.
 
 ;;; Commentary:

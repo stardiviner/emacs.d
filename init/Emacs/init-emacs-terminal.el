@@ -1,7 +1,5 @@
 ;;; init-emacs-terminal.el --- init for TERMs -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-12-15 13:08:33 stardiviner>
-
 ;;; Commentary:
 
 

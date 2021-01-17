@@ -1,7 +1,5 @@
 ;;; init-leetcode.el --- init for LeetCode
 
-;;; Time-stamp: <2019-12-18 22:47:00 stardiviner>
-
 ;;; Commentary:
 
 

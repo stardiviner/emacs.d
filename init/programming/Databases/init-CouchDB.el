@@ -1,7 +1,5 @@
 ;;; init-CouchDB.el --- init for CouchDB.
 
-;;; Time-stamp: <2018-08-11 13:05:40 stardiviner>
-
 ;;; Commentary:
 
 

@@ -1,7 +1,5 @@
 ;;; init-org-project-management.el --- Project Management with Org Mode.
 
-;;; Time-stamp: <2020-09-11 05:48:14 stardiviner>
-
 ;;; Commentary:
 
 

@@ -1,7 +1,5 @@
 ;;; init-bat.el --- init for Windows Batch Script. -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-02-15 21:47:25 stardiviner>
-
 ;;; Commentary:
 
 

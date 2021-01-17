@@ -1,7 +1,5 @@
 ;;; init-tool-video.el --- init file for video processing -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-08-01 18:02:09 stardiviner>
-
 ;;; Commentary:
 
 

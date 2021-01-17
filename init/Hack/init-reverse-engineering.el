@@ -1,7 +1,5 @@
 ;;; init-reverse-engineering.el --- init for Reverse Engineering
 
-;;; Time-stamp: <2019-03-17 16:47:23 stardiviner>
-
 ;;; Commentary:
 
 

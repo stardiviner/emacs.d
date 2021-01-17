@@ -1,7 +1,5 @@
 ;;; init-prog-lang-AsciiDoc.el --- init for AsciiDoc document.
 
-;;; Time-stamp: <2019-02-26 12:02:30 stardiviner>
-
 ;;; Commentary:
 
 

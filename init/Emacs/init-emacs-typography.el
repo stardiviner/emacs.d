@@ -1,7 +1,5 @@
 ;;; init-emacs-typography.el --- init for Typography.
 
-;;; Time-stamp: <2020-11-29 16:13:45 stardiviner>
-
 ;;; Commentary:
 
 

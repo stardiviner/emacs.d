@@ -1,7 +1,5 @@
 ;;; helm-baidu-fanyi-suggest.el --- 
 
-;;; Time-stamp: <2019-07-04 13:02:33 stardiviner>
-
 ;;; Commentary:
 
 

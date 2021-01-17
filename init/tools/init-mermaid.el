@@ -1,7 +1,5 @@
 ;;; init-mermaid.el --- init for mermaid
 
-;;; Time-stamp: <2020-09-20 11:01:38 stardiviner>
-
 ;;; Commentary:
 
 

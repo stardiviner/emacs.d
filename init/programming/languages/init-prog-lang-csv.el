@@ -1,7 +1,5 @@
 ;;; init-prog-lang-csv.el --- init file for CSV -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2020-09-20 13:16:39 stardiviner>
-
 ;;; Commentary:
 
 

@@ -1,7 +1,5 @@
 ;;; init-emacs-font.el --- init for Emacs font settings -*- lexical-binding: t; -*-
 
-;;; Time-stamp: <2021-01-14 23:32:59 stardiviner>
-
 ;;; Commentary:
 
 ;; the value is in 1/10pt, so 100 will give you 10pt, etc
