@@ -59,6 +59,7 @@
   ;; Python
   (defun helm-dash-buffer-local-python-docsets ()
     (my/dash-docs-local-docsets '("Python_3" "Python_zh_cn"))
+    (my/dash-docs-local-docsets '("Matplotlib" "SciPy") t)
     (my/dash-docs-local-docsets '("Qt_5" "Qt_for_Python" "pyside2") t)
     (my/dash-docs-local-docsets '("TensorFlow 2" "PyTorch") t))
   (add-hook 'python-mode-hook 'helm-dash-buffer-local-python-docsets)
