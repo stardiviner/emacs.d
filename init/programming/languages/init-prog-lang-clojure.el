@@ -296,10 +296,11 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 ;;; [ midje-mode ] -- Minor mode for running Midje tests in Emacs.
 
-(use-package midje-mode
-  :ensure t
-  :defer t
-  :hook (clojure-mode . midje-mode))
+;;; NOTE disable `midje-mode' because `midje-mode-map' defined lot of keybindings on [C-c] prefix.
+;; (use-package midje-mode
+;;   :ensure t
+;;   :defer t
+;;   :hook (clojure-mode . midje-mode))
 
 ;;; [ Emidje ] -- Test runner, report viewer and formatting tool for Midje within Emacs.
 
