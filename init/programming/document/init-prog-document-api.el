@@ -58,7 +58,7 @@
   (add-hook 'projectile-rails-mode-hook 'helm-dash-buffer-local-rails-docsets)
   ;; Python
   (defun helm-dash-buffer-local-python-docsets ()
-    (my/dash-docs-local-docsets '("Python_3" "Python_zh_cn"))
+    (my/dash-docs-local-docsets '("Python_zh_cn" "Python_3"))
     (my/dash-docs-local-docsets '("Matplotlib" "SciPy") t)
     (my/dash-docs-local-docsets '("Qt_5" "Qt_for_Python" "pyside2") t)
     (my/dash-docs-local-docsets '("TensorFlow 2" "PyTorch") t))
