@@ -23,7 +23,14 @@
 
 (use-package transwin
   :ensure t
-  :init (transwin-ask-set-transparency 90))
+  :init
+  (add-hook 'load-theme-after-hook
+            (lambda (theme)
+              (cl-case (alist-get 'background-mode (frame-parameters))
+                ('light
+                 (transwin-ask-set-transparency 100))
+                ('dark
+                 (transwin-ask-set-transparency 90))))))
 
 ;;; [ Title ]
 
