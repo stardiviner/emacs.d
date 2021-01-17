@@ -24,7 +24,7 @@
 (use-package helm-dash
   :ensure t
   :bind (:map document-prefix ("d" . helm-dash-at-point) ("M-d" . helm-dash))
-  :custom (dash-docs-common-docsets '("Clojure" "ClojureDocs" "Java"))
+  :custom (dash-docs-common-docsets '("ClojureDocs" "Clojure" "Java"))
   :init
   (defun helm-dash--around (orig-func &rest args)
     "Make `helm-dash' ignore case. Useful for SQL docsets."
@@ -96,23 +96,18 @@
   (add-hook 'common-lisp-mode-hook 'helm-dash-buffer-local-common-lisp-docsets)
   ;; Clojure
   (defun helm-dash-buffer-local-clojure-docsets ()
-    (my/dash-docs-local-docsets '("Clojure" "Java"))
-    (my/dash-docs-local-docsets '("ClojureDocs") t)
+    (my/dash-docs-local-docsets '("ClojureDocs" "Clojure" "Java"))
     (my/dash-docs-local-docsets '("RxJava") t))
   (add-hook 'clojure-mode-hook 'helm-dash-buffer-local-clojure-docsets)
   ;; ClojureScript
   (defun helm-dash-buffer-local-clojurescript-docsets ()
-    (my/dash-docs-local-docsets '("Clojure" "ClojureScript" "JavaScript"))
-    (my/dash-docs-local-docsets '("ClojureDocs") t))
+    (my/dash-docs-local-docsets '("ClojureDocs" "Clojure" "ClojureScript" "JavaScript")))
   (add-hook 'clojurescript-mode-hook 'helm-dash-buffer-local-clojurescript-docsets)
   ;; CIDER REPL
   (defun helm-dash-buffer-local-cider-docsets ()
     (if (equal cider-repl-type "clj")
-        (progn
-          (my/dash-docs-local-docsets '("Clojure" "Java"))
-          (my/dash-docs-local-docsets '("ClojureDocs") t))
-      (my/dash-docs-local-docsets '("Clojure" "ClojureScript" "JavaScript"))
-      (my/dash-docs-local-docsets '("ClojureDocs") t)))
+        (my/dash-docs-local-docsets '("ClojureDocs" "Clojure" "Java"))
+      (my/dash-docs-local-docsets '("ClojureDocs" "Clojure" "ClojureScript" "JavaScript"))))
   (add-hook 'cider-repl-mode-hook 'helm-dash-buffer-local-cider-docsets)
   ;; Kotlin
   (defun helm-dash-buffer-local-kotlin-docsets ()
