@@ -68,9 +68,7 @@
 
 (use-package time-stamp
   :defer t
-  :init (add-hook 'before-save-hook 'time-stamp)
-  (setq time-stamp-active t ; enable `time-stamp'
-        time-stamp-line-limit 20))
+  :hook (before-save . time-stamp))
 
 
 (provide 'init-prog-template)
