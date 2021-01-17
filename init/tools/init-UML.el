@@ -22,8 +22,8 @@
 (use-package ob-plantuml
   :defer t
   :commands (org-babel-execute:plantuml)
+  :custom (org-plantuml-jar-path plantuml-jar-path)
   :config
-  (setq org-plantuml-jar-path plantuml-jar-path)
   (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
   (add-to-list 'org-babel-load-languages '(clojure . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
