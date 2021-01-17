@@ -20,7 +20,7 @@
   
   (make-local-variable 'company-backends)
   (setq-local company-backends
-              '((company-capf :with company-yasnippet
+              '((company-capf :separate company-yasnippet
                               :separate company-tempo)
                 company-keywords
                 company-files
