@@ -74,7 +74,6 @@
   :ensure t
   :defer t
   :hook ((shell-mode . with-editor-export-editor)
-         (term-mode . with-editor-export-editor)
          (term-exec . with-editor-export-editor)
          (eshell-mode . with-editor-export-editor)))
 
