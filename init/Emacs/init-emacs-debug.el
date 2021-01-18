@@ -39,7 +39,7 @@
 ;;; [ edebug-inline-result ] -- Show Edebug result inline.
 
 (use-package edebug-inline-result
-  :quelpa (edebug-inline-result :fetcher github :repo "stardiviner/edebug-inline-result")
+  :ensure t
   :defer t
   :custom (edebug-inline-result-backend 'posframe)
   :hook (edebug-mode . edebug-inline-result-mode))
