@@ -72,7 +72,7 @@
   ;; JavaScript
   (defun helm-dash-buffer-local-javascript-docsets ()
     (my/dash-docs-local-docsets '("JavaScript" "NodeJS" "jQuery"))
-    (my/dash-docs-local-docsets '("React" "VueJS" "Angular" "BackboneJS" "Express" "Bootstrap_4" "D3JS") t)
+    (my/dash-docs-local-docsets '("React" "VueJS" "Angular" "BackboneJS" "Express" "Bootstrap_5" "D3JS") t)
     (my/dash-docs-local-docsets '("electron") t)
     (my/dash-docs-local-docsets '("Chrome_Extension_API") t))
   (add-hook 'js-mode-hook 'helm-dash-buffer-local-javascript-docsets)
@@ -88,7 +88,7 @@
   ;; CSS
   (defun helm-dash-buffer-local-css-docsets ()
     (my/dash-docs-local-docsets '("CSS"))
-    (my/dash-docs-local-docsets '("Bootstrap_4") t))
+    (my/dash-docs-local-docsets '("Bootstrap_5") t))
   (add-hook 'css-mode-hook 'helm-dash-buffer-local-css-docsets)
   ;; Common Lisp
   (defun helm-dash-buffer-local-common-lisp-docsets ()
