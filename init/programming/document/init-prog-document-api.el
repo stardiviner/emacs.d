@@ -74,7 +74,7 @@
     (my/dash-docs-local-docsets '("JavaScript" "NodeJS" "jQuery"))
     (my/dash-docs-local-docsets '("React" "VueJS" "Angular" "BackboneJS" "Express" "Bootstrap_5" "D3JS") t)
     (my/dash-docs-local-docsets '("electron") t)
-    (my/dash-docs-local-docsets '("Chrome_Extension_API") t))
+    (my/dash-docs-local-docsets '("Chrome_Extensions_API") t))
   (add-hook 'js-mode-hook 'helm-dash-buffer-local-javascript-docsets)
   ;; HTTP
   (defun helm-dash-buffer-local-http-docsets ()
