@@ -23,8 +23,6 @@
   ;; pin entry program.
   :preface (setenv "GPG_AGENT_INFO" nil)
   :custom ((epa-pinentry-mode 'loopback) ; let EasyPG Assistant to use loopback for pinentry.
-           (epa-file-encrypt-to '("stardiviner" "numbchild@gmail.com"))
-           (epa-file-select-keys (cl-case epa-file-encrypt-to ('nil t) (t nil)))
            ;; cache passphrase for symmetric encryption.
            ;; For security reasons, this option is turned off by default and
            ;; not recommended to use.  Instead, consider using gpg-agent which
@@ -34,6 +32,8 @@
   :init (epa-file-enable)
   (add-to-list 'display-buffer-alist '("^\\*Keys\\*" . (display-buffer-below-selected)))
   :config
+  (setq epa-file-encrypt-to '("stardiviner" "numbchild@gmail.com"))
+  (setq epa-file-select-keys (cl-case epa-file-encrypt-to ('nil t) (t nil)))
   ;; Decrypt to load session at Emacs startup beginning to avoid pause prompt.
   (my/json-read-value my/account-file 'ejc-sql-postgresql))
 
