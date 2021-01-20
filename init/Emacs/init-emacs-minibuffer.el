@@ -6,6 +6,8 @@
 
 ;;; [ minibuffer ]
 
+(setq-default completion-at-point-functions '())
+
 ;; (setq-default max-mini-window-height 6)
 
 ;; recursive minibuffers
