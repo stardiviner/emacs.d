@@ -17,10 +17,11 @@
 
 ;;; use :ID: property for org linking.
 ;; (use-package org-id
-;;   :init
-;;   (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id
-;;         org-id-track-globally t
-;;         org-id-locations-file (expand-file-name ".org-id-locations" user-emacs-directory)))
+;;   :custom
+;;   ((org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
+;;    (org-id-track-globally t)
+;;    (org-id-locations ) ; TODO
+;;    (org-id-locations-file (expand-file-name "org-mode/org-id-locations" user-emacs-directory))))
 
 
 ;; (add-hook 'org-follow-link-hook #'sound-tick)
