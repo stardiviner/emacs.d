@@ -158,7 +158,7 @@
   (add-hook 'ejc-sql-connected-hook #'my/ejc-sql-customize-output)
   
   (ejc-create-connection
-   "PostgreSQL-db-postgres"
+   "PostgreSQL/postgres@test"
    :dependencies [[org.postgresql/postgresql "42.2.16.jre7"]]
    :classname "org.postgresql.Driver"
    :connection-uri "jdbc:postgresql://localhost:5432/test"
@@ -166,7 +166,7 @@
    :password (my/json-read-value my/account-file 'ejc-sql-postgresql))
 
   (ejc-create-connection
-   "MariaDB-db-test"
+   "MariaDB/root@test"
    :dependencies [[org.mariadb.jdbc/mariadb-java-client "2.6.0"]]
    :classname "org.mariadb.jdbc.Driver"
    :connection-uri "jdbc:mariadb://localhost:3306/test"
@@ -174,7 +174,7 @@
    :password (my/json-read-value my/account-file 'ejc-sql-mysql))
 
   (ejc-create-connection
-   "MySQL-db-test"
+   "MySQL/mysql@test"
    :dependencies [[mysql/mysql-connector-java "5.1.32"]]
    ;; FIXME :classname "mysql"
    :dbtype "mysql"
@@ -185,7 +185,7 @@
    :dbname "test")
 
   (ejc-create-connection
-   "SQLite-db-temp"
+   "SQLite/temp"
    :dependencies [[org.xerial/sqlite-jdbc "3.25.2"]]
    :subprotocol "sqlite"
    :subname (file-truename "~/test.db"))
