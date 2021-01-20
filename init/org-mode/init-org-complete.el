@@ -20,12 +20,13 @@
   
   (make-local-variable 'company-backends)
   (setq-local company-backends
-              '((company-capf :separate company-yasnippet
-                              :separate company-tempo)
+              '(company-capf
+                ;; company-yasnippet
                 company-keywords
                 company-files
+                company-emoji
                 ;; company-ispell
-                company-emoji)))
+                )))
 
 (add-hook 'org-mode-hook #'my/org-mode-completion-setting)
 
