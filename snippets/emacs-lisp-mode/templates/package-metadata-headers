@@ -5,7 +5,7 @@
 # --
 ;; Authors: ${2:stardiviner <numbchild@gmail.com>}
 ${3:;; Package-Requires: ((emacs "26.1")${4})}
-;; Package-Version: ${5:0.1}
+;; Version: ${5:0.1}
 ;; Keywords: ${6:keywords separated by comma}
 ;; Homepage: ${7:homepage}
 
