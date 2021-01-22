@@ -43,6 +43,7 @@
              "~/Org/Calendars/Anniversary.org"
              "~/Org/Myself/"            ; about Myself tasks
              "~/Org/Beauty/"
+             "~/Org/Work/淘宝店铺经营/stardiviner/My Taobao Order List/" ; 淘宝店铺的订单管理
              )))))
 
   ;; (setq org-agenda-skip-archived-trees nil) ; don't skip recently archived items in Org archive file.
