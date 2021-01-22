@@ -9,6 +9,9 @@
 ;;; [ emacs-application-framework (eaf) ]
 
 (use-package eaf
+  :ensure epc
+  :ensure deferred
+  :ensure ctable
   :load-path "~/Code/Emacs/emacs-application-framework/"
   ;; :custom (eaf-enable-debug t)
   ;; [ `eaf-org' ] Org Mode integration
