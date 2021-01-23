@@ -124,6 +124,27 @@
 ;;       (setq-local truncate-lines ivy-truncate-lines)))
 ;;   )
 
+;;; Ivy supports Chinese candidates filtering through Pinyin.
+;;; https://emacs-china.org/t/topic/6069/21
+(use-package pyim
+  :ensure t
+  :after ivy
+  :config
+  (defun pyim--ivy-cregexp (str)
+    (let ((x (ivy--regex-plus str)) ;; (ivy--regex-ignore-order str)
+          (case-fold-search nil))
+      (if (listp x)
+          (mapcar (lambda (y)
+                    (if (cdr y)
+                        (list (if (equal (car y) "")
+                                  ""
+                                (pyim-cregexp-build (car y)))
+                              (cdr y))
+                      (list (pyim-cregexp-build (car y)))))
+                  x)
+        (pyim-cregexp-build x))))
+  (setq ivy-re-builders-alist '((t . pyim--ivy-cregexp) (t . ivy--regex-plus))))
+
 
 (provide 'init-ivy)
 
