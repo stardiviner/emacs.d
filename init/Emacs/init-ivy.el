@@ -58,7 +58,7 @@
          ("C-c v g g" . counsel-git-grep)
          ([remap grep] . counsel-grep) ; [C-s g]
          ;; ("" . counsel-switch-to-shell-buffer) ; switch to a shell buffer, or create one
-         ;; ([remap org-goto] . counsel-org-goto) ; [C-c C-j] completion for Org headings
+         ([remap org-goto] . counsel-org-goto) ; [C-c C-j] completion for Org headings
          ;; ( . counsel-org-goto-all) ; completion for Org headings in all open buffers
          ;; ([remap org-set-tags-command] . counsel-org-tag) ; [C-c C-q]
          ;; ([remap org-agenda-set-tags] . counsel-org-tag-agenda) ; [:]

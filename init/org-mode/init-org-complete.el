@@ -40,7 +40,7 @@
              helm-org-in-buffer-headings
              helm-org-parent-headings
              helm-org-capture-templates)
-  :bind (([remap org-goto] . helm-org-in-buffer-headings)) ; [C-c C-j]
+  ;; :bind (([remap org-goto] . helm-org-in-buffer-headings)) ; [C-c C-j]
   :custom (helm-org-headings-fontify t)
   :config
   (with-eval-after-load 'helm-mode
