@@ -492,7 +492,6 @@
 
 (use-package org-tag-beautify
   :ensure t
-  :after org-pretty-tags
   :init (org-tag-beautify-mode 1))
 
 
