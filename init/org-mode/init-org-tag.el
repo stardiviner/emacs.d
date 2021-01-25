@@ -492,6 +492,7 @@
 
 (use-package org-tag-beautify
   :ensure t
+  :custom (org-tag-beautify-data-dir "~/Code/Emacs/org-tag-beautify/data/")
   :init (org-tag-beautify-mode 1))
 
 
