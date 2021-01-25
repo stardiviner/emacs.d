@@ -67,11 +67,15 @@
 (use-package org-mime
   :ensure t
   :defer t
+  :custom ((org-mime-export-options
+            '(:section-numbers nil :with-author nil :with-toc nil)))
+  :commands (org-mime-htmlize org-mime-org-buffer-htmlize)
   :bind (:map Org-prefix ("M" . org-mime-org-buffer-htmlize)
               :map message-mode-map ("C-c M-o" . org-mime-htmlize))
   :hook ((message-send . org-mime-confirm-when-no-multipart) ; remind you didn't use HTML
          (message-send . org-mime-htmlize)) ; automatically htmlize message on sending email.
   :config
+  ;; change <pre>, <blockquote> element style.
   (add-hook 'org-mime-html-hook
             (lambda ()
               ;; change <pre /> source code block style.
