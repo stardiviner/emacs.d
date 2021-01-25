@@ -69,6 +69,8 @@
   :defer t
   :bind (:map Org-prefix ("M" . org-mime-org-buffer-htmlize)
               :map message-mode-map ("C-c M-o" . org-mime-htmlize))
+  :hook ((message-send . org-mime-confirm-when-no-multipart) ; remind you didn't use HTML
+         (message-send . org-mime-htmlize)) ; automatically htmlize message on sending email.
   :config
   (add-hook 'org-mime-html-hook
             (lambda ()
