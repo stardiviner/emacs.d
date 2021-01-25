@@ -98,6 +98,15 @@
   :ensure t
   :commands (elisp-depmap-graphviz-digraph elisp-depmap-graphviz elisp-depmap-makesummarytable))
 
+;;; [ pair-tree ] -- An Emacs Lisp cons cell explorer as a learning tool for visualizing Emacs Lisp lists.
+
+(use-package pair-tree
+  :ensure t
+  :defer t
+  :commands (pair-tree)
+  :init (add-to-list 'display-buffer-alist '("^\\*pair-tree\\*\\'" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist '("^\\*sexp\\*\\'" . (display-buffer-below-selected))))
+
 
 (provide 'init-prog-lang-emacs-lisp)
 
