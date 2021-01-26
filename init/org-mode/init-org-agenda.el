@@ -15,7 +15,7 @@
   :custom ((org-agenda-window-setup 'current-window)
            (org-agenda-restore-windows-after-quit t)
            (org-agenda-sticky t)        ; don't kill *Org Agenda* buffer by [q].
-           (org-agenda-remove-tags t)   ; don't display tags in Org Agenda
+           (org-agenda-remove-tags t)   ; PERFORMANCE don't display tags in Org Agenda
            )
   ;; :init (add-to-list 'display-buffer-alist '("^\\*Org Agenda(.*)\\*" . (display-buffer-below-selected)))
   :config
@@ -82,13 +82,13 @@
         org-agenda-log-mode-items '(closed clock))
   (setq org-agenda-log-mode-add-notes nil) ; FIXME don't display log notes so that org-agenda colorized clocking blocks can be shown
 
-  ;; clock report mode
-  (setq org-agenda-start-with-clockreport-mode t
-        org-agenda-clockreport-parameter-plist '(:scope agenda-with-archives
-                                                        :maxlevel 5
-                                                        :block today
-                                                        :fileskip0 t
-                                                        :link nil))
+  ;; PERFORMANCE clock table report mode
+  ;; (setq org-agenda-start-with-clockreport-mode t
+  ;;       org-agenda-clockreport-parameter-plist '(:scope agenda-with-archives
+  ;;                                                       :maxlevel 5
+  ;;                                                       :block today
+  ;;                                                       :fileskip0 t
+  ;;                                                       :link nil))
 
   (setq org-agenda-block-separator ?=
         org-agenda-compact-blocks t)

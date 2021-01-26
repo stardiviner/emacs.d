@@ -486,7 +486,8 @@
   :after org
   :delight org-pretty-tags-mode
   :init (setq org-tag-faces nil)
-  :hook (after-init . org-pretty-tags-global-mode))
+  :hook (after-init . org-pretty-tags-global-mode)
+  :config (remove-hook 'org-agenda-finalize-hook #'org-pretty-tags-refresh-agenda-lines))
 
 ;;; [ org-tag-beautify ] -- Beautify Org tags with lot of icons.
 
