@@ -88,7 +88,7 @@ See https://github.com/emacs-lsp/lsp-mode."
 
 (use-package lsp-treemacs
   :ensure t
-  :hook (lsp-mode . lsp-treemacs-sync-mode)
+  ;; :hook (lsp-mode . lsp-treemacs-sync-mode)
   :commands (lsp-treemacs-errors-list
              lsp-treemacs-quick-fix
              lsp-treemacs-symbols-list
