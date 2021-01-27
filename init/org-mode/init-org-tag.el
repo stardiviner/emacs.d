@@ -83,6 +83,7 @@
         ("child")
         ("recycle")
         ("daoism") ("tree") ("empire")
+        ("global")
         (:endgrouptag)
         
         ;; Work
@@ -126,16 +127,19 @@
         ("coding") ("code" . ?C) ("source_code") ("bug") ("vulnerability") ("patch") ("diff")
         ("Emacs" . ?e) ("Org" . ?o) ("regex") ("git" . ?G) ("design")
         (:startgroup)
+        ;; Programming
         ("GitHub") ("GitLab")
         ("terminal") ("cloud") ("DevOps") ("docker")
         ("Linux" . ?L) ("Apple") ("macOS") ("Windows" . ?W) ("Android") ("adb") ("iOS")
         ("LISP" . ?l) ("Common_Lisp") ("Clojure" . ?c) ("ClojureScript" . ?s)
-        ("Java" . ?j) ("C") ("cpp") ("Go") ("Rust") ("Swift") ("C#" . ?#)
+        ("Java" . ?j) ("C") ("cpp") ("CMake") ("Go") ("Rust") ("Swift") ("C#" . ?#)
         ("Shell" . ?S) ("Python" . ?p) ("Ruby" . ?r)
         ("Web") ("JavaScript" . ?J) ("HTML") ("HTML5") ("CSS") ("CSS3")
         ("Firefox") ("Chromium") ("Chrome") ("Edge") ("Safari")
         ("database" . ?d) ("SQL") ("PostgreSQL") ("MySQL") ("MariaDB") ("Oracle") ("SQLite") ("DB2")
         ("TeX") ("LaTeX") ("Markdown") ("reStructuredText") ("AsciiDoc") ("YAML") ("TOML") ("CWL")
+        ;; DevOps
+        ("Docker")
         ;; frameworks
         ("Vue") ("React")
         ;; Internet
