@@ -131,18 +131,18 @@
   :after ivy
   :config
   (defun pyim--ivy-cregexp (str)
-    (let ((x (ivy--regex-plus str)) ;; (ivy--regex-ignore-order str)
+    (let ((regex-sequence (ivy--regex-plus str)) ;; (ivy--regex-ignore-order str)
           (case-fold-search nil))
-      (if (listp x)
-          (mapcar (lambda (y)
-                    (if (cdr y)
-                        (list (if (equal (car y) "")
+      (if (listp regex-sequence)
+          (mapcar (lambda (regex)
+                    (if (cdr regex)
+                        (list (if (equal (car regex) "")
                                   ""
-                                (pyim-cregexp-build (car y)))
-                              (cdr y))
-                      (list (pyim-cregexp-build (car y)))))
-                  x)
-        (pyim-cregexp-build x))))
+                                (pyim-cregexp-build (car regex)))
+                              (cdr regex))
+                      (list (pyim-cregexp-build (car regex)))))
+                  regex-sequence)
+        (pyim-cregexp-build regex-sequence))))
   (setq ivy-re-builders-alist '((t . pyim--ivy-cregexp) (t . ivy--regex-plus))))
 
 
