@@ -125,7 +125,7 @@
 ;;   )
 
 ;;; Ivy supports Chinese candidates filtering through Pinyin.
-;;; https://emacs-china.org/t/topic/6069/21
+;;; https://emacs-china.org/t/topic/6069/22
 (use-package pyim
   :ensure t
   :after ivy
@@ -143,7 +143,9 @@
                       (list (pyim-cregexp-build (car regex)))))
                   regex-sequence)
         (pyim-cregexp-build regex-sequence))))
-  (setq ivy-re-builders-alist '((t . pyim--ivy-cregexp) (t . ivy--regex-plus))))
+  (setq ivy-re-builders-alist '((read-file-name-internal . pyim--ivy-cregexp)
+                                (ivy-read . pyim--ivy-cregexp)
+                                (t . ivy--regex-plus))))
 
 
 (provide 'init-ivy)
