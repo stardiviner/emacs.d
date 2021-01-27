@@ -31,12 +31,7 @@
 
 ;; (use-package pulseaudio-control
 ;;   :ensure t
-;;   :config
-;;   ;; keybindings
-;;   ;; (pulseaudio-control-default-keybindings)
-;;   ;; (global-set-key (kbd "C-x /") 'pulseaudio-control-map)
-;;   (define-key music-prefix (kbd "a") 'pulseaudio-control-map)
-;;   )
+;;   :defer t)
 
 
 (provide 'init-tool-music)
