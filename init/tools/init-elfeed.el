@@ -99,7 +99,7 @@
     "Close elfeed buffers."
     (interactive)
     (elfeed-db-save)
-    (dolist (buffer '("*elfeed-log*" "*elfeed-search*"))
+    (dolist (buffer '("*elfeed-log*" "*elfeed-search*" "*elfeed-entry*"))
       (when (buffer-live-p (get-buffer buffer))
         (with-current-buffer buffer
           (kill-buffer)))))
