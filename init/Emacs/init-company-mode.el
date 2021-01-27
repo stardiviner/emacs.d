@@ -148,6 +148,7 @@
 (use-package company-tabnine
   :ensure t
   :defer t
+  :custom (company-tabnine-max-restart-count 3)
   :config
   ;; The free version of TabNine is good enough,
   ;; and below code is recommended that TabNine not always
