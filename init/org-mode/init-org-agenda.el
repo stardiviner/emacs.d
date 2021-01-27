@@ -10,8 +10,6 @@
 (use-package org-agenda
   :defer t
   :commands (org-agenda)
-  ;; use `org-agenda-window-setup' `only-window' value to avoid ol 'line-height
-  ;; property failed on long line in "colorized blocks on agenda" hook.
   :custom ((org-agenda-window-setup 'current-window)
            (org-agenda-restore-windows-after-quit t)
            (org-agenda-sticky t)        ; don't kill *Org Agenda* buffer by [q].
@@ -243,6 +241,10 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
               (overlay-put ov 'line-height line-height)
               (overlay-put ov 'line-spacing (1- line-height))))))))
   
+  ;; use `org-agenda-window-setup' `only-window' value to avoid ol 'line-height
+  ;; property failed on long line in "colorized blocks on agenda" hook.
+  (setq org-agenda-window-setup 'only-window)
+  
   (add-hook 'org-agenda-finalize-hook #'org-agenda-clock-colorize-block)
 
   (define-key org-agenda-mode-map (kbd "M-s") 'org-search-view)
@@ -251,15 +253,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   (defun my/org-agenda-auto-refresh ()
     "Rebuild all agenda views buffers."
     (org-agenda-redo-all t))
-  (run-with-idle-timer (* 60 20) t #'my/org-agenda-auto-refresh)
-
-  ;; auto initialize Org Agenda after Emacs startup
-  (defun my/org-agenda-initialize ()
-    "Initialize Org Agenda after Emacs startup."
-    (split-window-vertically)
-    (org-agenda nil "a"))
-  (add-hook 'after-init-hook #'my/org-agenda-initialize)
-  )
+  (run-with-idle-timer (* 60 20) t #'my/org-agenda-auto-refresh))
 
 
 ;;; display icon for Org Agenda category
