@@ -496,7 +496,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                           :actions (-ding -notify/window)
                           :audible t))
   ;; NOTE: org-notify dbus cause KDE/Plasma high system resources.
-  (org-notify-start (* 60 5)))
+  (org-notify-start (* 60 10)))
 
 ;;; [ org-super-agenda ] -- Supercharge your agenda.
 
