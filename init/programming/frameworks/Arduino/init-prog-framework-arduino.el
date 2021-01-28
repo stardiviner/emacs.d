@@ -43,7 +43,9 @@
   :after arduino-mode
   :preface
   (unless (getenv "ARDUINO_HOME")
-    (setq company-arduino-home (setenv "ARDUINO_HOME" (expand-file-name "/usr/share/arduino"))))
+    (setenv "ARDUINO_HOME" (expand-file-name "~/Arduino"))
+    (setenv "ARDUINO_LIBS" (expand-file-name "~/Arduino/libraries"))
+    (setq company-arduino-home (setenv "ARDUINO_HOME" (expand-file-name "~/Arduino"))))
   ;; Turn-on irony-mode on arduino-mode (on .ino file).
   (with-eval-after-load 'irony
     (add-to-list 'irony-supported-major-modes 'arduino-mode))
