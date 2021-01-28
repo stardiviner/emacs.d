@@ -115,7 +115,9 @@
                 (list
                  '(company-irony-c-headers
                    :separate company-irony
-                   :separate company-tabnine
+                   ;; Don't enable `company-tabnine' in `arduino-mode'.
+                   `(unless (eq major-mode 'arduino-mode)
+                      ,@'(:separate company-tabnine))
                    :separate company-capf)
                  (delete 'company-capf company-backends)))
     (setq-local company-minimum-prefix-length 1))
