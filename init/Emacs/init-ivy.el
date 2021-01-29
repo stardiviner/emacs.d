@@ -144,6 +144,8 @@
                   regex-sequence)
         (pyim-cregexp-build regex-sequence))))
   (setq ivy-re-builders-alist '((read-file-name-internal . pyim--ivy-cregexp)
+                                (org-refile . pyim--ivy-cregexp)
+                                (org-set-tags-command . pyim--ivy-cregexp)
                                 (ivy-read . pyim--ivy-cregexp)
                                 (t . ivy--regex-plus))))
 
