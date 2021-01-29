@@ -53,8 +53,8 @@
 (dolist (prop org-property-eval-keywords-list)
   (add-to-list 'org-default-properties prop))
 
-(defun org-property-eval-code (&optional state)
-  "Evaluate Org inline source block in property value."
+(defun org-property-eval-on-cycle-expand (&optional state)
+  "Evaluate Org inline source block in property value on headline cycle expand."
   (when (memq state '(children subtree))
     ;; TODO: detect property keywords in `org-property-eval-keywords-list'.
     ;; (require 'seq nil t)
@@ -73,7 +73,7 @@
               ;; ob-async: advice `org-babel-execute-src-block:async' on ‘org-babel-execute-src-block’
               (org-babel-execute-src-block nil src-block-info)))))))
 
-(add-hook 'org-cycle-hook #'org-property-eval-code)
+(add-hook 'org-cycle-hook #'org-property-eval-on-cycle-expand)
 
 
 (provide 'init-org-property)
