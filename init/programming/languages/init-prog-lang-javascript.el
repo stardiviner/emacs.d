@@ -48,6 +48,7 @@
 
 (use-package ob-deno
   :ensure t
+  :defer t
   :commands (org-babel-execute:deno)
   :config
   (add-to-list 'org-babel-load-languages '(deno . t))
@@ -72,8 +73,10 @@
 
 ;;; [ npm-mode ] -- minor mode for working with npm projects.
 
+;; `npm-mode-*' commands prefix, [C-c n] keybinding prefix.
 (use-package npm-mode
   :ensure t
+  :defer t
   :hook (js-mode . npm-mode))
 
 ;;; [ npm ] -- NPM client for Emacs.
@@ -113,13 +116,14 @@
 
 (use-package lsp-mode
   :ensure t
-  :hook ((typescript-mode) . lsp))
+  :hook (typescript-mode . lsp))
 
 ;;; [ osa ] -- OSA (JavaScript / AppleScript) bridge.
 
 (use-package osa
   :ensure t
-  :defer t)
+  :defer t
+  :commands (osa-unpack osa-eval osa-eval-file))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Vue.js                                                                           ;;
@@ -127,7 +131,8 @@
 
 (use-package vue-mode
   :ensure t
-  :ensure vue-html-mode)
+  :ensure vue-html-mode
+  :defer t)
 
 
 (provide 'init-prog-lang-javascript)
