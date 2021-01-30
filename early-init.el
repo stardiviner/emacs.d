@@ -14,6 +14,13 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+;;; [ Debug ]
+;; for Emacs startup freeze debug.
+(setq debug-on-quit t)
+(add-hook 'after-init-hook #'(lambda () (setq debug-on-quit nil)))
+(setq debug-on-error t)
+(add-hook 'after-init-hook #'(lambda () (setq debug-on-error nil)))
+
 ;; (setq package-user-dir
 ;;       (let ((elpa-dir-name (format "elpa_%s" emacs-major-version))) ;default = "elpa"
 ;;         (file-name-as-directory (expand-file-name elpa-dir-name user-emacs-directory))))
