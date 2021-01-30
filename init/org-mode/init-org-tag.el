@@ -129,7 +129,6 @@
         (:startgroup)
         ;; Programming
         ("GitHub") ("GitLab")
-        ("terminal") ("cloud") ("DevOps") ("docker")
         ("Linux" . ?L) ("Apple") ("macOS") ("Windows" . ?W) ("Android") ("adb") ("iOS")
         ("LISP" . ?l) ("Common_Lisp") ("Clojure" . ?c) ("ClojureScript" . ?s)
         ("Java" . ?j) ("C") ("cpp") ("CMake") ("Go") ("Rust") ("Swift") ("C#" . ?#)
@@ -139,7 +138,7 @@
         ("database" . ?d) ("SQL") ("PostgreSQL") ("MySQL") ("MariaDB") ("Oracle") ("SQLite") ("DB2")
         ("TeX") ("LaTeX") ("Markdown") ("reStructuredText") ("AsciiDoc") ("YAML") ("TOML") ("CWL")
         ;; DevOps
-        ("Docker")
+        ("terminal") ("cloud") ("DevOps") ("Docker")
         ;; frameworks
         ("Vue") ("React")
         ;; Internet
