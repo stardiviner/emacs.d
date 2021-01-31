@@ -37,7 +37,7 @@
         org-clock-mode-line-total 'current
         ;; org-agenda-start-with-clockreport-mode t
         org-clock-idle-time nil ; 5
-        org-clock-history-length 50)
+        org-clock-history-length 100)
 
   (define-key org-clock-mode-line-map [header-line mouse-2] 'org-clock-goto)
   (define-key org-clock-mode-line-map [header-line mouse-1] 'org-clock-menu)
