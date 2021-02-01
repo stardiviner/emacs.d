@@ -128,6 +128,7 @@ _F_ullscreen            _f_rame         _b_alance^^^^          ^ ^        *  /\\
   :config
   ;; don’t ‘zoom--update’, ‘zoom--handler’ when ‘company-box’.
   (add-to-list 'zoom-ignored-buffer-name-regexps "^ *company-box-")
+  (add-to-list 'zoom-ignored-buffer-name-regexps "^*RE-Builder*")
   (add-to-list 'zoom-ignored-major-modes 'helm-major-mode)
   (with-eval-after-load 'undo-tree
     (add-to-list 'zoom-ignored-major-modes 'undo-tree-visualizer-mode)
