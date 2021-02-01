@@ -176,7 +176,9 @@ but `delete-file' is ignored."
   :config
   ;; FIX: void variable `inferior-julia-program-name'.
   (add-hook 'ob-async-pre-execute-src-block-hook
-            '(lambda () (setq inferior-julia-program-name "julia"))))
+            '(lambda () (setq inferior-julia-program-name "julia")))
+  ;; add ":async" header argument as safe for `org-lint'.
+  (add-to-list 'org-babel-header-arg-names 'async))
 
 ;;; [ org-babel-eval-in-repl ] -- eval org-babel block code with eval-in-repl.el
 

@@ -33,7 +33,9 @@
     (add-to-list 'display-buffer-alist '("^\\*jupyter-repl.*\\*" . (display-buffer-below-selected)))
     :config
     (add-to-list 'org-babel-load-languages '(jupyter . t) 'append)
-    (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
+    (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+    ;; add ":kernel" header argument as safe for `org-lint'.
+    (add-to-list 'org-babel-header-arg-names 'kernel))
   (use-package jupyter-org-extensions
     :defer t
     :commands (jupyter-org-interaction-mode

@@ -53,7 +53,9 @@
   (add-to-list 'org-babel-default-header-args:cypher
                '(:noweb . "yes"))
   (add-to-list 'org-babel-default-header-args:cypher
-               '(:results . "output")))
+               '(:results . "output"))
+  ;; add ":password" header argument as safe for `org-lint'.
+  (add-to-list 'org-babel-header-arg-names 'password))
 
 
 
