@@ -42,7 +42,21 @@
        ("js-comint" "\"*Javascript REPL*\"")
        ("skewer-mode" "\"*skewer-repl*\"")
        ("indium" "\"*JS REPL*\""))))
-  (define-key org-babel-map (kbd "J") 'ob-js-insert-session-header-arg))
+  (define-key org-babel-map (kbd "J") 'ob-js-insert-session-header-arg)
+
+  ;; [ tern + company-tern ] -- Tern-powered JavaScript integration.
+  (use-package company-tern
+    :ensure t
+    :ensure tern
+    :config
+    (defun my/org-babel-js-enable-tern ()
+      "Enable Tern in Org Mode Babel JS when lsp-mode is not available in virtual buffer."
+      (when (and org-src-mode
+                 (derived-mode-p 'js-mode))
+        (tern-mode 1)
+        (my-company-add-backend-locally 'company-tern)
+        (message "Tern + company-tern enabled in Org Mode source block virtual indirect buffer.")))
+    (add-hook 'org-src-mode-hook #'my/org-babel-js-enable-tern)))
 
 ;;; [ ob-deno ] -- Babel Functions for Javascript/TypeScript with Deno.
 
