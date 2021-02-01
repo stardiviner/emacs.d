@@ -235,6 +235,11 @@
   ;; (use-package dired-git
   ;;   :ensure t
   ;;   :hook (dired . dired-git-mode))
+
+  (use-package find-dupes-dired
+    :ensure t
+    :defer t
+    :commands (find-dupes-dired))
   )
 
 
