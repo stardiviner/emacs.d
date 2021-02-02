@@ -58,6 +58,13 @@
   :bind (:map image-mode-map ("C-c C-i" . blimp-interface))
   :hook (image-mode . blimp-mode))
 
+;;; [ iscroll ] -- Smooth scrolling over images in Emacs.
+
+(use-package iscroll
+  :ensure t
+  :defer t
+  :hook ((org-mode markdown-mode) . iscroll-mode))
+
 
 (provide 'init-emacs-image)
 
