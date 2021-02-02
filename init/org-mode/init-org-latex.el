@@ -118,6 +118,15 @@
   (add-to-list 'org-babel-load-languages '(latex . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 
+;;; [ org-elp ] -- Short for: Org Equation Live Preview.
+
+(use-package org-elp
+  :ensure
+  :defer t
+  :custom ((org-elp-idle-time 0.5)
+           (org-elp-split-fraction 0.25))
+  :commands (org-elp-mode))
+
 ;;; [ org-ref ] -- citations, cross-references and bibliographies in Org Mode.
 
 ;; (use-package org-ref
