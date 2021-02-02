@@ -387,7 +387,10 @@ With value selected from a list of available sessions."
                           (let ((sesman-system 'CIDER))
                             (sesman--all-system-sessions sesman-system 'sort)))))))))
 
-  (define-key org-babel-map (kbd "M-j") 'ob-clojure-specify-session))
+  (define-key org-babel-map (kbd "M-j") 'ob-clojure-specify-session)
+
+  ;; add ":backend" header argument as safe for `org-lint'.
+  (add-to-list 'org-babel-header-arg-names 'backend))
 
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
 
