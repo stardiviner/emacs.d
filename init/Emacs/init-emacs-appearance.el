@@ -338,7 +338,7 @@
 
 (setq-default cursor-type t ; '(hbar . 2), 'hollow,
               cursor-in-non-selected-windows nil)
-;; (set-cursor-color "cyan") ; "deep pink"
+(set-cursor-color "GreenYellow") ; "deep pink", "cyan"
 
 ;; (blink-cursor-mode 1)
 
