@@ -71,6 +71,14 @@
       "Silent ispell lookup words message."
       (shut-up (apply orig-func args)))
     (advice-add 'ispell-lookup-words :around 'ispell-silent))
+
+  ;; only enable `company-ispell' in `prog-mode' string or comments.
+  (defun company-ispell-only-in-prog-comments (origin-func &rest args)
+    (interactive)
+    (when (and (derived-mode-p 'prog-mode)
+               (company-in-string-or-comment))
+      (apply origin-func args)))
+  (advice-add 'company-ispell-available :around #'company-ispell-only-in-prog-comments)
   
   ;; [ keybindings ]
 
