@@ -54,12 +54,9 @@
 
 (use-package nginx-mode
   :ensure t
+  :ensure company-nginx
   :defer t
-  :init
-  (use-package company-nginx
-    :ensure t
-    :after nginx-mode
-    :init (add-hook 'nginx-mode-hook #'company-nginx-keywords)))
+  :config (add-hook 'nginx-mode-hook (lambda () (add-to-list 'company-backends #'company-nginx))))
 
 ;;; [ Conky ]
 
