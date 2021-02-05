@@ -33,15 +33,13 @@
            ;; (lsp-enable-links nil)
            )
   :init (add-to-list 'display-buffer-alist '("^\\*lsp.*\\*" . (display-buffer-below-selected)))
+  :hook (lsp-mode-hook . lsp-enable-which-key-integration)
   :config
   ;; disable some lsp clients
   ;; (add-to-list 'lsp-disabled-clients 'ccls)
   ;; (add-to-list 'lsp-disabled-clients '(emacs-lisp-mode . nil))
   ;; (add-to-list 'lsp-disabled-clients '(web-mode . angular-ls))
 
-  (when (featurep 'which-key)
-    (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
-  
   ;; don't scan 3rd party javascript libraries
   (push "[/\\\\][^/\\\\]*\\.\\(json\\|html\\|jade\\)$" lsp-file-watch-ignored)
 
