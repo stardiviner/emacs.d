@@ -129,7 +129,7 @@
         (:startgroup)
         ;; Programming
         ("GitHub") ("GitLab")
-        ("Linux" . ?L) ("Apple") ("macOS") ("Windows" . ?W) ("Android") ("adb") ("iOS")
+        ("Linux" . ?L) ("Apple") ("macOS") ("Windows" . ?W) ("Android") ("adb") ("iOS") ("Arch_Linux") ("Ubuntu_Linux")
         ("LISP" . ?l) ("Common_Lisp") ("Clojure" . ?c) ("ClojureScript" . ?s)
         ("Java" . ?j) ("C") ("cpp") ("CMake") ("Go") ("Rust") ("Swift") ("C#" . ?#)
         ("Shell" . ?S) ("Python" . ?p) ("Ruby" . ?r)
