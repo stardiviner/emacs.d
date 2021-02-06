@@ -78,7 +78,7 @@
 
   ;; eaf-org
   (require 'eaf-org)
-  (setq eaf-org-override-pdf-links t)
+  (setq eaf-org-override-pdf-links nil)
   
   ;; eaf-interleave integration
   (add-hook 'eaf-pdf-viewer-hook 'eaf-interleave-app-mode)
