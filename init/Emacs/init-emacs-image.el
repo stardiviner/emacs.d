@@ -60,10 +60,10 @@
 
 ;;; [ iscroll ] -- Smooth scrolling over images in Emacs.
 
-(use-package iscroll
-  :ensure t
-  :defer t
-  :hook ((org-mode markdown-mode) . iscroll-mode))
+;; (use-package iscroll
+;;   :ensure t
+;;   :defer t
+;;   :hook ((org-mode markdown-mode) . iscroll-mode))
 
 
 (provide 'init-emacs-image)
