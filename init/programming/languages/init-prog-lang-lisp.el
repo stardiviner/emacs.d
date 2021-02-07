@@ -146,8 +146,14 @@
          (scheme-mode . hl-sexp-mode)
          (clojure-mode . hl-sexp-mode)
          (clojurescript-mode . hl-sexp-mode))
-  ;; :custom-face (hl-sexp-face ((t (:background ,(color-darken-name (face-background 'default) 5)))))
-  )
+  :custom-face (hl-sexp-face ((t (:background ,(color-darken-name (face-background 'default) 5)
+                                              :extend t))))
+  :init
+  (defun my/hl-sexp-set-face-background-color (theme)
+    (set-face-attribute 'hl-sexp-face nil
+                        :background (color-darken-name (face-background 'default) 5)
+                        :extend t))
+  (add-hook 'load-theme-after-hook #'my/hl-sexp-set-face-background-color))
 
 ;;; [ eval-sexp-fu ] -- highlighting the sexps during evaluation in action.
 
