@@ -54,27 +54,27 @@
 
 ;;; [ one-themes ] -- One color scheme.
 
-;; (use-package one-themes
-;;   ;; :quelpa (one-themes :fetcher github :repo "stardiviner/emacs-one-themes")
-;;   :load-path "~/Code/Emacs/one-themes"
-;;   :demand t
-;;   :config (load-theme 'one-dark t))
+(use-package one-themes
+  ;; :quelpa (one-themes :fetcher github :repo "stardiviner/emacs-one-themes")
+  :load-path "~/Code/Emacs/one-themes"
+  :demand t
+  :config (load-theme 'one-dark t))
 
 ;;; [ doom-themes ] -- an opinionated pack of modern color-themes.
 
-(use-package doom-themes
-  :ensure t
-  :custom-face
-  (mode-line ((t (:box (:color "#717CB4")))))
-  (mode-line-inactive ((t (:box (:color "#3C435E")))))
-  :config
-  (load-theme 'doom-palenight t)
-  (defun my/doom-themes-set-mode-line-face-box (&optional theme)
-    (set-face-attribute 'mode-line nil
-                        :box '(:color "#717CB4"))
-    (set-face-attribute 'mode-line-inactive nil
-                        :box '(:color "#3C435E")))
-  (add-hook 'load-theme-after-hook #'my/doom-themes-set-mode-line-face-box))
+;; (use-package doom-themes
+;;   :ensure t
+;;   :custom-face
+;;   (mode-line ((t (:box (:color "#717CB4")))))
+;;   (mode-line-inactive ((t (:box (:color "#3C435E")))))
+;;   :config
+;;   (load-theme 'doom-palenight t)
+;;   (defun my/doom-themes-set-mode-line-face-box (&optional theme)
+;;     (set-face-attribute 'mode-line nil
+;;                         :box '(:color "#717CB4"))
+;;     (set-face-attribute 'mode-line-inactive nil
+;;                         :box '(:color "#3C435E")))
+;;   (add-hook 'load-theme-after-hook #'my/doom-themes-set-mode-line-face-box))
 
 ;;; [ dracula-theme ] -- Dark theme for Emacs and 137+ apps.
 
@@ -91,7 +91,7 @@
            (calendar-latitude 29.72)
            (calendar-longitude 120.20)
            (circadian-themes '((:sunrise . leuven)
-                               (:sunset . doom-palenight))))
+                               (:sunset . one-dark))))
   :hook (after-init . circadian-setup))
 
 ;;; Use large font for function name only in programming modes.
