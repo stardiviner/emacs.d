@@ -16,8 +16,9 @@
   ;; ES Results Buffers
   :init (add-to-list 'display-buffer-alist '("^\\*ES:.*\\*" . (display-buffer-below-selected)))
   (use-package ob-elasticsearch
+    :no-require t
     :defer t
-    :commands (org-babel-execute:elasticsearch)
+    :commands (org-babel-execute:es)
     :config
     (add-to-list 'org-babel-load-languages '(elasticsearch . t))
     (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
