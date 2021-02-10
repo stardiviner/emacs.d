@@ -46,15 +46,15 @@
               ("n" . bm-next)
               ("p" . bm-previous)
               ;; show
-              ("j" . bm-show)
-              ("l" . bm-show-all)
+              ("l" . bm-show)
+              ("L" . bm-show-all)
               ("N" . bm-show-next)
               ("P" . bm-show-prev)
               ;; persistent
               ("t" . bm-toggle-buffer-persistence)
               ;; save to repository
               ("s" . bm-save) ; Save bookmarks to persistent repository.
-              ("C-s" . bm-buffer-save) ; Save all bookmarks to repository.
+              ;; ("C-s" . bm-buffer-save) ; Save all bookmarks to repository.
               ("M-s" . bm-buffer-save-all) ; Save bookmarks in all buffers.
               ;; remove/delete
               ("c" . bm-remove-all-current-buffer)
@@ -70,6 +70,11 @@
         ;; this could affect Emacs increasing running usage Persistence
         bm-repository-file (expand-file-name ".bm-repository" user-emacs-directory)
         bm-repository-size 100))
+
+(require 'counsel-bm)
+(define-key 'bookmark-bm-prefix (kbd "TAB") 'counsel-bm)
+(define-key 'bookmark-bm-prefix (kbd "j") 'counsel-bm)
+(define-key 'bookmark-bm-prefix (kbd "C-s") 'counsel-bm-from-isearch)
 
 
 (provide 'init-emacs-bookmark)
