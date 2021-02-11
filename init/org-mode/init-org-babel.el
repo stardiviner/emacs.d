@@ -182,13 +182,14 @@ but `delete-file' is ignored."
 
 ;;; [ org-babel-eval-in-repl ] -- eval org-babel block code with eval-in-repl.el
 
-;; (use-package org-babel-eval-in-repl
-;;   :ensure t
-;;   :bind (:map org-mode-map
-;;               ("C-<return>" . ober-eval-in-repl)
-;;               ("C-c C-<return>" . ober-eval-block-in-repl))
-;;   :config (with-eval-after-load "eval-in-repl"
-;;             (setq eir-jump-after-eval nil)))
+(use-package org-babel-eval-in-repl
+  :ensure t
+  :defer t
+  :bind (:map org-mode-map
+              ("C-<return>" . ober-eval-in-repl)
+              ("C-c C-<return>" . ober-eval-block-in-repl))
+  :config (with-eval-after-load "eval-in-repl"
+            (setq eir-jump-after-eval nil)))
 
 ;;; [ org-radiobutton ] -- Get the checked item from a check list to be used for
 ;;; Org-mode Literate Programming variable.
