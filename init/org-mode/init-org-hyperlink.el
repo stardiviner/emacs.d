@@ -406,6 +406,14 @@ and append it."
   :commands (org-link-beautify-mode)
   :init (org-link-beautify-mode 1))
 
+;;; [ org-transclusion ] -- Emacs package to enable transclusion with Org Mode.
+
+(use-package org-transclusion ; #+transclude: t :hlevel 2
+  :load-path "~/Code/Emacs/org-transclusion"
+  :defer t
+  :custom (org-transclusion-include-first-section t)
+  :commands (org-transclusion-mode))
+
 
 
 (provide 'init-org-hyperlink)
