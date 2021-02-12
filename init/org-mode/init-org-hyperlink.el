@@ -412,7 +412,9 @@ and append it."
   :load-path "~/Code/Emacs/org-transclusion"
   :defer t
   :custom (org-transclusion-include-first-section t)
-  :commands (org-transclusion-mode))
+  :commands (org-transclusion-mode)
+  :hook (org-mode . org-transclusion-mode))
+
 
 
 
