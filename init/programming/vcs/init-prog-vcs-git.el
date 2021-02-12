@@ -76,6 +76,11 @@
   :ensure t
   :defer t
   :mode ("\\.gitignore\\'" . gitignore-mode))
+(use-package git-assembler-mode
+  :ensure t
+  :defer t
+  :mode (("\\.gitassembly\\'" . git-assembler-mode)
+         ("\\.git/assembly\\'" . git-assembler-mode)))
 
 ;;; [ gitignore-templates ] -- Access GitHub .gitignore templates.
 
