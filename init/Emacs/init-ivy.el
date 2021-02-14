@@ -142,13 +142,16 @@
                               (cdr regex))
                       (list (pyim-cregexp-build (car regex)))))
                   regex-sequence)
-        (pyim-cregexp-build regex-sequence))))
+        (if (string= regex-sequence "")
+            regex-sequence
+          (pyim-cregexp-build regex-sequence)))))
   (setq ivy-re-builders-alist '((read-file-name-internal . pyim--ivy-cregexp)
                                 (kill-buffer . pyim--ivy-cregexp)
                                 (switch-to-buffer . pyim--ivy-cregexp)
                                 (ivy-switch-buffer . pyim--ivy-cregexp)
                                 (org-refile . pyim--ivy-cregexp)
                                 (org-set-tags-command . pyim--ivy-cregexp)
+                                (org-insert-link . pyim--ivy-cregexp)
                                 (ivy-read . pyim--ivy-cregexp)
                                 (t . ivy--regex-plus))))
 
