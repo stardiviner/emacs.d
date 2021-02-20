@@ -504,6 +504,10 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;;; auto launch org-agenda after Emacs finished startup.
 ;; (add-hook 'after-init-hook (lambda () (org-agenda nil "a")))
 
+(use-package org-timeline
+  :ensure t
+  :config (add-hook 'org-agenda-finalize-hook 'org-timeline-insert-timeline :append))
+
 
 
 (provide 'init-org-agenda)
