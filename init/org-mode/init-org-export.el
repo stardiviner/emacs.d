@@ -174,6 +174,16 @@
   :ensure t
   :defer t)
 
+;;; [ org-html-themify ] -- Themify org-mode HTML export with installed color theme.
+
+(use-package hexrgb
+  :load-path "~/Code/Emacs/hexrgb")
+(use-package org-html-themify
+  :load-path "~/Code/Emacs/org-html-themify"
+  :custom (org-html-themify-themes '((dark . leuven) (light . doom-palenight)))
+  :hook (org-mode . org-html-themify-mode)
+  :commands (org-html-themify-mode))
+
 
 (provide 'init-org-export)
 
