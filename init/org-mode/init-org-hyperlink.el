@@ -416,6 +416,15 @@ and append it."
   :hook (org-mode . org-transclusion-mode))
 
 
+;;; [ org-krita ] -- Krita sketches in Org.
+
+(use-package org-krita
+  ;; :quelpa (org-krita :fetcher github :repo "lepisma/org-krita" :files ("*.el" "resources"))
+  :load-path "~/Code/Emacs/org-krita"
+  :defer t
+  :commands (org-krita-mode org-krita-insert-new-image)
+  :hook (org-mode . org-krita-mode))
+
 
 
 (provide 'init-org-hyperlink)
