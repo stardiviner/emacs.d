@@ -91,6 +91,26 @@
   :defer t
   :commands (live-py-mode))
 
+;;; [ pdb ] -- Emacs built-in Python Debugger support for "pdb".
+
+(use-package gud
+  :defer t
+  :commands (pdb))
+
+;;; [ realgud ]
+
+(use-package realgud
+  :ensure t
+  :defer t
+  :commands (realgud:pdb))
+
+;;; [ realgud-ipdb ] -- Realgud front-end to ipdb (IPython enabled pdb).
+
+(use-package realgud-ipdb
+  :ensure t
+  :defer t
+  :commands (realgud:ipdb))
+
 ;;; [ pygen ] -- Python code generation in Emacs with Elpy and python-mode.
 
 ;; (use-package pygen
